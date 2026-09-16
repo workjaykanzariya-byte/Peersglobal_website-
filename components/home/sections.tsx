@@ -125,7 +125,7 @@ export function WhoWeAreSection() {
   return (
     <section id="who-we-are" className="relative overflow-hidden bg-[#FBFCFE] border-b border-[var(--border)] py-14 sm:py-20 lg:py-24">
       <div className="shell flex flex-col gap-12 lg:gap-14">
-        
+
         {!isRevealed ? (
           /* Clean White Teaser with only "Strong Together" in Logo Color */
           <div
@@ -135,11 +135,10 @@ export function WhoWeAreSection() {
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') handleReveal()
             }}
-            className={`group relative min-h-[360px] sm:min-h-[440px] w-full cursor-pointer overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 p-8 sm:p-14 flex items-center justify-center text-center shadow-sm transition-all duration-700 select-none hover:border-blue-200 hover:shadow-md ${
-              isTransitioning
+            className={`group relative min-h-[360px] sm:min-h-[440px] w-full cursor-pointer overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 p-8 sm:p-14 flex items-center justify-center text-center shadow-sm transition-all duration-700 select-none hover:border-blue-200 hover:shadow-md ${isTransitioning
                 ? 'opacity-0 scale-95 pointer-events-none'
                 : 'opacity-100 scale-100'
-            }`}
+              }`}
           >
             {/* Center Content: "Strong Together" & "click here" in Logo Blue & Script Font */}
             <div className="relative z-10 flex flex-col items-center gap-2 sm:gap-3 transition-transform duration-300 group-hover:scale-105">
@@ -185,7 +184,7 @@ export function WhoWeAreSection() {
 
             {/* Top Hero Banner with Smooth Left-Fading Video/Visual */}
             <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/80 shadow-sm min-h-[460px] lg:min-h-[500px] flex items-center">
-              
+
               {/* Media Background Layer (Right ~60% fading into white on the left) */}
               <div
                 className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
@@ -379,7 +378,7 @@ export function WhoWeAreSection() {
                         className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent opacity-85 transition-opacity group-hover:opacity-95" />
-                      
+
                       <Link
                         href={p.link}
                         className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-lg bg-white/90 backdrop-blur-sm px-3.5 py-1.5 text-xs font-semibold text-slate-900 shadow transition-all hover:bg-white"
@@ -713,7 +712,7 @@ export function CirclesSection() {
         />
 
         <div className="shell relative z-10 flex flex-col gap-12 lg:gap-14">
-          
+
           {/* Top Header Row */}
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div className="flex flex-col gap-4">
@@ -866,7 +865,8 @@ export function CirclesSection() {
         </div>
 
         {/* Embedded CSS for the continuous forward moving arrow animation */}
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @keyframes arrowGlideForward {
             0% {
               transform: translateX(-100%);
@@ -919,7 +919,7 @@ export function CirclesSection() {
         />
 
         <div className="shell relative z-10 flex flex-col gap-12 sm:gap-14">
-          
+
           {/* Top Header Row with Graphic Background & Badges */}
           <div className="relative">
             {/* World Map with Dotted Flight Lines Graphic */}
@@ -1335,10 +1335,10 @@ export function CollaborationSection() {
       />
 
       <div className="shell relative z-10 flex flex-col gap-14 sm:gap-16">
-        
+
         {/* Main 2-Column Split: Headline & CTA on left, 11 practices slider on right */}
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          
+
           {/* Left Column: Heading, description, and button */}
           <div className="flex flex-col gap-6 lg:sticky lg:top-28">
             <div className="flex items-center gap-3">
@@ -1424,9 +1424,8 @@ export function CollaborationSection() {
 
               {/* 3D Looping Cards Stage */}
               <div
-                className={`relative w-full py-4 select-none touch-pan-y ${
-                  isDragging ? 'cursor-grabbing' : 'cursor-grab'
-                }`}
+                className={`relative w-full py-4 select-none touch-pan-y ${isDragging ? 'cursor-grabbing' : 'cursor-grab'
+                  }`}
                 style={{ perspective: '1100px', minHeight: '410px' }}
                 onMouseDown={(e) => handleDragStart(e.clientX)}
                 onMouseUp={(e) => handleDragEnd(e.clientX)}
@@ -1770,7 +1769,7 @@ export function LsrSection() {
 
       <div className="shell relative z-10 max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[33%_67%] xl:grid-cols-[31%_69%] lg:items-center">
-          
+
           {/* Left Column: Heading, Subtitle & Membership CTA */}
           <div className="flex flex-col justify-between">
             <div>
@@ -1975,11 +1974,10 @@ export function LsrSection() {
                   type="button"
                   onClick={() => setActiveIndex(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-1.5 transition-all duration-300 rounded-full ${
-                    activeIndex === idx
+                  className={`h-1.5 transition-all duration-300 rounded-full ${activeIndex === idx
                       ? 'w-7 bg-cyan-400 shadow-[0_0_10px_#38bdf8]'
                       : 'w-4 bg-slate-700 hover:bg-slate-600'
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -2215,7 +2213,7 @@ export function OutcomesSection() {
       <div className="shell relative z-10 max-w-7xl">
         {/* Main 3-Column Layout Grid */}
         <div className="grid gap-12 lg:grid-cols-[32%_42%_26%] xl:grid-cols-[31%_43%_26%] items-center">
-          
+
           {/* =========================================================================
              COLUMN 1: Left Copy, 5 Bullets with Circular Icons & CTA
              ========================================================================= */}
@@ -2277,11 +2275,11 @@ export function OutcomesSection() {
              COLUMN 2: Center 2 Overlapping Phones + Floating Badge with Curved Arrow
              ========================================================================= */}
           <div className="relative flex items-center justify-center py-4 lg:py-6 min-h-[580px]">
-            
+
             {/* 1. Left Phone (Profile View - Vishal Parmar) */}
             <div className="relative z-10 w-[240px] sm:w-[260px] rounded-[36px] p-2 bg-slate-900 border-[3px] border-slate-700 shadow-[0_20px_50px_rgba(15,23,42,0.22)] transform -rotate-2 -mr-16 sm:-mr-20 lg:-mr-24 scale-95 sm:scale-100">
               <div className="relative rounded-[28px] overflow-hidden bg-white text-slate-900 flex flex-col h-[510px] text-[11px]">
-                
+
                 {/* Phone Top Status Bar */}
                 <div className="px-4 pt-2 pb-1 flex items-center justify-between text-[10px] text-slate-600 bg-slate-100/60 border-b border-slate-200/60">
                   <span className="font-semibold">6:17</span>
@@ -2332,7 +2330,7 @@ export function OutcomesSection() {
                     </span>
                   </div>
                   <p className="text-[10px] text-slate-500 font-medium">Director at Peers Global</p>
-                  
+
                   <div className="mt-1 flex items-center justify-center gap-1 text-[9px] text-slate-400">
                     <MapPin className="size-2.5 text-slate-400" />
                     <span>Ahmedabad, Gujarat, India</span>
@@ -2412,7 +2410,7 @@ export function OutcomesSection() {
             {/* 2. Right Phone (My Peers View - In Foreground) */}
             <div className="relative z-20 w-[245px] sm:w-[265px] rounded-[36px] p-2 bg-slate-900 border-[3px] border-slate-700 shadow-[0_25px_60px_rgba(15,23,42,0.35)] transform rotate-1 scale-95 sm:scale-100">
               <div className="relative rounded-[28px] overflow-hidden bg-white text-slate-900 flex flex-col h-[510px] text-[11px]">
-                
+
                 {/* Phone Top Status Bar */}
                 <div className="px-4 pt-2 pb-1 flex items-center justify-between text-[10px] text-slate-600 bg-slate-100/60 border-b border-slate-200/60">
                   <span className="font-semibold">6:16</span>
@@ -2504,7 +2502,7 @@ export function OutcomesSection() {
                     <Users className="size-3.5" />
                     <span>My Peers</span>
                   </div>
-                  
+
                   {/* Elevated Center Glowing Impact Button */}
                   <div className="-mt-4 flex flex-col items-center">
                     <div className="size-8 rounded-full bg-gradient-to-tr from-slate-950 via-blue-900 to-indigo-950 border-2 border-white shadow-md flex items-center justify-center text-white relative">
@@ -2699,7 +2697,7 @@ export function MissionSection() {
       <div className="shell relative z-20 max-w-7xl">
         {/* Main 2-Column Content Layout */}
         <div className="grid gap-12 lg:grid-cols-[50%_50%] xl:grid-cols-[48%_52%] items-center">
-          
+
           {/* Left Column: Heading, Lede, Narrative & CTA */}
           <div className="flex flex-col">
             {/* Eyebrow */}
@@ -2918,12 +2916,12 @@ export function StoriesSection() {
       />
 
       <div className="shell relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* =========================================================================
            TOP HEADER: Left Eyebrow/Title, Middle CTA, Far-Right Artistic Script
            ========================================================================= */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 pb-12">
-          
+
           {/* Left Column: Eyebrow, Main Heading, Lede */}
           <div className="flex flex-col gap-2.5 max-w-2xl">
             {/* Eyebrow */}
@@ -3120,7 +3118,7 @@ export function StoriesSection() {
            BOTTOM SUB-FOOTER BAR: Slogan Left, Controls Center, Slogan Right
            ========================================================================= */}
         <div className="mt-14 sm:mt-16 pt-6 border-t border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          
+
           {/* Left Slogan */}
           <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
             <span className="h-px w-8 bg-slate-300 hidden sm:block" />
@@ -3144,11 +3142,10 @@ export function StoriesSection() {
                   key={idx}
                   type="button"
                   onClick={() => setActiveSlide(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    activeSlide === idx
+                  className={`h-2 rounded-full transition-all duration-300 ${activeSlide === idx
                       ? 'w-5 bg-[#0066FF]'
                       : 'w-2 bg-blue-200 hover:bg-blue-300'
-                  }`}
+                    }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
@@ -3373,7 +3370,7 @@ export function LeadershipSection() {
       <div className="shell flex flex-col gap-10 sm:gap-12">
         {/* Top Hero Banner with Smooth Left-Fading Video/Visual & Mountain Summit */}
         <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-sm min-h-[460px] lg:min-h-[500px] flex items-center">
-          
+
           {/* Media Background Layer (Right ~60% fading into white on the left) */}
           <div
             className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none select-none"
@@ -3849,6 +3846,8 @@ export function ClosingSection() {
               for life.
             </em>
           </h2>
+
+
 
           {/* Subheading: clean crisp white */}
           <p className="text-base sm:text-lg font-medium text-white/95 mt-1">
