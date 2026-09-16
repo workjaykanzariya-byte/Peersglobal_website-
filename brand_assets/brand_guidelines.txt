@@ -1,0 +1,497 @@
+0
+0
+Introduction
+
+Purpose 
+
+A brand guideline is a set of standards that ensures a consistent and strong brand identity across all platforms. It helps maintain clarity, professionalism, and recognition in both internal and external communication. By following these guidelines, Peers Global can create a unified presence that strengthens trust, enhances brand recall, and maximizes its impact within the business community.
+
+
+
+About the brand 
+
+Peers Global was created with a vision to build a powerful, community-driven platform where entrepreneurs, founders, and professionals can connect, collaborate, and grow together.
+
+What started as an initiative to bring like-minded individuals into one network has evolved into a dynamic ecosystem focused on meaningful relationships and real business opportunities. Today, Peers Global stands as a platform that bridges industries, fosters collaboration, and enables businesses to scale through the power of connections.
+
+Our mission
+
+To empower entrepreneurs, founders, and professionals by building a community-driven platform that enables meaningful connections, collaboration, and real business growth.
+
+Our vision
+
+To build a global ecosystem where entrepreneurs and professionals connect, collaborate, and grow together creating opportunities, driving innovation, and shaping long-term business success.
+
+Logo
+
+This section defines how the Peers Global logo should be used to maintain a consistent and professional brand identity across all platforms. 
+Primary logo
+
+0
+0
+The shape: The emblem is designed with clean, balanced, and often circular or connected forms that represent unity and inclusivity. The structure reflects a seamless network, symbolizing how individuals come together as part of a larger ecosystem. Its form conveys stability, collaboration, and a continuous flow of connections.
+
+ 
+The symbol: The symbol represents the core idea of Peers Global a network of like-minded individuals connected through opportunities and growth. It signifies collaboration, interaction, and the exchange of value within a community. Each element of the symbol reflects how connections lead to meaningful relationships and business expansion.
+
+ 
+The style: The overall style is modern, minimal, and professional. It uses clean lines, balanced spacing, and a refined aesthetic to convey a premium and trustworthy brand image. The design is intentionally simple yet impactful, ensuring clarity, versatility, and strong recognition across all platforms.
+
+Secondary logo or variations 
+
+
+The variation: This variation presents the emblem along with the full brand name “PeersGlobal” and the supporting line “Community of Collaboration.” It combines the geometric network symbol with typography, creating a complete and recognizable brand lockup. The emblem’s connected nodes and structured shape highlight collaboration, while the text reinforces the brand identity and purpose.
+
+ 
+The use case: This variation is preferred for formal and primary brand applications where full identity needs to be communicated clearly. It is ideal for use in:
+
+Website headers and official platforms
+
+
+Presentations and brand documents
+
+
+Event creatives and announcements
+
+
+Marketing materials where brand recognition is important
+
+
+This version ensures a strong, complete, and professional brand presence.
+
+
+
+The variation: This variation features the standalone emblem of Peers Global without the wordmark. The geometric shape with interconnected nodes represents a strong network, collaboration, and the flow of opportunities within the community. Its simplified form ensures instant recognition while maintaining the essence of the brand identity.
+
+ 
+The use case: This variation is preferred in compact or minimal spaces where the full logo is not required. It is ideal for:
+
+Social media profile pictures
+
+
+App icons or favicons
+
+
+Watermarks
+
+
+Small-size placements
+
+
+This version ensures clarity, scalability, and strong visual recognition even at smaller sizes.
+
+
+
+
+
+Logo usage 
+To maintain clarity, consistency, and visual impact, the Peers Global logo must always be used with proper spacing and size.
+
+Always use the Peers Global logo in its original form without any modifications. Ensure strong contrast between the logo and background for maximum visibility. Maintain consistent alignment and spacing across all designs. Use the primary logo for most applications, and select appropriate variations only when space or format requires it. Avoid placing the logo on cluttered backgrounds, and ensure it remains clearly legible at all sizes.
+
+Ensure the logo is never used below the defined minimum size to maintain clarity and readability. For print, the logo height should not be less than 25mm, and for digital use, not less than 90px. Always maintain sharp resolution and avoid pixelation. The logo should be scaled proportionally and never stretched or compressed. Consistent sizing ensures strong visibility and brand recognition across all platforms.
+
+Improper Logo Usage
+
+To maintain brand consistency and professionalism, avoid the following incorrect uses of the Peers Global logo: 
+
+
+Do not 
+stretch, compress, or distort
+ the logo
+
+
+Do not 
+add shadows, gradients, or effects
+
+
+Do not place the logo on 
+busy or low-contrast backgrounds
+
+
+Do not use 
+unapproved fonts or recreate the logo
+
+
+Do not 
+change colors
+ outside the approved palette
+
+
+Do not 
+rotate or tilt
+ the logo
+
+
+Do not 
+crop or modify
+ any part of the
+
+
+logo
+
+
+Do not use the logo 
+below minimum size
+
+
+Do not 
+stretch, compress, or distort
+ the logo
+
+
+Do not 
+add shadows, gradients, or effects
+
+
+Do not place the logo on 
+busy or low-contrast backgrounds
+
+
+Do not use 
+unapproved fonts or recreate the logo
+
+
+Do not 
+change colors
+ outside the approved palette
+
+
+Do not 
+rotate or tilt
+ the logo
+
+
+Do not 
+crop or modify
+ any part of the
+
+
+logo
+
+
+Do not use the logo 
+below minimum size
+
+
+
+
+Color
+ 
+
+A consistent color palette ensures strong brand recognition across digital and print platforms. Peers Global uses a bold and professional color system that reflects trust, collaboration, and growth.
+
+
+
+Our primary colors
+
+The brand’s primary colors with HEX, RGB, and CMYK values.
+
+
+
+
+
+
+
+Brand Blue
+
+
+HEX: #1E4ED8
+
+
+RGB: 30, 78, 216
+
+
+CMYK: 86%, 64%, 0%, 15%
+
+
+Represents trust, professionalism, and business growth
+
+
+
+
+
+Brand Red
+
+
+HEX: #E53935
+
+
+RGB: 229, 57, 53
+
+
+CMYK: 0%, 75%, 77%, 10%
+
+
+Represents energy, action, and strong connections
+
+
+
+
+
+
+
+White
+
+
+HEX: #FFFFFF
+
+
+RGB: 255, 255, 255
+
+
+CMYK: 0%, 0%, 0%, 0%
+
+
+Represents clarity, simplicity, and a clean brand look
+
+
+
+
+
+Our secondary colors
+
+Secondary and accent colors support the primary palette by adding depth, flexibility, and visual balance across designs. They should be used thoughtfully to enhance, not overpower, the brand. 
+
+
+
+
+
+
+
+
+
+
+Dark Grey
+
+
+HEX: #4B5563
+
+
+RGB: 75, 85, 99
+
+
+CMYK: 24%, 14%, 0%, 61%
+
+
+Use for body text, captions, and secondary information
+
+
+
+Light Grey
+
+
+HEX: #F5F7FA
+
+
+RGB: 245, 247, 250
+
+
+CMYK: 2%, 1%, 0%, 2%
+
+
+Use for backgrounds, sections, and clean layouts
+
+
+
+Light Blue (Accent)
+
+
+HEX: #3B82F6
+
+
+RGB: 59, 130, 246
+
+
+CMYK: 76%, 47%, 0%, 4%
+
+
+Use for highlights, buttons, and call-to-actions
+
+
+
+Gold (Premium Accent - Optional)
+
+
+HEX: #D4AF37
+
+
+RGB: 212, 175, 55
+
+
+CMYK: 0%, 17%, 74%, 17%
+
+
+Use sparingly for premium elements, special highlights, or key moments
+
+
+
+
+
+
+
+
+
+
+
+
+
+Color combinations and accessibility
+
+To ensure clarity, readability, and inclusivity, all color combinations should maintain strong contrast and visual balance across digital and print platforms. 
+
+
+Aa
+
+
+Aa
+
+
+Aa 
+
+
+Aa
+ 
+
+
+
+
+
+
+
+
+
+
+Typography
+
+The Peers Global typographic system is designed to be clean, modern, and highly readable, ensuring consistency across all digital and print communications. It uses a minimal font combination to maintain a professional and premium look. 
+
+
+
+
+Fonts
+
+The Peers Global typography system uses a minimal and modern font combination to ensure clarity, consistency, and a premium brand appearance. 
+
+
+Headings
+
+
+Body
+
+Aa
+
+
+Aa
+
+Poppins
+
+Poppins
+
+ 
+ 
+A Business Growth Platform Powered by Community
+
+
+Connecting the right people to create meaningful opportunities and long-term business growth.
+ 
+
+
+Typesetting and Hierarchy 
+
+A clear type hierarchy ensures content is easy to read, visually structured, and consistent across all designs. Peers Global follows a simple hierarchy to guide attention from the most important message to supporting details.
+
+Poppins
+
+Title
+
+
+60 pt
+
+Poppins
+
+Heading
+
+32 pt
+
+Montserrat
+
+Subtitle
+
+24 pt
+
+Poppins
+
+Section Header
+
+16 pt
+
+Poppins
+
+Subheading
+
+12 pt
+
+Poppins
+
+Body
+
+12 pt
+
+Poppins
+
+Quote
+
+15 pt
+
+Poppins
+
+Caption
+
+9 pt
+
+Photography
+ 
+
+
+Peers Global uses photography to reflect a 
+professional, community-driven, and growth-focused environment
+. Images should feel authentic, aspirational, and centered around real business interactions. 
+
+
+
+
+Brand applications
+
+Showcasing how the Peers Global brand comes to life across digital platforms and real-world experiences.
+
+Digital Applications
+
+0
+0
+0
+0
+Community Platform
+
+
+Member Networking
+
+
+Real-time Engagement
+
+
+Business Connections
+
+
+Digital Ecosystem
+
+
+
+
+“Peers are Partners in Business & Friends in Life”
+
+
+
+
+PeersGlobal.com
+

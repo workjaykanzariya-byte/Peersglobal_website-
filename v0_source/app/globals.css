@@ -1,0 +1,393 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--brand-red);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--ring);
+
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-red: var(--brand-red);
+  --color-brand-sky: var(--brand-sky);
+  --color-gold: var(--gold);
+  --color-ink: var(--ink);
+
+  --color-hero: var(--hero);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-muted: var(--hero-muted);
+  --color-hero-border: var(--hero-border);
+
+  --color-panel: var(--panel);
+  --color-panel-foreground: var(--panel-foreground);
+  --color-panel-muted: var(--panel-muted);
+  --color-panel-border: var(--panel-border);
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--display-family);
+  --font-mono: ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) * 0.45);
+  --radius-md: calc(var(--radius) * 0.7);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.3);
+  --radius-2xl: calc(var(--radius) * 1.7);
+  --radius-3xl: calc(var(--radius) * 2.1);
+  --radius-4xl: calc(var(--radius) * 2.5);
+  --radius-btn: var(--btn-radius);
+}
+
+/* ---------------------------------------------------------------
+   Brand constants (Peers Global brand kit v1.0)
+   Blue #1E4ED8 · Red #E53935 · White · Dark Grey #4B5563
+   Light Grey #F5F7FA · Sky #3B82F6 · Gold #D4AF37
+----------------------------------------------------------------*/
+:root {
+  --brand-blue: #1e4ed8;
+  --brand-red: #e53935;
+  --brand-sky: #3b82f6;
+  --gold: #d4af37;
+  --grey-dark: #4b5563;
+  --grey-light: #f5f7fa;
+}
+
+/* =============================================================
+   DIRECTION 1 — INSTITUTIONAL
+   White, blue-led, tight grid, near-square corners, Poppins
+============================================================= */
+[data-design='d1'] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #0b1b3a;
+  --ink: #0b1b3a;
+  --card: #ffffff;
+  --card-foreground: #0b1b3a;
+  --primary: #1e4ed8;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f7fa;
+  --secondary-foreground: #0b1b3a;
+  --muted: #f5f7fa;
+  --muted-foreground: #4b5563;
+  --accent: #e53935;
+  --accent-foreground: #ffffff;
+  --border: #e2e8f0;
+  --ring: #1e4ed8;
+
+  --hero: #ffffff;
+  --hero-foreground: #0b1b3a;
+  --hero-muted: #4b5563;
+  --hero-border: #e2e8f0;
+
+  --panel: #0b1b3a;
+  --panel-foreground: #ffffff;
+  --panel-muted: #b9c4da;
+  --panel-border: rgba(255, 255, 255, 0.14);
+
+  --radius: 0.25rem;
+  --btn-radius: 0.25rem;
+  --display-family: var(--font-poppins);
+  --display-weight: 600;
+  --display-tracking: -0.022em;
+  --display-leading: 1.08;
+  --eyebrow-transform: uppercase;
+  --eyebrow-tracking: 0.16em;
+  --eyebrow-weight: 600;
+  --section-y: 5rem;
+  --container: 1200px;
+  --card-shadow: none;
+  --card-border-width: 1px;
+  --rule-color: var(--brand-blue);
+}
+
+/* =============================================================
+   DIRECTION 2 — EDITORIAL
+   Warm off-white, Montserrat display, red rules, zero radius
+============================================================= */
+[data-design='d2'] {
+  color-scheme: light;
+  --background: #fbfaf7;
+  --foreground: #14151a;
+  --ink: #14151a;
+  --card: #ffffff;
+  --card-foreground: #14151a;
+  --primary: #1e4ed8;
+  --primary-foreground: #ffffff;
+  --secondary: #f1efe9;
+  --secondary-foreground: #14151a;
+  --muted: #f1efe9;
+  --muted-foreground: #55565e;
+  --accent: #e53935;
+  --accent-foreground: #ffffff;
+  --border: #e2ded4;
+  --ring: #e53935;
+
+  --hero: #fbfaf7;
+  --hero-foreground: #14151a;
+  --hero-muted: #55565e;
+  --hero-border: #e2ded4;
+
+  --panel: #14151a;
+  --panel-foreground: #fbfaf7;
+  --panel-muted: #a8a9b0;
+  --panel-border: rgba(255, 255, 255, 0.12);
+
+  --radius: 0.0625rem;
+  --btn-radius: 0rem;
+  --display-family: var(--font-montserrat);
+  --display-weight: 700;
+  --display-tracking: -0.035em;
+  --display-leading: 1.02;
+  --eyebrow-transform: uppercase;
+  --eyebrow-tracking: 0.24em;
+  --eyebrow-weight: 700;
+  --section-y: 6.5rem;
+  --container: 1140px;
+  --card-shadow: none;
+  --card-border-width: 1px;
+  --rule-color: var(--brand-red);
+}
+
+/* =============================================================
+   DIRECTION 3 — PREMIUM DARK
+   Deep navy, gold premium accent, Montserrat display
+============================================================= */
+[data-design='d3'] {
+  color-scheme: dark;
+  --background: #070d1b;
+  --foreground: #e9edf6;
+  --ink: #ffffff;
+  --card: #0e1728;
+  --card-foreground: #e9edf6;
+  --primary: #3b82f6;
+  --primary-foreground: #04091a;
+  --secondary: #121d33;
+  --secondary-foreground: #e9edf6;
+  --muted: #121d33;
+  --muted-foreground: #9aa8c2;
+  --accent: #d4af37;
+  --accent-foreground: #1a1405;
+  --border: rgba(255, 255, 255, 0.11);
+  --ring: #d4af37;
+
+  --hero: #070d1b;
+  --hero-foreground: #ffffff;
+  --hero-muted: #9aa8c2;
+  --hero-border: rgba(255, 255, 255, 0.11);
+
+  --panel: #0e1728;
+  --panel-foreground: #ffffff;
+  --panel-muted: #9aa8c2;
+  --panel-border: rgba(212, 175, 55, 0.28);
+
+  --radius: 0.75rem;
+  --btn-radius: 0.5rem;
+  --display-family: var(--font-montserrat);
+  --display-weight: 600;
+  --display-tracking: -0.028em;
+  --display-leading: 1.06;
+  --eyebrow-transform: uppercase;
+  --eyebrow-tracking: 0.2em;
+  --eyebrow-weight: 600;
+  --section-y: 6rem;
+  --container: 1240px;
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  --card-border-width: 1px;
+  --rule-color: var(--gold);
+}
+
+/* =============================================================
+   DIRECTION 4 — BOLD
+   High contrast, blue slabs, red CTAs, pill buttons, huge type
+============================================================= */
+[data-design='d4'] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #0a0a0b;
+  --ink: #0a0a0b;
+  --card: #ffffff;
+  --card-foreground: #0a0a0b;
+  --primary: #1e4ed8;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f7fa;
+  --secondary-foreground: #0a0a0b;
+  --muted: #f5f7fa;
+  --muted-foreground: #4b5563;
+  --accent: #e53935;
+  --accent-foreground: #ffffff;
+  --border: #e6e6e8;
+  --ring: #e53935;
+
+  --hero: #1e4ed8;
+  --hero-foreground: #ffffff;
+  --hero-muted: #c9d6fb;
+  --hero-border: rgba(255, 255, 255, 0.2);
+
+  --panel: #0a0a0b;
+  --panel-foreground: #ffffff;
+  --panel-muted: #a3a3a8;
+  --panel-border: rgba(255, 255, 255, 0.14);
+
+  --radius: 1.25rem;
+  --btn-radius: 999px;
+  --display-family: var(--font-poppins);
+  --display-weight: 700;
+  --display-tracking: -0.042em;
+  --display-leading: 0.98;
+  --eyebrow-transform: uppercase;
+  --eyebrow-tracking: 0.1em;
+  --eyebrow-weight: 700;
+  --section-y: 5.5rem;
+  --container: 1280px;
+  --card-shadow: none;
+  --card-border-width: 2px;
+  --rule-color: var(--brand-red);
+}
+
+/* =============================================================
+   DIRECTION 5 — SOFT
+   Tinted light-blue canvas, airy, rounded, soft shadows
+============================================================= */
+[data-design='d5'] {
+  color-scheme: light;
+  --background: #f5f7fa;
+  --foreground: #16233d;
+  --ink: #16233d;
+  --card: #ffffff;
+  --card-foreground: #16233d;
+  --primary: #1e4ed8;
+  --primary-foreground: #ffffff;
+  --secondary: #e8effd;
+  --secondary-foreground: #16233d;
+  --muted: #e8effd;
+  --muted-foreground: #4b5563;
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
+  --border: #dfe7f3;
+  --ring: #3b82f6;
+
+  --hero: #e8effd;
+  --hero-foreground: #16233d;
+  --hero-muted: #4b5563;
+  --hero-border: #d3e0fa;
+
+  --panel: #16233d;
+  --panel-foreground: #ffffff;
+  --panel-muted: #b5c0d6;
+  --panel-border: rgba(255, 255, 255, 0.14);
+
+  --radius: 1.5rem;
+  --btn-radius: 999px;
+  --display-family: var(--font-poppins);
+  --display-weight: 600;
+  --display-tracking: -0.02em;
+  --display-leading: 1.1;
+  --eyebrow-transform: none;
+  --eyebrow-tracking: 0.01em;
+  --eyebrow-weight: 600;
+  --section-y: 5rem;
+  --container: 1180px;
+  --card-shadow: 0 18px 40px -28px rgba(22, 35, 61, 0.35);
+  --card-border-width: 1px;
+  --rule-color: var(--brand-sky);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section {
+    padding-block: var(--section-y);
+  }
+  .section-sm {
+    padding-block: calc(var(--section-y) * 0.6);
+  }
+  .section-lg {
+    padding-block: calc(var(--section-y) * 1.3);
+  }
+
+  .display {
+    font-family: var(--display-family), ui-sans-serif, system-ui, sans-serif;
+    font-weight: var(--display-weight);
+    letter-spacing: var(--display-tracking);
+    line-height: var(--display-leading);
+  }
+
+  .eyebrow {
+    text-transform: var(--eyebrow-transform);
+    letter-spacing: var(--eyebrow-tracking);
+    font-weight: var(--eyebrow-weight);
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+
+  .surface {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: var(--card-border-width) solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow);
+  }
+
+  .rule {
+    background-color: var(--rule-color);
+  }
+
+  .grid-canvas {
+    background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .dot-canvas {
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
