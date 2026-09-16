@@ -191,8 +191,8 @@ export default function NextGenAdminDashboard() {
               <Sparkles className="w-3.5 h-3.5" />
               <span>World&apos;s First Collaboration Platform</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight font-display text-white">
-              Good Morning, {user?.name || 'Admin'} 👋
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-serif font-normal tracking-tight text-white leading-tight">
+              Good Morning, <span className="italic text-[#08C7E8] font-serif">{user?.name ? (user.name.includes('@') ? user.name.split('@')[0] : user.name) : (user?.username ? (user.username.includes('@') ? user.username.split('@')[0] : user.username) : 'Dipak')}</span> 👋
             </h1>
             <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
               Here&apos;s what&apos;s happening across your global collaboration network today. You have{' '}

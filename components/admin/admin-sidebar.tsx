@@ -46,20 +46,6 @@ export function AdminSidebar() {
   return (
     <aside className="w-64 bg-[#07152E] text-slate-300 flex flex-col justify-between min-h-screen shrink-0 border-r border-[#0E2246] select-none font-sans z-30">
       <div>
-        {/* Brand Header with Peers Global Logo */}
-        <div className="p-5 border-b border-[#0E2246]/80 flex items-center justify-between">
-          <Link href="/admin/dashboard" className="flex items-center gap-3 group">
-            <div className="relative h-10 w-44 shrink-0">
-              <Image
-                src="/images/logo-full.png"
-                alt="Peers Global"
-                fill
-                className="object-contain object-left brightness-0 invert"
-                priority
-              />
-            </div>
-          </Link>
-        </div>
 
         {/* Navigation */}
         <nav className="p-3.5 space-y-1">
