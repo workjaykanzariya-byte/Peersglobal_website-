@@ -146,7 +146,7 @@ export function WhoWeAreSection() {
                 className="text-6xl sm:text-7xl lg:text-8xl font-semibold text-[#1E4ED8] drop-shadow-sm select-none leading-none"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                Strong Together ✨
+                Who We Are...
               </h3>
               <p
                 className="text-xl sm:text-2xl text-[#1E4ED8] font-normal select-none tracking-wide"
@@ -169,7 +169,7 @@ export function WhoWeAreSection() {
               <div className="flex items-center gap-2">
                 <span className="h-0.5 w-6 bg-[#1E4ED8]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
-                  WHO WE ARE
+                  STRONG TOGETHER
                 </span>
               </div>
               <button
@@ -244,7 +244,7 @@ export function WhoWeAreSection() {
                   <div className="flex items-center gap-3">
                     <span className="h-0.5 w-6 bg-[#1E4ED8]" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
-                      WHO WE ARE
+                      STRONG TOGETHER
                     </span>
                   </div>
 
