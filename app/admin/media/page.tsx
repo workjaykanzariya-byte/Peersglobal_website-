@@ -194,11 +194,10 @@ export default function AdminMediaPage() {
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`px-3 py-1.5 rounded-xl text-xs capitalize transition cursor-pointer ${
-                typeFilter === t
+              className={`px-3 py-1.5 rounded-xl text-xs capitalize transition cursor-pointer ${typeFilter === t
                   ? 'bg-blue-600/20 text-blue-400 border border-blue-500/40 font-semibold'
                   : 'bg-[#070D18] text-slate-400 border border-slate-800 hover:text-white'
-              }`}
+                }`}
             >
               {t}
             </button>

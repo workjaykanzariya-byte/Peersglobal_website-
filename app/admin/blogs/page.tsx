@@ -252,11 +252,10 @@ export default function AdminBlogsPage() {
                     <td className="p-4 whitespace-nowrap text-slate-400">{post.pubDate}</td>
                     <td className="p-4 whitespace-nowrap">
                       <span
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold border ${
-                          post.status === 'Published'
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold border ${post.status === 'Published'
                             ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
                             : 'bg-blue-500/10 text-blue-400 border-blue-500/30'
-                        }`}
+                          }`}
                       >
                         {post.status === 'Published' ? (
                           <CheckCircle className="w-3 h-3" />
