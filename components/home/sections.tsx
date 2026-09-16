@@ -248,12 +248,12 @@ export function WhoWeAreSection() {
                     </span>
                   </div>
 
-                  <h2 className="font-serif text-2xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
+                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
                     A global community of entrepreneurs who choose to{' '}
                     <span className="italic text-[#1E4ED8]">grow together.</span>
                   </h2>
 
-                  <p className="text-sm sm:text-[0.95rem] leading-relaxed text-slate-600 max-w-lg font-normal">
+                  <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-lg font-normal">
                     Peers Global brings together entrepreneurs and business leaders from across industries, cities and countries into one connected community.
                   </p>
 
@@ -447,19 +447,19 @@ export function PhilosophySection() {
             </p>
 
             {/* H2 Title */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-serif font-normal text-slate-900 leading-[1.18] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-serif font-normal text-slate-900 leading-[1.18] tracking-tight">
               Peers are Partners<br />
               in Business and<br />
               <span className="italic text-[#1E4ED8]">Friends in Life.</span>
             </h2>
 
             {/* Subline */}
-            <p className="text-sm sm:text-[0.95rem] font-semibold text-[#1E4ED8]">
+            <p className="text-sm sm:text-base font-semibold text-[#1E4ED8]">
               This is the sentence the whole community runs on.
             </p>
 
             {/* Body */}
-            <p className="text-xs sm:text-[13px] leading-relaxed text-slate-600 font-normal">
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal">
               A Peer gives an introduction without keeping score. Shares a hard-won lesson without charging for it. Celebrates another Peer&apos;s win as if it were their own. Over time, business partners become friends, and friends become the reason the business grows.
             </p>
 
@@ -723,7 +723,7 @@ export function CirclesSection() {
                 </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-white leading-[1.18]">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-white leading-[1.18]">
                 Every Peer belongs to a{' '}
                 <span className="font-serif italic font-medium text-cyan-400 drop-shadow-[0_0_24px_rgba(56,189,248,0.45)]">
                   Circle.
@@ -732,7 +732,7 @@ export function CirclesSection() {
             </div>
 
             <div className="flex flex-col gap-5 lg:items-end">
-              <p className="max-w-md text-sm sm:text-[0.95rem] leading-relaxed text-slate-300 font-normal lg:text-right">
+              <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-300 font-normal lg:text-right">
                 A Circle brings together the right entrepreneurs around a common industry, interest, location or business opportunity. It is the heart of the community and the place where relationships are actually built.
               </p>
 
@@ -959,7 +959,7 @@ export function CirclesSection() {
                   </span>
                 </div>
 
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-bold tracking-tight text-[#0B1528] leading-[1.16]">
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-[#0B1528] leading-[1.16]">
                   18 Industry &amp; Goal Circles.<br />
                   <span className="font-serif font-bold text-[#0B1528]">One </span>
                   <span className="font-serif font-bold text-[#1E6BFF] drop-shadow-[0_2px_15px_rgba(30,107,255,0.25)]">
@@ -967,7 +967,7 @@ export function CirclesSection() {
                   </span>
                 </h2>
 
-                <p className="max-w-xl text-sm sm:text-[0.95rem] leading-relaxed text-slate-600 font-normal">
+                <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate-600 font-normal">
                   From industry-focused circles to purpose-led communities, Peers Global brings together entrepreneurs who share a vision to grow, collaborate and create impact.
                 </p>
               </div>
@@ -1348,7 +1348,7 @@ export function CollaborationSection() {
               </span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-[#0B1528] leading-[1.14]">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-[#0B1528] leading-[1.14]">
               Eleven ways a<br />
               Peer creates<br />
               value for<br />
@@ -1357,7 +1357,7 @@ export function CollaborationSection() {
               </span>
             </h2>
 
-            <p className="max-w-md text-sm sm:text-[0.95rem] leading-relaxed text-slate-600 font-normal">
+            <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-600 font-normal">
               Collaboration at Peers Global is a defined practice. These are the forms it takes.
             </p>
 
@@ -1782,13 +1782,13 @@ export function LsrSection() {
               </div>
 
               {/* Main Headline */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal text-white tracking-tight leading-[1.18]">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal text-white tracking-tight leading-[1.18]">
                 LSR — the three things{' '}
                 <span className="italic text-cyan-400 block">every business runs on.</span>
               </h2>
 
               {/* Subtitle / Lede */}
-              <p className="mt-4 text-slate-300 text-sm sm:text-[0.95rem] leading-relaxed max-w-md font-normal">
+              <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed max-w-md font-normal">
                 Learn. Sales. Resources. All of it built on trusted peer relationships.
               </p>
 
@@ -2227,13 +2227,13 @@ export function OutcomesSection() {
             </div>
 
             {/* Main Heading */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal text-slate-900 tracking-tight leading-[1.18]">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal text-slate-900 tracking-tight leading-[1.18]">
               We count lives{' '}
               <span className="italic text-[#0066FF] block">impacted.</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="mt-3.5 text-slate-600 text-sm sm:text-[0.95rem] leading-relaxed max-w-md font-normal">
+            <p className="mt-3.5 text-slate-600 text-sm sm:text-base leading-relaxed max-w-md font-normal">
               Impact at Peers Global is practical. It is what happens when one entrepreneur helps another.
             </p>
 
@@ -2709,7 +2709,7 @@ export function MissionSection() {
             </div>
 
             {/* Main Headline */}
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-normal text-white tracking-tight leading-[1.18]">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal text-white tracking-tight leading-[1.18]">
               One million <br />
               lives{' '}
               <span className="font-serif italic text-[#0099FF] drop-shadow-[0_0_30px_rgba(0,153,255,0.7)]">
@@ -2718,7 +2718,7 @@ export function MissionSection() {
             </h2>
 
             {/* Subtitle / Lede */}
-            <p className="mt-4 text-slate-200 text-sm sm:text-[0.95rem] leading-relaxed max-w-lg font-normal">
+            <p className="mt-4 text-slate-200 text-sm sm:text-base leading-relaxed max-w-lg font-normal">
               Our mission is to impact one million lives through entrepreneurship, collaboration and opportunity.
             </p>
 
@@ -2795,25 +2795,26 @@ export function MissionSection() {
   )
 }
 
+
 /* =========================================================================
    SECTION 10 — REAL COLLABORATIONS
    ========================================================================= */
 
 export function StoriesSection() {
-  const [activeSlide, setActiveSlide] = useState(0)
+  const [activeDot, setActiveDot] = useState(0)
 
   const stories = [
     {
       id: 1,
       category: 'SUPPLY CHAIN',
-      categoryColor: 'text-[#0066FF]',
-      iconBg: 'bg-blue-50 text-[#0066FF] border-blue-100',
+      categoryTagBg: 'bg-blue-50 text-[#1E4ED8] border-blue-100',
+      iconBg: 'bg-blue-50 text-[#1E4ED8]',
       icon: Boxes,
-      blobGradient: 'from-blue-100/60 via-sky-50/30 to-transparent',
       location: 'Ahmedabad ↔ Surat',
       outcome: '₹4.2 Cr',
       outcomeLabel: 'IN NEW RECURRING CONTRACTS',
       collab: '“Joint supply-chain integration across western industrial corridor.”',
+      cornerGradient: 'from-transparent via-blue-50/40 to-blue-100/60',
       peer1: {
         name: 'Rajesh Shah',
         company: 'Apex Logistics',
@@ -2829,21 +2830,21 @@ export function StoriesSection() {
       badge: {
         icon: BarChart3,
         text: 'Long-term partnership established',
-        bg: 'bg-[#F0F7FF] text-[#0066FF] border-blue-100/70 hover:bg-blue-100/70',
-        arrowColor: 'text-[#0066FF]',
+        bg: 'bg-blue-50/80 text-[#1E4ED8] border-blue-100 hover:bg-blue-100/80',
+        arrowColor: 'text-[#1E4ED8]',
       },
     },
     {
       id: 2,
       category: 'TECH & SAAS',
-      categoryColor: 'text-amber-500',
-      iconBg: 'bg-amber-50 text-amber-500 border-amber-100',
+      categoryTagBg: 'bg-purple-50 text-purple-700 border-purple-100',
+      iconBg: 'bg-purple-50 text-purple-600',
       icon: Laptop,
-      blobGradient: 'from-amber-100/60 via-orange-50/30 to-transparent',
       location: 'Mumbai ↔ Bengaluru',
       outcome: '₹1.8 Cr',
       outcomeLabel: 'ANNUAL CONTRACT LANDED',
       collab: '“Cross-border SaaS compliance and direct introduction to tier-1 enterprise.”',
+      cornerGradient: 'from-transparent via-purple-50/40 to-purple-100/60',
       peer1: {
         name: 'Neha Kothari',
         company: 'FinEdge Advisory',
@@ -2859,120 +2860,138 @@ export function StoriesSection() {
       badge: {
         icon: Rocket,
         text: 'From introduction to contract in 4 months',
-        bg: 'bg-[#FFFBEB] text-amber-600 border-amber-100/80 hover:bg-amber-100/70',
-        arrowColor: 'text-amber-600',
+        bg: 'bg-purple-50/80 text-purple-700 border-purple-100 hover:bg-purple-100/80',
+        arrowColor: 'text-purple-700',
       },
     },
     {
       id: 3,
       category: 'SUSTAINABILITY',
-      categoryColor: 'text-emerald-600',
-      iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+      categoryTagBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
+      iconBg: 'bg-emerald-50 text-emerald-600',
       icon: Leaf,
-      blobGradient: 'from-emerald-100/60 via-teal-50/30 to-transparent',
       location: 'Vadodara ↔ Rajkot',
       outcome: '₹3.5 Cr',
-      outcomeLabel: 'IN EXPORT REVENUES GENERATED',
+      outcomeLabel: (
+        <>
+          IN EXPORT <span className="text-[#00B4D8] font-bold">REVENUES</span> GENERATED
+        </>
+      ),
       collab: '“Co-developed sustainable industrial packaging line for export markets.”',
+      cornerGradient: 'from-transparent via-emerald-50/40 to-emerald-100/60',
       peer1: {
         name: 'Amit Desai',
-        company: 'Horizon Polymers',
+        company: 'Horizon Polym...',
         city: 'Vadodara',
         avatar: '/images/peers-avatars/amit-desai.jpg',
       },
       peer2: {
         name: 'Pradeep Joshi',
-        company: 'EcoPower Technologies',
+        company: 'EcoPower Technolog...',
         city: 'Rajkot',
         avatar: '/images/peers-avatars/pradeep-joshi.jpg',
       },
       badge: {
         icon: Leaf,
         text: 'Expanding to 5 new countries',
-        bg: 'bg-[#ECFDF5] text-emerald-600 border-emerald-100/80 hover:bg-emerald-100/70',
-        arrowColor: 'text-emerald-600',
+        bg: 'bg-emerald-50/80 text-emerald-700 border-emerald-100 hover:bg-emerald-100/80',
+        arrowColor: 'text-emerald-700',
       },
     },
   ]
 
-  const handlePrev = () => {
-    setActiveSlide((prev) => (prev === 0 ? stories.length - 1 : prev - 1))
-  }
-
-  const handleNext = () => {
-    setActiveSlide((prev) => (prev === stories.length - 1 ? 0 : prev + 1))
-  }
-
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-100">
-      {/* Subtle ambient background glow */}
+    <section id="real-collaborations" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-[var(--border)]">
+      {/* Subtle floating ambient bokeh circles */}
+      <div aria-hidden className="pointer-events-none absolute top-12 left-1/3 size-3 rounded-full bg-[#38BDF8]/60 blur-[0.5px]" />
+      <div aria-hidden className="pointer-events-none absolute top-20 right-1/2 size-4 rounded-full bg-[#60A5FA]/40 blur-[0.5px]" />
+      <div aria-hidden className="pointer-events-none absolute top-32 right-[42%] size-2 rounded-full bg-[#38BDF8]/50 blur-[0.5px]" />
+
+      {/* Top-right organic skyline hero visual cutout */}
       <div
         aria-hidden
-        className="pointer-events-none absolute top-0 left-1/4 h-96 w-96 rounded-full bg-blue-50/60 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-slate-50 blur-3xl"
-      />
+        className="pointer-events-none absolute top-0 right-0 w-[480px] sm:w-[580px] lg:w-[680px] h-[340px] sm:h-[400px] overflow-hidden select-none z-0 hidden md:block"
+      >
+        {/* Soft background glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-gradient-to-bl from-sky-200/40 via-blue-100/20 to-transparent blur-2xl" />
+
+        {/* Image Masked in an organic curved arch */}
+        <div
+          className="absolute top-3 right-4 w-[420px] lg:w-[520px] h-[260px] lg:h-[300px] overflow-hidden rounded-[36px] shadow-xs"
+          style={{
+            maskImage: 'radial-gradient(ellipse 95% 85% at 85% 45%, black 45%, rgba(0,0,0,0.3) 75%, transparent 100%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 95% 85% at 85% 45%, black 45%, rgba(0,0,0,0.3) 75%, transparent 100%)',
+          }}
+        >
+          <Image
+            src="/images/who-we-are-friends.jpg"
+            alt="Peers standing overlooking city skyline"
+            fill
+            sizes="520px"
+            className="object-cover object-center opacity-90"
+          />
+          {/* Daylight gradient wash overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent" />
+        </div>
+      </div>
 
       <div className="shell relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* =========================================================================
-           TOP HEADER: Left Eyebrow/Title, Middle CTA, Far-Right Artistic Script
+           TOP HEADER: Left Eyebrow/Title + Right CTA & Luminous Script
            ========================================================================= */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 pb-12">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 pb-12 sm:pb-14">
 
           {/* Left Column: Eyebrow, Main Heading, Lede */}
-          <div className="flex flex-col gap-2.5 max-w-2xl">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-6 bg-[#0066FF] rounded-full" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#0066FF]">
+          <div className="flex flex-col gap-3 max-w-2xl">
+            {/* Eyebrow with blue line */}
+            <div className="flex items-center gap-2">
+              <span className="h-0.5 w-6 bg-[#1E4ED8]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
                 REAL COLLABORATIONS
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
-              What this looks like <span className="font-serif italic text-[#0066FF]">in real life.</span>
+            {/* Main Heading in Site-wide Editorial Serif */}
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-serif font-normal text-slate-900 leading-[1.18] tracking-tight">
+              What this looks like <br className="hidden sm:inline" />
+              <span className="italic text-[#1E4ED8]">in real life.</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-[0.95rem] text-slate-500 max-w-xl leading-relaxed mt-1 font-normal">
-              Real stories between real Peers across industries and cities. What they built together and what it produced.
+            <p className="text-sm sm:text-base leading-relaxed text-slate-600 font-normal max-w-lg mt-1">
+              Real stories between real Peers across industries and cities. <br className="hidden sm:inline" />
+              What they built together and what it produced.
             </p>
           </div>
 
-          {/* Right Area: CTA Button + Cursive Calligraphy & Metadata */}
-          <div className="flex items-center gap-6 lg:gap-8 shrink-0 flex-wrap sm:flex-nowrap">
-            {/* Read More Stories Pill Button */}
+          {/* Right Area: CTA Button + Glowing Calligraphy & 4 Pillars */}
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-6 lg:gap-8 shrink-0 relative z-10">
+            {/* Read More Peer Stories Pill Button */}
             <Link
               href="/stories"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#1E4ED8] bg-transparent px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#1E4ED8] transition-all duration-200 hover:bg-[#1E4ED8] hover:text-white hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(30,78,216,0.25)] active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
             >
               Read More Peer Stories
               <ArrowRight className="size-4" />
             </Link>
 
-            {/* Decorative Handwritten Script & 4-Pillar Label List */}
-            <div className="hidden xl:flex items-center gap-5 select-none">
-              {/* Blue Handwritten Calligraphy with Underline Swoosh */}
-              <div className="font-serif italic text-lg lg:text-xl font-normal text-sky-400/90 leading-tight text-right transform -rotate-6">
-                <span className="block font-medium">Ideas</span>
-                <span className="block mr-3">Collaborations</span>
-                <span className="block font-semibold text-sky-500">Real Impact</span>
-                <svg
-                  viewBox="0 0 100 12"
-                  className="w-24 mt-0.5 stroke-sky-400 fill-none ml-auto"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                >
-                  <path d="M 5 6 Q 50 1 95 7" />
-                </svg>
+            {/* Glowing Calligraphy & Vertical Metadata */}
+            <div className="flex items-center gap-5 select-none bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-2xl">
+              {/* Blue / Cyan Luminous Calligraphy */}
+              <div
+                className="text-lg sm:text-2xl font-semibold text-sky-500 drop-shadow-[0_0_10px_rgba(56,189,248,0.4)] leading-tight text-right transform -rotate-3"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                <span className="block font-medium text-sky-600">Ideas</span>
+                <span className="block my-0.5 mr-2 text-sky-500">Collaborations</span>
+                <span className="relative inline-block font-bold text-sky-600 underline decoration-sky-400 decoration-2 underline-offset-4">
+                  Real Impact
+                </span>
               </div>
 
               {/* Vertical Divider */}
-              <div className="h-14 w-px bg-slate-200/80" />
+              <div className="h-14 w-px bg-slate-200" />
 
               {/* Stacked Vertical Pillar List */}
               <div className="flex flex-col text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 leading-relaxed">
@@ -2997,21 +3016,21 @@ export function StoriesSection() {
             return (
               <div
                 key={s.id}
-                className="group relative flex flex-col justify-between rounded-[26px] border border-slate-100 bg-white p-6 sm:p-7 shadow-[0_10px_35px_-5px_rgba(0,50,150,0.06)] hover:shadow-[0_20px_45px_-5px_rgba(0,50,150,0.12)] transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
-                {/* Top-Right Ambient Gradient Blob */}
+                {/* Bottom-Right Soft Pastel Wave Background */}
                 <div
-                  className={`pointer-events-none absolute -top-16 -right-16 size-48 rounded-full bg-gradient-to-br ${s.blobGradient} blur-2xl transition-opacity duration-300 group-hover:scale-110`}
+                  className={`pointer-events-none absolute -bottom-10 -right-10 size-48 rounded-full bg-gradient-to-tl ${s.cornerGradient} blur-xl`}
                 />
 
                 <div className="relative z-10">
-                  {/* Top Row: Category Icon + Category Name + Location */}
+                  {/* Top Row: Circular Category Icon + Category Badge + Location */}
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2.5">
-                      <div className={`flex size-10 items-center justify-center rounded-xl border shadow-xs ${s.iconBg}`}>
-                        <IconComponent className="size-5" />
+                      <div className={`flex size-10 items-center justify-center rounded-xl ${s.iconBg} border border-slate-100 shadow-2xs`}>
+                        <IconComponent className="size-4.5" />
                       </div>
-                      <span className={`text-xs font-bold tracking-wider uppercase ${s.categoryColor}`}>
+                      <span className={`px-2.5 py-0.8 rounded-full text-[11px] font-semibold border ${s.categoryTagBg}`}>
                         {s.category}
                       </span>
                     </div>
@@ -3022,28 +3041,33 @@ export function StoriesSection() {
                     </div>
                   </div>
 
-                  {/* Big Impact Metric */}
-                  <div className="mt-6">
-                    <div className="text-4xl sm:text-[2.65rem] font-extrabold text-[#0066FF] tracking-tight leading-none">
-                      {s.outcome}
+                  {/* Big Impact Metric with Growth Arrow ↗ */}
+                  <div className="mt-5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-none">
+                        {s.outcome}
+                      </span>
+                      <span className="text-xl sm:text-2xl font-extrabold text-[#00C48C] leading-none mb-1">
+                        ↗
+                      </span>
                     </div>
-                    <div className="text-[11px] font-bold text-slate-400 tracking-[0.14em] uppercase mt-2">
+                    <div className="text-[10.5px] font-bold text-slate-400 tracking-[0.16em] uppercase mt-2">
                       {s.outcomeLabel}
                     </div>
                   </div>
 
                   {/* Collaboration Quote */}
-                  <p className="mt-4 text-sm sm:text-[14.5px] font-medium leading-snug text-slate-800">
+                  <p className="mt-4 text-xs sm:text-[13px] leading-relaxed text-slate-600 font-normal">
                     {s.collab}
                   </p>
                 </div>
 
-                <div className="relative z-10 mt-7 pt-5 border-t border-slate-100 flex flex-col gap-4">
+                <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex flex-col gap-3.5">
                   {/* People Collaboration Section: Avatar 1, ✕, Avatar 2 */}
                   <div className="flex items-center justify-between gap-2">
                     {/* Peer 1 */}
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200/80 shadow-xs">
+                      <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white">
                         <Image
                           src={s.peer1.avatar}
                           alt={s.peer1.name}
@@ -3056,7 +3080,7 @@ export function StoriesSection() {
                         <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
                           {s.peer1.name}
                         </div>
-                        <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                        <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
                           {s.peer1.company}
                         </div>
                         <div className="text-[10px] text-slate-400 truncate">
@@ -3066,7 +3090,7 @@ export function StoriesSection() {
                     </div>
 
                     {/* Middle Cross Collaboration Symbol */}
-                    <div className="text-slate-300 font-light text-sm select-none px-1">
+                    <div className="text-slate-300 font-light text-base select-none px-1">
                       ✕
                     </div>
 
@@ -3076,14 +3100,14 @@ export function StoriesSection() {
                         <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
                           {s.peer2.name}
                         </div>
-                        <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                        <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
                           {s.peer2.company}
                         </div>
                         <div className="text-[10px] text-slate-400 truncate">
                           ({s.peer2.city})
                         </div>
                       </div>
-                      <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200/80 shadow-xs order-2">
+                      <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white order-2">
                         <Image
                           src={s.peer2.avatar}
                           alt={s.peer2.name}
@@ -3095,13 +3119,13 @@ export function StoriesSection() {
                     </div>
                   </div>
 
-                  {/* Bottom Pill/Bar Highlight */}
+                  {/* Bottom Pill Highlight */}
                   <div
                     className={`flex items-center justify-between rounded-xl border px-3.5 py-2.5 sm:px-4 sm:py-3 transition-colors ${s.badge.bg}`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <BadgeIcon className="size-4 shrink-0" />
-                      <span className="text-xs sm:text-[13px] font-semibold truncate">
+                      <span className="text-xs sm:text-[12.5px] font-semibold truncate">
                         {s.badge.text}
                       </span>
                     </div>
@@ -3115,56 +3139,43 @@ export function StoriesSection() {
         </div>
 
         {/* =========================================================================
-           BOTTOM SUB-FOOTER BAR: Slogan Left, Controls Center, Slogan Right
+           BOTTOM SUB-FOOTER BAR: Logo Left, Slogan Center-Left, Pagination Dots, Dot Grid
            ========================================================================= */}
-        <div className="mt-14 sm:mt-16 pt-6 border-t border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div className="mt-14 sm:mt-16 pt-6 border-t border-slate-200/70 flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
 
-          {/* Left Slogan */}
-          <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-            <span className="h-px w-8 bg-slate-300 hidden sm:block" />
-            <span>REAL PEOPLE. REAL PARTNERSHIPS. REAL IMPACT.</span>
+          {/* Left: Navy Circle Emblem + Slogan */}
+          <div className="flex items-center gap-3.5">
+            <div className="size-8 rounded-full bg-[#0B1E3F] text-white flex items-center justify-center font-bold text-xs shadow-xs">
+              N
+            </div>
+            <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+              REAL PEOPLE. REAL PARTNERSHIPS. REAL IMPACT.
+            </div>
           </div>
 
-          {/* Center Carousel Controls: Left Arrow, Pagination Dots, Right Arrow */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handlePrev}
-              type="button"
-              className="flex size-8 items-center justify-center rounded-full bg-blue-50/80 border border-blue-200/60 text-[#0066FF] hover:bg-blue-100 transition-colors shadow-xs"
-              aria-label="Previous story"
-            >
-              <ChevronLeft className="size-4" />
-            </button>
-
-            <div className="flex items-center gap-1.5">
-              {stories.map((_, idx) => (
+          {/* Right: Pagination Dots + Dot Matrix Grid */}
+          <div className="flex items-center gap-6 ml-auto">
+            {/* 3 Pagination Dots */}
+            <div className="flex items-center gap-2">
+              {[0, 1, 2].map((dot) => (
                 <button
-                  key={idx}
+                  key={dot}
+                  onClick={() => setActiveDot(dot)}
                   type="button"
-                  onClick={() => setActiveSlide(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${activeSlide === idx
-                      ? 'w-5 bg-[#0066FF]'
-                      : 'w-2 bg-blue-200 hover:bg-blue-300'
-                    }`}
-                  aria-label={`Go to slide ${idx + 1}`}
+                  aria-label={`Go to page ${dot + 1}`}
+                  className={`size-2.5 rounded-full transition-all duration-300 ${
+                    activeDot === dot ? 'bg-[#1E4ED8] ring-4 ring-blue-100 scale-110' : 'bg-sky-200 hover:bg-sky-300'
+                  }`}
                 />
               ))}
             </div>
 
-            <button
-              onClick={handleNext}
-              type="button"
-              className="flex size-8 items-center justify-center rounded-full bg-blue-50/80 border border-blue-200/60 text-[#0066FF] hover:bg-blue-100 transition-colors shadow-xs"
-              aria-label="Next story"
-            >
-              <ChevronRight className="size-4" />
-            </button>
-          </div>
-
-          {/* Right Slogan */}
-          <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-            <span>STORIES THAT BUILD A BRIGHTER TOMORROW.</span>
-            <span className="h-px w-8 bg-slate-300 hidden sm:block" />
+            {/* 3x4 Dot Matrix Grid */}
+            <div className="grid grid-cols-4 gap-1.5 opacity-60">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <span key={i} className="size-1 rounded-full bg-sky-300" />
+              ))}
+            </div>
           </div>
 
         </div>
@@ -3173,6 +3184,10 @@ export function StoriesSection() {
     </section>
   )
 }
+
+
+
+
 
 /* =========================================================================
    SECTION 11 — THE PEERS GLOBAL UNIVERSE
@@ -3407,13 +3422,13 @@ export function LeadershipSection() {
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-serif text-2xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
                 Built and led by{' '}
                 <span className="italic text-[#1E4ED8]">entrepreneurs.</span>
               </h2>
 
               {/* Description Body */}
-              <p className="text-sm sm:text-[0.95rem] leading-relaxed text-slate-600 max-w-lg font-normal">
+              <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-lg font-normal">
                 Peers Global is carried forward by its own Peers. Circle Founders, Circle Directors, Industry Directors, Regional Executive Directors and Global Advisors — every one of them a business owner who chose to build something beyond their own company.
               </p>
 
@@ -3537,7 +3552,7 @@ export function EventsSection() {
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="flex flex-col gap-3">
             <Eyebrow>Calendar</Eyebrow>
-            <h2 className="font-serif text-balance text-3xl md:text-4xl lg:text-[2.75rem] font-normal leading-[1.15] tracking-tight text-slate-900">
+            <h2 className="font-serif text-balance text-2xl sm:text-3xl lg:text-[2.5rem] font-normal leading-[1.15] tracking-tight text-slate-900">
               Where you can meet{' '}
               <br className="hidden sm:block" />
               the network{' '}
@@ -3837,7 +3852,7 @@ export function ClosingSection() {
           </div>
 
           {/* Heading */}
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal leading-[1.18] tracking-tight text-white">
             A community you can belong to, contribute to, grow with, and build relationships{' '}
             <em
               className="not-italic text-[#7DD3FC]"

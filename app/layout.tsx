@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Montserrat, Poppins, Dancing_Script } from 'next/font/google'
+import { Montserrat, Poppins, Dancing_Script, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import { DesignProvider, DesignScript } from '@/components/design/design-provider'
 import { DesignSwitcher } from '@/components/design/design-switcher'
 import { SiteFooter } from '@/components/site/site-footer'
@@ -15,10 +15,25 @@ const poppins = Poppins({
   display: 'swap',
 })
 
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-sans-modern',
+  display: 'swap',
+})
+
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+  weight: ['500', '600', '700', '800', '900'],
   variable: '--font-montserrat',
+  display: 'swap',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
   display: 'swap',
 })
 
@@ -66,7 +81,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-design="d1"
-      className={`bg-background ${poppins.variable} ${montserrat.variable} ${dancingScript.variable}`}
+      className={`bg-background ${plusJakarta.variable} ${poppins.variable} ${montserrat.variable} ${playfair.variable} ${dancingScript.variable}`}
       suppressHydrationWarning
     >
       <head>
