@@ -9,8 +9,26 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, message: 'Username and password required' }, { status: 400 })
     }
 
+    // Auto-add missing columns if they don't exist yet (safe migration)
+    try {
+      await pool.query(`
+        ALTER TABLE public.web_users
+          ADD COLUMN IF NOT EXISTS name VARCHAR(150),
+          ADD COLUMN IF NOT EXISTS permissions JSONB DEFAULT '{"dashboard":true,"blogs":true,"media":true,"circles":true,"events":true,"settings":true}';
+      `)
+    } catch (_) {
+      // ignore — column may already exist
+    }
+
+    // Support login by username OR email
     const result = await pool.query(
-      'SELECT id, username, password, name, email, role, permissions FROM public.web_users WHERE username = $1 AND is_active = true',
+      `SELECT id, username, password,
+              COALESCE(name, username) AS name,
+              email, role,
+              COALESCE(permissions, '{"dashboard":true,"blogs":true,"media":true,"circles":true,"events":true,"settings":true}'::jsonb) AS permissions
+       FROM public.web_users
+       WHERE (username = $1 OR email = $1) AND is_active = true
+       LIMIT 1`,
       [username.trim()]
     )
 
@@ -40,12 +58,12 @@ export async function POST(req: Request) {
 
     const user = result.rows[0]
 
-    // Verify password match
+    // Verify password (plain text compare)
     if (user.password !== password) {
       return NextResponse.json({ success: false, message: 'Invalid username or password' }, { status: 401 })
     }
 
-    delete user.password // Don't send password back
+    delete user.password // Never send password back to client
 
     return NextResponse.json({
       success: true,
