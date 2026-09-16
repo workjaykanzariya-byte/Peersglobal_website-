@@ -1,24 +1,26 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard,
   Handshake,
-  Users,
-  Building2,
   Compass,
+  Building2,
+  FileText,
+  Image as ImageIcon,
+  FolderTree,
+  Calendar,
   MessageSquare,
-  FileBarChart2,
   TrendingUp,
   Settings,
   HelpCircle,
   LogOut,
-  Sparkles,
   ExternalLink,
   ChevronRight,
-  ShieldCheck,
+  Sparkles,
 } from 'lucide-react'
 import { useAdminAuth } from './admin-auth-context'
 
@@ -29,28 +31,48 @@ export function AdminSidebar() {
   const navItems = [
     { label: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
     { label: 'Partnerships', href: '/admin/partnerships', icon: Handshake, badge: '86' },
-    { label: 'Users', href: '/admin/users', icon: Users },
-    { label: 'Companies', href: '/admin/companies', icon: Building2 },
     { label: 'Opportunities', href: '/admin/opportunities', icon: Compass, badge: 'New' },
+    { label: 'Companies', href: '/admin/companies', icon: Building2 },
+    { label: 'Publications', href: '/admin/blogs', icon: FileText },
+    { label: 'Media Library', href: '/admin/media', icon: ImageIcon },
+    { label: 'Peer Circles', href: '/admin/circles', icon: FolderTree },
+    { label: 'Conclaves & Events', href: '/admin/events', icon: Calendar },
     { label: 'Messages', href: '/admin/messages', icon: MessageSquare, badge: '4' },
-    { label: 'Reports', href: '/admin/reports', icon: FileBarChart2 },
     { label: 'Analytics', href: '/admin/analytics', icon: TrendingUp },
-    { label: 'Settings', href: '/admin/settings', icon: Settings },
+    { label: 'Settings & Users', href: '/admin/settings', icon: Settings },
     { label: 'Help & Support', href: '/admin/help', icon: HelpCircle },
   ]
 
   return (
     <aside className="w-64 bg-[#07152E] text-slate-300 flex flex-col justify-between min-h-screen shrink-0 border-r border-[#0E2246] select-none font-sans z-30">
       <div>
+        {/* Brand Header with Peers Global Logo */}
+        <div className="p-5 border-b border-[#0E2246]/80 flex items-center justify-between">
+          <Link href="/admin/dashboard" className="flex items-center gap-3 group">
+            <div className="relative h-10 w-44 shrink-0">
+              <Image
+                src="/images/logo-full.png"
+                alt="Peers Global"
+                fill
+                className="object-contain object-left brightness-0 invert"
+                priority
+              />
+            </div>
+          </Link>
+        </div>
+
         {/* Navigation */}
-        <nav className="p-4 space-y-1">
+        <nav className="p-3.5 space-y-1">
+          <div className="px-3 pb-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+            Platform Menu
+          </div>
           {navItems.map((item) => {
             const Icon = item.icon
-            const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))
+            const isActive = pathname === item.href || (item.href !== '/admin/dashboard' && pathname.startsWith(item.href))
             return (
               <Link
                 key={item.label}
-                href={item.href === '/admin/dashboard' || item.href === '/admin/settings' ? item.href : '/admin/dashboard'}
+                href={item.href}
                 className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-medium transition-all group ${
                   isActive
                     ? 'bg-gradient-to-r from-[#1769FF] to-[#08C7E8]/80 text-white shadow-lg shadow-[#1769FF]/25 font-semibold'
@@ -58,7 +80,11 @@ export function AdminSidebar() {
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-[#08C7E8]'}`} />
+                  <Icon
+                    className={`w-4 h-4 transition-transform group-hover:scale-110 ${
+                      isActive ? 'text-white' : 'text-slate-400 group-hover:text-[#08C7E8]'
+                    }`}
+                  />
                   <span>{item.label}</span>
                 </div>
                 {item.badge && (
@@ -109,7 +135,7 @@ export function AdminSidebar() {
           <button
             onClick={logout}
             title="Logout"
-            className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition"
+            className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition cursor-pointer"
           >
             <LogOut className="w-3.5 h-3.5" />
           </button>
