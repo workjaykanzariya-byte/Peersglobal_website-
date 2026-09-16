@@ -13,6 +13,7 @@ import {
   X,
   Lock,
   Trash2,
+  Sparkles,
 } from 'lucide-react'
 
 interface FeatureAccess {
@@ -47,10 +48,10 @@ export default function AdminSettingsPage() {
   const [permissions, setPermissions] = useState<FeatureAccess>({
     dashboard: true,
     blogs: true,
-    media: false,
-    circles: false,
-    events: false,
-    settings: false,
+    media: true,
+    circles: true,
+    events: true,
+    settings: true,
   })
 
   // List of web_users
@@ -60,7 +61,7 @@ export default function AdminSettingsPage() {
       username: 'admin',
       name: 'Super Admin',
       email: 'admin@peersglobal.com',
-      role: 'Admin',
+      role: 'admin',
       permissions: {
         dashboard: true,
         blogs: true,
@@ -72,17 +73,32 @@ export default function AdminSettingsPage() {
     },
     {
       id: '2',
-      username: 'sales_john',
-      name: 'John Sales',
-      email: 'john@peersglobal.com',
-      role: 'User',
+      username: 'dipak',
+      name: 'Dipak',
+      email: 'dipak@gmail.com',
+      role: 'admin',
       permissions: {
         dashboard: true,
         blogs: true,
         media: true,
-        circles: false,
-        events: false,
-        settings: false,
+        circles: true,
+        events: true,
+        settings: true,
+      },
+    },
+    {
+      id: '3',
+      username: 'trushali',
+      name: 'Trushali',
+      email: 'trushali@gmail.com',
+      role: 'admin',
+      permissions: {
+        dashboard: true,
+        blogs: true,
+        media: true,
+        circles: true,
+        events: true,
+        settings: true,
       },
     },
   ])
@@ -150,11 +166,11 @@ export default function AdminSettingsPage() {
 
       const data = await res.json()
       if (res.ok) {
-        setSavedMessage(`Admin user "@${newUsername}" successfully saved into database!`)
+        setSavedMessage(`Admin user "@${newUsername}" successfully saved!`)
       } else {
         setSavedMessage(data.message || `User "@${newUsername}" added to active users list!`)
       }
-    } catch (error) {
+    } catch {
       setSavedMessage(`User "@${newUsername}" added!`)
     }
 
@@ -191,7 +207,7 @@ export default function AdminSettingsPage() {
       }
 
       setUsersList((prev) => prev.filter((u) => u.id !== userId && u.username !== username))
-      setSavedMessage(`User "@${username}" has been deleted from web_users database!`)
+      setSavedMessage(`User "@${username}" has been deleted from users list!`)
       setSaved(true)
       setTimeout(() => setSaved(false), 3000)
     }
@@ -199,38 +215,41 @@ export default function AdminSettingsPage() {
 
   const handleSaveApiSettings = (e: React.FormEvent) => {
     e.preventDefault()
-    setSavedMessage('Integration API settings saved!')
+    setSavedMessage('Content Integration settings saved successfully!')
     setSaved(true)
     setTimeout(() => setSaved(false), 3000)
   }
 
   return (
-    <div className="space-y-8 max-w-4xl">
-      <div>
-        <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Settings className="w-6 h-6 text-amber-400" />
-          Admin Portal Settings & User Access
-        </h1>
-        <p className="text-xs text-slate-400 mt-1">
-          Manage web user accounts, granular feature access permissions, and content integrations.
-        </p>
+    <div className="space-y-8 max-w-4xl font-sans">
+      <div className="flex items-center gap-2.5">
+        <div className="h-9 w-9 rounded-xl bg-blue-600/15 text-blue-400 border border-blue-500/20 flex items-center justify-center">
+          <Settings className="w-5 h-5" />
+        </div>
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold text-white font-display">Portal Settings & User Access</h1>
+          <p className="text-xs text-slate-400 mt-0.5">
+            Manage administrative user accounts, granular section permissions, and content sync.
+          </p>
+        </div>
       </div>
 
       {saved && (
-        <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2 shadow-lg">
+        <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2.5 shadow-lg animate-fade-in">
           <CheckCircle2 className="w-4 h-4 shrink-0" />
           <span>{savedMessage}</span>
         </div>
       )}
 
-      {/* SECTION 1: ADD NEW ADMIN / SALES USER WITH FEATURE CHECKBOXES */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-6 text-xs shadow-xl">
-        <div className="border-b border-slate-800 pb-3 flex items-center justify-between">
-          <h2 className="text-sm font-bold text-white flex items-center gap-2">
-            <UserPlus className="w-4 h-4 text-amber-400" /> Add New Web User & Assign Functionalities
+      {/* SECTION 1: ADD NEW ADMIN USER */}
+      <div className="bg-[#0B1220]/80 border border-slate-800/90 rounded-2xl p-6 space-y-6 text-xs shadow-xl">
+        <div className="border-b border-slate-800/80 pb-3 flex items-center justify-between">
+          <h2 className="text-sm font-bold text-white flex items-center gap-2 font-display">
+            <UserPlus className="w-4 h-4 text-blue-400" />
+            <span>Add New Admin User & Assign Permissions</span>
           </h2>
-          <span className="text-[11px] text-slate-400 bg-slate-800 px-2.5 py-1 rounded-full border border-slate-700">
-            Permission Control
+          <span className="text-[10px] text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20 font-medium">
+            Role Management
           </span>
         </div>
 
@@ -238,67 +257,67 @@ export default function AdminSettingsPage() {
           {/* User Details Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Username *</label>
+              <label className="block text-slate-300 font-semibold mb-1.5">Username *</label>
               <input
                 type="text"
                 required
                 value={newUsername}
                 onChange={(e) => setNewUsername(e.target.value)}
-                placeholder="e.g. sales_user"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-amber-500"
+                placeholder="e.g. dipak or trushali"
+                className="w-full bg-[#070D18] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
               />
             </div>
 
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Full Name</label>
+              <label className="block text-slate-300 font-semibold mb-1.5">Full Name</label>
               <input
                 type="text"
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
-                placeholder="e.g. Sarah Jenkins"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-amber-500"
+                placeholder="e.g. Dipak K"
+                className="w-full bg-[#070D18] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
               />
             </div>
 
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Email Address</label>
+              <label className="block text-slate-300 font-semibold mb-1.5">Email Address</label>
               <input
                 type="email"
                 value={newEmail}
                 onChange={(e) => setNewEmail(e.target.value)}
-                placeholder="e.g. sales@peersglobal.com"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-amber-500"
+                placeholder="e.g. dipak@gmail.com"
+                className="w-full bg-[#070D18] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
               />
             </div>
 
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Password *</label>
+              <label className="block text-slate-300 font-semibold mb-1.5">Password *</label>
               <input
                 type="password"
                 required
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white focus:outline-none focus:border-amber-500"
+                className="w-full bg-[#070D18] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
               />
             </div>
           </div>
 
           {/* CHECKBOXES FOR FUNCTIONALITY ACCESS */}
-          <div className="space-y-3 pt-2 border-t border-slate-800">
+          <div className="space-y-3 pt-2 border-t border-slate-800/80">
             <label className="block text-slate-200 font-bold text-xs flex items-center gap-2">
-              <Shield className="w-4 h-4 text-amber-400" />
-              Allowed Portal Functionalities (Checkboxes)
+              <Shield className="w-4 h-4 text-blue-400" />
+              <span>Allowed Portal Functionalities</span>
             </label>
             <p className="text-[11px] text-slate-400">
-              Select which sections this user is allowed to access in the admin sidebar:
+              Check the sections this user will be able to see and access in the portal:
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
               {[
-                { key: 'dashboard', label: 'Dashboard Access', desc: 'View portal summary' },
-                { key: 'blogs', label: 'Blog Posts', desc: 'Create & edit blogs' },
-                { key: 'media', label: 'Media Library', desc: 'Upload media files' },
+                { key: 'dashboard', label: 'Dashboard Access', desc: 'Overview & metrics' },
+                { key: 'blogs', label: 'Blog Posts', desc: 'Create & manage articles' },
+                { key: 'media', label: 'Media Library', desc: 'Upload images & videos' },
                 { key: 'circles', label: 'Circles / Initiatives', desc: 'Manage circle data' },
                 { key: 'events', label: 'Events & Conclaves', desc: 'Manage event listings' },
                 { key: 'settings', label: 'Portal Settings', desc: 'Manage users & API' },
@@ -310,15 +329,15 @@ export default function AdminSettingsPage() {
                     onClick={() => handleTogglePermission(item.key as keyof FeatureAccess)}
                     className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition ${
                       isChecked
-                        ? 'bg-amber-500/10 border-amber-500/40 text-white'
-                        : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700'
+                        ? 'bg-blue-600/10 border-blue-500/40 text-white shadow-sm'
+                        : 'bg-[#070D18] border-slate-800 text-slate-400 hover:border-slate-700'
                     }`}
                   >
                     <input
                       type="checkbox"
                       checked={isChecked}
                       onChange={() => {}}
-                      className="mt-0.5 rounded border-slate-700 text-amber-500 focus:ring-amber-500 accent-amber-500"
+                      className="mt-0.5 rounded border-slate-700 text-[#1E4ED8] focus:ring-[#1E4ED8] accent-[#1E4ED8]"
                     />
                     <div>
                       <div className="font-semibold text-slate-200">{item.label}</div>
@@ -332,48 +351,50 @@ export default function AdminSettingsPage() {
 
           <button
             type="submit"
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold text-xs flex items-center gap-2 transition shadow-lg shadow-amber-500/10"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1E4ED8] to-[#1E3A8A] hover:from-[#2563EB] hover:to-[#1D4ED8] text-white font-semibold text-xs flex items-center gap-2 transition shadow-lg shadow-blue-600/25 cursor-pointer"
           >
-            <UserPlus className="w-4 h-4" /> Create User & Save Access Permissions
+            <UserPlus className="w-4 h-4" />
+            <span>Create User & Save Permissions</span>
           </button>
         </form>
       </div>
 
-      {/* SECTION 2: EXISTING WEB_USERS TABLE */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 text-xs shadow-xl">
-        <div className="border-b border-slate-800 pb-3 flex items-center justify-between">
-          <h2 className="text-sm font-bold text-white flex items-center gap-2">
-            <Users className="w-4 h-4 text-amber-400" /> Active Web Users (`web_users` table)
+      {/* SECTION 2: EXISTING USERS TABLE */}
+      <div className="bg-[#0B1220]/80 border border-slate-800/90 rounded-2xl p-6 space-y-4 text-xs shadow-xl">
+        <div className="border-b border-slate-800/80 pb-3 flex items-center justify-between">
+          <h2 className="text-sm font-bold text-white flex items-center gap-2 font-display">
+            <Users className="w-4 h-4 text-blue-400" />
+            <span>Active Web Users & Admins</span>
           </h2>
-          <span className="text-[11px] text-slate-400">{usersList.length} User(s) configured</span>
+          <span className="text-[11px] text-slate-400">{usersList.length} User(s) Configured</span>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-slate-300 border-collapse">
             <thead>
-              <tr className="border-b border-slate-800 text-slate-400 text-[11px]">
-                <th className="py-2.5 px-3">User</th>
-                <th className="py-2.5 px-3">Allowed Functionalities</th>
-                <th className="py-2.5 px-3">Status</th>
-                <th className="py-2.5 px-3 text-right">Action</th>
+              <tr className="border-b border-slate-800 text-slate-400 text-[10px] uppercase tracking-wider">
+                <th className="py-3 px-3">User</th>
+                <th className="py-3 px-3">Allowed Permissions</th>
+                <th className="py-3 px-3">Status</th>
+                <th className="py-3 px-3 text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800/60">
-              {usersList.map((user) => (
-                <tr key={user.id} className="hover:bg-slate-800/30">
-                  <td className="py-3 px-3">
-                    <div className="font-semibold text-white">{user.name}</div>
-                    <div className="text-[10px] text-slate-400">@{user.username}</div>
+              {usersList.map((u) => (
+                <tr key={u.id} className="hover:bg-[#0F172A]/50 transition">
+                  <td className="py-3.5 px-3">
+                    <div className="font-semibold text-white">{u.name}</div>
+                    <div className="text-[10px] text-blue-400 font-mono">@{u.username} • {u.email || 'No email'}</div>
                   </td>
-                  <td className="py-3 px-3">
+                  <td className="py-3.5 px-3">
                     <div className="flex flex-wrap gap-1">
-                      {Object.entries(user.permissions).map(([key, enabled]) => (
+                      {Object.entries(u.permissions).map(([key, enabled]) => (
                         <span
                           key={key}
-                          className={`text-[9px] px-1.5 py-0.5 rounded border capitalize ${
+                          className={`text-[9px] px-2 py-0.5 rounded-full border capitalize font-medium ${
                             enabled
-                              ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
-                              : 'bg-slate-950 text-slate-600 border-slate-800 line-through'
+                              ? 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+                              : 'bg-slate-900 text-slate-600 border-slate-800 line-through'
                           }`}
                         >
                           {key}
@@ -381,16 +402,16 @@ export default function AdminSettingsPage() {
                       ))}
                     </div>
                   </td>
-                  <td className="py-3 px-3">
-                    <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold text-[11px]">
+                  <td className="py-3.5 px-3">
+                    <span className="inline-flex items-center gap-1 text-emerald-400 font-medium text-[11px] bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                       <Check className="w-3 h-3" /> Active
                     </span>
                   </td>
-                  <td className="py-3 px-3 text-right">
-                    {user.username !== 'admin' ? (
+                  <td className="py-3.5 px-3 text-right">
+                    {u.username !== 'admin' ? (
                       <button
-                        onClick={() => handleRemoveUser(user.id, user.username)}
-                        className="p-1.5 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white border border-red-500/20 transition flex items-center gap-1 text-[10px] ml-auto font-medium"
+                        onClick={() => handleRemoveUser(u.id, u.username)}
+                        className="p-1.5 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white border border-red-500/20 transition flex items-center gap-1 text-[10px] ml-auto font-medium cursor-pointer"
                         title="Remove User"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -410,25 +431,27 @@ export default function AdminSettingsPage() {
       {/* SECTION 3: CONTENT INTEGRATION API */}
       <form
         onSubmit={handleSaveApiSettings}
-        className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 text-xs shadow-xl"
+        className="bg-[#0B1220]/80 border border-slate-800/90 rounded-2xl p-6 space-y-4 text-xs shadow-xl"
       >
-        <h2 className="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
-          <Database className="w-4 h-4 text-amber-400" /> Content Integration API
+        <h2 className="text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800/80 pb-2.5 font-display">
+          <Database className="w-4 h-4 text-blue-400" />
+          <span>Content Integration API</span>
         </h2>
         <div>
-          <label className="block text-slate-300 font-semibold mb-1">WordPress REST API Endpoint</label>
+          <label className="block text-slate-300 font-semibold mb-1.5">WordPress REST API Endpoint</label>
           <input
             type="text"
             value={wpEndpoint}
             onChange={(e) => setWpEndpoint(e.target.value)}
-            className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-white font-mono focus:outline-none focus:border-amber-500"
+            className="w-full bg-[#070D18] border border-slate-800 rounded-xl p-3 text-white font-mono focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
           />
         </div>
         <button
           type="submit"
-          className="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-2 transition border border-slate-700"
+          className="px-4 py-2.5 rounded-xl bg-[#0F172A] hover:bg-slate-800 text-white font-semibold text-xs flex items-center gap-2 transition border border-slate-800 cursor-pointer"
         >
-          <Save className="w-4 h-4" /> Save API Endpoint
+          <Save className="w-4 h-4 text-blue-400" />
+          <span>Save API Endpoint</span>
         </button>
       </form>
     </div>

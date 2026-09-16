@@ -79,7 +79,7 @@ export default function AdminMediaPage() {
     if (saved) {
       try {
         setMediaList(JSON.parse(saved))
-      } catch (e) {
+      } catch {
         setMediaList(INITIAL_MEDIA)
       }
     } else {
@@ -137,22 +137,26 @@ export default function AdminMediaPage() {
   })
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 font-sans">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <ImageIcon className="w-6 h-6 text-amber-400" />
-            Media Libraries Manager
-          </h1>
-          <p className="text-xs text-slate-400 mt-1">
-            Upload images, video recordings, and brand assets for blogs and web pages.
-          </p>
+          <div className="flex items-center gap-2.5">
+            <div className="h-9 w-9 rounded-xl bg-blue-600/15 text-blue-400 border border-blue-500/20 flex items-center justify-center">
+              <ImageIcon className="w-5 h-5" />
+            </div>
+            <div>
+              <h1 className="text-xl md:text-2xl font-bold text-white font-display">Media Library & Assets</h1>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Upload images, conclave videos, and brand collateral for the Peers Global website.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Upload Dropzone Box */}
-      <div className="bg-slate-900/80 border-2 border-dashed border-slate-800 hover:border-amber-500/50 rounded-2xl p-8 text-center transition group relative">
+      <div className="bg-[#0B1220]/90 border-2 border-dashed border-blue-900/40 hover:border-blue-500/60 rounded-2xl p-8 text-center transition-all group relative cursor-pointer shadow-sm">
         <input
           type="file"
           multiple
@@ -160,28 +164,28 @@ export default function AdminMediaPage() {
           className="absolute inset-0 opacity-0 cursor-pointer z-10"
         />
         <div className="flex flex-col items-center justify-center space-y-3 pointer-events-none">
-          <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20 group-hover:scale-110 transition">
+          <div className="p-4 rounded-2xl bg-blue-600/10 text-blue-400 border border-blue-500/20 group-hover:scale-110 transition-transform shadow-md">
             <UploadCloud className="w-8 h-8" />
           </div>
           <div>
             <p className="text-sm font-semibold text-white">
-              {isUploading ? 'Uploading assets...' : 'Drag & Drop files or Click to Upload'}
+              {isUploading ? 'Uploading assets...' : 'Drag & drop files or click to upload'}
             </p>
-            <p className="text-xs text-slate-500 mt-1">Supports PNG, JPG, MP4, WEBM, PDF (Up to 100MB)</p>
+            <p className="text-xs text-slate-400 mt-1">Supports PNG, JPG, WEBP, MP4, PDF (Up to 100MB)</p>
           </div>
         </div>
       </div>
 
       {/* Search & Filter Bar */}
-      <div className="flex flex-col md:flex-row items-center gap-4 bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
+      <div className="flex flex-col md:flex-row items-center gap-3.5 bg-[#0B1220]/80 border border-slate-800/90 rounded-2xl p-3.5 shadow-sm">
         <div className="relative flex-1 w-full">
-          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search media files..."
-            className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
+            placeholder="Search media files by name..."
+            className="w-full bg-[#070D18] border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
           />
         </div>
 
@@ -190,10 +194,10 @@ export default function AdminMediaPage() {
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`px-3 py-1.5 rounded-xl text-xs capitalize transition ${
+              className={`px-3 py-1.5 rounded-xl text-xs capitalize transition cursor-pointer ${
                 typeFilter === t
-                  ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40 font-semibold'
-                  : 'bg-slate-950 text-slate-400 border border-slate-800 hover:text-white'
+                  ? 'bg-blue-600/20 text-blue-400 border border-blue-500/40 font-semibold'
+                  : 'bg-[#070D18] text-slate-400 border border-slate-800 hover:text-white'
               }`}
             >
               {t}
@@ -207,25 +211,25 @@ export default function AdminMediaPage() {
         {filteredMedia.map((asset) => (
           <div
             key={asset.id}
-            className="bg-slate-900/80 border border-slate-800 rounded-2xl p-3 flex flex-col justify-between space-y-3 hover:border-slate-700 transition"
+            className="bg-[#0B1220]/80 border border-slate-800/90 rounded-2xl p-3 flex flex-col justify-between space-y-3 hover:border-blue-500/30 transition shadow-sm"
           >
             {/* Preview Box */}
-            <div className="h-36 rounded-xl bg-slate-950 border border-slate-800 overflow-hidden relative flex items-center justify-center group">
+            <div className="h-36 rounded-xl bg-[#070D18] border border-slate-800/80 overflow-hidden relative flex items-center justify-center group">
               {asset.type === 'image' ? (
                 <img src={asset.url} alt={asset.name} className="w-full h-full object-cover" />
               ) : asset.type === 'video' ? (
-                <div className="flex flex-col items-center gap-2 text-amber-400">
-                  <FileVideo className="w-10 h-10" />
-                  <span className="text-[10px] font-mono">VIDEO FILE</span>
+                <div className="flex flex-col items-center gap-2 text-blue-400">
+                  <FileVideo className="w-9 h-9" />
+                  <span className="text-[10px] font-mono font-medium">VIDEO ASSET</span>
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-2 text-blue-400">
-                  <FileText className="w-10 h-10" />
-                  <span className="text-[10px] font-mono">DOCUMENT</span>
+                <div className="flex flex-col items-center gap-2 text-sky-400">
+                  <FileText className="w-9 h-9" />
+                  <span className="text-[10px] font-mono font-medium">DOCUMENT</span>
                 </div>
               )}
 
-              <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-slate-950/80 text-amber-400 text-[10px] font-mono border border-slate-800">
+              <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-[#070D18]/90 text-blue-300 text-[10px] font-mono border border-slate-800">
                 {asset.size}
               </span>
             </div>
@@ -236,16 +240,16 @@ export default function AdminMediaPage() {
                 {asset.name}
               </p>
               <div className="flex items-center justify-between text-[11px] text-slate-400">
-                <span>{asset.category}</span>
+                <span className="px-1.5 py-0.5 rounded bg-slate-800/80 text-[10px]">{asset.category}</span>
                 <span>{asset.uploadDate}</span>
               </div>
             </div>
 
             {/* Action buttons */}
-            <div className="flex items-center gap-2 pt-2 border-t border-slate-800">
+            <div className="flex items-center gap-2 pt-2 border-t border-slate-800/80">
               <button
                 onClick={() => handleCopyUrl(asset.id, asset.url)}
-                className="flex-1 px-2 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium flex items-center justify-center gap-1.5 transition"
+                className="flex-1 px-2.5 py-1.5 rounded-lg bg-[#0F172A] hover:bg-slate-800 text-slate-200 text-xs font-medium flex items-center justify-center gap-1.5 transition border border-slate-800 cursor-pointer"
               >
                 {copiedId === asset.id ? (
                   <>
@@ -261,7 +265,8 @@ export default function AdminMediaPage() {
               </button>
               <button
                 onClick={() => handleDelete(asset.id)}
-                className="p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 transition"
+                className="p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 transition border border-red-500/20 cursor-pointer"
+                title="Delete Asset"
               >
                 <Trash2 className="w-3.5 h-3.5" />
               </button>
