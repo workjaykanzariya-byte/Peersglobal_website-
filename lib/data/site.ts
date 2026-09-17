@@ -69,7 +69,7 @@ export const HEADER_NAV: NavItem[] = [
     },
     children: [
       { label: 'The Idea', href: '/the-idea', desc: 'The founding manifesto & core belief', phase: 1 },
-      { label: '10 Forms of Collaboration', href: '/10-forms-of-collaboration', desc: '10 structured forms of peer support', phase: 1 },
+      { label: '10 Ways of Collaboration', href: '/10-ways-of-collaboration', desc: '10 powerful forms of peer collaboration', phase: 1 },
       { label: 'The Territory', href: '/the-territory', desc: 'Local to global: Circle to the world', phase: 1 },
       { label: 'The Citizens', href: '/the-citizens', desc: 'The entrepreneurs who build this community', phase: 1 },
       { label: 'The Currency', href: '/the-currency', desc: 'The Impact System: 1 Action = 1 Life Impacted', phase: 1 },
@@ -92,6 +92,7 @@ export const HEADER_NAV: NavItem[] = [
     },
     children: [
       { label: 'All Circles', href: '/circles', desc: '18 industry and goal-specific Circles', phase: 1 },
+      { label: '10 Ways of Collaboration', href: '/10-ways-of-collaboration', desc: '10 powerful forms of peer collaboration', phase: 1 },
       { label: 'Browse by Industry', href: '/circles/industry', desc: '9 sector-locked industry Circles', phase: 1 },
       { label: 'Browse by Purpose', href: '/circles/purpose', desc: '10 shared-ambition goal Circles', phase: 1 },
       { label: 'Find Your Circle', href: '/circles/find', desc: 'Match with your ideal Circle and Inner Board', phase: 1 },
