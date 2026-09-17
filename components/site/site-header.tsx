@@ -1,3 +1,4 @@
+
 'use client'
 
 import * as React from 'react'
@@ -102,41 +103,30 @@ export function SiteHeader() {
   return (
     <>
       {/* ===================================================================== */}
-      {/* 1. BLACK FADE BACKDROP OVERLAY                                       */}
-      {/* Fades in smoothly when any submenu opens, putting full focus on nav  */}
-      {/* ===================================================================== */}
-      <div
-        onClick={() => setOpenMenu(null)}
-        className={cn(
-          'fixed inset-0 top-20 bg-black/65 backdrop-blur-[2px] transition-opacity duration-300 z-40',
-          openMenu ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        )}
-      />
-
-      {/* ===================================================================== */}
-      {/* 2. PRIMARY NAVBAR                                                     */}
+      {/* PRIMARY NAVBAR                                                        */}
       {/* ===================================================================== */}
       <header
-        className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#071324]/92 backdrop-blur-md supports-[backdrop-filter]:bg-[#071324]/85 transition-all shadow-md"
+        className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/90 transition-all shadow-xs"
         onMouseLeave={handleMouseLeave}
       >
+        {/* Desktop Navigation Items with Simple Anchored Floating Dropdowns */}
         <div className="mx-auto flex h-20 max-w-[1640px] items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Brand Logo (White on Dark Navy) */}
+          {/* Brand Logo (Full Color on White) */}
           <div className="flex items-center shrink-0">
-            <Logo onDark={true} className="scale-95 sm:scale-100 origin-left" />
+            <Logo onDark={false} className="scale-95 sm:scale-100 origin-left" />
           </div>
 
-          {/* Center Desktop Navigation (Strict 7 Items) */}
+          {/* Center Desktop Navigation */}
           <nav
             ref={navContainerRef}
             aria-label="Primary Navigation"
             onMouseEnter={keepMenuOpen}
             className="relative hidden lg:flex items-center gap-1 xl:gap-1.5 h-full py-2"
           >
-            {/* Smooth Sliding Glow Pill Indicator */}
+            {/* Smooth Sliding Pill Indicator */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 -translate-y-1/2 h-9 rounded-full border border-sky-400/90 bg-sky-500/20 shadow-[0_0_16px_rgba(56,189,248,0.5),inset_0_0_10px_rgba(56,189,248,0.25)] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              className="pointer-events-none absolute top-1/2 -translate-y-1/2 h-9 rounded-full border border-blue-500/20 bg-blue-50/80 shadow-[0_2px_8px_rgba(30,78,216,0.06)] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
               style={{
                 left: pillStyle.left,
                 width: pillStyle.width,
@@ -167,8 +157,8 @@ export function SiteHeader() {
                     className={cn(
                       'relative z-10 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap',
                       isHovered || (isActive && !openMenu)
-                        ? 'text-white'
-                        : 'text-white/80 hover:text-white'
+                        ? 'text-[#1E4ED8] font-semibold'
+                        : 'text-slate-700 hover:text-[#1E4ED8]'
                     )}
                   >
                     {item.label}
@@ -181,6 +171,7 @@ export function SiteHeader() {
                   key={item.label}
                   className="relative py-2"
                   onMouseEnter={() => hasSubmenu && handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <Link
                     ref={(el) => {
@@ -191,20 +182,100 @@ export function SiteHeader() {
                     className={cn(
                       'relative z-10 inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap select-none',
                       isHovered || (isActive && !openMenu)
-                        ? 'text-white'
-                        : 'text-white/80 hover:text-white'
+                        ? 'text-[#1E4ED8] font-semibold'
+                        : 'text-slate-700 hover:text-[#1E4ED8]'
                     )}
                   >
                     <span>{item.label}</span>
                     <ChevronDown
                       className={cn(
-                        'size-3.5 transition-transform duration-300 ease-out',
-                        isHovered
-                          ? 'rotate-180 text-sky-300 opacity-100'
-                          : 'opacity-70 group-hover:opacity-100'
+                        'size-3.5 transition-transform duration-200 ease-out',
+                        isHovered ? 'rotate-180 text-[#1E4ED8] opacity-100' : 'text-slate-400 opacity-70'
                       )}
                     />
                   </Link>
+
+                  {/* ================================================================= */}
+                  {/* SIMPLE ANCHORED FLOATING DROPDOWN (WHITE LIGHT THEME)             */}
+                  {/* ================================================================= */}
+                  {hasSubmenu && (
+                    <div
+                      onMouseEnter={keepMenuOpen}
+                      onMouseLeave={handleMouseLeave}
+                      className={cn(
+                        'absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 transition-all duration-200 ease-out',
+                        isHovered
+                          ? 'opacity-100 translate-y-0 pointer-events-auto visible'
+                          : 'opacity-0 -translate-y-1.5 pointer-events-none invisible'
+                      )}
+                    >
+                      {/* Top invisible hit bridge */}
+                      <div className="absolute -top-3 left-0 right-0 h-4 bg-transparent" />
+
+                      {/* Clean Floating White Card */}
+                      <div className="w-[360px] sm:w-[440px] rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-3 shadow-[0_20px_45px_rgba(15,23,42,0.12),0_2px_8px_rgba(15,23,42,0.04)] text-slate-900">
+                        {/* Header Label */}
+                        <div className="flex items-center justify-between px-2.5 pb-2 mb-1.5 border-b border-slate-100">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#1E4ED8]">
+                            {item.label}
+                          </span>
+                          <span className="text-[10px] text-slate-400 font-medium">
+                            {item.children?.length} sections
+                          </span>
+                        </div>
+
+                        {/* Items Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                          {item.children?.map((child) => {
+                            const isChildActive = pathname === child.href
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => setOpenMenu(null)}
+                                className={cn(
+                                  'group/link flex flex-col justify-center rounded-xl px-2.5 py-2 transition-all duration-150 hover:bg-slate-50 hover:translate-x-0.5',
+                                  isChildActive && 'bg-blue-50/70 text-[#1E4ED8]'
+                                )}
+                              >
+                                <div className="flex items-center justify-between gap-1">
+                                  <span className="text-[13px] font-semibold text-slate-800 group-hover/link:text-[#1E4ED8] transition-colors truncate">
+                                    {child.label}
+                                  </span>
+                                  {child.phase === 2 && (
+                                    <span className="rounded bg-slate-100 px-1 py-0.2 text-[8.5px] font-bold text-slate-500 shrink-0">
+                                      P2
+                                    </span>
+                                  )}
+                                </div>
+                                {child.desc && (
+                                  <p className="line-clamp-1 text-[11px] leading-normal text-slate-500 group-hover/link:text-slate-600 mt-0.5 font-normal">
+                                    {child.desc}
+                                  </p>
+                                )}
+                              </Link>
+                            )
+                          })}
+                        </div>
+
+                        {/* Footer Explore CTA */}
+                        {item.ctaCard && (
+                          <div className="mt-2 pt-2 border-t border-slate-100 px-2 flex items-center justify-between">
+                            <span className="text-[11px] text-slate-500 font-medium truncate max-w-[240px]">
+                              {item.ctaCard.eyebrow || 'Peers Global'}
+                            </span>
+                            <Link
+                              href={item.ctaCard.ctaHref}
+                              onClick={() => setOpenMenu(null)}
+                              className="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#1E4ED8] hover:text-[#1a42c0] transition-colors"
+                            >
+                              <span>{item.ctaCard.ctaText || 'Explore →'}</span>
+                            </Link>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )
             })}
@@ -212,11 +283,11 @@ export function SiteHeader() {
 
           {/* Right Side Action: ENTER PEERS GLOBAL */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Primary Golden Pill CTA */}
+            {/* Primary Blue Pill CTA */}
             <Link
               href="/apply"
               onMouseEnter={() => setOpenMenu(null)}
-              className="inline-flex items-center justify-center gap-1.5 bg-[#f5b82e] hover:bg-[#ffc233] text-[#071324] font-bold text-xs tracking-tight px-5 py-2.5 rounded-full shadow-[0_2px_12px_rgba(245,184,46,0.35)] transition-all whitespace-nowrap active:scale-95 hover:shadow-[0_4px_16px_rgba(245,184,46,0.5)]"
+              className="inline-flex items-center justify-center gap-1.5 bg-[#1E4ED8] hover:bg-[#1a42c0] text-white font-bold text-xs tracking-tight px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(30,78,216,0.25)] transition-all whitespace-nowrap active:scale-95 hover:shadow-[0_6px_18px_rgba(30,78,216,0.35)]"
             >
               <span>ENTER PEERS GLOBAL</span>
               <ArrowRight className="size-3.5" />
@@ -228,7 +299,7 @@ export function SiteHeader() {
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
               aria-expanded={mobileMenuOpen}
-              className="flex size-9 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white lg:hidden hover:bg-white/20 focus:outline-none"
+              className="flex size-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-700 lg:hidden hover:bg-slate-100 focus:outline-none"
             >
               {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
@@ -236,131 +307,22 @@ export function SiteHeader() {
         </div>
 
         {/* =================================================================== */}
-        {/* 3. SHARED SUBMENU CONTAINER (Smooth Cross-Fade Between Menus)       */}
-        {/* Zero flicker, unified positioning, continuous smooth transitions    */}
-        {/* =================================================================== */}
-        <div
-          onMouseEnter={keepMenuOpen}
-          onMouseLeave={handleMouseLeave}
-          className={cn(
-            'absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]',
-            openMenu
-              ? 'opacity-100 translate-y-0 pointer-events-auto visible'
-              : 'opacity-0 -translate-y-2 pointer-events-none invisible'
-          )}
-        >
-          {/* Invisible hit bridge to prevent mouse leaving while moving down */}
-          <div className="absolute -top-3 left-0 right-0 h-4 bg-transparent" />
-
-          {/* Unified Submenu Glass Card (Stays mounted so it never flickers) */}
-          <div className="w-[48rem] xl:w-[52rem] rounded-2xl border border-white/15 bg-[#071324]/98 backdrop-blur-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.7),0_0_30px_rgba(12,32,61,0.6)] text-white relative min-h-[300px]">
-            {HEADER_NAV.filter((item) => item.children && item.children.length > 0).map(
-              (item) => {
-                const isCurrent = openMenu === item.label
-                return (
-                  <div
-                    key={item.label}
-                    className={cn(
-                      'transition-all duration-250 ease-out',
-                      isCurrent
-                        ? 'opacity-100 translate-y-0 pointer-events-auto relative z-10'
-                        : 'opacity-0 translate-y-1 pointer-events-none absolute inset-6'
-                    )}
-                  >
-                    <div className="grid grid-cols-12 gap-6">
-                      {/* Links Grid (7 cols) */}
-                      <div className="col-span-7 xl:col-span-8">
-                        <div className="mb-3 flex items-center justify-between border-b border-white/10 pb-2">
-                          <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400">
-                            {item.label} Directory
-                          </span>
-                          <span className="text-[10px] text-gray-400">
-                            {item.children?.length} sections
-                          </span>
-                        </div>
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                          {item.children?.map((child) => {
-                            const isChildActive = pathname === child.href
-                            return (
-                              <Link
-                                key={child.href}
-                                href={child.href}
-                                onClick={() => setOpenMenu(null)}
-                                className={cn(
-                                  'group/link flex flex-col rounded-lg p-2 transition-all duration-150 hover:bg-white/10 hover:translate-x-0.5',
-                                  isChildActive && 'bg-white/10'
-                                )}
-                              >
-                                <div className="flex items-center gap-1.5 text-[13px] font-medium text-gray-100 group-hover/link:text-sky-300">
-                                  <span>{child.label}</span>
-                                  {child.phase === 2 ? (
-                                    <span className="rounded bg-white/10 px-1.5 py-0.2 text-[9px] font-semibold text-gray-400">
-                                      P2
-                                    </span>
-                                  ) : null}
-                                </div>
-                                <p className="line-clamp-1 text-[11px] leading-snug text-gray-400 group-hover/link:text-gray-200">
-                                  {child.desc}
-                                </p>
-                              </Link>
-                            )
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Visual CTA Panel (Right Side, 5 cols) */}
-                      {item.ctaCard ? (
-                        <div className="col-span-5 xl:col-span-4 flex flex-col justify-between rounded-xl bg-gradient-to-br from-[#0c203d] via-[#08172c] to-[#040d1a] p-5 border border-white/10 shadow-lg">
-                          <div>
-                            {item.ctaCard.eyebrow ? (
-                              <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#e5b850]">
-                                {item.ctaCard.eyebrow}
-                              </span>
-                            ) : null}
-                            <h4 className="mt-1 text-sm font-bold leading-snug text-white">
-                              {item.ctaCard.title}
-                            </h4>
-                            <p className="mt-2 text-[11px] leading-relaxed text-gray-300">
-                              {item.ctaCard.desc}
-                            </p>
-                          </div>
-
-                          <div className="mt-4 pt-4 border-t border-white/10">
-                            <Link
-                              href={item.ctaCard.ctaHref}
-                              onClick={() => setOpenMenu(null)}
-                              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#e5b850] hover:text-white transition-colors"
-                            >
-                              <span>{item.ctaCard.ctaText}</span>
-                            </Link>
-                          </div>
-                        </div>
-                      ) : null}
-                    </div>
-                  </div>
-                )
-              }
-            )}
-          </div>
-        </div>
-
-        {/* =================================================================== */}
-        {/* 4. MOBILE DRAWER NAVIGATION                                         */}
+        {/* 3. MOBILE DRAWER NAVIGATION                                         */}
         {/* =================================================================== */}
         {mobileMenuOpen ? (
-          <div className="lg:hidden border-t border-white/10 bg-[#071324]/98 backdrop-blur-xl px-4 py-5 shadow-2xl text-white animate-in slide-in-from-top-2 duration-200">
-            <div className="mb-4 flex flex-col gap-2.5 border-b border-white/15 pb-4">
+          <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 py-5 shadow-2xl text-slate-800 animate-in slide-in-from-top-2 duration-200">
+            <div className="mb-4 flex flex-col gap-2.5 border-b border-slate-200 pb-4">
               <Link
                 href="/apply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full bg-[#f5b82e] py-3 text-xs font-bold tracking-wider text-[#071324] shadow-md"
+                className="flex items-center justify-center gap-2 rounded-full bg-[#1E4ED8] py-3 text-xs font-bold tracking-wider text-white shadow-md"
               >
                 <span>ENTER PEERS GLOBAL</span>
                 <ArrowRight className="size-4" />
               </Link>
             </div>
 
-            <div className="flex flex-col divide-y divide-white/10">
+            <div className="flex flex-col divide-y divide-slate-100">
               {HEADER_NAV.map((item) => {
                 const isAccordionOpen = mobileAccordion === item.label
                 const hasChildren = Boolean(item.children && item.children.length > 0)
@@ -371,10 +333,10 @@ export function SiteHeader() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="py-3 text-[14px] font-semibold text-white/90 hover:text-white flex items-center justify-between"
+                      className="py-3 text-[14px] font-semibold text-slate-800 hover:text-[#1E4ED8] flex items-center justify-between"
                     >
                       <span>{item.label}</span>
-                      <ArrowRight className="size-3.5 text-gray-400" />
+                      <ArrowRight className="size-3.5 text-slate-400" />
                     </Link>
                   )
                 }
@@ -384,29 +346,29 @@ export function SiteHeader() {
                     <button
                       type="button"
                       onClick={() => toggleMobileAccordion(item.label)}
-                      className="flex w-full items-center justify-between py-2 text-left text-[14px] font-semibold text-white/90 focus:outline-none"
+                      className="flex w-full items-center justify-between py-2 text-left text-[14px] font-semibold text-slate-800 focus:outline-none"
                     >
                       <span>{item.label}</span>
                       <ChevronDown
                         className={cn(
-                          'size-4 text-gray-400 transition-transform duration-200',
-                          isAccordionOpen && 'rotate-180 text-sky-400'
+                          'size-4 text-slate-400 transition-transform duration-200',
+                          isAccordionOpen && 'rotate-180 text-[#1E4ED8]'
                         )}
                       />
                     </button>
 
                     {isAccordionOpen && hasChildren ? (
-                      <ul className="mt-1 flex flex-col gap-1.5 pl-3 pb-3 border-l border-sky-400/40 ml-1">
+                      <ul className="mt-1 flex flex-col gap-1.5 pl-3 pb-3 border-l border-blue-200 ml-1">
                         {item.children?.map((child) => (
                           <li key={child.href}>
                             <Link
                               href={child.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block py-1 text-[13px] text-gray-300 hover:text-white"
+                              className="block py-1 text-[13px] text-slate-600 hover:text-[#1E4ED8]"
                             >
                               <span>{child.label}</span>
                               {child.phase === 2 ? (
-                                <span className="ml-1.5 rounded bg-white/10 px-1.5 py-0.2 text-[9px] font-semibold text-gray-400">
+                                <span className="ml-1.5 rounded bg-slate-100 px-1.5 py-0.2 text-[9px] font-semibold text-slate-500">
                                   P2
                                 </span>
                               ) : null}
