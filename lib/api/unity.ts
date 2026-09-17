@@ -47,89 +47,107 @@ export interface RegisterVisitorPayload {
 
 export async function fetchEvents(status: 'all' | 'upcoming' | 'live' | 'today' = 'all'): Promise<PeerEvent[]> {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/v1/events/all?status=${status}`, {
-      headers: { 'Accept': 'application/json' },
-      next: { revalidate: 10 },
-      signal: AbortSignal.timeout(3500),
-    });
     let apiEvents: PeerEvent[] = [];
-    if (res.ok) {
-      const json = await res.json();
-      const data = json.data || json;
-      apiEvents = [
-        ...(data.live_events || []),
-        ...(data.today_events || []),
-        ...(data.upcoming_events || []),
-        ...(data.past_events || []),
-        ...(data.events || []),
-      ];
+
+    // 1. Fetch from local Next.js database API (/api/events)
+    try {
+      const localRes = await fetch('/api/events', {
+        headers: { 'Accept': 'application/json' },
+        cache: 'no-store',
+      });
+      if (localRes.ok) {
+        const localJson = await localRes.json();
+        const rawList = localJson.data || localJson.allEvents || [];
+        if (Array.isArray(rawList) && rawList.length > 0) {
+          apiEvents = rawList.map((e: any) => ({
+            event_id: e.slug || String(e.id || Math.random()),
+            occurrence_id: e.occurrence_id || null,
+            title: e.title,
+            description: e.summary || (Array.isArray(e.body) ? e.body[0] : e.body) || '',
+            event_type: e.kind || 'circle_event',
+            event_category: e.kind || 'Circle Meeting',
+            mode: (e.city || '').toLowerCase() === 'online' ? 'virtual' : 'in_person',
+            start_at: e.isoDate || new Date().toISOString(),
+            end_at: null,
+            formatted_start_at: `${e.date} ${e.time || ''}`.trim(),
+            status: e.status || 'upcoming',
+            registered_count: e.attending || 35,
+            image_url: e.image_url || '/images/conclave.png',
+            location: `${e.venue || 'Peers Global House'}, ${e.city || 'Ahmedabad'}`,
+            meeting_link: null,
+            circle: {
+              id: e.circles?.[0] || 'circle-1',
+              name: e.circle_name || 'Peers Global Circle',
+              slug: e.circles?.[0] || 'peers-circle',
+              state_name: 'Gujarat',
+            },
+          }));
+        }
+      }
+    } catch {
+      // Ignore client/server fetch environment differences
     }
 
-    // Default static/fallback events matching Unity portal (Realty One Meet, MSME One Meet) to ensure full continuity
+    // 2. Fetch from Unity remote API if needed
+    if (apiEvents.length === 0) {
+      const res = await fetch(`${API_BASE_URL}/api/v1/events/all?status=${status}`, {
+        headers: { 'Accept': 'application/json' },
+        next: { revalidate: 10 },
+        signal: AbortSignal.timeout(3500),
+      }).catch(() => null);
+
+      if (res && res.ok) {
+        const json = await res.json();
+        const data = json.data || json;
+        apiEvents = [
+          ...(data.live_events || []),
+          ...(data.today_events || []),
+          ...(data.upcoming_events || []),
+          ...(data.past_events || []),
+          ...(data.events || []),
+        ];
+      }
+    }
+
+    // If live API returned events, return them directly
+    if (apiEvents.length > 0) {
+      if (status === 'upcoming') {
+        return apiEvents.filter(e => e.status === 'upcoming' || e.status === 'published' || e.status === 'active' || e.status === 'scheduled');
+      }
+      return apiEvents;
+    }
+
+    // Default static/fallback events matching Unity portal
     const defaultEvents: PeerEvent[] = [
       {
-        event_id: 'realty-one-meet-2026',
-        occurrence_id: 'realty-one-meet-occ-1',
-        title: 'Realty One Meet',
-        description: 'Exclusive real estate developer and infrastructure promoter networking and strategy session.',
-        event_type: 'circle_event',
-        event_category: 'Real Estate',
+        event_id: 'healthcare-one-2026',
+        occurrence_id: 'healthcare-one-occ-1',
+        title: 'Healthcare One 2026',
+        description: 'The flagship healthcare-business conclave of the Peers Global Healthcare Circle. 400+ promoters.',
+        event_type: 'Conclave',
+        event_category: 'Healthcare',
         mode: 'in_person',
-        start_at: '2026-07-23T18:00:00.000000Z',
-        end_at: '2026-07-23T21:00:00.000000Z',
-        formatted_start_at: '23 Jul 2026 06:00 PM',
-        status: 'completed',
-        registered_count: 5,
-        image_url: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop',
-        location: 'Peer House, Ahmedabad, Gujarat',
+        start_at: '2026-07-30T09:00:00.000000Z',
+        end_at: '2026-07-30T18:30:00.000000Z',
+        formatted_start_at: '30 Jul 2026 09:00 AM',
+        status: 'upcoming',
+        registered_count: 412,
+        image_url: '/images/conclave.png',
+        location: 'Courtyard by Marriott, Satellite, Ahmedabad',
         meeting_link: null,
         circle: {
-          id: 'realty-one-circle',
-          name: 'Realty ONE',
-          slug: 'realty-one',
-          state_name: 'Gujarat',
-        },
-      },
-      {
-        event_id: 'msme-one-meet-2026',
-        occurrence_id: 'msme-one-meet-occ-1',
-        title: 'MSME One Meet',
-        description: 'Cross-industry MSME leadership gathering focused on scaling supply chains and institutional funding.',
-        event_type: 'circle_event',
-        event_category: 'MSME & Industry',
-        mode: 'in_person',
-        start_at: '2026-07-14T08:00:00.000000Z',
-        end_at: '2026-07-14T11:00:00.000000Z',
-        formatted_start_at: '14 Jul 2026 08:00 AM',
-        status: 'completed',
-        registered_count: 3,
-        image_url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop',
-        location: 'Crowne Plaza, Ahmedabad, Gujarat',
-        meeting_link: null,
-        circle: {
-          id: 'msme-one-circle',
-          name: 'MSME ONE Ahmedabad',
-          slug: 'msme-one',
+          id: 'healthcare-circle',
+          name: 'Healthcare Circle',
+          slug: 'healthcare',
           state_name: 'Gujarat',
         },
       },
     ];
 
-    // Combine API events and default catalog, filtering duplicates by title/id
-    const combinedMap = new Map<string, PeerEvent>();
-
-    apiEvents.forEach((ev) => {
-      if (ev.title) combinedMap.set(ev.title.toLowerCase().trim(), ev);
-    });
-
-    defaultEvents.forEach((ev) => {
-      const key = ev.title.toLowerCase().trim();
-      if (!combinedMap.has(key)) {
-        combinedMap.set(key, ev);
-      }
-    });
-
-    return Array.from(combinedMap.values());
+    if (status === 'upcoming') {
+      return defaultEvents.filter(e => e.status === 'upcoming' || e.status === 'published' || e.status === 'active');
+    }
+    return defaultEvents;
   } catch (error) {
     console.error('Failed to fetch events:', error);
     return [];

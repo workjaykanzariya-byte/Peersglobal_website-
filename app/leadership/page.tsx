@@ -1,125 +1,98 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Shield, Users, Briefcase, Award } from 'lucide-react'
-import { Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
-import { SITE } from '@/lib/data/site'
+import { LeadershipLadderClient } from '@/components/leadership/leadership-ladder-client'
 
 export const metadata: Metadata = {
-  title: 'Leadership Opportunities | Peers Global',
+  title: 'Leadership at Peers Global | Built and Led by Entrepreneurs',
   description:
-    'Every leader in Peers Global runs a business of their own. Explore our operator-led leadership pipeline from Leadership Team to Circle Founder and Executive Director.',
+    'Leadership at Peers Global is earned through contribution. Circle Founder, Circle Director, Industry Director, Regional Executive Director — and who you become in each.',
+  keywords: [
+    'business community leadership roles',
+    'become a circle founder',
+    'entrepreneur leadership development India',
+    'business community director',
+    'circle director roles',
+    'regional executive director',
+    'influence without authority',
+  ],
+  alternates: {
+    canonical: 'https://peersglobal.com/leadership',
+  },
+  openGraph: {
+    title: 'Leadership at Peers Global | Built and Led by Entrepreneurs',
+    description:
+      'Influence is not given. It is built, one act of service at a time. Explore the leadership ladder at Peers Global.',
+    url: 'https://peersglobal.com/leadership',
+    type: 'website',
+    images: [
+      {
+        url: '/images/leadership-mountain-hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Leaders helping leaders climb the mountain ridge at sunrise',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Leadership at Peers Global | Built and Led by Entrepreneurs',
+    description:
+      'Influence is not given. It is built, one act of service at a time. Explore the leadership ladder at Peers Global.',
+    images: ['/images/leadership-mountain-hero.jpg'],
+  },
 }
 
 export default function LeadershipPage() {
-  const rolesTable = [
-    { role: 'Member', action: 'Participates, contributes, collaborates.' },
-    { role: 'Leadership Team', action: 'Functional roles inside a circle — recognition, showcase, learning, onboarding.' },
-    { role: 'Circle Director', action: 'Runs one circle. Accountable for meeting quality, attendance and renewals.' },
-    { role: 'Circle Founder', action: 'Starts a new circle and builds it to viable size (25–50 members).' },
-    { role: 'Industry Director', action: 'Develops every circle in one industry across a territory.' },
-    { role: 'Executive Director', action: 'Builds the Peers Global ecosystem across a city, region or country.' },
-    { role: 'Country Head', action: 'Leads national and international development.' },
-  ]
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Leadership at Peers Global',
+    description:
+      'Leadership at Peers Global is earned through contribution. Circle Founder, Circle Director, Industry Director, Regional Executive Director — and who you become in each.',
+    url: 'https://peersglobal.com/leadership',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Circle Founder',
+          description: 'You build the room that does not exist yet. Define purpose, convene founders, set culture.',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Circle Director',
+          description: 'You hold the standard. Runs the Circle month on month, mentors Chairs and Leaders.',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Industry Director',
+          description: 'Sector ecosystem owner for the city. Holds one industry across every Circle in it.',
+        },
+        {
+          '@type': 'ListItem',
+          position: 4,
+          name: 'Regional Executive Director',
+          description: 'Regional ecosystem builder carrying an Area, District, State or Country territory.',
+        },
+        {
+          '@type': 'ListItem',
+          position: 5,
+          name: 'Global Leadership',
+          description: 'Shape global strategy, represent Peers Global internationally, and build ecosystem partnerships.',
+        },
+      ],
+    },
+  }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      {/* 1. Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0b1b3a] via-[#122347] to-[#0b1b3a] text-white pt-20 pb-20 border-b border-[var(--border)]">
-        <div className="absolute -top-24 -left-24 size-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
-        <div className="absolute top-10 right-10 size-80 rounded-full bg-[#D4AF37]/15 blur-3xl pointer-events-none" />
-
-        <div className="shell relative z-10 flex flex-col gap-6 max-w-4xl mx-auto text-center">
-          <Eyebrow tone="gold">OPERATOR-LED GOVERNANCE</Eyebrow>
-          <h1 className="display text-3xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-snug">
-            Every leader in Peers Global runs a business of their own.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#D4AF37] to-amber-400">
-              Nobody here is staff.
-            </span>
-          </h1>
-          <p className="text-lg sm:text-xl text-white/90 leading-relaxed font-light max-w-3xl mx-auto">
-            Leadership at Peers Global is built by operators, for operators. If you are the person who naturally connects others, this is a role, not a personality trait.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Cta href="/contact?intent=leadership" variant="gold" size="lg">Explore Circle Leadership</Cta>
-            <Cta href="/contact?intent=franchise" variant="onDark" size="lg">Franchise & Territory Options</Cta>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. How Members Lead (Table of 7 Roles) */}
-      <section className="section py-16 border-b border-[var(--border)]">
-        <div className="shell flex flex-col gap-10 max-w-4xl mx-auto">
-          <SectionHead
-            eyebrow="The Leadership Pipeline"
-            title="How members lead"
-            lede="Seven defined roles across the ecosystem, each with clear ownership and published governance."
-            align="center"
-          />
-
-          <div className="surface border border-[var(--border)] bg-card rounded-3xl overflow-hidden shadow-sm">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm border-collapse">
-                <thead>
-                  <tr className="border-b border-[var(--border)] bg-muted/50 font-mono text-xs text-muted-foreground uppercase">
-                    <th className="p-4 sm:p-5">Leadership Role</th>
-                    <th className="p-4 sm:p-5">What They Do</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[var(--border)]">
-                  {rolesTable.map((r, idx) => (
-                    <tr key={idx} className="hover:bg-muted/30 transition-colors">
-                      <td className="p-4 sm:p-5 font-bold text-foreground shrink-0">{r.role}</td>
-                      <td className="p-4 sm:p-5 text-muted-foreground">{r.action}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Deep Dive into Leadership Rungs */}
-      <section className="section py-16 bg-muted/30 border-b border-[var(--border)]">
-        <div className="shell flex flex-col gap-12 max-w-4xl mx-auto">
-          <SectionHead
-            eyebrow="Core Leadership Paths"
-            title="Ownership, governance, and real accountability"
-            align="center"
-          />
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="surface p-8 border border-[var(--border)] bg-card rounded-3xl flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="flex size-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                  <Users className="size-5" />
-                </div>
-                <h3 className="display text-xl font-bold text-foreground">Circle Director (CD)</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Runs one circle. Accountable for meeting quality, attendance, and membership renewals. Holds the 150-minute meeting format strictly to time and oversees room governance.
-              </p>
-            </div>
-
-            <div className="surface p-8 border border-amber-500/30 bg-card rounded-3xl flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="flex size-10 items-center justify-center rounded-2xl bg-[#D4AF37]/10 text-[#D4AF37]">
-                  <Briefcase className="size-5" />
-                </div>
-                <h3 className="display text-xl font-bold text-foreground">Circle Founder (CF)</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Starts a new circle in a city and builds it to a viable size of 25–50 non-competing entrepreneurs. Leads category seat allocation and cohort induction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Final CTA */}
-      <ClosingCtaSection />
-
-
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <LeadershipLadderClient />
+    </>
   )
 }
