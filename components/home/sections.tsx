@@ -136,8 +136,8 @@ export function WhoWeAreSection() {
               if (e.key === 'Enter' || e.key === ' ') handleReveal()
             }}
             className={`group relative min-h-[360px] sm:min-h-[440px] w-full cursor-pointer overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 p-8 sm:p-14 flex items-center justify-center text-center shadow-sm transition-all duration-700 select-none hover:border-blue-200 hover:shadow-md ${isTransitioning
-                ? 'opacity-0 scale-95 pointer-events-none'
-                : 'opacity-100 scale-100'
+              ? 'opacity-0 scale-95 pointer-events-none'
+              : 'opacity-100 scale-100'
               }`}
           >
             {/* Center Content: "Strong Together" & "click here" in Logo Blue & Script Font */}
@@ -1819,15 +1819,6 @@ export function LsrSection() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {/* Left Nav Arrow Button */}
-            <button
-              type="button"
-              onClick={handlePrev}
-              aria-label="Previous card"
-              className="absolute -left-3 sm:-left-6 lg:-left-7 top-1/2 -translate-y-1/2 z-40 flex size-11 sm:size-12 items-center justify-center rounded-full bg-white/95 text-slate-800 shadow-[0_8px_30px_rgba(0,0,0,0.3)] border border-slate-700/80 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-cyan-500 hover:text-slate-950 hover:border-cyan-400 active:scale-95 focus:outline-none"
-            >
-              <ChevronLeft className="size-5" />
-            </button>
 
             {/* Right Nav Arrow Button */}
             <button
@@ -1838,6 +1829,7 @@ export function LsrSection() {
             >
               <ChevronRight className="size-5" />
             </button>
+
 
             {/* Stage Container with 3D perspective & cascading cards */}
             <div
@@ -1975,8 +1967,8 @@ export function LsrSection() {
                   onClick={() => setActiveIndex(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
                   className={`h-1.5 transition-all duration-300 rounded-full ${activeIndex === idx
-                      ? 'w-7 bg-cyan-400 shadow-[0_0_10px_#38bdf8]'
-                      : 'w-4 bg-slate-700 hover:bg-slate-600'
+                    ? 'w-7 bg-cyan-400 shadow-[0_0_10px_#38bdf8]'
+                    : 'w-4 bg-slate-700 hover:bg-slate-600'
                     }`}
                 />
               ))}
@@ -2110,41 +2102,6 @@ export function OutcomesSection() {
     },
   ]
 
-  const outcomeCards = [
-    {
-      icon: Users,
-      iconBg: 'bg-[#0066FF] text-white',
-      cardBg: 'bg-[#EEF5FF] border-blue-200/70',
-      value: '1 Action',
-      label: '= 1 Life Impacted',
-      note: 'Strictly unweighted & confirmed',
-    },
-    {
-      icon: CalendarDays,
-      iconBg: 'bg-[#F59E0B] text-white',
-      cardBg: 'bg-[#FFF9EE] border-amber-200/70',
-      value: '12',
-      label: 'Meetings / Year',
-      note: 'Governed monthly inner board sessions',
-    },
-    {
-      icon: Network,
-      iconBg: 'bg-[#10B981] text-white',
-      cardBg: 'bg-[#F0FAF4] border-emerald-200/70',
-      value: '60+',
-      label: 'Roundtables / Year',
-      note: 'Problem solving & strategic partnerships',
-    },
-    {
-      icon: Link2,
-      iconBg: 'bg-[#8B5CF6] text-white',
-      cardBg: 'bg-[#F6F3FF] border-purple-200/70',
-      value: '150+',
-      label: 'Introductions / Year',
-      note: 'Warm, trusted peer connections',
-    },
-  ]
-
   const suggestedPeers = [
     {
       name: 'NIKITA DESHAVAL',
@@ -2201,7 +2158,7 @@ export function OutcomesSection() {
           <span className="block mr-8 font-semibold">Impact</span>
           <svg
             viewBox="0 0 160 14"
-            className="w-40 sm:w-48 mt-1 stroke-[#0066FF]/70 fill-none ml-auto"
+            className="w-40 sm:w-48 mt-1.5 stroke-sky-500 fill-none ml-auto"
             strokeWidth="2.5"
             strokeLinecap="round"
           >
@@ -2211,8 +2168,8 @@ export function OutcomesSection() {
       </div>
 
       <div className="shell relative z-10 max-w-7xl">
-        {/* Main 3-Column Layout Grid */}
-        <div className="grid gap-12 lg:grid-cols-[32%_42%_26%] xl:grid-cols-[31%_43%_26%] items-center">
+        {/* Main 2-Column Layout Grid */}
+        <div className="grid gap-12 lg:grid-cols-[46%_54%] xl:grid-cols-[45%_55%] items-center pt-8 sm:pt-14">
 
           {/* =========================================================================
              COLUMN 1: Left Copy, 5 Bullets with Circular Icons & CTA
@@ -2274,7 +2231,7 @@ export function OutcomesSection() {
           {/* =========================================================================
              COLUMN 2: Center 2 Overlapping Phones + Floating Badge with Curved Arrow
              ========================================================================= */}
-          <div className="relative flex items-center justify-center py-4 lg:py-6 min-h-[580px]">
+          <div className="relative flex items-center justify-center py-6 sm:py-8 lg:py-10 min-h-[560px] mt-6 sm:mt-10">
 
             {/* 1. Left Phone (Profile View - Vishal Parmar) */}
             <div className="relative z-10 w-[240px] sm:w-[260px] rounded-[36px] p-2 bg-slate-900 border-[3px] border-slate-700 shadow-[0_20px_50px_rgba(15,23,42,0.22)] transform -rotate-2 -mr-16 sm:-mr-20 lg:-mr-24 scale-95 sm:scale-100">
@@ -2549,36 +2506,6 @@ export function OutcomesSection() {
               <path d="M 80 40 L 90 45 L 85 53" />
             </svg>
 
-          </div>
-
-          {/* =========================================================================
-             COLUMN 3: Right Stack of 4 Colored Metric Cards
-             ========================================================================= */}
-          <div className="flex flex-col gap-3.5">
-            {outcomeCards.map((card, idx) => {
-              const CardIcon = card.icon
-              return (
-                <div
-                  key={idx}
-                  className={`rounded-2xl border ${card.cardBg} p-4 sm:p-5 flex items-center gap-4 transition-all duration-300 hover:-translate-y-0.5 shadow-xs`}
-                >
-                  <div className={`flex size-11 shrink-0 items-center justify-center rounded-2xl ${card.iconBg} shadow-xs`}>
-                    <CardIcon className="size-5" />
-                  </div>
-                  <div>
-                    <span className="block text-2xl font-black tracking-tight text-slate-900 leading-none">
-                      {card.value}
-                    </span>
-                    <span className="block text-xs sm:text-sm font-bold text-slate-800 mt-1">
-                      {card.label}
-                    </span>
-                    <span className="block text-[11px] text-slate-500 mt-0.5">
-                      {card.note}
-                    </span>
-                  </div>
-                </div>
-              )
-            })}
           </div>
 
         </div>
@@ -3180,9 +3107,8 @@ export function StoriesSection() {
                     onClick={() => setActiveDot(dot)}
                     type="button"
                     aria-label={`Go to page ${dot + 1}`}
-                    className={`size-2.5 rounded-full transition-all duration-300 ${
-                      activeDot === dot ? 'bg-[#1E4ED8] ring-4 ring-blue-100 scale-110' : 'bg-sky-200 hover:bg-sky-300'
-                    }`}
+                    className={`size-2.5 rounded-full transition-all duration-300 ${activeDot === dot ? 'bg-[#1E4ED8] ring-4 ring-blue-100 scale-110' : 'bg-sky-200 hover:bg-sky-300'
+                      }`}
                   />
                 ))}
               </div>
