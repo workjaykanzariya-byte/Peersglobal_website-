@@ -3,9 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Montserrat, Poppins, Dancing_Script, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import { DesignProvider, DesignScript } from '@/components/design/design-provider'
 import { DesignSwitcher } from '@/components/design/design-switcher'
-import { SiteFooter } from '@/components/site/site-footer'
-import { SiteHeader } from '@/components/site/site-header'
-import { GlobalFloatingTrigger } from '@/components/site/global-floating-trigger'
+import { SiteShell } from '@/components/site/site-shell'
 import './globals.css'
 
 const poppins = Poppins({
@@ -95,10 +93,7 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <SiteHeader />
-          <main id="main">{children}</main>
-          <SiteFooter />
-          <GlobalFloatingTrigger />
+          <SiteShell>{children}</SiteShell>
         </DesignProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

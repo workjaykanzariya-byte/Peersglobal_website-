@@ -21,6 +21,10 @@ import {
   FileCheck2,
   Globe2,
   ExternalLink,
+  FolderTree,
+  FileText,
+  Image as ImageIcon,
+  MonitorPlay,
 } from 'lucide-react'
 import { useAdminAuth } from '@/components/admin/admin-auth-context'
 
@@ -28,51 +32,69 @@ export default function NextGenAdminDashboard() {
   const { user } = useAdminAuth()
   const [activeGrowthTime, setActiveGrowthTime] = useState('Last 6 Months')
 
+  // Quick Action Hub Items (Strictly matching Platform Menu Items)
+  const quickNavs = [
+    { label: 'Partnerships', href: '/admin/partnerships', icon: Handshake, color: 'text-blue-500 bg-blue-50 hover:bg-blue-100/80' },
+    { label: 'Opportunities', href: '/admin/opportunities', icon: Compass, color: 'text-emerald-500 bg-emerald-50 hover:bg-emerald-100/80' },
+    { label: 'Companies', href: '/admin/companies', icon: Building2, color: 'text-amber-500 bg-amber-50 hover:bg-amber-100/80' },
+    { label: 'Publications', href: '/admin/blogs', icon: FileText, color: 'text-rose-500 bg-rose-50 hover:bg-rose-100/80' },
+    { label: 'Media Library', href: '/admin/media', icon: ImageIcon, color: 'text-cyan-500 bg-cyan-50 hover:bg-cyan-100/80' },
+    { label: 'Page Medias', href: '/admin/page-media', icon: MonitorPlay, color: 'text-purple-500 bg-purple-50 hover:bg-purple-100/80' },
+  ]
+
   // 4. KPI CARDS DATA
   const kpiCards = [
     {
-      title: 'Total Partners',
+      title: 'TOTAL PEERS',
       value: '1,248',
       change: '+12%',
       isPositive: true,
-      desc: 'from last month',
+      desc: 'Registered directory',
       icon: Users,
-      color: 'from-[#1769FF] to-[#08C7E8]',
+      iconColor: 'bg-blue-50 text-blue-500',
+      badgeClass: 'bg-blue-50 text-blue-600',
+      sparkColor: '#3B82F6',
+      accentLine: 'from-blue-500 to-indigo-500',
       sparkline: 'M0,25 Q20,5 40,18 T80,8 T120,20 T160,4',
-      bgGlow: 'bg-[#1769FF]/5 border-[#1769FF]/20',
     },
     {
-      title: 'Active Partnerships',
+      title: 'ACTIVE CIRCLES',
       value: '86',
-      change: '+18%',
+      change: '● Healthy',
       isPositive: true,
-      desc: 'cross-border deals',
+      desc: 'Operational hubs',
       icon: Handshake,
-      color: 'from-[#08C7E8] to-[#00A3C4]',
+      iconColor: 'bg-emerald-50 text-emerald-500',
+      badgeClass: 'bg-emerald-50 text-emerald-600 border border-emerald-100',
+      sparkColor: '#10B981',
+      accentLine: 'from-emerald-500 to-teal-500',
       sparkline: 'M0,22 Q30,28 60,12 T100,16 T140,5 T160,2',
-      bgGlow: 'bg-[#08C7E8]/5 border-[#08C7E8]/20',
     },
     {
-      title: 'Opportunities',
+      title: 'AWAITING REVIEW',
       value: '342',
-      change: '+24%',
+      change: '● Pending',
       isPositive: true,
-      desc: 'active ventures open',
+      desc: 'Circles awaiting action',
       icon: Compass,
-      color: 'from-[#1769FF] to-[#4F46E5]',
+      iconColor: 'bg-amber-50 text-amber-500',
+      badgeClass: 'bg-amber-50 text-amber-600 border border-amber-100',
+      sparkColor: '#F59E0B',
+      accentLine: 'from-amber-500 to-orange-500',
       sparkline: 'M0,28 Q25,20 50,22 T90,10 T130,8 T160,3',
-      bgGlow: 'bg-indigo-50/50 border-indigo-200/60',
     },
     {
-      title: 'Total Companies',
+      title: 'NEW SIGNUPS',
       value: '276',
-      change: '+15%',
+      change: '⚡ Active',
       isPositive: true,
-      desc: 'verified enterprises',
+      desc: 'Registered today',
       icon: Building2,
-      color: 'from-[#059669] to-[#10B981]',
+      iconColor: 'bg-purple-50 text-purple-500',
+      badgeClass: 'bg-purple-50 text-purple-600 border border-purple-100',
+      sparkColor: '#8B5CF6',
+      accentLine: 'from-purple-500 to-pink-500',
       sparkline: 'M0,24 Q30,16 60,18 T110,8 T140,12 T160,4',
-      bgGlow: 'bg-emerald-50/50 border-emerald-200/60',
     },
   ]
 
@@ -84,7 +106,7 @@ export default function NextGenAdminDashboard() {
       company: 'Zen Cloud Solutions → Apex Logistics',
       time: '12 mins ago',
       type: 'request',
-      color: 'bg-[#1769FF]',
+      color: 'bg-blue-500',
     },
     {
       id: 2,
@@ -92,7 +114,7 @@ export default function NextGenAdminDashboard() {
       company: 'FinEdge Advisory Group (Mumbai Chapter)',
       time: '45 mins ago',
       type: 'partner',
-      color: 'bg-[#08C7E8]',
+      color: 'bg-cyan-500',
     },
     {
       id: 3,
@@ -116,7 +138,7 @@ export default function NextGenAdminDashboard() {
       company: 'Vanguard Aerospace Components',
       time: '6 hours ago',
       type: 'company',
-      color: 'bg-[#07152E]',
+      color: 'bg-slate-700',
     },
   ]
 
@@ -156,7 +178,7 @@ export default function NextGenAdminDashboard() {
       category: 'Capital Synergies',
       status: 'Completed',
       date: 'Sep 14, 2026',
-      statusClass: 'bg-blue-50 text-[#1769FF] border-blue-200',
+      statusClass: 'bg-blue-50 text-blue-700 border-blue-200',
     },
     {
       id: 'PR-8918',
@@ -179,137 +201,107 @@ export default function NextGenAdminDashboard() {
   ]
 
   return (
-    <div className="space-y-8 font-sans pb-12">
-      {/* 3. WELCOME HERO WITH GLOWING GLOBE NETWORK */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#07152E] via-[#0C224A] to-[#07152E] text-white p-8 lg:p-10 shadow-xl shadow-[#07152E]/10 border border-[#0E2854]">
-        {/* Subtle glowing ambient lights */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#1769FF]/20 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 right-10 w-80 h-80 bg-[#08C7E8]/15 blur-[100px] rounded-full pointer-events-none" />
+    <div className="space-y-6 font-sans pb-12">
+      {/* 1. HEADER TITLE BAR (PEERS UNITY STYLE) */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-5 rounded-2xl border border-[#E8ECF4] shadow-xs">
+        <div>
+          <h1 className="text-xl sm:text-2xl font-bold text-[#1E293B] tracking-tight">
+            Dashboard Overview
+          </h1>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Today is Thursday, Sep 17, 2026
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-          <div className="lg:col-span-7 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#08C7E8] text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>World&apos;s First Collaboration Platform</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight font-display text-white">
-              Good Morning, {user?.name || 'Admin'} 👋
-            </h1>
-            <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
-              Here&apos;s what&apos;s happening across your global collaboration network today. You have{' '}
-              <span className="text-[#08C7E8] font-bold">14 new partnership requests</span> requiring your review.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1769FF] to-[#08C7E8] hover:from-[#1357D6] hover:to-[#06ACC8] text-white font-bold text-xs shadow-lg shadow-[#1769FF]/30 transition-all flex items-center gap-2 cursor-pointer">
-                <span>Explore Opportunities</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <Link
-                href="/"
-                target="_blank"
-                className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 backdrop-blur-md text-white border border-white/20 font-semibold text-xs transition flex items-center gap-2"
-              >
-                <span>Live Network View</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#08C7E8]" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Glowing 3D Globe Network Illustration */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
-              {/* Pulsing Orbit Rings */}
-              <div className="absolute inset-0 rounded-full border border-[#1769FF]/30 animate-spin-slow" />
-              <div className="absolute inset-4 rounded-full border border-dashed border-[#08C7E8]/40" />
-              <div className="absolute inset-10 rounded-full border border-[#1769FF]/20" />
-
-              {/* Central Glowing Globe */}
-              <div className="w-36 h-36 rounded-full bg-gradient-to-tr from-[#1769FF] via-[#08C7E8] to-[#07152E] flex items-center justify-center shadow-2xl shadow-[#1769FF]/50 ring-4 ring-[#08C7E8]/20 relative">
-                <Globe2 className="w-20 h-20 text-white/90 stroke-[1.2]" />
-
-                {/* Animated Connection Nodes */}
-                <div className="absolute -top-2 left-6 px-2 py-0.5 rounded-full bg-[#08C7E8] text-[#07152E] font-bold text-[9px] shadow-lg animate-bounce">
-                  Mumbai ↔ London
-                </div>
-                <div className="absolute -bottom-2 right-4 px-2 py-0.5 rounded-full bg-[#1769FF] text-white font-bold text-[9px] shadow-lg">
-                  Dubai Hub
-                </div>
-                <div className="absolute top-1/2 -right-6 px-2 py-0.5 rounded-full bg-emerald-400 text-slate-950 font-bold text-[9px] shadow-lg">
-                  1,248 Nodes
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => window.location.reload()}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-[#E2E8F0] text-slate-700 text-xs font-semibold shadow-xs transition cursor-pointer"
+          >
+            <Clock className="w-3.5 h-3.5 text-slate-400" />
+            <span>Refresh</span>
+          </button>
         </div>
       </div>
 
-      {/* 4. KPI CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* 2. QUICK ACCESS CARDS ROW (IMAGE 2 STYLE) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        {quickNavs.map((item, idx) => {
+          const Icon = item.icon
+          return (
+            <Link
+              key={idx}
+              href={item.href}
+              className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white border border-[#E8ECF4] shadow-xs hover:shadow-md hover:border-slate-300 transition-all text-center group"
+            >
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-2 transition-transform group-hover:scale-110 ${item.color}`}>
+                <Icon className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-semibold text-[#1E293B] group-hover:text-[#4F46E5] transition">
+                {item.label}
+              </span>
+            </Link>
+          )
+        })}
+      </div>
+
+      {/* 3. KPI STAT CARDS WITH ACCENT LINE */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {kpiCards.map((kpi, idx) => {
           const Icon = kpi.icon
           return (
             <div
               key={idx}
-              className="rounded-2xl bg-white border border-[#E2E8F4] p-5 shadow-sm hover:shadow-md hover:border-[#1769FF]/40 transition-all duration-200 group relative overflow-hidden"
+              className="rounded-2xl bg-white border border-[#E8ECF4] p-5 shadow-xs hover:shadow-md transition-all duration-200 relative overflow-hidden flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between mb-3">
-                <div className={`p-2.5 rounded-xl bg-gradient-to-tr ${kpi.color} text-white shadow-md shadow-[#1769FF]/15 group-hover:scale-105 transition-transform`}>
-                  <Icon className="w-5 h-5" />
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{kpi.title}</span>
+                  <div className={`p-2 rounded-xl ${kpi.iconColor}`}>
+                    <Icon className="w-4 h-4" />
+                  </div>
                 </div>
-                <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
-                  <TrendingUp className="w-3 h-3" />
+
+                <div className="mt-1">
+                  <h3 className="text-3xl font-extrabold text-[#1E293B] tracking-tight font-display">
+                    {kpi.value}
+                  </h3>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[11px] text-slate-500 font-medium">{kpi.desc}</span>
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${kpi.badgeClass}`}>
                   {kpi.change}
                 </span>
               </div>
 
-              <div>
-                <p className="text-xs font-semibold text-slate-500">{kpi.title}</p>
-                <div className="flex items-baseline justify-between mt-1">
-                  <h3 className="text-2xl lg:text-3xl font-extrabold text-[#101B35] tracking-tight font-display">
-                    {kpi.value}
-                  </h3>
-                </div>
-                <p className="text-[11px] text-slate-400 mt-1">{kpi.desc}</p>
-              </div>
-
-              {/* Sparkline Visual */}
-              <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-[10px] text-slate-400 font-mono">30D TREND</span>
-                <svg className="w-24 h-6 overflow-visible" viewBox="0 0 160 30">
-                  <path
-                    d={kpi.sparkline}
-                    fill="none"
-                    stroke={idx === 0 ? '#1769FF' : idx === 1 ? '#08C7E8' : idx === 2 ? '#4F46E5' : '#10B981'}
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
+              {/* Bottom Gradient Accent Line */}
+              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${kpi.accentLine}`} />
             </div>
           )
         })}
       </div>
 
-      {/* 5. ANALYTICS SECTION: PARTNERSHIP GROWTH (AREA) & PARTNERSHIP STATUS (DONUT) */}
+      {/* 4. ANALYTICS: PARTNERSHIP GROWTH & STATUS */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Large Partnership Growth Area Chart */}
-        <div className="lg:col-span-8 bg-white border border-[#E2E8F4] rounded-3xl p-6 lg:p-7 shadow-sm space-y-6">
+        <div className="lg:col-span-8 bg-white border border-[#E8ECF4] rounded-2xl p-6 shadow-xs space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h2 className="text-base font-bold text-[#101B35] font-display">Partnership Growth</h2>
+              <h2 className="text-base font-bold text-[#1E293B]">Partnership Growth</h2>
               <p className="text-xs text-slate-500">Monthly cross-border collaborative venture volume</p>
             </div>
 
-            <div className="inline-flex items-center p-1 rounded-xl bg-[#F6F9FF] border border-[#E2E8F4] text-xs">
+            <div className="inline-flex items-center p-1 rounded-xl bg-[#F4F6FB] border border-[#E8ECF4] text-xs">
               {['Last 6 Months', 'Year 2026', 'All Time'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveGrowthTime(tab)}
                   className={`px-3 py-1 rounded-lg font-medium transition cursor-pointer ${
                     activeGrowthTime === tab
-                      ? 'bg-white text-[#1769FF] font-bold shadow-xs'
-                      : 'text-slate-500 hover:text-[#101B35]'
+                      ? 'bg-white text-[#4F46E5] font-bold shadow-xs'
+                      : 'text-slate-500 hover:text-[#1E293B]'
                   }`}
                 >
                   {tab}
@@ -344,9 +336,9 @@ export default function NextGenAdminDashboard() {
               <svg className="w-full h-full relative z-10" viewBox="0 0 600 200" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#1769FF" stopOpacity="0.45" />
-                    <stop offset="60%" stopColor="#08C7E8" stopOpacity="0.15" />
-                    <stop offset="100%" stopColor="#08C7E8" stopOpacity="0.0" />
+                    <stop offset="0%" stopColor="#4F46E5" stopOpacity="0.35" />
+                    <stop offset="60%" stopColor="#818CF8" stopOpacity="0.10" />
+                    <stop offset="100%" stopColor="#818CF8" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
                 {/* Gradient Fill Area */}
@@ -358,15 +350,15 @@ export default function NextGenAdminDashboard() {
                 <path
                   d="M0,170 C100,140 150,150 200,90 C250,30 300,110 380,60 C460,10 520,70 600,20"
                   fill="none"
-                  stroke="#1769FF"
-                  strokeWidth="3.5"
+                  stroke="#4F46E5"
+                  strokeWidth="3"
                   strokeLinecap="round"
                 />
 
                 {/* Highlight Points */}
-                <circle cx="200" cy="90" r="5" fill="#1769FF" className="ring-4 ring-[#1769FF]/20" />
-                <circle cx="380" cy="60" r="5" fill="#08C7E8" className="ring-4 ring-[#08C7E8]/20" />
-                <circle cx="600" cy="20" r="6" fill="#1769FF" />
+                <circle cx="200" cy="90" r="4.5" fill="#4F46E5" className="ring-4 ring-[#4F46E5]/20" />
+                <circle cx="380" cy="60" r="4.5" fill="#818CF8" className="ring-4 ring-[#818CF8]/20" />
+                <circle cx="600" cy="20" r="5" fill="#4F46E5" />
               </svg>
             </div>
 
@@ -383,10 +375,10 @@ export default function NextGenAdminDashboard() {
         </div>
 
         {/* Partnership Status Donut Chart */}
-        <div className="lg:col-span-4 bg-white border border-[#E2E8F4] rounded-3xl p-6 lg:p-7 shadow-sm flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white border border-[#E8ECF4] rounded-2xl p-6 shadow-xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base font-bold text-[#101B35] font-display">Partnership Status</h2>
+              <h2 className="text-base font-bold text-[#1E293B]">Partnership Status</h2>
               <button className="text-slate-400 hover:text-slate-600">
                 <MoreVertical className="w-4 h-4" />
               </button>
@@ -396,33 +388,29 @@ export default function NextGenAdminDashboard() {
             {/* Donut Graphic Representation */}
             <div className="relative w-44 h-44 mx-auto flex items-center justify-center my-2">
               <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                {/* Background circle */}
                 <path
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   fill="none"
                   stroke="#F1F5F9"
                   strokeWidth="4"
                 />
-                {/* Active: 58% (#1769FF) */}
                 <path
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   fill="none"
-                  stroke="#1769FF"
+                  stroke="#4F46E5"
                   strokeWidth="4.2"
                   strokeDasharray="58, 100"
                   strokeLinecap="round"
                 />
-                {/* Completed: 24% (#08C7E8) */}
                 <path
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   fill="none"
-                  stroke="#08C7E8"
+                  stroke="#06B6D4"
                   strokeWidth="4.2"
                   strokeDasharray="24, 100"
                   strokeDashoffset="-59"
                   strokeLinecap="round"
                 />
-                {/* Pending: 12% (#F59E0B) */}
                 <path
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   fill="none"
@@ -432,7 +420,6 @@ export default function NextGenAdminDashboard() {
                   strokeDashoffset="-84"
                   strokeLinecap="round"
                 />
-                {/* Cancelled: 6% (#EF4444) */}
                 <path
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                   fill="none"
@@ -444,7 +431,7 @@ export default function NextGenAdminDashboard() {
                 />
               </svg>
               <div className="absolute flex flex-col items-center justify-center text-center">
-                <span className="text-2xl font-black text-[#101B35] font-display">86</span>
+                <span className="text-2xl font-black text-[#1E293B] font-display">86</span>
                 <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Total Deals</span>
               </div>
             </div>
@@ -453,11 +440,11 @@ export default function NextGenAdminDashboard() {
           {/* Donut Legend */}
           <div className="grid grid-cols-2 gap-2 pt-4 border-t border-slate-100 text-xs">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#1769FF]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#4F46E5]" />
               <span className="text-slate-600 font-medium">Active (58%)</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#08C7E8]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#06B6D4]" />
               <span className="text-slate-600 font-medium">Completed (24%)</span>
             </div>
             <div className="flex items-center gap-2">
@@ -472,13 +459,13 @@ export default function NextGenAdminDashboard() {
         </div>
       </div>
 
-      {/* 6. RECENT ACTIVITY & 7. TOP PERFORMING PARTNERS */}
+      {/* 5. RECENT ACTIVITY & TOP PERFORMING PARTNERS */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* 6. RECENT ACTIVITY TIMELINE */}
-        <div className="lg:col-span-6 bg-white border border-[#E2E8F4] rounded-3xl p-6 lg:p-7 shadow-sm space-y-5">
+        {/* RECENT ACTIVITY TIMELINE */}
+        <div className="lg:col-span-6 bg-white border border-[#E8ECF4] rounded-2xl p-6 shadow-xs space-y-4">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <div>
-              <h2 className="text-base font-bold text-[#101B35] font-display">Recent Activity</h2>
+              <h2 className="text-base font-bold text-[#1E293B]">Recent Activity</h2>
               <p className="text-xs text-slate-500">Live timeline across collaboration nodes</p>
             </div>
             <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
@@ -486,15 +473,14 @@ export default function NextGenAdminDashboard() {
             </span>
           </div>
 
-          <div className="relative pl-6 space-y-5 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200">
+          <div className="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200">
             {recentActivities.map((item) => (
               <div key={item.id} className="relative group">
-                {/* Glowing Circular Node */}
                 <div
-                  className={`absolute -left-6 top-1 w-4 h-4 rounded-full ${item.color} ring-4 ring-white shadow-xs group-hover:scale-125 transition-transform`}
+                  className={`absolute -left-6 top-1 w-3.5 h-3.5 rounded-full ${item.color} ring-4 ring-white shadow-xs group-hover:scale-125 transition-transform`}
                 />
                 <div>
-                  <p className="text-xs font-bold text-[#101B35] group-hover:text-[#1769FF] transition">
+                  <p className="text-xs font-bold text-[#1E293B] group-hover:text-[#4F46E5] transition">
                     {item.title}
                   </p>
                   <p className="text-[11px] text-slate-500 mt-0.5">{item.company}</p>
@@ -505,42 +491,42 @@ export default function NextGenAdminDashboard() {
           </div>
         </div>
 
-        {/* 7. TOP PERFORMING PARTNERS RANKED LIST */}
-        <div className="lg:col-span-6 bg-white border border-[#E2E8F4] rounded-3xl p-6 lg:p-7 shadow-sm space-y-5">
+        {/* TOP PERFORMING PARTNERS RANKED LIST */}
+        <div className="lg:col-span-6 bg-white border border-[#E8ECF4] rounded-2xl p-6 shadow-xs space-y-4">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <div>
-              <h2 className="text-base font-bold text-[#101B35] font-display">Top Performing Partners</h2>
+              <h2 className="text-base font-bold text-[#1E293B]">Top Performing Partners</h2>
               <p className="text-xs text-slate-500">Ranked by collaborative deal volume & growth</p>
             </div>
             <Link
               href="/admin/partnerships"
-              className="text-xs text-[#1769FF] hover:underline font-bold flex items-center gap-1"
+              className="text-xs text-[#4F46E5] hover:underline font-bold flex items-center gap-1"
             >
               <span>View All</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {topPartners.map((partner) => (
               <div
                 key={partner.rank}
-                className="flex items-center justify-between p-3 rounded-2xl bg-[#F6F9FF] hover:bg-[#EEF4FF] border border-[#E2E8F4] transition-all group"
+                className="flex items-center justify-between p-3 rounded-xl bg-[#F8FAFC] hover:bg-slate-100/80 border border-[#E8ECF4] transition-all group"
               >
-                <div className="flex items-center gap-3.5">
+                <div className="flex items-center gap-3">
                   <div
-                    className={`w-7 h-7 rounded-xl flex items-center justify-center font-extrabold text-xs shrink-0 ${
+                    className={`w-7 h-7 rounded-lg flex items-center justify-center font-extrabold text-xs shrink-0 ${
                       partner.rank === 1
-                        ? 'bg-gradient-to-tr from-[#1769FF] to-[#08C7E8] text-white shadow-sm'
+                        ? 'bg-[#4F46E5] text-white shadow-xs'
                         : partner.rank === 2
-                        ? 'bg-[#101B35] text-white'
+                        ? 'bg-[#1E293B] text-white'
                         : 'bg-white text-slate-600 border border-slate-200'
                     }`}
                   >
                     {partner.rank}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#101B35] group-hover:text-[#1769FF] transition">
+                    <h4 className="text-xs font-bold text-[#1E293B] group-hover:text-[#4F46E5] transition">
                       {partner.name}
                     </h4>
                     <p className="text-[11px] text-slate-500">{partner.sector}</p>
@@ -548,7 +534,7 @@ export default function NextGenAdminDashboard() {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs font-extrabold text-[#101B35]">{partner.deals} Deals</span>
+                  <span className="text-xs font-extrabold text-[#1E293B]">{partner.deals} Deals</span>
                   <div className="text-[11px] text-emerald-600 font-bold">{partner.growth}</div>
                 </div>
               </div>
@@ -557,15 +543,15 @@ export default function NextGenAdminDashboard() {
         </div>
       </div>
 
-      {/* 8. PARTNERSHIP REQUEST TABLE */}
-      <div className="bg-white border border-[#E2E8F4] rounded-3xl p-6 lg:p-7 shadow-sm space-y-4">
+      {/* 6. PARTNERSHIP REQUEST TABLE */}
+      <div className="bg-white border border-[#E8ECF4] rounded-2xl p-6 shadow-xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div>
-            <h2 className="text-base font-bold text-[#101B35] font-display">Partnership Requests</h2>
+            <h2 className="text-base font-bold text-[#1E293B]">Partnership Requests</h2>
             <p className="text-xs text-slate-500">Manage incoming promoter collaborations and alliances</p>
           </div>
           <div className="flex items-center gap-2">
-            <button className="px-3 py-1.5 rounded-xl bg-[#F6F9FF] border border-[#E2E8F4] text-xs text-slate-600 hover:text-[#101B35] flex items-center gap-1.5 font-medium transition cursor-pointer">
+            <button className="px-3 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E8ECF4] text-xs text-slate-600 hover:text-[#1E293B] flex items-center gap-1.5 font-medium transition cursor-pointer">
               <Filter className="w-3.5 h-3.5 text-slate-400" />
               <span>Filter Requests</span>
             </button>
@@ -573,8 +559,8 @@ export default function NextGenAdminDashboard() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-[#101B35]">
-            <thead className="text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100">
+          <table className="w-full text-left text-xs text-[#1E293B]">
+            <thead className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-[#F8FAFC] border-b border-slate-100">
               <tr>
                 <th className="py-3 px-4">Company</th>
                 <th className="py-3 px-4">Partner With</th>
@@ -586,37 +572,37 @@ export default function NextGenAdminDashboard() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {partnershipRequests.map((req) => (
-                <tr key={req.id} className="hover:bg-[#F6F9FF] transition group">
-                  <td className="py-3.5 px-4 font-bold text-[#101B35]">
+                <tr key={req.id} className="hover:bg-[#F8FAFC] transition group">
+                  <td className="py-3 px-4 font-bold text-[#1E293B]">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-lg bg-[#1769FF]/10 text-[#1769FF] font-bold flex items-center justify-center text-[10px]">
+                      <div className="w-6 h-6 rounded-lg bg-indigo-50 text-[#4F46E5] font-bold flex items-center justify-center text-[10px]">
                         {req.company.slice(0, 1)}
                       </div>
                       <span>{req.company}</span>
                     </div>
                   </td>
-                  <td className="py-3.5 px-4 text-slate-600 font-medium">{req.partnerWith}</td>
-                  <td className="py-3.5 px-4 text-slate-500">{req.category}</td>
-                  <td className="py-3.5 px-4">
+                  <td className="py-3 px-4 text-slate-600 font-medium">{req.partnerWith}</td>
+                  <td className="py-3 px-4 text-slate-500">{req.category}</td>
+                  <td className="py-3 px-4">
                     <span
                       className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${req.statusClass}`}
                     >
                       {req.status === 'Active' && <CheckCircle2 className="w-3 h-3 text-emerald-600" />}
                       {req.status === 'Pending' && <Clock className="w-3 h-3 text-amber-600" />}
                       {req.status === 'Rejected' && <XCircle className="w-3 h-3 text-red-500" />}
-                      {req.status === 'Completed' && <FileCheck2 className="w-3 h-3 text-[#1769FF]" />}
+                      {req.status === 'Completed' && <FileCheck2 className="w-3 h-3 text-blue-600" />}
                       <span>{req.status}</span>
                     </span>
                   </td>
-                  <td className="py-3.5 px-4 text-slate-400 font-medium">{req.date}</td>
-                  <td className="py-3.5 px-4 text-right space-x-1.5">
+                  <td className="py-3 px-4 text-slate-400 font-medium">{req.date}</td>
+                  <td className="py-3 px-4 text-right space-x-1.5">
                     <button
-                      className="px-2.5 py-1 rounded-lg bg-[#1769FF] hover:bg-[#1357D6] text-white font-bold text-[11px] shadow-xs transition cursor-pointer"
+                      className="px-2.5 py-1 rounded-lg bg-[#4F46E5] hover:bg-[#4338CA] text-white font-bold text-[11px] shadow-xs transition cursor-pointer"
                     >
                       Review
                     </button>
                     <button
-                      className="px-2.5 py-1 rounded-lg bg-[#F6F9FF] hover:bg-slate-100 text-slate-600 border border-slate-200 font-semibold text-[11px] transition cursor-pointer"
+                      className="px-2.5 py-1 rounded-lg bg-[#F8FAFC] hover:bg-slate-100 text-slate-600 border border-slate-200 font-semibold text-[11px] transition cursor-pointer"
                     >
                       View
                     </button>
