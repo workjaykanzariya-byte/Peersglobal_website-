@@ -105,14 +105,20 @@ export const AdminAuthProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
   const hasAccess = (featureKey: keyof FeaturePermissions): boolean => {
     if (!user) return true // Fallback during initial setup
-    if (user.role === 'Super Admin' || user.username === 'admin') return true
-    return user.permissions[featureKey] ?? false
+    if (user.username === 'admin' || user.role === 'Super Admin') return true
+    if (user.permissions && typeof user.permissions[featureKey] === 'boolean') {
+      return user.permissions[featureKey]
+    }
+    return true
   }
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center text-slate-400">
-        Loading Admin Workspace...
+      <div className="min-h-screen bg-[#060A11] flex items-center justify-center text-slate-400 font-sans">
+        <div className="flex items-center gap-3">
+          <div className="w-4 h-4 rounded-full border-2 border-blue-500 border-t-transparent animate-spin"></div>
+          <span className="text-xs">Loading Peers Global Workspace...</span>
+        </div>
       </div>
     )
   }

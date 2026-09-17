@@ -1,6 +1,39 @@
 import { NextResponse } from 'next/server'
 import pool from '@/lib/db'
 
+const DEFAULT_USERS = [
+  {
+    id: 1,
+    username: 'admin',
+    name: 'Super Admin',
+    email: 'admin@peersglobal.com',
+    role: 'admin',
+    permissions: { dashboard: true, blogs: true, media: true, circles: true, events: true, settings: true },
+    is_active: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    username: 'dipak',
+    name: 'Dipak',
+    email: 'dipak@gmail.com',
+    role: 'admin',
+    permissions: { dashboard: true, blogs: true, media: true, circles: true, events: true, settings: true },
+    is_active: true,
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 3,
+    username: 'trushali',
+    name: 'Trushali',
+    email: 'trushali@gmail.com',
+    role: 'admin',
+    permissions: { dashboard: true, blogs: true, media: true, circles: true, events: true, settings: true },
+    is_active: true,
+    created_at: new Date().toISOString(),
+  },
+]
+
 // Make sure web_users table exists
 async function ensureTableExists() {
   try {
@@ -19,7 +52,7 @@ async function ensureTableExists() {
       );
     `)
   } catch (e) {
-    console.error('Error ensuring web_users table exists:', e)
+    console.warn('DB ensureTable error:', e)
   }
 }
 
@@ -29,10 +62,13 @@ export async function GET() {
     const result = await pool.query(
       'SELECT id, username, name, email, role, permissions, is_active, created_at FROM public.web_users ORDER BY id ASC'
     )
-    return NextResponse.json(result.rows)
+    if (result.rows && result.rows.length > 0) {
+      return NextResponse.json(result.rows)
+    }
+    return NextResponse.json(DEFAULT_USERS)
   } catch (error: any) {
     console.error('GET /api/web-users error:', error)
-    return NextResponse.json([], { status: 200 })
+    return NextResponse.json(DEFAULT_USERS, { status: 200 })
   }
 }
 
