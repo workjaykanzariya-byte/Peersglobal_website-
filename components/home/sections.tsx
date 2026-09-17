@@ -2802,103 +2802,101 @@ export function MissionSection() {
 
 export function StoriesSection() {
   const [activeDot, setActiveDot] = useState(0)
+  const [stories, setStories] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const stories = [
-    {
-      id: 1,
-      category: 'SUPPLY CHAIN',
-      categoryTagBg: 'bg-blue-50 text-[#1E4ED8] border-blue-100',
-      iconBg: 'bg-blue-50 text-[#1E4ED8]',
-      icon: Boxes,
-      location: 'Ahmedabad ↔ Surat',
-      outcome: '₹4.2 Cr',
-      outcomeLabel: 'IN NEW RECURRING CONTRACTS',
-      collab: '“Joint supply-chain integration across western industrial corridor.”',
-      cornerGradient: 'from-transparent via-blue-50/40 to-blue-100/60',
-      peer1: {
-        name: 'Rajesh Shah',
-        company: 'Apex Logistics',
-        city: 'Ahmedabad',
-        avatar: '/images/peers-avatars/rajesh-shah.jpg',
-      },
-      peer2: {
-        name: 'Vikram Patel',
-        company: 'Om Packaging',
-        city: 'Surat',
-        avatar: '/images/peers-avatars/vikram-patel.jpg',
-      },
-      badge: {
-        icon: BarChart3,
-        text: 'Long-term partnership established',
-        bg: 'bg-blue-50/80 text-[#1E4ED8] border-blue-100 hover:bg-blue-100/80',
-        arrowColor: 'text-[#1E4ED8]',
-      },
-    },
-    {
-      id: 2,
-      category: 'TECH & SAAS',
-      categoryTagBg: 'bg-purple-50 text-purple-700 border-purple-100',
-      iconBg: 'bg-purple-50 text-purple-600',
-      icon: Laptop,
-      location: 'Mumbai ↔ Bengaluru',
-      outcome: '₹1.8 Cr',
-      outcomeLabel: 'ANNUAL CONTRACT LANDED',
-      collab: '“Cross-border SaaS compliance and direct introduction to tier-1 enterprise.”',
-      cornerGradient: 'from-transparent via-purple-50/40 to-purple-100/60',
-      peer1: {
-        name: 'Neha Kothari',
-        company: 'FinEdge Advisory',
-        city: 'Mumbai',
-        avatar: '/images/peers-avatars/neha-kothari.jpg',
-      },
-      peer2: {
-        name: 'Anand Sharma',
-        company: 'Zen Cloud Solutions',
-        city: 'Bengaluru',
-        avatar: '/images/peers-avatars/anand-sharma.jpg',
-      },
-      badge: {
-        icon: Rocket,
-        text: 'From introduction to contract in 4 months',
-        bg: 'bg-purple-50/80 text-purple-700 border-purple-100 hover:bg-purple-100/80',
-        arrowColor: 'text-purple-700',
-      },
-    },
-    {
-      id: 3,
-      category: 'SUSTAINABILITY',
-      categoryTagBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
-      iconBg: 'bg-emerald-50 text-emerald-600',
-      icon: Leaf,
-      location: 'Vadodara ↔ Rajkot',
-      outcome: '₹3.5 Cr',
-      outcomeLabel: (
-        <>
-          IN EXPORT <span className="text-[#00B4D8] font-bold">REVENUES</span> GENERATED
-        </>
-      ),
-      collab: '“Co-developed sustainable industrial packaging line for export markets.”',
-      cornerGradient: 'from-transparent via-emerald-50/40 to-emerald-100/60',
-      peer1: {
-        name: 'Amit Desai',
-        company: 'Horizon Polym...',
-        city: 'Vadodara',
-        avatar: '/images/peers-avatars/amit-desai.jpg',
-      },
-      peer2: {
-        name: 'Pradeep Joshi',
-        company: 'EcoPower Technolog...',
-        city: 'Rajkot',
-        avatar: '/images/peers-avatars/pradeep-joshi.jpg',
-      },
-      badge: {
-        icon: Leaf,
-        text: 'Expanding to 5 new countries',
-        bg: 'bg-emerald-50/80 text-emerald-700 border-emerald-100 hover:bg-emerald-100/80',
-        arrowColor: 'text-emerald-700',
-      },
-    },
-  ]
+  useEffect(() => {
+    async function loadCollaborations() {
+      try {
+        setLoading(true)
+        const res = await fetch('/api/collaborations', { cache: 'no-store' })
+        if (res.ok) {
+          const json = await res.json()
+          if (json.data && Array.isArray(json.data) && json.data.length > 0) {
+            const themePalettes = [
+              {
+                categoryTagBg: 'bg-blue-50 text-[#1E4ED8] border-blue-100',
+                iconBg: 'bg-blue-50 text-[#1E4ED8]',
+                icon: Boxes,
+                cornerGradient: 'from-transparent via-blue-50/40 to-blue-100/60',
+                badgeBg: 'bg-blue-50/80 text-[#1E4ED8] border-blue-100 hover:bg-blue-100/80',
+                arrowColor: 'text-[#1E4ED8]',
+                badgeIcon: BarChart3,
+              },
+              {
+                categoryTagBg: 'bg-purple-50 text-purple-700 border-purple-100',
+                iconBg: 'bg-purple-50 text-purple-600',
+                icon: Laptop,
+                cornerGradient: 'from-transparent via-purple-50/40 to-purple-100/60',
+                badgeBg: 'bg-purple-50/80 text-purple-700 border-purple-100 hover:bg-purple-100/80',
+                arrowColor: 'text-purple-700',
+                badgeIcon: Rocket,
+              },
+              {
+                categoryTagBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
+                iconBg: 'bg-emerald-50 text-emerald-600',
+                icon: Leaf,
+                cornerGradient: 'from-transparent via-emerald-50/40 to-emerald-100/60',
+                badgeBg: 'bg-emerald-50/80 text-emerald-700 border-emerald-100 hover:bg-emerald-100/80',
+                arrowColor: 'text-emerald-700',
+                badgeIcon: Leaf,
+              },
+            ]
+
+            const formatted = json.data.slice(0, 10).map((item: any, idx: number) => {
+              const theme = themePalettes[idx % themePalettes.length]
+              return {
+                id: item.id || idx + 1,
+                category: item.category || 'COLLABORATION',
+                categoryTagBg: item.categoryTagBg || theme.categoryTagBg,
+                iconBg: item.iconBg || theme.iconBg,
+                icon: item.icon || theme.icon,
+                location: item.location || 'India',
+                outcome: item.outcome || '₹ 1.0 Cr',
+                outcomeLabel: item.outcomeLabel || 'IN OUTCOMES GENERATED',
+                collab: item.collab ? (item.collab.startsWith('“') ? item.collab : `“${item.collab}”`) : '“Strategic peer collaboration delivering measurable growth.”',
+                cornerGradient: item.cornerGradient || theme.cornerGradient,
+                peer1: {
+                  name: item.peer1?.name || 'Promoter 1',
+                  company: item.peer1?.company || 'Enterprise',
+                  city: item.peer1?.city || 'India',
+                  avatar: item.peer1?.avatar || '/images/peers-avatars/rajesh-shah.jpg',
+                },
+                peer2: {
+                  name: item.peer2?.name || 'Promoter 2',
+                  company: item.peer2?.company || 'Enterprise',
+                  city: item.peer2?.city || 'India',
+                  avatar: item.peer2?.avatar || '/images/peers-avatars/vikram-patel.jpg',
+                },
+                badge: {
+                  icon: theme.badgeIcon,
+                  text: item.badge?.text || 'Partnership established',
+                  bg: theme.badgeBg,
+                  arrowColor: theme.arrowColor,
+                },
+              }
+            })
+            setStories(formatted)
+          } else {
+            setStories([])
+          }
+        }
+      } catch (e) {
+        console.warn('Failed to load collaborations dynamically:', e)
+        setStories([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadCollaborations()
+  }, [])
+
+  const pageSize = 3
+  const totalPages = Math.max(1, Math.ceil(stories.length / pageSize))
+  const displayedStories = stories.length > pageSize
+    ? stories.slice(activeDot * pageSize, (activeDot + 1) * pageSize)
+    : stories
 
   return (
     <section id="real-collaborations" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-[var(--border)]">
@@ -3006,137 +3004,155 @@ export function StoriesSection() {
         </div>
 
         {/* =========================================================================
-           3 FEATURED COLLABORATION CARDS
+           FEATURED COLLABORATION CARDS (REAL DATABASE TOP 10 DATA)
            ========================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {stories.map((s) => {
-            const IconComponent = s.icon
-            const BadgeIcon = s.badge.icon
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 py-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="h-72 rounded-3xl border border-slate-100 bg-slate-50/60 animate-pulse p-6" />
+            ))}
+          </div>
+        ) : stories.length === 0 ? (
+          <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50/50 p-12 text-center my-4">
+            <div className="inline-flex size-12 items-center justify-center rounded-2xl bg-blue-50 text-[#1E4ED8] mb-3">
+              <Boxes className="size-6" />
+            </div>
+            <h3 className="text-base font-bold text-slate-800">No Collaborations in Database</h3>
+            <p className="text-xs text-slate-500 max-w-md mx-auto mt-1">
+              Real collaborations from your database will automatically appear here once added to PostgreSQL or the Unity backend.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+            {displayedStories.map((s) => {
+              const IconComponent = s.icon || Boxes
+              const BadgeIcon = s.badge?.icon || BarChart3
 
-            return (
-              <div
-                key={s.id}
-                className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-              >
-                {/* Bottom-Right Soft Pastel Wave Background */}
+              return (
                 <div
-                  className={`pointer-events-none absolute -bottom-10 -right-10 size-48 rounded-full bg-gradient-to-tl ${s.cornerGradient} blur-xl`}
-                />
-
-                <div className="relative z-10">
-                  {/* Top Row: Circular Category Icon + Category Badge + Location */}
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2.5">
-                      <div className={`flex size-10 items-center justify-center rounded-xl ${s.iconBg} border border-slate-100 shadow-2xs`}>
-                        <IconComponent className="size-4.5" />
-                      </div>
-                      <span className={`px-2.5 py-0.8 rounded-full text-[11px] font-semibold border ${s.categoryTagBg}`}>
-                        {s.category}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-                      <MapPin className="size-3.5 text-slate-400" />
-                      <span>{s.location}</span>
-                    </div>
-                  </div>
-
-                  {/* Big Impact Metric with Growth Arrow ↗ */}
-                  <div className="mt-5">
-                    <div className="flex items-center gap-2">
-                      <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-none">
-                        {s.outcome}
-                      </span>
-                      <span className="text-xl sm:text-2xl font-extrabold text-[#00C48C] leading-none mb-1">
-                        ↗
-                      </span>
-                    </div>
-                    <div className="text-[10.5px] font-bold text-slate-400 tracking-[0.16em] uppercase mt-2">
-                      {s.outcomeLabel}
-                    </div>
-                  </div>
-
-                  {/* Collaboration Quote */}
-                  <p className="mt-4 text-xs sm:text-[13px] leading-relaxed text-slate-600 font-normal">
-                    {s.collab}
-                  </p>
-                </div>
-
-                <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex flex-col gap-3.5">
-                  {/* People Collaboration Section: Avatar 1, ✕, Avatar 2 */}
-                  <div className="flex items-center justify-between gap-2">
-                    {/* Peer 1 */}
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white">
-                        <Image
-                          src={s.peer1.avatar}
-                          alt={s.peer1.name}
-                          fill
-                          sizes="40px"
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="min-w-0 leading-tight">
-                        <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
-                          {s.peer1.name}
-                        </div>
-                        <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
-                          {s.peer1.company}
-                        </div>
-                        <div className="text-[10px] text-slate-400 truncate">
-                          ({s.peer1.city})
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Middle Cross Collaboration Symbol */}
-                    <div className="text-slate-300 font-light text-base select-none px-1">
-                      ✕
-                    </div>
-
-                    {/* Peer 2 */}
-                    <div className="flex items-center gap-2.5 min-w-0 text-right justify-end">
-                      <div className="min-w-0 leading-tight order-1">
-                        <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
-                          {s.peer2.name}
-                        </div>
-                        <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
-                          {s.peer2.company}
-                        </div>
-                        <div className="text-[10px] text-slate-400 truncate">
-                          ({s.peer2.city})
-                        </div>
-                      </div>
-                      <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white order-2">
-                        <Image
-                          src={s.peer2.avatar}
-                          alt={s.peer2.name}
-                          fill
-                          sizes="40px"
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Pill Highlight */}
+                  key={s.id}
+                  className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                >
+                  {/* Bottom-Right Soft Pastel Wave Background */}
                   <div
-                    className={`flex items-center justify-between rounded-xl border px-3.5 py-2.5 sm:px-4 sm:py-3 transition-colors ${s.badge.bg}`}
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <BadgeIcon className="size-4 shrink-0" />
-                      <span className="text-xs sm:text-[12.5px] font-semibold truncate">
-                        {s.badge.text}
-                      </span>
-                    </div>
-                    <ArrowRight className={`size-3.5 shrink-0 transition-transform group-hover:translate-x-1 ${s.badge.arrowColor}`} />
-                  </div>
-                </div>
+                    className={`pointer-events-none absolute -bottom-10 -right-10 size-48 rounded-full bg-gradient-to-tl ${s.cornerGradient || 'from-transparent via-blue-50/40 to-blue-100/60'} blur-xl`}
+                  />
 
-              </div>
-            )
-          })}
-        </div>
+                  <div className="relative z-10">
+                    {/* Top Row: Circular Category Icon + Category Badge + Location */}
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className={`flex size-10 items-center justify-center rounded-xl ${s.iconBg} border border-slate-100 shadow-2xs`}>
+                          <IconComponent className="size-4.5" />
+                        </div>
+                        <span className={`px-2.5 py-0.8 rounded-full text-[11px] font-semibold border ${s.categoryTagBg}`}>
+                          {s.category}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
+                        <MapPin className="size-3.5 text-slate-400" />
+                        <span>{s.location}</span>
+                      </div>
+                    </div>
+
+                    {/* Big Impact Metric with Growth Arrow ↗ */}
+                    <div className="mt-5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-none">
+                          {s.outcome}
+                        </span>
+                        <span className="text-xl sm:text-2xl font-extrabold text-[#00C48C] leading-none mb-1">
+                          ↗
+                        </span>
+                      </div>
+                      <div className="text-[10.5px] font-bold text-slate-400 tracking-[0.16em] uppercase mt-2">
+                        {s.outcomeLabel}
+                      </div>
+                    </div>
+
+                    {/* Collaboration Quote */}
+                    <p className="mt-4 text-xs sm:text-[13px] leading-relaxed text-slate-600 font-normal">
+                      {s.collab}
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex flex-col gap-3.5">
+                    {/* People Collaboration Section: Avatar 1, ✕, Avatar 2 */}
+                    <div className="flex items-center justify-between gap-2">
+                      {/* Peer 1 */}
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white">
+                          <Image
+                            src={s.peer1?.avatar || '/images/peers-avatars/rajesh-shah.jpg'}
+                            alt={s.peer1?.name || 'Promoter'}
+                            fill
+                            sizes="40px"
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className="min-w-0 leading-tight">
+                          <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
+                            {s.peer1?.name}
+                          </div>
+                          <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
+                            {s.peer1?.company}
+                          </div>
+                          <div className="text-[10px] text-slate-400 truncate">
+                            ({s.peer1?.city})
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Middle Cross Collaboration Symbol */}
+                      <div className="text-slate-300 font-light text-base select-none px-1">
+                        ✕
+                      </div>
+
+                      {/* Peer 2 */}
+                      <div className="flex items-center gap-2.5 min-w-0 text-right justify-end">
+                        <div className="min-w-0 leading-tight order-1">
+                          <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
+                            {s.peer2?.name}
+                          </div>
+                          <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
+                            {s.peer2?.company}
+                          </div>
+                          <div className="text-[10px] text-slate-400 truncate">
+                            ({s.peer2?.city})
+                          </div>
+                        </div>
+                        <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white order-2">
+                          <Image
+                            src={s.peer2?.avatar || '/images/peers-avatars/vikram-patel.jpg'}
+                            alt={s.peer2?.name || 'Promoter'}
+                            fill
+                            sizes="40px"
+                            className="object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom Pill Highlight */}
+                    <div
+                      className={`flex items-center justify-between rounded-xl border px-3.5 py-2.5 sm:px-4 sm:py-3 transition-colors ${s.badge?.bg || 'bg-blue-50/80 text-[#1E4ED8] border-blue-100'}`}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <BadgeIcon className="size-4 shrink-0" />
+                        <span className="text-xs sm:text-[12.5px] font-semibold truncate">
+                          {s.badge?.text}
+                        </span>
+                      </div>
+                      <ArrowRight className={`size-3.5 shrink-0 transition-transform group-hover:translate-x-1 ${s.badge?.arrowColor || 'text-[#1E4ED8]'}`} />
+                    </div>
+                  </div>
+
+                </div>
+              )
+            })}
+          </div>
+        )}
 
         {/* =========================================================================
            BOTTOM SUB-FOOTER BAR: Logo Left, Slogan Center-Left, Pagination Dots, Dot Grid
@@ -3155,20 +3171,22 @@ export function StoriesSection() {
 
           {/* Right: Pagination Dots + Dot Matrix Grid */}
           <div className="flex items-center gap-6 ml-auto">
-            {/* 3 Pagination Dots */}
-            <div className="flex items-center gap-2">
-              {[0, 1, 2].map((dot) => (
-                <button
-                  key={dot}
-                  onClick={() => setActiveDot(dot)}
-                  type="button"
-                  aria-label={`Go to page ${dot + 1}`}
-                  className={`size-2.5 rounded-full transition-all duration-300 ${
-                    activeDot === dot ? 'bg-[#1E4ED8] ring-4 ring-blue-100 scale-110' : 'bg-sky-200 hover:bg-sky-300'
-                  }`}
-                />
-              ))}
-            </div>
+            {/* Dynamic Pagination Dots */}
+            {totalPages > 1 && (
+              <div className="flex items-center gap-2">
+                {Array.from({ length: totalPages }).map((_, dot) => (
+                  <button
+                    key={dot}
+                    onClick={() => setActiveDot(dot)}
+                    type="button"
+                    aria-label={`Go to page ${dot + 1}`}
+                    className={`size-2.5 rounded-full transition-all duration-300 ${
+                      activeDot === dot ? 'bg-[#1E4ED8] ring-4 ring-blue-100 scale-110' : 'bg-sky-200 hover:bg-sky-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
 
             {/* 3x4 Dot Matrix Grid */}
             <div className="grid grid-cols-4 gap-1.5 opacity-60">
