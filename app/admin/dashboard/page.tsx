@@ -30,7 +30,6 @@ import { useAdminAuth } from '@/components/admin/admin-auth-context'
 
 export default function NextGenAdminDashboard() {
   const { user } = useAdminAuth()
-  const [activeGrowthTime, setActiveGrowthTime] = useState('Last 6 Months')
 
   // Quick Action Hub Items (Strictly matching Platform Menu Items)
   const quickNavs = [
