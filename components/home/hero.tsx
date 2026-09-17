@@ -6,6 +6,53 @@ import { ArrowDown, ArrowRight, Download } from 'lucide-react'
 import { SITE } from '@/lib/data/site'
 
 export function HomeHero() {
+  const [videoUrl, setVideoUrl] = React.useState('/videos/hero-background.mp4')
+  const [ytEmbedUrl, setYtEmbedUrl] = React.useState<string | null>(null)
+
+  React.useEffect(() => {
+    const loadConfiguredVideo = () => {
+      try {
+        const saved = localStorage.getItem('peers_admin_page_media')
+        if (saved) {
+          const list = JSON.parse(saved)
+          if (Array.isArray(list)) {
+            const match = list.find((item: any) =>
+              (item.pageSlug === '/' || item.pageName === 'Home Page') &&
+              item.sectionName === 'Hero Background Header' &&
+              item.isActive !== false &&
+              item.mediaUrl
+            )
+            if (match) {
+              const url = match.mediaUrl.trim()
+              const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+              const ytMatch = url.match(regExp)
+              if (ytMatch && ytMatch[2].length === 11) {
+                setYtEmbedUrl(`https://www.youtube.com/embed/${ytMatch[2]}?autoplay=1&mute=1&loop=1&playlist=${ytMatch[2]}&controls=0&showinfo=0&rel=0&modestbranding=1`)
+                setVideoUrl('')
+              } else {
+                setYtEmbedUrl(null)
+                setVideoUrl(url)
+              }
+              return
+            }
+          }
+        }
+      } catch (e) {
+        // fallback
+      }
+      setYtEmbedUrl(null)
+      setVideoUrl('/videos/hero-background.mp4')
+    }
+
+    loadConfiguredVideo()
+    window.addEventListener('storage', loadConfiguredVideo)
+    window.addEventListener('peers_media_updated', loadConfiguredVideo)
+    return () => {
+      window.removeEventListener('storage', loadConfiguredVideo)
+      window.removeEventListener('peers_media_updated', loadConfiguredVideo)
+    }
+  }, [])
+
   const scrollToExplore = () => {
     const nextSection = document.getElementById('who-we-are') || document.getElementById('circles')
     if (nextSection) {
@@ -19,16 +66,26 @@ export function HomeHero() {
     <section className="relative min-h-[92vh] overflow-hidden bg-[#050B17] text-white border-b border-white/10">
       {/* Cinematic Full-Bleed 4K Earth Background Video */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="size-full object-cover object-center opacity-85 sm:opacity-90"
-        >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
-        </video>
+        {ytEmbedUrl ? (
+          <iframe
+            src={ytEmbedUrl}
+            title="Hero Background Video"
+            className="size-full object-cover object-center opacity-85 sm:opacity-90 pointer-events-none scale-125 border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          />
+        ) : (
+          <video
+            key={videoUrl}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="size-full object-cover object-center opacity-85 sm:opacity-90"
+          >
+            <source src={videoUrl} type="video/mp4" />
+          </video>
+        )}
 
         {/* Targeted Atmospheric Gradients: keeps Earth & city lights radiant while text stays crisp */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#050B17]/85 via-[#050B17]/40 to-transparent pointer-events-none" />

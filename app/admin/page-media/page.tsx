@@ -4,134 +4,44 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import {
   MonitorPlay,
-  Plus,
   Globe,
   HardDrive,
   Search,
-  Filter,
-  Copy,
-  Check,
   Trash2,
-  Edit,
   ExternalLink,
-  Play,
-  FileVideo,
-  Image as ImageIcon,
-  Sparkles,
   Layers,
   X,
   UploadCloud,
-  CheckCircle2,
   AlertCircle,
   Video,
+  Eye,
+  Sparkles,
+  Play,
+  ArrowRight,
 } from 'lucide-react'
-
-export interface PageMediaItem {
-  id: string
-  pageName: string
-  pageSlug: string
-  sectionName: string
-  title: string
-  description?: string
-  mediaType: 'video' | 'photo'
-  sourceType: 'url' | 'localhost'
-  mediaUrl: string
-  thumbnailUrl?: string
-  isActive: boolean
-  createdAt: string
-}
-
-const WEBSITE_PAGES = [
-  { name: 'Home Page', slug: '/' },
-  { name: 'The Idea / Our World', slug: '/the-idea' },
-  { name: 'Peer Circles', slug: '/circles' },
-  { name: 'Conclaves & Events', slug: '/events' },
-  { name: 'Dr. Pravin Parmar (Founder)', slug: '/founder' },
-  { name: 'Leadership', slug: '/leadership' },
-  { name: 'Unity App', slug: '/unity' },
-  { name: 'Membership', slug: '/membership' },
-  { name: 'Contact & Support', slug: '/contact' },
-]
-
-const PAGE_SECTIONS = [
-  'Hero Background Header',
-  'Featured Video Modal',
-  'Section Banner Media',
-  'Story & Impact Reel',
-  'Gallery Showcase',
-  'Footer Video Bar',
-]
-
-const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
-  {
-    id: 'pm-1',
-    pageName: 'Home Page',
-    pageSlug: '/',
-    sectionName: 'Hero Background Header',
-    title: 'Peers Global Grand Launch & Conclave Reel',
-    description: 'High energy ambient background video showing Indian promoters collaborating.',
-    mediaType: 'video',
-    sourceType: 'localhost',
-    mediaUrl: '/videos/hero-bg.mp4',
-    isActive: true,
-    createdAt: '2026-08-01',
-  },
-  {
-    id: 'pm-2',
-    pageName: 'Dr. Pravin Parmar (Founder)',
-    pageSlug: '/founder',
-    sectionName: 'Featured Video Modal',
-    title: 'Founder Keynote Address — Vyapaar Jagat Growth Summit',
-    description: 'Dr. Pravin Parmar explaining the 10 Forms of Collaboration model.',
-    mediaType: 'video',
-    sourceType: 'url',
-    mediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    isActive: true,
-    createdAt: '2026-08-10',
-  },
-  {
-    id: 'pm-3',
-    pageName: 'Unity App',
-    pageSlug: '/unity',
-    sectionName: 'Section Banner Media',
-    title: 'Unity App UI Walkthrough & Peer Discovery',
-    description: 'Mobile app screen demonstration video for Android & iOS users.',
-    mediaType: 'video',
-    sourceType: 'localhost',
-    mediaUrl: '/videos/unity-demo.mp4',
-    isActive: true,
-    createdAt: '2026-08-15',
-  },
-  {
-    id: 'pm-4',
-    pageName: 'Peer Circles',
-    pageSlug: '/circles',
-    sectionName: 'Story & Impact Reel',
-    title: 'Circle Director Monthly Governed Meeting Photo',
-    description: 'High resolution chapter leadership photograph.',
-    mediaType: 'photo',
-    sourceType: 'url',
-    mediaUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop',
-    isActive: true,
-    createdAt: '2026-08-20',
-  },
-]
+import {
+  WEBSITE_PAGES,
+  INITIAL_PAGE_MEDIA,
+  PageMediaItem,
+  getYouTubeEmbedUrl,
+  getPageConfigBySlugOrId,
+} from '@/lib/page-media-config'
 
 export default function AdminPageMediaManager() {
   const [items, setItems] = useState<PageMediaItem[]>([])
   const [selectedPageFilter, setSelectedPageFilter] = useState<string>('all')
   const [sourceFilter, setSourceFilter] = useState<'all' | 'url' | 'localhost'>('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [copiedId, setCopiedId] = useState<string | null>(null)
 
-  // Modal State
+  // Modals state
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalMode, setModalMode] = useState<'url' | 'localhost'>('url')
   const [editingItem, setEditingItem] = useState<PageMediaItem | null>(null)
+  const [previewModalItem, setPreviewModalItem] = useState<PageMediaItem | null>(null)
 
-  // Form State
-  const [formPageName, setFormPageName] = useState(WEBSITE_PAGES[0].name)
-  const [formSection, setFormSection] = useState(PAGE_SECTIONS[0])
+  // Form states
+  const [formPageId, setFormPageId] = useState(WEBSITE_PAGES[0].id)
+  const [formSection, setFormSection] = useState(WEBSITE_PAGES[0].sections[0].name)
   const [formTitle, setFormTitle] = useState('')
   const [formDescription, setFormDescription] = useState('')
   const [formMediaType, setFormMediaType] = useState<'video' | 'photo'>('video')
@@ -150,32 +60,40 @@ export default function AdminPageMediaManager() {
       }
     } else {
       setItems(INITIAL_PAGE_MEDIA)
+      localStorage.setItem('peers_admin_page_media', JSON.stringify(INITIAL_PAGE_MEDIA))
     }
   }, [])
 
-  // Save to localStorage
+  // Save to localStorage & notify site components
   const saveItems = (newItems: PageMediaItem[]) => {
     setItems(newItems)
     localStorage.setItem('peers_admin_page_media', JSON.stringify(newItems))
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('peers_media_updated'))
+    }
   }
 
-  // Open modal for URL mode
+  // Helper to find page config
+  const currentPageConfig = WEBSITE_PAGES.find((p) => p.id === formPageId) || WEBSITE_PAGES[0]
+
+  // 1. Open Modal for URL (Social Media Only)
   const openUrlModal = (itemToEdit?: PageMediaItem) => {
     setModalMode('url')
     setFormError('')
     if (itemToEdit) {
       setEditingItem(itemToEdit)
-      setFormPageName(itemToEdit.pageName)
+      const pageCfg = getPageConfigBySlugOrId(itemToEdit.pageId || itemToEdit.pageName) || WEBSITE_PAGES[0]
+      setFormPageId(pageCfg.id)
       setFormSection(itemToEdit.sectionName)
       setFormTitle(itemToEdit.title)
       setFormDescription(itemToEdit.description || '')
-      setFormMediaType(itemToEdit.mediaType)
-      setFormMediaUrl(itemToEdit.mediaUrl)
+      setFormMediaType('video')
+      setFormMediaUrl(itemToEdit.sourceType === 'url' ? itemToEdit.mediaUrl : '')
       setFormLocalFileName('')
     } else {
       setEditingItem(null)
-      setFormPageName(WEBSITE_PAGES[0].name)
-      setFormSection(PAGE_SECTIONS[0])
+      setFormPageId(WEBSITE_PAGES[0].id)
+      setFormSection(WEBSITE_PAGES[0].sections[0].name)
       setFormTitle('')
       setFormDescription('')
       setFormMediaType('video')
@@ -185,23 +103,24 @@ export default function AdminPageMediaManager() {
     setIsModalOpen(true)
   }
 
-  // Open modal for Localhost mode
-  const openLocalhostModal = (itemToEdit?: PageMediaItem) => {
+  // 2. Open Modal for URL for Computer (This PC Video Only)
+  const openComputerModal = (itemToEdit?: PageMediaItem) => {
     setModalMode('localhost')
     setFormError('')
     if (itemToEdit) {
       setEditingItem(itemToEdit)
-      setFormPageName(itemToEdit.pageName)
+      const pageCfg = getPageConfigBySlugOrId(itemToEdit.pageId || itemToEdit.pageName) || WEBSITE_PAGES[0]
+      setFormPageId(pageCfg.id)
       setFormSection(itemToEdit.sectionName)
       setFormTitle(itemToEdit.title)
       setFormDescription(itemToEdit.description || '')
-      setFormMediaType(itemToEdit.mediaType)
-      setFormMediaUrl(itemToEdit.mediaUrl)
-      setFormLocalFileName(itemToEdit.mediaUrl)
+      setFormMediaType('video')
+      setFormMediaUrl(itemToEdit.sourceType === 'localhost' ? itemToEdit.mediaUrl : '')
+      setFormLocalFileName(itemToEdit.sourceType === 'localhost' ? itemToEdit.mediaUrl : '')
     } else {
       setEditingItem(null)
-      setFormPageName(WEBSITE_PAGES[0].name)
-      setFormSection(PAGE_SECTIONS[0])
+      setFormPageId(WEBSITE_PAGES[0].id)
+      setFormSection(WEBSITE_PAGES[0].sections[0].name)
       setFormTitle('')
       setFormDescription('')
       setFormMediaType('video')
@@ -211,55 +130,106 @@ export default function AdminPageMediaManager() {
     setIsModalOpen(true)
   }
 
-  // Handle Local PC File Selection
-  const handleLocalFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Handle Computer file selection
+  const handleComputerFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
+
+    setFormError('')
     const isVid = file.type.includes('video')
     const fileName = file.name
-    const generatedPath = isVid ? `/videos/${fileName}` : `/images/${fileName}`
+    const fallbackPath = isVid ? `/videos/${fileName}` : `/images/${fileName}`
 
     setFormMediaType(isVid ? 'video' : 'photo')
     setFormLocalFileName(fileName)
-    setFormMediaUrl(URL.createObjectURL(file) || generatedPath)
+
+    if (file.size < 15 * 1024 * 1024) {
+      const reader = new FileReader()
+      reader.onload = (event) => {
+        const result = event.target?.result as string
+        if (result) {
+          setFormMediaUrl(result)
+        }
+      }
+      reader.onerror = () => {
+        setFormMediaUrl(URL.createObjectURL(file) || fallbackPath)
+      }
+      reader.readAsDataURL(file)
+    } else {
+      setFormMediaUrl(URL.createObjectURL(file) || fallbackPath)
+    }
+
     if (!formTitle) {
       setFormTitle(fileName.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' '))
     }
   }
 
-  // Form Submit Handler
+  // Submit Handler with Strict Validation
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setFormError('')
 
     if (!formTitle.trim()) {
-      setFormError('Please enter a title for this media asset.')
+      setFormError('Please enter a media title.')
       return
     }
 
-    if (!formMediaUrl.trim()) {
-      if (modalMode === 'url') {
-        setFormError('Please enter a valid video or image URL (YouTube, Vimeo, Web URL).')
-      } else {
-        setFormError('Please select or enter a video/photo file from This PC / Localhost.')
+    // STRICT CONDITION FOR "URL" MODE: ONLY SOCIAL MEDIA / WEB URL ALLOWED
+    if (modalMode === 'url') {
+      const trimmedUrl = formMediaUrl.trim().toLowerCase()
+      if (!trimmedUrl) {
+        setFormError('Please enter a social media video link (e.g. YouTube, Vimeo, or Web URL).')
+        return
       }
-      return
+
+      if (
+        trimmedUrl.startsWith('/videos') ||
+        trimmedUrl.startsWith('/images') ||
+        trimmedUrl.startsWith('c:') ||
+        trimmedUrl.startsWith('file:') ||
+        trimmedUrl.startsWith('blob:')
+      ) {
+        setFormError('Only social media / web video URLs (YouTube, Vimeo, etc.) are allowed here. Computer files cannot be uploaded via this button.')
+        return
+      }
+
+      if (!trimmedUrl.startsWith('http://') && !trimmedUrl.startsWith('https://')) {
+        setFormError('Social media link must begin with https:// or http:// (e.g. https://www.youtube.com/watch?v=...)')
+        return
+      }
     }
 
-    // Validation: Localhost mode must not accept external http(s) social links unless explicitly typed as local path
-    if (modalMode === 'localhost' && (formMediaUrl.startsWith('http://') || formMediaUrl.startsWith('https://')) && !formMediaUrl.startsWith('blob:')) {
-      setFormError('Localhost mode only accepts files from This PC or local workspace paths (/videos/..., /images/...). For web/YouTube links, click "+ Add External URL".')
-      return
+    // STRICT CONDITION FOR "URL FOR COMPUTER" MODE: ONLY COMPUTER VIDEOS ALLOWED
+    if (modalMode === 'localhost') {
+      const trimmedUrl = formMediaUrl.trim().toLowerCase()
+      if (!trimmedUrl && !formLocalFileName) {
+        setFormError('Please select a video file from your computer (This PC).')
+        return
+      }
+
+      if (
+        trimmedUrl.includes('youtube.com') ||
+        trimmedUrl.includes('youtu.be') ||
+        trimmedUrl.includes('vimeo.com') ||
+        trimmedUrl.includes('facebook.com') ||
+        trimmedUrl.includes('instagram.com') ||
+        trimmedUrl.includes('tiktok.com') ||
+        (trimmedUrl.startsWith('http') && !trimmedUrl.startsWith('blob:'))
+      ) {
+        setFormError('External social media links are not allowed here. Please upload a video file from your computer or use the "URL" button.')
+        return
+      }
     }
 
-    const targetPage = WEBSITE_PAGES.find((p) => p.name === formPageName) || WEBSITE_PAGES[0]
+    const targetPage = WEBSITE_PAGES.find((p) => p.id === formPageId) || WEBSITE_PAGES[0]
 
     if (editingItem) {
       const updated = items.map((item) =>
         item.id === editingItem.id
           ? {
               ...item,
-              pageName: formPageName,
+              pageId: targetPage.id,
+              pageName: targetPage.name,
               pageSlug: targetPage.slug,
               sectionName: formSection,
               title: formTitle.trim(),
@@ -274,7 +244,8 @@ export default function AdminPageMediaManager() {
     } else {
       const newItem: PageMediaItem = {
         id: `pm-${Date.now()}`,
-        pageName: formPageName,
+        pageId: targetPage.id,
+        pageName: targetPage.name,
         pageSlug: targetPage.slug,
         sectionName: formSection,
         title: formTitle.trim(),
@@ -289,13 +260,6 @@ export default function AdminPageMediaManager() {
     }
 
     setIsModalOpen(false)
-  }
-
-  // Copy media link / path
-  const handleCopy = (id: string, url: string) => {
-    navigator.clipboard.writeText(url)
-    setCopiedId(id)
-    setTimeout(() => setCopiedId(null), 2000)
   }
 
   // Toggle active status
@@ -319,290 +283,438 @@ export default function AdminPageMediaManager() {
     const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.pageName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.sectionName.toLowerCase().includes(searchQuery.toLowerCase())
+      item.sectionName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.pageSlug.toLowerCase().includes(searchQuery.toLowerCase())
     return matchesPage && matchesSource && matchesSearch
   })
 
-  // Extract YouTube ID if applicable
-  const getYouTubeEmbedUrl = (url: string) => {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
-    const match = url.match(regExp)
-    if (match && match[2].length === 11) {
-      return `https://www.youtube.com/embed/${match[2]}`
-    }
-    return null
-  }
-
   return (
     <div className="space-y-6 font-sans pb-16">
-      {/* 1. TOP HEADER & ACTIONS (PEERS UNITY STYLE) */}
+      {/* 1. Top Header Banner & Action Buttons */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-[#E8ECF4] shadow-xs">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#4F46E5] text-[11px] font-semibold">
             <Sparkles className="w-3 h-3" />
-            <span>Page Media Manager</span>
+            <span>Page Media Manager (Master Tabular View)</span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#1E293B] tracking-tight">
             Page Media Management
           </h1>
-          <p className="text-xs text-slate-500 leading-relaxed max-w-xl">
-            Assign videos and images to specific pages of Peers Global. Configure external YouTube/web links or direct video files from <span className="text-[#4F46E5] font-semibold">This PC / Localhost</span>.
+          <p className="text-xs text-slate-500 leading-relaxed max-w-2xl">
+            Configure video assets across Peers Global website pages. Click any page URL in the table below to open its dedicated section manager in a new tab, or use the action buttons to set Social Media or Computer videos.
           </p>
         </div>
 
-        {/* TWO DEDICATED ACTION BUTTONS */}
-        <div className="flex flex-wrap items-center gap-2.5">
+        {/* The Two Dedicated Upload Buttons */}
+        <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          {/* Button 1: URL */}
           <button
             onClick={() => openUrlModal()}
             className="px-4 py-2 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white text-xs font-semibold shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+            title="Upload / Set video via Social Media & Web link only"
           >
             <Globe className="w-4 h-4" />
-            <span>+ Add External URL</span>
+            <span>+ URL (Social Media)</span>
           </button>
 
+          {/* Button 2: URL for Computer */}
           <button
-            onClick={() => openLocalhostModal()}
+            onClick={() => openComputerModal()}
             className="px-4 py-2 rounded-xl bg-[#059669] hover:bg-[#047857] text-white text-xs font-semibold shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+            title="Upload video from Computer (This PC only)"
           >
             <HardDrive className="w-4 h-4" />
-            <span>+ Add Localhost File (This PC)</span>
+            <span>+ URL for Computer</span>
           </button>
         </div>
       </div>
 
-      {/* 2. PAGE SELECTOR & FILTER BAR */}
-      <div className="bg-white border border-[#E8ECF4] rounded-2xl p-4 lg:p-5 shadow-xs space-y-4">
-        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-          {/* Select Page Name Dropdown & Search */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 flex-1">
-            <div className="w-full sm:w-64">
-              <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Select Website Page</label>
-              <select
-                value={selectedPageFilter}
-                onChange={(e) => setSelectedPageFilter(e.target.value)}
-                className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3 py-2 text-xs font-semibold text-[#1E293B] focus:outline-none focus:border-[#4F46E5]"
-              >
-                <option value="all">All Pages ({items.length} Media)</option>
-                {WEBSITE_PAGES.map((page) => (
-                  <option key={page.name} value={page.name}>
-                    {page.name} ({items.filter((i) => i.pageName === page.name).length})
-                  </option>
-                ))}
-              </select>
-            </div>
+      {/* 2. Website Pages Table (2 Columns: Page Name & URL - Click to Open in Next Page) */}
+      <div className="bg-white border border-[#E8ECF4] rounded-2xl overflow-hidden shadow-xs">
+        <div className="p-4 bg-[#F8FAFC] border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <h2 className="text-xs font-bold text-[#1E293B] uppercase tracking-wider">
+              Website Pages (Click URL to Open in Next Page)
+            </h2>
+            <p className="text-[11px] text-slate-400 mt-0.5">
+              Select any page URL below to open its dedicated video section manager in a new tab.
+            </p>
+          </div>
+          <span className="px-2.5 py-1 rounded-lg bg-indigo-50 text-[#4F46E5] font-bold text-xs border border-indigo-100">
+            {WEBSITE_PAGES.length} Pages
+          </span>
+        </div>
 
-            <div className="w-full sm:flex-1">
-              <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Search Media</label>
-              <div className="relative">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search by title, section, or page name..."
-                  className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl pl-9 pr-3 py-2 text-xs text-[#1E293B] placeholder:text-slate-400 focus:outline-none focus:border-[#4F46E5]"
-                />
-              </div>
-            </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs text-[#1E293B]">
+            <thead className="bg-[#F8FAFC] border-b border-slate-100 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
+              <tr>
+                <th className="py-3 px-6 w-1/2">Page Name</th>
+                <th className="py-3 px-6 w-1/2">URL</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {WEBSITE_PAGES.map((page) => (
+                <tr key={page.id} className="hover:bg-[#F8FAFC] transition group">
+                  {/* Column 1: Page Name */}
+                  <td className="py-3.5 px-6 font-bold text-xs text-[#1E293B]">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-indigo-50 text-[#4F46E5] flex items-center justify-center shrink-0">
+                        <MonitorPlay className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="font-bold text-xs text-[#1E293B] group-hover:text-[#4F46E5] transition">
+                          {page.name}
+                        </span>
+                        <p className="text-[11px] text-slate-400 font-normal">
+                          {page.sections.length} Video Sections
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+
+                  {/* Column 2: URL (Clicking opens in next page / new tab) */}
+                  <td className="py-3.5 px-6">
+                    <div className="flex items-center justify-between">
+                      <Link
+                        href={`/admin/page-media/${page.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#EEF2FF] hover:bg-[#E0E7FF] text-[#4F46E5] font-bold font-mono text-xs border border-[#C7D2FE] transition shadow-2xs group/link"
+                        title={`Open ${page.name} (${page.slug}) in a new page`}
+                      >
+                        <span>{page.slug}</span>
+                        <ExternalLink className="w-3.5 h-3.5 text-[#4F46E5] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                      </Link>
+
+                      <Link
+                        href={page.slug}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] text-slate-400 hover:text-slate-600 font-mono hover:underline flex items-center gap-1"
+                        title="View Live Website Page"
+                      >
+                        <span>Live Site ({page.slug})</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </Link>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* 3. Filter & Search Bar */}
+      <div className="bg-white border border-[#E8ECF4] rounded-2xl p-4 shadow-xs flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+        {/* Select Website Page Dropdown & Search */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 flex-1">
+          <div className="w-full sm:w-64">
+            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Select Website Page</label>
+            <select
+              value={selectedPageFilter}
+              onChange={(e) => setSelectedPageFilter(e.target.value)}
+              className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3 py-2 text-xs font-semibold text-[#1E293B] focus:outline-none focus:border-[#4F46E5]"
+            >
+              <option value="all">All Pages ({items.length} Media)</option>
+              {WEBSITE_PAGES.map((page) => (
+                <option key={page.id} value={page.name}>
+                  {page.name} ({items.filter((i) => (i.pageId ? i.pageId === page.id : i.pageName === page.name)).length})
+                </option>
+              ))}
+            </select>
           </div>
 
-          {/* Source Type Filter */}
-          <div>
-            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Filter Source</label>
-            <div className="inline-flex items-center p-1 rounded-xl bg-[#F4F6FB] border border-[#E8ECF4] text-xs">
-              <button
-                onClick={() => setSourceFilter('all')}
-                className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer ${
-                  sourceFilter === 'all' ? 'bg-white text-[#4F46E5] shadow-xs' : 'text-slate-500'
-                }`}
-              >
-                All Sources
-              </button>
-              <button
-                onClick={() => setSourceFilter('url')}
-                className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer flex items-center gap-1.5 ${
-                  sourceFilter === 'url' ? 'bg-white text-[#4F46E5] shadow-xs' : 'text-slate-500'
-                }`}
-              >
-                <Globe className="w-3.5 h-3.5 text-[#4F46E5]" />
-                <span>External URL</span>
-              </button>
-              <button
-                onClick={() => setSourceFilter('localhost')}
-                className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer flex items-center gap-1.5 ${
-                  sourceFilter === 'localhost' ? 'bg-white text-emerald-600 shadow-xs' : 'text-slate-500'
-                }`}
-              >
-                <HardDrive className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Localhost PC</span>
-              </button>
+          <div className="w-full sm:flex-1">
+            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Search Media</label>
+            <div className="relative">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by title, page name, section, or url..."
+                className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl pl-9 pr-3 py-2 text-xs text-[#1E293B] placeholder:text-slate-400 focus:outline-none focus:border-[#4F46E5]"
+              />
             </div>
+          </div>
+        </div>
+
+        {/* Source Filter */}
+        <div>
+          <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Filter Source</label>
+          <div className="inline-flex items-center p-1 rounded-xl bg-[#F4F6FB] border border-[#E8ECF4] text-xs">
+            <button
+              onClick={() => setSourceFilter('all')}
+              className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer ${
+                sourceFilter === 'all' ? 'bg-white text-[#4F46E5] shadow-xs' : 'text-slate-500'
+              }`}
+            >
+              All Sources
+            </button>
+            <button
+              onClick={() => setSourceFilter('url')}
+              className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                sourceFilter === 'url' ? 'bg-white text-[#4F46E5] shadow-xs' : 'text-slate-500'
+              }`}
+            >
+              <Globe className="w-3.5 h-3.5 text-[#4F46E5]" />
+              <span>URL (Social)</span>
+            </button>
+            <button
+              onClick={() => setSourceFilter('localhost')}
+              className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                sourceFilter === 'localhost' ? 'bg-white text-emerald-600 shadow-xs' : 'text-slate-500'
+              }`}
+            >
+              <HardDrive className="w-3.5 h-3.5 text-emerald-600" />
+              <span>URL for Computer</span>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* 4. PAGE MEDIA GRID LIST */}
-      {filteredItems.length === 0 ? (
-        <div className="bg-white border border-[#E8ECF4] rounded-2xl p-12 text-center space-y-4 shadow-xs">
-          <div className="w-16 h-16 rounded-full bg-indigo-50 text-[#4F46E5] flex items-center justify-center mx-auto">
-            <MonitorPlay className="w-8 h-8" />
-          </div>
-          <div>
-            <h3 className="text-base font-bold text-[#1E293B]">No Page Media Found</h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
-              No media items found for the selected page or filters. Click below to add new media to this page.
-            </p>
-          </div>
-          <div className="flex items-center justify-center gap-3 pt-2">
-            <button
-              onClick={() => openUrlModal()}
-              className="px-4 py-2 rounded-xl bg-[#4F46E5] text-white text-xs font-bold shadow-xs cursor-pointer"
-            >
-              + Add External URL
-            </button>
-            <button
-              onClick={() => openLocalhostModal()}
-              className="px-4 py-2 rounded-xl bg-[#059669] text-white text-xs font-bold shadow-xs cursor-pointer"
-            >
-              + Add Localhost File
-            </button>
-          </div>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => {
-            const ytEmbed = item.sourceType === 'url' ? getYouTubeEmbedUrl(item.mediaUrl) : null
-            return (
-              <div
-                key={item.id}
-                className="bg-white border border-[#E8ECF4] rounded-2xl p-5 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-4 group relative overflow-hidden"
-              >
-                <div>
-                  {/* Top Badges */}
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-[#4F46E5] border border-indigo-100">
-                      <Layers className="w-3 h-3" />
-                      <span>{item.pageName}</span>
-                    </span>
-
-                    <div className="flex items-center gap-2">
-                      {item.sourceType === 'url' ? (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-600 border border-blue-200">
-                          <Globe className="w-3 h-3" />
-                          <span>URL Link</span>
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                          <HardDrive className="w-3 h-3" />
-                          <span>Localhost PC</span>
-                        </span>
-                      )}
-
-                      <button
-                        onClick={() => toggleStatus(item.id)}
-                        className={`w-3 h-3 rounded-full ${item.isActive ? 'bg-emerald-500' : 'bg-slate-300'}`}
-                        title={item.isActive ? 'Active (Click to disable)' : 'Inactive (Click to activate)'}
-                      />
+      {/* 4. Main Media Items Table (With Image 1 Side-by-Side Action Buttons) */}
+      <div className="bg-white border border-[#E8ECF4] rounded-2xl overflow-hidden shadow-xs">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs text-[#1E293B] min-w-[1020px]">
+            <thead className="bg-[#F8FAFC] border-b border-slate-100 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
+              <tr>
+                <th className="py-3.5 px-4 w-[220px]">Website Page &amp; Live URL</th>
+                <th className="py-3.5 px-4 w-[210px]">Section / Selection Name</th>
+                <th className="py-3.5 px-4 min-w-[240px]">Media Title &amp; Details</th>
+                <th className="py-3.5 px-4 w-[210px]">Current Media Source</th>
+                <th className="py-3.5 px-4 w-[90px]">Status</th>
+                <th className="py-3.5 px-4 w-[280px] min-w-[280px] text-right">Media Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {filteredItems.length === 0 ? (
+                <tr>
+                  <td colSpan={6} className="p-12 text-center text-slate-500">
+                    <div className="w-12 h-12 rounded-full bg-indigo-50 text-[#4F46E5] flex items-center justify-center mx-auto mb-3">
+                      <MonitorPlay className="w-6 h-6" />
                     </div>
-                  </div>
+                    <p className="text-base font-bold text-[#1E293B]">No Page Media Found</p>
+                    <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
+                      No media items match your search criteria. Click the buttons below to assign media to a page.
+                    </p>
+                    <div className="flex items-center justify-center gap-3 pt-3">
+                      <button
+                        onClick={() => openUrlModal()}
+                        className="px-4 py-2 rounded-xl bg-[#4F46E5] text-white text-xs font-bold shadow-xs cursor-pointer"
+                      >
+                        + URL (Social Media)
+                      </button>
+                      <button
+                        onClick={() => openComputerModal()}
+                        className="px-4 py-2 rounded-xl bg-[#059669] text-white text-xs font-bold shadow-xs cursor-pointer"
+                      >
+                        + URL for Computer
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ) : (
+                filteredItems.map((item) => {
+                  const pageConfig = getPageConfigBySlugOrId(item.pageId || item.pageName) || WEBSITE_PAGES[0]
+                  return (
+                    <tr key={item.id} className="hover:bg-[#F8FAFC] transition group">
+                      {/* 1. Page Name & Clickable URL Link (Opens dedicated page in new tab) */}
+                      <td className="py-4 px-4 font-semibold text-[#1E293B]">
+                        <div className="flex flex-col gap-1.5">
+                          <span className="font-bold text-xs text-[#1E293B]">{item.pageName}</span>
 
-                  {/* Media Preview Player / Frame */}
-                  <div className="h-48 rounded-xl bg-[#0F172A] border border-slate-700 overflow-hidden relative flex items-center justify-center group/preview">
-                    {item.mediaType === 'video' ? (
-                      ytEmbed ? (
-                        <iframe
-                          src={ytEmbed}
-                          title={item.title}
-                          className="w-full h-full border-0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
-                      ) : item.sourceType === 'localhost' || item.mediaUrl.endsWith('.mp4') || item.mediaUrl.startsWith('blob:') ? (
-                        <video
-                          src={item.mediaUrl}
-                          controls
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="flex flex-col items-center justify-center text-center p-4 space-y-2">
-                          <div className="w-12 h-12 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-                            <FileVideo className="w-6 h-6" />
+                          {/* Dedicated Manager Link (Opens in New Tab) */}
+                          <Link
+                            href={`/admin/page-media/${pageConfig.id}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#4F46E5] hover:text-[#4338CA] bg-indigo-50/90 hover:bg-indigo-100/90 px-2 py-0.5 rounded-md border border-indigo-200 transition w-fit"
+                            title={`Click to open dedicated video section manager for ${item.pageName} in a new tab`}
+                          >
+                            <span>Manage Page Videos</span>
+                            <ExternalLink className="w-3 h-3 text-[#4F46E5]" />
+                          </Link>
+
+                          {/* Live Site Preview Link */}
+                          <Link
+                            href={item.pageSlug}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-600 font-mono hover:underline w-fit"
+                            title={`Preview live website page ${item.pageSlug} in a new tab`}
+                          >
+                            <span>Live: {item.pageSlug}</span>
+                            <ExternalLink className="w-2.5 h-2.5" />
+                          </Link>
+                        </div>
+                      </td>
+
+                      {/* 2. Selection / Section Name */}
+                      <td className="py-4 px-4">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#F1F4F9] text-slate-700 border border-slate-200 max-w-[200px] truncate" title={item.sectionName}>
+                          <Layers className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <span className="truncate">{item.sectionName}</span>
+                        </span>
+                      </td>
+
+                      {/* 3. Media Title & Details */}
+                      <td className="py-4 px-4">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-lg bg-indigo-50 text-[#4F46E5] flex items-center justify-center shrink-0">
+                            {item.mediaType === 'video' ? <Video className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
                           </div>
-                          <span className="text-xs font-semibold text-white truncate max-w-full">{item.title}</span>
-                          <span className="text-[10px] text-slate-400 font-mono truncate max-w-[200px]">
+                          <div className="min-w-0">
+                            <p className="font-bold text-xs text-[#1E293B] truncate max-w-[220px]" title={item.title}>
+                              {item.title}
+                            </p>
+                            {item.description && (
+                              <p className="text-[11px] text-slate-400 truncate max-w-[220px]" title={item.description}>
+                                {item.description}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* 4. Current Media Source */}
+                      <td className="py-4 px-4">
+                        <div className="flex items-center gap-2">
+                          {item.sourceType === 'url' ? (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-600 border border-blue-200 shrink-0">
+                              <Globe className="w-3 h-3" />
+                              <span>Social URL</span>
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
+                              <HardDrive className="w-3 h-3" />
+                              <span>Computer Video</span>
+                            </span>
+                          )}
+                          <span className="text-[11px] font-mono text-slate-500 truncate max-w-[100px]" title={item.mediaUrl}>
                             {item.mediaUrl}
                           </span>
+                          <button
+                            onClick={() => setPreviewModalItem(item)}
+                            className="p-1 rounded text-slate-400 hover:text-[#4F46E5] hover:bg-slate-100 transition cursor-pointer shrink-0"
+                            title="Preview Video"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                          </button>
                         </div>
-                      )
-                    ) : (
-                      <img src={item.mediaUrl} alt={item.title} className="w-full h-full object-cover" />
-                    )}
+                      </td>
 
-                    <span className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
-                      {item.sectionName}
-                    </span>
-                  </div>
+                      {/* 5. Status Toggle */}
+                      <td className="py-4 px-4 whitespace-nowrap">
+                        <button
+                          onClick={() => toggleStatus(item.id)}
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold cursor-pointer transition border ${
+                            item.isActive
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                              : 'bg-slate-100 text-slate-500 border-slate-200'
+                          }`}
+                          title={item.isActive ? 'Active on website (Click to disable)' : 'Disabled (Click to enable)'}
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full ${item.isActive ? 'bg-emerald-500' : 'bg-slate-400'}`} />
+                          <span>{item.isActive ? 'Active' : 'Disabled'}</span>
+                        </button>
+                      </td>
 
-                  {/* Details */}
-                  <div className="mt-3 space-y-1">
-                    <h3 className="text-sm font-bold text-[#1E293B] line-clamp-1">{item.title}</h3>
-                    {item.description && (
-                      <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">{item.description}</p>
-                    )}
-                  </div>
-                </div>
+                      {/* 6. Media Actions: The Exact Three Buttons from Image 1 Side-by-Side */}
+                      <td className="py-4 px-4 whitespace-nowrap text-right">
+                        <div className="inline-flex items-center justify-end gap-1.5">
+                          {/* Button 1: [🌐 URL] */}
+                          <button
+                            onClick={() => openUrlModal(item)}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-[#EEF2FF] hover:bg-[#E0E7FF] text-[#4F46E5] font-semibold text-xs border border-[#C7D2FE] transition shadow-2xs whitespace-nowrap cursor-pointer"
+                            title="Set Social Media / Web URL for this section (External links only)"
+                          >
+                            <Globe className="w-3.5 h-3.5 text-[#4F46E5]" />
+                            <span>URL</span>
+                          </button>
 
-                {/* Footer Controls */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                  <button
-                    onClick={() => handleCopy(item.id, item.mediaUrl)}
-                    className="flex-1 px-3 py-1.5 rounded-xl bg-[#F8FAFC] hover:bg-slate-100 text-[#1E293B] border border-[#E8ECF4] text-xs font-semibold flex items-center justify-center gap-1.5 transition cursor-pointer"
-                  >
-                    {copiedId === item.id ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-600 text-[11px]">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-slate-400" />
-                        <span className="text-[11px]">Copy Path</span>
-                      </>
-                    )}
-                  </button>
+                          {/* Button 2: [💾 URL for Computer] */}
+                          <button
+                            onClick={() => openComputerModal(item)}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-[#ECFDF5] hover:bg-[#D1FAE5] text-[#059669] font-semibold text-xs border border-[#A7F3D0] transition shadow-2xs whitespace-nowrap cursor-pointer"
+                            title="Upload Computer Video file from This PC for this section"
+                          >
+                            <HardDrive className="w-3.5 h-3.5 text-[#059669]" />
+                            <span>URL for Computer</span>
+                          </button>
 
-                  <Link
-                    href={item.pageSlug}
-                    target="_blank"
-                    className="p-2 rounded-xl bg-[#F8FAFC] hover:bg-slate-100 text-slate-600 border border-[#E8ECF4] hover:text-[#4F46E5] transition"
-                    title="View Live Page"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </Link>
+                          {/* Button 3: [🗑️] */}
+                          <button
+                            onClick={() => handleDelete(item.id)}
+                            className="inline-flex items-center justify-center p-1.5 rounded-md bg-[#FEF2F2] hover:bg-[#FEE2E2] text-[#DC2626] border border-[#FECACA] transition shadow-2xs cursor-pointer"
+                            title="Delete Media"
+                          >
+                            <Trash2 className="w-3.5 h-3.5 text-[#DC2626]" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  )
+                })
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-                  <button
-                    onClick={() => (item.sourceType === 'url' ? openUrlModal(item) : openLocalhostModal(item))}
-                    className="p-2 rounded-xl bg-[#F8FAFC] hover:bg-slate-100 text-slate-600 border border-[#E8ECF4] hover:text-[#4F46E5] transition cursor-pointer"
-                    title="Edit Media"
-                  >
-                    <Edit className="w-4 h-4" />
-                  </button>
-
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 transition cursor-pointer"
-                    title="Delete Media"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
+      {/* 5. Video Preview Modal */}
+      {previewModalItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-xs p-4 animate-in fade-in duration-200">
+          <div className="relative w-full max-w-2xl rounded-2xl bg-white border border-slate-700 shadow-2xl overflow-hidden">
+            <div className="p-4 bg-[#131B2E] text-white flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Play className="w-4 h-4 text-indigo-400" />
+                <span className="font-bold text-xs">{previewModalItem.title}</span>
+                <span className="text-[10px] text-slate-400">({previewModalItem.pageName} - {previewModalItem.sectionName})</span>
               </div>
-            )
-          })}
+              <button
+                onClick={() => setPreviewModalItem(null)}
+                className="p-1 rounded-full hover:bg-white/20 text-white transition cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="h-80 bg-black flex items-center justify-center">
+              {previewModalItem.sourceType === 'url' && getYouTubeEmbedUrl(previewModalItem.mediaUrl) ? (
+                <iframe
+                  src={getYouTubeEmbedUrl(previewModalItem.mediaUrl) || ''}
+                  title={previewModalItem.title}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : previewModalItem.mediaUrl.endsWith('.mp4') || previewModalItem.mediaUrl.startsWith('blob:') || previewModalItem.sourceType === 'localhost' ? (
+                <video src={previewModalItem.mediaUrl} controls autoPlay className="w-full h-full object-contain" />
+              ) : (
+                <div className="p-6 text-center text-slate-400">
+                  <p className="text-sm font-semibold">{previewModalItem.title}</p>
+                  <p className="text-xs mt-1 font-mono">{previewModalItem.mediaUrl}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="p-3 bg-white border-t border-slate-100 flex items-center justify-between text-xs">
+              <span className="text-slate-500 font-mono text-[11px] truncate max-w-md">{previewModalItem.mediaUrl}</span>
+              <button
+                onClick={() => setPreviewModalItem(null)}
+                className="px-4 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
-      {/* 5. ADD / EDIT MEDIA MODAL */}
+      {/* 6. Add / Update Modal (Strictly Validating "URL" vs "URL for Computer") */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
           <div className="relative w-full max-w-lg rounded-2xl bg-white border border-[#E8ECF4] shadow-2xl overflow-hidden">
@@ -611,7 +723,7 @@ export default function AdminPageMediaManager() {
               className={`p-5 text-white ${
                 modalMode === 'url'
                   ? 'bg-gradient-to-r from-[#1E1B4B] to-[#4F46E5]'
-                  : 'bg-gradient-to-r from-[#064E3B] to-emerald-600'
+                  : 'bg-gradient-to-r from-[#064E3B] to-[#059669]'
               }`}
             >
               <div className="flex items-center justify-between">
@@ -621,12 +733,12 @@ export default function AdminPageMediaManager() {
                   </div>
                   <div>
                     <h2 className="text-base font-bold">
-                      {editingItem ? 'Edit Page Media' : modalMode === 'url' ? 'Add External Media (URL)' : 'Add Localhost Media (This PC)'}
+                      {modalMode === 'url' ? 'URL (Social Media & Web Links Only)' : 'URL for Computer (This PC Files Only)'}
                     </h2>
                     <p className="text-xs text-slate-200 mt-0.5">
                       {modalMode === 'url'
-                        ? 'YouTube videos, Vimeo, or external social/web links'
-                        : 'Upload or select direct video files from This PC'}
+                        ? 'Add YouTube, Vimeo, or web video links only'
+                        : 'Upload video directly from your computer (This PC)'}
                     </p>
                   </div>
                 </div>
@@ -642,6 +754,22 @@ export default function AdminPageMediaManager() {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
+              {/* Notice Banner Reinforcing Condition */}
+              <div
+                className={`p-3 rounded-xl border text-xs font-medium flex items-start gap-2 ${
+                  modalMode === 'url'
+                    ? 'bg-indigo-50 border-indigo-200 text-[#4F46E5]'
+                    : 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                }`}
+              >
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                <span>
+                  {modalMode === 'url'
+                    ? 'Rule: Only social media and web URLs (YouTube, Vimeo, etc.) can be added here. Computer files cannot be uploaded via this button.'
+                    : 'Rule: Only computer files from This PC can be uploaded here. Social media links are not allowed in this mode.'}
+                </span>
+              </div>
+
               {formError && (
                 <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs font-semibold flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 shrink-0" />
@@ -649,33 +777,40 @@ export default function AdminPageMediaManager() {
                 </div>
               )}
 
-              {/* 1. Select Target Website Page */}
+              {/* 1. Target Website Page */}
               <div>
                 <label className="block text-xs font-bold text-[#1E293B] mb-1">Target Website Page *</label>
                 <select
-                  value={formPageName}
-                  onChange={(e) => setFormPageName(e.target.value)}
+                  value={formPageId}
+                  onChange={(e) => {
+                    const newPageId = e.target.value
+                    setFormPageId(newPageId)
+                    const pConfig = WEBSITE_PAGES.find((p) => p.id === newPageId)
+                    if (pConfig && pConfig.sections.length > 0) {
+                      setFormSection(pConfig.sections[0].name)
+                    }
+                  }}
                   className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3 py-2 text-xs font-semibold text-[#1E293B] focus:outline-none focus:border-[#4F46E5]"
                 >
                   {WEBSITE_PAGES.map((p) => (
-                    <option key={p.name} value={p.name}>
+                    <option key={p.id} value={p.id}>
                       {p.name} ({p.slug})
                     </option>
                   ))}
                 </select>
               </div>
 
-              {/* 2. Select Page Section */}
+              {/* 2. Page Section / Selection Name */}
               <div>
-                <label className="block text-xs font-bold text-[#1E293B] mb-1">Page Section / Placement *</label>
+                <label className="block text-xs font-bold text-[#1E293B] mb-1">Section / Placement Name *</label>
                 <select
                   value={formSection}
                   onChange={(e) => setFormSection(e.target.value)}
                   className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3 py-2 text-xs font-semibold text-[#1E293B] focus:outline-none focus:border-[#4F46E5]"
                 >
-                  {PAGE_SECTIONS.map((sec) => (
-                    <option key={sec} value={sec}>
-                      {sec}
+                  {currentPageConfig.sections.map((sec) => (
+                    <option key={sec.id} value={sec.name}>
+                      {sec.name}
                     </option>
                   ))}
                 </select>
@@ -688,148 +823,71 @@ export default function AdminPageMediaManager() {
                   type="text"
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
-                  placeholder="e.g. Hero Conclave Background Reel 2026"
+                  placeholder="e.g. Hero Background Video 2026"
                   className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3.5 py-2 text-xs text-[#1E293B] focus:outline-none focus:border-[#4F46E5]"
                 />
               </div>
 
-              {/* 4. Media Type */}
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-[#101B35] mb-1">Media Format</label>
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setFormMediaType('video')}
-                      className={`py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer border ${
-                        formMediaType === 'video'
-                          ? 'bg-[#1769FF] text-white border-[#1769FF]'
-                          : 'bg-[#F6F9FF] text-slate-600 border-[#E2E8F4]'
-                      }`}
-                    >
-                      <Video className="w-3.5 h-3.5" />
-                      <span>Video</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setFormMediaType('photo')}
-                      className={`py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer border ${
-                        formMediaType === 'photo'
-                          ? 'bg-[#1769FF] text-white border-[#1769FF]'
-                          : 'bg-[#F6F9FF] text-slate-600 border-[#E2E8F4]'
-                      }`}
-                    >
-                      <ImageIcon className="w-3.5 h-3.5" />
-                      <span>Photo</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-[#101B35] mb-1">Source Mode</label>
-                  <div className="py-2 px-3 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold flex items-center gap-2">
-                    {modalMode === 'url' ? (
-                      <>
-                        <Globe className="w-3.5 h-3.5 text-[#1769FF]" />
-                        <span>External URL</span>
-                      </>
-                    ) : (
-                      <>
-                        <HardDrive className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>Localhost (This PC)</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* 5. URL vs Localhost Input Field */}
+              {/* 4. MODE SPECIFIC INPUT */}
               {modalMode === 'url' ? (
+                /* URL MODE: Only Social Media / Web Links Allowed */
                 <div>
-                  <label className="block text-xs font-bold text-[#101B35] mb-1">
-                    YouTube / Social / Web Video Link (URL) *
+                  <label className="block text-xs font-bold text-[#1E293B] mb-1">
+                    Social Media / Web Video URL *
                   </label>
                   <input
                     type="url"
                     value={formMediaUrl}
                     onChange={(e) => setFormMediaUrl(e.target.value)}
                     placeholder="https://www.youtube.com/watch?v=... or https://vimeo.com/..."
-                    className="w-full bg-[#F6F9FF] border border-[#E2E8F4] rounded-xl px-3.5 py-2 text-xs text-[#101B35] focus:outline-none focus:border-[#1769FF]"
+                    className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3.5 py-2 text-xs text-[#1E293B] font-mono focus:outline-none focus:border-[#4F46E5]"
                   />
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    Supports YouTube, Vimeo, MP4 CDN links, or external image links.
+                  <p className="text-[11px] text-slate-400 mt-1">
+                    Accepts YouTube, Vimeo, or direct web video stream URLs starting with https://
                   </p>
                 </div>
               ) : (
+                /* COMPUTER MODE: Only Files from This PC Allowed */
                 <div>
-                  <label className="block text-xs font-bold text-[#101B35] mb-1">
-                    Select Media File from This PC / Localhost *
+                  <label className="block text-xs font-bold text-[#1E293B] mb-1">
+                    Select Video from Computer (This PC) *
                   </label>
-
-                  <div className="border-2 border-dashed border-emerald-200 hover:border-emerald-500 rounded-2xl p-4 text-center bg-emerald-50/50 relative cursor-pointer group">
+                  <div className="border-2 border-dashed border-[#D2DCED] hover:border-[#059669] rounded-xl p-5 text-center bg-[#F8FAFC] relative cursor-pointer group">
                     <input
                       type="file"
-                      accept="video/*,image/*"
-                      onChange={handleLocalFileSelect}
+                      accept="video/*"
+                      onChange={handleComputerFileSelect}
                       className="absolute inset-0 opacity-0 cursor-pointer z-10"
                     />
-                    <div className="flex flex-col items-center justify-center space-y-2 pointer-events-none">
-                      <div className="p-2.5 rounded-xl bg-emerald-600 text-white shadow-sm group-hover:scale-105 transition-transform">
+                    <div className="flex flex-col items-center justify-center gap-1.5 pointer-events-none">
+                      <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#059669] flex items-center justify-center group-hover:scale-110 transition-transform">
                         <UploadCloud className="w-5 h-5" />
                       </div>
-                      <div>
-                        <p className="text-xs font-bold text-[#101B35]">
-                          {formLocalFileName ? `Selected: ${formLocalFileName}` : 'Click to select file from This PC'}
-                        </p>
-                        <p className="text-[10px] text-slate-500">Supports .mp4, .webm, .jpg, .png from local computer</p>
-                      </div>
+                      <p className="text-xs font-bold text-[#1E293B]">
+                        {formLocalFileName ? `Selected: ${formLocalFileName}` : 'Click to browse video from This PC'}
+                      </p>
+                      <p className="text-[10px] text-slate-400">Supports .mp4, .webm, .mov video files</p>
                     </div>
-                  </div>
-
-                  <div className="mt-2">
-                    <label className="block text-[10px] font-bold text-slate-500 mb-1">Or Enter Local Path Relative to Project</label>
-                    <input
-                      type="text"
-                      value={formMediaUrl}
-                      onChange={(e) => setFormMediaUrl(e.target.value)}
-                      placeholder="/videos/hero-bg.mp4 or /images/banner.jpg"
-                      className="w-full bg-[#F6F9FF] border border-[#E2E8F4] rounded-xl px-3 py-1.5 text-xs text-[#101B35] focus:outline-none focus:border-emerald-500"
-                    />
                   </div>
                 </div>
               )}
 
-              {/* 6. Description */}
-              <div>
-                <label className="block text-xs font-bold text-[#101B35] mb-1">Description (Optional)</label>
-                <textarea
-                  rows={2}
-                  value={formDescription}
-                  onChange={(e) => setFormDescription(e.target.value)}
-                  placeholder="Notes about where this video or photo appears..."
-                  className="w-full bg-[#F6F9FF] border border-[#E2E8F4] rounded-xl p-3 text-xs text-[#101B35] focus:outline-none focus:border-[#1769FF]"
-                />
-              </div>
-
-              {/* Submit Controls */}
-              <div className="pt-3 flex items-center justify-end gap-3 border-t border-slate-100">
+              {/* Action Buttons */}
+              <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-[#F6F9FF] hover:bg-slate-200 text-slate-600 text-xs font-semibold transition cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E8ECF4] text-slate-600 text-xs font-semibold hover:text-[#1E293B] transition cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className={`px-5 py-2 rounded-xl text-white text-xs font-bold shadow-md cursor-pointer transition ${
-                    modalMode === 'url'
-                      ? 'bg-gradient-to-r from-[#1769FF] to-[#08C7E8] hover:from-[#1357D6] hover:to-[#06ACC8]'
-                      : 'bg-emerald-600 hover:bg-emerald-500'
+                  className={`px-5 py-2 rounded-xl text-white text-xs font-bold shadow-xs transition cursor-pointer ${
+                    modalMode === 'url' ? 'bg-[#4F46E5] hover:bg-[#4338CA]' : 'bg-[#059669] hover:bg-[#047857]'
                   }`}
                 >
-                  {editingItem ? 'Save Changes' : modalMode === 'url' ? 'Add External Media' : 'Add Localhost Media'}
+                  {editingItem ? 'Save Video Changes' : 'Save & Publish Video'}
                 </button>
               </div>
             </form>

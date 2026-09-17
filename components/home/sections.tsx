@@ -68,6 +68,37 @@ import { OUTCOME_STATS, SITE } from '@/lib/data/site'
 export function WhoWeAreSection() {
   const [isRevealed, setIsRevealed] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [whoWeAreVideo, setWhoWeAreVideo] = useState('/videos/homepage-hero-bg.mp4')
+
+  useEffect(() => {
+    const loadVideo = () => {
+      try {
+        const saved = localStorage.getItem('peers_admin_page_media')
+        if (saved) {
+          const items = JSON.parse(saved)
+          const target = items.find(
+            (i: any) =>
+              (i.pageSlug === '/' || i.pageId === 'home' || i.pageName === 'Home Page') &&
+              (i.sectionName?.toLowerCase().includes('who we are') || i.sectionName?.toLowerCase().includes('section banner')) &&
+              i.isActive &&
+              i.mediaUrl
+          )
+          if (target && target.mediaUrl) {
+            setWhoWeAreVideo(target.mediaUrl)
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load who-we-are video', err)
+      }
+    }
+    loadVideo()
+    window.addEventListener('storage', loadVideo)
+    window.addEventListener('peers_media_updated', loadVideo)
+    return () => {
+      window.removeEventListener('storage', loadVideo)
+      window.removeEventListener('peers_media_updated', loadVideo)
+    }
+  }, [])
 
   const handleReveal = () => {
     if (isTransitioning) return
@@ -195,7 +226,8 @@ export function WhoWeAreSection() {
               >
                 {/* Active Video with Fallback Poster */}
                 <video
-                  src="/videos/homepage-hero-bg.mp4"
+                  key={whoWeAreVideo}
+                  src={whoWeAreVideo}
                   poster="/images/who-we-are-boardroom.jpg"
                   autoPlay
                   loop
