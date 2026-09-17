@@ -49,9 +49,6 @@ export function AdminSidebar() {
 
         {/* Navigation */}
         <nav className="p-3.5 space-y-1">
-          <div className="px-3 pb-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500">
-            Platform Menu
-          </div>
           {navItems.map((item) => {
             const Icon = item.icon
             const isActive = pathname === item.href || (item.href !== '/admin/dashboard' && pathname.startsWith(item.href))
