@@ -462,17 +462,19 @@ export function SiteFooter() {
       </footer>
 
       {/* ========================================================================= */}
-      {/* 5. BACK TO TOP BUTTON (Exact Microsoft Black Pill on Bottom Right)         */}
+      {/* 5. BACK TO TOP BUTTON (Option 3: Circular Floating Gradient Button)         */}
       {/* ========================================================================= */}
-      <div className="fixed bottom-6 right-6 z-40">
+      <div className="fixed bottom-6 left-6 z-40">
         <button
           type="button"
           onClick={scrollToTop}
-          className="flex items-center gap-1.5 rounded-full bg-[#111111] hover:bg-[#2e2e2e] text-white px-4 py-2 text-xs font-semibold shadow-lg transition-all active:scale-95"
+          className="group relative flex size-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#1E4ED8] via-[#2563eb] to-[#38bdf8] text-white shadow-[0_8px_25px_rgba(30,78,216,0.45)] hover:shadow-[0_12px_30px_rgba(30,78,216,0.65)] hover:scale-110 active:scale-95 transition-all duration-300 border border-white/25 cursor-pointer"
           aria-label="Back to top"
+          title="Back to top"
         >
-          <span>Back to top</span>
-          <ArrowUp className="size-3.5" />
+          <ArrowUp className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5" strokeWidth={2.5} />
+          {/* Subtle Outer Pulse Glow */}
+          <span className="absolute inset-0 rounded-full bg-blue-400/20 blur-sm -z-10 group-hover:blur-md transition-all" />
         </button>
       </div>
     </div>
