@@ -120,6 +120,7 @@ export async function getAllMembers(): Promise<PeerMemberProfile[]> {
         Authorization: `Bearer ${MEMBERS_TOKEN}`,
       },
       cache: 'no-store',
+      signal: AbortSignal.timeout(3500),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
@@ -147,6 +148,7 @@ export async function getMemberProfile(slugOrId: string): Promise<PeerMemberProf
         Authorization: `Bearer ${MEMBERS_TOKEN}`,
       },
       cache: 'no-store',
+      signal: AbortSignal.timeout(3500),
     });
     if (res.status === 404) {
       console.log('[members] 404 for slug:', slugOrId);

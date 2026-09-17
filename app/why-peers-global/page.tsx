@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, XCircle, AlertTriangle, ShieldCheck, HelpCircle } from 'lucide-react'
-import { Cta, Eyebrow, SectionHead } from '@/components/site/ui'
+import { Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
 import { LsrSection } from '@/components/home/sections'
 import { SITE } from '@/lib/data/site'
 
@@ -234,20 +234,9 @@ export default function WhyPage() {
       </section>
 
       {/* 8. Final CTA */}
-      <section className="section-sm bg-[#0b1b3a] text-white">
-        <div className="shell flex flex-col items-center gap-6 text-center max-w-2xl mx-auto">
-          <h2 className="display text-3xl font-extrabold">
-            Collaboration rises steadily and keeps rising.
-          </h2>
-          <p className="text-sm text-white/80">
-            Find your industry circle or visit a meeting as a guest to see how the room operates.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Cta href="/circles" variant="gold" size="lg">Find Your Circle</Cta>
-            <Cta href="/events" variant="onDark" size="lg">Visit a Meeting as a Guest</Cta>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection />
+
+
     </div>
   )
 }

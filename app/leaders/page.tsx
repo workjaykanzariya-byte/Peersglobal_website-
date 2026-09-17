@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'The public Peers Global leader directory — Circle Founders, Circle Chairs, and Peer Members from the Unity App network.',
 }
 
-export const revalidate = 300 // Revalidate page every 5 minutes
+export const dynamic = 'force-dynamic'
 
 export default async function LeadersPage() {
   const members: PeerMember[] = await fetchMembers()

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Shield, Users, Briefcase, Award } from 'lucide-react'
-import { Cta, Eyebrow, SectionHead } from '@/components/site/ui'
+import { Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
 import { SITE } from '@/lib/data/site'
 
 export const metadata: Metadata = {
@@ -117,20 +117,9 @@ export default function LeadershipPage() {
       </section>
 
       {/* 4. Final CTA */}
-      <section className="section-sm bg-[#0b1b3a] text-white">
-        <div className="shell flex flex-col items-center gap-6 text-center max-w-2xl mx-auto">
-          <h2 className="display text-3xl font-extrabold">
-            Ready to lead your industry in your city?
-          </h2>
-          <p className="text-sm text-white/80">
-            Talk to our team about taking a functional leadership role or founding a new Circle.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Cta href="/contact?intent=leadership" variant="gold" size="lg">Apply for Leadership</Cta>
-            <Cta href="/leadership/circle-founder" variant="onDark" size="lg">Become a Circle Founder</Cta>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection />
+
+
     </div>
   )
 }

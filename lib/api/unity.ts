@@ -50,6 +50,7 @@ export async function fetchEvents(status: 'all' | 'upcoming' | 'live' | 'today' 
     const res = await fetch(`${API_BASE_URL}/api/v1/events/all?status=${status}`, {
       headers: { 'Accept': 'application/json' },
       next: { revalidate: 10 },
+      signal: AbortSignal.timeout(3500),
     });
     let apiEvents: PeerEvent[] = [];
     if (res.ok) {
@@ -187,6 +188,7 @@ export async function fetchMembers(): Promise<PeerMember[]> {
         'Authorization': `Bearer ${MEMBERS_TOKEN}`,
       },
       next: { revalidate: 10 }, // Cache for 5 mins
+      signal: AbortSignal.timeout(3500),
     });
     if (!res.ok) throw new Error(`HTTP error ${res.status}`);
     const json = await res.json();
@@ -205,6 +207,7 @@ export async function fetchMemberBySlugOrId(identifier: string): Promise<PeerMem
         'Accept': 'application/json',
         'Authorization': `Bearer ${MEMBERS_TOKEN}`,
       },
+      signal: AbortSignal.timeout(3500),
     });
     if (!res.ok) return null;
     const json = await res.json();
@@ -223,6 +226,7 @@ export async function fetchCircleCategories() {
     const res = await fetch(`${API_BASE_URL}/api/v1/circle-categories`, {
       headers: { 'Accept': 'application/json' },
       next: { revalidate: 10 },
+      signal: AbortSignal.timeout(4000),
     });
     if (!res.ok) return [];
     const json = await res.json();
@@ -238,6 +242,7 @@ export async function fetchCities() {
     const res = await fetch(`${API_BASE_URL}/api/v1/cities`, {
       headers: { 'Accept': 'application/json' },
       next: { revalidate: 10 },
+      signal: AbortSignal.timeout(4000),
     });
     if (!res.ok) return [];
     const json = await res.json();
