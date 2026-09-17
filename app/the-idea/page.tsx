@@ -17,8 +17,23 @@ import {
   TrendingUp,
   Quote,
   Lightbulb,
+  Sprout,
+  GraduationCap,
+  PhoneCall,
+  BarChart3,
+  Headphones,
+  Play,
+  ChevronRight,
+  Globe,
+  MapPin,
+  Trophy,
+  Gift,
+  Heart,
+  Users,
+  Target,
+  User,
 } from 'lucide-react'
-import { Cta, Eyebrow } from '@/components/site/ui'
+import { Cta, Eyebrow, ClosingCtaSection } from '@/components/site/ui'
 
 export const metadata: Metadata = {
   title: "The Idea Behind Peers Global | World's First Community of Collaboration",
@@ -41,20 +56,20 @@ export default function TheIdeaPage() {
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       
       {/* =========================================================================
-          1. HERO SECTION (EXACT MATCH TO REFERENCE IMAGE)
+          1. HERO SECTION (PERFECTLY ALIGNED)
           ========================================================================= */}
-      <section className="relative overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50/50 via-white to-white pt-16 pb-16 sm:pt-24 sm:pb-20">
-        {/* Soft background radial glows */}
-        <div className="absolute top-1/4 -left-20 size-80 rounded-full bg-blue-50/60 blur-3xl pointer-events-none" />
-        <div className="absolute top-10 right-10 size-96 rounded-full bg-blue-100/40 blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50/50 via-white to-white py-16 sm:py-20 lg:py-24">
+        {/* Soft background ambient glows */}
+        <div className="absolute top-1/4 left-10 size-72 rounded-full bg-blue-50/70 blur-3xl pointer-events-none" />
+        <div className="absolute top-10 right-20 size-80 rounded-full bg-blue-100/40 blur-3xl pointer-events-none" />
 
-        {/* Decorative background arc on far left */}
-        <div className="absolute -left-24 top-1/2 -translate-y-1/2 size-72 rounded-full border border-blue-100/60 pointer-events-none hidden lg:block" />
+        {/* Decorative left background arc */}
+        <div className="absolute -left-20 top-1/2 -translate-y-1/2 size-72 rounded-full border border-blue-100/50 pointer-events-none hidden xl:block" />
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 flex items-center justify-between gap-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative">
           
           {/* Left Decorative Vertical Strip */}
-          <div className="hidden lg:flex items-center gap-3 border-l-2 border-slate-200/80 pl-3 py-1 shrink-0">
+          <div className="hidden xl:flex absolute left-4 2xl:left-0 top-1/2 -translate-y-1/2 items-center gap-3 border-l-2 border-slate-200/90 pl-3 py-1 z-10">
             <div className="flex flex-col text-[10px] font-bold tracking-[0.22em] text-slate-400 uppercase leading-relaxed text-left">
               <span>PEOPLE</span>
               <span>PURPOSE</span>
@@ -63,20 +78,20 @@ export default function TheIdeaPage() {
           </div>
 
           {/* Center Main Hero Content */}
-          <div className="flex-1 max-w-3xl mx-auto flex flex-col items-center text-center">
+          <div className="max-w-2xl mx-auto flex flex-col items-center text-center relative z-20">
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-blue-50/90 border border-blue-200/70 px-4 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2] mb-5 shadow-xs">
               <span className="size-1.5 rounded-full bg-[#0062D2]" />
               PILLAR: THE IDEA
             </div>
 
-            {/* H1 with opening quote mark */}
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-[4.25rem] font-normal tracking-tight text-slate-900 mb-4 leading-[1.1]">
-              &ldquo;The Idea
+            {/* H1 */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-slate-900 mb-3 leading-[1.1]">
+              The Idea
             </h1>
 
             {/* Subline with blue script accent */}
-            <p className="font-serif text-xl sm:text-2xl lg:text-3xl text-slate-800 leading-snug max-w-2xl mb-3 font-normal">
+            <p className="font-serif text-xl sm:text-2xl lg:text-[1.85rem] text-slate-800 leading-snug mb-3 font-normal max-w-xl">
               Entrepreneurs should not have to{' '}
               <em
                 className="not-italic text-[#0062D2]"
@@ -87,7 +102,7 @@ export default function TheIdeaPage() {
             </p>
 
             {/* Supporting line */}
-            <p className="text-xs sm:text-sm text-slate-500 max-w-xl mb-8 leading-relaxed font-light">
+            <p className="text-xs sm:text-sm text-slate-500 max-w-lg mb-8 leading-relaxed font-light">
               Everything Peers Global is today comes from that one sentence.
             </p>
 
@@ -111,29 +126,29 @@ export default function TheIdeaPage() {
           </div>
 
           {/* Right Floating Script Text & Vertical Strip */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-10 shrink-0">
+          <div className="hidden lg:flex items-center gap-6 absolute right-4 2xl:right-0 top-1/2 -translate-y-1/2 z-10">
             {/* "Ideas Build Communities" handwritten calligraphic accent */}
-            <div className="flex flex-col items-start select-none -rotate-6 text-[#0062D2] leading-[1.15]">
+            <div className="flex flex-col items-start select-none -rotate-6 text-[#0062D2] leading-[1.12]">
               <span
-                className="text-3xl sm:text-4xl text-[#0062D2]"
+                className="text-2xl sm:text-3xl text-[#0062D2]"
                 style={{ fontFamily: 'var(--font-script, cursive)' }}
               >
                 Ideas
               </span>
               <span
-                className="text-3xl sm:text-4xl text-[#0062D2] ml-4"
+                className="text-2xl sm:text-3xl text-[#0062D2] ml-3"
                 style={{ fontFamily: 'var(--font-script, cursive)' }}
               >
                 Build
               </span>
               <span
-                className="text-3xl sm:text-4xl text-[#0062D2] ml-8"
+                className="text-2xl sm:text-3xl text-[#0062D2] ml-6"
                 style={{ fontFamily: 'var(--font-script, cursive)' }}
               >
                 Communities
               </span>
               {/* Swoosh underline flourish */}
-              <svg className="w-28 h-5 text-[#0062D2] ml-9 mt-0.5" viewBox="0 0 100 20" fill="none">
+              <svg className="w-24 h-4 text-[#0062D2] ml-7 mt-0.5" viewBox="0 0 100 20" fill="none">
                 <path
                   d="M5 6 C 35 15, 65 14, 95 8 M 85 4 C 90 7, 95 8, 92 14"
                   stroke="currentColor"
@@ -145,7 +160,7 @@ export default function TheIdeaPage() {
             </div>
 
             {/* Right Decorative Vertical Strip */}
-            <div className="hidden lg:flex items-center gap-3 border-l-2 border-slate-200/80 pl-3 py-1">
+            <div className="hidden xl:flex items-center gap-3 border-l-2 border-slate-200/90 pl-3 py-1">
               <div className="flex flex-col text-[10px] font-bold tracking-[0.22em] text-slate-400 uppercase leading-relaxed text-left">
                 <span>A BRIGHTER</span>
                 <span>TOMORROW</span>
@@ -158,50 +173,53 @@ export default function TheIdeaPage() {
       </section>
 
       {/* =========================================================================
-          2. THE PROBLEM NOBODY TALKS ABOUT (EXACT MATCH TO REFERENCE IMAGE)
+          2. THE PROBLEM NOBODY TALKS ABOUT (PERFECT 3-COLUMN ALIGNMENT)
           ========================================================================= */}
-      <section className="section py-16 sm:py-24 border-b border-slate-200/80 bg-white relative overflow-hidden">
+      <section className="section py-16 sm:py-20 lg:py-24 border-b border-slate-200/80 bg-white relative overflow-hidden">
         {/* Subtle background decorative circle on far right */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 size-96 rounded-full border border-blue-100/50 pointer-events-none hidden xl:block" />
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 size-96 rounded-full border border-blue-100/50 pointer-events-none hidden 2xl:block" />
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-          <div className="grid gap-10 lg:grid-cols-12 xl:grid-cols-[auto_1fr_1fr_auto] items-start">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 items-start">
             
-            {/* ──────── COLUMN 1: Visual Image Card with Overlays ──────── */}
-            <div className="lg:col-span-4 xl:col-span-1 flex justify-center lg:justify-start">
-              <div className="relative w-full max-w-[340px]">
+            {/* ──────── COLUMN 1: Visual Image Card with Overlays (lg:col-span-4) ──────── */}
+            <div className="lg:col-span-4 flex justify-center lg:justify-start pl-6 sm:pl-8 lg:pl-6 xl:pl-8 pt-2">
+              <div className="relative w-full max-w-[280px] sm:max-w-[300px]">
                 {/* Ambient glow behind image */}
-                <div className="absolute -inset-4 bg-blue-100/60 rounded-full blur-2xl -z-10" />
+                <div className="absolute -inset-4 bg-blue-100/50 rounded-full blur-2xl -z-10" />
 
-                {/* Main contemplative entrepreneur portrait with arched/pill curvature */}
-                <div className="relative aspect-[4/5] w-full rounded-[2.75rem] overflow-hidden shadow-2xl border border-slate-100">
-                  <Image
-                    src="/images/entrepreneur-thinking.jpg"
-                    alt="Pensive entrepreneur reflecting on business decisions"
-                    fill
-                    sizes="(min-width: 1024px) 340px, 90vw"
-                    className="object-cover object-center"
-                    priority
-                  />
+                {/* Main looping video element with arched curvature */}
+                <div className="relative aspect-[4/5] w-full rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 bg-slate-900">
+                  <video
+                    src="/videos/leadership-hero-bg.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="size-full object-cover object-center"
+                  >
+                    <source src="/videos/leadership-hero-bg.mp4" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Floating Glass Card (Top Left): Real People, Real Conversations */}
-                <div className="absolute -left-3 sm:-left-6 top-8 sm:top-10 z-20 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-100 p-4 shadow-xl max-w-[170px]">
-                  <div className="size-7 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center mb-2.5">
+                <div className="absolute -left-6 sm:-left-8 top-6 sm:top-8 z-20 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-100 p-3.5 shadow-xl w-[150px] sm:w-[160px]">
+                  <div className="size-7 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center mb-2">
                     <Users2 className="size-4" />
                   </div>
-                  <p className="text-[11px] font-medium text-slate-700 leading-snug">
+                  <p className="text-[10px] sm:text-[11px] font-medium text-slate-700 leading-snug">
                     Real People.<br />
                     Real Conversations.<br />
                     Real Opportunities.
                   </p>
-                  <span className="block h-[1.5px] w-4 bg-slate-300 mt-2.5" />
+                  <span className="block h-[1.5px] w-4 bg-slate-300 mt-2" />
                 </div>
 
                 {/* Floating Dark Card (Bottom Left): Better Entrepreneurs Together */}
-                <div className="absolute -left-3 sm:-left-6 bottom-6 sm:bottom-8 z-20 rounded-2xl bg-black/85 backdrop-blur-md border border-white/15 p-3 shadow-2xl w-[165px]">
-                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-2.5 border border-white/10">
+                <div className="absolute -left-6 sm:-left-8 bottom-6 sm:bottom-8 z-20 rounded-2xl bg-black/85 backdrop-blur-md border border-white/15 p-2.5 sm:p-3 shadow-2xl w-[150px] sm:w-[160px]">
+                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-2 border border-white/10">
                     <Image
                       src="/images/circle-meeting.png"
                       alt="Better Entrepreneurs Together"
@@ -210,7 +228,7 @@ export default function TheIdeaPage() {
                       className="object-cover"
                     />
                   </div>
-                  <p className="text-[11px] font-bold text-white leading-tight">
+                  <p className="text-[10px] sm:text-[11px] font-bold text-white leading-tight">
                     Better<br />
                     Entrepreneurs<br />
                     Together
@@ -220,8 +238,8 @@ export default function TheIdeaPage() {
               </div>
             </div>
 
-            {/* ──────── COLUMN 2: Narrative Storyline ──────── */}
-            <div className="lg:col-span-4 xl:col-span-1 flex flex-col gap-4">
+            {/* ──────── COLUMN 2: Narrative Storyline (lg:col-span-4) ──────── */}
+            <div className="lg:col-span-4 flex flex-col gap-3.5">
               {/* Eyebrow */}
               <div className="flex items-center gap-2">
                 <span className="h-[1.5px] w-6 bg-[#0062D2]" />
@@ -231,7 +249,7 @@ export default function TheIdeaPage() {
               </div>
 
               {/* Title with script accent on 'talks about.' */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-normal leading-[1.12] text-slate-950">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.25rem] font-normal leading-[1.15] text-slate-950">
                 The problem nobody{' '}
                 <span
                   className="block text-[#0062D2]"
@@ -241,26 +259,26 @@ export default function TheIdeaPage() {
                 </span>
               </h2>
 
-              <p className="text-xs sm:text-sm text-slate-600 font-light mt-1">
+              <p className="text-xs sm:text-sm text-slate-600 font-light mt-0.5">
                 Ask an entrepreneur how business is going and you will almost always get the same answer:
               </p>
 
               {/* Quote banner "Business is good." */}
-              <div className="rounded-xl bg-blue-50/70 border border-blue-100/80 px-4 py-3 flex items-center gap-2.5 my-1">
-                <span className="font-serif text-2xl text-[#0062D2] leading-none select-none font-bold">
+              <div className="rounded-xl bg-blue-50/70 border border-blue-100/80 px-3.5 py-2.5 flex items-center gap-2 my-0.5">
+                <span className="font-serif text-xl text-[#0062D2] leading-none select-none font-bold">
                   &ldquo;
                 </span>
-                <span className="font-serif italic text-base sm:text-lg font-medium text-slate-900">
+                <span className="font-serif italic text-sm sm:text-base font-medium text-slate-900">
                   Business is good.&rdquo;
                 </span>
               </div>
 
-              <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                 <p>
                   They will say it to their parents. To their friends. To the people at the wedding. Sometimes to their own husband or wife. And often it is not true.
                 </p>
 
-                <p className="font-bold text-slate-900 text-xs sm:text-sm">
+                <p className="font-bold text-slate-900">
                   This is the part of entrepreneurship that never appears in the interviews.
                 </p>
 
@@ -268,20 +286,20 @@ export default function TheIdeaPage() {
                   An entrepreneur is surrounded by people all day and understood by almost none of them. The team cannot be told that this month is uncertain, because telling them would signal the very thing you are protecting. The family sees the office and the travel and the phone that never stops ringing, and they assume everything is fine.
                 </p>
 
-                <p className="font-serif italic text-sm sm:text-base text-slate-900 font-medium pt-1">
+                <p className="font-serif italic text-sm sm:text-base text-slate-900 font-medium pt-0.5">
                   So you stop explaining.
                 </p>
               </div>
             </div>
 
-            {/* ──────── COLUMN 3: Dark Reflection Card + Light CTA Banner ──────── */}
-            <div className="lg:col-span-4 xl:col-span-1 flex flex-col gap-4">
+            {/* ──────── COLUMN 3: Dark Reflection Card + Light CTA Banner (lg:col-span-4) ──────── */}
+            <div className="lg:col-span-4 flex flex-col gap-4">
               
               {/* Midnight Card: A Founder's Reflection */}
-              <div className="rounded-2xl border border-blue-900/40 bg-gradient-to-b from-[#091E42] via-[#05142E] to-[#040E20] p-6 sm:p-7 text-white shadow-xl flex flex-col justify-between">
+              <div className="rounded-2xl border border-blue-900/40 bg-gradient-to-b from-[#091E42] via-[#05142E] to-[#040E20] p-5 sm:p-6 text-white shadow-xl flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-serif text-3xl text-blue-400 leading-none select-none font-bold">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="font-serif text-2xl text-blue-400 leading-none select-none font-bold">
                       &ldquo;
                     </span>
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">
@@ -289,32 +307,32 @@ export default function TheIdeaPage() {
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
+                  <p className="text-xs sm:text-[13px] text-slate-200 leading-relaxed font-light">
                     You make the biggest decisions of your life at eleven at night with nobody to call. You make mistakes that one honest conversation would have prevented, and you make them in silence, and you pay for them for years. A win you waited three years for arrives, and there is no one in the room who understands what it cost.
                   </p>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-blue-900/60">
+                <div className="pt-4 mt-4 border-t border-blue-900/60">
                   <p className="text-xs font-semibold text-[#38BDF8] leading-snug">
                     Entrepreneurs are surrounded by people, but rarely understood.
                   </p>
-                  <p className="text-[11px] text-slate-400 mt-1.5 leading-relaxed font-light">
+                  <p className="text-[11px] text-slate-400 mt-1 leading-relaxed font-light">
                     They do not need more motivation. They need belonging, trust, and peers who understand the weight they are carrying.
                   </p>
                 </div>
               </div>
 
               {/* Elevated Card: Why Peers Global Exists */}
-              <div className="rounded-2xl border border-blue-100 bg-white p-4 sm:p-5 flex items-center justify-between gap-3 shadow-xs hover:shadow-md transition-all">
-                <div className="flex items-center gap-3.5">
-                  <div className="size-10 rounded-full bg-[#0062D2] text-white flex items-center justify-center shrink-0 shadow-sm">
-                    <Lightbulb className="size-5" />
+              <div className="rounded-2xl border border-blue-100 bg-white p-4 flex items-center justify-between gap-3 shadow-xs hover:shadow-md transition-all">
+                <div className="flex items-center gap-3">
+                  <div className="size-9 rounded-full bg-[#0062D2] text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <Lightbulb className="size-4" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-900">
                       Why Peers Global Exists
                     </span>
-                    <span className="text-xs text-slate-500 font-light mt-0.5">
+                    <span className="text-[11px] text-slate-500 font-light mt-0.5 leading-snug">
                       This is the silent reason behind many ideas. It is also the reason Peers Global exists.
                     </span>
                   </div>
@@ -322,282 +340,641 @@ export default function TheIdeaPage() {
                 <Link
                   href="/membership"
                   aria-label="Why Peers Global Exists"
-                  className="size-9 rounded-full border border-slate-200 flex items-center justify-center text-[#0062D2] hover:bg-blue-50 transition-colors shrink-0"
+                  className="size-8 rounded-full border border-slate-200 flex items-center justify-center text-[#0062D2] hover:bg-blue-50 transition-colors shrink-0"
                 >
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-3.5" />
                 </Link>
               </div>
 
             </div>
 
-            {/* ──────── FAR RIGHT: Vertical Decorative Strip ──────── */}
-            <div className="hidden xl:flex items-center gap-3 border-l-2 border-slate-200/80 pl-3 py-1 shrink-0 self-center">
-              <div className="flex flex-col text-[10px] font-bold tracking-[0.22em] text-slate-400 uppercase leading-relaxed text-left">
-                <span>SAME</span>
-                <span>JOURNEY</span>
-                <span>BIGGER</span>
-                <span>POSSIBILITIES</span>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          3. WHERE THIS IDEA CAME FROM (FOUNDER'S JOURNEY)
+          3. WHERE THIS IDEA CAME FROM (EXACT REPLICA DESIGN)
           ========================================================================= */}
-      <section className="section py-20 sm:py-28 border-b border-slate-200/80 bg-slate-50/60">
-        <div className="shell max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
-                Origin Story
-              </span>
-              <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-            </div>
+      <section className="relative overflow-hidden bg-[#061836] text-white pt-16 sm:pt-20 pb-12 border-b border-slate-900 selection:bg-blue-200 selection:text-slate-900">
+        
+        {/* Curved Organic Arched Video Cut-Out on the Right */}
+        <div className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[48%] xl:w-[45%] pointer-events-none select-none z-0 overflow-hidden">
+          {/* Container with rounded-bl curve clipping the video */}
+          <div className="absolute inset-y-0 right-0 w-full h-full rounded-bl-[160px] sm:rounded-bl-[220px] lg:rounded-bl-[280px] overflow-hidden bg-slate-950">
+            {/* Background looping video */}
+            <video
+              src="/videos/homepage-hero-bg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="size-full object-cover object-center scale-[1.05]"
+            >
+              <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
+            </video>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-950 tracking-tight leading-tight">
-              Where this idea came from
-            </h2>
-            
-            <p className="font-serif italic text-lg sm:text-xl text-[#0062D2] mt-2 font-normal">
-              In the words of our Founder, Dr. Pravin Parmar.
-            </p>
+            {/* Subtle atmospheric tint so the video details pop while keeping cards readable */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-white/20 to-sky-900/40" />
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#061836] via-[#061836]/70 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#061836] via-[#061836]/40 to-transparent" />
           </div>
+          
+          {/* Concentric faint orbital rings */}
+          <div className="absolute -top-16 -right-16 size-[520px] rounded-full border border-sky-300/30 hidden xl:block" />
+          <div className="absolute top-10 right-10 size-[380px] rounded-full border border-sky-400/25 hidden xl:block" />
+        </div>
 
-          {/* Founder Bio Card Banner */}
-          <div className="mb-14 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-center gap-6 sm:gap-8">
-            <div className="relative size-28 sm:size-32 rounded-full overflow-hidden border-3 border-blue-100 shadow-md shrink-0">
-              <Image
-                src="/images/founder-new.png"
-                alt="Dr. Pravin Parmar — Founder, Peers Global"
-                fill
-                sizes="128px"
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-            <div className="flex flex-col text-center md:text-left gap-1.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                Architect of the LSR Model &amp; Founder
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-slate-950">
-                Dr. Pravin Parmar
-              </h3>
-              <p className="text-sm text-slate-500 max-w-2xl leading-relaxed">
-                From a small village in Botad to mentoring 10,000+ MSME promoters across India, building VyapaarJagat, and architecting the World&apos;s First Community of Collaboration.
+        {/* Ambient deep blue glows on left side */}
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#0062D2]/20 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Main 3-Column Visual Layout (Left: Story/Video, Center: Founder Standing, Right: Quote & Stat Pills) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[460px] lg:min-h-[500px]">
+            
+            {/* ──────── COLUMN 1: LEFT CONTENT & VIDEO CTA (lg:col-span-5) ──────── */}
+            <div className="lg:col-span-5 flex flex-col justify-center">
+              
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2.5 mb-5">
+                <span className="h-[1.5px] w-6 bg-sky-400" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                  Origin Story
+                </span>
+              </div>
+
+              {/* H2 Title */}
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[50px] font-semibold text-white tracking-tight leading-[1.12]">
+                Where this idea <br className="hidden sm:inline" />
+                came from
+              </h2>
+
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg text-slate-300 font-normal mt-4 leading-relaxed">
+                In the words of our Founder, Dr. Pravin Parmar.
               </p>
+
+              {/* Narrative Story Paragraph */}
+              <p className="text-xs sm:text-[13px] text-slate-400 font-light mt-3 leading-relaxed max-w-lg">
+                Peers Global was born from real experiences, real people and real challenges. A small village in Botad to mentoring 10,000+ MSME promoters across India, this journey has always been about people, possibilities and a stronger tomorrow — together.
+              </p>
+
+              {/* Watch Founder's Message Pill Button */}
+              <div className="flex items-center gap-3.5 mt-8">
+                <button
+                  type="button"
+                  aria-label="Watch the Founder's Message"
+                  className="size-12 rounded-full bg-[#0062D2] text-white flex items-center justify-center shadow-lg shadow-blue-600/30 hover:bg-blue-600 hover:scale-105 active:scale-95 transition-all cursor-pointer group"
+                >
+                  <Play className="size-4.5 fill-white ml-0.5 group-hover:scale-110 transition-transform" />
+                </button>
+                <div className="flex flex-col">
+                  <span className="text-xs sm:text-[13px] font-bold text-white leading-tight tracking-wide">
+                    Watch the Founder&apos;s Message
+                  </span>
+                  <span className="text-[11px] text-slate-400 font-light mt-0.5">
+                    2 min video
+                  </span>
+                </div>
+              </div>
+
             </div>
+
+            {/* ──────── COLUMN 2: CENTER FOUNDER STANDING IMAGE & SCRIPT ACCENT (lg:col-span-4) ──────── */}
+            <div className="lg:col-span-4 relative flex items-end justify-center min-h-[380px] sm:min-h-[440px] lg:min-h-[480px]">
+              
+              {/* Signature cursive script to the left of the founder */}
+              <div className="absolute top-12 left-0 sm:-left-4 lg:-left-12 z-20 select-none pointer-events-none hidden sm:block">
+                <p className="font-[family-name:var(--font-script)] text-2xl sm:text-3xl lg:text-[34px] text-sky-400/90 leading-tight rotate-[-7deg] drop-shadow-sm text-center">
+                  People <br />
+                  Ideas <br />
+                  Opportunities <br />
+                  Together
+                </p>
+                <svg className="w-20 sm:w-24 h-2.5 mx-auto text-sky-400/50 mt-1" viewBox="0 0 100 10" fill="none">
+                  <path d="M2 5 Q 25 1, 50 5 T 98 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </div>
+
+              {/* Dr. Pravin Parmar portrait cut-out with soft circular blended mask */}
+              <div 
+                className="relative w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[440px] lg:h-[480px] z-10 flex items-end justify-center"
+                style={{
+                  WebkitMaskImage: 'radial-gradient(ellipse 90% 95% at 50% 50%, black 75%, transparent 100%)',
+                  maskImage: 'radial-gradient(ellipse 90% 95% at 50% 50%, black 75%, transparent 100%)',
+                }}
+              >
+                <Image
+                  src="/images/founder-new.png"
+                  alt="Dr. Pravin Parmar — Founder, Peers Global"
+                  fill
+                  sizes="(max-width: 768px) 300px, (max-width: 1024px) 340px, 380px"
+                  className="object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)]"
+                  priority
+                />
+              </div>
+
+            </div>
+
+            {/* ──────── COLUMN 3: RIGHT QUOTE CARD & 3 STAT PILLS (lg:col-span-3) ──────── */}
+            <div className="lg:col-span-3 flex flex-col justify-center gap-6 relative z-10 pt-4 lg:pt-0">
+              
+              {/* White Floating Quote Card with Big Navy Quotes */}
+              <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-white p-5 sm:p-6 shadow-xl relative text-slate-900 max-w-[320px] ml-auto">
+                <span className="font-serif text-3xl font-black text-[#041E42] leading-none select-none block mb-1">
+                  “
+                </span>
+                <p className="font-serif italic text-xs sm:text-[13px] font-normal text-slate-800 leading-relaxed">
+                  Real progress happens when people come together with purpose.
+                </p>
+                <div className="mt-3 flex items-center gap-2">
+                  <span className="h-[1px] w-4 bg-slate-400" />
+                  <span className="text-[11px] font-bold text-slate-900 tracking-tight">
+                    Dr. Pravin Parmar
+                  </span>
+                </div>
+              </div>
+
+              {/* 3 Circular Stat Pills (10,000+, Pan India, A Stronger Tomorrow) */}
+              <div className="flex flex-col gap-3.5 max-w-[280px] ml-auto">
+                
+                {/* Stat Pill 1 */}
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-sm border border-blue-100">
+                    <Users2 className="size-4.5" />
+                  </div>
+                  <div>
+                    <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                      10,000+
+                    </p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-light leading-snug">
+                      MSME Promoters Mentored
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stat Pill 2 */}
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-sm border border-blue-100">
+                    <MapPin className="size-4.5" />
+                  </div>
+                  <div>
+                    <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                      Pan India
+                    </p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-light leading-snug">
+                      Impact Across Cities
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stat Pill 3 */}
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-sm border border-blue-100">
+                    <Trophy className="size-4.5" />
+                  </div>
+                  <div>
+                    <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                      A Stronger
+                    </p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-light leading-snug">
+                      Tomorrow Together
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
-          {/* 6 Chronological Milestone Cards */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* ──────── BOTTOM: 6 CLEAN WHITE FLOATING CARDS (GRID) ──────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5 mt-12 sm:mt-16">
             
-            {/* 1. Botad Farmer Family */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all">
-              <div className="flex flex-col gap-3">
-                <span className="size-8 rounded-lg bg-blue-50 text-[#0062D2] text-xs font-bold flex items-center justify-center">
-                  01
-                </span>
-                <h4 className="font-serif text-lg font-semibold text-slate-900">
-                  Dignity without money
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  I come from a very poor farmer family in Botad. But I do not come from a weak mindset. That difference has shaped everything. When a season failed, nobody was left to face it alone. People carried each other. It took me thirty years to realise how rare it is everywhere else.
+            {/* Card 01: Roots in Botad */}
+            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-400">01</span>
+                  <Sprout className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="flex items-center justify-between mt-3 mb-1.5">
+                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                    Roots in Botad
+                  </h3>
+                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                  A small village. <br />
+                  Big lessons.
                 </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                Roots in Botad
               </div>
             </div>
 
-            {/* 2. Deciding My Own Ceiling */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all">
-              <div className="flex flex-col gap-3">
-                <span className="size-8 rounded-lg bg-blue-50 text-[#0062D2] text-xs font-bold flex items-center justify-center">
-                  02
-                </span>
-                <h4 className="font-serif text-lg font-semibold text-slate-900">
-                  Excuses die quietly
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  I could not speak English. From a government school, when I decided I needed to learn, the principal told me no. Standing up that day was about deciding that my background would not decide my ceiling. I paid my own fees by teaching. When you pay your own fees, excuses die quietly.
+            {/* Card 02: The Awakening */}
+            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-400">02</span>
+                  <BookOpen className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="flex items-center justify-between mt-3 mb-1.5">
+                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                    The Awakening
+                  </h3>
+                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                  Realising the power <br />
+                  of community.
                 </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                Self-Reliance
               </div>
             </div>
 
-            {/* 3. The Ego of Failure */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all">
-              <div className="flex flex-col gap-3">
-                <span className="size-8 rounded-lg bg-blue-50 text-[#0062D2] text-xs font-bold flex items-center justify-center">
-                  03
-                </span>
-                <h4 className="font-serif text-lg font-semibold text-slate-900">
-                  Honesty about failure
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Later I built my own company. Right product, but early. Stopping it was painful and clear: failure is not when a business ends. Failure is dragging something that no longer belongs in your future because your ego cannot let it go.
+            {/* Card 03: A Bigger Vision */}
+            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-400">03</span>
+                  <Users2 className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="flex items-center justify-between mt-3 mb-1.5">
+                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                    A Bigger Vision
+                  </h3>
+                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                  From local impact <br />
+                  to a global community.
                 </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                First Venture
               </div>
             </div>
 
-            {/* 4. The Hospital Corridor */}
-            <div className="flex flex-col justify-between rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/70 to-white p-6 sm:p-7 shadow-xs hover:shadow-md transition-all">
-              <div className="flex flex-col gap-3">
-                <span className="size-8 rounded-lg bg-[#0062D2] text-white text-xs font-bold flex items-center justify-center">
-                  04
-                </span>
-                <h4 className="font-serif text-lg font-semibold text-slate-900">
-                  Who you can call
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  A family crisis put me in a hospital corridor, stripping every illusion. Skills mean very little without the right people around you. What matters in those moments is who you can call. Entrepreneurs do not fail only because of business problems. They fail because they fight alone.
+            {/* Card 04: Building the Model */}
+            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-400">04</span>
+                  <TrendingUp className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="flex items-center justify-between mt-3 mb-1.5">
+                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                    Building the Model
+                  </h3>
+                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                  The LSR model for <br />
+                  meaningful collaboration.
                 </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-blue-100 text-[11px] font-semibold text-[#0062D2] uppercase tracking-wider">
-                The Awakening
               </div>
             </div>
 
-            {/* 5. Giving MSMEs a Voice */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all">
-              <div className="flex flex-col gap-3">
-                <span className="size-8 rounded-lg bg-blue-50 text-[#0062D2] text-xs font-bold flex items-center justify-center">
-                  05
-                </span>
-                <h4 className="font-serif text-lg font-semibold text-slate-900">
-                  Making MSMEs visible
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Media only talked about venture funding while MSMEs — the businesses that build families, cities and jobs — remained invisible. That taught me every honest business story deserves respect and visibility. Even if a business shuts down, its story should never die.
+            {/* Card 05: 10,000+ Entrepreneurs */}
+            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-400">05</span>
+                  <Award className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="flex items-center justify-between mt-3 mb-1.5">
+                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                    10,000+ Entrepreneurs
+                  </h3>
+                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                  Mentoring and enabling <br />
+                  across India.
                 </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                VyapaarJagat Media
               </div>
             </div>
 
-            {/* 6. Community Transforms */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all">
-              <div className="flex flex-col gap-3">
-                <span className="size-8 rounded-lg bg-blue-50 text-[#0062D2] text-xs font-bold flex items-center justify-center">
-                  06
-                </span>
-                <h4 className="font-serif text-lg font-semibold text-slate-900">
-                  Circles, not crowds
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Events end. Media informs. Only community transforms. Entrepreneurs do not need more speakers. They need a space where they can be real without being judged. Circles, not crowds. Trust, not transactions. Peers, not gurus.
+            {/* Card 06: A Global Community */}
+            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-400">06</span>
+                  <Globe className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="flex items-center justify-between mt-3 mb-1.5">
+                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                    A Global Community
+                  </h3>
+                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                  People. Ideas. Opportunities. <br />
+                  Together.
                 </p>
-              </div>
-              <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                Genesis of Peers Global
               </div>
             </div>
 
           </div>
+
+          {/* ──────── FOOTER HAIRLINE DIVIDER BAR ──────── */}
+          <div className="pt-8 pb-1 mt-6 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
+            <div className="flex items-center gap-3">
+              <span className="h-[1px] w-8 bg-slate-600" />
+              <span>Real People · Real Stories · A Brighter Tomorrow</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="h-[1px] w-8 bg-slate-600" />
+              <span>Peers Global</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* =========================================================================
-          4. WHAT WE BELIEVE (THE 4-SENTENCE SEQUENCE)
+          4. WHAT WE BELIEVE (EXACT REPLICA DESIGN — 4-SENTENCE TIMELINE & CURVED HERO)
           ========================================================================= */}
-      <section className="section py-20 sm:py-28 border-b border-slate-200/80 bg-white">
-        <div className="shell max-w-5xl mx-auto">
-          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
-            <div className="flex items-center gap-2.5 mb-3">
+      <section className="relative overflow-hidden bg-[#FBFDFF] py-20 sm:py-24 lg:py-28 border-b border-slate-100">
+        
+        {/* Soft background ambient atmospheric glow */}
+        <div className="absolute top-10 left-1/4 size-[500px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 right-10 size-[450px] bg-sky-100/40 rounded-full blur-[130px] pointer-events-none" />
+
+        {/* ──────── SECTION HEADER ──────── */}
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+            <div className="flex items-center gap-2.5 mb-3.5">
               <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 The Core Philosophy
               </span>
               <span className="h-[1.5px] w-6 bg-[#0062D2]" />
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-950 tracking-tight leading-tight">
-              What we believe
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[52px] font-semibold text-slate-950 tracking-tight leading-tight">
+              What we{' '}
+              <span className="relative inline-block text-[#0062D2]">
+                believe
+                <svg
+                  className="absolute -bottom-1.5 left-0 w-full h-2 text-[#0062D2]/60"
+                  viewBox="0 0 100 12"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <path d="M2 7 C 30 1, 70 1, 98 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>
             </h2>
             
-            <p className="text-base text-slate-500 mt-3 font-light">
+            <p className="text-sm sm:text-[15px] text-slate-600 mt-4 font-normal">
               Peers Global rests on four sentences.
             </p>
+            <p className="text-xs sm:text-sm text-slate-400 mt-0.5 font-light">
+              Simple ideas. A powerful sequence.
+            </p>
+          </div>
+        </div>
+
+        {/* ──────── MAIN INTERACTIVE ROW: CARDS ON LEFT + ATTACHED SCREEN-BLEED IMAGE ON RIGHT ──────── */}
+        <div className="relative w-full">
+          
+          {/* Centered Left Timeline Cards */}
+          <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full lg:w-[480px] xl:w-[540px] 2xl:w-[580px] relative pl-7 sm:pl-10 z-20">
+              
+              {/* Vertical Orbit Timeline Spine Line */}
+              <div className="absolute left-[13px] sm:left-[17px] top-8 bottom-8 w-[1.5px] bg-slate-200" />
+
+              <div className="flex flex-col gap-4 sm:gap-5">
+                
+                {/* ── CARD 04: OUTCOME (Top of sequence) ── */}
+                <div className="relative group">
+                  {/* Orbit Node Dot */}
+                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-[#0062D2] ring-4 ring-white shadow-xs z-10" />
+
+                  <div className="rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50/70 via-blue-50/30 to-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
+                    {/* Number Badge */}
+                    <div className="size-11 rounded-xl bg-[#0062D2] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
+                      04
+                    </div>
+                    {/* Icon */}
+                    <div className="size-11 rounded-xl bg-blue-100/70 text-[#0062D2] flex items-center justify-center shrink-0">
+                      <BarChart3 className="size-5.5" />
+                    </div>
+                    {/* Text */}
+                    <div className="flex flex-col">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#0062D2]">
+                        Outcome
+                      </span>
+                      <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
+                        Business grows through relationships.
+                      </h3>
+                      <p className="text-xs text-slate-500 font-light mt-1 leading-relaxed">
+                        Stronger relationships create bigger opportunities for everyone.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CARD 03: FOUNDATION ── */}
+                <div className="relative group">
+                  {/* Orbit Node Dot */}
+                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-[#0062D2] ring-4 ring-white shadow-xs z-10" />
+
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
+                    {/* Number Badge */}
+                    <div className="size-11 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-sm shrink-0">
+                      03
+                    </div>
+                    {/* Icon */}
+                    <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                      <HeartHandshake className="size-5.5" />
+                    </div>
+                    {/* Text */}
+                    <div className="flex flex-col">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                        Foundation
+                      </span>
+                      <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
+                        Relationships grow through trust.
+                      </h3>
+                      <p className="text-xs text-slate-500 font-light mt-1 leading-relaxed">
+                        Trust turns conversations into collaboration and collaboration into long-term value.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CARD 02: CATALYST ── */}
+                <div className="relative group">
+                  {/* Orbit Node Dot */}
+                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-[#0062D2] ring-4 ring-white shadow-xs z-10" />
+
+                  <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
+                    {/* Number Badge */}
+                    <div className="size-11 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-sm shrink-0">
+                      02
+                    </div>
+                    {/* Icon */}
+                    <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                      <Users2 className="size-5.5" />
+                    </div>
+                    {/* Text */}
+                    <div className="flex flex-col">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                        Catalyst
+                      </span>
+                      <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
+                        Trust grows through contribution.
+                      </h3>
+                      <p className="text-xs text-slate-500 font-light mt-1 leading-relaxed">
+                        When you contribute, you create value. When you create value, trust follows.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CARD 01: STARTING POINT (Base of sequence) ── */}
+                <div className="relative group">
+                  {/* Orbit Node Dot (Amber) */}
+                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-amber-500 ring-4 ring-white shadow-xs z-10" />
+
+                  <div className="rounded-2xl border border-amber-200/90 bg-amber-50/50 p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
+                    {/* Number Badge */}
+                    <div className="size-11 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
+                      01
+                    </div>
+                    {/* Icon */}
+                    <div className="size-11 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+                      <Sprout className="size-5.5" />
+                    </div>
+                    {/* Text */}
+                    <div className="flex flex-col">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-700">
+                        Starting Point
+                      </span>
+                      <h3 className="font-serif text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
+                        And contribution creates impact.
+                      </h3>
+                      <p className="text-xs text-slate-600 font-light mt-1 leading-relaxed">
+                        Every small contribution can make a big difference — for people, for businesses and for society.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
           </div>
 
-          {/* 4-Sentence Sequential Stack */}
-          <div className="relative flex flex-col gap-4 max-w-3xl mx-auto mb-14">
+          {/* ──────── ATTACHED-TO-SCREEN RIGHT-SIDE PANORAMA (Desktop: Bleeds directly to right:0) ──────── */}
+          <div className="hidden lg:block absolute top-0 bottom-0 right-0 left-[calc(max(520px,(100vw-1360px)/2+510px))] xl:left-[calc(max(580px,(100vw-1360px)/2+570px))] 2xl:left-[calc(max(620px,(100vw-1360px)/2+610px))] z-10 pointer-events-auto">
             
-            {/* Step 4 (Top of ladder) */}
-            <div className="group relative flex items-center gap-5 rounded-2xl border border-blue-200 bg-blue-50/80 p-5 sm:p-6 shadow-xs transition-all hover:shadow-md">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-[#0062D2] text-white font-bold text-sm shrink-0">
-                4
-              </span>
-              <div className="flex flex-col">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2]">Outcome</span>
-                <span className="font-serif text-xl sm:text-2xl font-semibold text-slate-900">
-                  Business grows through relationships.
+            {/* Arched Semi-Circular Panoramic Video Container Attached Directly to Right Edge */}
+            <div className="relative size-full rounded-l-full rounded-r-none overflow-hidden shadow-2xl border-y border-l border-slate-200/80 bg-slate-900">
+              <video
+                src="/videos/homepage-hero-bg.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="size-full object-cover object-center scale-[1.03]"
+              />
+              
+              {/* Sunlight warm gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-black/15 to-transparent pointer-events-none" />
+              <div className="absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-black/35 to-transparent pointer-events-none" />
+
+              {/* Top-Right Signature Script Accent */}
+              <div className="absolute top-8 right-8 xl:right-16 z-10 text-right select-none pointer-events-none">
+                <span className="font-serif text-4xl font-black text-white/90 leading-none select-none block mb-1">
+                  “
                 </span>
+                <p className="font-[family-name:var(--font-script)] text-2xl sm:text-[32px] text-white leading-tight drop-shadow-md rotate-[-3deg]">
+                  People <br />
+                  Ideas <br />
+                  Opportunities <br />
+                  Together
+                </p>
+                <div className="w-20 h-[2px] bg-white/80 ml-auto mt-2" />
               </div>
+
+              {/* Floating Bottom Card: A stronger tomorrow starts with what we do today, together. */}
+              <div className="absolute bottom-8 right-8 xl:right-16 z-20 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 p-4 sm:p-5 shadow-2xl max-w-[260px] sm:max-w-[280px] flex items-start gap-3.5">
+                <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
+                  <Users2 className="size-5" />
+                </div>
+                <div>
+                  <p className="text-xs sm:text-[13px] font-bold text-slate-900 leading-snug">
+                    A stronger tomorrow starts with what we do today, together.
+                  </p>
+                  <div className="w-10 h-[2px] bg-slate-400 mt-2.5" />
+                </div>
+              </div>
+
             </div>
 
-            {/* Step 3 */}
-            <div className="group relative flex items-center gap-5 rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs transition-all hover:shadow-md">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 font-bold text-sm shrink-0">
-                3
+          </div>
+
+        </div>
+
+        {/* ──────── MOBILE / TABLET FALLBACK VIEW FOR THE VIDEO CONTAINER ──────── */}
+        <div className="lg:hidden mt-8 max-w-[1360px] mx-auto px-4 sm:px-6">
+          <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900">
+            <video
+              src="/videos/homepage-hero-bg.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="size-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-black/20 to-transparent pointer-events-none" />
+            
+            <div className="absolute top-6 right-6 z-10 text-right select-none pointer-events-none">
+              <span className="font-serif text-3xl font-black text-white/90 leading-none select-none block mb-1">
+                “
               </span>
-              <div className="flex flex-col">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Foundation</span>
-                <span className="font-serif text-xl sm:text-2xl font-semibold text-slate-900">
-                  Relationships grow through trust.
-                </span>
-              </div>
+              <p className="font-[family-name:var(--font-script)] text-2xl text-white leading-tight drop-shadow-md rotate-[-3deg]">
+                People <br />
+                Ideas <br />
+                Opportunities <br />
+                Together
+              </p>
             </div>
 
-            {/* Step 2 */}
-            <div className="group relative flex items-center gap-5 rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs transition-all hover:shadow-md">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 font-bold text-sm shrink-0">
-                2
-              </span>
-              <div className="flex flex-col">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Catalyst</span>
-                <span className="font-serif text-xl sm:text-2xl font-semibold text-slate-900">
-                  Trust grows through contribution.
-                </span>
+            <div className="absolute bottom-6 left-6 right-6 z-20 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 p-4 shadow-xl flex items-start gap-3.5">
+              <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
+                <Users2 className="size-5" />
               </div>
-            </div>
-
-            {/* Step 1 (Base of ladder) */}
-            <div className="group relative flex items-center gap-5 rounded-2xl border border-amber-200 bg-amber-50/50 p-5 sm:p-6 shadow-xs transition-all hover:shadow-md">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-amber-600 text-white font-bold text-sm shrink-0">
-                1
-              </span>
-              <div className="flex flex-col">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700">Starting Point</span>
-                <span className="font-serif text-xl sm:text-2xl font-semibold text-slate-900">
-                  And contribution creates impact.
-                </span>
+              <div>
+                <p className="text-xs font-bold text-slate-900 leading-snug">
+                  A stronger tomorrow starts with what we do today, together.
+                </p>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Bottom-Up Readout Callout */}
-          <div className="max-w-3xl mx-auto rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 text-center flex flex-col items-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-              Read them from the bottom up
-            </span>
-            <p className="font-serif text-lg sm:text-xl font-medium text-slate-900">
-              Give first. Build trust. Deepen the relationship. Grow the business.
-            </p>
-            <p className="text-sm text-slate-500 max-w-xl font-light leading-relaxed">
-              Everything in this community exists to make that sequence happen reliably, for thousands of entrepreneurs, again and again.
-            </p>
+        {/* ──────── BOTTOM: DARK NAVY CALLOUT BANNER ──────── */}
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-18">
+          <div className="rounded-3xl bg-gradient-to-br from-[#021338] via-[#041D4E] to-[#0A2E70] p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-xl">
+            {/* Subtle luminous curved arcs inside banner */}
+            <div className="absolute -right-16 -bottom-16 size-64 rounded-full border border-sky-400/10 pointer-events-none" />
+            <div className="absolute -left-16 -top-16 size-64 rounded-full border border-blue-400/10 pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-sky-300 mb-3">
+                Read Them From The Bottom Up
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl lg:text-[28px] font-semibold text-white tracking-tight leading-snug">
+                Give first. Build trust. Deepen the relationship. Grow the business.
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 font-light mt-3.5 max-w-xl leading-relaxed">
+                Everything in this community exists to make that sequence happen reliably, for thousands of entrepreneurs, again and again.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -605,101 +982,249 @@ export default function TheIdeaPage() {
       {/* =========================================================================
           5. PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE
           ========================================================================= */}
-      <section className="section py-20 sm:py-28 border-b border-slate-200/80 bg-slate-50/40">
-        <div className="shell max-w-6xl mx-auto">
-          <div className="grid gap-12 lg:grid-cols-12 items-center">
+      <section className="py-20 sm:py-28 border-b border-slate-200/80 bg-[#FBFDFF] relative overflow-hidden">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
             
-            {/* Left Column: Visual & Definition */}
+            {/* ──────── LEFT COLUMN: HERO IMAGE CARD & 3 STAT COUNTERS (lg:col-span-5) ──────── */}
             <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-                <Image
-                  src="/images/who-we-are-friends.jpg"
-                  alt="Peers are Partners in Business and Friends in Life"
-                  fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
+              
+              {/* Dot Matrix Pattern Behind Top-Left of Card */}
+              <div className="relative">
+                <div
+                  className="absolute -top-5 -left-5 size-36 opacity-35 pointer-events-none"
+                  style={{
+                    backgroundImage: 'radial-gradient(#0062D2 1.5px, transparent 1.5px)',
+                    backgroundSize: '16px 16px',
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="text-[10px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-sm px-2.5 py-1 rounded-md">
-                    The Bond
-                  </span>
-                  <p className="font-serif text-lg font-medium mt-1.5">
-                    Standing beside you. Not above, not across.
-                  </p>
+
+                {/* Main Hero Video Card */}
+                <div className="relative aspect-[4/4.3] w-full rounded-[32px] overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-900 group">
+                  <video
+                    src="/videos/homepage-hero-bg.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="size-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  {/* Subtle dark vignette overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-black/20 pointer-events-none" />
+
+                  {/* Top-Left Handwritten Script Accent: More Than Business */}
+                  <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10 select-none pointer-events-none">
+                    <p className="font-[family-name:var(--font-script)] text-3xl sm:text-4xl text-white leading-tight drop-shadow-md rotate-[-6deg]">
+                      More <br />
+                      Than <br />
+                      Business
+                    </p>
+                    <svg className="w-24 h-3 text-white/90 mt-1" viewBox="0 0 100 12" fill="none">
+                      <path d="M2 8 C 30 2, 70 2, 98 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  </div>
+
+                  {/* Bottom Overlay: Title, Tagline & Watch Our Story Play Button */}
+                  <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 z-10 flex items-end justify-between gap-4">
+                    <div>
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight drop-shadow-md">
+                        Standing beside you. <br />
+                        Not above, not across.
+                      </h3>
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-300 mt-2.5 block">
+                        Peers for a brighter tomorrow
+                      </span>
+                    </div>
+
+                    {/* Watch Our Story Play Button */}
+                    <div className="flex items-center gap-2.5 shrink-0 select-none group/play cursor-pointer">
+                      <div className="size-11 sm:size-12 rounded-full bg-blue-600/90 hover:bg-blue-500 text-white flex items-center justify-center shadow-lg ring-4 ring-blue-400/30 transition-all group-hover/play:scale-105">
+                        <Play className="size-4.5 sm:size-5 fill-white text-white translate-x-0.5" />
+                      </div>
+                      <div className="text-left hidden sm:block">
+                        <p className="text-[11px] font-bold text-white leading-tight">
+                          Watch <br />
+                          Our Story
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
-                  What &quot;Peer&quot; Means
-                </h4>
-                <p className="text-sm text-slate-600 leading-relaxed font-light">
-                  We call the people in this community <strong className="font-semibold text-slate-900">Peers</strong>. The word describes a relationship, not a status. A Peer stands beside you. Not above you as an authority. Not across from you as a vendor. Beside you, as someone who has felt the same pressure and made the same difficult calls.
-                </p>
+              {/* 3 Stat Counters Row */}
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-xs grid grid-cols-3 divide-x divide-slate-100 items-center">
+                
+                {/* Stat 1: 10,000+ Entrepreneurs */}
+                <div className="flex items-center gap-3 px-1.5 sm:px-3">
+                  <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                    <Users2 className="size-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-950 text-base sm:text-lg leading-tight tracking-tight">
+                      10,000+
+                    </div>
+                    <div className="text-[11px] text-slate-500 font-medium mt-0.5">
+                      Entrepreneurs
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stat 2: 100+ Cities */}
+                <div className="flex items-center gap-3 px-1.5 sm:px-3 pl-3 sm:pl-4">
+                  <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                    <Building2 className="size-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-950 text-base sm:text-lg leading-tight tracking-tight">
+                      100+
+                    </div>
+                    <div className="text-[11px] text-slate-500 font-medium mt-0.5">
+                      Cities
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stat 3: Countless Friendships */}
+                <div className="flex items-center gap-3 px-1.5 sm:px-3 pl-3 sm:pl-4">
+                  <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                    <Heart className="size-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-950 text-base sm:text-lg leading-tight tracking-tight">
+                      Countless
+                    </div>
+                    <div className="text-[11px] text-slate-500 font-medium mt-0.5">
+                      Friendships
+                    </div>
+                  </div>
+                </div>
+
               </div>
+
             </div>
 
-            {/* Right Column: Three Proofs of Partnership */}
-            <div className="lg:col-span-7 flex flex-col gap-6">
-              <div className="flex items-center gap-2.5">
+            {/* ──────── RIGHT COLUMN: TITLE, 3 NUMBERED CARDS & QUOTE BOX (lg:col-span-7) ──────── */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 mb-3">
                 <span className="h-[1.5px] w-6 bg-[#0062D2]" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                   The Relationship
                 </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-normal leading-tight text-slate-950">
-                Peers are Partners in Business and Friends in Life.
+              {/* Main Heading */}
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-slate-950 tracking-tight leading-[1.15] mb-4">
+                Peers are Partners <br />
+                in Business and <br />
+                Friends in Life.
               </h2>
 
-              <p className="text-base text-slate-600 leading-relaxed font-light">
+              {/* Subtitle */}
+              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mb-7">
                 For an entrepreneur, life and business are not two neatly partitioned lives. When one is under pressure, the other feels it immediately.
               </p>
 
-              {/* 3 Pillars */}
-              <div className="space-y-4 pt-2">
-                <div className="rounded-xl border border-slate-200/90 bg-white p-4 sm:p-5 flex items-start gap-4 shadow-xs">
-                  <div className="size-9 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="size-5" />
+              {/* 3 Proof / Milestone Cards */}
+              <div className="flex flex-col gap-4">
+                
+                {/* Card 01: Six months later */}
+                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-blue-100 transition-all duration-300 flex items-center justify-between gap-5 group">
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Users className="size-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        Six months later
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed mt-1">
+                        It means the Peer who introduces you to a client also asks how it went six months later.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900">Six months later</h4>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1 font-light leading-relaxed">
-                      It means the Peer who introduces you to a client also asks how it went six months later.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="rounded-xl border border-slate-200/90 bg-white p-4 sm:p-5 flex items-start gap-4 shadow-xs">
-                  <div className="size-9 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="size-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900">At the daughter&apos;s wedding</h4>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1 font-light leading-relaxed">
-                      It means the person who helped you enter a new market is the one who shows up at your daughter&apos;s wedding.
-                    </p>
+                  <div className="shrink-0 flex items-center gap-2 text-xs font-semibold text-slate-400 select-none pl-2">
+                    <span className="w-6 h-[1.5px] bg-slate-300 hidden sm:inline-block" />
+                    01
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-slate-200/90 bg-white p-4 sm:p-5 flex items-start gap-4 shadow-xs">
-                  <div className="size-9 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="size-5" />
+                {/* Card 02: At the daughter's wedding */}
+                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-amber-100 transition-all duration-300 flex items-center justify-between gap-5 group">
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="size-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Gift className="size-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        At the daughter&apos;s wedding
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed mt-1">
+                        It means the person who helped you enter a new market is the one who shows up at your daughter&apos;s wedding.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900">United growth</h4>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1 font-light leading-relaxed">
-                      It means the business relationship and the human relationship grow together, because for entrepreneurs they were never really separate.
-                    </p>
+                  <div className="shrink-0 flex items-center gap-2 text-xs font-semibold text-slate-400 select-none pl-2">
+                    <span className="w-6 h-[1.5px] bg-slate-300 hidden sm:inline-block" />
+                    02
                   </div>
+                </div>
+
+                {/* Card 03: United growth */}
+                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-emerald-100 transition-all duration-300 flex items-center justify-between gap-5 group">
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="size-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                      <TrendingUp className="size-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        United growth
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed mt-1">
+                        It means the business relationship and the human relationship grow together, because for entrepreneurs they were never really separate.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="shrink-0 flex items-center gap-2 text-xs font-semibold text-slate-400 select-none pl-2">
+                    <span className="w-6 h-[1.5px] bg-slate-300 hidden sm:inline-block" />
+                    03
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Bottom Quote Box with Handwritten Accent */}
+              <div className="mt-6 rounded-2xl bg-gradient-to-r from-blue-50/70 via-blue-50/40 to-sky-50/60 border border-blue-100/90 p-6 sm:p-7 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div className="flex-1">
+                  <span className="font-serif text-3xl sm:text-4xl text-[#0062D2] font-black leading-none select-none block mb-1">
+                    “
+                  </span>
+                  <p className="font-serif italic text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    &ldquo;Peers arrive looking for business. They stay for the friendships. And the business follows, because that is how business has always worked between people who trust each other.&rdquo;
+                  </p>
+                  <div className="flex items-center gap-2 mt-3.5">
+                    <span className="h-[1.5px] w-6 bg-[#0062D2]" />
+                    <span className="text-[11px] font-bold tracking-wider text-[#0062D2] uppercase">
+                      Peers Global
+                    </span>
+                  </div>
+                </div>
+
+                {/* Handwritten Cursive Script */}
+                <div className="shrink-0 text-left sm:text-right select-none pl-1 sm:border-l sm:border-blue-200/60 sm:pl-6">
+                  <p className="font-[family-name:var(--font-script)] text-xl sm:text-2xl text-slate-700 leading-tight rotate-[-4deg]">
+                    People <br />
+                    Ideas <br />
+                    Opportunities <br />
+                    Together
+                  </p>
+                  <div className="w-16 h-[2px] bg-slate-400 mt-2 sm:ml-auto" />
                 </div>
               </div>
 
-              {/* Closing summary */}
-              <p className="font-serif italic text-lg sm:text-xl text-slate-800 pt-3">
-                &ldquo;Peers arrive looking for business. They stay for the friendships. And the business follows, because that is how business has always worked between people who trust each other.&rdquo;
-              </p>
             </div>
 
           </div>
@@ -709,326 +1234,611 @@ export default function TheIdeaPage() {
       {/* =========================================================================
           6. WHAT WE ARE BUILDING (ARCHITECTURE & LSR MODEL)
           ========================================================================= */}
-      <section className="section py-20 sm:py-28 border-b border-slate-200/80 bg-white">
-        <div className="shell max-w-6xl mx-auto">
-          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-            <div className="flex items-center gap-2.5 mb-3">
+      {/* =========================================================================
+          6. WHAT WE ARE BUILDING (ARCHITECTURE & LSR MODEL)
+          ========================================================================= */}
+      <section className="py-24 sm:py-32 border-b border-slate-200/80 bg-[#FAFBFD] relative overflow-hidden">
+        
+        {/* Soft atmospheric ambient lighting */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 size-[750px] bg-blue-50/50 rounded-full blur-[140px] pointer-events-none" />
+
+        {/* Top-Left Stacked Decorative Tagline */}
+        <div className="hidden xl:flex absolute top-28 left-8 2xl:left-14 flex-col items-start gap-1.5 select-none pointer-events-none border-l-2 border-slate-200/90 pl-3.5 z-10">
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Collaborate</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Create</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Grow</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Together</span>
+        </div>
+
+        {/* Top-Right Signature Script Accent */}
+        <div className="hidden xl:block absolute top-20 right-10 2xl:right-16 select-none pointer-events-none text-right z-10">
+          <p className="font-[family-name:var(--font-script)] text-3xl 2xl:text-4xl text-slate-600 leading-tight rotate-[-4deg]">
+            People <br />
+            Ideas <br />
+            Opportunities <br />
+            Together
+          </p>
+          <div className="w-24 h-[2px] bg-slate-400 ml-auto mt-2" />
+        </div>
+
+
+        {/* Bottom-Right Baseline Graphic */}
+        <div className="hidden lg:flex absolute bottom-10 right-8 2xl:right-16 z-0 items-center gap-3 pointer-events-none select-none">
+          <span className="w-16 h-[1px] bg-slate-300" />
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">
+            A Brighter Tomorrow Together
+          </span>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+            <div className="flex items-center justify-center gap-2.5 mb-3.5">
               <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0062D2]">
                 Our Architecture
               </span>
               <span className="h-[1.5px] w-6 bg-[#0062D2]" />
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-950 tracking-tight leading-tight">
-              What we are building
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-[54px] font-bold text-slate-950 tracking-tight leading-tight">
+              What we are{' '}
+              <span className="relative inline-block text-[#0062D2]">
+                building
+                <svg
+                  className="absolute -bottom-2 left-0 w-full h-3 text-[#0062D2]"
+                  viewBox="0 0 100 12"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <path d="M2 8 C 30 2, 70 2, 98 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </span>
             </h2>
             
-            <p className="font-serif italic text-xl sm:text-2xl text-[#0062D2] mt-2 font-normal">
+            <p className="font-serif italic text-xl sm:text-2xl text-[#0062D2] mt-3 font-normal">
               Not a networking group. A leadership organisation.
             </p>
 
-            <p className="text-sm sm:text-base text-slate-600 mt-4 leading-relaxed font-light max-w-2xl">
+            <p className="text-sm sm:text-base text-slate-600 mt-3.5 leading-relaxed font-light max-w-2xl mx-auto">
               Peers Global is the World&apos;s First Community of Collaboration, built on the LSR Growth Model — Learning, Sales and Resources — with a mission to enhance the lives of one million entrepreneurs.
             </p>
           </div>
 
-          {/* Bento Architecture Grid */}
+          {/* 6 Bento Architecture Cards */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             
-            {/* Card 1: Your Inner Board */}
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between">
+            {/* ── CARD 01: YOUR INNER BOARD (Blue) ── */}
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl hover:border-blue-200 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              {/* Corner Watermark Number */}
+              <span className="absolute top-4 right-6 font-serif text-5xl sm:text-6xl font-black text-slate-200/50 select-none pointer-events-none group-hover:scale-105 transition-transform">
+                01
+              </span>
+
               <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                  <Users2 className="size-5" />
+                {/* Icon & Number Row */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="size-13 rounded-2xl bg-blue-100 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <Users2 className="size-6" />
+                  </div>
+                  <span className="text-xs font-bold text-slate-400 tracking-wider">
+                    01
+                  </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-slate-900 mb-2">
+
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
                   Your Inner Board
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-500 font-light leading-relaxed mt-2.5">
                   Eighteen industry and goal-specific Circles. A peer board of 30 to 50 vetted entrepreneurs who challenge your blind spots and celebrate your milestones.
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[#0062D2] mt-5 block">
-                18 Industry &amp; City Circles →
-              </span>
+
+              <div className="mt-7 pt-2 flex items-center justify-between border-t border-slate-100">
+                <Link
+                  href="/circles"
+                  className="text-xs font-bold text-[#0062D2] hover:underline"
+                >
+                  18 Industry &amp; City Circles
+                </Link>
+                <Link
+                  href="/circles"
+                  className="size-8 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center transition-all group-hover:bg-[#0062D2] group-hover:text-white"
+                >
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
             </div>
 
-            {/* Card 2: 10 Forms of Collaboration */}
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between">
+            {/* ── CARD 02: 10 FORMS OF COLLABORATION (Amber) ── */}
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl hover:border-amber-200 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              {/* Corner Watermark Number */}
+              <span className="absolute top-4 right-6 font-serif text-5xl sm:text-6xl font-black text-slate-200/50 select-none pointer-events-none group-hover:scale-105 transition-transform">
+                02
+              </span>
+
               <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                  <Layers className="size-5" />
+                {/* Icon & Number Row */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="size-13 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <Layers className="size-6" />
+                  </div>
+                  <span className="text-xs font-bold text-slate-400 tracking-wider">
+                    02
+                  </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-slate-900 mb-2">
+
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
                   10 Forms of Collaboration
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-500 font-light leading-relaxed mt-2.5">
                   Moving beyond basic referral exchange into joint ventures, shared capacity, collective procurement, overseas delegations, and knowledge teardowns.
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[#0062D2] mt-5 block">
-                Beyond Conventional Networking →
-              </span>
+
+              <div className="mt-7 pt-2 flex items-center justify-between border-t border-slate-100">
+                <Link
+                  href="/10-forms-of-collaboration"
+                  className="text-xs font-bold text-amber-700 hover:underline"
+                >
+                  Beyond Conventional Networking
+                </Link>
+                <Link
+                  href="/10-forms-of-collaboration"
+                  className="size-8 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center transition-all group-hover:bg-amber-600 group-hover:text-white"
+                >
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
             </div>
 
-            {/* Card 3: One Action = One Life */}
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between">
+            {/* ── CARD 03: ONE ACTION = ONE LIFE (Emerald) ── */}
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl hover:border-emerald-200 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              {/* Corner Watermark Number */}
+              <span className="absolute top-4 right-6 font-serif text-5xl sm:text-6xl font-black text-slate-200/50 select-none pointer-events-none group-hover:scale-105 transition-transform">
+                03
+              </span>
+
               <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                  <Sparkles className="size-5" />
+                {/* Icon & Number Row */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="size-13 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <Target className="size-6" />
+                  </div>
+                  <span className="text-xs font-bold text-slate-400 tracking-wider">
+                    03
+                  </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-slate-900 mb-2">
+
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
                   One Action = One Life
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-500 font-light leading-relaxed mt-2.5">
                   A transparent recognition system where one action equals one life impacted. Celebrating contribution, active participation, and real MSME empowerment.
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[#0062D2] mt-5 block">
-                Impact-Driven Ledger →
-              </span>
+
+              <div className="mt-7 pt-2 flex items-center justify-between border-t border-slate-100">
+                <Link
+                  href="/stories"
+                  className="text-xs font-bold text-emerald-700 hover:underline"
+                >
+                  Impact-Driven Ledger
+                </Link>
+                <Link
+                  href="/stories"
+                  className="size-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center transition-all group-hover:bg-emerald-600 group-hover:text-white"
+                >
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
             </div>
 
-            {/* Card 4: Leadership Pathway */}
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between">
+            {/* ── CARD 04: LEADERSHIP PATHWAY (Purple / Indigo) ── */}
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl hover:border-purple-200 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              {/* Corner Watermark Number */}
+              <span className="absolute top-4 right-6 font-serif text-5xl sm:text-6xl font-black text-slate-200/50 select-none pointer-events-none group-hover:scale-105 transition-transform">
+                04
+              </span>
+
               <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                  <Award className="size-5" />
+                {/* Icon & Number Row */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="size-13 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <Award className="size-6" />
+                  </div>
+                  <span className="text-xs font-bold text-slate-400 tracking-wider">
+                    04
+                  </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-slate-900 mb-2">
+
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
                   Leadership Pathway
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-500 font-light leading-relaxed mt-2.5">
                   From member to ecosystem owner: Leadership Team (LT), Circle Director (CD), Circle Founder (CF), Industry Director (ID), and Regional Executive Director (RED).
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[#0062D2] mt-5 block">
-                5-Stage Progression Ladder →
-              </span>
+
+              <div className="mt-7 pt-2 flex items-center justify-between border-t border-slate-100">
+                <Link
+                  href="/leadership"
+                  className="text-xs font-bold text-purple-700 hover:underline"
+                >
+                  5-Stage Progression Ladder
+                </Link>
+                <Link
+                  href="/leadership"
+                  className="size-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center transition-all group-hover:bg-purple-600 group-hover:text-white"
+                >
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
             </div>
 
-            {/* Card 5: LSR Growth Model */}
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between">
+            {/* ── CARD 05: LSR GROWTH MODEL (Sky Blue) ── */}
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl hover:border-sky-200 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              {/* Corner Watermark Number */}
+              <span className="absolute top-4 right-6 font-serif text-5xl sm:text-6xl font-black text-slate-200/50 select-none pointer-events-none group-hover:scale-105 transition-transform">
+                05
+              </span>
+
               <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                  <TrendingUp className="size-5" />
+                {/* Icon & Number Row */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="size-13 rounded-2xl bg-sky-100 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <TrendingUp className="size-6" />
+                  </div>
+                  <span className="text-xs font-bold text-slate-400 tracking-wider">
+                    05
+                  </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-slate-900 mb-2">
+
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
                   LSR Growth Model
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-500 font-light leading-relaxed mt-2.5">
                   Learning from real operators, Sales through high-trust relationships, and Resources pooled together for collective scale and bargaining power.
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[#0062D2] mt-5 block">
-                Learn · Share · Refer →
-              </span>
+
+              <div className="mt-7 pt-2 flex items-center justify-between border-t border-slate-100">
+                <Link
+                  href="/why-peers-global"
+                  className="text-xs font-bold text-[#0062D2] hover:underline"
+                >
+                  Learn · Share · Refer
+                </Link>
+                <Link
+                  href="/why-peers-global"
+                  className="size-8 rounded-full bg-sky-50 text-[#0062D2] flex items-center justify-center transition-all group-hover:bg-[#0062D2] group-hover:text-white"
+                >
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
             </div>
 
-            {/* Card 6: Everyday Unity Platform */}
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between">
+            {/* ── CARD 06: UNITY APP PLATFORM (Rose / Coral) ── */}
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs hover:shadow-xl hover:border-rose-200 transition-all duration-300 relative overflow-hidden flex flex-col justify-between group">
+              {/* Corner Watermark Number */}
+              <span className="absolute top-4 right-6 font-serif text-5xl sm:text-6xl font-black text-slate-200/50 select-none pointer-events-none group-hover:scale-105 transition-transform">
+                06
+              </span>
+
               <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                  <Smartphone className="size-5" />
+                {/* Icon & Number Row */}
+                <div className="flex items-center gap-3.5 mb-5">
+                  <div className="size-13 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <Smartphone className="size-6" />
+                  </div>
+                  <span className="text-xs font-bold text-slate-400 tracking-wider">
+                    06
+                  </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-slate-900 mb-2">
+
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
                   Unity App Platform
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-500 font-light leading-relaxed mt-2.5">
                   The Unity App running every day in between meetings — digital referrals, verified member directory, 1-to-1 matchmaking, and meeting registrations.
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[#0062D2] mt-5 block">
-                Available on iOS &amp; Android →
-              </span>
+
+              <div className="mt-7 pt-2 flex items-center justify-between border-t border-slate-100">
+                <Link
+                  href="/unity"
+                  className="text-xs font-bold text-rose-700 hover:underline"
+                >
+                  Available on iOS &amp; Android
+                </Link>
+                <Link
+                  href="/unity"
+                  className="size-8 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center transition-all group-hover:bg-rose-600 group-hover:text-white"
+                >
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
             </div>
 
           </div>
 
           {/* Center CTA Button */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-14 relative z-10">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2.5 rounded-lg bg-[#0062D2] hover:bg-blue-700 text-white px-8 py-4 text-sm font-semibold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]"
+              className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-700 text-white px-8 py-3.5 text-sm sm:text-base font-bold transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:-translate-y-0.5 active:scale-[0.98] group"
             >
               <span>Explore Our World</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
+
         </div>
       </section>
 
       {/* =========================================================================
           7. THE 1 MILLION MISSION
           ========================================================================= */}
-      <section className="section py-20 sm:py-28 border-b border-slate-200/80 bg-slate-900 text-white relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute -top-24 -right-24 size-96 rounded-full bg-[#0062D2]/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 size-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#020B1E] py-24 sm:py-32 text-white border-b border-blue-950">
+        
+        {/* Soft blue ambient atmospheric light */}
+        <div className="absolute top-10 left-10 size-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 size-[500px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="shell max-w-5xl mx-auto relative z-10">
-          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-900/40 border border-blue-400/30 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-blue-300 mb-5">
-              Mission 2030
+        {/* Top-Right Mountain Climbers / Community Video Panel */}
+        <div className="absolute top-0 right-0 w-full sm:w-[75%] md:w-[62%] lg:w-[52%] xl:w-[48%] h-[360px] sm:h-[420px] lg:h-[480px] pointer-events-none z-0 overflow-hidden">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="size-full object-cover object-right-top"
+          />
+          {/* Gradient fading to blend seamlessly into solid navy */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020B1E] via-[#020B1E]/60 sm:via-[#020B1E]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#020B1E] via-[#020B1E]/30 to-transparent" />
+
+          {/* Top-Right Signature Script Accent & Vertical Labels */}
+          <div className="absolute top-8 right-6 xl:right-12 z-10 flex items-start gap-8 select-none pointer-events-none">
+            <p className="font-[family-name:var(--font-script)] text-xl sm:text-2xl text-white/90 leading-tight drop-shadow-md rotate-[-6deg] hidden sm:block">
+              A Stronger <br />
+              Tomorrow <br />
+              Together
+            </p>
+            <div className="border-l border-white/30 pl-3 hidden md:flex flex-col gap-1 text-[9px] font-bold uppercase tracking-[0.25em] text-white/75">
+              <span>People</span>
+              <span>Ideas</span>
+              <span>Opportunities</span>
+              <span>Together</span>
+            </div>
+          </div>
+        </div>
+
+
+        {/* Bottom wave ambient contour curves */}
+        <div className="absolute bottom-0 left-0 w-full h-[180px] pointer-events-none z-0 overflow-hidden opacity-35">
+          <svg viewBox="0 0 1440 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="none">
+            <path d="M0 240 L0 120 Q360 40 720 140 T1440 80 L1440 240 Z" fill="url(#wave-gradient-1)" />
+            <path d="M0 240 L0 160 Q420 100 840 180 T1440 130 L1440 240 Z" fill="url(#wave-gradient-2)" opacity="0.6" />
+            <defs>
+              <linearGradient id="wave-gradient-1" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#032050" />
+                <stop offset="50%" stopColor="#08306b" />
+                <stop offset="100%" stopColor="#031a40" />
+              </linearGradient>
+              <linearGradient id="wave-gradient-2" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#004085" />
+                <stop offset="100%" stopColor="#001838" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="max-w-2xl text-left mb-14 sm:mb-16">
+            <div className="flex items-center gap-2.5 mb-4">
+              <span className="h-[1.5px] w-6 bg-[#0062D2]" />
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-sky-400">
+                Mission 2030
+              </span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight">
-              The 1 Million Mission
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-bold text-white tracking-tight leading-[1.08] mb-4">
+              The 1 Million <br />
+              <span className="text-[#0062D2]">Mission</span>
             </h2>
 
-            <p className="display text-2xl sm:text-3xl text-amber-300 font-semibold mt-3">
+            <p className="font-bold text-lg sm:text-xl text-amber-400 mb-3 tracking-tight">
               1M+ entrepreneurs to impact by 2030.
             </p>
 
-            <p className="text-base sm:text-lg text-slate-300 max-w-xl mt-4 font-light leading-relaxed">
-              Impact is not money. Impact is confidence, visibility and support.
+            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-xl">
+              We are building the world&apos;s most purposeful community of entrepreneurs — where collaboration creates confidence, visibility and growth for a better tomorrow.
             </p>
           </div>
 
-          {/* 3 Impact Triggers */}
-          <div className="grid gap-6 sm:grid-cols-3 mb-14">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-xs">
-              <span className="text-xs font-mono text-blue-400 font-bold uppercase tracking-wider block mb-2">
-                Phase 01
-              </span>
-              <p className="font-serif text-lg text-white font-medium">
-                If one entrepreneur feels less alone.
-              </p>
+          {/* 3 Sequential Phase Cards with Arrows */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative mb-12 sm:mb-14">
+            
+            {/* ── PHASE 01 ── */}
+            <div className="rounded-2xl border border-blue-400/20 bg-blue-950/35 backdrop-blur-md p-6 shadow-lg hover:border-blue-400/40 hover:bg-blue-950/45 transition-all duration-300 flex items-start gap-4 group">
+              <div className="size-12 rounded-2xl bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30 shadow-xs group-hover:scale-105 transition-transform">
+                <User className="size-5.5" />
+              </div>
+              <div>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-sky-400 block">
+                  Phase 01
+                </span>
+                <h3 className="font-serif text-base sm:text-lg font-bold text-white leading-snug mt-1">
+                  If one entrepreneur feels less alone.
+                </h3>
+                <p className="text-xs text-slate-400 font-light mt-1.5 leading-relaxed">
+                  A stronger mindset. A bigger tomorrow.
+                </p>
+              </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-xs">
-              <span className="text-xs font-mono text-blue-400 font-bold uppercase tracking-wider block mb-2">
-                Phase 02
-              </span>
-              <p className="font-serif text-lg text-white font-medium">
-                If one business finds clarity.
-              </p>
+            {/* Desktop Connector Arrow 1 → 2 */}
+            <div className="hidden md:flex absolute left-[33.3%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 text-sky-400 select-none pointer-events-none">
+              <ArrowRight className="size-4 opacity-75" />
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-xs">
-              <span className="text-xs font-mono text-blue-400 font-bold uppercase tracking-wider block mb-2">
-                Phase 03
-              </span>
-              <p className="font-serif text-lg text-white font-medium">
-                If one founder finds the right peer.
-              </p>
+            {/* ── PHASE 02 ── */}
+            <div className="rounded-2xl border border-blue-400/20 bg-blue-950/35 backdrop-blur-md p-6 shadow-lg hover:border-blue-400/40 hover:bg-blue-950/45 transition-all duration-300 flex items-start gap-4 group">
+              <div className="size-12 rounded-2xl bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30 shadow-xs group-hover:scale-105 transition-transform">
+                <BarChart3 className="size-5.5" />
+              </div>
+              <div>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-sky-400 block">
+                  Phase 02
+                </span>
+                <h3 className="font-serif text-base sm:text-lg font-bold text-white leading-snug mt-1">
+                  If one business finds clarity.
+                </h3>
+                <p className="text-xs text-slate-400 font-light mt-1.5 leading-relaxed">
+                  Better decisions. Faster growth.
+                </p>
+              </div>
             </div>
+
+            {/* Desktop Connector Arrow 2 → 3 */}
+            <div className="hidden md:flex absolute left-[66.6%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 text-sky-400 select-none pointer-events-none">
+              <ArrowRight className="size-4 opacity-75" />
+            </div>
+
+            {/* ── PHASE 03 ── */}
+            <div className="rounded-2xl border border-blue-400/20 bg-blue-950/35 backdrop-blur-md p-6 shadow-lg hover:border-blue-400/40 hover:bg-blue-950/45 transition-all duration-300 flex items-start gap-4 group">
+              <div className="size-12 rounded-2xl bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30 shadow-xs group-hover:scale-105 transition-transform">
+                <Users2 className="size-5.5" />
+              </div>
+              <div>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-sky-400 block">
+                  Phase 03
+                </span>
+                <h3 className="font-serif text-base sm:text-lg font-bold text-white leading-snug mt-1">
+                  If one founder finds the right peer.
+                </h3>
+                <p className="text-xs text-slate-400 font-light mt-1.5 leading-relaxed">
+                  New possibilities. Greater impact.
+                </p>
+              </div>
+            </div>
+
           </div>
 
-          <div className="text-center mb-12">
-            <span className="font-serif italic text-2xl sm:text-3xl text-blue-200">
+          {/* Centered Divider: Impact has begun. */}
+          <div className="flex items-center justify-center gap-4 sm:gap-6 my-10 sm:my-12">
+            <span className="h-[1px] w-24 sm:w-40 bg-gradient-to-r from-transparent via-blue-400/40 to-blue-400/80" />
+            <p className="font-serif italic text-xl sm:text-2xl text-sky-200 font-normal tracking-wide">
               Impact has begun.
-            </span>
+            </p>
+            <span className="h-[1px] w-24 sm:w-40 bg-gradient-to-l from-transparent via-blue-400/40 to-blue-400/80" />
           </div>
 
-          {/* Founder Quote Banner */}
-          <div className="rounded-2xl border border-white/15 bg-gradient-to-r from-blue-950/60 via-slate-900 to-blue-950/60 p-8 sm:p-10 text-center max-w-3xl mx-auto shadow-2xl">
-            <Quote className="size-8 text-blue-400/60 mx-auto mb-4" />
-            <p className="font-serif italic text-xl sm:text-2xl text-white font-normal leading-relaxed">
-              &ldquo;Success is not just what you earn. It is how many lives you impact.&rdquo;
-            </p>
-            <p className="text-xs font-semibold tracking-[0.2em] text-blue-300 uppercase mt-4">
-              — Dr. Pravin Parmar, Founder
-            </p>
+          {/* Quote & Metrics Card */}
+          <div className="max-w-4xl mx-auto rounded-3xl border border-blue-400/25 bg-blue-950/40 backdrop-blur-md p-6 sm:p-8 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 mb-12 sm:mb-14">
+            
+            {/* Left: Founder Avatar + Quote */}
+            <div className="flex items-center gap-5 sm:gap-6 flex-1">
+              <div className="size-20 sm:size-24 rounded-full overflow-hidden shrink-0 border-2 border-sky-400/50 shadow-lg relative bg-blue-900">
+                <Image
+                  src="/images/dr-parmar-avatar.jpg"
+                  alt="Dr. Pravin Parmar"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+
+              <div className="flex items-start gap-3.5">
+                <Quote className="size-7 text-sky-400 fill-sky-400 shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-serif italic text-white text-base sm:text-lg leading-snug">
+                    Success is not just what you earn. <br className="hidden sm:inline" />
+                    It is how many lives you impact.
+                  </p>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-300 mt-2 block">
+                    — DR. PRAVIN PARMAR, FOUNDER
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Vertical Divider */}
+            <div className="hidden lg:block w-[1px] h-20 bg-blue-400/20 shrink-0" />
+
+            {/* Right: 3 Metric Bullets */}
+            <div className="flex flex-col gap-3.5 shrink-0 w-full lg:w-auto">
+              <div className="flex items-center gap-3">
+                <div className="size-8 rounded-full bg-blue-900/60 border border-blue-400/30 text-sky-300 flex items-center justify-center shrink-0">
+                  <Heart className="size-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-slate-200">
+                  More Lives
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="size-8 rounded-full bg-blue-900/60 border border-blue-400/30 text-sky-300 flex items-center justify-center shrink-0">
+                  <BarChart3 className="size-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-slate-200">
+                  Stronger Businesses
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="size-8 rounded-full bg-blue-900/60 border border-blue-400/30 text-sky-300 flex items-center justify-center shrink-0">
+                  <Users2 className="size-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-slate-200">
+                  Brighter Communities
+                </span>
+              </div>
+            </div>
+
           </div>
 
-          <div className="flex justify-center mt-10">
+          {/* CTA Button */}
+          <div className="flex justify-center mb-16 sm:mb-20">
             <Link
-              href="/why-peers-global"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/30 hover:border-white text-white px-7 py-3 text-xs sm:text-sm font-semibold transition-all hover:bg-white/10 active:scale-[0.98]"
+              href="/the-idea"
+              className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-600 text-white px-8 py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:scale-[0.98] transition-all group"
             >
               <span>See the 1 Million Mission</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
+
+          {/* Bottom Branding Line Bar */}
+          <div className="pt-8 border-t border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500 select-none">
+              <span>— Collaborate</span>
+              <span>— Create</span>
+              <span>— Grow</span>
+              <span>— Together —</span>
+            </div>
+            <div className="text-center sm:text-right select-none">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 block">
+                Peers Global
+              </span>
+              <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-slate-500">
+                A Brighter Tomorrow
+              </span>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* =========================================================================
-          8. CLOSING SECTION (MATCHING ROYAL BLUE DESIGN)
+          8. CLOSING SECTION (STANDARDIZED UNIFIED DESIGN - IDENTICAL TO HOMEPAGE)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#0062D2] py-20 sm:py-28 text-white">
-        {/* Geometric orbital line art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg
-            viewBox="0 0 600 600"
-            fill="none"
-            className="w-full h-full text-white/30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M 50 450 A 420 420 0 0 1 550 50"
-              stroke="currentColor"
-              strokeWidth="1.2"
-            />
-            <path
-              d="M 120 520 A 500 500 0 0 1 600 120"
-              stroke="currentColor"
-              strokeWidth="1"
-              strokeDasharray="4 4"
-              opacity="0.6"
-            />
-            <path
-              d="M 220 580 A 460 460 0 0 1 580 220"
-              stroke="currentColor"
-              strokeWidth="1"
-              opacity="0.5"
-            />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
+      <ClosingCtaSection />
 
-        <div className="shell relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
-          {/* Eyebrow with horizontal dash */}
-          <div className="flex items-center gap-2.5 mb-5">
-            <span className="h-[1.5px] w-6 bg-white/70" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
-              The Core Conviction
-            </span>
-            <span className="h-[1.5px] w-6 bg-white/70" />
-          </div>
-
-          {/* Heading */}
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.2] tracking-tight text-white mb-4">
-            The right circle can change your life faster than the right idea.
-          </h2>
-
-          <p className="font-serif italic text-2xl sm:text-3xl text-[#7DD3FC] mb-3">
-            You were never meant to build alone.
-          </p>
-
-          <p className="text-base sm:text-lg font-medium text-white/95 mb-10">
-            Build Your Business. Build Your Relationships. Build Your Circle.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-            <Link
-              href="/membership"
-              className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-8 py-4 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
-            >
-              <span>JOIN PEERS GLOBAL</span>
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-
-            <Link
-              href="/circles"
-              className="inline-flex items-center gap-2.5 rounded-lg border border-white/50 px-8 py-4 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
-            >
-              <span>FIND YOUR CIRCLE</span>
-            </Link>
-          </div>
-
-          <div className="flex flex-col items-center gap-1 text-xs text-white/75 pt-6 border-t border-white/20 w-full max-w-lg">
-            <p className="font-semibold text-white">
-              Peers Global — World&apos;s First Community of Collaboration
-            </p>
-            <p>Peers are Partners in Business and Friends in Life.</p>
-          </div>
-        </div>
-      </section>
 
     </div>
   )

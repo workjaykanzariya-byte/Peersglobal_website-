@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Cta, Eyebrow, SectionHead } from '@/components/site/ui'
-import { ShieldCheck, Award, Sparkles, CheckCircle2 } from 'lucide-react'
+import { Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
+import { ShieldCheck, Award, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Dr. Pravin Parmar — Founder',
@@ -154,25 +154,9 @@ export default function FounderPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="section bg-panel text-panel-foreground text-center">
-        <div className="shell max-w-xl flex flex-col items-center">
-          <Eyebrow tone="gold">Saath Chalein</Eyebrow>
-          <h2 className="display text-3xl sm:text-4xl text-white my-4">
-            Ready to join Dr. Parmar&apos;s network?
-          </h2>
-          <p className="text-sm text-[color:var(--panel-muted)] leading-relaxed font-light mb-8">
-            Gain category exclusivity inside India&rsquo;s most disciplined peer circles. Share experiences, acquire structured leadership skills, and drive growth.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Cta href="/membership" variant="gold" size="lg">
-              Apply for Membership
-            </Cta>
-            <Cta href="/contact?intent=explorer" variant="onDark" size="lg">
-              Request a Guest Seat
-            </Cta>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection />
+
+
 
     </div>
   )

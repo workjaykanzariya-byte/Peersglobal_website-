@@ -298,3 +298,5 @@ export function Prose({
     </div>
   )
 }
+
+export { ClosingCtaSection } from './ClosingCtaSection'
