@@ -14,18 +14,43 @@ interface CircleMembersModalProps {
   peerMembers?: any[]
 }
 
+const GENERIC_STOP_WORDS = new Set([
+  'circle', 'circles', 'group', 'chapter', 'the', 'and', 'for', 'ltd', 'pvt', 'inc', 'one', 'cohort', 'district', 'founding', 'members',
+  'ahmedabad', 'surat', 'vadodara', 'rajkot', 'mumbai', 'delhi', 'bengaluru', 'pune', 'hyderabad', 'chennai', 'kolkata', 'jaipur', 'indore', 'gujarat', 'karnataka', 'maharashtra', 'india', 'national'
+])
+
+function normalizeToken(token: string): string {
+  if (token === 'tech' || token === 'technologies' || token === 'techsol') return 'technology'
+  if (token === 'realty' || token === 'properties' || token === 'realtor' || token === 'property') return 'realestate'
+  if (token === 'estate' || token === 'real') return 'realestate'
+  if (token === 'pharma' || token === 'pharmaceutical' || token === 'pharmaceuticals') return 'pharmaceutical'
+  if (token === 'mfg' || token === 'manufacture' || token === 'manufacturer') return 'manufacturing'
+  if (token === 'agri' || token === 'agricultural') return 'agriculture'
+  if (token === 'infra') return 'infrastructure'
+  if (token === 'health') return 'healthcare'
+  return token
+}
+
+function getMeaningfulTokens(str: string): string[] {
+  if (!str) return []
+  const words = str
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length >= 2 && !GENERIC_STOP_WORDS.has(w))
+  return Array.from(new Set(words.map(normalizeToken)))
+}
+
 function isMatchingCircle(memberCircleStr: string | null | undefined, targetCircleName: string): boolean {
-  if (!memberCircleStr) return false
+  if (!memberCircleStr || !targetCircleName) return false
   const m = memberCircleStr.toLowerCase().trim()
   const t = targetCircleName.toLowerCase().trim()
 
   if (!m || !t) return false
+  if (m === t) return true
 
-  if (m === t || m.includes(t) || t.includes(m)) return true
-
-  const stopWords = new Set(['circle', 'circles', 'group', 'chapter', 'the', 'and', 'for', 'ltd', 'pvt', 'inc', 'one'])
-  const mTokens = m.split(/[^a-z0-9]+/).filter((w) => w.length >= 3 && !stopWords.has(w))
-  const tTokens = t.split(/[^a-z0-9]+/).filter((w) => w.length >= 3 && !stopWords.has(w))
+  const mTokens = getMeaningfulTokens(m)
+  const tTokens = getMeaningfulTokens(t)
 
   if (mTokens.length === 0 || tTokens.length === 0) return false
 
@@ -43,26 +68,14 @@ export function CircleMembersModal({ circleName, cityName }: CircleMembersModalP
     async function loadCircleMembers() {
       try {
         const all = await getAllMembers()
-        const targetCity = (cityName || 'Ahmedabad').toLowerCase().trim()
         
-        // 1. Filter strictly by City + Circle
-        let matched = all.filter((m) => {
-          const memberCity = (m.city || m.city_name || 'Ahmedabad').toLowerCase().trim()
-          if (targetCity && memberCity !== targetCity) return false
-
+        // Filter strictly by this circle from the database (no fallback to other circles)
+        const matched = all.filter((m) => {
           if (isMatchingCircle(m.active_circle_name, circleName)) return true
           if (isMatchingCircle(m.active_circle?.name, circleName)) return true
           if (m.circles && m.circles.some((c) => isMatchingCircle(c.circle_name, circleName))) return true
           return false
         })
-
-        // 2. If no direct circle match found, fallback strictly to members in that specific city
-        if (matched.length === 0 && all.length > 0) {
-          matched = all.filter((m) => {
-            const memberCity = (m.city || m.city_name || 'Ahmedabad').toLowerCase().trim()
-            return memberCity === targetCity
-          })
-        }
 
         if (isMounted) {
           setDynamicMembers(matched)

@@ -98,7 +98,6 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Find Your Circle', href: '/circles/find', desc: 'Match with your ideal Circle and Inner Board', phase: 1 },
       { label: 'The Circle Meeting Experience', href: '/circle-meeting-experience', desc: '4-part monthly meeting structure', phase: 1 },
       { label: 'Start a Circle', href: '/start-a-circle', desc: 'Circle starts from Day 1 — first member', phase: 1 },
-      { label: 'Circle Map — Cities & Countries', href: '/map', desc: 'Live locations and active chapters', phase: 2 },
     ],
   },
   {

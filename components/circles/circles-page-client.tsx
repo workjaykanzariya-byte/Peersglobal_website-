@@ -49,11 +49,14 @@ import {
   BarChart3,
   Star,
   Repeat,
+  Briefcase,
+  Shapes,
 } from 'lucide-react'
 import {
   INDUSTRY_18_CIRCLES,
   INTEREST_18_CIRCLES,
   MAIN_18_CIRCLES,
+  STATE_CITIES_MAP,
   CircleCategory,
 } from '@/lib/data/main-18-circles'
 import { CIRCLES, Circle } from '@/lib/data/circles'
@@ -63,13 +66,46 @@ import { CircleMembersModal } from '@/components/circle-members-modal'
 export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }) {
   const cityList = dynamicCities.length > 0 ? dynamicCities : ACTIVE_CITIES
 
+  // Live Database Circles State
+  const [allCirclesData, setAllCirclesData] = useState<Circle[]>(CIRCLES)
+  const [isLoadingCircles, setIsLoadingCircles] = useState<boolean>(false)
+
+  // Fetch live circles from PostgreSQL database / API on mount
+  React.useEffect(() => {
+    let isMounted = true
+    const fetchLiveCircles = async () => {
+      try {
+        setIsLoadingCircles(true)
+        const res = await fetch('/api/web-circles')
+        if (res.ok) {
+          const json = await res.json()
+          if (json.success && Array.isArray(json.circles) && json.circles.length > 0 && isMounted) {
+            setAllCirclesData(json.circles)
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to load live database circles, using baseline:', err)
+      } finally {
+        if (isMounted) setIsLoadingCircles(false)
+      }
+    }
+    fetchLiveCircles()
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
   // Search and filter states for The 18 Circles section
   const [activeCategoryTab, setActiveCategoryTab] = useState<'all' | 'industry' | 'purpose'>('all')
-  const [selectedIndustry, setSelectedIndustry] = useState<string>('All Industries')
-  const [selectedCity, setSelectedCity] = useState<string>('All Cities')
-  const [selectedFormat, setSelectedFormat] = useState<string>('All Formats')
-  const [selectedAvailability, setSelectedAvailability] = useState<string>('All Availability')
+  const [selectedMainCity, setSelectedMainCity] = useState<string>('All Cities')
   const [searchQuery, setSearchQuery] = useState<string>('')
+
+  // State & City Modal Popup for 18 Categories
+  const [selectedCategoryForModal, setSelectedCategoryForModal] = useState<CircleCategory | null>(null)
+  const [modalState, setModalState] = useState<string>('Gujarat')
+  const [modalCity, setModalCity] = useState<string>('Ahmedabad')
+  const [interestForm, setInterestForm] = useState({ name: '', phone: '', email: '', company: '' })
+  const [interestSubmitted, setInterestSubmitted] = useState(false)
 
   // Guest Pass Modal State
   const [isGuestModalOpen, setIsGuestModalOpen] = useState(false)
@@ -84,56 +120,148 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
   })
 
   // Live Scarcity Calculations
-  const totalCircles = CIRCLES.length
+  const totalCircles = allCirclesData.length
   const totalCities = cityList.length
   const totalSeatsOpen = useMemo(() => {
-    return CIRCLES.reduce((acc, c) => acc + (c.seatsOpen || 0), 0)
-  }, [])
+    return allCirclesData.reduce((acc, c) => acc + (c.seatsOpen || 0), 0)
+  }, [allCirclesData])
 
-  // Filtered Circles for the Grid
-  const filteredCircles = useMemo(() => {
-    return CIRCLES.filter((circle) => {
-      // 1. Tab Filter
-      if (activeCategoryTab !== 'all' && circle.type !== activeCategoryTab) {
-        return false
-      }
+  // Filter 18 Categories based on search query & selected city
+  const filteredIndustryCategories = useMemo(() => {
+    let list = INDUSTRY_18_CIRCLES
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim()
+      list = list.filter(
+        (c) =>
+          c.name.toLowerCase().includes(q) ||
+          c.tagline.toLowerCase().includes(q) ||
+          c.description.toLowerCase().includes(q) ||
+          c.activeCities.some((ci) => ci.toLowerCase().includes(q)) ||
+          isCategoryActiveInCity(c, q)
+      )
+    }
+    return list
+  }, [searchQuery, allCirclesData])
 
-      // 2. Industry dropdown
-      if (selectedIndustry !== 'All Industries') {
-        const matchesIndustry = circle.name.toLowerCase().includes(selectedIndustry.toLowerCase()) ||
-          circle.focus.some(f => f.toLowerCase().includes(selectedIndustry.toLowerCase()))
-        if (!matchesIndustry) return false
-      }
+  const filteredInterestCategories = useMemo(() => {
+    let list = INTEREST_18_CIRCLES
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim()
+      list = list.filter(
+        (c) =>
+          c.name.toLowerCase().includes(q) ||
+          c.tagline.toLowerCase().includes(q) ||
+          c.description.toLowerCase().includes(q) ||
+          c.activeCities.some((ci) => ci.toLowerCase().includes(q)) ||
+          isCategoryActiveInCity(c, q)
+      )
+    }
+    return list
+  }, [searchQuery, allCirclesData])
 
-      // 3. City dropdown
-      if (selectedCity !== 'All Cities') {
-        const matchesCity = circle.cities.some(
-          (c) => c.toLowerCase().trim() === selectedCity.toLowerCase().trim()
-        )
-        if (!matchesCity) return false
-      }
+  // Get all active database circles for a specific city
+  const getCirclesForCity = (cityName: string): Circle[] => {
+    if (!cityName || cityName === 'All Cities') return allCirclesData
+    const q = cityName.toLowerCase().trim()
+    return allCirclesData.filter(
+      (c) =>
+        c.cities.some((ci) => ci.toLowerCase().trim() === q || ci.toLowerCase().includes(q)) ||
+        c.name.toLowerCase().includes(q)
+    )
+  }
 
-      // 4. Availability
-      if (selectedAvailability === 'Open Seats' && circle.seatsOpen <= 0) {
-        return false
-      }
-      if (selectedAvailability === 'Waitlist Only' && circle.seatsOpen > 0) {
-        return false
-      }
+  // All active circles in the currently selected modal city
+  const modalCityCircles = useMemo(() => {
+    return getCirclesForCity(modalCity)
+  }, [modalCity, allCirclesData])
 
-      // 5. Search query
-      if (searchQuery.trim() !== '') {
-        const q = searchQuery.toLowerCase().trim()
-        const matchName = circle.name.toLowerCase().includes(q)
-        const matchSummary = circle.summary.toLowerCase().includes(q)
-        const matchFocus = circle.focus.some((f) => f.toLowerCase().includes(q))
-        const matchCity = circle.cities.some((c) => c.toLowerCase().includes(q))
-        if (!matchName && !matchSummary && !matchFocus && !matchCity) return false
-      }
-
+  // Check if a category is active in a city
+  const isCategoryActiveInCity = (category: CircleCategory, cityName: string): boolean => {
+    if (category.activeCities.some((c) => c.toLowerCase() === cityName.toLowerCase())) {
       return true
+    }
+    const cityCircles = getCirclesForCity(cityName)
+    const catWords = category.name.toLowerCase().split(/[\s,&]+/).filter((w) => w.length > 3 && w !== 'circle' && w !== 'circles')
+    return cityCircles.some((c) => {
+      const circleText = (c.name + ' ' + c.focus.join(' ') + ' ' + c.summary).toLowerCase()
+      return catWords.some((w) => circleText.includes(w))
     })
-  }, [activeCategoryTab, selectedIndustry, selectedCity, selectedAvailability, searchQuery])
+  }
+
+  // Find direct category match in city
+  const findMatchingCategoryCircleInCity = (category: CircleCategory, cityName: string): Circle | null => {
+    const cityCircles = getCirclesForCity(cityName)
+    if (cityCircles.length === 0) return null
+
+    // 1. Direct slug match
+    const slugMatch = cityCircles.find((c) => c.slug === category.activeSlug)
+    if (slugMatch) return slugMatch
+
+    // 2. Keyword match
+    const catWords = category.name.toLowerCase().split(/[\s,&]+/).filter((w) => w.length > 3 && w !== 'circle' && w !== 'circles')
+    const keywordMatch = cityCircles.find((c) => {
+      const circleText = (c.name + ' ' + c.focus.join(' ') + ' ' + c.summary).toLowerCase()
+      return catWords.some((w) => circleText.includes(w))
+    })
+    if (keywordMatch) return keywordMatch
+
+    // 3. First circle in city as fallback
+    return cityCircles[0] || null
+  }
+
+  // Handle opening modal for a category
+  const handleOpenCategoryModal = (cat: CircleCategory) => {
+    setSelectedCategoryForModal(cat)
+    setInterestSubmitted(false)
+    setInterestForm({ name: '', phone: '', email: '', company: '' })
+
+    // If main city is selected and active in this category, use it
+    if (selectedMainCity !== 'All Cities' && isCategoryActiveInCity(cat, selectedMainCity)) {
+      setModalCity(selectedMainCity)
+      // Find state for this city
+      for (const [st, cities] of Object.entries(STATE_CITIES_MAP)) {
+        if (cities.includes(selectedMainCity)) {
+          setModalState(st)
+          break
+        }
+      }
+      return
+    }
+
+    // Otherwise find first active city in Gujarat or elsewhere
+    const gujaratCities = STATE_CITIES_MAP['Gujarat'] || []
+    const activeInGujarat = cat.activeCities.find((c) => gujaratCities.includes(c))
+    if (activeInGujarat) {
+      setModalState('Gujarat')
+      setModalCity(activeInGujarat)
+    } else if (cat.activeCities.length > 0) {
+      for (const [stateName, cities] of Object.entries(STATE_CITIES_MAP)) {
+        if (cities.includes(cat.activeCities[0])) {
+          setModalState(stateName)
+          setModalCity(cat.activeCities[0])
+          break
+        }
+      }
+    }
+  }
+
+  const handleModalStateChange = (newState: string) => {
+    setModalState(newState)
+    const cities = STATE_CITIES_MAP[newState] || []
+    if (cities.length > 0) {
+      if (selectedCategoryForModal) {
+        const activeInState = selectedCategoryForModal.activeCities.find((c) => cities.includes(c))
+        setModalCity(activeInState || cities[0])
+      } else {
+        setModalCity(cities[0])
+      }
+    }
+  }
+
+  const handleInterestSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setInterestSubmitted(true)
+  }
 
   // Smooth scroll helper
   const scrollToExplore = (tab?: 'industry' | 'purpose') => {
@@ -153,6 +281,50 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
       setGuestSubmitted(false)
       setIsGuestModalOpen(false)
     }, 2200)
+  }
+
+  // Helper to render colored circle icon badges
+  const renderCategoryIcon = (iconName: string, className = 'size-7 sm:size-8 text-white') => {
+    switch (iconName) {
+      case 'Factory':
+        return <Factory className={className} />
+      case 'Building2':
+        return <Building2 className={className} />
+      case 'Laptop':
+        return <Laptop className={className} />
+      case 'ShieldPlus':
+        return <ShieldPlus className={className} />
+      case 'GraduationCap':
+        return <GraduationCap className={className} />
+      case 'Palette':
+        return <Palette className={className} />
+      case 'HeartHandshake':
+        return <HeartHandshake className={className} />
+      case 'Layers':
+        return <Layers className={className} />
+      case 'Leaf':
+        return <Leaf className={className} />
+      case 'Truck':
+        return <Truck className={className} />
+      case 'Rocket':
+        return <Rocket className={className} />
+      case 'TrendingUp':
+        return <TrendingUp className={className} />
+      case 'Wallet':
+        return <Wallet className={className} />
+      case 'Globe':
+        return <Globe className={className} />
+      case 'Store':
+        return <Store className={className} />
+      case 'Users':
+        return <Users className={className} />
+      case 'Lightbulb':
+        return <Lightbulb className={className} />
+      case 'Award':
+        return <Award className={className} />
+      default:
+        return <Layers className={className} />
+    }
   }
 
   return (
@@ -332,7 +504,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
       {/* =========================================================================
           SECTION 2: WHAT A CIRCLE IS
-          Left text, Right Quote Card with geometry
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -396,7 +567,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
       {/* =========================================================================
           SECTION 3: CATEGORY EXCLUSIVITY
-          3 Distinct white pill cards + Full-width bottom banner
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -477,8 +647,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
       {/* =========================================================================
           SECTION 4: TWO KINDS OF CIRCLE
-          Top right script: "Different Circles. Bigger Possibilities"
-          Two large pale-blue cards side-by-side
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -580,9 +748,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
       {/* =========================================================================
           SECTION 5: THE TWO-COLUMN MIDDLE SECTION
-          Left: The Rhythm (Consistent. Structured. High Value.)
-          Right Top: Join more than one Circle (Expand Your Network)
-          Right Bottom: Connected across the world (Local to Global with world map)
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -789,252 +954,268 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
       </section>
 
       {/* =========================================================================
-          SECTION 6: THE 18 CIRCLES (Filterable Grid exactly matching reference)
-          Category Pills (All / Industry / Purpose)
-          Dropdown filters (Industry, City, Meeting Format, Availability, Search input)
-          4 Cards per row
+          SECTION 6: THE 18 CIRCLES (18 Main Categories Matching Images 2 & 3)
+          Part 1: Industry-Specific Circles (9 Categories)
+          Part 2: Interest-Specific Circles (9 Categories)
+          Clicking any category card opens the Location Selector & Chapter Details Modal!
           ========================================================================= */}
       <section id="the-18-circles" className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-left mb-6">
-            {/* Eyebrow: — EXPLORE CIRCLES — */}
-            <div className="mb-2">
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
-                — EXPLORE CIRCLES —
-              </span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-2">
-              The 18 Circles
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600">
-              Find the Circle where your business belongs.
-            </p>
-          </div>
-
-          {/* Top Category Pills */}
-          <div className="flex flex-wrap items-center gap-2 mb-6">
-            <button
-              onClick={() => setActiveCategoryTab('all')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                activeCategoryTab === 'all'
-                  ? 'bg-[#EFF6FF] text-[#0062D2] border border-[#BFDBFE]'
-                  : 'bg-slate-100 text-slate-600 hover:text-slate-900 border border-transparent'
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setActiveCategoryTab('industry')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                activeCategoryTab === 'industry'
-                  ? 'bg-[#EFF6FF] text-[#0062D2] border border-[#BFDBFE]'
-                  : 'bg-slate-100 text-slate-600 hover:text-slate-900 border border-transparent'
-              }`}
-            >
-              Industry Circles
-            </button>
-            <button
-              onClick={() => setActiveCategoryTab('purpose')}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                activeCategoryTab === 'purpose'
-                  ? 'bg-[#EFF6FF] text-[#0062D2] border border-[#BFDBFE]'
-                  : 'bg-slate-100 text-slate-600 hover:text-slate-900 border border-transparent'
-              }`}
-            >
-              Purpose Circles
-            </button>
-          </div>
-
-          {/* Dropdown Filters Bar (Industry, City, Meeting Format, Availability, Search input) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200 mb-8">
-            {/* 1. Industry */}
-            <select
-              value={selectedIndustry}
-              onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="w-full px-3 py-2 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#0062D2] cursor-pointer"
-            >
-              <option value="All Industries">Industry (All)</option>
-              <option value="Manufacturing">Manufacturing</option>
-              <option value="Real Estate">Real Estate</option>
-              <option value="Technology">Technology / IT</option>
-              <option value="Healthcare">Healthcare</option>
-              <option value="Education">Education</option>
-              <option value="Apparel">Fashion & Textile</option>
-              <option value="Export">Import / Export</option>
-              <option value="Startup">Startup Founders</option>
-              <option value="Investor">Investors</option>
-            </select>
-
-            {/* 2. City */}
-            <select
-              value={selectedCity}
-              onChange={(e) => setSelectedCity(e.target.value)}
-              className="w-full px-3 py-2 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#0062D2] cursor-pointer"
-            >
-              <option value="All Cities">City (All)</option>
-              {cityList.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-
-            {/* 3. Meeting Format */}
-            <select
-              value={selectedFormat}
-              onChange={(e) => setSelectedFormat(e.target.value)}
-              className="w-full px-3 py-2 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#0062D2] cursor-pointer"
-            >
-              <option value="All Formats">Meeting Format (All)</option>
-              <option value="In-person">In-person</option>
-              <option value="Hybrid">Hybrid</option>
-            </select>
-
-            {/* 4. Availability */}
-            <select
-              value={selectedAvailability}
-              onChange={(e) => setSelectedAvailability(e.target.value)}
-              className="w-full px-3 py-2 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#0062D2] cursor-pointer"
-            >
-              <option value="All Availability">Availability (All)</option>
-              <option value="Open Seats">Open Seats Available</option>
-              <option value="Waitlist Only">Waitlist Only</option>
-            </select>
-
-            {/* 5. Search input */}
-            <div className="col-span-2 sm:col-span-3 lg:col-span-1 relative">
-              <Search className="size-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search circles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0062D2]"
-              />
-            </div>
-          </div>
-
-          {/* Cards Grid: 4 per row */}
-          {filteredCircles.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              {filteredCircles.map((circle, index) => {
-                const isIndustry = circle.type === 'industry'
-                return (
-                  <div
-                    key={circle.slug}
-                    className="p-6 rounded-3xl border border-slate-200 bg-white hover:border-[#0062D2]/40 hover:shadow-lg transition-all duration-200 flex flex-col justify-between group"
-                  >
-                    <div>
-                      {/* Top Icon in colored square */}
-                      <div
-                        className={`size-11 rounded-2xl flex items-center justify-center mb-4 ${
-                          index % 4 === 0
-                            ? 'bg-blue-50 text-[#0062D2]'
-                            : index % 4 === 1
-                            ? 'bg-pink-50 text-pink-600'
-                            : index % 4 === 2
-                            ? 'bg-emerald-50 text-emerald-600'
-                            : 'bg-purple-50 text-purple-600'
-                        }`}
-                      >
-                        {index % 4 === 0 && <FileText className="size-5" />}
-                        {index % 4 === 1 && <Megaphone className="size-5" />}
-                        {index % 4 === 2 && <Leaf className="size-5" />}
-                        {index % 4 === 3 && <BarChart3 className="size-5" />}
-                      </div>
-
-                      {/* Circle Name */}
-                      <h3 className="font-serif text-lg font-bold text-[#0F172A] leading-snug mb-3 group-hover:text-[#0062D2] transition-colors">
-                        {circle.name}
-                      </h3>
-
-                      {/* Pills: Type & City */}
-                      <div className="flex flex-wrap items-center gap-1.5 mb-4">
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-[#0062D2]">
-                          {isIndustry ? 'Industry' : 'Purpose'}
-                        </span>
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600">
-                          {circle.cities[0] || 'Ahmedabad'}
-                        </span>
-                      </div>
-
-                      {/* Cadence Format */}
-                      <p className="text-xs text-slate-500 mb-4">
-                        Monthly · In-person
-                      </p>
-                    </div>
-
-                    {/* Footer: Availability indicator + Round arrow button */}
-                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 text-xs font-semibold">
-                        <span
-                          className={`size-2 rounded-full ${
-                            circle.seatsOpen > 0 ? 'bg-emerald-500' : 'bg-amber-500'
-                          }`}
-                        />
-                        <span className={circle.seatsOpen > 0 ? 'text-slate-700' : 'text-amber-700'}>
-                          {circle.seatsOpen > 0
-                            ? `${circle.seatsOpen} seats available`
-                            : 'Waitlist open'}
-                        </span>
-                      </div>
-
-                      <Link
-                        href={`/circles/${circle.slug}?city=${encodeURIComponent(
-                          selectedCity !== 'All Cities' ? selectedCity : circle.cities[0] || 'Ahmedabad'
-                        )}`}
-                        className="size-8 rounded-full bg-blue-50 text-[#0062D2] hover:bg-[#0062D2] hover:text-white flex items-center justify-center transition-colors"
-                      >
-                        <ArrowRight className="size-4" />
-                      </Link>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          ) : (
-            /* Empty State */
-            <div className="p-10 rounded-3xl bg-slate-50 border border-slate-200 text-center max-w-xl mx-auto mb-12">
-              <h3 className="font-serif text-xl font-bold text-slate-900 mb-2">
-                No matching Circles found in {selectedCity}
-              </h3>
-              <p className="text-xs text-slate-600 mb-6">
-                Be the founding member to establish this Circle in your city.
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+            <div className="text-left max-w-2xl">
+              <div className="mb-2">
+                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+                  — EXPLORE CIRCLES —
+                </span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-2">
+                The 18 Circles
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600">
+                Find the Circle where your business belongs. Select any city or category to explore live chapters and seats across India.
               </p>
-              <Link
-                href="/start-a-circle"
-                className="rounded-full bg-[#0062D2] text-white px-6 py-2.5 text-xs font-bold inline-flex items-center gap-2"
+            </div>
+
+            {/* Filter Controls: City Selector Dropdown + Search Box */}
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full lg:w-auto">
+              {/* City Dropdown */}
+              <div className="relative w-full sm:w-56">
+                <MapPin className="size-3.5 text-[#0062D2] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <select
+                  value={selectedMainCity}
+                  onChange={(e) => setSelectedMainCity(e.target.value)}
+                  className="w-full pl-9 pr-8 py-2.5 text-xs font-semibold rounded-full border border-slate-200 bg-slate-50 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0062D2] focus:bg-white transition-all shadow-2xs cursor-pointer appearance-none"
+                >
+                  <option value="All Cities">All Cities ({totalCities}+)</option>
+                  {cityList.map((c) => (
+                    <option key={c} value={c}>
+                      {c} Chapter
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="size-3.5 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
+
+              {/* Live Search Box */}
+              <div className="relative w-full sm:w-64">
+                <Search className="size-3.5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search 18 Circles..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2.5 text-xs rounded-full border border-slate-200 bg-slate-50 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0062D2] focus:bg-white transition-all shadow-2xs"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* City Active Indicator Banner if filtered */}
+          {selectedMainCity !== 'All Cities' && (
+            <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200/90 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5">
+                <div className="size-8 rounded-full bg-[#0062D2] text-white flex items-center justify-center shadow-2xs shrink-0">
+                  <MapPin className="size-4" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">
+                    Showing Chapters for {selectedMainCity}
+                  </h4>
+                  <p className="text-xs text-slate-600">
+                    {getCirclesForCity(selectedMainCity).length > 0
+                      ? `${getCirclesForCity(selectedMainCity).length} active circle chapter${getCirclesForCity(selectedMainCity).length > 1 ? 's' : ''} established in ${selectedMainCity}.`
+                      : `Cohorts currently forming in ${selectedMainCity}. Register interest to be a founding member.`}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedMainCity('All Cities')}
+                className="text-xs font-semibold text-[#0062D2] hover:underline shrink-0"
               >
-                <span>Start a Circle in {selectedCity}</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
+                Clear City Filter
+              </button>
             </div>
           )}
 
-          {/* Centered Button: Find Your Circle → */}
-          <div className="text-center">
+          {/* Category Switcher Tabs */}
+          <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-slate-100">
             <button
-              onClick={() => {
-                setActiveCategoryTab('all')
-                setSelectedCity('All Cities')
-                setSelectedIndustry('All Industries')
-                setSearchQuery('')
-              }}
-              className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-md shadow-blue-600/20 cursor-pointer"
+              onClick={() => setActiveCategoryTab('all')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                activeCategoryTab === 'all'
+                  ? 'bg-[#0062D2] text-white shadow-md shadow-blue-600/20'
+                  : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+              }`}
             >
-              <span>Find Your Circle</span>
-              <ArrowRight className="size-4" />
+              All (18 Circles)
+            </button>
+            <button
+              onClick={() => setActiveCategoryTab('industry')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                activeCategoryTab === 'industry'
+                  ? 'bg-[#0062D2] text-white shadow-md shadow-blue-600/20'
+                  : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+              }`}
+            >
+              Industry-Specific Circles (9)
+            </button>
+            <button
+              onClick={() => setActiveCategoryTab('purpose')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                activeCategoryTab === 'purpose'
+                  ? 'bg-[#0062D2] text-white shadow-md shadow-blue-600/20'
+                  : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+              }`}
+            >
+              Interest-Specific Circles (9)
             </button>
           </div>
+
+          {/* =========================================================================
+              PART 1: INDUSTRY-SPECIFIC CIRCLES (Exactly Matching Image 2)
+              ========================================================================= */}
+          {(activeCategoryTab === 'all' || activeCategoryTab === 'industry') && (
+            <div className="mb-14">
+              {/* Category Subheader */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shadow-2xs">
+                  <Briefcase className="size-5" />
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                    Industry-Specific Circles
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Depth in your sector. 9 curated industry cohorts for promoters and leaders.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3x3 Grid of Industry Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                {filteredIndustryCategories.map((category) => {
+                  const isActiveInSelectedCity =
+                    selectedMainCity !== 'All Cities' ? isCategoryActiveInCity(category, selectedMainCity) : true
+
+                  return (
+                    <div
+                      key={category.slug}
+                      onClick={() => handleOpenCategoryModal(category)}
+                      className="group relative bg-white border border-slate-200/90 hover:border-[#0062D2]/50 rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer min-h-[190px] sm:min-h-[210px]"
+                    >
+                      {/* Selected City Status Badge on top */}
+                      {selectedMainCity !== 'All Cities' && (
+                        <span
+                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
+                            isActiveInSelectedCity
+                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                              : 'bg-amber-50 text-amber-700 border border-amber-200'
+                          }`}
+                        >
+                          {isActiveInSelectedCity ? '✓ Active' : 'Coming Soon'}
+                        </span>
+                      )}
+
+                      {/* Centered Circular Icon Badge */}
+                      <div
+                        className={`size-16 sm:size-18 rounded-full ${category.bgColor} text-white flex items-center justify-center shadow-md mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 text-white')}
+                      </div>
+
+                      {/* Category Title */}
+                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-1 group-hover:text-[#0062D2] transition-colors">
+                        {category.name}
+                      </h4>
+
+                      {/* Hover Pill Cue */}
+                      <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span>Select State & City</span>
+                        <ArrowRight className="size-3" />
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* =========================================================================
+              PART 2: INTEREST-SPECIFIC CIRCLES (Exactly Matching Image 3)
+              ========================================================================= */}
+          {(activeCategoryTab === 'all' || activeCategoryTab === 'purpose') && (
+            <div>
+              {/* Category Subheader */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="size-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shadow-2xs">
+                  <Shapes className="size-5" />
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                    Interest-Specific Circles
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Breadth & perspective. 9 growth-stage and purpose-driven cohorts across industries.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3x3 Grid of Interest Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                {filteredInterestCategories.map((category) => {
+                  const isActiveInSelectedCity =
+                    selectedMainCity !== 'All Cities' ? isCategoryActiveInCity(category, selectedMainCity) : true
+
+                  return (
+                    <div
+                      key={category.slug}
+                      onClick={() => handleOpenCategoryModal(category)}
+                      className="group relative bg-white border border-slate-200/90 hover:border-[#0062D2]/50 rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer min-h-[190px] sm:min-h-[210px]"
+                    >
+                      {/* Selected City Status Badge on top */}
+                      {selectedMainCity !== 'All Cities' && (
+                        <span
+                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
+                            isActiveInSelectedCity
+                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                              : 'bg-amber-50 text-amber-700 border border-amber-200'
+                          }`}
+                        >
+                          {isActiveInSelectedCity ? '✓ Active' : 'Coming Soon'}
+                        </span>
+                      )}
+
+                      {/* Centered Circular Icon Badge */}
+                      <div
+                        className={`size-16 sm:size-18 rounded-full ${category.bgColor} text-white flex items-center justify-center shadow-md mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 text-white')}
+                      </div>
+
+                      {/* Category Title */}
+                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-1 group-hover:text-[#0062D2] transition-colors">
+                        {category.name}
+                      </h4>
+
+                      {/* Hover Pill Cue */}
+                      <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span>Select State & City</span>
+                        <ArrowRight className="size-3" />
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
 
         </div>
       </section>
 
       {/* =========================================================================
           SECTION 7: WHAT MAKES A CIRCLE DIFFERENT
-          Heading: "More than meetings. A movement."
-          4 Horizontal Cards with Icons
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1109,7 +1290,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
       {/* =========================================================================
           SECTION 8: CLOSING BANNER
-          Dark Navy Background with Blurred Executives Photo & Script Overlay
           ========================================================================= */}
       <section className="relative overflow-hidden bg-[#0A162B] text-white py-16 sm:py-24">
         {/* Background Image with Dark Vignette */}
@@ -1174,6 +1354,267 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          INTERACTIVE LOCATION SELECTOR MODAL (State & City Selection for 18 Categories)
+          Displays ALL active circle chapters for the selected city!
+          ========================================================================= */}
+      {selectedCategoryForModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+          <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-200 bg-white text-slate-900 p-6 sm:p-8 shadow-2xl flex flex-col gap-6">
+            
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedCategoryForModal(null)}
+              className="absolute top-5 right-5 size-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <X className="size-4" />
+            </button>
+
+            {/* Header: Category Badge + Title */}
+            <div className="flex items-start gap-4 pr-8">
+              <div
+                className={`size-14 sm:size-16 rounded-2xl ${selectedCategoryForModal.bgColor} text-white flex items-center justify-center shadow-md shrink-0`}
+              >
+                {renderCategoryIcon(selectedCategoryForModal.iconName, 'size-7 sm:size-8 text-white')}
+              </div>
+              <div>
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-[#0062D2] mb-1">
+                  {selectedCategoryForModal.type === 'industry' ? 'Industry-Specific Circle' : 'Interest-Specific Circle'}
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                  {selectedCategoryForModal.name}
+                </h3>
+                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                  {selectedCategoryForModal.tagline}
+                </p>
+              </div>
+            </div>
+
+            {/* State & City Interactive Selector */}
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-3">
+              <div className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                <MapPin className="size-3.5 text-[#0062D2]" />
+                <span>Select Your State & City</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* 1. State Selector */}
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    State
+                  </label>
+                  <select
+                    value={modalState}
+                    onChange={(e) => handleModalStateChange(e.target.value)}
+                    className="w-full px-3 py-2 text-xs font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0062D2] cursor-pointer"
+                  >
+                    {Object.keys(STATE_CITIES_MAP).map((st) => (
+                      <option key={st} value={st}>
+                        {st}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* 2. City Selector */}
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    City / Chapter
+                  </label>
+                  <select
+                    value={modalCity}
+                    onChange={(e) => setModalCity(e.target.value)}
+                    className="w-full px-3 py-2 text-xs font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0062D2] cursor-pointer"
+                  >
+                    {(STATE_CITIES_MAP[modalState] || []).map((ct) => {
+                      const count = getCirclesForCity(ct).length
+                      return (
+                        <option key={ct} value={ct}>
+                          {ct} {count > 0 ? `✓ (${count} Circle${count > 1 ? 's' : ''})` : ''}
+                        </option>
+                      )
+                    })}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Dynamic Status Section: ALL ACTIVE CHAPTERS IN CITY vs COMING SOON */}
+            {modalCityCircles.length > 0 ? (
+              /* Case A: ACTIVE CHAPTERS EXIST IN SELECTED CITY */
+              <div className="space-y-4 animate-in fade-in">
+                {/* Status Bar */}
+                <div className="flex items-center justify-between p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                  <div className="flex items-center gap-2">
+                    <span className="size-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-xs font-bold text-emerald-800">
+                      {modalCityCircles.length} Active Circle Chapter{modalCityCircles.length > 1 ? 's' : ''} in {modalCity}
+                    </span>
+                  </div>
+                  <span className="text-[11px] font-bold text-emerald-800 bg-white px-2.5 py-0.5 rounded-full border border-emerald-200 shadow-2xs">
+                    Category Exclusivity Applied
+                  </span>
+                </div>
+
+                {/* Scrollable Container of All Circles for this City */}
+                <div className="space-y-3.5 max-h-[380px] overflow-y-auto pr-1">
+                  {modalCityCircles.map((circle, idx) => {
+                    const isDirectMatch =
+                      circle.slug === selectedCategoryForModal.activeSlug ||
+                      circle.name.toLowerCase().includes(selectedCategoryForModal.name.toLowerCase().split(' ')[0])
+
+                    return (
+                      <div
+                        key={circle.slug + idx}
+                        className={`p-4 sm:p-5 rounded-2xl border transition-all ${
+                          isDirectMatch
+                            ? 'bg-emerald-50/50 border-emerald-300 ring-1 ring-emerald-400/50 shadow-sm'
+                            : 'bg-white border-slate-200 hover:border-slate-300 shadow-2xs'
+                        }`}
+                      >
+                        <div className="flex items-start justify-between gap-3 mb-2">
+                          <div>
+                            {isDirectMatch && (
+                              <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md mb-1.5">
+                                ⭐ Primary Category Chapter
+                              </span>
+                            )}
+                            <h4 className="text-base font-bold text-slate-900 leading-snug">
+                              {circle.name}
+                            </h4>
+                          </div>
+                          <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 shrink-0">
+                            {circle.seatsOpen || 30} Seats Open
+                          </span>
+                        </div>
+
+                        <p className="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-2">
+                          {circle.summary || circle.tagline}
+                        </p>
+
+                        {/* Details Pills */}
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-medium text-slate-700 mb-3.5">
+                          <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center gap-1.5">
+                            <Calendar className="size-3.5 text-[#0062D2] shrink-0" />
+                            <span className="truncate">{circle.cadence || 'Monthly · In-person'}</span>
+                          </div>
+                          <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center gap-1.5">
+                            <CheckCircle2 className="size-3.5 text-emerald-600 shrink-0" />
+                            <span className="truncate">1 Seat per Business Category</span>
+                          </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex items-center gap-2.5">
+                          <Link
+                            href={`/circles/${circle.slug}?city=${encodeURIComponent(modalCity)}`}
+                            className="flex-1 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-4 py-2 text-xs font-bold shadow-2xs transition-all text-center inline-flex items-center justify-center gap-1.5"
+                          >
+                            <span>View Chapter Details & Apply</span>
+                            <ArrowRight className="size-3" />
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedCategoryForModal(null)
+                              setIsGuestModalOpen(true)
+                            }}
+                            className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-700 px-4 py-2 text-xs font-bold transition-all shadow-2xs"
+                          >
+                            Guest Pass
+                          </button>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            ) : (
+              /* Case B: NO CIRCLES YET IN THIS CITY (COMING SOON) */
+              <div className="p-5 rounded-2xl bg-amber-50/80 border border-amber-200/90 flex flex-col gap-4 animate-in fade-in">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-amber-800 bg-amber-100 border border-amber-300">
+                    <Sparkles className="size-3.5 text-amber-600" />
+                    Chapter Coming Soon in {modalCity}
+                  </span>
+                  <span className="text-[11px] font-semibold text-amber-800">
+                    Cohort Forming
+                  </span>
+                </div>
+
+                <div>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900">
+                    Be a Founding Member in {modalCity}
+                  </h4>
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                    Peers Global is establishing the <strong>{selectedCategoryForModal.name}</strong> cohort in <strong>{modalCity}</strong>. Register your expression of interest below to receive priority founder clearance.
+                  </p>
+                </div>
+
+                {interestSubmitted ? (
+                  <div className="p-4 rounded-xl bg-white border border-amber-300 text-center space-y-1.5">
+                    <CheckCircle2 className="size-8 text-emerald-600 mx-auto" />
+                    <h5 className="text-sm font-bold text-slate-900">Interest Registered!</h5>
+                    <p className="text-xs text-slate-600">
+                      Our District Chapter Director for {modalCity} will contact you as the founding cohort convenes.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleInterestSubmit} className="space-y-3 text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your Full Name"
+                        value={interestForm.name}
+                        onChange={(e) => setInterestForm({ ...interestForm, name: e.target.value })}
+                        className="w-full px-3 py-2 rounded-xl bg-white border border-amber-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0062D2]"
+                      />
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Phone / WhatsApp"
+                        value={interestForm.phone}
+                        onChange={(e) => setInterestForm({ ...interestForm, phone: e.target.value })}
+                        className="w-full px-3 py-2 rounded-xl bg-white border border-amber-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0062D2]"
+                      />
+                    </div>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Company Name & Your Category (e.g. Apex Engineering)"
+                      value={interestForm.company}
+                      onChange={(e) => setInterestForm({ ...interestForm, company: e.target.value })}
+                      className="w-full px-3 py-2 rounded-xl bg-white border border-amber-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0062D2]"
+                    />
+                    <button
+                      type="submit"
+                      className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-5 py-2.5 font-bold shadow-sm transition-all inline-flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <Sparkles className="size-3.5" />
+                      <span>Notify Me When {modalCity} Chapter Launches</span>
+                    </button>
+                  </form>
+                )}
+              </div>
+            )}
+
+            {/* Modal Bottom Footer */}
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span>Peers Global Governed Circles</span>
+              <button
+                type="button"
+                onClick={() => setSelectedCategoryForModal(null)}
+                className="font-semibold text-slate-600 hover:text-slate-900 cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
 
       {/* =========================================================================
           INTERACTIVE GUEST PASS MODAL ("Visit as a Guest")
