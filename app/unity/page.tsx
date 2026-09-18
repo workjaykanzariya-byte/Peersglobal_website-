@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import {
   Smartphone, Sparkles, ShieldCheck, MapPin, Zap, CheckCircle2,
-  BookOpen, Users, ClipboardList, ArrowLeftRight, Star, CalendarDays, ChevronRight
+  BookOpen, Users, ClipboardList, ArrowLeftRight, Star, ChevronRight
 } from 'lucide-react'
 import { Card, Cta, SectionHead } from '@/components/site/ui'
 import { UNITY_ROLES } from '@/lib/data/content'
@@ -20,14 +20,70 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://peersglobal.com/unity',
   },
+  openGraph: {
+    title: 'Peers Global Unity App | A Global Community of Entrepreneurs',
+    description:
+      'Unity is where the Peers Global community lives — the feed, the Peers, messaging, Circle chat, one-to-one booking and the recognition system.',
+    url: 'https://peersglobal.com/unity',
+    siteName: 'Peers Global',
+    type: 'website',
+  },
+}
+
+const FEATURES = [
   {
-    icon: CalendarDays,
-    tag: 'EVENTS',
-    title: 'Event Calendar & Passes',
-    body: 'Circle meetings, city mixers and conclaves with member pricing applied automatically and check-in on the door.',
-    color: 'from-[#D4AF37]/20 to-[#1e4ed8]/10',
+    icon: Users,
+    tag: 'PEER DIRECTORY',
+    title: 'Find Any Peer, Anywhere',
+    body: 'Search the full verified community by industry, city, capability or what you need right now. Every profile is a real founder, confirmed by their Circle Director.',
+    color: 'from-blue-500/10 to-primary/5',
+    accent: 'text-blue-400',
+    border: 'border-blue-500/20',
+  },
+  {
+    icon: ClipboardList,
+    tag: 'CIRCLE GOVERNANCE',
+    title: 'Circle Meetings & Governance',
+    body: 'Attendance, Hot Seat requests, impact logging and committee tracking — the full meeting record managed digitally before, during and after each session.',
+    color: 'from-emerald-500/10 to-teal-500/5',
+    accent: 'text-emerald-400',
+    border: 'border-emerald-500/20',
+  },
+  {
+    icon: Sparkles,
+    tag: 'IMPACT LEDGER',
+    title: 'The Live Impact Ledger',
+    body: 'Every introduction made, every referral given, every mentorship hour confirmed — logged by the recipient, timestamped and immutable. Your Life Impact Score in real time.',
+    color: 'from-[#D4AF37]/15 to-amber-500/5',
     accent: 'text-[#D4AF37]',
     border: 'border-[#D4AF37]/20',
+  },
+  {
+    icon: ArrowLeftRight,
+    tag: 'CONNECTIONS',
+    title: 'Peer-to-Peer Introductions',
+    body: 'Request introductions, send warm referrals, and track collaboration status across your entire network — with consent and confirmation built in.',
+    color: 'from-purple-500/10 to-violet-500/5',
+    accent: 'text-purple-400',
+    border: 'border-purple-500/20',
+  },
+  {
+    icon: BookOpen,
+    tag: 'LEARNING HUB',
+    title: 'Masterclasses & Playbooks',
+    body: 'On-demand access to every Impact Mentor Masterclass, business playbook and watchlist resource — searchable by challenge, sector and format.',
+    color: 'from-sky-500/10 to-cyan-500/5',
+    accent: 'text-sky-400',
+    border: 'border-sky-500/20',
+  },
+  {
+    icon: Star,
+    tag: 'RECOGNITION',
+    title: 'Peer Standing & Rewards',
+    body: 'Badges, milestones and Peers Coin rewards for verified contribution. Your standing ranked transparently across the full community, updated live.',
+    color: 'from-rose-500/10 to-pink-500/5',
+    accent: 'text-rose-400',
+    border: 'border-rose-500/20',
   },
 ]
 
