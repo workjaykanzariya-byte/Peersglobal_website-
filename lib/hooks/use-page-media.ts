@@ -124,12 +124,9 @@ export function usePageMedia(pageIdentifier: string) {
             i.isActive &&
             ((targetSubId && i.subModuleId?.toLowerCase() === targetSubId) ||
               (targetSub && i.subModuleName?.toLowerCase() === targetSub) ||
-              (targetSub && i.title.toLowerCase().includes(targetSub)) ||
-              (targetSub && i.sectionName.toLowerCase().includes(targetSub)))
+              (targetSub && i.title.toLowerCase().trim() === targetSub))
         )
-      }
-
-      if (!match && sectionName) {
+      } else if (sectionName) {
         const targetSec = sectionName.toLowerCase().trim()
         match = pageMatches.find(
           (i) =>

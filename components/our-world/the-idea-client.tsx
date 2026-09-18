@@ -45,6 +45,43 @@ export function TheIdeaClient() {
   // Modal player state for full screen/interactive playback
   const [activeModalMedia, setActiveModalMedia] = useState<ResolvedMediaItem | null>(null)
 
+  // 0. Hero Collage 4-part Geometric Videos (Dynamic & Connected to Admin)
+  const heroShape1Media = getMedia({
+    sectionName: 'The Idea',
+    subModuleName: 'HERO COLLAGE — TOP LEFT (BOARDROOM)',
+    subModuleId: 'sub-our-world-the-idea-hero-1',
+    fallbackUrl: '/videos/leadership-hero-bg.mp4',
+    fallbackSourceType: 'localhost',
+    fallbackTitle: 'Peers Boardroom & Leadership Circle Video',
+  })
+
+  const heroShape2Media = getMedia({
+    sectionName: 'The Idea',
+    subModuleName: 'HERO COLLAGE — TOP RIGHT (CONCLAVE)',
+    subModuleId: 'sub-our-world-the-idea-hero-2',
+    fallbackUrl: '/videos/hero-background.mp4',
+    fallbackSourceType: 'localhost',
+    fallbackTitle: 'Peers Global Grand Conclave Video',
+  })
+
+  const heroShape3Media = getMedia({
+    sectionName: 'The Idea',
+    subModuleName: 'HERO COLLAGE — BOTTOM LEFT (PARTNERS)',
+    subModuleId: 'sub-our-world-the-idea-hero-3',
+    fallbackUrl: '/videos/peers-global-earth-loop.mp4',
+    fallbackSourceType: 'localhost',
+    fallbackTitle: 'Partners in Business & Friends in Life Video',
+  })
+
+  const heroShape4Media = getMedia({
+    sectionName: 'The Idea',
+    subModuleName: 'HERO COLLAGE — BOTTOM RIGHT (CIRCLES)',
+    subModuleId: 'sub-our-world-the-idea-hero-4',
+    fallbackUrl: '/videos/stories-hero-bg.mp4',
+    fallbackSourceType: 'localhost',
+    fallbackTitle: 'Peers Circles Collaboration Video',
+  })
+
   // 1. Resolve media dynamically for Sub-Module: THE SILENT REALITY (Matches Screenshot 3)
   const silentRealityMedia = getMedia({
     sectionName: 'The Idea',
@@ -89,114 +126,254 @@ export function TheIdeaClient() {
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       
       {/* =========================================================================
-          1. HERO SECTION (PERFECTLY ALIGNED)
+          1. HERO SECTION (EXACT ATTACHED DESIGN RECREATION)
           ========================================================================= */}
-      <section className="relative overflow-hidden border-b border-slate-100 bg-gradient-to-b from-slate-50/50 via-white to-white py-16 sm:py-20 lg:py-24">
-        {/* Soft background ambient glows */}
-        <div className="absolute top-1/4 left-10 size-72 rounded-full bg-blue-50/70 blur-3xl pointer-events-none" />
-        <div className="absolute top-10 right-20 size-80 rounded-full bg-blue-100/40 blur-3xl pointer-events-none" />
-
-        {/* Decorative left background arc */}
-        <div className="absolute -left-20 top-1/2 -translate-y-1/2 size-72 rounded-full border border-blue-100/50 pointer-events-none hidden xl:block" />
-
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[#FAF9F6] py-12 sm:py-16 lg:py-20">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* Left Decorative Vertical Strip */}
-          <div className="hidden xl:flex absolute left-4 2xl:left-0 top-1/2 -translate-y-1/2 items-center gap-3 border-l-2 border-slate-200/90 pl-3 py-1 z-10">
-            <div className="flex flex-col text-[10px] font-bold tracking-[0.22em] text-slate-400 uppercase leading-relaxed text-left">
-              <span>PEOPLE</span>
-              <span>PURPOSE</span>
-              <span>PROGRESS</span>
-            </div>
-          </div>
+          {/* Main 2-Column Balanced Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+            
+            {/* ──────── LEFT SIDEBAR & MAIN CONTENT (lg:col-span-7) ──────── */}
+            <div className="lg:col-span-7 flex flex-col md:flex-row items-start gap-8 lg:gap-10 xl:gap-12">
+              
+              {/* Far Left Vertical Strip: PEOPLE / PURPOSE / PROGRESS with Icons */}
+              <div className="hidden sm:flex flex-col gap-7 select-none shrink-0 pt-20">
+                <div className="flex items-center gap-3 group">
+                  <div className="size-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors">
+                    <Users2 className="size-4.5" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-700">
+                    PEOPLE
+                  </span>
+                </div>
 
-          {/* Center Main Hero Content */}
-          <div className="max-w-2xl mx-auto flex flex-col items-center text-center relative z-20">
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-50/90 border border-blue-200/70 px-4 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2] mb-5 shadow-xs">
-              <span className="size-1.5 rounded-full bg-[#0062D2]" />
-              PILLAR: THE IDEA
-            </div>
+                <div className="flex items-center gap-3 group">
+                  <div className="size-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors">
+                    <Target className="size-4.5" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-700">
+                    PURPOSE
+                  </span>
+                </div>
 
-            {/* H1 */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-slate-900 mb-3 leading-[1.1]">
-              The Idea
-            </h1>
-
-            {/* Subline with blue script accent */}
-            <p className="font-serif text-xl sm:text-2xl lg:text-[1.85rem] text-slate-800 leading-snug mb-3 font-normal max-w-xl">
-              Entrepreneurs should not have to{' '}
-              <em
-                className="not-italic text-[#0062D2]"
-                style={{ fontFamily: 'var(--font-script, cursive)', fontStyle: 'italic' }}
-              >
-                build alone.
-              </em>
-            </p>
-
-            {/* Supporting line */}
-            <p className="text-xs sm:text-sm text-slate-500 max-w-lg mb-8 leading-relaxed font-light">
-              Everything Peers Global is today comes from that one sentence.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3.5 justify-center items-center">
-              <Link
-                href="/membership"
-                className="group inline-flex items-center gap-2 rounded-lg bg-[#0062D2] hover:bg-blue-700 text-white px-6 py-3 text-xs sm:text-sm font-semibold transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
-              >
-                <span>Join Peers Global</span>
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-
-              <Link
-                href="/circles"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 text-xs sm:text-sm font-semibold transition-all shadow-xs active:scale-[0.98]"
-              >
-                <span>Find Your Circle</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Floating Script Text & Vertical Strip */}
-          <div className="hidden lg:flex items-center gap-6 absolute right-4 2xl:right-0 top-1/2 -translate-y-1/2 z-10">
-            <div className="flex flex-col items-start select-none -rotate-6 text-[#0062D2] leading-[1.12]">
-              <span
-                className="text-2xl sm:text-3xl text-[#0062D2]"
-                style={{ fontFamily: 'var(--font-script, cursive)' }}
-              >
-                Ideas
-              </span>
-              <span
-                className="text-2xl sm:text-3xl text-[#0062D2] ml-3"
-                style={{ fontFamily: 'var(--font-script, cursive)' }}
-              >
-                Build
-              </span>
-              <span
-                className="text-2xl sm:text-3xl text-[#0062D2] ml-6"
-                style={{ fontFamily: 'var(--font-script, cursive)' }}
-              >
-                Communities
-              </span>
-              <svg className="w-24 h-4 text-[#0062D2] ml-7 mt-0.5" viewBox="0 0 100 20" fill="none">
-                <path
-                  d="M5 6 C 35 15, 65 14, 95 8 M 85 4 C 90 7, 95 8, 92 14"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            <div className="hidden xl:flex items-center gap-3 border-l-2 border-slate-200/90 pl-3 py-1">
-              <div className="flex flex-col text-[10px] font-bold tracking-[0.22em] text-slate-400 uppercase leading-relaxed text-left">
-                <span>A BRIGHTER</span>
-                <span>TOMORROW</span>
-                <span>TOGETHER</span>
+                <div className="flex items-center gap-3 group">
+                  <div className="size-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors">
+                    <TrendingUp className="size-4.5" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-700">
+                    PROGRESS
+                  </span>
+                </div>
               </div>
+
+              {/* Center-Left Content Area */}
+              <div className="flex flex-col items-start text-left max-w-xl">
+                
+                {/* Pill Badge */}
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/95 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-slate-900 mb-6 shadow-2xs">
+                  <span className="size-1.5 rounded-full bg-slate-900" />
+                  <span>PILLAR: THE IDEA</span>
+                </div>
+
+                {/* H1 Heading */}
+                <h1 className="font-serif text-5xl sm:text-6xl lg:text-[76px] font-normal tracking-tight text-slate-950 mb-4 leading-[1.05]">
+                  The Idea
+                </h1>
+
+                {/* Subtitle with cursive script accent */}
+                <p className="font-serif text-2xl sm:text-3xl lg:text-[32px] text-slate-900 leading-snug mb-4 font-normal">
+                  Entrepreneurs should not have to{' '}
+                  <span
+                    className="text-[#0062D2] italic font-normal inline-block ml-1"
+                    style={{ fontFamily: 'var(--font-script, cursive)' }}
+                  >
+                    build alone.
+                  </span>
+                </p>
+
+                {/* Supporting description */}
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-light mb-8 max-w-md">
+                  Everything Peers Global is today comes from that one sentence.
+                </p>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-3.5 items-center">
+                  <Link
+                    href="/membership"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#0062D2] hover:bg-blue-700 text-white px-7 py-3.5 text-xs sm:text-sm font-semibold transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
+                  >
+                    <span>Join Peers Global</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+
+                  <Link
+                    href="/circles"
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300/80 bg-white hover:bg-slate-50 text-slate-800 px-7 py-3.5 text-xs sm:text-sm font-semibold transition-all shadow-2xs active:scale-[0.98]"
+                  >
+                    <span>Find Your Circle</span>
+                  </Link>
+                </div>
+
+              </div>
+
             </div>
+
+            {/* ──────── RIGHT SIDE: 4-PART GEOMETRIC COLLAGE & SCRIPT ACCENT (lg:col-span-5) ──────── */}
+            <div className="lg:col-span-5 flex flex-col items-center lg:items-end relative pt-6 lg:pt-0">
+              
+              {/* Top-Right Tagline with Vertical Bar */}
+              <div className="flex items-center gap-3 border-l-2 border-slate-400 pl-3.5 py-0.5 text-left mb-4 self-center lg:self-end">
+                <div className="flex flex-col text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-slate-700 uppercase leading-snug">
+                  <span>A BRIGHTER</span>
+                  <span>TOMORROW</span>
+                  <span>TOGETHER</span>
+                </div>
+              </div>
+
+              {/* 4-Part Geometric Video & Image Collage (Connected to Dynamic Admin Media) */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 items-end w-full max-w-[380px] sm:max-w-[420px] lg:max-w-[450px]">
+                
+                {/* Shape 1 (Top-Left): Arched top-left corner */}
+                <div
+                  className="relative aspect-[3/4.2] w-full rounded-tl-[80px] sm:rounded-tl-[100px] overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                >
+                  {heroShape1Media.isYouTube && heroShape1Media.embedUrl ? (
+                    <iframe
+                      src={`${heroShape1Media.embedUrl}&mute=1&loop=1`}
+                      title={heroShape1Media.title}
+                      className="w-full h-full border-0 object-cover pointer-events-none scale-125"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                  ) : (
+                    <video
+                      key={heroShape1Media.mediaUrl}
+                      src={heroShape1Media.mediaUrl || '/videos/leadership-hero-bg.mp4'}
+                      poster="/images/who-we-are-boardroom.jpg"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover object-center"
+                    />
+                  )}
+                </div>
+
+                {/* Shape 2 (Top-Right): Pill with rounded top */}
+                <div
+                  className="relative aspect-[3/4.8] w-full rounded-t-full overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                >
+                  {heroShape2Media.isYouTube && heroShape2Media.embedUrl ? (
+                    <iframe
+                      src={`${heroShape2Media.embedUrl}&mute=1&loop=1`}
+                      title={heroShape2Media.title}
+                      className="w-full h-full border-0 object-cover pointer-events-none scale-125"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                  ) : (
+                    <video
+                      key={heroShape2Media.mediaUrl}
+                      src={heroShape2Media.mediaUrl || '/videos/hero-background.mp4'}
+                      poster="/images/conclave.png"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover object-center"
+                    />
+                  )}
+                </div>
+
+                {/* Shape 3 (Bottom-Left): Arched bottom-left corner */}
+                <div
+                  className="relative aspect-[3/4] w-full rounded-bl-[80px] sm:rounded-bl-[100px] overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                >
+                  {heroShape3Media.isYouTube && heroShape3Media.embedUrl ? (
+                    <iframe
+                      src={`${heroShape3Media.embedUrl}&mute=1&loop=1`}
+                      title={heroShape3Media.title}
+                      className="w-full h-full border-0 object-cover pointer-events-none scale-125"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                  ) : (
+                    <video
+                      key={heroShape3Media.mediaUrl}
+                      src={heroShape3Media.mediaUrl || '/videos/peers-global-earth-loop.mp4'}
+                      poster="/images/who-we-are-friends.jpg"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover object-center"
+                    />
+                  )}
+                </div>
+
+                {/* Shape 4 (Bottom-Right): Semi-circle / D-shape right */}
+                <div
+                  className="relative aspect-[4/3.8] w-full rounded-r-full overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                >
+                  {heroShape4Media.isYouTube && heroShape4Media.embedUrl ? (
+                    <iframe
+                      src={`${heroShape4Media.embedUrl}&mute=1&loop=1`}
+                      title={heroShape4Media.title}
+                      className="w-full h-full border-0 object-cover pointer-events-none scale-125"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                  ) : (
+                    <video
+                      key={heroShape4Media.mediaUrl}
+                      src={heroShape4Media.mediaUrl || '/videos/stories-hero-bg.mp4'}
+                      poster="/images/circles-hero-new.jpg"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover object-center"
+                    />
+                  )}
+                </div>
+
+              </div>
+
+              {/* Bottom-Right Handwritten Script Accent & Curved Arrow */}
+              <div className="flex flex-col items-start select-none -rotate-6 text-slate-800 leading-[1.08] mt-4 ml-auto pr-4 sm:pr-8">
+                <span
+                  className="text-2xl sm:text-3xl text-slate-900"
+                  style={{ fontFamily: 'var(--font-script, cursive)' }}
+                >
+                  Ideas
+                </span>
+                <span
+                  className="text-2xl sm:text-3xl text-slate-900 ml-3"
+                  style={{ fontFamily: 'var(--font-script, cursive)' }}
+                >
+                  Build
+                </span>
+                <span
+                  className="text-2xl sm:text-3xl text-slate-900 ml-6"
+                  style={{ fontFamily: 'var(--font-script, cursive)' }}
+                >
+                  Communities
+                </span>
+                <svg className="w-24 sm:w-28 h-5 text-slate-800 ml-7 mt-0.5" viewBox="0 0 100 20" fill="none">
+                  <path
+                    d="M5 6 C 35 15, 65 14, 95 8 M 85 4 C 90 7, 95 8, 92 14"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ──────── BOTTOM HAIRLINE STRIP ──────── */}
+          <div className="pt-10 sm:pt-14 mt-8 sm:mt-12 border-t border-slate-200/80 flex items-center justify-center text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-[0.28em] select-none">
+            <span>· COLLABORATE &nbsp;|&nbsp; LEARN &nbsp;|&nbsp; BUILD &nbsp;|&nbsp; GROW ·</span>
           </div>
 
         </div>
