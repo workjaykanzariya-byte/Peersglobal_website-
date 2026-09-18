@@ -98,7 +98,6 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Find Your Circle', href: '/circles/find', desc: 'Match with your ideal Circle and Inner Board', phase: 1 },
       { label: 'The Circle Meeting Experience', href: '/circle-meeting-experience', desc: '4-part monthly meeting structure', phase: 1 },
       { label: 'Start a Circle', href: '/start-a-circle', desc: 'Circle starts from Day 1 — first member', phase: 1 },
-      { label: 'Circle Map — Cities & Countries', href: '/map', desc: 'Live locations and active chapters', phase: 2 },
     ],
   },
   {
@@ -142,7 +141,7 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Circle Director', href: '/leadership/circle-director', desc: 'Runs the Circle month on month', phase: 1 },
       { label: 'Industry Director', href: '/leadership/industry-director', desc: 'Sector ecosystem owner for the city', phase: 1 },
       { label: 'Executive Director', href: '/leadership/executive-director', desc: 'Area / District / State / Country leadership', phase: 1 },
-      { label: 'Global Advisory Board', href: '/leadership/global-advisors', desc: 'Senior entrepreneurs guiding the movement', phase: 2 },
+      { label: 'Ambassador', href: '/leadership/ambassadors', desc: 'Carrying the name into rooms where it is not yet known', phase: 1 },
       { label: 'Impact Income', href: '/leadership/impact-income', desc: 'Earn while contributing to ecosystem growth', phase: 1 },
       { label: 'Apply to Lead', href: '/leadership/apply', desc: 'Submit expression of interest for leadership', phase: 1 },
     ],

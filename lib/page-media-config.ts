@@ -1,17 +1,15 @@
-export interface PageMediaItem {
+export interface SubModuleDefinition {
   id: string
-  pageName: string
-  pageSlug: string
-  pageId: string
-  sectionName: string
-  title: string
+  name: string // e.g. "THE SILENT REALITY"
+  eyebrow?: string // e.g. "THE SILENT REALITY"
+  title: string // e.g. "The problem nobody talks about."
   description?: string
-  mediaType: 'video' | 'photo'
-  sourceType: 'url' | 'localhost'
-  mediaUrl: string
-  thumbnailUrl?: string
-  isActive: boolean
-  createdAt: string
+  defaultMediaUrl: string
+  defaultSourceType: 'url' | 'localhost'
+  defaultTitle: string
+  mediaType?: 'video' | 'photo'
+  aspectRatio?: 'video' | 'portrait' | 'square' | 'wide'
+  placement?: string
 }
 
 export interface SectionDefinition {
@@ -22,6 +20,27 @@ export interface SectionDefinition {
   defaultMediaUrl: string
   defaultSourceType: 'url' | 'localhost'
   defaultTitle: string
+  subModules?: SubModuleDefinition[]
+}
+
+export interface PageMediaItem {
+  id: string
+  pageName: string
+  pageSlug: string
+  pageId: string
+  sectionId?: string
+  sectionName: string
+  subModuleId?: string
+  subModuleName?: string // e.g. "THE SILENT REALITY", "ORIGIN STORY"
+  title: string
+  description?: string
+  mediaType: 'video' | 'photo'
+  sourceType: 'url' | 'localhost'
+  mediaUrl: string
+  thumbnailUrl?: string
+  isActive: boolean
+  createdAt: string
+  order?: number
 }
 
 export interface WebsitePageConfig {
@@ -54,6 +73,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/hero-background.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'Peers Global Grand Launch & Conclave Reel',
+        subModules: [
+          {
+            id: 'sub-home-hero-bg',
+            name: 'HERO AMBIENT REEL',
+            eyebrow: 'HERO AMBIENT REEL',
+            title: '4K Full-Bleed Earth & Atmosphere Reel',
+            description: 'Main landing backdrop video with smooth cinematic transitions.',
+            defaultMediaUrl: '/videos/hero-background.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Peers Global Grand Launch & Conclave Reel',
+          },
+        ],
       },
       {
         id: 'home-who-we-are',
@@ -63,6 +94,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/homepage-hero-bg.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'Who We Are — Collaborative Boardroom Story',
+        subModules: [
+          {
+            id: 'sub-home-who-we-are',
+            name: 'BOARDROOM STORY',
+            eyebrow: 'BOARDROOM STORY',
+            title: 'Collaborative Boardroom Video Loop',
+            description: 'Curtain-reveal video loop displaying leadership and peer discussions.',
+            defaultMediaUrl: '/videos/homepage-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Who We Are — Collaborative Boardroom Story',
+          },
+        ],
       },
       {
         id: 'home-cyber-earth',
@@ -72,6 +115,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/peers-global-earth-loop.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'Global Cyber Earth Network Loop',
+        subModules: [
+          {
+            id: 'sub-home-earth',
+            name: 'GLOBAL CONSTELLATION',
+            eyebrow: 'GLOBAL CONSTELLATION',
+            title: 'Interactive Globe & Cyber Network',
+            description: 'Looping network globe showcasing 11+ Indian cities connected with global hubs.',
+            defaultMediaUrl: '/videos/peers-global-earth-loop.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Global Cyber Earth Network Loop',
+          },
+        ],
       },
       {
         id: 'home-leadership',
@@ -81,6 +136,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'Leadership & Circle Founders Overview',
+        subModules: [
+          {
+            id: 'sub-home-leadership',
+            name: 'GOVERNING COUNCIL',
+            eyebrow: 'GOVERNING COUNCIL',
+            title: 'Leadership & Circle Founders Overview',
+            description: 'Featured video modal triggered from leadership card clicks.',
+            defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Leadership & Circle Founders Overview',
+          },
+        ],
       },
       {
         id: 'home-testimonials',
@@ -90,6 +157,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Member Testimonial & Value Reel',
+        subModules: [
+          {
+            id: 'sub-home-testimonials',
+            name: 'MEMBER TESTIMONIALS',
+            eyebrow: 'MEMBER TESTIMONIALS',
+            title: 'Member Growth Stories & Verified Outcomes',
+            description: 'Curated video testimonials from active circle members.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Member Testimonial & Value Reel',
+          },
+        ],
       },
       {
         id: 'home-footer',
@@ -99,6 +178,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/hero-background.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'Peers Global Community Invitation Video',
+        subModules: [
+          {
+            id: 'sub-home-footer',
+            name: 'COMMUNITY INVITATION',
+            eyebrow: 'COMMUNITY INVITATION',
+            title: 'Closing Call to Action Video Loop',
+            description: 'Subtle motion loop behind the application footer bar.',
+            defaultMediaUrl: '/videos/hero-background.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Peers Global Community Invitation Video',
+          },
+        ],
       },
     ],
   },
@@ -114,9 +205,91 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         name: 'The Idea',
         subRoute: '/the-idea',
         description: 'The founding manifesto and core belief of non-competitive structured peer networking.',
-        defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        defaultSourceType: 'url',
+        defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
+        defaultSourceType: 'localhost',
         defaultTitle: 'The Idea — Founding Manifesto Video',
+        subModules: [
+          {
+            id: 'sub-our-world-the-idea-hero-1',
+            name: 'HERO COLLAGE — TOP LEFT (BOARDROOM)',
+            eyebrow: 'HERO COLLAGE',
+            title: 'Top-Left Arched Video — Boardroom & Leadership Circle',
+            description: 'Looping ambient video in the top-left arched collage shape.',
+            defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Peers Boardroom & Leadership Circle Video',
+          },
+          {
+            id: 'sub-our-world-the-idea-hero-2',
+            name: 'HERO COLLAGE — TOP RIGHT (CONCLAVE)',
+            eyebrow: 'HERO COLLAGE',
+            title: 'Top-Right Pill Video — Grand Conclave & Stage',
+            description: 'Looping ambient video in the top-right tall pill collage shape.',
+            defaultMediaUrl: '/videos/hero-background.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Peers Global Grand Conclave Video',
+          },
+          {
+            id: 'sub-our-world-the-idea-hero-3',
+            name: 'HERO COLLAGE — BOTTOM LEFT (PARTNERS)',
+            eyebrow: 'HERO COLLAGE',
+            title: 'Bottom-Left Arched Video — Partners in Business & Friends',
+            description: 'Looping ambient video in the bottom-left arched collage shape.',
+            defaultMediaUrl: '/videos/homepage-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Partners in Business & Friends in Life Video',
+          },
+          {
+            id: 'sub-our-world-the-idea-hero-4',
+            name: 'HERO COLLAGE — BOTTOM RIGHT (CIRCLES)',
+            eyebrow: 'HERO COLLAGE',
+            title: 'Bottom-Right Rounded Video — Circles & Community Collaboration',
+            description: 'Looping ambient video in the bottom-right semi-circle collage shape.',
+            defaultMediaUrl: '/videos/stories-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Peers Circles Collaboration Video',
+          },
+          {
+            id: 'sub-our-world-the-idea-silent-reality',
+            name: 'THE SILENT REALITY',
+            eyebrow: 'THE SILENT REALITY',
+            title: 'The problem nobody talks about.',
+            description: 'Left visual video card and floating badges showcasing the unspoken challenges of entrepreneurs.',
+            defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'The Silent Reality — The Problem Nobody Talks About',
+          },
+          {
+            id: 'sub-our-world-the-idea-origin-story',
+            name: 'ORIGIN STORY',
+            eyebrow: 'ORIGIN STORY',
+            title: 'Where this idea came from',
+            description: 'Arched ambient background video and Founder Dr. Pravin Parmar 2-minute message video.',
+            defaultMediaUrl: '/videos/homepage-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Origin Story — In the words of our Founder',
+          },
+          {
+            id: 'sub-our-world-the-idea-core-philosophy',
+            name: 'THE CORE PHILOSOPHY',
+            eyebrow: 'THE CORE PHILOSOPHY',
+            title: 'What we believe (4-Sentence Sequence)',
+            description: 'Curved panoramic video banner on the right illustrating trust, relationship, and business growth.',
+            defaultMediaUrl: '/videos/homepage-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'The Core Philosophy — What We Believe',
+          },
+          {
+            id: 'sub-our-world-the-idea-peers-partners',
+            name: 'PEERS ARE PARTNERS',
+            eyebrow: 'PEERS ARE PARTNERS',
+            title: 'Partners in business, friends in life',
+            description: 'Featured hero video card highlighting genuine peer companionship.',
+            defaultMediaUrl: '/videos/homepage-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Peers are Partners in Business & Friends in Life',
+          },
+        ],
       },
       {
         id: 'our-world-10-forms',
@@ -126,6 +299,28 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: '10 Forms of Collaboration Model Explained',
+        subModules: [
+          {
+            id: 'sub-our-world-10-forms-advisory',
+            name: 'PEER ADVISORY',
+            eyebrow: 'PEER ADVISORY',
+            title: 'Monthly Inner Board Reviews & Problem Solving',
+            description: 'Structured advisory process between peer entrepreneurs.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Peer Advisory & Inner Board Mechanics',
+          },
+          {
+            id: 'sub-our-world-10-forms-capital',
+            name: 'CAPITAL & STRATEGY',
+            eyebrow: 'CAPITAL & STRATEGY',
+            title: 'Joint Ventures, Co-Investments & Strategic Alliances',
+            description: 'Ecosystem capital deployment and shared deal flow.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Capital & Strategic Alliances in Action',
+          },
+        ],
       },
       {
         id: 'our-world-territory',
@@ -135,6 +330,28 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/peers-global-earth-loop.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'The Territory — Local to Global Ecosystem',
+        subModules: [
+          {
+            id: 'sub-our-world-territory-local',
+            name: 'LOCAL CHAPTERS',
+            eyebrow: 'LOCAL CHAPTERS',
+            title: 'City Circles Across Tier 1, 2, and 3 Hubs',
+            description: 'Active chapter ecosystem maps and city meetups.',
+            defaultMediaUrl: '/videos/peers-global-earth-loop.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Local Chapters & Urban Hubs',
+          },
+          {
+            id: 'sub-our-world-territory-global',
+            name: 'GLOBAL EXPANSION',
+            eyebrow: 'GLOBAL EXPANSION',
+            title: 'International Bilateral Trade Corridors',
+            description: 'Connecting Indian promoters to Dubai, Singapore, and global capitals.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Global Expansion & International Hubs',
+          },
+        ],
       },
       {
         id: 'our-world-citizens',
@@ -144,6 +361,28 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'The Citizens of Peers Global',
+        subModules: [
+          {
+            id: 'sub-our-world-citizens-council',
+            name: 'GOVERNING COUNCIL',
+            eyebrow: 'GOVERNING COUNCIL',
+            title: 'National Governing Board & Stewards',
+            description: 'Profiles of prominent entrepreneurs leading community governance.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Governing Council Keynote',
+          },
+          {
+            id: 'sub-our-world-citizens-founders',
+            name: 'CIRCLE FOUNDERS',
+            eyebrow: 'CIRCLE FOUNDERS',
+            title: 'Founding Promoters & Architects',
+            description: 'Ecosystem architects convening new chapters across Bharat.',
+            defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Circle Founders in Action',
+          },
+        ],
       },
       {
         id: 'our-world-currency',
@@ -153,6 +392,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'The Currency — The Impact Economy',
+        subModules: [
+          {
+            id: 'sub-our-world-currency-impact',
+            name: 'IMPACT SYSTEM',
+            eyebrow: 'IMPACT SYSTEM',
+            title: '1 Action = 1 Life Impacted referral economy',
+            description: 'Visual animation explaining value creation without transactional fees.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'The Impact Economy Explained',
+          },
+        ],
       },
       {
         id: 'our-world-language',
@@ -162,6 +413,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'The Language & Give-First Philosophy',
+        subModules: [
+          {
+            id: 'sub-our-world-language-lexicon',
+            name: 'GIVE FIRST LEXICON',
+            eyebrow: 'GIVE FIRST LEXICON',
+            title: 'The Vocabulary of Contribution',
+            description: 'Key principles and language norms within peer circles.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Give First Lexicon Reel',
+          },
+        ],
       },
       {
         id: 'our-world-culture-code',
@@ -171,6 +434,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Our Culture & Code of Conduct',
+        subModules: [
+          {
+            id: 'sub-our-world-culture-commitments',
+            name: 'SIX COMMITMENTS',
+            eyebrow: 'SIX COMMITMENTS',
+            title: 'Non-Negotiable Code of Conduct',
+            description: 'The six foundational pillars of trust and mutual accountability.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Six Commitments Code of Conduct',
+          },
+        ],
       },
       {
         id: 'our-world-1-million-mission',
@@ -180,6 +455,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'The 1 Million Entrepreneurs Mission by 2030',
+        subModules: [
+          {
+            id: 'sub-our-world-mission-2030',
+            name: 'MISSION 2030',
+            eyebrow: 'MISSION 2030',
+            title: 'Empowering 1,000,000 Promoters by 2030',
+            description: 'Roadmap and national campaign for MSME promoter transformation.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Mission 2030 Vision Reel',
+          },
+        ],
       },
     ],
   },
@@ -198,6 +485,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'All Governed Circles Overview',
+        subModules: [
+          {
+            id: 'sub-circles-overview',
+            name: 'GOVERNED CIRCLES OVERVIEW',
+            eyebrow: 'GOVERNED CIRCLES OVERVIEW',
+            title: '18 Industry & Purpose Circles',
+            description: 'Overview video of exclusive seat governance.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Governed Circles Overview Reel',
+          },
+        ],
       },
       {
         id: 'circles-industry',
@@ -207,6 +506,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Industry Specific Circles Directory',
+        subModules: [
+          {
+            id: 'sub-circles-industry-sectors',
+            name: 'INDUSTRY SECTOR HUBS',
+            eyebrow: 'INDUSTRY SECTOR HUBS',
+            title: 'Manufacturing, Tech, Healthcare, Retail',
+            description: 'Industry-specific peer groups.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Industry Sector Hubs Showcase',
+          },
+        ],
       },
       {
         id: 'circles-purpose',
@@ -234,6 +545,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Inside the 150-Minute Governed Circle Meeting',
+        subModules: [
+          {
+            id: 'sub-circles-meeting-protocol',
+            name: '150-MINUTE MEETING PROTOCOL',
+            eyebrow: '150-MINUTE MEETING PROTOCOL',
+            title: 'Inside the Governed Circle Meeting',
+            description: 'Video walk-through of the 4-part agenda and hot seat format.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Governed Circle Meeting Protocol Video',
+          },
+        ],
       },
       {
         id: 'circles-start',
@@ -270,6 +593,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Why Join Peers Global — The Value Proposition',
+        subModules: [
+          {
+            id: 'sub-membership-value-prop',
+            name: 'VALUE PROPOSITION',
+            eyebrow: 'VALUE PROPOSITION',
+            title: 'Why Your Next Breakthrough Won’t Come Alone',
+            description: 'The core reason for joining a governed peer board.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Why Join Peers Global Video',
+          },
+        ],
       },
       {
         id: 'membership-who-belongs',
@@ -351,6 +686,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'The Leadership Ladder & Governance Structure',
+        subModules: [
+          {
+            id: 'sub-leadership-pathway',
+            name: 'LEADERSHIP PATHWAY',
+            eyebrow: 'LEADERSHIP PATHWAY',
+            title: 'From Member to Ecosystem Steward',
+            description: 'The tiered roles and responsibilities in the governance framework.',
+            defaultMediaUrl: '/videos/leadership-hero-bg.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'The Leadership Ladder Overview',
+          },
+        ],
       },
       {
         id: 'leadership-circle-founder',
@@ -432,6 +779,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: '/videos/unity-demo.mp4',
         defaultSourceType: 'localhost',
         defaultTitle: 'Unity App UI Walkthrough & Peer Discovery',
+        subModules: [
+          {
+            id: 'sub-unity-walkthrough',
+            name: 'APP UI WALKTHROUGH',
+            eyebrow: 'APP UI WALKTHROUGH',
+            title: 'Native Mobile App Demo & Direct Chat',
+            description: 'Interactive walkthrough of the iOS and Android Unity app.',
+            defaultMediaUrl: '/videos/unity-demo.mp4',
+            defaultSourceType: 'localhost',
+            defaultTitle: 'Unity App UI Walkthrough',
+          },
+        ],
       },
       {
         id: 'unity-peer-discovery',
@@ -468,6 +827,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Peers Global Conclaves & Summits Reel',
+        subModules: [
+          {
+            id: 'sub-community-conclaves',
+            name: 'NATIONAL CONCLAVES',
+            eyebrow: 'NATIONAL CONCLAVES',
+            title: 'Annual Conclaves & Chapter Summits',
+            description: 'Highlights from flagship annual summits and award ceremonies.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'National Conclaves Reel',
+          },
+        ],
       },
       {
         id: 'community-peer-stories',
@@ -540,6 +911,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Our Story — From Hospital Corridor to 1M Mission',
+        subModules: [
+          {
+            id: 'sub-about-our-story-origin',
+            name: 'THE BOTAD AWAKENING',
+            eyebrow: 'THE BOTAD AWAKENING',
+            title: 'From Hospital Corridor to 1M Mission',
+            description: 'The deeply personal founding story of Peers Global.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'The Botad Awakening Video',
+          },
+        ],
       },
       {
         id: 'about-founder',
@@ -549,6 +932,18 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Dr. Pravin Parmar Founder Keynote Address',
+        subModules: [
+          {
+            id: 'sub-about-founder-keynote',
+            name: 'FOUNDER KEYNOTE',
+            eyebrow: 'FOUNDER KEYNOTE',
+            title: 'Dr. Pravin Parmar Keynote Address',
+            description: 'Full video message from the Founder.',
+            defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            defaultSourceType: 'url',
+            defaultTitle: 'Dr. Pravin Parmar Founder Keynote Address',
+          },
+        ],
       },
       {
         id: 'about-contact',
@@ -615,7 +1010,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'home',
     pageName: 'Home Page',
     pageSlug: '/',
+    sectionId: 'home-hero',
     sectionName: 'Hero Background Header',
+    subModuleId: 'sub-home-hero-bg',
+    subModuleName: 'HERO AMBIENT REEL',
     title: 'Peers Global Grand Launch & Conclave Reel',
     description: 'High energy ambient background video showing Indian promoters collaborating.',
     mediaType: 'video',
@@ -629,7 +1027,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'home',
     pageName: 'Home Page',
     pageSlug: '/',
+    sectionId: 'home-who-we-are',
     sectionName: 'Section Banner Media (Who We Are)',
+    subModuleId: 'sub-home-who-we-are',
+    subModuleName: 'BOARDROOM STORY',
     title: 'Who We Are — Collaborative Boardroom Story',
     description: 'Boardroom video loop with soft misty gradient fade on the left.',
     mediaType: 'video',
@@ -643,7 +1044,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'home',
     pageName: 'Home Page',
     pageSlug: '/',
+    sectionId: 'home-cyber-earth',
     sectionName: 'Cyber Earth Network (Mission Section)',
+    subModuleId: 'sub-home-earth',
+    subModuleName: 'GLOBAL CONSTELLATION',
     title: 'Global Cyber Earth Network Loop',
     description: 'High tech globe constellation video loop in the background of the Mission & Purpose section.',
     mediaType: 'video',
@@ -657,7 +1061,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'home',
     pageName: 'Home Page',
     pageSlug: '/',
+    sectionId: 'home-leadership',
     sectionName: 'Featured Video Modal (Leadership Showcase)',
+    subModuleId: 'sub-home-leadership',
+    subModuleName: 'GOVERNING COUNCIL',
     title: 'Leadership & Circle Founders Overview',
     description: 'Video backdrop for the Circle Founders and National Governing Council highlight.',
     mediaType: 'video',
@@ -671,7 +1078,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'home',
     pageName: 'Home Page',
     pageSlug: '/',
+    sectionId: 'home-testimonials',
     sectionName: 'Story & Impact Reel (Video Testimonials)',
+    subModuleId: 'sub-home-testimonials',
+    subModuleName: 'MEMBER TESTIMONIALS',
     title: 'Member Testimonial & Value Reel',
     description: 'Featured member growth stories and collaboration milestone highlights.',
     mediaType: 'video',
@@ -685,7 +1095,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'home',
     pageName: 'Home Page',
     pageSlug: '/',
+    sectionId: 'home-footer',
     sectionName: 'Footer Video Bar',
+    subModuleId: 'sub-home-footer',
+    subModuleName: 'COMMUNITY INVITATION',
     title: 'Peers Global Community Invitation Video',
     description: 'Subtle ambient video loop for the call-to-action invitation footer bar.',
     mediaType: 'video',
@@ -695,15 +1108,258 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     createdAt: '2026-08-15',
   },
 
-  // Our World
+  // Our World (/the-idea) Sub-Modules (Matches Screenshots 1, 3, 4, 5)
   {
-    id: 'pm-our-world-1',
+    id: 'pm-our-world-hero-1',
     pageId: 'our-world',
     pageName: 'Our World',
     pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
     sectionName: 'The Idea',
-    title: 'The Idea — Founding Manifesto Video',
-    description: 'The founding manifesto and core belief of non-competitive structured peer networking.',
+    subModuleId: 'sub-our-world-the-idea-hero-1',
+    subModuleName: 'HERO COLLAGE — TOP LEFT (BOARDROOM)',
+    title: 'Peers Boardroom & Leadership Circle Video',
+    description: 'Looping ambient video in the top-left arched collage shape.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/leadership-hero-bg.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-hero-2',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
+    sectionName: 'The Idea',
+    subModuleId: 'sub-our-world-the-idea-hero-2',
+    subModuleName: 'HERO COLLAGE — TOP RIGHT (CONCLAVE)',
+    title: 'Peers Global Grand Conclave Video',
+    description: 'Looping ambient video in the top-right tall pill collage shape.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/hero-background.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-hero-3',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
+    sectionName: 'The Idea',
+    subModuleId: 'sub-our-world-the-idea-hero-3',
+    subModuleName: 'HERO COLLAGE — BOTTOM LEFT (PARTNERS)',
+    title: 'Partners in Business & Friends in Life Video',
+    description: 'Looping cyber network video in the bottom-left arched collage shape.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/peers-global-earth-loop.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-hero-4',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
+    sectionName: 'The Idea',
+    subModuleId: 'sub-our-world-the-idea-hero-4',
+    subModuleName: 'HERO COLLAGE — BOTTOM RIGHT (CIRCLES)',
+    title: 'Peers Circles Collaboration Video',
+    description: 'Looping community stories video in the bottom-right semi-circle collage shape.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/stories-hero-bg.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-silent-reality',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
+    sectionName: 'The Idea',
+    subModuleId: 'sub-our-world-the-idea-silent-reality',
+    subModuleName: 'THE SILENT REALITY',
+    title: 'The Silent Reality — The Problem Nobody Talks About',
+    description: 'Left visual video card and floating badges showcasing the unspoken challenges of entrepreneurs.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/leadership-hero-bg.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-origin-story',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
+    sectionName: 'The Idea',
+    subModuleId: 'sub-our-world-the-idea-origin-story',
+    subModuleName: 'ORIGIN STORY',
+    title: 'Origin Story — In the words of our Founder',
+    description: 'Arched ambient background video and Founder Dr. Pravin Parmar 2-minute message video.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/homepage-hero-bg.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-core-philosophy',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
+    sectionName: 'The Idea',
+    subModuleId: 'sub-our-world-the-idea-core-philosophy',
+    subModuleName: 'THE CORE PHILOSOPHY',
+    title: 'The Core Philosophy — What We Believe',
+    description: 'Curved panoramic video banner on the right illustrating trust, relationship, and business growth.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/homepage-hero-bg.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-peers-partners',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-the-idea',
+    sectionName: 'The Idea',
+    subModuleId: 'sub-our-world-the-idea-peers-partners',
+    subModuleName: 'PEERS ARE PARTNERS',
+    title: 'Peers are Partners in Business & Friends in Life',
+    description: 'Featured hero video card highlighting genuine peer companionship.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/homepage-hero-bg.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+
+  // Other Our World sections
+  {
+    id: 'pm-our-world-10-forms',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-10-forms',
+    sectionName: '10 Forms of Collaboration',
+    subModuleId: 'sub-our-world-10-forms-advisory',
+    subModuleName: 'PEER ADVISORY',
+    title: '10 Forms of Collaboration Model Explained',
+    description: '10 structured forms of peer support, joint ventures, and capital alliances.',
+    mediaType: 'video',
+    sourceType: 'url',
+    mediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-territory',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-territory',
+    sectionName: 'The Territory',
+    subModuleId: 'sub-our-world-territory-local',
+    subModuleName: 'LOCAL CHAPTERS',
+    title: 'The Territory — Local to Global Ecosystem',
+    description: 'Local to global expansion: from city Circle to national and international scale.',
+    mediaType: 'video',
+    sourceType: 'localhost',
+    mediaUrl: '/videos/peers-global-earth-loop.mp4',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-citizens',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-citizens',
+    sectionName: 'The Citizens',
+    subModuleId: 'sub-our-world-citizens-council',
+    subModuleName: 'GOVERNING COUNCIL',
+    title: 'The Citizens of Peers Global',
+    description: 'The entrepreneurs and promoters who build and govern this community.',
+    mediaType: 'video',
+    sourceType: 'url',
+    mediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-currency',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-currency',
+    sectionName: 'The Currency',
+    subModuleId: 'sub-our-world-currency-impact',
+    subModuleName: 'IMPACT SYSTEM',
+    title: 'The Currency — The Impact Economy',
+    description: 'The Impact System: 1 Action = 1 Life Impacted referral economy.',
+    mediaType: 'video',
+    sourceType: 'url',
+    mediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-language',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-language',
+    sectionName: 'The Language',
+    subModuleId: 'sub-our-world-language-lexicon',
+    subModuleName: 'GIVE FIRST LEXICON',
+    title: 'The Language & Give-First Philosophy',
+    description: 'The vocabulary, lexicon, and give-first principle of Peers Global.',
+    mediaType: 'video',
+    sourceType: 'url',
+    mediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-culture',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-culture-code',
+    sectionName: 'Our Culture & Code',
+    subModuleId: 'sub-our-world-culture-commitments',
+    subModuleName: 'SIX COMMITMENTS',
+    title: 'Our Culture & Code of Conduct',
+    description: '6 commitments and rituals of conduct governing peer relationships.',
+    mediaType: 'video',
+    sourceType: 'url',
+    mediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    isActive: true,
+    createdAt: '2026-08-01',
+  },
+  {
+    id: 'pm-our-world-mission',
+    pageId: 'our-world',
+    pageName: 'Our World',
+    pageSlug: '/the-idea',
+    sectionId: 'our-world-1-million-mission',
+    sectionName: 'The 1 Million Mission',
+    subModuleId: 'sub-our-world-mission-2030',
+    subModuleName: 'MISSION 2030',
+    title: 'The 1 Million Entrepreneurs Mission by 2030',
+    description: '1M+ entrepreneurs to impact by 2030 across Bharat and global hubs.',
     mediaType: 'video',
     sourceType: 'url',
     mediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
@@ -717,7 +1373,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'circles',
     pageName: 'Circles',
     pageSlug: '/circles',
+    sectionId: 'circles-all',
     sectionName: 'All Circles',
+    subModuleId: 'sub-circles-overview',
+    subModuleName: 'GOVERNED CIRCLES OVERVIEW',
     title: 'All Governed Circles Overview',
     description: '18 industry and goal-specific Circles with locked seat exclusivity.',
     mediaType: 'video',
@@ -733,7 +1392,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'membership',
     pageName: 'Membership',
     pageSlug: '/membership',
+    sectionId: 'membership-why-join',
     sectionName: 'Why Join',
+    subModuleId: 'sub-membership-value-prop',
+    subModuleName: 'VALUE PROPOSITION',
     title: 'Why Join Peers Global — The Value Proposition',
     description: 'Why your next breakthrough won’t come alone: the power of curated peer boards.',
     mediaType: 'video',
@@ -749,7 +1411,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'leadership',
     pageName: 'Leadership',
     pageSlug: '/leadership',
+    sectionId: 'leadership-ladder',
     sectionName: 'The Leadership Ladder',
+    subModuleId: 'sub-leadership-pathway',
+    subModuleName: 'LEADERSHIP PATHWAY',
     title: 'The Leadership Ladder & Governance Structure',
     description: 'Pathway from Member to ecosystem owner across Bharat and beyond.',
     mediaType: 'video',
@@ -765,7 +1430,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'unity',
     pageName: 'Unity',
     pageSlug: '/unity',
+    sectionId: 'unity-app-walkthrough',
     sectionName: 'Unity App Walkthrough',
+    subModuleId: 'sub-unity-walkthrough',
+    subModuleName: 'APP UI WALKTHROUGH',
     title: 'Unity App UI Walkthrough & Peer Discovery',
     description: 'Mobile app screen demonstration video for Android & iOS users.',
     mediaType: 'video',
@@ -781,7 +1449,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'community-life',
     pageName: 'Community Life',
     pageSlug: '/events',
+    sectionId: 'community-events-summits',
     sectionName: 'Events & Summits',
+    subModuleId: 'sub-community-conclaves',
+    subModuleName: 'NATIONAL CONCLAVES',
     title: 'Peers Global Conclaves & Summits Reel',
     description: 'Monthly meetings, national conclaves, retreats, and annual summits.',
     mediaType: 'video',
@@ -797,7 +1468,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'about',
     pageName: 'About',
     pageSlug: '/our-story',
+    sectionId: 'about-our-story',
     sectionName: 'Our Story',
+    subModuleId: 'sub-about-our-story-origin',
+    subModuleName: 'THE BOTAD AWAKENING',
     title: 'Our Story — From Hospital Corridor to 1M Mission',
     description: 'From a hospital corridor to 1M mission: the origin story of Peers Global.',
     mediaType: 'video',
@@ -811,7 +1485,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
     pageId: 'about',
     pageName: 'About',
     pageSlug: '/founder',
+    sectionId: 'about-founder',
     sectionName: 'Dr. Pravin Parmar (Founder)',
+    subModuleId: 'sub-about-founder-keynote',
+    subModuleName: 'FOUNDER KEYNOTE',
     title: 'Dr. Pravin Parmar Founder Keynote Address',
     description: 'Founder keynote address, background, and vision of Dr. Pravin Parmar.',
     mediaType: 'video',
@@ -823,9 +1500,10 @@ export const INITIAL_PAGE_MEDIA: PageMediaItem[] = [
 ]
 
 export function getPageConfigBySlugOrId(identifier: string): WebsitePageConfig | undefined {
+  if (!identifier) return WEBSITE_PAGES[0]
   const clean = identifier.toLowerCase().trim().replace(/^\//, '')
 
-  // Direct matches
+  // Direct matches by id, slug, or name
   const direct =
     WEBSITE_PAGES.find((p) => p.id.toLowerCase() === clean) ||
     WEBSITE_PAGES.find((p) => p.slug.toLowerCase().replace(/^\//, '') === clean) ||
@@ -834,32 +1512,63 @@ export function getPageConfigBySlugOrId(identifier: string): WebsitePageConfig |
 
   if (direct) return direct
 
-  // Alias lookups
-  if (clean === 'the-idea' || clean === 'the-idea-our-world' || clean === 'idea') {
+  // Alias and subroute lookups
+  if (
+    clean === 'the-idea' ||
+    clean === 'the-idea-our-world' ||
+    clean === 'idea' ||
+    clean === 'our-world' ||
+    clean === '10-forms-of-collaboration' ||
+    clean === 'the-territory' ||
+    clean === 'the-citizens' ||
+    clean === 'the-currency' ||
+    clean === 'the-language' ||
+    clean === 'culture-and-code' ||
+    clean === '1-million-mission'
+  ) {
     return WEBSITE_PAGES.find((p) => p.id === 'our-world')
   }
-  if (clean === 'events' || clean === 'conclaves-events' || clean === 'conclaves' || clean === 'stories') {
+
+  if (clean === 'events' || clean === 'conclaves-events' || clean === 'conclaves' || clean === 'stories' || clean === 'community-life') {
     return WEBSITE_PAGES.find((p) => p.id === 'community-life')
   }
-  if (clean === 'founder' || clean === 'dr-pravin-parmar' || clean === 'our-story') {
+
+  if (clean === 'founder' || clean === 'dr-pravin-parmar' || clean === 'our-story' || clean === 'about' || clean === 'contact') {
     return WEBSITE_PAGES.find((p) => p.id === 'about')
   }
-  if (clean === 'peer-circles' || clean === 'circle') {
+
+  if (clean === 'peer-circles' || clean === 'circle' || clean === 'circles') {
     return WEBSITE_PAGES.find((p) => p.id === 'circles')
   }
-  if (clean === 'unity-app') {
+
+  if (clean === 'unity' || clean === 'unity-app') {
     return WEBSITE_PAGES.find((p) => p.id === 'unity')
+  }
+
+  if (clean === 'membership' || clean === 'apply' || clean === 'who-belongs-here') {
+    return WEBSITE_PAGES.find((p) => p.id === 'membership')
+  }
+
+  if (clean === 'leadership') {
+    return WEBSITE_PAGES.find((p) => p.id === 'leadership')
   }
 
   return undefined
 }
 
-export function getYouTubeEmbedUrl(url: string): string | null {
+export function getYouTubeEmbedUrl(url: string, autoplay = true): string | null {
   if (!url) return null
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
   const match = url.match(regExp)
   if (match && match[2].length === 11) {
-    return `https://www.youtube.com/embed/${match[2]}?autoplay=1`
+    return `https://www.youtube.com/embed/${match[2]}${autoplay ? '?autoplay=1&mute=0&controls=1&rel=0' : ''}`
   }
   return null
+}
+
+export function extractYouTubeId(url: string): string | null {
+  if (!url) return null
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+  const match = url.match(regExp)
+  return match && match[2].length === 11 ? match[2] : null
 }

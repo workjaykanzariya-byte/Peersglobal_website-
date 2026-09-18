@@ -3,60 +3,22 @@ import {
   Smartphone, Sparkles, ShieldCheck, MapPin, Zap, CheckCircle2,
   BookOpen, Users, ClipboardList, ArrowLeftRight, Star, CalendarDays, ChevronRight
 } from 'lucide-react'
-import { Card, Cta, SectionHead, ClosingCtaSection } from '@/components/site/ui'
+import { Card, Cta, SectionHead } from '@/components/site/ui'
 import { UNITY_ROLES } from '@/lib/data/content'
 
 export const metadata: Metadata = {
-  title: 'Unity App | Peers Global',
+  title: 'Peers Global Unity App | A Global Community of Entrepreneurs',
   description:
-    'Unity is the Peers Global platform of record — member directory, referral ledger, meeting logs, 1-to-1 pairing, vendor scorecards, and event calendar. Available on iOS and Android.',
-}
-
-const FEATURES = [
-  {
-    icon: Users,
-    tag: 'DIRECTORY',
-    title: 'Member Directory',
-    body: 'Every member across 11 cities and 19 Circles, searchable by category, city and Circle. Contact is permissioned — you request, the member accepts.',
-    color: 'from-[#1e4ed8]/20 to-[#1e4ed8]/5',
-    accent: 'text-[#3b82f6]',
-    border: 'border-[#1e4ed8]/25',
-  },
-  {
-    icon: BookOpen,
-    tag: 'REFERRALS',
-    title: 'Referral Ledger',
-    body: 'Written referral commitments with a name, a date and a status. Open, in progress, closed or lapsed. Referral velocity is computed from this, not from memory.',
-    color: 'from-[#D4AF37]/20 to-[#D4AF37]/5',
-    accent: 'text-[#D4AF37]',
-    border: 'border-[#D4AF37]/25',
-  },
-  {
-    icon: ClipboardList,
-    tag: 'GOVERNANCE',
-    title: 'Meeting Logs',
-    body: 'Attendance, hot-seat outputs and action commitments for every Circle meeting. Directors review the previous month at the start of the next.',
-    color: 'from-[#3b82f6]/20 to-[#3b82f6]/5',
-    accent: 'text-[#3b82f6]',
-    border: 'border-[#3b82f6]/25',
-  },
-  {
-    icon: ArrowLeftRight,
-    tag: '1-TO-1 MATCHING',
-    title: '1-to-1 Pairing',
-    body: 'Fortnightly structured pairing with prompts, logged outcomes and a nudge when a pairing goes stale.',
-    color: 'from-[#1e4ed8]/25 to-[#0b1b3a]/30',
-    accent: 'text-[#D4AF37]',
-    border: 'border-[#1e4ed8]/20',
-  },
-  {
-    icon: Star,
-    tag: 'VENDOR TRUST',
-    title: 'Vendor Scorecards',
-    body: 'Member-contributed ratings on contractors, consultants and distributors. Visible only inside Unity, contributed only after real engagements.',
-    color: 'from-[#e53935]/15 to-[#e53935]/5',
-    accent: 'text-[#e53935]',
-    border: 'border-[#e53935]/20',
+    'Unity is where the Peers Global community lives — the feed, the Peers, messaging, Circle chat, one-to-one booking and the recognition system.',
+  keywords: [
+    'peers global unity app',
+    'entrepreneur community app India',
+    'business community app',
+    'global entrepreneur community',
+    'unity app download',
+  ],
+  alternates: {
+    canonical: 'https://peersglobal.com/unity',
   },
   {
     icon: CalendarDays,
@@ -354,21 +316,24 @@ export default function UnityPage() {
       </section>
 
       {/* ─── 5. CTA ───────────────────────────────────────────────── */}
-      <ClosingCtaSection
-        eyebrow="Platform Onboarding"
-        title={
-          <>
-            Join the network. <br className="hidden sm:block" />
-            <span className="text-white">Get Unity on day one.</span>
-          </>
-        }
-        subtitle=""
-        description="Access to Unity is exclusive — available from day one to all verified Global and Circle Members."
-        primaryButtonText="Apply for Membership"
-        primaryButtonHref="/membership"
-        secondaryButtonText="Request a Guest Seat"
-        secondaryButtonHref="/contact?intent=explorer"
-      />
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b1b3a] via-[#122347] to-[#060d1f] py-20 text-white">
+        <div className="pointer-events-none absolute -top-20 -right-20 size-[400px] rounded-full bg-[#D4AF37]/10 blur-[80px]" />
+        <div className="pointer-events-none absolute -bottom-20 -left-20 size-[400px] rounded-full bg-primary/15 blur-[80px]" />
+        <div className="shell relative z-10 flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-3">
+            <p className="text-xs font-mono text-white/40 uppercase tracking-widest">Platform Onboarding</p>
+            <h2 className="display text-3xl md:text-4xl font-extrabold text-white leading-tight">
+              Join the network. <br className="hidden sm:block" />
+              <span className="text-[#D4AF37]">Get Unity on day one.</span>
+            </h2>
+            <p className="text-sm text-white/60 max-w-md">Access to Unity is exclusive — available from day one to all verified Global and Circle Members.</p>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <Cta href="/membership" variant="gold" size="lg">Apply for Membership</Cta>
+            <Cta href="/contact?intent=explorer" variant="onDark" size="lg">Request a Guest Seat</Cta>
+          </div>
+        </div>
+      </section>
 
     </div>
   )

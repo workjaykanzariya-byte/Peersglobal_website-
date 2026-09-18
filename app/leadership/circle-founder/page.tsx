@@ -1,63 +1,57 @@
+
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CheckCircle2 } from 'lucide-react'
-import { Card, Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
+import { Card, Cta, Eyebrow, SectionHead } from '@/components/site/ui'
 
 export const metadata: Metadata = {
-  title: 'Become a Circle Founder',
+  title: 'Circle Founder | Peers Global',
   description:
-    'Build and own a governed peer Circle in your city. Revenue share, governance authority, and a leadership pipeline that starts the day you launch. The flagship leadership role at Peers Global.',
+    'A Circle Founder convenes the entrepreneurs of a city or an industry and builds a room where none existed. The role, the influence, the platform.',
+  keywords: [
+    'become a circle founder',
+    'start a business circle',
+    'circle founder leadership',
+    'convene entrepreneurs',
+    'business community director',
+  ],
+  alternates: {
+    canonical: 'https://peersglobal.com/leadership/circle-founder',
+  },
+  openGraph: {
+    title: 'Circle Founder | Peers Global',
+    description:
+      'A Circle Founder convenes the entrepreneurs of a city or an industry and builds a room where none existed. Structure starts from Day 1.',
+    url: 'https://peersglobal.com/leadership/circle-founder',
+    type: 'website',
+    images: [
+      {
+        url: '/images/leadership-circle-founder.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Circle Founders convening and shaping the future',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Circle Founder | Peers Global',
+    description:
+      'A Circle Founder convenes the entrepreneurs of a city or an industry and builds a room where none existed. Structure starts from Day 1.',
+    images: ['/images/leadership-circle-founder.jpg'],
+  },
 }
 
-const WHAT_YOU_OWN = [
-  'Curate and approve the Circle membership roster — one category, one member',
-  'Chair or delegate the monthly 150-minute LSR meeting',
-  'Own the Circle health score: attendance, referral velocity, renewal',
-  'Appoint a Circle Director and build a Leadership Team',
-  'Represent the Circle at national conclaves and regional meetings',
-  'Set the culture and the standard — what the room tolerates, what it celebrates',
-]
+export default function CircleFounderPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Circle Founder | Peers Global',
+    description:
+      'A Circle Founder convenes the entrepreneurs of a city or an industry and builds a room where none existed. Structure starts from Day 1.',
+    url: 'https://peersglobal.com/leadership/circle-founder',
+  }
 
-const WHAT_YOU_EARN = [
-  { label: 'Revenue share', value: 'A percentage of annual Circle Membership fees, disclosed at application stage' },
-  { label: 'Circle Director appointment', value: 'Authority to appoint and manage your Circle Director' },
-  { label: 'Industry Director track', value: 'Priority pathway to ID appointment after 24 months in good standing' },
-  { label: 'Regional conclave access', value: 'Complimentary tickets to all Peers Global flagship events' },
-  { label: 'Network authority', value: 'Recognised as the category authority in your city-sector combination' },
-]
-
-const WHAT_IT_TAKES = [
-  '12+ months as a Circle Member in good standing (no open governance flags)',
-  'Attendance above 85% in the previous four quarters',
-  'Pass a two-stage leadership assessment (written + panel interview)',
-  'Identify a city-sector combination where a new Circle is feasible',
-  'Commit to the launch checklist — 90 days from approval to first meeting',
-]
-
-const FAQ = [
-  {
-    q: 'How many Circle Founders are there?',
-    a: 'Currently 19 active Circle Founders — one per Circle. New Founder seats open when Peers Global approves a new city-sector combination or when an existing Circle Founder transitions to an Industry Director role.',
-  },
-  {
-    q: 'Do I run the meeting myself?',
-    a: 'You chair it, or you appoint a Circle Director who chairs it under your governance. The Circle Founder is responsible for what happens in the room — not required to be the one holding the agenda.',
-  },
-  {
-    q: 'What is the revenue share?',
-    a: 'Revenue share details are disclosed during the application process, not on the public page, because they vary by Circle size, city, and tenure. The model is renewals-based — you earn from members staying, not just members joining.',
-  },
-  {
-    q: 'What happens if my Circle does not perform?',
-    a: 'A Circle health score review is triggered if attendance drops below 70% for two consecutive quarters or if referral velocity falls below two written referrals per member per quarter. A Regional Executive Director initiates a recovery plan. Circles that do not recover within two quarters are restructured.',
-  },
-  {
-    q: 'Can I apply if I am not yet a Circle Member?',
-    a: 'No. Circle Membership (12+ months in good standing) is a prerequisite. If you are not yet a member, start with an Explorer guest seat and apply for Circle Membership first.',
-  },
-]
-
-export default function CircleFounderFlagshipPage() {
   return (
     <div className="flex flex-col">
       {/* Hero — video background */}
@@ -202,14 +196,21 @@ export default function CircleFounderFlagshipPage() {
       </section>
 
       {/* CTA */}
-      <ClosingCtaSection
-        eyebrow="Saath Chalein."
-        title="Ready to build a room that changes businesses?"
-        subtitle=""
-        description=""
-        primaryButtonText="Apply for Circle Founder"
-        primaryButtonHref="/contact?intent=circle-founder"
-      />
+      <section className="section-sm" style={{ background: '#D4AF37' }}>
+        <div className="shell flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="eyebrow text-[#0b1b3a]/60">Saath Chalein.</p>
+            <h2 className="display mt-1 text-2xl text-[#0b1b3a] md:text-3xl">
+              Ready to build a room that changes businesses?
+            </h2>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <Cta href="/contact?intent=circle-founder" size="lg" style={{ background: '#0b1b3a', color: '#fff', borderRadius: 'var(--btn-radius)' }}>
+              Apply for Circle Founder
+            </Cta>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

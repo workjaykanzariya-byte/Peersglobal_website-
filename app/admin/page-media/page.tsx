@@ -276,16 +276,15 @@ export default function AdminPageMediaManager() {
     }
   }
 
-  // Filtered List
-  const filteredItems = items.filter((item) => {
-    const matchesPage = selectedPageFilter === 'all' || item.pageName === selectedPageFilter
-    const matchesSource = sourceFilter === 'all' || item.sourceType === sourceFilter
+  // Filtered Website Pages List
+  const filteredPages = WEBSITE_PAGES.filter((page) => {
+    const matchesPage = selectedPageFilter === 'all' || page.name === selectedPageFilter || page.id === selectedPageFilter
     const matchesSearch =
-      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.pageName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.sectionName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.pageSlug.toLowerCase().includes(searchQuery.toLowerCase())
-    return matchesPage && matchesSource && matchesSearch
+      !searchQuery ||
+      page.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      page.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      page.sections.some((s) => s.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    return matchesPage && matchesSearch
   })
 
   return (
@@ -295,7 +294,7 @@ export default function AdminPageMediaManager() {
         <div className="space-y-1">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#4F46E5] text-[11px] font-semibold">
             <Sparkles className="w-3 h-3" />
-            <span>Page Media Manager (Master Tabular View)</span>
+            <span>Page Media Manager</span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-[#1E293B] tracking-tight">
             Page Media Management
@@ -329,7 +328,43 @@ export default function AdminPageMediaManager() {
         </div>
       </div>
 
-      {/* 2. Website Pages Table (2 Columns: Page Name & URL - Click to Open in Next Page) */}
+      {/* 2. Filter & Search Bar */}
+      <div className="bg-white border border-[#E8ECF4] rounded-2xl p-4 shadow-xs flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+        {/* Select Website Page Dropdown & Search */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 flex-1">
+          <div className="w-full sm:w-64">
+            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Select Website Page</label>
+            <select
+              value={selectedPageFilter}
+              onChange={(e) => setSelectedPageFilter(e.target.value)}
+              className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3 py-2 text-xs font-semibold text-[#1E293B] focus:outline-none focus:border-[#4F46E5]"
+            >
+              <option value="all">All Pages ({WEBSITE_PAGES.length} Pages)</option>
+              {WEBSITE_PAGES.map((page) => (
+                <option key={page.id} value={page.name}>
+                  {page.name} ({page.sections.length} Sections)
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="w-full sm:flex-1">
+            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Search Pages &amp; Video Sections</label>
+            <div className="relative">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by page name, section, or url..."
+                className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl pl-9 pr-3 py-2 text-xs text-[#1E293B] placeholder:text-slate-400 focus:outline-none focus:border-[#4F46E5]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Website Pages Table (2 Columns: Page Name & URL - Click to Open in Next Page) */}
       <div className="bg-white border border-[#E8ECF4] rounded-2xl overflow-hidden shadow-xs">
         <div className="p-4 bg-[#F8FAFC] border-b border-slate-100 flex items-center justify-between">
           <div>
@@ -341,7 +376,7 @@ export default function AdminPageMediaManager() {
             </p>
           </div>
           <span className="px-2.5 py-1 rounded-lg bg-indigo-50 text-[#4F46E5] font-bold text-xs border border-indigo-100">
-            {WEBSITE_PAGES.length} Pages
+            {filteredPages.length} Pages
           </span>
         </div>
 
@@ -354,315 +389,67 @@ export default function AdminPageMediaManager() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {WEBSITE_PAGES.map((page) => (
-                <tr key={page.id} className="hover:bg-[#F8FAFC] transition group">
-                  {/* Column 1: Page Name */}
-                  <td className="py-3.5 px-6 font-bold text-xs text-[#1E293B]">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-indigo-50 text-[#4F46E5] flex items-center justify-center shrink-0">
-                        <MonitorPlay className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="font-bold text-xs text-[#1E293B] group-hover:text-[#4F46E5] transition">
-                          {page.name}
-                        </span>
-                        <p className="text-[11px] text-slate-400 font-normal">
-                          {page.sections.length} Video Sections
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-
-                  {/* Column 2: URL (Clicking opens in next page / new tab) */}
-                  <td className="py-3.5 px-6">
-                    <div className="flex items-center justify-between">
-                      <Link
-                        href={`/admin/page-media/${page.id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#EEF2FF] hover:bg-[#E0E7FF] text-[#4F46E5] font-bold font-mono text-xs border border-[#C7D2FE] transition shadow-2xs group/link"
-                        title={`Open ${page.name} (${page.slug}) in a new page`}
-                      >
-                        <span>{page.slug}</span>
-                        <ExternalLink className="w-3.5 h-3.5 text-[#4F46E5] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                      </Link>
-
-                      <Link
-                        href={page.slug}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[11px] text-slate-400 hover:text-slate-600 font-mono hover:underline flex items-center gap-1"
-                        title="View Live Website Page"
-                      >
-                        <span>Live Site ({page.slug})</span>
-                        <ExternalLink className="w-2.5 h-2.5" />
-                      </Link>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* 3. Filter & Search Bar */}
-      <div className="bg-white border border-[#E8ECF4] rounded-2xl p-4 shadow-xs flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-        {/* Select Website Page Dropdown & Search */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 flex-1">
-          <div className="w-full sm:w-64">
-            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Select Website Page</label>
-            <select
-              value={selectedPageFilter}
-              onChange={(e) => setSelectedPageFilter(e.target.value)}
-              className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl px-3 py-2 text-xs font-semibold text-[#1E293B] focus:outline-none focus:border-[#4F46E5]"
-            >
-              <option value="all">All Pages ({items.length} Media)</option>
-              {WEBSITE_PAGES.map((page) => (
-                <option key={page.id} value={page.name}>
-                  {page.name} ({items.filter((i) => (i.pageId ? i.pageId === page.id : i.pageName === page.name)).length})
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="w-full sm:flex-1">
-            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Search Media</label>
-            <div className="relative">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by title, page name, section, or url..."
-                className="w-full bg-[#F8FAFC] border border-[#E8ECF4] rounded-xl pl-9 pr-3 py-2 text-xs text-[#1E293B] placeholder:text-slate-400 focus:outline-none focus:border-[#4F46E5]"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Source Filter */}
-        <div>
-          <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Filter Source</label>
-          <div className="inline-flex items-center p-1 rounded-xl bg-[#F4F6FB] border border-[#E8ECF4] text-xs">
-            <button
-              onClick={() => setSourceFilter('all')}
-              className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer ${
-                sourceFilter === 'all' ? 'bg-white text-[#4F46E5] shadow-xs' : 'text-slate-500'
-              }`}
-            >
-              All Sources
-            </button>
-            <button
-              onClick={() => setSourceFilter('url')}
-              className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer flex items-center gap-1.5 ${
-                sourceFilter === 'url' ? 'bg-white text-[#4F46E5] shadow-xs' : 'text-slate-500'
-              }`}
-            >
-              <Globe className="w-3.5 h-3.5 text-[#4F46E5]" />
-              <span>URL (Social)</span>
-            </button>
-            <button
-              onClick={() => setSourceFilter('localhost')}
-              className={`px-3 py-1.5 rounded-lg font-semibold transition cursor-pointer flex items-center gap-1.5 ${
-                sourceFilter === 'localhost' ? 'bg-white text-emerald-600 shadow-xs' : 'text-slate-500'
-              }`}
-            >
-              <HardDrive className="w-3.5 h-3.5 text-emerald-600" />
-              <span>URL for Computer</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Main Media Items Table (With Image 1 Side-by-Side Action Buttons) */}
-      <div className="bg-white border border-[#E8ECF4] rounded-2xl overflow-hidden shadow-xs">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-[#1E293B] min-w-[1020px]">
-            <thead className="bg-[#F8FAFC] border-b border-slate-100 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
-              <tr>
-                <th className="py-3.5 px-4 w-[220px]">Website Page &amp; Live URL</th>
-                <th className="py-3.5 px-4 w-[210px]">Section / Selection Name</th>
-                <th className="py-3.5 px-4 min-w-[240px]">Media Title &amp; Details</th>
-                <th className="py-3.5 px-4 w-[210px]">Current Media Source</th>
-                <th className="py-3.5 px-4 w-[90px]">Status</th>
-                <th className="py-3.5 px-4 w-[280px] min-w-[280px] text-right">Media Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {filteredItems.length === 0 ? (
+              {filteredPages.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="p-12 text-center text-slate-500">
-                    <div className="w-12 h-12 rounded-full bg-indigo-50 text-[#4F46E5] flex items-center justify-center mx-auto mb-3">
-                      <MonitorPlay className="w-6 h-6" />
-                    </div>
-                    <p className="text-base font-bold text-[#1E293B]">No Page Media Found</p>
-                    <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
-                      No media items match your search criteria. Click the buttons below to assign media to a page.
-                    </p>
-                    <div className="flex items-center justify-center gap-3 pt-3">
-                      <button
-                        onClick={() => openUrlModal()}
-                        className="px-4 py-2 rounded-xl bg-[#4F46E5] text-white text-xs font-bold shadow-xs cursor-pointer"
-                      >
-                        + URL (Social Media)
-                      </button>
-                      <button
-                        onClick={() => openComputerModal()}
-                        className="px-4 py-2 rounded-xl bg-[#059669] text-white text-xs font-bold shadow-xs cursor-pointer"
-                      >
-                        + URL for Computer
-                      </button>
-                    </div>
+                  <td colSpan={2} className="py-8 px-6 text-center text-slate-400">
+                    No pages matching &ldquo;{searchQuery}&rdquo;
                   </td>
                 </tr>
               ) : (
-                filteredItems.map((item) => {
-                  const pageConfig = getPageConfigBySlugOrId(item.pageId || item.pageName) || WEBSITE_PAGES[0]
-                  return (
-                    <tr key={item.id} className="hover:bg-[#F8FAFC] transition group">
-                      {/* 1. Page Name & Clickable URL Link (Opens dedicated page in new tab) */}
-                      <td className="py-4 px-4 font-semibold text-[#1E293B]">
-                        <div className="flex flex-col gap-1.5">
-                          <span className="font-bold text-xs text-[#1E293B]">{item.pageName}</span>
-
-                          {/* Dedicated Manager Link (Opens in New Tab) */}
-                          <Link
-                            href={`/admin/page-media/${pageConfig.id}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#4F46E5] hover:text-[#4338CA] bg-indigo-50/90 hover:bg-indigo-100/90 px-2 py-0.5 rounded-md border border-indigo-200 transition w-fit"
-                            title={`Click to open dedicated video section manager for ${item.pageName} in a new tab`}
-                          >
-                            <span>Manage Page Videos</span>
-                            <ExternalLink className="w-3 h-3 text-[#4F46E5]" />
-                          </Link>
-
-                          {/* Live Site Preview Link */}
-                          <Link
-                            href={item.pageSlug}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-600 font-mono hover:underline w-fit"
-                            title={`Preview live website page ${item.pageSlug} in a new tab`}
-                          >
-                            <span>Live: {item.pageSlug}</span>
-                            <ExternalLink className="w-2.5 h-2.5" />
-                          </Link>
+                filteredPages.map((page) => (
+                  <tr key={page.id} className="hover:bg-[#F8FAFC] transition group">
+                    {/* Column 1: Page Name */}
+                    <td className="py-3.5 px-6 font-bold text-xs text-[#1E293B]">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-indigo-50 text-[#4F46E5] flex items-center justify-center shrink-0">
+                          <MonitorPlay className="w-4 h-4" />
                         </div>
-                      </td>
-
-                      {/* 2. Selection / Section Name */}
-                      <td className="py-4 px-4">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#F1F4F9] text-slate-700 border border-slate-200 max-w-[200px] truncate" title={item.sectionName}>
-                          <Layers className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                          <span className="truncate">{item.sectionName}</span>
-                        </span>
-                      </td>
-
-                      {/* 3. Media Title & Details */}
-                      <td className="py-4 px-4">
-                        <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-lg bg-indigo-50 text-[#4F46E5] flex items-center justify-center shrink-0">
-                            {item.mediaType === 'video' ? <Video className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
-                          </div>
-                          <div className="min-w-0">
-                            <p className="font-bold text-xs text-[#1E293B] truncate max-w-[220px]" title={item.title}>
-                              {item.title}
-                            </p>
-                            {item.description && (
-                              <p className="text-[11px] text-slate-400 truncate max-w-[220px]" title={item.description}>
-                                {item.description}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </td>
-
-                      {/* 4. Current Media Source */}
-                      <td className="py-4 px-4">
-                        <div className="flex items-center gap-2">
-                          {item.sourceType === 'url' ? (
-                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-600 border border-blue-200 shrink-0">
-                              <Globe className="w-3 h-3" />
-                              <span>Social URL</span>
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
-                              <HardDrive className="w-3 h-3" />
-                              <span>Computer Video</span>
-                            </span>
-                          )}
-                          <span className="text-[11px] font-mono text-slate-500 truncate max-w-[100px]" title={item.mediaUrl}>
-                            {item.mediaUrl}
+                        <div>
+                          <span className="font-bold text-xs text-[#1E293B] group-hover:text-[#4F46E5] transition">
+                            {page.name}
                           </span>
-                          <button
-                            onClick={() => setPreviewModalItem(item)}
-                            className="p-1 rounded text-slate-400 hover:text-[#4F46E5] hover:bg-slate-100 transition cursor-pointer shrink-0"
-                            title="Preview Video"
-                          >
-                            <Eye className="w-3.5 h-3.5" />
-                          </button>
+                          <p className="text-[11px] text-slate-400 font-normal">
+                            {page.sections.length} Video Sections
+                          </p>
                         </div>
-                      </td>
+                      </div>
+                    </td>
 
-                      {/* 5. Status Toggle */}
-                      <td className="py-4 px-4 whitespace-nowrap">
-                        <button
-                          onClick={() => toggleStatus(item.id)}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold cursor-pointer transition border ${
-                            item.isActive
-                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                              : 'bg-slate-100 text-slate-500 border-slate-200'
-                          }`}
-                          title={item.isActive ? 'Active on website (Click to disable)' : 'Disabled (Click to enable)'}
+                    {/* Column 2: URL (Clicking opens in next page / new tab) */}
+                    <td className="py-3.5 px-6">
+                      <div className="flex items-center justify-between">
+                        <Link
+                          href={`/admin/page-media/${page.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#EEF2FF] hover:bg-[#E0E7FF] text-[#4F46E5] font-bold font-mono text-xs border border-[#C7D2FE] transition shadow-2xs group/link"
+                          title={`Open ${page.name} (${page.slug}) in a new page`}
                         >
-                          <span className={`w-1.5 h-1.5 rounded-full ${item.isActive ? 'bg-emerald-500' : 'bg-slate-400'}`} />
-                          <span>{item.isActive ? 'Active' : 'Disabled'}</span>
-                        </button>
-                      </td>
+                          <span>{page.slug}</span>
+                          <ExternalLink className="w-3.5 h-3.5 text-[#4F46E5] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </Link>
 
-                      {/* 6. Media Actions: The Exact Three Buttons from Image 1 Side-by-Side */}
-                      <td className="py-4 px-4 whitespace-nowrap text-right">
-                        <div className="inline-flex items-center justify-end gap-1.5">
-                          {/* Button 1: [🌐 URL] */}
-                          <button
-                            onClick={() => openUrlModal(item)}
-                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-[#EEF2FF] hover:bg-[#E0E7FF] text-[#4F46E5] font-semibold text-xs border border-[#C7D2FE] transition shadow-2xs whitespace-nowrap cursor-pointer"
-                            title="Set Social Media / Web URL for this section (External links only)"
-                          >
-                            <Globe className="w-3.5 h-3.5 text-[#4F46E5]" />
-                            <span>URL</span>
-                          </button>
-
-                          {/* Button 2: [💾 URL for Computer] */}
-                          <button
-                            onClick={() => openComputerModal(item)}
-                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-[#ECFDF5] hover:bg-[#D1FAE5] text-[#059669] font-semibold text-xs border border-[#A7F3D0] transition shadow-2xs whitespace-nowrap cursor-pointer"
-                            title="Upload Computer Video file from This PC for this section"
-                          >
-                            <HardDrive className="w-3.5 h-3.5 text-[#059669]" />
-                            <span>URL for Computer</span>
-                          </button>
-
-                          {/* Button 3: [🗑️] */}
-                          <button
-                            onClick={() => handleDelete(item.id)}
-                            className="inline-flex items-center justify-center p-1.5 rounded-md bg-[#FEF2F2] hover:bg-[#FEE2E2] text-[#DC2626] border border-[#FECACA] transition shadow-2xs cursor-pointer"
-                            title="Delete Media"
-                          >
-                            <Trash2 className="w-3.5 h-3.5 text-[#DC2626]" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  )
-                })
+                        <Link
+                          href={page.slug}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[11px] text-slate-400 hover:text-slate-600 font-mono hover:underline flex items-center gap-1"
+                          title="View Live Website Page"
+                        >
+                          <span>Live Site ({page.slug})</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </Link>
+                      </div>
+                    </td>
+                  </tr>
+                ))
               )}
             </tbody>
           </table>
         </div>
       </div>
+
+
 
       {/* 5. Video Preview Modal */}
       {previewModalItem && (
