@@ -20,6 +20,54 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://peersglobal.com/unity',
   },
+}
+
+const FEATURES = [
+  {
+    icon: Users,
+    tag: 'DIRECTORY',
+    title: 'Member Directory',
+    body: 'Every member across 11 cities and 19 Circles, searchable by category, city and Circle. Contact is permissioned — you request, the member accepts.',
+    color: 'from-[#1e4ed8]/20 to-[#1e4ed8]/5',
+    accent: 'text-[#3b82f6]',
+    border: 'border-[#1e4ed8]/25',
+  },
+  {
+    icon: BookOpen,
+    tag: 'REFERRALS',
+    title: 'Referral Ledger',
+    body: 'Written referral commitments with a name, a date and a status. Open, in progress, closed or lapsed. Referral velocity is computed from this, not from memory.',
+    color: 'from-[#D4AF37]/20 to-[#D4AF37]/5',
+    accent: 'text-[#D4AF37]',
+    border: 'border-[#D4AF37]/25',
+  },
+  {
+    icon: ClipboardList,
+    tag: 'GOVERNANCE',
+    title: 'Meeting Logs',
+    body: 'Attendance, hot-seat outputs and action commitments for every Circle meeting. Directors review the previous month at the start of the next.',
+    color: 'from-[#3b82f6]/20 to-[#3b82f6]/5',
+    accent: 'text-[#3b82f6]',
+    border: 'border-[#3b82f6]/25',
+  },
+  {
+    icon: ArrowLeftRight,
+    tag: '1-TO-1 MATCHING',
+    title: '1-to-1 Pairing',
+    body: 'Fortnightly structured pairing with prompts, logged outcomes and a nudge when a pairing goes stale.',
+    color: 'from-[#1e4ed8]/25 to-[#0b1b3a]/30',
+    accent: 'text-[#D4AF37]',
+    border: 'border-[#1e4ed8]/20',
+  },
+  {
+    icon: Star,
+    tag: 'VENDOR TRUST',
+    title: 'Vendor Scorecards',
+    body: 'Member-contributed ratings on contractors, consultants and distributors. Visible only inside Unity, contributed only after real engagements.',
+    color: 'from-[#e53935]/15 to-[#e53935]/5',
+    accent: 'text-[#e53935]',
+    border: 'border-[#e53935]/20',
+  },
   {
     icon: CalendarDays,
     tag: 'EVENTS',
