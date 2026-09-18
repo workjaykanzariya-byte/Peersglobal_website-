@@ -1069,27 +1069,30 @@ export default function TenWaysOfCollaborationPage() {
       </section>
 
       {/* =====================================================================
-          6. CLOSING BANNER (Exact Match with Image Section 6)
+          6. CLOSING BANNER (Vibrant Royal Blue Color Theme)
           ===================================================================== */}
-      <section className="relative overflow-hidden bg-[#041235] text-white py-20 sm:py-24">
-        {/* Soft Background Concentric Arcs */}
-        <div className="absolute -bottom-24 -left-24 size-96 rounded-full border border-blue-500/20 pointer-events-none" />
-        <div className="absolute -bottom-36 -right-36 size-[450px] rounded-full border border-sky-400/15 pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#0062D2] text-white py-20 sm:py-24">
+        {/* Soft Background Concentric Arcs matching the design */}
+        <div className="absolute top-1/2 -left-20 -translate-y-1/2 size-[520px] rounded-full border border-white/10 pointer-events-none" />
+        <div className="absolute top-1/2 -left-36 -translate-y-1/2 size-[700px] rounded-full border border-white/[0.06] pointer-events-none" />
+        <div className="absolute -top-32 -right-32 size-[600px] rounded-full border border-white/10 pointer-events-none" />
+        <div className="absolute -top-48 -right-48 size-[800px] rounded-full border border-white/[0.06] pointer-events-none" />
+        <div className="absolute top-1/3 right-1/4 size-2 rounded-full bg-white/30 pointer-events-none" />
 
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="h-[1.5px] w-5 bg-sky-400" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-sky-400">
+            <span className="h-[1.5px] w-5 bg-white/70" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
               The Next Step
             </span>
-            <span className="h-[1.5px] w-5 bg-sky-400" />
+            <span className="h-[1.5px] w-5 bg-white/70" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight">
             Be part of a community that gives back.
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 font-light mt-3 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-white/85 font-light mt-3 max-w-xl mx-auto leading-relaxed">
             Find your Circle and start collaborating today.
           </p>
 
@@ -1097,7 +1100,7 @@ export default function TenWaysOfCollaborationPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#0062D2] px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-blue-600 transition-all"
+              className="inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/30 hover:border-white hover:bg-white/20 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all"
             >
               Find Your Circle
               <ArrowRight className="size-4" />
@@ -1105,7 +1108,7 @@ export default function TenWaysOfCollaborationPage() {
 
             <Link
               href="/membership"
-              className="inline-flex items-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 shadow-md hover:bg-slate-100 transition-all"
+              className="inline-flex items-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-[#0062D2] shadow-md hover:bg-slate-100 hover:shadow-lg transition-all"
             >
               Become a Peer
             </Link>
