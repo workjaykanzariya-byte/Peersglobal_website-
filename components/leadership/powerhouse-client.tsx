@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePageMedia } from '@/lib/hooks/use-page-media'
 import {
   ArrowRight,
   ChevronRight,
@@ -197,13 +198,23 @@ const HOW_TO_JOIN = [
 ]
 
 export function PowerhouseClient() {
+  const { getMedia } = usePageMedia('leadership')
+  const heroMedia = getMedia({
+    sectionName: 'Powerhouse',
+    subModuleName: 'POWERHOUSE HERO',
+    subModuleId: 'sub-leadership-powerhouse',
+    fallbackUrl: '/videos/leadership-hero-bg.mp4',
+    fallbackSourceType: 'localhost',
+    fallbackTitle: 'The Powerhouse Leadership Team Meeting',
+  })
+
   return (
     <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900">
       {/* ─── 1. HERO SECTION ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-8 pb-16 lg:pb-24 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
+      <section className="relative overflow-hidden pt-5 sm:pt-6 pb-3 sm:pb-4 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-6">
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-5">
             <Link href="/" className="hover:text-[#0062D2] transition-colors">
               Home
             </Link>
@@ -215,113 +226,113 @@ export function PowerhouseClient() {
             <span className="text-slate-800 font-semibold">Powerhouse</span>
           </nav>
 
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                <span className="w-5 h-px bg-[#0062D2]" />
-                LEADERSHIP
-                <span className="w-5 h-px bg-[#0062D2]" />
-              </div>
+          {/* Hero Banner Box (Unified rounded card matching Leadership layout) */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
 
-              {/* Main Heading */}
-              <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
-                The Powerhouse
-              </h1>
-
-              {/* Subline */}
-              <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
-                The leadership team of a Circle.
-              </p>
-
-              {/* Supporting line */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-light">
-                Fourteen entrepreneurs hold every Circle together. This is where leadership at Peers Global begins.
-              </p>
-
-              {/* Dual CTAs */}
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
-                <Link
-                  href="/contact?intent=leadership"
-                  className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-8 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
-                >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Hero Visual with Boardroom & Script Text */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/60 aspect-[4/3] lg:aspect-[5/4]">
-                <Image
-                  src="/images/leadership-entrepreneurs-meeting.jpg"
-                  alt="Entrepreneurs collaborating actively in a Circle leadership meeting"
-                  fill
-                  priority
-                  className="object-cover object-center"
+            {/* Fade Video Visual (Right 60%) */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+              }}
+            >
+              {heroMedia.isYouTube && heroMedia.embedUrl ? (
+                <iframe
+                  src={`${heroMedia.embedUrl}&mute=1&loop=1`}
+                  title={heroMedia.title}
+                  className="w-full h-full border-0 object-cover pointer-events-none scale-125"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20" />
+              ) : (
+                <video
+                  key={heroMedia.mediaUrl}
+                  src={heroMedia.mediaUrl || '/videos/leadership-hero-bg.mp4'}
+                  poster="/images/leadership-entrepreneurs-meeting.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover object-center scale-105"
+                />
+              )}
+              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
 
-                {/* Top right script */}
-                <div className="absolute top-5 right-5 text-right select-none pointer-events-none drop-shadow-md">
-                  <p
-                    className="text-lg sm:text-xl text-white font-medium leading-tight"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Leaders
-                  </p>
-                  <p
-                    className="text-xl sm:text-2xl text-white font-bold leading-tight mt-0.5"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Build People.
-                  </p>
-                  <p
-                    className="text-lg sm:text-xl text-white/90 leading-tight mt-0.5 font-medium"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    People Build
-                  </p>
-                  <p
-                    className="text-xl sm:text-2xl text-amber-300 font-bold leading-tight mt-0.5"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    a Brighter Tomorrow.
-                  </p>
+              {/* Cursive Script Overlay */}
+              <div className="absolute top-6 sm:top-10 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p
+                  className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
+                  style={{ fontFamily: 'var(--font-script)' }}
+                >
+                  Leaders Build People.
+                </p>
+                <p
+                  className="text-2xl sm:text-3xl text-white/95 leading-tight mt-0.5 font-medium"
+                  style={{ fontFamily: 'var(--font-script)' }}
+                >
+                  People Build
+                </p>
+                <p
+                  className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5"
+                  style={{ fontFamily: 'var(--font-script)' }}
+                >
+                  A Brighter Tomorrow.
+                </p>
+              </div>
+            </div>
+
+            {/* Left Content (Z-10) */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl flex flex-col items-start">
+                {/* Eyebrow */}
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
+                  <span className="w-5 h-px bg-[#0062D2]" />
+                  LEADERSHIP
+                  <span className="w-5 h-px bg-[#0062D2]" />
                 </div>
 
-                {/* Bottom right script */}
-                <div className="absolute bottom-5 right-5 text-right select-none pointer-events-none drop-shadow-md">
-                  <p
-                    className="text-lg sm:text-xl text-white font-medium leading-tight"
-                    style={{ fontFamily: 'var(--font-script)' }}
+                {/* Main Heading */}
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
+                  The Powerhouse
+                </h1>
+
+                {/* Subline */}
+                <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
+                  The leadership team of a Circle.
+                </p>
+
+                {/* Supporting line */}
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-light">
+                  Fourteen entrepreneurs hold every Circle together. This is where leadership at Peers Global begins.
+                </p>
+
+                {/* Dual CTAs */}
+                <div className="flex flex-wrap items-center gap-4">
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
-                    Same Entrepreneurs.
-                  </p>
-                  <p
-                    className="text-xl sm:text-2xl text-amber-300 font-bold leading-tight mt-0.5"
-                    style={{ fontFamily: 'var(--font-script)' }}
+                    <span>Download Unity App</span>
+                    <ArrowRight className="size-4" />
+                  </a>
+                  <Link
+                    href="/contact?intent=leadership"
+                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-8 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
                   >
-                    Bigger Possibilities.
-                  </p>
+                    <span>Apply to Lead</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
                 </div>
               </div>
             </div>
+
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-12 lg:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <div className="mt-4 sm:mt-5 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
@@ -348,7 +359,7 @@ export function PowerhouseClient() {
       </section>
 
       {/* ─── 2. STAGE 02 OF THE PATHWAY ─────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
+      <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Narrative */}

@@ -128,61 +128,61 @@ export function TheIdeaClient() {
       {/* =========================================================================
           1. HERO SECTION (EXACT ATTACHED DESIGN RECREATION)
           ========================================================================= */}
-      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[#FAF9F6] py-12 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[#FAF9F6] pt-4 sm:pt-6 pb-3 sm:pb-4">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Main 2-Column Balanced Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* ──────── LEFT SIDEBAR & MAIN CONTENT (lg:col-span-7) ──────── */}
-            <div className="lg:col-span-7 flex flex-col md:flex-row items-start gap-8 lg:gap-10 xl:gap-12">
+            <div className="lg:col-span-7 flex flex-col md:flex-row items-center gap-7 lg:gap-9 xl:gap-11">
               
               {/* Far Left Vertical Strip: PEOPLE / PURPOSE / PROGRESS with Icons */}
-              <div className="hidden sm:flex flex-col gap-7 select-none shrink-0 pt-20">
-                <div className="flex items-center gap-3 group">
-                  <div className="size-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors">
-                    <Users2 className="size-4.5" />
+              <div className="hidden sm:flex flex-col gap-7 select-none shrink-0">
+                <div className="flex items-center gap-3.5 group">
+                  <div className="size-9 sm:size-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors shadow-2xs">
+                    <Users2 className="size-5" />
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-700">
+                  <span className="text-xs sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-slate-800">
                     PEOPLE
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 group">
-                  <div className="size-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors">
-                    <Target className="size-4.5" />
+                <div className="flex items-center gap-3.5 group">
+                  <div className="size-9 sm:size-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors shadow-2xs">
+                    <Target className="size-5" />
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-700">
+                  <span className="text-xs sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-slate-800">
                     PURPOSE
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 group">
-                  <div className="size-8 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors">
-                    <TrendingUp className="size-4.5" />
+                <div className="flex items-center gap-3.5 group">
+                  <div className="size-9 sm:size-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors shadow-2xs">
+                    <TrendingUp className="size-5" />
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-700">
+                  <span className="text-xs sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-slate-800">
                     PROGRESS
                   </span>
                 </div>
               </div>
 
               {/* Center-Left Content Area */}
-              <div className="flex flex-col items-start text-left max-w-xl">
+              <div className="flex flex-col items-start text-left max-w-2xl">
                 
                 {/* Pill Badge */}
-                <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/95 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-slate-900 mb-6 shadow-2xs">
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/95 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-slate-900 mb-4 shadow-2xs">
                   <span className="size-1.5 rounded-full bg-slate-900" />
                   <span>PILLAR: THE IDEA</span>
                 </div>
 
                 {/* H1 Heading */}
-                <h1 className="font-serif text-5xl sm:text-6xl lg:text-[76px] font-normal tracking-tight text-slate-950 mb-4 leading-[1.05]">
+                <h1 className="font-serif text-6xl sm:text-7xl lg:text-[84px] font-normal tracking-tight text-slate-950 mb-3 leading-[1.02]">
                   The Idea
                 </h1>
 
                 {/* Subtitle with cursive script accent */}
-                <p className="font-serif text-2xl sm:text-3xl lg:text-[32px] text-slate-900 leading-snug mb-4 font-normal">
+                <p className="font-serif text-3xl sm:text-4xl lg:text-[38px] text-slate-900 leading-snug mb-3.5 font-normal">
                   Entrepreneurs should not have to{' '}
                   <span
                     className="text-[#0062D2] italic font-normal inline-block ml-1"
@@ -193,7 +193,7 @@ export function TheIdeaClient() {
                 </p>
 
                 {/* Supporting description */}
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-light mb-8 max-w-md">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light mb-6 max-w-lg">
                   Everything Peers Global is today comes from that one sentence.
                 </p>
 
@@ -201,15 +201,15 @@ export function TheIdeaClient() {
                 <div className="flex flex-wrap gap-3.5 items-center">
                   <Link
                     href="/membership"
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#0062D2] hover:bg-blue-700 text-white px-7 py-3.5 text-xs sm:text-sm font-semibold transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
+                    className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-700 text-white px-7 py-3.5 text-sm sm:text-base font-bold transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
                   >
                     <span>Join Peers Global</span>
-                    <ArrowRight className="size-4" />
+                    <ArrowRight className="size-4.5" />
                   </Link>
 
                   <Link
                     href="/circles"
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-300/80 bg-white hover:bg-slate-50 text-slate-800 px-7 py-3.5 text-xs sm:text-sm font-semibold transition-all shadow-2xs active:scale-[0.98]"
+                    className="inline-flex items-center gap-2.5 rounded-lg border border-slate-300/90 bg-white hover:bg-slate-50 text-slate-800 px-7 py-3.5 text-sm sm:text-base font-semibold transition-all shadow-2xs active:scale-[0.98]"
                   >
                     <span>Find Your Circle</span>
                   </Link>
@@ -220,10 +220,10 @@ export function TheIdeaClient() {
             </div>
 
             {/* ──────── RIGHT SIDE: 4-PART GEOMETRIC COLLAGE & SCRIPT ACCENT (lg:col-span-5) ──────── */}
-            <div className="lg:col-span-5 flex flex-col items-center lg:items-end relative pt-6 lg:pt-0">
+            <div className="lg:col-span-5 flex flex-col items-center lg:items-end relative pt-4 lg:pt-0">
               
               {/* Top-Right Tagline with Vertical Bar */}
-              <div className="flex items-center gap-3 border-l-2 border-slate-400 pl-3.5 py-0.5 text-left mb-4 self-center lg:self-end">
+              <div className="flex items-center gap-3 border-l-2 border-slate-400 pl-3.5 py-0.5 text-left mb-3 self-center lg:self-end">
                 <div className="flex flex-col text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-slate-700 uppercase leading-snug">
                   <span>A BRIGHTER</span>
                   <span>TOMORROW</span>
@@ -232,11 +232,11 @@ export function TheIdeaClient() {
               </div>
 
               {/* 4-Part Geometric Video & Image Collage (Connected to Dynamic Admin Media) */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 items-end w-full max-w-[380px] sm:max-w-[420px] lg:max-w-[450px]">
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 items-end w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[400px]">
                 
                 {/* Shape 1 (Top-Left): Arched top-left corner */}
                 <div
-                  className="relative aspect-[3/4.2] w-full rounded-tl-[80px] sm:rounded-tl-[100px] overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                  className="relative aspect-[3/3.8] w-full rounded-tl-[70px] sm:rounded-tl-[90px] overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
                 >
                   {heroShape1Media.isYouTube && heroShape1Media.embedUrl ? (
                     <iframe
@@ -261,7 +261,7 @@ export function TheIdeaClient() {
 
                 {/* Shape 2 (Top-Right): Pill with rounded top */}
                 <div
-                  className="relative aspect-[3/4.8] w-full rounded-t-full overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                  className="relative aspect-[3/4.4] w-full rounded-t-full overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
                 >
                   {heroShape2Media.isYouTube && heroShape2Media.embedUrl ? (
                     <iframe
@@ -286,7 +286,7 @@ export function TheIdeaClient() {
 
                 {/* Shape 3 (Bottom-Left): Arched bottom-left corner */}
                 <div
-                  className="relative aspect-[3/4] w-full rounded-bl-[80px] sm:rounded-bl-[100px] overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                  className="relative aspect-[3/3.6] w-full rounded-bl-[70px] sm:rounded-bl-[90px] overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
                 >
                   {heroShape3Media.isYouTube && heroShape3Media.embedUrl ? (
                     <iframe
@@ -311,7 +311,7 @@ export function TheIdeaClient() {
 
                 {/* Shape 4 (Bottom-Right): Semi-circle / D-shape right */}
                 <div
-                  className="relative aspect-[4/3.8] w-full rounded-r-full overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
+                  className="relative aspect-[4/3.5] w-full rounded-r-full overflow-hidden shadow-lg border border-slate-200/60 bg-slate-900 select-none"
                 >
                   {heroShape4Media.isYouTube && heroShape4Media.embedUrl ? (
                     <iframe
@@ -337,7 +337,7 @@ export function TheIdeaClient() {
               </div>
 
               {/* Bottom-Right Handwritten Script Accent & Curved Arrow */}
-              <div className="flex flex-col items-start select-none -rotate-6 text-slate-800 leading-[1.08] mt-4 ml-auto pr-4 sm:pr-8">
+              <div className="flex flex-col items-start select-none -rotate-6 text-slate-800 leading-[1.08] mt-2.5 ml-auto pr-3 sm:pr-6">
                 <span
                   className="text-2xl sm:text-3xl text-slate-900"
                   style={{ fontFamily: 'var(--font-script, cursive)' }}
@@ -372,7 +372,7 @@ export function TheIdeaClient() {
           </div>
 
           {/* ──────── BOTTOM HAIRLINE STRIP ──────── */}
-          <div className="pt-10 sm:pt-14 mt-8 sm:mt-12 border-t border-slate-200/80 flex items-center justify-center text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-[0.28em] select-none">
+          <div className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-slate-200/80 flex items-center justify-center text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-[0.28em] select-none">
             <span>· COLLABORATE &nbsp;|&nbsp; LEARN &nbsp;|&nbsp; BUILD &nbsp;|&nbsp; GROW ·</span>
           </div>
 
@@ -383,7 +383,7 @@ export function TheIdeaClient() {
           2. THE PROBLEM NOBODY TALKS ABOUT (SUB-MODULE: THE SILENT REALITY)
           Matches Screenshots 3 & 4
           ========================================================================= */}
-      <section className="section py-16 sm:py-20 lg:py-24 border-b border-slate-200/80 bg-white relative overflow-hidden">
+      <section className="section py-8 sm:py-10 border-b border-slate-200/80 bg-white relative overflow-hidden">
         <div className="absolute -right-20 top-1/2 -translate-y-1/2 size-96 rounded-full border border-blue-100/50 pointer-events-none hidden 2xl:block" />
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -583,7 +583,7 @@ export function TheIdeaClient() {
           3. WHERE THIS IDEA CAME FROM (SUB-MODULE: ORIGIN STORY)
           Matches Screenshots 3 & 5
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#061836] text-white pt-16 sm:pt-20 pb-12 border-b border-slate-900 selection:bg-blue-200 selection:text-slate-900">
+      <section className="relative overflow-hidden bg-[#061836] text-white pt-8 sm:pt-10 pb-8 sm:pb-10 border-b border-slate-900 selection:bg-blue-200 selection:text-slate-900">
         
         {/* Dynamic Curved Organic Arched Video Cut-Out on the Right */}
         <div className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[48%] xl:w-[45%] pointer-events-none select-none z-0 overflow-hidden">
@@ -623,7 +623,7 @@ export function TheIdeaClient() {
 
         <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[460px] lg:min-h-[500px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center min-h-[380px] lg:min-h-[420px]">
             
             {/* ──────── COLUMN 1: LEFT CONTENT & DYNAMIC VIDEO CTA (lg:col-span-5) ──────── */}
             <div className="lg:col-span-5 flex flex-col justify-center">
@@ -676,7 +676,7 @@ export function TheIdeaClient() {
             </div>
 
             {/* ──────── COLUMN 2: CENTER FOUNDER STANDING IMAGE & SCRIPT ACCENT (lg:col-span-4) ──────── */}
-            <div className="lg:col-span-4 relative flex items-end justify-center min-h-[380px] sm:min-h-[440px] lg:min-h-[480px]">
+            <div className="lg:col-span-4 relative flex items-end justify-center min-h-[320px] sm:min-h-[380px] lg:min-h-[420px]">
               <div className="absolute top-12 left-0 sm:-left-4 lg:-left-12 z-20 select-none pointer-events-none hidden sm:block">
                 <p className="font-[family-name:var(--font-script)] text-2xl sm:text-3xl lg:text-[34px] text-sky-400/90 leading-tight rotate-[-7deg] drop-shadow-sm text-center">
                   People <br />
@@ -690,7 +690,7 @@ export function TheIdeaClient() {
               </div>
 
               <div 
-                className="relative w-[280px] sm:w-[320px] lg:w-[360px] h-[380px] sm:h-[440px] lg:h-[480px] z-10 flex items-end justify-center"
+                className="relative w-[280px] sm:w-[320px] lg:w-[360px] h-[320px] sm:h-[380px] lg:h-[420px] z-10 flex items-end justify-center"
                 style={{
                   WebkitMaskImage: 'radial-gradient(ellipse 90% 95% at 50% 50%, black 75%, transparent 100%)',
                   maskImage: 'radial-gradient(ellipse 90% 95% at 50% 50%, black 75%, transparent 100%)',
@@ -772,7 +772,7 @@ export function TheIdeaClient() {
           </div>
 
           {/* ──────── BOTTOM: 6 CLEAN WHITE FLOATING CARDS (GRID) ──────── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5 mt-12 sm:mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5 mt-6 sm:mt-8">
             <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
               <div>
                 <div className="flex items-center justify-between">
@@ -888,7 +888,7 @@ export function TheIdeaClient() {
             </div>
           </div>
 
-          <div className="pt-8 pb-1 mt-6 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
+          <div className="pt-5 pb-1 mt-5 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
             <div className="flex items-center gap-3">
               <span className="h-[1px] w-8 bg-slate-600" />
               <span>Real People · Real Stories · A Brighter Tomorrow</span>
@@ -905,12 +905,12 @@ export function TheIdeaClient() {
       {/* =========================================================================
           4. WHAT WE BELIEVE (SUB-MODULE: THE CORE PHILOSOPHY)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#FBFDFF] py-20 sm:py-24 lg:py-28 border-b border-slate-100">
+      <section className="relative overflow-hidden bg-[#FBFDFF] py-10 sm:py-12 lg:py-14 border-b border-slate-100">
         <div className="absolute top-10 left-1/4 size-[500px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute top-1/2 right-10 size-[450px] bg-sky-100/40 rounded-full blur-[130px] pointer-events-none" />
 
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-14 sm:mb-18">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-8 sm:mb-10">
             <div className="flex items-center gap-2.5 mb-3.5">
               <span className="h-[1.5px] w-6 bg-[#0062D2]" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
@@ -1158,8 +1158,8 @@ export function TheIdeaClient() {
         </div>
 
         {/* Bottom Callout Banner */}
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-18">
-          <div className="rounded-3xl bg-gradient-to-br from-[#021338] via-[#041D4E] to-[#0A2E70] p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-xl">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
+          <div className="rounded-3xl bg-gradient-to-br from-[#021338] via-[#041D4E] to-[#0A2E70] p-6 sm:p-8 text-center text-white relative overflow-hidden shadow-xl">
             <div className="absolute -right-16 -bottom-16 size-64 rounded-full border border-sky-400/10 pointer-events-none" />
             <div className="absolute -left-16 -top-16 size-64 rounded-full border border-blue-400/10 pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -1183,7 +1183,7 @@ export function TheIdeaClient() {
           5. PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE
           (SUB-MODULE: PEERS ARE PARTNERS)
           ========================================================================= */}
-      <section className="py-20 sm:py-28 border-b border-slate-200/80 bg-[#FBFDFF] relative overflow-hidden">
+      <section className="py-10 sm:py-12 lg:py-14 border-b border-slate-200/80 bg-[#FBFDFF] relative overflow-hidden">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
             
@@ -1323,7 +1323,7 @@ export function TheIdeaClient() {
                 Friends in Life.
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mb-7">
+              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mb-5">
                 For an entrepreneur, life and business are not two neatly partitioned lives. When one is under pressure, the other feels it immediately.
               </p>
 
@@ -1389,7 +1389,7 @@ export function TheIdeaClient() {
                 </div>
               </div>
 
-              <div className="mt-6 rounded-2xl bg-gradient-to-r from-blue-50/70 via-blue-50/40 to-sky-50/60 border border-blue-100/90 p-6 sm:p-7 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="mt-4 rounded-2xl bg-gradient-to-r from-blue-50/70 via-blue-50/40 to-sky-50/60 border border-blue-100/90 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
                 <div className="flex-1">
                   <span className="font-serif text-3xl sm:text-4xl text-[#0062D2] font-black leading-none select-none block mb-1">
                     “
@@ -1425,7 +1425,7 @@ export function TheIdeaClient() {
       {/* =========================================================================
           6. WHAT WE ARE BUILDING (ARCHITECTURE & LSR MODEL)
           ========================================================================= */}
-      <section className="py-24 sm:py-32 border-b border-slate-200/80 bg-[#FAFBFD] relative overflow-hidden">
+      <section className="py-10 sm:py-12 lg:py-14 border-b border-slate-200/80 bg-[#FAFBFD] relative overflow-hidden">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 size-[750px] bg-blue-50/50 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="hidden xl:flex absolute top-28 left-8 2xl:left-14 flex-col items-start gap-1.5 select-none pointer-events-none border-l-2 border-slate-200/90 pl-3.5 z-10">
@@ -1446,7 +1446,7 @@ export function TheIdeaClient() {
         </div>
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 sm:mb-10">
             <div className="flex items-center justify-center gap-2.5 mb-3.5">
               <span className="h-[1.5px] w-6 bg-[#0062D2]" />
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0062D2]">
@@ -1667,7 +1667,7 @@ export function TheIdeaClient() {
             </div>
           </div>
 
-          <div className="flex justify-center mt-14 relative z-10">
+          <div className="flex justify-center mt-8 sm:mt-10 relative z-10">
             <Link
               href="/circles"
               className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-700 text-white px-8 py-3.5 text-sm sm:text-base font-bold transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:-translate-y-0.5 active:scale-[0.98] group"
@@ -1683,7 +1683,7 @@ export function TheIdeaClient() {
       {/* =========================================================================
           7. THE 1 MILLION MISSION
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#020B1E] py-24 sm:py-32 text-white border-b border-blue-950">
+      <section className="relative overflow-hidden bg-[#020B1E] py-10 sm:py-14 text-white border-b border-blue-950">
         <div className="absolute top-10 left-10 size-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-10 right-10 size-[500px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
 
@@ -1715,7 +1715,7 @@ export function TheIdeaClient() {
         </div>
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-2xl text-left mb-14 sm:mb-16">
+          <div className="max-w-2xl text-left mb-8 sm:mb-10">
             <div className="flex items-center gap-2.5 mb-4">
               <span className="h-[1.5px] w-6 bg-[#0062D2]" />
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-sky-400">
@@ -1737,7 +1737,7 @@ export function TheIdeaClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative mb-12 sm:mb-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative mb-6 sm:mb-8">
             <div className="rounded-2xl border border-blue-400/20 bg-blue-950/35 backdrop-blur-md p-6 shadow-lg hover:border-blue-400/40 hover:bg-blue-950/45 transition-all duration-300 flex items-start gap-4 group">
               <div className="size-12 rounded-2xl bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30 shadow-xs group-hover:scale-105 transition-transform">
                 <User className="size-5.5" />
@@ -1798,7 +1798,7 @@ export function TheIdeaClient() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-4 sm:gap-6 my-10 sm:my-12">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 my-6 sm:my-8">
             <span className="h-[1px] w-24 sm:w-40 bg-gradient-to-r from-transparent via-blue-400/40 to-blue-400/80" />
             <p className="font-serif italic text-xl sm:text-2xl text-sky-200 font-normal tracking-wide">
               Impact has begun.
@@ -1806,7 +1806,7 @@ export function TheIdeaClient() {
             <span className="h-[1px] w-24 sm:w-40 bg-gradient-to-l from-transparent via-blue-400/40 to-blue-400/80" />
           </div>
 
-          <div className="max-w-4xl mx-auto rounded-3xl border border-blue-400/25 bg-blue-950/40 backdrop-blur-md p-6 sm:p-8 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 mb-12 sm:mb-14">
+          <div className="max-w-4xl mx-auto rounded-3xl border border-blue-400/25 bg-blue-950/40 backdrop-blur-md p-6 sm:p-7 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 mb-6 sm:mb-8">
             <div className="flex items-center gap-5 sm:gap-6 flex-1">
               <div className="size-20 sm:size-24 rounded-full overflow-hidden shrink-0 border-2 border-sky-400/50 shadow-lg relative bg-blue-900">
                 <Image
@@ -1863,7 +1863,7 @@ export function TheIdeaClient() {
             </div>
           </div>
 
-          <div className="flex justify-center mb-16 sm:mb-20">
+          <div className="flex justify-center mb-8 sm:mb-10">
             <Link
               href="/the-idea"
               className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-600 text-white px-8 py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:scale-[0.98] transition-all group"
@@ -1873,7 +1873,7 @@ export function TheIdeaClient() {
             </Link>
           </div>
 
-          <div className="pt-8 border-t border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="pt-5 border-t border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500 select-none">
               <span>— Collaborate</span>
               <span>— Create</span>

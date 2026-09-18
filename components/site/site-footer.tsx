@@ -79,20 +79,29 @@ export function SiteFooter() {
         { label: 'Member FAQ', href: '/membership/faq' },
         { label: 'Membership Terms', href: '/membership-terms' },
         { label: 'Join Peers Global', href: '/apply' },
+      ],
+    },
+    {
+      title: 'The Currency Group',
+      links: [
+        { label: 'Life Impact Score', href: '/life-impact-score' },
+        { label: 'How to Earn Impact', href: '/how-to-earn-impact' },
+        { label: 'How Peers Confirm Impact', href: '/impact-confirmation' },
         { label: 'Peer Standing', href: '/peer-standing' },
         { label: 'Peers Coin', href: '/peers-coin' },
+        { label: 'Peers Global Marketplace', href: '/marketplace' },
       ],
     },
     {
       title: 'Leadership',
       links: [
         { label: 'The Leadership Ladder', href: '/leadership' },
+        { label: 'The Peers Board of Advisory', href: '/leadership/advisory-board' },
         { label: 'Circle Founder', href: '/leadership/circle-founder' },
         { label: 'Circle Director', href: '/leadership/circle-director' },
         { label: 'Industry Director', href: '/leadership/industry-director' },
         { label: 'Executive Director', href: '/leadership/executive-director' },
         { label: 'Ambassadors', href: '/leadership/ambassadors' },
-        { label: 'Impact Income', href: '/leadership/impact-income' },
         { label: 'Apply to Lead', href: '/leadership/apply' },
         { label: 'Circle Roles', href: '/circle-roles' },
       ],
@@ -101,6 +110,7 @@ export function SiteFooter() {
       title: 'Community Life',
       links: [
         { label: 'Events & Summits', href: '/events' },
+        { label: 'Speak at Peers Global', href: '/events/speak' },
         { label: 'Peer Stories', href: '/stories' },
         { label: 'Collaboration Wins', href: '/stories/wins' },
         { label: 'Awards & Recognition', href: '/awards' },
@@ -108,8 +118,7 @@ export function SiteFooter() {
         { label: 'Vyapaar Jagat TV', href: '/media/vyapaar-jagat-tv' },
         { label: 'VyapaarJagat.com', href: 'https://vyapaarjagat.com', external: true },
         { label: 'Gallery', href: '/gallery' },
-        { label: 'Blog & Insights', href: '/insights' },
-        { label: 'Masterclasses', href: '/masterclasses' },
+        { label: 'Learning Hub', href: '/learning' },
       ],
     },
     {
@@ -118,13 +127,26 @@ export function SiteFooter() {
         { label: 'About Peers Global', href: '/about' },
         { label: 'Our Story', href: '/our-story' },
         { label: 'Dr. Pravin Parmar', href: '/founder' },
-        { label: 'Our Initiatives', href: '/initiatives' },
+        { label: 'Careers', href: '/careers' },
         { label: 'Social Impact', href: '/social-impact' },
         { label: 'The Foundation', href: '/foundation' },
         { label: 'Newsroom & Media Kit', href: '/newsroom' },
         { label: 'Partner With Us', href: '/partner' },
         { label: 'Investors', href: '/investors' },
         { label: 'Contact Us', href: '/contact' },
+      ],
+    },
+    {
+      title: 'Useful Links',
+      links: [
+        { label: 'Learning Hub', href: '/learning' },
+        { label: 'Circle Magazines', href: '/circle-magazines' },
+        { label: 'Bring to My City', href: '/bring-to-my-city' },
+        { label: 'The Map', href: '/map' },
+        { label: 'Circles by City', href: '/cities' },
+        { label: 'Districts & Regions', href: '/regions' },
+        { label: 'Peers Global India', href: '/india' },
+        { label: 'International', href: '/international' },
       ],
     },
   ]
@@ -335,8 +357,8 @@ export function SiteFooter() {
       {/* ========================================================================= */}
       <footer className="w-full bg-[#f2f2f2] text-[#242424] pt-9 pb-8">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
-          {/* 6 Clean Columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6 sm:gap-y-8">
+          {/* 8 Clean Microsoft-style Columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-x-5 gap-y-6 sm:gap-y-8">
             {MICROSOFT_STYLE_COLUMNS.map((col) => {
               const isOpen = Boolean(openAccordion[col.title])
               return (
@@ -442,11 +464,23 @@ export function SiteFooter() {
               <Link href="/community-guidelines" className="hover:text-[#111111] hover:underline">
                 Community Guidelines
               </Link>
+              <Link href="/peers-code" className="hover:text-[#111111] hover:underline">
+                The Peers Code
+              </Link>
               <Link href="/refund-policy" className="hover:text-[#111111] hover:underline">
                 Refund Policy
               </Link>
+              <Link href="/grievance" className="hover:text-[#111111] hover:underline">
+                Grievance Redressal
+              </Link>
+              <Link href="/security" className="hover:text-[#111111] hover:underline">
+                Security
+              </Link>
               <Link href="/disclaimer" className="hover:text-[#111111] hover:underline">
                 Disclaimer
+              </Link>
+              <Link href="/sitemap" className="hover:text-[#111111] hover:underline">
+                Sitemap
               </Link>
               <span className="hidden sm:inline text-[#cccccc]">|</span>
               <span className="text-[#737373] block w-full sm:w-auto">

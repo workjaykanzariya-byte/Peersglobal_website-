@@ -1,0 +1,262 @@
+'use client'
+
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import {
+  ArrowRight,
+  ChevronRight,
+  Sparkles,
+  TrendingUp,
+  HeartHandshake,
+  Users,
+  Lightbulb,
+  Building2,
+  DollarSign,
+  Megaphone,
+  Heart,
+  Wrench,
+  CheckCircle2,
+  XCircle,
+  Award,
+} from 'lucide-react'
+
+const TEN_WAYS = [
+  { num: '01', title: 'Business Referral', desc: 'A referral you gave that produced business', icon: TrendingUp },
+  { num: '02', title: 'Mentorship', desc: 'Sustained guidance to another Peer', icon: Users },
+  { num: '03', title: 'Joint Venture', desc: 'Something built together', icon: Building2 },
+  { num: '04', title: 'Knowledge Sharing', desc: 'Experience shared that saved someone time or money', icon: Lightbulb },
+  { num: '05', title: 'Problem Solving', desc: 'Thinking through a decision with a Peer', icon: HeartHandshake },
+  { num: '06', title: 'Vendor Connect', desc: 'A tested supplier or partner introduced', icon: Wrench },
+  { num: '07', title: 'Funding Access', desc: 'An introduction to capital', icon: DollarSign },
+  { num: '08', title: 'Visibility & PR', desc: 'A platform, feature or stage given to a Peer', icon: Megaphone },
+  { num: '09', title: 'Emotional Support', desc: 'Standing by an entrepreneur when it mattered', icon: Heart },
+  { num: '10', title: 'Execution Support', desc: 'Hands, capacity or accountability to get something done', icon: Award },
+]
+
+export function HowToEarnImpactClient() {
+  return (
+    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+      {/* ─── Breadcrumbs ─── */}
+      <div className="border-b border-[#EADFC7]/50 bg-[#FDFBF7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
+          <Link href="/" className="hover:text-neutral-900 transition-colors">
+            Home
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
+          <span>The Currency</span>
+          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
+          <span className="text-neutral-900 font-semibold">How to Earn Impact</span>
+        </div>
+      </div>
+
+      {/* ─── Hero Section ─── */}
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-[#EADFC7]/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+                How to Earn Impact
+              </h1>
+              <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
+                Ten ways to give. Every one of them counts.
+              </p>
+              <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
+                Impact is not an abstraction. It is earned through specific, verified acts of contribution that move another business forward.
+              </p>
+
+              <div className="pt-2">
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-md"
+                >
+                  Download Unity App
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Sprouting Seedling Visual */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#D8C7A5] shadow-2xl bg-[#E8DDD0]">
+                <Image
+                  src="/images/founder-earth-showcase.jpg"
+                  alt="Hands holding a growing seedling in soil"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 500px"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute top-4 right-4 text-right font-serif italic text-white/95 text-base sm:text-lg drop-shadow-md">
+                  Small Actions.<br />Bigger Impact.
+                </div>
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-amber-200 border border-white/30">
+                    Contribution Multipliers
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Impact Follows the Ten Ways ─── */}
+      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-2">
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+              Impact follows the ten Ways
+            </h2>
+            <p className="text-sm text-neutral-600">
+              Every contribution recorded here falls into one of the ten defined Ways of Collaboration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {TEN_WAYS.map((way) => {
+              const Icon = way.icon
+              return (
+                <div
+                  key={way.num}
+                  className="p-5 rounded-2xl bg-white border border-[#E8DFC9] shadow-xs space-y-3 hover:border-blue-400 transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="w-8 h-8 rounded-full bg-[#FAF4E6] border border-[#EADBBD] text-[#8C6422] font-mono font-bold text-xs flex items-center justify-center">
+                        {way.num}
+                      </span>
+                      <Icon className="w-4 h-4 text-neutral-400" />
+                    </div>
+                    <h3 className="font-serif font-bold text-sm text-neutral-900 leading-tight">
+                      {way.title}
+                    </h3>
+                    <p className="text-xs text-neutral-600 leading-relaxed">
+                      {way.desc}
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              href="/10-ways-of-collaboration"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 uppercase tracking-wider"
+            >
+              See the 10 Ways in Full <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Contribution Beyond Collaboration & What Does Not Count ─── */}
+      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF7F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            {/* Left: Contribution beyond collaboration */}
+            <div className="lg:col-span-6 p-8 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm space-y-6">
+              <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+                Contribution beyond collaboration
+              </h2>
+              <div className="space-y-4 text-xs sm:text-sm text-neutral-600">
+                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
+                  <strong className="block text-neutral-900 font-bold mb-0.5">
+                    Teaching a masterclass
+                  </strong>
+                  Sharing what you know with a room of peers on operations, finance, or hiring.
+                </div>
+                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
+                  <strong className="block text-neutral-900 font-bold mb-0.5">
+                    Serving on a committee
+                  </strong>
+                  Holding an active leadership role as Chair or Leader in your Circle.
+                </div>
+                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
+                  <strong className="block text-neutral-900 font-bold mb-0.5">
+                    Leading an ecosystem
+                  </strong>
+                  Founding a Circle, directing one, carrying an industry or territory.
+                </div>
+                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
+                  <strong className="block text-neutral-900 font-bold mb-0.5">
+                    Bringing the right entrepreneur in
+                  </strong>
+                  Introducing a high-calibre peer who genuinely strengthens the community.
+                </div>
+              </div>
+            </div>
+
+            {/* Right: What does not earn impact */}
+            <div className="lg:col-span-6 p-8 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm space-y-6 flex flex-col justify-between">
+              <div className="space-y-4">
+                <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+                  What does not earn impact
+                </h2>
+                <div className="space-y-4 text-xs sm:text-sm text-neutral-600">
+                  <div className="p-4 rounded-2xl bg-red-50/70 border border-red-100 flex items-start gap-3">
+                    <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block text-red-950 font-bold mb-0.5">Attendance</strong>
+                      Being in the room is the entry condition, not the contribution.
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-red-50/70 border border-red-100 flex items-start gap-3">
+                    <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block text-red-950 font-bold mb-0.5">Intent</strong>
+                      What you offered but nobody took up carries no verified impact score.
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-red-50/70 border border-red-100 flex items-start gap-3">
+                    <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block text-red-950 font-bold mb-0.5">Self-declared value</strong>
+                      Anything the receiving Peer has not confirmed in the Unity App counts for zero.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[#FAF5EB] border border-[#EADBBD] text-xs font-serif italic text-[#8C6422] text-center">
+                &ldquo;The more you give, the more you grow.&rdquo;
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Closing Banner ─── */}
+      <section className="relative bg-[#0D1117] text-white py-24 md:py-32 overflow-hidden border-t border-neutral-800">
+        <div className="absolute inset-0 z-0 opacity-25">
+          <Image
+            src="/images/who-we-are-mountain.jpg"
+            alt="Mountain ridge horizon"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/80 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+            Build Your Business. Build Your Relationships. Build Your Circle.
+          </h2>
+          <div className="pt-2">
+            <Link
+              href="/unity"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+            >
+              Download Unity App
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
