@@ -92,7 +92,6 @@ export function SiteFooter() {
         { label: 'Industry Director', href: '/leadership/industry-director' },
         { label: 'Executive Director', href: '/leadership/executive-director' },
         { label: 'Ambassadors', href: '/leadership/ambassadors' },
-        { label: 'Global Advisory Board', href: '/leadership/global-advisors' },
         { label: 'Impact Income', href: '/leadership/impact-income' },
         { label: 'Apply to Lead', href: '/leadership/apply' },
         { label: 'Circle Roles', href: '/circle-roles' },
