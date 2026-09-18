@@ -59,7 +59,7 @@ import {
 } from 'lucide-react'
 import { Card, Cta, Eyebrow, SectionHead, Stat, Tag } from '@/components/site/ui'
 import { INDUSTRY_CIRCLES, PURPOSE_CIRCLES } from '@/lib/data/circles'
-import { UPCOMING_EVENTS } from '@/lib/data/events'
+import { UPCOMING_EVENTS, EventRecord } from '@/lib/data/events'
 import { ROLES } from '@/lib/data/leadership'
 import { OUTCOME_STATS, SITE } from '@/lib/data/site'
 
@@ -3938,7 +3938,7 @@ export function EventsSection() {
                 <div className="flex flex-col gap-3 pt-2">
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Session Agenda</h4>
                   <div className="flex flex-col gap-2 border-l-2 border-[#1E4ED8]/30 pl-4">
-                    {detailModalEvent.agenda.map((ag, idx) => (
+                    {detailModalEvent.agenda.map((ag: any, idx: number) => (
                       <div key={idx} className="flex flex-col">
                         <span className="text-xs font-mono font-bold text-[#1E4ED8]">{ag.time}</span>
                         <span className="text-sm font-semibold text-slate-800">{ag.title}</span>
