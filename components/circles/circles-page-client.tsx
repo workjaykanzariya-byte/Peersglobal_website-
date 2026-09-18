@@ -1290,49 +1290,87 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
       {/* =========================================================================
           SECTION 8: CLOSING BANNER
+          Dark Navy Background with Blurred Executives Photo & Script Overlay
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#0A162B] text-white py-16 sm:py-24">
-        {/* Background Image with Dark Vignette */}
-        <div className="absolute inset-0 z-0 opacity-25">
-          <Image
-            src="/images/circles-hero-new.jpg"
-            alt="Business community background"
-            fill
-            className="object-cover object-center brightness-75"
-          />
+      <section className="relative overflow-hidden bg-[#0062D2] py-16 sm:py-20 lg:py-24 text-white">
+        {/* Subtle geometric orbital line art in top-right background */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Inner orbit arc */}
+            <path
+              d="M 50 450 A 420 420 0 0 1 550 50"
+              stroke="currentColor"
+              strokeWidth="1.2"
+            />
+            {/* Outer orbit arc */}
+            <path
+              d="M 120 520 A 500 500 0 0 1 600 120"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="4 4"
+              opacity="0.6"
+            />
+            {/* Intersecting secondary arc */}
+            <path
+              d="M 220 580 A 460 460 0 0 1 580 220"
+              stroke="currentColor"
+              strokeWidth="1"
+              opacity="0.5"
+            />
+            {/* Orbital connection line */}
+            <line
+              x1="280"
+              y1="220"
+              x2="380"
+              y2="120"
+              stroke="currentColor"
+              strokeWidth="0.8"
+              opacity="0.4"
+            />
+            {/* Glowing node point on the arc */}
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A162B] via-[#0A162B]/95 to-[#0A162B]/75 z-0" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content (8 cols) */}
             <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span>— YOUR NEXT CIRCLE —</span>
+              <div className="flex items-center gap-2.5 mb-4">
+                <span className="h-[1.5px] w-6 bg-white/70" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+                  YOUR NEXT CIRCLE
+                </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight mb-4">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white mb-4">
                 Find your people. <br />
                 Find your next opportunity.
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300 font-light mb-8">
+              <p className="text-base sm:text-lg font-medium text-white/95 mb-8">
                 Visit a Circle and experience the power of the room.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => scrollToExplore()}
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2 cursor-pointer"
+                  className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
                 >
                   <span>Find a Circle Near You</span>
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </button>
 
                 <button
                   onClick={() => setIsGuestModalOpen(true)}
-                  className="rounded-full border border-white/30 hover:border-white/50 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 cursor-pointer"
+                  className="inline-flex items-center gap-2.5 rounded-lg border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
                 >
                   Visit as a Guest
                 </button>
@@ -1342,12 +1380,12 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             {/* Right Script (4 cols) */}
             <div className="lg:col-span-4 text-right flex justify-end">
               <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
+                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
+                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
               >
                 Circles <br />
                 Create <br />
-                <span className="text-sky-400">Impact</span>
+                <span className="text-[#7DD3FC]">Impact</span>
               </div>
             </div>
 
