@@ -272,7 +272,7 @@ export function StartCircleClient() {
                 </div>
 
                 {/* Stat Band */}
-                <div className="grid grid-cols-3 gap-3 w-full max-w-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg">
                   {[
                     { icon: Building2, value: '150+', label: 'Active Circles' },
                     { icon: MapPin, value: '45+', label: 'Cities' },

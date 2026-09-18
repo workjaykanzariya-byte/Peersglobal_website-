@@ -316,7 +316,7 @@ export function FindPageClient() {
                 </div>
 
                 {/* Stat Band */}
-                <div className="grid grid-cols-3 gap-3 w-full max-w-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg">
                   {[
                     { icon: Target, value: '10+', label: 'Purpose Circles' },
                     { icon: MapPin, value: '45+', label: 'Cities' },

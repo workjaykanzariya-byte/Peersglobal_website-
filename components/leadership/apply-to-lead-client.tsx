@@ -390,7 +390,7 @@ export function ApplyToLeadClient() {
                 </div>
 
                 {/* 3 Value Props Bar */}
-                <div className="pt-4 grid grid-cols-3 gap-3 border-t border-slate-200/80 w-full">
+                <div className="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-200/80 w-full">
                   {VALUE_PROPS.map((prop) => {
                     const Icon = prop.icon
                     return (
