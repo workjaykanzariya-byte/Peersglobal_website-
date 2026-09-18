@@ -141,7 +141,7 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Circle Director', href: '/leadership/circle-director', desc: 'Runs the Circle month on month', phase: 1 },
       { label: 'Industry Director', href: '/leadership/industry-director', desc: 'Sector ecosystem owner for the city', phase: 1 },
       { label: 'Executive Director', href: '/leadership/executive-director', desc: 'Area / District / State / Country leadership', phase: 1 },
-      { label: 'Global Advisory Board', href: '/leadership/global-advisors', desc: 'Senior entrepreneurs guiding the movement', phase: 2 },
+      { label: 'Ambassador', href: '/leadership/ambassadors', desc: 'Carrying the name into rooms where it is not yet known', phase: 1 },
       { label: 'Impact Income', href: '/leadership/impact-income', desc: 'Earn while contributing to ecosystem growth', phase: 1 },
       { label: 'Apply to Lead', href: '/leadership/apply', desc: 'Submit expression of interest for leadership', phase: 1 },
     ],
