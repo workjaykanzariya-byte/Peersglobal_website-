@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { Card, Cta, Eyebrow, SectionHead } from '@/components/site/ui'
+import { Card, Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
 import { ROLES } from '@/lib/data/leadership'
 
 export async function generateStaticParams() {
@@ -165,24 +165,16 @@ export default async function LeadershipRolePage({
       )}
 
       {/* CTA */}
-      <section className="section-sm bg-primary text-primary-foreground">
-        <div className="shell flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="eyebrow text-white/70">Saath Chalein.</p>
-            <h2 className="display mt-1 text-2xl md:text-3xl">
-              {r.seatsOpen} for {r.name}.
-            </h2>
-          </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            {r.nextStep ? (
-              <Cta href={r.nextStep.href} variant="gold" size="lg">{r.nextStep.label}</Cta>
-            ) : (
-              <Cta href="/contact?intent=leadership" variant="gold" size="lg">Apply for this role</Cta>
-            )}
-            <Cta href="/leadership" variant="onDark" size="lg">Full pipeline →</Cta>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="Saath Chalein."
+        title={`${r.seatsOpen} for ${r.name}.`}
+        subtitle=""
+        description=""
+        primaryButtonText={r.nextStep ? r.nextStep.label : 'Apply for this role'}
+        primaryButtonHref={r.nextStep ? r.nextStep.href : '/contact?intent=leadership'}
+        secondaryButtonText="Full pipeline →"
+        secondaryButtonHref="/leadership"
+      />
     </div>
   )
 }

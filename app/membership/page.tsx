@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import { CheckCircle2, ShieldCheck, Sparkles, ArrowRight, Check, HelpCircle, UserCheck, TrendingUp, Compass, Clock, Award } from 'lucide-react'
 import { Card, Cta, Eyebrow, SectionHead, Tag } from '@/components/site/ui'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { COMPARE_ROWS, MEMBERSHIP_FAQS, TIERS } from '@/lib/data/membership'
 import { SITE } from '@/lib/data/site'
 
@@ -193,18 +194,16 @@ export default function MembershipPage() {
       </section>
 
       {/* 6. Closing CTA */}
-      <section className="section-sm bg-primary text-primary-foreground py-16">
-        <div className="shell flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="eyebrow text-white/70">{SITE.closing}</p>
-            <h2 className="display mt-1 text-2xl md:text-3xl font-extrabold">Start as an Explorer. No fee, no commitment.</h2>
-          </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            <Cta href="/contact?intent=explorer" variant="gold" size="lg">Request a guest seat</Cta>
-            <Cta href="/contact?intent=circle" variant="onDark" size="lg">Apply for Circle seat</Cta>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow={SITE.closing}
+        title="Start as an Explorer. No fee, no commitment."
+        subtitle=""
+        description=""
+        primaryButtonText="Request a guest seat"
+        primaryButtonHref="/contact?intent=explorer"
+        secondaryButtonText="Apply for Circle seat"
+        secondaryButtonHref="/contact?intent=circle"
+      />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CheckCircle2 } from 'lucide-react'
-import { Card, Cta, Eyebrow, SectionHead } from '@/components/site/ui'
+import { Card, Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
 
 export const metadata: Metadata = {
   title: 'Become a Circle Founder',
@@ -202,21 +202,14 @@ export default function CircleFounderFlagshipPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-sm" style={{ background: '#D4AF37' }}>
-        <div className="shell flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="eyebrow text-[#0b1b3a]/60">Saath Chalein.</p>
-            <h2 className="display mt-1 text-2xl text-[#0b1b3a] md:text-3xl">
-              Ready to build a room that changes businesses?
-            </h2>
-          </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            <Cta href="/contact?intent=circle-founder" size="lg" style={{ background: '#0b1b3a', color: '#fff', borderRadius: 'var(--btn-radius)' }}>
-              Apply for Circle Founder
-            </Cta>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="Saath Chalein."
+        title="Ready to build a room that changes businesses?"
+        subtitle=""
+        description=""
+        primaryButtonText="Apply for Circle Founder"
+        primaryButtonHref="/contact?intent=circle-founder"
+      />
     </div>
   )
 }

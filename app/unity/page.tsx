@@ -3,7 +3,7 @@ import {
   Smartphone, Sparkles, ShieldCheck, MapPin, Zap, CheckCircle2,
   BookOpen, Users, ClipboardList, ArrowLeftRight, Star, CalendarDays, ChevronRight
 } from 'lucide-react'
-import { Card, Cta, SectionHead } from '@/components/site/ui'
+import { Card, Cta, SectionHead, ClosingCtaSection } from '@/components/site/ui'
 import { UNITY_ROLES } from '@/lib/data/content'
 
 export const metadata: Metadata = {
@@ -354,24 +354,21 @@ export default function UnityPage() {
       </section>
 
       {/* ─── 5. CTA ───────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b1b3a] via-[#122347] to-[#060d1f] py-20 text-white">
-        <div className="pointer-events-none absolute -top-20 -right-20 size-[400px] rounded-full bg-[#D4AF37]/10 blur-[80px]" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 size-[400px] rounded-full bg-primary/15 blur-[80px]" />
-        <div className="shell relative z-10 flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col gap-3">
-            <p className="text-xs font-mono text-white/40 uppercase tracking-widest">Platform Onboarding</p>
-            <h2 className="display text-3xl md:text-4xl font-extrabold text-white leading-tight">
-              Join the network. <br className="hidden sm:block" />
-              <span className="text-[#D4AF37]">Get Unity on day one.</span>
-            </h2>
-            <p className="text-sm text-white/60 max-w-md">Access to Unity is exclusive — available from day one to all verified Global and Circle Members.</p>
-          </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            <Cta href="/membership" variant="gold" size="lg">Apply for Membership</Cta>
-            <Cta href="/contact?intent=explorer" variant="onDark" size="lg">Request a Guest Seat</Cta>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="Platform Onboarding"
+        title={
+          <>
+            Join the network. <br className="hidden sm:block" />
+            <span className="text-white">Get Unity on day one.</span>
+          </>
+        }
+        subtitle=""
+        description="Access to Unity is exclusive — available from day one to all verified Global and Circle Members."
+        primaryButtonText="Apply for Membership"
+        primaryButtonHref="/membership"
+        secondaryButtonText="Request a Guest Seat"
+        secondaryButtonHref="/contact?intent=explorer"
+      />
 
     </div>
   )
