@@ -48,7 +48,7 @@ export function ClosingCtaSection({
   const isSecondaryExternal = secondaryButtonHref?.startsWith('http')
 
   return (
-    <section className={`relative overflow-hidden bg-[#0062D2] py-16 sm:py-20 lg:py-24 text-white ${className}`}>
+    <section className={`relative overflow-hidden bg-[#0062D2] py-10 sm:py-14 lg:py-16 text-white ${className}`}>
       {/* Subtle geometric orbital line art in top-right background */}
       <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
         <svg

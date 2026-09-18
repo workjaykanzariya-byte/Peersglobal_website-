@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePageMedia } from '@/lib/hooks/use-page-media'
 import {
   ArrowRight,
   ChevronRight,
@@ -360,6 +361,16 @@ export function MemberFaqClient() {
     'before-you-join-0': true,
   })
 
+  const { getMedia } = usePageMedia('membership')
+  const heroMedia = getMedia({
+    sectionName: 'Member FAQ',
+    subModuleName: 'MEMBER FAQ HERO',
+    subModuleId: 'sub-membership-faq',
+    fallbackUrl: '/videos/stories-hero-bg.mp4',
+    fallbackSourceType: 'localhost',
+    fallbackTitle: 'Frequently Asked Questions by Prospective Members',
+  })
+
   const toggleItem = (key: string) => {
     setOpenItems((prev) => ({ ...prev, [key]: !prev[key] }))
   }
@@ -429,13 +440,25 @@ export function MemberFaqClient() {
                 WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
               }}
             >
-              <Image
-                src="/images/member-faq-hero.jpg"
-                alt="Peers Global Executive Board Discussion"
-                fill
-                priority
-                className="object-cover object-center scale-105"
-              />
+              {heroMedia.isYouTube && heroMedia.embedUrl ? (
+                <iframe
+                  src={`${heroMedia.embedUrl}&mute=1&loop=1`}
+                  title={heroMedia.title}
+                  className="w-full h-full border-0 object-cover pointer-events-none scale-125"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
+              ) : (
+                <video
+                  key={heroMedia.mediaUrl}
+                  src={heroMedia.mediaUrl || '/videos/stories-hero-bg.mp4'}
+                  poster="/images/member-faq-hero.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover object-center scale-105"
+                />
+              )}
               <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
 

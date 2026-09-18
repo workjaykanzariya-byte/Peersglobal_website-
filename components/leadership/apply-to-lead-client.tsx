@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePageMedia } from '@/lib/hooks/use-page-media'
 import {
   ArrowRight,
   ChevronRight,
@@ -235,6 +236,16 @@ export function ApplyToLeadClient() {
   const [submitted, setSubmitted] = useState<boolean>(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
+  const { getMedia } = usePageMedia('leadership')
+  const heroMedia = getMedia({
+    sectionName: 'Apply to Lead',
+    subModuleName: 'APPLY TO LEAD HERO',
+    subModuleId: 'sub-leadership-apply-to-lead',
+    fallbackUrl: '/videos/leadership-hero-bg.mp4',
+    fallbackSourceType: 'localhost',
+    fallbackTitle: 'Leadership Application & Vetting Overview',
+  })
+
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -257,154 +268,153 @@ export function ApplyToLeadClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link
-              href="/"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
+    <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+      {/* ─── 1. HERO SECTION ────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden pt-5 sm:pt-6 pb-3 sm:pb-4 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-5">
+            <Link href="/" className="hover:text-[#0062D2] transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link
-              href="/leadership"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
+            <ChevronRight className="size-3 text-slate-400" />
+            <Link href="/leadership" className="hover:text-[#0062D2] transition-colors">
               Leadership
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Apply to Lead</span>
+            <ChevronRight className="size-3 text-slate-400" />
+            <span className="text-slate-800 font-semibold">Apply to Lead</span>
           </nav>
-        </div>
-      </div>
 
-      {/* ─── SECTION 1: HERO (WITH SEAMLESS HORIZONTAL FADE) ─────────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-6 space-y-6 z-10">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
-                  — LEADERSHIP —
-                </span>
-              </div>
+          {/* Hero Banner Box (Unified rounded card matching Why Join / Leadership layout) */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
 
-              {/* Main Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Apply to Lead
-              </h1>
-
-              {/* Subline */}
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                Every leadership role at Peers Global begins with a conversation.
-              </p>
-
-              {/* Supporting line */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                Tell us which role interests you, and someone who holds one will
-                speak with you.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-
-                <button
-                  onClick={handleScrollToForm}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 cursor-pointer"
-                >
-                  <span>Express Interest ↓</span>
-                </button>
-              </div>
-
-              {/* 3 Value Props Bar */}
-              <div className="pt-4 grid grid-cols-3 gap-3 border-t border-slate-200/80">
-                {VALUE_PROPS.map((prop) => {
-                  const Icon = prop.icon
-                  return (
-                    <div key={prop.title} className="space-y-0.5">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-                        <Icon className="w-4 h-4 text-[#0062D2]" />
-                        <span>{prop.title}</span>
-                      </div>
-                      <p className="text-[11px] text-slate-500 font-medium leading-tight">
-                        {prop.sub}
-                      </p>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Right Hero Visual with Seamless Edge Fade */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[400px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
-                {/* Background Image: Leader chairing meeting with white wall */}
-                <Image
-                  src="/images/circle-director-hero.jpg"
-                  alt="Peers Global leadership summit with engaging entrepreneurs"
-                  fill
-                  className="object-cover object-top"
-                  priority
+            {/* Fade Video Visual (Right 60%) */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+              }}
+            >
+              {heroMedia.isYouTube && heroMedia.embedUrl ? (
+                <iframe
+                  src={`${heroMedia.embedUrl}&mute=1&loop=1`}
+                  title={heroMedia.title}
+                  className="w-full h-full border-0 object-cover pointer-events-none scale-125"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 />
+              ) : (
+                <video
+                  key={heroMedia.mediaUrl}
+                  src={heroMedia.mediaUrl || '/videos/leadership-hero-bg.mp4'}
+                  poster="/images/circle-director-hero.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover object-top scale-105"
+                />
+              )}
+              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
 
-                {/* Soft gradient horizontal fade on the left edge */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+              {/* Wall Signage Banner Overlay on Top Right */}
+              <div className="absolute top-6 sm:top-10 right-6 sm:right-10 bg-white/95 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg border border-white/60 max-w-[210px] z-20 text-right">
+                <p className="text-sm font-bold text-slate-900 leading-tight">
+                  Leaders
+                </p>
+                <p className="text-sm font-bold text-slate-900 leading-tight">
+                  Build People.
+                </p>
+                <p className="text-xs font-semibold text-slate-600 leading-tight mt-0.5">
+                  People Build
+                </p>
+                <p className="text-xs font-bold text-[#0062D2] leading-tight">
+                  A Brighter Tomorrow.
+                </p>
+              </div>
 
-                {/* Top/Bottom ambient shading */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/70 to-transparent pointer-events-none z-10" />
+              {/* Cursive overlay on bottom right */}
+              <div className="absolute bottom-6 sm:bottom-10 right-6 sm:right-10 text-right z-20 max-w-[260px] drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
+                <p
+                  className="text-lg sm:text-xl font-light italic leading-tight text-white font-medium"
+                  style={{ fontFamily: 'var(--font-script)' }}
+                >
+                  More Leaders.
+                  <br />
+                  More Entrepreneurs.
+                  <br />
+                  <span className="text-amber-300 font-bold">A Stronger World.</span>
+                </p>
+              </div>
+            </div>
 
-                {/* Wall Signage Banner Overlay on Top Right */}
-                <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg border border-white/60 max-w-[210px] z-20 text-right">
-                  <p className="text-sm font-bold text-slate-900 leading-tight">
-                    Leaders
-                  </p>
-                  <p className="text-sm font-bold text-slate-900 leading-tight">
-                    Build People.
-                  </p>
-                  <p className="text-xs font-semibold text-slate-600 leading-tight mt-0.5">
-                    People Build
-                  </p>
-                  <p className="text-xs font-bold text-[#0062D2] leading-tight">
-                    A Brighter Tomorrow.
-                  </p>
+            {/* Left Content (Z-10) */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl flex flex-col items-start">
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
+                  <span className="w-5 h-px bg-[#0062D2]" />
+                  LEADERSHIP
+                  <span className="w-5 h-px bg-[#0062D2]" />
                 </div>
 
-                {/* Cursive overlay on bottom right */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[260px]">
-                  <p
-                    className="text-lg sm:text-xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
-                    style={{ fontFamily: 'var(--font-script)' }}
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
+                  Apply to Lead
+                </h1>
+
+                <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
+                  Every leadership role at Peers Global begins with a conversation.
+                </p>
+
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6 max-w-2xl font-light">
+                  Tell us which role interests you, and someone who holds one will speak with you.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4 mb-8">
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
                   >
-                    More Leaders.
-                    <br />
-                    More Entrepreneurs.
-                    <br />
-                    A Stronger World.
-                  </p>
+                    <span>Download Unity App</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+
+                  <button
+                    onClick={handleScrollToForm}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 cursor-pointer"
+                  >
+                    <span>Express Interest ↓</span>
+                  </button>
+                </div>
+
+                {/* 3 Value Props Bar */}
+                <div className="pt-4 grid grid-cols-3 gap-3 border-t border-slate-200/80 w-full">
+                  {VALUE_PROPS.map((prop) => {
+                    const Icon = prop.icon
+                    return (
+                      <div key={prop.title} className="space-y-0.5">
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
+                          <Icon className="w-4 h-4 text-[#0062D2]" />
+                          <span>{prop.title}</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 font-medium leading-tight">
+                          {prop.sub}
+                        </p>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ─── SECTION 2: BEFORE YOU APPLY ─────────────────────────────────── */}
-      <section className="py-14 sm:py-16 bg-white border-y border-slate-200/80">
+      <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-white border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
