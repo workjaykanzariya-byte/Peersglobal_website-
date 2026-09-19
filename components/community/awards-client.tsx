@@ -39,7 +39,7 @@ const AWARD_CATEGORIES = [
     title: 'Life Impactor of the Year',
     desc: 'The Peer with the highest confirmed impact across the community.',
     icon: Trophy,
-    color: 'text-amber-600 bg-amber-50 border-amber-200',
+    color: 'text-blue-600 bg-blue-50 border-blue-200',
   },
   {
     title: 'Top Impact Creators',
@@ -51,7 +51,7 @@ const AWARD_CATEGORIES = [
     title: 'Collaboration of the Year',
     desc: 'The single collaboration that produced the most, between two Peers who met in a Circle.',
     icon: HeartHandshake,
-    color: 'text-blue-600 bg-blue-50 border-blue-200',
+    color: 'text-sky-600 bg-sky-50 border-sky-200',
   },
   {
     title: 'Circle of the Year',
@@ -87,7 +87,7 @@ const AWARD_CATEGORIES = [
     title: 'Powerhouse Member of the Year',
     desc: 'The committee role held best with tireless execution and accountability.',
     icon: Sparkles,
-    color: 'text-orange-600 bg-orange-50 border-orange-200',
+    color: 'text-blue-600 bg-blue-50 border-blue-200',
   },
 ]
 
@@ -153,49 +153,52 @@ export function AwardsClient() {
       : PAST_WINNERS.filter((w) => w.year === selectedYear)
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] antialiased">
+    <div className="min-h-screen bg-white text-slate-900 antialiased font-sans selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ─── */}
-      <div className="border-b border-[#EADFC7]/60 bg-[#FAF6EE]/90 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-neutral-600">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30 shadow-2xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-[#0062D2] transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <Link href="/community" className="hover:text-neutral-900 transition-colors">
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <Link href="/events" className="hover:text-[#0062D2] transition-colors">
             Community Life
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Awards &amp; Recognition</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-bold">Awards &amp; Recognition</span>
         </div>
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-20 border-b border-[#EADFC7]/60 overflow-hidden">
+      <section className="relative pt-12 pb-16 md:pt-16 md:pb-20 border-b border-slate-200/80 overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF]">
+        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-blue-200/40 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute -top-10 -left-10 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-[100px] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF4E8] border border-[#E8DFC9] text-xs font-bold uppercase tracking-wider text-[#8C6422]">
-                <Trophy className="w-3.5 h-3.5 text-[#8C6422]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-200 shadow-2xs text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <Trophy className="w-3.5 h-3.5 text-[#0062D2]" />
                 HONOURING CONTRIBUTION
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#162039] tracking-tight leading-[1.08] font-bold">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#061836] tracking-tight leading-[1.08] font-bold">
                 Awards &amp; Recognition
               </h1>
 
-              <p className="text-xl sm:text-2xl font-serif text-[#2B3B5E] font-medium leading-snug">
+              <p className="text-xl sm:text-2xl font-serif text-slate-700 font-medium leading-snug">
                 We do not recognise the largest business in the room.
               </p>
 
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl font-normal leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed">
                 We recognise the entrepreneur who did the most for everyone else in it.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95 uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-wider"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
@@ -205,13 +208,13 @@ export function AwardsClient() {
 
             {/* Right Visual: Recognition Ceremony Award Card */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#D5C7B0]/60 bg-[#162039] p-8 text-white group">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-[#061836] p-8 text-white group">
                 <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                  <Trophy className="w-48 h-48 text-[#D4AF37]" />
+                  <Trophy className="w-48 h-48 text-sky-400" />
                 </div>
 
                 <div className="space-y-6 relative z-10">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-xs font-mono font-bold text-[#D4AF37] uppercase">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 border border-sky-400/40 text-xs font-mono font-bold text-sky-300 uppercase">
                     Annual Standards
                   </div>
 
@@ -219,18 +222,18 @@ export function AwardsClient() {
                     Recognition is earned in public
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     Every action at Peers Global is logged in the Unity App and confirmed by the Peer who received it.
                   </p>
 
                   <div className="p-4 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm space-y-1">
-                    <span className="text-[11px] uppercase tracking-wider text-[#D4AF37] font-bold block">
+                    <span className="text-[11px] uppercase tracking-wider text-sky-400 font-bold block">
                       Core Principle
                     </span>
                     <p className="text-lg font-serif font-bold text-white">
                       1 Action = 1 Life Impacted
                     </p>
-                    <p className="text-xs text-neutral-300 leading-normal">
+                    <p className="text-xs text-slate-300 leading-normal">
                       Nobody nominates themselves. Nobody lobbies. Recognition follows confirmed giving.
                     </p>
                   </div>
@@ -242,13 +245,16 @@ export function AwardsClient() {
       </section>
 
       {/* ─── Recognition happens all year ─── */}
-      <section className="py-12 border-b border-[#EADFC7]/60 bg-[#FAF7F0]/40">
+      <section className="py-14 border-b border-slate-200/80 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+          <div className="max-w-2xl space-y-1">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              — YEAR-ROUND SYSTEM —
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#061836]">
               Recognition happens all year
             </h2>
-            <p className="text-sm text-neutral-600 mt-1">
+            <p className="text-sm text-slate-600">
               Awards are annual. Recognition is continuous across four distinct stages.
             </p>
           </div>
@@ -282,20 +288,20 @@ export function AwardsClient() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white border border-[#E8DFC9] shadow-2xs space-y-3"
+                className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow space-y-3"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#0D6EFD] flex items-center justify-center border border-blue-100">
+                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                     <item.icon className="w-4 h-4" />
                   </div>
-                  <span className="text-xs font-mono font-bold text-neutral-400">
+                  <span className="text-xs font-mono font-bold text-slate-400">
                     {item.step}
                   </span>
                 </div>
-                <h3 className="text-base font-serif font-bold text-neutral-900 leading-snug">
+                <h3 className="text-base font-serif font-bold text-[#061836] leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-xs text-neutral-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </div>
@@ -305,21 +311,21 @@ export function AwardsClient() {
       </section>
 
       {/* ─── The Categories ─── */}
-      <section className="py-14 border-b border-[#EADFC7]/60">
+      <section className="py-14 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2 max-w-xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#8C6422]">
-                Official Honours
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                — OFFICIAL HONOURS —
               </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#061836]">
                 The Award Categories
               </h2>
-              <p className="text-sm text-neutral-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Measured strictly on verified peer collaboration, growth, retention, and confirmed lives impacted.
               </p>
             </div>
-            <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-800 font-medium shrink-0">
+            <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-[#0062D2] font-semibold shrink-0">
               Verified from Unity App ledger records
             </div>
           </div>
@@ -328,16 +334,16 @@ export function AwardsClient() {
             {AWARD_CATEGORIES.map((cat, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white border border-[#E8DFC9] shadow-2xs hover:shadow-md transition-shadow space-y-3 flex flex-col justify-between"
+                className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-blue-300 transition-all space-y-3 flex flex-col justify-between group"
               >
                 <div className="space-y-3">
-                  <div className={`w-10 h-10 rounded-xl ${cat.color} flex items-center justify-center border shrink-0`}>
+                  <div className={`w-10 h-10 rounded-xl ${cat.color} flex items-center justify-center border shrink-0 transition-transform duration-300 group-hover:scale-110`}>
                     <cat.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-neutral-900 leading-snug">
+                  <h3 className="text-lg font-serif font-bold text-[#061836] leading-snug group-hover:text-[#0062D2] transition-colors">
                     {cat.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {cat.desc}
                   </p>
                 </div>
@@ -348,28 +354,31 @@ export function AwardsClient() {
       </section>
 
       {/* ─── The Recognition Wall & Past Winners ─── */}
-      <section className="py-14 border-b border-[#EADFC7]/60 bg-[#FAF7F0]/40">
+      <section className="py-14 border-b border-slate-200/80 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                — ROLL OF HONOUR —
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#061836]">
                 The Recognition Wall &amp; Past Winners
               </h2>
-              <p className="text-sm text-neutral-600">
+              <p className="text-sm text-slate-600">
                 Recognition here is earned in public and displayed in public.
               </p>
             </div>
 
             {/* Filter buttons */}
-            <div className="inline-flex p-1 rounded-xl bg-neutral-200/60 border border-[#D5C7B0]">
+            <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
               {(['all', '2025', '2024'] as const).map((yr) => (
                 <button
                   key={yr}
                   onClick={() => setSelectedYear(yr)}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold capitalize transition-all ${
                     selectedYear === yr
-                      ? 'bg-[#0D6EFD] text-white shadow-sm'
-                      : 'text-neutral-700 hover:text-neutral-900'
+                      ? 'bg-[#0062D2] text-white shadow-sm'
+                      : 'text-slate-700 hover:text-slate-900'
                   }`}
                 >
                   {yr === 'all' ? 'All Years' : yr}
@@ -383,23 +392,23 @@ export function AwardsClient() {
             {filteredWinners.map((winner, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-[#E8DFC9] overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+                className="rounded-3xl bg-white border border-slate-200/80 overflow-hidden shadow-2xs hover:shadow-xl hover:border-blue-300 transition-all flex flex-col justify-between group"
               >
-                <div className="relative h-44 w-full bg-neutral-100">
+                <div className="relative h-44 w-full bg-slate-900">
                   <Image
                     src={winner.image}
                     alt={winner.name}
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#040e24]/90 via-[#040e24]/30 to-transparent" />
                   <div className="absolute top-3 right-3">
-                    <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-mono font-bold text-[#D4AF37] border border-white/20">
+                    <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-mono font-bold text-sky-400 border border-white/20">
                       {winner.year}
                     </span>
                   </div>
                   <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <span className="text-[11px] font-mono text-[#D4AF37] uppercase font-semibold block">
+                    <span className="text-[11px] font-mono text-sky-300 uppercase font-semibold block">
                       {winner.award}
                     </span>
                     <h4 className="text-lg font-serif font-bold text-white leading-tight">
@@ -408,17 +417,17 @@ export function AwardsClient() {
                   </div>
                 </div>
 
-                <div className="p-4 space-y-3 text-xs">
-                  <div className="space-y-1 text-neutral-600">
-                    <p className="font-semibold text-neutral-900">{winner.business}</p>
-                    <p className="flex items-center gap-1 text-neutral-500 text-[11px]">
-                      <MapPin className="w-3.5 h-3.5" />
+                <div className="p-5 space-y-3 text-xs">
+                  <div className="space-y-1 text-slate-600">
+                    <p className="font-bold text-slate-900 text-sm">{winner.business}</p>
+                    <p className="flex items-center gap-1 text-slate-500 text-[11px]">
+                      <MapPin className="w-3.5 h-3.5 text-[#0062D2]" />
                       {winner.city} · {winner.circle}
                     </p>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-[#FAF4E8] border border-[#E8DFC9] text-neutral-800 leading-relaxed">
-                    <strong className="text-neutral-900 font-semibold block text-[11px] text-[#8C6422] uppercase tracking-wider mb-0.5">
+                  <div className="p-3.5 rounded-xl bg-blue-50/60 border border-blue-100 text-slate-800 leading-relaxed">
+                    <strong className="text-slate-900 font-bold block text-[11px] text-[#0062D2] uppercase tracking-wider mb-0.5">
                       What they gave:
                     </strong>
                     {winner.contribution}
@@ -433,7 +442,7 @@ export function AwardsClient() {
       {/* ─── Closing Banner ─── */}
       <section
         id="download-unity"
-        className="relative py-20 bg-[#0B1220] text-white overflow-hidden border-t border-slate-800"
+        className="relative py-20 bg-[#040E24] text-white overflow-hidden border-t border-slate-900"
       >
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <Image
@@ -451,7 +460,7 @@ export function AwardsClient() {
               <br />
               It is how many lives you impact.”
             </p>
-            <p className="text-xs font-mono uppercase tracking-widest text-[#D4AF37]">
+            <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
               — Peers Global Standard
             </p>
           </div>
@@ -459,7 +468,7 @@ export function AwardsClient() {
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(0,98,210,0.35)] transition-all uppercase tracking-wider active:scale-95"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold shadow-lg hover:shadow-xl transition-all uppercase tracking-wider active:scale-[0.98]"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />

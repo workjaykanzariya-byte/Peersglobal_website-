@@ -375,7 +375,7 @@ export function InsightsPageClient() {
   }, [selectedCategory, selectedIndustry, selectedAuthor, searchQuery])
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -400,7 +400,7 @@ export function InsightsPageClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (THOUGHTFUL ENTREPRENEUR & EDGE FADE) ────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -456,11 +456,11 @@ export function InsightsPageClient() {
                   priority
                 />
 
-                {/* Soft horizontal gradient edge fade on the left edge smoothly blending into #FDFBF7 */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                {/* Soft horizontal gradient edge fade on the left edge smoothly blending into page background */}
+                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none z-10" />
 
                 {/* Stage Backdrop Brand Overlay on Top Right */}
@@ -811,7 +811,7 @@ export function InsightsPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left Column: Written by Peers */}
-            <div className="lg:col-span-6 bg-[#FDFBF7] rounded-3xl p-7 sm:p-9 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
+            <div className="lg:col-span-6 bg-[#F8FAFC] rounded-3xl p-7 sm:p-9 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
                   — WRITTEN BY PEERS —

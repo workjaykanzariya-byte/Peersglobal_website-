@@ -239,7 +239,7 @@ export function EventsPageClient() {
       : UPCOMING_EVENTS.filter((e) => e.city === selectedCity)
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -261,7 +261,7 @@ export function EventsPageClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (WITH AUDITORIUM SPEAKER & EDGE FADE) ────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content Column */}
@@ -323,10 +323,10 @@ export function EventsPageClient() {
                 />
 
                 {/* Soft horizontal gradient fade on the left edge blending into page background */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient Top & Bottom Gradients */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent pointer-events-none z-10" />
 
                 {/* Stage Backdrop Brand Overlay on Top Right */}
@@ -418,7 +418,7 @@ export function EventsPageClient() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Box: How a guest attends */}
-            <div className="lg:col-span-5 bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
+            <div className="lg:col-span-5 bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-xs">
                   <Smartphone className="w-6 h-6" />
@@ -482,7 +482,7 @@ export function EventsPageClient() {
       </section>
 
       {/* ─── SECTION 3: WHAT WE RUN (10 EVENT TYPES) ─────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -640,7 +640,7 @@ export function EventsPageClient() {
       </section>
 
       {/* ─── SECTION 4: THREE-COLUMN SECTION ─────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Column 1: How Events Work */}

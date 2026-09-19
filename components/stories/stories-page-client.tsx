@@ -279,7 +279,7 @@ export function StoriesPageClient() {
   }, [selectedCity, selectedCircle, selectedIndustry, selectedWay, searchQuery])
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -299,7 +299,7 @@ export function StoriesPageClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (TWO PEERS HANDSHAKE & SEAMLESS FADE) ───────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -359,11 +359,11 @@ export function StoriesPageClient() {
                   priority
                 />
 
-                {/* Soft horizontal gradient fade on the left edge smoothly blending into #FDFBF7 */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                {/* Soft horizontal gradient fade on the left edge smoothly blending into page background */}
+                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none z-10" />
 
                 {/* Stage Backdrop Brand Overlay on Top Right */}
@@ -521,7 +521,7 @@ export function StoriesPageClient() {
       </section>
 
       {/* ─── SECTION 3: BROWSE THE STORIES (FILTERS & SEARCH) ─────────────── */}
-      <section className="py-12 bg-[#FDFBF7] border-b border-slate-200/80">
+      <section className="py-12 bg-slate-50 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -767,7 +767,7 @@ export function StoriesPageClient() {
       </section>
 
       {/* ─── SECTION 5: THE KINDS OF STORIES THIS COMMUNITY PRODUCES ─────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight">
@@ -820,7 +820,7 @@ export function StoriesPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1: How stories are recorded */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <Compass className="w-6 h-6" />
@@ -850,7 +850,7 @@ export function StoriesPageClient() {
             {/* Card 2: Share your story */}
             <div
               id="share-story"
-              className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between scroll-mt-20"
+              className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between scroll-mt-20"
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
@@ -881,7 +881,7 @@ export function StoriesPageClient() {
             </div>
 
             {/* Card 3: One million lives */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <Target className="w-6 h-6" />

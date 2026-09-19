@@ -233,7 +233,7 @@ export function PodcastMediaClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -258,7 +258,7 @@ export function PodcastMediaClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (STUDIO PODCAST & EDGE FADE) ────────────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -305,11 +305,11 @@ export function PodcastMediaClient() {
                   priority
                 />
 
-                {/* Soft horizontal gradient edge fade on the left edge seamlessly blending into #FDFBF7 */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                {/* Soft horizontal gradient edge fade on the left edge seamlessly blending into page background */}
+                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none z-10" />
 
                 {/* Podcast Neon Badge Overlay on Upper Left of Visual */}
@@ -468,7 +468,7 @@ export function PodcastMediaClient() {
       </section>
 
       {/* ─── SECTION 3: WHAT WE PUBLISH (5 PUBLISHING FORMATS) ───────────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -652,7 +652,7 @@ export function PodcastMediaClient() {
       </section>
 
       {/* ─── SECTION 5: MEDIA ENQUIRIES & NOMINATE A PEER ─────────────────── */}
-      <section className="py-14 sm:py-20 bg-[#FDFBF7] border-t border-slate-200/80">
+      <section className="py-14 sm:py-20 bg-[#F8FAFC] border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Left Card: Media Enquiries */}
