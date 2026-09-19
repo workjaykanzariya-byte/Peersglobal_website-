@@ -144,25 +144,27 @@ export function SiteHeader() {
 
               if (item.type === 'direct') {
                 return (
-                  <Link
+                  <div
                     key={item.label}
-                    ref={(el) => {
-                      itemRefs.current[item.label] = el
-                    }}
-                    href={item.href}
-                    onMouseEnter={() => {
-                      if (hoverTimer.current) clearTimeout(hoverTimer.current)
-                      setOpenMenu(null)
-                    }}
-                    className={cn(
-                      'relative z-10 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap',
-                      isHovered || (isActive && !openMenu)
-                        ? 'text-[#1E4ED8] font-semibold'
-                        : 'text-slate-700 hover:text-[#1E4ED8]'
-                    )}
+                    className="relative py-2"
+                    onMouseEnter={() => handleMouseEnter(item.label)}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    {item.label}
-                  </Link>
+                    <Link
+                      ref={(el) => {
+                        itemRefs.current[item.label] = el
+                      }}
+                      href={item.href}
+                      className={cn(
+                        'relative z-10 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap inline-flex items-center',
+                        isHovered || (isActive && !openMenu)
+                          ? 'text-[#1E4ED8] font-semibold'
+                          : 'text-slate-700 hover:text-[#1E4ED8]'
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </div>
                 )
               }
 

@@ -36,62 +36,65 @@ import {
 
 export function LearningPillarClient() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] antialiased">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900 antialiased">
       {/* ─── Breadcrumb ─── */}
-      <div className="border-b border-[#EADFC7]/60 bg-[#FAF6EE]/90 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-neutral-600">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <Link href="/learning" className="hover:text-neutral-900 transition-colors">
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <Link href="/learning" className="hover:text-slate-900 transition-colors">
             Growth &amp; Learning
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Learning</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Learning</span>
         </div>
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-20 border-b border-[#EADFC7]/60 overflow-hidden">
-        {/* Soft atmospheric gradient */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F3ECE0]/70 to-transparent pointer-events-none" />
-
+      <section className="relative pt-12 pb-16 md:pt-16 md:pb-20 border-b border-slate-200/80 overflow-hidden bg-gradient-to-b from-[#F0F5FD] via-[#FBFCFE] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EBF2FE] border border-[#D0E1FD] text-xs font-bold uppercase tracking-wider text-[#0D6EFD]">
-                <span className="w-2 h-2 rounded-full bg-[#0D6EFD] animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                <span className="w-2 h-2 rounded-full bg-[#0062D2] animate-pulse" />
                 GROWTH &amp; LEARNING
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#162039] tracking-tight leading-[1.08] font-bold">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
                 Learning
               </h1>
 
-              <p className="text-xl sm:text-2xl font-serif text-[#2B3B5E] font-medium leading-snug">
+              <p className="text-xl sm:text-2xl font-serif text-[#1e3a8a] italic font-normal leading-snug">
                 From people who built the thing they are teaching.
               </p>
 
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl font-normal leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed">
                 Not theory. What actually works.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="#download-unity"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all uppercase tracking-wider"
+                >
+                  Join Peers Global
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-sm font-semibold transition-all shadow-xs"
                 >
                   Download Unity App
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Right Visual with Book Stack Graphic */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-[#D5C7B0]/60 bg-[#142038] group">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-[#0B1220] group">
                 <div className="relative h-72 sm:h-80 w-full overflow-hidden">
                   <Image
                     src="/images/culture-hero-desk.jpg"
@@ -100,11 +103,11 @@ export function LearningPillarClient() {
                     className="object-cover object-center opacity-85 group-hover:scale-105 transition-transform duration-700"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1528] via-[#0B1528]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/40 to-transparent" />
                   
                   {/* Calligraphy Overlay */}
                   <div className="absolute top-6 left-6 z-10">
-                    <p className="font-serif italic text-white/95 text-lg sm:text-xl drop-shadow-md leading-tight">
+                    <p className="font-serif italic text-white/95 text-lg sm:text-xl drop-shadow-md leading-tight font-bold">
                       Real Experience.
                       <br />
                       <span className="text-[#D4AF37]">Real Lessons.</span>
@@ -139,7 +142,7 @@ export function LearningPillarClient() {
           </div>
 
           {/* 4 Stats Pill Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10 mt-10 border-t border-[#EADFC7]/70">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10 mt-10 border-t border-slate-200/80">
             {[
               { icon: GraduationCap, label: '100+ Masterclasses Annually' },
               { icon: CheckCircle2, label: 'Practical & Proven' },
@@ -148,12 +151,12 @@ export function LearningPillarClient() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="p-4 rounded-xl bg-white/80 backdrop-blur-sm border border-[#E8DFC9] flex items-center gap-3.5 shadow-xs"
+                className="p-4 rounded-2xl bg-white border border-slate-200 flex items-center gap-3.5 shadow-xs hover:border-blue-200 transition-colors"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#FAF4E8] text-[#8C6422] flex items-center justify-center shrink-0 border border-[#EADFC7]">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
                   <stat.icon className="w-5 h-5" />
                 </div>
-                <span className="text-xs sm:text-sm font-serif font-bold text-neutral-800 leading-snug">
+                <span className="text-xs sm:text-sm font-serif font-bold text-slate-800 leading-snug">
                   {stat.label}
                 </span>
               </div>
@@ -163,42 +166,42 @@ export function LearningPillarClient() {
       </section>
 
       {/* ─── The L in LSR Section ─── */}
-      <section className="py-12 border-b border-[#EADFC7]/60">
+      <section className="py-16 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             {/* Left Card: The L in LSR */}
-            <div className="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-white border border-[#EADFC7] shadow-xs flex flex-col justify-between">
+            <div className="lg:col-span-8 p-6 sm:p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0D6EFD] flex items-center justify-center border border-blue-100">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                     <Shield className="w-5 h-5" />
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0D1F47]">
                     The L in LSR
                   </h2>
                 </div>
 
-                <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-                  Peers Global runs on the <strong className="text-neutral-900 font-semibold">LSR Growth Model — Learning, Sales and Resources</strong>.
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  Peers Global runs on the <strong className="text-slate-900 font-semibold">LSR Growth Model — Learning, Sales and Resources</strong>.
                 </p>
 
-                <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   Learning comes first because everything else follows from it. A Peer who understands their market better makes better decisions, asks better questions, and gives better advice to the room.
                 </p>
 
-                <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   All of it comes from practitioners. Nobody here teaches something they have not done.
                 </p>
               </div>
             </div>
 
             {/* Right Card: Quote */}
-            <div className="lg:col-span-4 p-6 sm:p-8 rounded-2xl bg-[#FFFDF9] border border-[#E8DFC9] shadow-xs flex flex-col justify-center items-center text-center relative overflow-hidden">
-              <span className="text-5xl font-serif text-[#C59B4B]/30 select-none">“</span>
-              <blockquote className="font-serif text-xl sm:text-2xl text-[#142038] font-bold italic leading-snug -mt-4 mb-3">
+            <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-center items-center text-center relative overflow-hidden">
+              <span className="text-5xl font-serif text-[#0062D2]/20 select-none">“</span>
+              <blockquote className="font-serif text-xl sm:text-2xl text-[#0D1F47] font-bold italic leading-snug -mt-4 mb-3">
                 “Learn from experience, not theory.”
               </blockquote>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#8C6422]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
                 — Peers Global
               </p>
             </div>
@@ -207,42 +210,42 @@ export function LearningPillarClient() {
       </section>
 
       {/* ─── Impact Mentor Masterclasses ─── */}
-      <section className="py-14 border-b border-[#EADFC7]/60 bg-[#FAF7F0]/50">
+      <section className="py-16 border-b border-slate-200/80 bg-[#FAF7F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0D6EFD] flex items-center justify-center border border-blue-100">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <Presentation className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0D1F47]">
                   Impact Mentor Masterclasses
                 </h2>
               </div>
 
-              <p className="text-lg font-serif italic text-[#394B6E] font-medium">
+              <p className="text-lg font-serif italic text-[#1e3a8a] font-normal">
                 One expert. One subject. Twenty minutes of pure, applicable insight.
               </p>
 
-              <div className="space-y-3 text-sm sm:text-base text-neutral-600 leading-relaxed">
+              <div className="space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed">
                 <p>
                   Every Circle meeting includes one. Not a motivational talk. Not a general overview. One subject, taught properly, by someone who has done it — and short enough that it stays practical.
                 </p>
                 <p>
-                  Subjects come from what the room actually needs, programmed by the <strong className="text-neutral-900 font-semibold">Skill Development Leader</strong> on each Circle&apos;s Events &amp; Impact Committee.
+                  Subjects come from what the room actually needs, programmed by the <strong className="text-slate-900 font-semibold">Skill Development Leader</strong> on each Circle&apos;s Events &amp; Impact Committee.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <div className="p-3.5 rounded-xl bg-white border border-[#E8DFC9] flex items-center gap-3">
-                  <GraduationCap className="w-5 h-5 text-[#0D6EFD] shrink-0" />
-                  <span className="text-xs sm:text-sm font-medium text-neutral-800">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 flex items-center gap-3 shadow-xs">
+                  <GraduationCap className="w-5 h-5 text-[#0062D2] shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium text-slate-800">
                     Twelve masterclasses a year, in every Circle.
                   </span>
                 </div>
-                <div className="p-3.5 rounded-xl bg-white border border-[#E8DFC9] flex items-center gap-3">
-                  <Award className="w-5 h-5 text-[#8C6422] shrink-0" />
-                  <span className="text-xs sm:text-sm font-medium text-neutral-800">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 flex items-center gap-3 shadow-xs">
+                  <Award className="w-5 h-5 text-[#0062D2] shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium text-slate-800">
                     Programmed by the Skill Development Leader.
                   </span>
                 </div>
@@ -251,7 +254,7 @@ export function LearningPillarClient() {
 
             {/* Right Speaker Image */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#D5C7B0]/60 group h-64 sm:h-72">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group h-64 sm:h-72">
                 <Image
                   src="/images/industry-director-speaker.jpg"
                   alt="Impact Mentor Masterclass Speaker"
@@ -260,10 +263,10 @@ export function LearningPillarClient() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-4 left-5 right-5 text-white">
-                  <p className="text-xs uppercase tracking-widest font-mono text-[#D4AF37] font-semibold mb-1">
+                  <p className="text-xs uppercase tracking-widest font-mono text-amber-300 font-semibold mb-1">
                     Practitioner Driven
                   </p>
-                  <p className="font-serif italic text-lg text-white/95">
+                  <p className="font-serif italic text-lg text-white/95 font-bold">
                     Practical. Relevant. Actionable.
                   </p>
                 </div>
@@ -273,7 +276,7 @@ export function LearningPillarClient() {
 
           {/* What gets taught grid */}
           <div className="space-y-4 pt-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#8C6422]">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
               What gets taught:
             </h3>
 
@@ -330,16 +333,16 @@ export function LearningPillarClient() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-white border border-[#E8DFC9] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
+                  className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
                 >
                   <div className="space-y-2">
                     <div className={`w-8 h-8 rounded-lg ${item.color} flex items-center justify-center border shrink-0`}>
                       <item.icon className="w-4 h-4" />
                     </div>
-                    <h4 className="text-sm font-serif font-bold text-neutral-900 leading-snug">
+                    <h4 className="text-sm font-serif font-bold text-slate-900 leading-snug">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-neutral-500 leading-normal">
+                    <p className="text-xs text-slate-500 leading-normal">
                       {item.detail}
                     </p>
                   </div>
@@ -347,32 +350,32 @@ export function LearningPillarClient() {
               ))}
             </div>
 
-            <p className="text-xs sm:text-sm text-neutral-600 pt-2">
-              <strong className="text-neutral-900 font-semibold">Who teaches:</strong> Peers, Industry Directors, and invited experts brought in by Circle Directors.
+            <p className="text-xs sm:text-sm text-slate-600 pt-2">
+              <strong className="text-slate-900 font-semibold">Who teaches:</strong> Peers, Industry Directors, and invited experts brought in by Circle Directors.
             </p>
           </div>
         </div>
       </section>
 
       {/* ─── Business Playbooks ─── */}
-      <section className="py-14 border-b border-[#EADFC7]/60">
+      <section className="py-16 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0D6EFD] flex items-center justify-center border border-blue-100">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <BookOpen className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0D1F47]">
                   Business Playbooks
                 </h2>
               </div>
 
-              <p className="text-lg font-serif italic text-[#394B6E] font-medium">
+              <p className="text-lg font-serif italic text-[#1e3a8a] font-normal">
                 What worked, written down by the person it worked for.
               </p>
 
-              <div className="space-y-3 text-sm sm:text-base text-neutral-600 leading-relaxed">
+              <div className="space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed">
                 <p>
                   A playbook is what a masterclass becomes when it is written down properly.
                 </p>
@@ -385,11 +388,11 @@ export function LearningPillarClient() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#D5C7B0] text-xs font-semibold text-neutral-800">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF7F0] border border-slate-200 text-xs font-semibold text-slate-800">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                   Written by Peers, for Peers
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#D5C7B0] text-xs font-semibold text-neutral-800">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF7F0] border border-slate-200 text-xs font-semibold text-slate-800">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
                   Real examples. Real outcomes.
                 </span>
@@ -398,9 +401,9 @@ export function LearningPillarClient() {
 
             {/* Right Playbook 3D Book Graphic */}
             <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-64 sm:w-72 h-80 rounded-xl bg-gradient-to-br from-[#1B2838] via-[#111923] to-[#0A0F17] p-6 text-white shadow-2xl border border-neutral-700/60 flex flex-col justify-between transform hover:-rotate-1 transition-transform group">
+              <div className="relative w-64 sm:w-72 h-80 rounded-2xl bg-gradient-to-br from-[#0B1220] via-[#111923] to-[#0A0F17] p-6 text-white shadow-2xl border border-slate-700/60 flex flex-col justify-between transform hover:-rotate-1 transition-transform group">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-neutral-700/80 pb-3">
+                  <div className="flex items-center justify-between border-b border-slate-700/80 pb-3">
                     <span className="text-[10px] uppercase font-mono tracking-widest text-[#D4AF37]">
                       Peers Global Library
                     </span>
@@ -413,13 +416,13 @@ export function LearningPillarClient() {
                     <br />
                     Playbooks
                   </h3>
-                  <p className="text-xs text-neutral-400 font-sans">
+                  <p className="text-xs text-slate-400 font-sans">
                     Documented battle-tested blueprints from founders who built the solution.
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                  <span className="text-xs font-serif italic text-neutral-300">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+                  <span className="text-xs font-serif italic text-slate-300">
                     Peers Global
                   </span>
                   <div className="w-6 h-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] text-xs font-bold">
@@ -432,7 +435,7 @@ export function LearningPillarClient() {
 
           {/* Available on Pills */}
           <div className="space-y-4 pt-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#8C6422]">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
               Available on:
             </h3>
 
@@ -448,26 +451,26 @@ export function LearningPillarClient() {
               ].map((pill, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-white border border-[#E8DFC9] shadow-2xs hover:shadow-md transition-all flex flex-col items-center text-center space-y-2"
+                  className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-slate-200 shadow-2xs hover:shadow-md transition-all flex flex-col items-center text-center space-y-2"
                 >
-                  <pill.icon className="w-5 h-5 text-[#8C6422]" />
-                  <span className="text-xs font-serif font-bold text-neutral-900 block">
+                  <pill.icon className="w-5 h-5 text-[#0062D2]" />
+                  <span className="text-xs font-serif font-bold text-slate-900 block">
                     {pill.title}
                   </span>
-                  <span className="text-[11px] text-neutral-500 leading-tight block">
+                  <span className="text-[11px] text-slate-500 leading-tight block">
                     {pill.desc}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="p-4 rounded-xl bg-[#FAF4E8] border border-[#E8DFC9] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-neutral-700">
+            <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-slate-700">
               <p>
-                <strong className="text-neutral-900 font-semibold">Write one:</strong> A masterclass reaches one room. A playbook reaches every Peer, in every city, for years.
+                <strong className="text-slate-900 font-semibold">Write one:</strong> A masterclass reaches one room. A playbook reaches every Peer, in every city, for years.
               </p>
               <Link
                 href="/playbooks"
-                className="text-[#0D6EFD] font-bold hover:underline shrink-0 inline-flex items-center gap-1"
+                className="text-[#0062D2] font-bold hover:underline shrink-0 inline-flex items-center gap-1"
               >
                 Browse Playbooks <ArrowRight className="w-3.5 h-3.5" />
               </Link>
@@ -477,61 +480,61 @@ export function LearningPillarClient() {
       </section>
 
       {/* ─── Mentors & Guides ─── */}
-      <section className="py-14 border-b border-[#EADFC7]/60 bg-[#FAF7F0]/50">
+      <section className="py-16 border-b border-slate-200/80 bg-[#FAF7F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0D6EFD] flex items-center justify-center border border-blue-100">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <Users className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0D1F47]">
                   Mentors &amp; Guides
                 </h2>
               </div>
 
-              <p className="text-lg font-serif italic text-[#394B6E] font-medium">
+              <p className="text-lg font-serif italic text-[#1e3a8a] font-normal">
                 Someone who has already been where you are going.
               </p>
 
-              <div className="space-y-3 text-sm sm:text-base text-neutral-600 leading-relaxed">
+              <div className="space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed">
                 <p>
                   Mentorship is one of the ten Forms of Collaboration. Not a programme bolted on — a defined practice, used throughout the community.
                 </p>
                 <p>
-                  <strong className="text-neutral-900 font-semibold">Finding a mentor:</strong> Search the community in the Unity App by industry, city, capability and standing. Or ask your Circle Director — they know the room.
+                  <strong className="text-slate-900 font-semibold">Finding a mentor:</strong> Search the community in the Unity App by industry, city, capability and standing. Or ask your Circle Director — they know the room.
                 </p>
                 <p>
-                  <strong className="text-neutral-900 font-semibold">Becoming a mentor:</strong> You do not need thirty years. You need to be further along than someone else on something specific. An entrepreneur three years ahead is often a better mentor than one thirty years ahead, because they remember the problem clearly.
+                  <strong className="text-slate-900 font-semibold">Becoming a mentor:</strong> You do not need thirty years. You need to be further along than someone else on something specific. An entrepreneur three years ahead is often a better mentor than one thirty years ahead, because they remember the problem clearly.
                 </p>
-                <p className="text-xs text-neutral-500 font-medium">
+                <p className="text-xs text-slate-500 font-medium">
                   Mentorship counts as one life impacted, like every other Form of Collaboration.
                 </p>
               </div>
 
               {/* 3 Pillars of Mentorship */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <div className="p-3.5 rounded-xl bg-white border border-[#E8DFC9] space-y-1">
-                  <span className="text-xs font-serif font-bold text-neutral-900 block">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 space-y-1 shadow-xs">
+                  <span className="text-xs font-serif font-bold text-slate-900 block">
                     Inside your Circle
                   </span>
-                  <span className="text-[11px] text-neutral-500 block leading-tight">
+                  <span className="text-[11px] text-slate-500 block leading-tight">
                     Sitting monthly with entrepreneurs further along than you is mentorship.
                   </span>
                 </div>
-                <div className="p-3.5 rounded-xl bg-white border border-[#E8DFC9] space-y-1">
-                  <span className="text-xs font-serif font-bold text-neutral-900 block">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 space-y-1 shadow-xs">
+                  <span className="text-xs font-serif font-bold text-slate-900 block">
                     Through one-to-ones
                   </span>
-                  <span className="text-[11px] text-neutral-500 block leading-tight">
+                  <span className="text-[11px] text-slate-500 block leading-tight">
                     Regular Peer-to-Peer with someone ten years ahead, sustained over time.
                   </span>
                 </div>
-                <div className="p-3.5 rounded-xl bg-white border border-[#E8DFC9] space-y-1">
-                  <span className="text-xs font-serif font-bold text-neutral-900 block">
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 space-y-1 shadow-xs">
+                  <span className="text-xs font-serif font-bold text-slate-900 block">
                     Peers Board of Advisory
                   </span>
-                  <span className="text-[11px] text-neutral-500 block leading-tight">
+                  <span className="text-[11px] text-slate-500 block leading-tight">
                     Every Circle has an Advisory Leader connecting Peers to senior advisors.
                   </span>
                 </div>
@@ -540,7 +543,7 @@ export function LearningPillarClient() {
 
             {/* Right Mentorship Photo */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#D5C7B0]/60 group h-64 sm:h-72">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group h-64 sm:h-72">
                 <Image
                   src="/images/who-we-are-friends.jpg"
                   alt="Peers Global Mentorship"
@@ -549,7 +552,7 @@ export function LearningPillarClient() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-4 left-5 right-5 text-white">
-                  <p className="font-serif italic text-lg text-white/95">
+                  <p className="font-serif italic text-lg text-white/95 font-bold">
                     Guidance. Perspective. Faster Progress.
                   </p>
                 </div>
@@ -560,48 +563,48 @@ export function LearningPillarClient() {
       </section>
 
       {/* ─── Teaching is Contribution ─── */}
-      <section className="py-12 border-b border-[#EADFC7]/60">
+      <section className="py-16 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             {/* Left Box */}
-            <div className="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-white border border-[#EADFC7] shadow-xs flex flex-col justify-between space-y-4">
+            <div className="lg:col-span-8 p-6 sm:p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0D6EFD] flex items-center justify-center border border-blue-100">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                     <Sparkles className="w-5 h-5" />
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#142038]">
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0D1F47]">
                     Teaching is contribution
                   </h2>
                 </div>
 
-                <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
                   Sharing what you know is one of the ten Forms of Collaboration.
                 </p>
 
-                <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   Teach a masterclass. Write a playbook. Mentor a Peer. Each one counts, and each one builds your standing across the community. Speak to your Circle Director or your Skill Development Leader.
                 </p>
               </div>
 
               <div className="pt-2">
-                <a
-                  href="#download-unity"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0D6EFD] text-white text-xs sm:text-sm font-bold hover:bg-blue-600 transition-all uppercase tracking-wider"
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] transition-all uppercase tracking-wider"
                 >
-                  Download Unity App
+                  Join as Contributor
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Right Quote */}
-            <div className="lg:col-span-4 p-6 sm:p-8 rounded-2xl bg-[#FFFDF9] border border-[#E8DFC9] shadow-xs flex flex-col justify-center items-center text-center relative overflow-hidden">
-              <span className="text-5xl font-serif text-[#C59B4B]/30 select-none">“</span>
-              <blockquote className="font-serif text-xl sm:text-2xl text-[#142038] font-bold italic leading-snug -mt-4 mb-3">
+            <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-center items-center text-center relative overflow-hidden">
+              <span className="text-5xl font-serif text-[#0062D2]/20 select-none">“</span>
+              <blockquote className="font-serif text-xl sm:text-2xl text-[#0D1F47] font-bold italic leading-snug -mt-4 mb-3">
                 “A rising tide lifts every entrepreneur.”
               </blockquote>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#8C6422]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
                 — Peers Global
               </p>
             </div>
@@ -612,7 +615,7 @@ export function LearningPillarClient() {
       {/* ─── Luxury Night Sky Closing Banner ─── */}
       <section
         id="download-unity"
-        className="relative py-20 bg-gradient-to-b from-[#0A111F] via-[#0D1B33] to-[#080E1A] text-white overflow-hidden"
+        className="relative py-20 bg-[#0B1220] text-white overflow-hidden border-t border-slate-800"
       >
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <Image
@@ -629,23 +632,29 @@ export function LearningPillarClient() {
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
                 Learn from experience, not theory.
               </h2>
-              <p className="text-sm sm:text-base text-neutral-300">
+              <p className="text-sm sm:text-base text-slate-300">
                 Join thousands of verified business leaders sharing practical frameworks and accelerating growth together.
               </p>
-              <div className="pt-2">
-                <a
-                  href="#download"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0D6EFD] text-white text-xs sm:text-sm font-bold hover:bg-blue-600 transition-all uppercase tracking-wider shadow-lg shadow-blue-500/30"
+              <div className="pt-2 flex flex-wrap gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.35)] transition-all uppercase tracking-wider"
+                >
+                  Apply to Join
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold transition-all backdrop-blur-sm"
                 >
                   Download Unity App
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Right Calligraphy Motto */}
             <div className="text-center md:text-right">
-              <p className="font-serif italic text-white/90 text-xl sm:text-2xl leading-relaxed drop-shadow-md">
+              <p className="font-serif italic text-white/90 text-xl sm:text-2xl leading-relaxed drop-shadow-md font-bold">
                 Build Your Business.
                 <br />
                 Build Your Relationships.

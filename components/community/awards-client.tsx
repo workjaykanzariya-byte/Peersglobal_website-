@@ -193,13 +193,13 @@ export function AwardsClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="#download-unity"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95 uppercase tracking-wider"
                 >
-                  Download Unity App
+                  <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -433,7 +433,7 @@ export function AwardsClient() {
       {/* ─── Closing Banner ─── */}
       <section
         id="download-unity"
-        className="relative py-20 bg-gradient-to-b from-[#0A111F] via-[#0D1B33] to-[#080E1A] text-white overflow-hidden"
+        className="relative py-20 bg-[#0B1220] text-white overflow-hidden border-t border-slate-800"
       >
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <Image
@@ -457,13 +457,13 @@ export function AwardsClient() {
           </div>
 
           <div className="pt-2">
-            <a
-              href="#download"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0D6EFD] text-white text-xs sm:text-sm font-bold hover:bg-blue-600 transition-all uppercase tracking-wider shadow-lg shadow-blue-500/30"
+            <Link
+              href="/unity"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(0,98,210,0.35)] transition-all uppercase tracking-wider active:scale-95"
             >
-              Download Unity App
+              <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

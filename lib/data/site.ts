@@ -149,8 +149,23 @@ export const HEADER_NAV: NavItem[] = [
   {
     label: 'Unity',
     href: '/unity',
-    type: 'direct',
+    type: 'mega',
     phase: 1,
+    ctaCard: {
+      eyebrow: 'Platform of Record',
+      title: 'Peers Unity App',
+      desc: 'The operating system for collaboration, logging contributions, and peer connections.',
+      ctaText: 'Explore Unity Platform →',
+      ctaHref: '/unity',
+    },
+    children: [
+      { label: 'Unity Overview', href: '/unity', desc: 'The unified platform & operating system', phase: 1 },
+      { label: 'Peer Standing', href: '/peer-standing', desc: 'Relational standing & community access', phase: 1 },
+      { label: 'Life Impact Score', href: '/life-impact-score', desc: '1 Action = 1 Life Impacted tracking', phase: 1 },
+      { label: 'Peers Coin', href: '/peers-coin', desc: 'Earned by helping peers, redeem in marketplace', phase: 1 },
+      { label: 'Impact Confirmation', href: '/impact-confirmation', desc: 'Bilateral verification of contributions', phase: 1 },
+      { label: 'Member Login', href: 'https://unity.peersglobal.com', desc: 'Launch the Unity Web App', phase: 1, external: true },
+    ],
   },
   {
     label: 'Community Life',

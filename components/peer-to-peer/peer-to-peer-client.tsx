@@ -55,54 +55,60 @@ const AGENDA_ITEMS = [
 
 export function PeerToPeerClient() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-[#EADFC7]/50 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <span>How We Collaborate</span>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Peer-to-Peer Meetings</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Peer-to-Peer Meetings</span>
         </div>
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-[#EADFC7]/60">
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F5FD] via-[#FBFCFE] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-700">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
                 <Coffee className="w-3.5 h-3.5" />
                 One-to-One Collaboration Engine
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
                 Peer-to-Peer
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
+              <p className="text-xl sm:text-2xl font-serif text-[#1e3a8a] italic leading-relaxed font-normal">
                 The Circle meeting introduces you. This is where the relationship is built.
               </p>
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
                 Two Peers, one hour, and no agenda except understanding each other&apos;s business properly.
               </p>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all"
+                >
+                  Join Peers Global
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-md"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-sm font-semibold transition-all shadow-xs"
                 >
                   Download Unity App
-                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
             {/* Right: Two Entrepreneurs Across Table Image */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#D8C7A5] shadow-2xl bg-[#E8DDD0]">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-slate-100">
                 <Image
                   src="/images/lexicon-team-understanding.jpg"
                   alt="Two entrepreneurs meeting one-to-one over coffee"
@@ -112,7 +118,7 @@ export function PeerToPeerClient() {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute top-4 right-4 text-right font-serif italic text-white/90 text-sm sm:text-base drop-shadow-md">
+                <div className="absolute top-4 right-4 text-right font-serif italic text-white/90 text-sm sm:text-base drop-shadow-md font-bold">
                   Two Peers.<br />One Hour.<br />Real Outcomes.
                 </div>
                 <div className="absolute bottom-5 left-5 right-5 text-white">
@@ -127,23 +133,23 @@ export function PeerToPeerClient() {
       </section>
 
       {/* ─── Where Collaboration Actually Begins ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF7F0]">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#8A7356] font-bold">
-            <span className="w-6 h-[1.5px] bg-[#B88746]" />
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             The Mechanism of Trust
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
             Where collaboration actually begins
           </h2>
-          <div className="prose prose-lg text-[#3D352E] leading-relaxed font-normal space-y-5">
-            <p className="text-lg sm:text-xl font-serif text-[#2B231B]">
+          <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5">
+            <p className="text-lg sm:text-xl font-serif text-[#0D1F47] font-semibold">
               A Circle meeting puts thirty entrepreneurs in a room together. That is valuable, and it is not enough.
             </p>
             <p>
               You cannot understand someone&apos;s business from a four-minute showcase. You cannot know what they need, who would be right for them, or what you could genuinely do for them.
             </p>
-            <p className="text-xl font-serif font-bold text-[#1A1A1A]">
+            <p className="text-xl font-serif font-bold text-[#0062D2]">
               That understanding happens one to one.
             </p>
             <p>
@@ -154,17 +160,17 @@ export function PeerToPeerClient() {
       </section>
 
       {/* ─── What a Peer-to-Peer Is (Checklist) ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#8A7356] font-bold">
-              <span className="w-6 h-[1.5px] bg-[#B88746]" />
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               The Framework
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
               What a Peer-to-Peer is
             </h2>
-            <p className="text-base text-neutral-600">
+            <p className="text-base text-slate-600">
               One hour. Two Peers. No agenda beyond understanding each other properly.
             </p>
           </div>
@@ -173,16 +179,16 @@ export function PeerToPeerClient() {
             {AGENDA_ITEMS.map((item) => (
               <div
                 key={item.number}
-                className="p-6 rounded-3xl bg-white border border-[#E8DFC9] shadow-xs flex items-start gap-4"
+                className="p-6 rounded-3xl bg-[#FAF7F0] border border-slate-200 shadow-xs flex items-start gap-4 hover:shadow-md transition-shadow"
               >
-                <span className="w-10 h-10 rounded-2xl bg-[#FAF4E6] border border-[#EADBBD] text-[#8C6422] font-mono font-bold text-sm flex items-center justify-center shrink-0">
+                <span className="w-10 h-10 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] font-mono font-bold text-sm flex items-center justify-center shrink-0">
                   {item.number}
                 </span>
                 <div className="space-y-1">
-                  <h3 className="font-serif font-bold text-lg text-neutral-900">
+                  <h3 className="font-serif font-bold text-lg text-slate-900">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-neutral-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -191,7 +197,7 @@ export function PeerToPeerClient() {
           </div>
 
           {/* What it is NOT: Notice card */}
-          <div className="p-7 rounded-3xl bg-red-50/70 border border-red-200/80 text-center max-w-3xl mx-auto space-y-2">
+          <div className="p-7 rounded-3xl bg-red-50/80 border border-red-200 text-center max-w-3xl mx-auto space-y-2">
             <h3 className="text-base font-serif font-bold text-red-950">
               What it is not: A sales pitch
             </h3>
@@ -203,10 +209,14 @@ export function PeerToPeerClient() {
       </section>
 
       {/* ─── Why One Hour Outperforms a Room ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF7F0]">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+              Strategic Advantage
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
               Why one hour with one person outperforms a room
             </h2>
           </div>
@@ -232,12 +242,12 @@ export function PeerToPeerClient() {
             ].map((card) => (
               <div
                 key={card.title}
-                className="p-7 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm space-y-3"
+                className="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3"
               >
-                <h3 className="font-serif font-bold text-xl text-neutral-900">
+                <h3 className="font-serif font-bold text-xl text-slate-900">
                   {card.title}
                 </h3>
-                <p className="text-xs text-neutral-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {card.desc}
                 </p>
               </div>
@@ -247,13 +257,17 @@ export function PeerToPeerClient() {
       </section>
 
       {/* ─── How They Work (5 Steps) ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+              Step-by-Step Flow
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
               How they work
             </h2>
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-slate-600">
               The 5-step operational rhythm powered by the Unity App.
             </p>
           </div>
@@ -288,16 +302,16 @@ export function PeerToPeerClient() {
             ].map((s) => (
               <div
                 key={s.step}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E8DFC9] flex items-start gap-4 shadow-xs"
+                className="p-6 sm:p-7 rounded-2xl bg-[#FAF7F0] border border-slate-200 flex items-start gap-4 shadow-xs hover:border-blue-200 transition-colors"
               >
-                <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-8 h-8 rounded-full bg-[#0062D2] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                   {s.step}
                 </span>
                 <div className="space-y-1">
-                  <h3 className="font-serif font-bold text-lg text-neutral-900">
+                  <h3 className="font-serif font-bold text-lg text-slate-900">
                     {s.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {s.desc}
                   </p>
                 </div>
@@ -308,43 +322,43 @@ export function PeerToPeerClient() {
       </section>
 
       {/* ─── How Many & Beyond Your Own Circle ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF7F0]">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* The No-Quota Position */}
-            <div className="p-8 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm space-y-4">
-              <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <h2 className="text-2xl font-serif font-bold text-[#0D1F47]">
                 How many?
               </h2>
-              <p className="text-sm text-neutral-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 There is no quota, and imposing one would produce meetings held to hit a number rather than to build a genuine relationship.
               </p>
-              <p className="text-sm text-neutral-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 But the pattern among Peers who get the most from this community is consistent: They do them regularly — with everyone in their Circle over the first year, and then with Peers from other Circles and cities as their needs expand.
               </p>
-              <p className="text-xs font-semibold text-[#8C6422] p-3 rounded-xl bg-[#FAF5EB] border border-[#EADBBD]">
+              <p className="text-xs font-semibold text-[#0062D2] p-3 rounded-2xl bg-blue-50/70 border border-blue-200/80">
                 A Peer who attends twelve meetings a year and never sits down with anyone one-to-one has experienced perhaps a third of what this community offers.
               </p>
             </div>
 
             {/* Beyond Your Own Circle */}
-            <div className="p-8 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm space-y-4">
-              <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <h2 className="text-2xl font-serif font-bold text-[#0D1F47]">
                 Beyond your own Circle
               </h2>
-              <p className="text-sm text-neutral-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Peer-to-Peers are not limited to the room you sit in.
               </p>
-              <p className="text-sm text-neutral-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Any Peer you are connected to in the Unity App — in any Circle, any city, any country — can be booked for a one-to-one. A manufacturer in another state. Someone operating in the export market you are entering. A founder five years ahead of you.
               </p>
-              <p className="text-xs text-neutral-600">
+              <p className="text-xs text-slate-600">
                 Charter Peers can reach any Peer across the national network directly, without needing an introduction first.
               </p>
               <div className="pt-2">
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#1a42c0]"
                 >
                   See Membership Tiers <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
@@ -355,7 +369,7 @@ export function PeerToPeerClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0D1117] text-white py-24 md:py-32 overflow-hidden border-t border-neutral-800">
+      <section className="relative bg-[#0B1220] text-white py-24 md:py-32 overflow-hidden border-t border-slate-800">
         <div className="absolute inset-0 z-0 opacity-25">
           <Image
             src="/images/who-we-are-mountain.jpg"
@@ -364,25 +378,31 @@ export function PeerToPeerClient() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/80 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <p className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-amber-200/90 leading-snug">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-amber-300 leading-snug font-normal">
             &ldquo;The room introduces you. The hour afterwards is where it starts.&rdquo;
           </p>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
             Build Your Business. Build Your Relationships. Build Your Circle.
           </h2>
 
-          <div className="pt-2">
+          <div className="pt-2 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/apply"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.35)] hover:shadow-xl uppercase tracking-wider transition-all"
+            >
+              Apply to Join
+              <ArrowRight className="w-4 h-4" />
+            </Link>
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-white/20 bg-white/10 hover:bg-white/15 text-white text-sm font-semibold transition-all backdrop-blur-sm"
             >
               Download Unity App
-              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

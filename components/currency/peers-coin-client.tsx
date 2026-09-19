@@ -47,22 +47,22 @@ export function PeersCoinClient() {
                 <Coins className="w-3.5 h-3.5" />
                 Community Token of Generosity
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
                 Peers Coin
               </h1>
               <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
                 Rewards for a more generous community. Give. Earn. Redeem. Repeat.
               </p>
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
                 Earned by helping another entrepreneur. Redeemed in the Peers Global Marketplace.
               </p>
 
               <div className="pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-md"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95"
                 >
-                  Download Unity App
+                  <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -267,8 +267,8 @@ export function PeersCoinClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0D1117] text-white py-24 md:py-32 overflow-hidden border-t border-neutral-800">
-        <div className="absolute inset-0 z-0 opacity-25">
+      <section className="relative bg-[#0B1220] text-white py-20 md:py-28 overflow-hidden border-t border-slate-800">
+        <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src="/images/who-we-are-mountain.jpg"
             alt="Mountain ridge horizon"
@@ -276,20 +276,20 @@ export function PeersCoinClient() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/80 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
             Build Your Business. Build Your Relationships. Build Your Circle.
           </h2>
 
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(0,98,210,0.35)] transition-all uppercase tracking-wider active:scale-95"
             >
-              Download Unity App
+              <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

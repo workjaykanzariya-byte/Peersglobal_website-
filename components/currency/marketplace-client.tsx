@@ -222,30 +222,30 @@ export function MarketplaceClient() {
                 <ShoppingBag className="w-3.5 h-3.5" />
                 Redeem with Peers Coin • Earned, Never Bought
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
                 The Marketplace
               </h1>
               <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
                 Where what you gave becomes something you can use.
               </p>
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
                 Redeem your Peers Coin. Everything here was earned by helping another entrepreneur in the community.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0D6EFD] text-white text-xs sm:text-sm font-bold hover:bg-blue-600 transition-all shadow-md hover:shadow-lg uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95 uppercase tracking-wider"
                 >
-                  Download Unity App
+                  <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/peers-coin"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#D5C7B0] text-xs sm:text-sm font-semibold text-neutral-700 hover:bg-[#F4EFE6] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-200/90 text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-50 shadow-xs transition-all"
                 >
-                  <Coins className="w-4 h-4 text-[#8C6422]" />
-                  See Peers Coin
+                  <Coins className="w-4 h-4 text-[#B37822]" />
+                  <span>See Peers Coin</span>
                 </Link>
               </div>
 
@@ -663,10 +663,10 @@ export function MarketplaceClient() {
           <div className="text-center pt-8">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#1A1A1A] text-white text-xs sm:text-sm font-bold hover:bg-neutral-800 transition-all shadow-md uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] transition-all uppercase tracking-wider active:scale-95"
             >
-              <Smartphone className="w-4 h-4 text-amber-400" />
-              Open the Marketplace in Unity
+              <Smartphone className="w-4 h-4 text-amber-300" />
+              <span>Open the Marketplace in Unity</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -674,8 +674,8 @@ export function MarketplaceClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0D1117] text-white py-24 md:py-32 overflow-hidden border-t border-neutral-800">
-        <div className="absolute inset-0 z-0 opacity-25">
+      <section className="relative bg-[#0B1220] text-white py-20 md:py-28 overflow-hidden border-t border-slate-800">
+        <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src="/images/who-we-are-mountain.jpg"
             alt="Mountain ridge horizon"
@@ -683,20 +683,20 @@ export function MarketplaceClient() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/80 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
             Build Your Business. Build Your Relationships. Build Your Circle.
           </h2>
 
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(0,98,210,0.35)] transition-all uppercase tracking-wider active:scale-95"
             >
-              Download Unity App
+              <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
