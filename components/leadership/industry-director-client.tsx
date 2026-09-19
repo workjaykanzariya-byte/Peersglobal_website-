@@ -640,24 +640,30 @@ export function IndustryDirectorClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 5: CLOSING DARK MOUNTAIN BANNER ────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-slate-950 text-white overflow-hidden">
-        {/* Background Image: Mountain Climber */}
-        <div className="absolute inset-0 opacity-45 mix-blend-luminosity">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Climber looking at sunrise from mountain peak"
-            fill
-            className="object-cover object-center"
-          />
+      {/* ─── SECTION 5: CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure) ─── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* Subtle Geometric Orbital Line Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Copy */}
             <div className="lg:col-span-8 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-400">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
                 — READY TO LEAD —
               </span>
 
@@ -665,7 +671,7 @@ export function IndustryDirectorClient() {
                 Take Your Industry Further.
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
                 Download the Unity App or apply to lead and create a lasting impact.
               </p>
 
@@ -675,7 +681,7 @@ export function IndustryDirectorClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-xl hover:bg-[#0052B4] transition-all duration-200 group"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -683,18 +689,18 @@ export function IndustryDirectorClient() {
 
                 <Link
                   href="/contact?intent=leadership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/25 backdrop-blur-sm transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
                 >
                   <span>Apply to Lead</span>
-                  <ArrowRight className="w-4 h-4 text-slate-300" />
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </Link>
               </div>
             </div>
 
             {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-slate-200 drop-shadow-lg"
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 People

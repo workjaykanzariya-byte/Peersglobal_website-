@@ -442,25 +442,28 @@ export function AwardsClient() {
       {/* ─── Closing Banner ─── */}
       <section
         id="download-unity"
-        className="relative py-20 bg-[#040E24] text-white overflow-hidden border-t border-slate-900"
+        className="relative py-20 bg-[#0062D2] text-white overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Night sky"
-            fill
-            className="object-cover object-bottom"
-          />
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
           <div className="max-w-2xl mx-auto space-y-3">
-            <p className="font-serif italic text-2xl sm:text-3xl text-white/95 leading-snug">
+            <p className="font-serif italic text-2xl sm:text-3xl text-white leading-snug">
               “Success is not just what you earn.
               <br />
               It is how many lives you impact.”
             </p>
-            <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold">
+            <p className="text-xs font-mono uppercase tracking-widest text-sky-200 font-bold">
               — Peers Global Standard
             </p>
           </div>
@@ -468,7 +471,7 @@ export function AwardsClient() {
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold shadow-lg hover:shadow-xl transition-all uppercase tracking-wider active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-[#0062D2] text-xs sm:text-sm font-bold shadow-lg hover:shadow-xl transition-all uppercase tracking-wider active:scale-[0.98]"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />

@@ -363,18 +363,33 @@ export default function UnityPage() {
         </div>
       </section>
 
-      {/* ─── 5. CTA ───────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b1b3a] via-[#122347] to-[#060d1f] py-20 text-white">
-        <div className="pointer-events-none absolute -top-20 -right-20 size-[400px] rounded-full bg-[#D4AF37]/10 blur-[80px]" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 size-[400px] rounded-full bg-primary/15 blur-[80px]" />
+      {/* ─── 5. CTA — Royal Blue Theme (Preserving Exact Structure) ─────── */}
+      <section className="relative overflow-hidden bg-[#0062D2] py-20 text-white">
+        {/* Subtle Geometric Orbital Line Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
+        </div>
+
         <div className="shell relative z-10 flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-mono text-white/40 uppercase tracking-widest">Platform Onboarding</p>
+            <p className="text-xs font-mono text-sky-200 uppercase tracking-widest">Platform Onboarding</p>
             <h2 className="display text-3xl md:text-4xl font-extrabold text-white leading-tight">
               Join the network. <br className="hidden sm:block" />
-              <span className="text-[#D4AF37]">Get Unity on day one.</span>
+              <span className="text-amber-300">Get Unity on day one.</span>
             </h2>
-            <p className="text-sm text-white/60 max-w-md">Access to Unity is exclusive — available from day one to all verified Global and Circle Members.</p>
+            <p className="text-sm text-white/90 max-w-md">Access to Unity is exclusive — available from day one to all verified Global and Circle Members.</p>
           </div>
           <div className="flex shrink-0 flex-wrap gap-3">
             <Cta href="/membership" variant="gold" size="lg">Apply for Membership</Cta>

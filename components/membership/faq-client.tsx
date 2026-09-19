@@ -2,8 +2,8 @@
 
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePageMedia } from '@/lib/hooks/use-page-media'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   ChevronRight,
@@ -717,19 +717,24 @@ export function MemberFaqClient() {
       </section>
 
       {/* =================================================================
-          SECTION 3: CLOSING HERO BANNER — Mountain Sunrise Panorama
+          SECTION 3: CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure)
           ================================================================= */}
-      <section className="relative overflow-hidden bg-[#070F1E] text-white py-24 sm:py-32">
-        {/* Background Image */}
-        <div className="absolute inset-0 pointer-events-none">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Entrepreneur on mountain peak at sunrise"
-            fill
-            className="object-cover object-center opacity-40 mix-blend-luminosity"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070F1E] via-[#070F1E]/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070F1E] via-transparent to-[#070F1E]/70" />
+      <section className="relative overflow-hidden bg-[#0062D2] text-white py-20 sm:py-28">
+        {/* Subtle Geometric Orbital Line Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -737,8 +742,8 @@ export function MemberFaqClient() {
 
             {/* Left Copy */}
             <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="h-0.5 w-6 bg-sky-400" />
+              <div className="inline-flex items-center gap-3 text-sky-200 text-xs font-bold tracking-[0.25em] uppercase mb-4">
+                <span className="h-0.5 w-6 bg-sky-200" />
                 <span>YOUR NEXT CHAPTER</span>
               </div>
 
@@ -748,7 +753,7 @@ export function MemberFaqClient() {
                 Build Your Circle.
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed mb-8">
                 Join a global community of entrepreneurs who give, grow and build together.
               </p>
 
@@ -757,14 +762,14 @@ export function MemberFaqClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-4 text-sm font-bold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  className="rounded-full bg-white hover:bg-blue-50 text-[#0062D2] px-8 py-4 text-sm font-bold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="size-4" />
                 </a>
                 <Link
                   href="/membership/criteria"
-                  className="rounded-full border border-white/30 hover:border-white/60 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-8 py-4 text-sm font-semibold transition-all inline-flex items-center gap-2"
+                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 text-sm font-semibold transition-all inline-flex items-center gap-2"
                 >
                   <UserCheck className="size-4" />
                   <span>Apply for Membership</span>
@@ -775,9 +780,9 @@ export function MemberFaqClient() {
             {/* Right Cursive Script Callout */}
             <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
               <div className="text-left lg:text-right select-none pointer-events-none" style={{ fontFamily: 'var(--font-script)' }}>
-                <p className="text-3xl sm:text-4xl text-white/50 leading-tight">People,</p>
-                <p className="text-3xl sm:text-4xl text-white/70 leading-tight">Partnerships,</p>
-                <p className="text-3xl sm:text-4xl text-white/90 leading-tight">Possibilities.</p>
+                <p className="text-3xl sm:text-4xl text-white/60 leading-tight">People,</p>
+                <p className="text-3xl sm:text-4xl text-white/80 leading-tight">Partnerships,</p>
+                <p className="text-3xl sm:text-4xl text-white leading-tight">Possibilities.</p>
                 <p className="text-4xl sm:text-5xl text-amber-300 font-medium leading-tight mt-1">
                   A Brighter Tomorrow.
                 </p>

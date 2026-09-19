@@ -615,15 +615,17 @@ export function LearningPillarClient() {
       {/* ─── Luxury Night Sky Closing Banner ─── */}
       <section
         id="download-unity"
-        className="relative py-20 bg-[#0B1220] text-white overflow-hidden border-t border-slate-800"
+        className="relative py-20 bg-[#0062D2] text-white overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Night sky over mountain peaks"
-            fill
-            className="object-cover object-bottom"
-          />
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -632,13 +634,13 @@ export function LearningPillarClient() {
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
                 Learn from experience, not theory.
               </h2>
-              <p className="text-sm sm:text-base text-slate-300">
+              <p className="text-sm sm:text-base text-white/90">
                 Join thousands of verified business leaders sharing practical frameworks and accelerating growth together.
               </p>
               <div className="pt-2 flex flex-wrap gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.35)] transition-all uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-xs sm:text-sm font-bold shadow-lg shadow-black/10 transition-all uppercase tracking-wider"
                 >
                   Apply to Join
                   <ArrowRight className="w-4 h-4" />

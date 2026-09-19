@@ -301,27 +301,29 @@ export function AdvisoryBoardClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative py-20 bg-gradient-to-b from-[#0A111F] via-[#0D1B33] to-[#080E1A] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <Image
-            src="/images/who-we-are-inner-board.jpg"
-            alt="Boardroom inner table"
-            fill
-            className="object-cover object-center"
-          />
+      <section className="relative py-20 bg-[#0062D2] text-white overflow-hidden">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-5">
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
             Institutional Memory. Enduring Standards.
           </h2>
-          <p className="text-sm sm:text-base text-neutral-300 max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto">
             Experience that guides a national movement of entrepreneurs building for decades.
           </p>
           <div className="pt-2">
             <Link
               href="/membership"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0D6EFD] text-white text-xs sm:text-sm font-bold hover:bg-blue-600 transition-all uppercase tracking-wider shadow-lg shadow-blue-500/30"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-[#0062D2] text-xs sm:text-sm font-bold hover:bg-slate-100 transition-all uppercase tracking-wider shadow-lg shadow-black/10"
             >
               Explore Membership
               <ArrowRight className="w-4 h-4" />

@@ -553,16 +553,17 @@ export function ContactPageClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#040E24] text-white py-24 md:py-32 overflow-hidden border-t border-slate-900">
-        <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity">
-          <Image
-            src="/images/who-we-are-mountain.jpg"
-            alt="Mountain ridge horizon"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040E24] via-[#040E24]/80 to-[#040E24]/90" />
+      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
@@ -570,7 +571,7 @@ export function ContactPageClient() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
               Build Your Business. Build Your Relationships. Build Your Circle.
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 font-normal max-w-xl mx-auto">
+            <p className="text-base sm:text-lg text-white/90 font-normal max-w-xl mx-auto">
               Ready to meet your peers? Download the Unity App and request your verified membership seat.
             </p>
           </div>
@@ -578,7 +579,7 @@ export function ContactPageClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-lg hover:shadow-xl uppercase tracking-wider active:scale-[0.98]"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl uppercase tracking-wider active:scale-[0.98]"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />
