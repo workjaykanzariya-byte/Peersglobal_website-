@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   Download,
@@ -1672,72 +1673,21 @@ export default function TheTerritoryPage() {
       {/* =========================================================================
           9. CLOSING HERO (Every Peer has a home. Every home connects to the world.)
           ========================================================================= */}
-      <section className="relative overflow-hidden py-28 sm:py-36 bg-[#030B1C] text-white border-t border-slate-900">
-        
-        {/* Background Event Photo with Clean Ambient Gradient Fade (Only this image) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src="/images/territory/territory-closing-hero.png"
-            alt="Peers Global community gathering"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center filter brightness-[0.75] contrast-[1.1]"
-          />
-          {/* Smooth gradient fade seamlessly blending top, middle, and bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#030B1C] via-[#030B1C]/55 to-[#030B1C] pointer-events-none" />
-          {/* Gentle vignette for center typography readability */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,11,28,0.2)_0%,rgba(3,11,28,0.75)_100%)] pointer-events-none" />
-        </div>
-
-        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-5">
-            <span className="w-6 h-[1.5px] bg-sky-400/80" />
-            <span>THE TERRITORY</span>
-            <span className="w-6 h-[1.5px] bg-sky-400/80" />
-          </div>
-
-          {/* Title */}
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.15] mb-5">
-            Every Peer has a home. <br />
-            Every home connects to the world.
-          </h2>
-
-          <p className="font-serif italic text-lg sm:text-xl text-slate-300 font-normal mb-8 max-w-xl mx-auto">
-            Build Your Business. Build Your Relationships. Build Your Circle.
-          </p>
-
-          {/* Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-            <Link
-              href="/circles"
-              className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 flex items-center gap-2"
-            >
-              <span>FIND YOUR CIRCLE</span>
-              <ArrowRight className="size-4" />
-            </Link>
-            <Link
-              href="/membership"
-              className="rounded-full border border-white/25 hover:bg-white/10 text-white px-8 py-3.5 text-sm font-semibold transition-all hover:border-white/40"
-            >
-              JOIN PEERS GLOBAL
-            </Link>
-          </div>
-
-          {/* Bottom Brand Bar */}
-          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
-            <span className="font-medium text-slate-300">
-              Peers Global — World&apos;s First Community of Collaboration
-            </span>
-            <span className="font-serif italic text-slate-400">
-              “Peers are Partners in Business and Friends in Life.”
-            </span>
-          </div>
-
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="THE TERRITORY"
+        title={
+          <>
+            Every Peer has a home.{' '}
+            <span className="block sm:inline">Every home connects to the world.</span>
+          </>
+        }
+        subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
+        description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
+        primaryButtonText="FIND YOUR CIRCLE"
+        primaryButtonHref="/circles"
+        secondaryButtonText="JOIN PEERS GLOBAL"
+        secondaryButtonHref="/membership"
+      />
 
     </div>
   )

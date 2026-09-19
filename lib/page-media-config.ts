@@ -616,15 +616,6 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultTitle: 'Who Belongs in Peers Global — Candidate Fit',
       },
       {
-        id: 'membership-standing',
-        name: 'Membership vs Peer Standing',
-        subRoute: '/membership-vs-peer-standing',
-        description: 'Status word vs relational standing: a relationship you invest in.',
-        defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        defaultSourceType: 'url',
-        defaultTitle: 'Relational Standing & Investment Model',
-      },
-      {
         id: 'membership-tiers',
         name: 'Compare Tiers',
         subRoute: '/membership/tiers',
@@ -803,15 +794,6 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',
         defaultTitle: 'Global Advisory Board Keynote',
-      },
-      {
-        id: 'leadership-impact-income',
-        name: 'Impact Income',
-        subRoute: '/leadership/impact-income',
-        description: 'Earn transparent revenue share while contributing to ecosystem growth.',
-        defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        defaultSourceType: 'url',
-        defaultTitle: 'Impact Income Model for Circle Leaders',
       },
       {
         id: 'leadership-ambassador',

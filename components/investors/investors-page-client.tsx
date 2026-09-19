@@ -83,6 +83,7 @@ export function InvestorsPageClient() {
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <span>About</span>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <span className="text-slate-900 font-semibold">Investors</span>

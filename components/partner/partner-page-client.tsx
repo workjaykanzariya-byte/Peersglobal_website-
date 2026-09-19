@@ -7,88 +7,77 @@ import {
   ArrowRight,
   ChevronRight,
   Handshake,
-  Building2,
-  Landmark,
-  Cpu,
+  Building,
   GraduationCap,
-  Scale,
-  Award,
+  Landmark,
+  Globe,
+  Briefcase,
+  Layers,
   ShieldAlert,
   Send,
   CheckCircle2,
-  Sparkles,
-  ExternalLink,
 } from 'lucide-react'
 
 const PARTNER_CATEGORIES = [
   {
-    title: 'Institutions and Associations',
-    desc: 'Chambers of commerce, industry bodies, export promotion councils and trade federations working with the same ambitious business owners.',
+    title: 'Trade Chambers & Industry Bodies',
+    desc: 'Joint initiatives, policy delegations, cross-border trade delegations, and SME acceleration forums.',
     icon: Landmark,
   },
   {
-    title: 'Financial Institutions',
-    desc: 'Banks, NBFCs, venture debt funds and institutional investors serving growing MSMEs with structured credit and treasury solutions.',
-    icon: Building2,
+    title: 'Financial Institutions & Banks',
+    desc: 'Structured access to working capital, trade finance, export credits, and institutional advisory.',
+    icon: Building,
   },
   {
-    title: 'Technology & Service Providers',
-    desc: 'Enterprise software, supply chain platforms and cloud providers whose products genuinely reduce operating friction for business owners.',
-    icon: Cpu,
+    title: 'Enterprise Technology Leaders',
+    desc: 'Curated SaaS, ERP, cloud, and digital transformation toolkits built specifically for mid-market business owners.',
+    icon: Globe,
   },
   {
-    title: 'Educational Institutions',
-    desc: 'Top universities and business schools developing entrepreneurship curriculums, student incubators and executive education.',
+    title: 'Academic & Research Institutes',
+    desc: 'Executive education, case studies on Indian MSME longevity, and campus founder incubator fellowships.',
     icon: GraduationCap,
   },
   {
-    title: 'Government & Public Bodies',
-    desc: 'MSME development institutes, state industrial development corporations, and skill mission programs driving local employment.',
-    icon: Scale,
+    title: 'Professional Service Networks',
+    desc: 'Specialized legal, tax, M&A, cross-border compliance, and audit advisory networks.',
+    icon: Briefcase,
   },
   {
-    title: 'Brands',
-    desc: 'Consumer, industrial, and automotive brands wanting authentic, value-aligned connection with high-net-worth business owners.',
-    icon: Award,
+    title: 'Government & Public Bodies',
+    desc: 'State industrial development partnerships, MSME ministry programs, and export promotion councils.',
+    icon: Layers,
   },
 ]
 
 const PARTNERSHIP_MODELS = [
   {
-    title: 'Event Partnership',
-    desc: 'Co-curate regional conclaves, annual summits, and city gatherings of industry captains.',
+    title: 'Knowledge & Content Alliances',
+    desc: 'Co-creating proprietary research reports, masterclasses, and executive briefings on MSME operating challenges.',
   },
   {
-    title: 'Knowledge Partnership',
-    desc: 'Deliver masterclasses, research whitepapers, and operational frameworks directly to the community.',
+    title: 'Ecosystem Access Agreements',
+    desc: 'Providing vetted member discounts, dedicated relationship managers, and white-glove onboarding for enterprise tools.',
   },
   {
-    title: 'Ecosystem Partnership',
-    desc: 'Co-design national accelerator initiatives, supplier diversity tracks, and sector roadshows.',
-  },
-  {
-    title: 'Media Partnership',
-    desc: 'Cross-platform editorial spotlights, video docuseries, and magazine features across VyapaarJagat and Peers TV.',
-  },
-  {
-    title: 'Sponsorship',
-    desc: 'Brand visibility at signature physical conclaves, peer recognition galas, and national business award platforms.',
+    title: 'Conclave & Event Co-Hosting',
+    desc: 'Anchor partners for regional and national Peers Global Conclaves, Roundtables, and Summit stages.',
   },
 ]
 
 const PARTNERSHIP_TYPES = [
-  'Event Partnership',
-  'Knowledge Partnership',
-  'Ecosystem Partnership',
-  'Media Partnership',
-  'Sponsorship',
-  'Institutional Alignment',
+  'Trade Chamber / Association',
+  'Banking & Financial Institution',
+  'Enterprise Technology Provider',
+  'Academic Institution',
+  'Professional Advisory Firm',
+  'Conclave / Event Sponsorship',
+  'Other Strategic Initiative',
 ]
 
 export function PartnerPageClient() {
-  const [partnershipType, setPartnershipType] = useState('Event Partnership')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [partnershipType, setPartnershipType] = useState('Trade Chamber / Association')
   const [formData, setFormData] = useState({
     organisation: '',
     contactName: '',
@@ -96,6 +85,8 @@ export function PartnerPageClient() {
     phone: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -243,7 +234,7 @@ export function PartnerPageClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[#0B1220] text-white shadow-xl space-y-6 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-10">
-              <ShieldAlert className="w-40 h-40 text-amber-400" />
+              <ShieldAlert className="w-40 h-40 text-sky-400" />
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/80 text-red-300 text-xs font-bold uppercase tracking-wider">
@@ -348,11 +339,10 @@ export function PartnerPageClient() {
                         key={type}
                         type="button"
                         onClick={() => setPartnershipType(type)}
-                        className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-                          partnershipType === type
+                        className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${partnershipType === type
                             ? 'bg-[#0062D2] text-white shadow-sm'
                             : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-                        }`}
+                          }`}
                       >
                         {type}
                       </button>

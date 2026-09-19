@@ -123,12 +123,14 @@ export function TiersClient() {
                 WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
               }}
             >
-              <Image
-                src="/images/membership-hero-peers.jpg"
-                alt="Peers Global Entrepreneurs in Executive Boardroom Discussion"
-                fill
-                priority
-                className="object-cover object-center scale-105"
+              <video
+                src="/videos/stories-hero-bg.mp4"
+                poster="/images/membership-hero-peers.jpg"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover object-center scale-105"
               />
               <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
@@ -806,31 +808,47 @@ export function TiersClient() {
             </div>
 
             {/* Right: Ready to begin? (5 cols) */}
-            <div className="lg:col-span-5 rounded-3xl bg-[#081226] text-white p-8 sm:p-10 shadow-lg">
-              <h3 className="font-serif text-3xl font-bold text-white mb-3">
-                Ready to begin?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-8">
-                Join a community of entrepreneurs who give, grow and build together.
-              </p>
+            <div className="lg:col-span-5 rounded-3xl bg-[#081226] text-white p-8 sm:p-10 shadow-lg relative overflow-hidden">
+              {/* Background Looping Video Layer */}
+              <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-30">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="size-full object-cover object-center"
+                >
+                  <source src="/videos/leadership-hero-bg.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#081226] via-[#081226]/60 to-transparent" />
+              </div>
 
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex-1 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/25 transition-all text-center inline-flex items-center justify-center gap-2"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
-                <Link
-                  href="/membership/criteria"
-                  className="w-full sm:w-auto flex-1 rounded-full border border-white/30 hover:border-white/60 bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 text-xs sm:text-sm font-semibold transition-all text-center inline-flex items-center justify-center gap-2"
-                >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+              <div className="relative z-10">
+                <h3 className="font-serif text-3xl font-bold text-white mb-3">
+                  Ready to begin?
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-8">
+                  Join a community of entrepreneurs who give, grow and build together.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center gap-3">
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto flex-1 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/25 transition-all text-center inline-flex items-center justify-center gap-2"
+                  >
+                    <span>Download Unity App</span>
+                    <ArrowRight className="size-4" />
+                  </a>
+                  <Link
+                    href="/membership/criteria"
+                    className="w-full sm:w-auto flex-1 rounded-full border border-white/30 hover:border-white/60 bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 text-xs sm:text-sm font-semibold transition-all text-center inline-flex items-center justify-center gap-2"
+                  >
+                    <span>Apply for Membership</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </div>
               </div>
             </div>
 

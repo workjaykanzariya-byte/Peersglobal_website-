@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   Quote,
@@ -835,92 +836,22 @@ export default function CultureAndCodePage() {
 
       {/* =========================================================================
           SECTION 9: CLOSING BANNER
-          Dark Executive Cinematic Banner matching bottom of reference screenshot
           ========================================================================= */}
-      <section className="relative py-24 sm:py-32 bg-[#030B1C] text-white overflow-hidden">
-        
-        {/* Background Looping Video Layer */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="size-full object-cover object-center filter brightness-[0.7] contrast-[1.1]"
-          >
-            <source src="/videos/leadership-hero-bg.mp4" type="video/mp4" />
-          </video>
-        </div>
-
-        {/* Ambient Dark Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030B1C] via-[#030B1C]/80 to-transparent z-[1]" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="max-w-3xl">
-            
-            {/* Top Eyebrow */}
-            <div className="inline-flex items-center gap-2 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-6">
-              <span className="w-5 h-[1.5px] bg-sky-400" />
-              <span>THE PEERS CODE BUILDS THE FUTURE</span>
-              <span className="w-5 h-[1.5px] bg-sky-400" />
-            </div>
-
-            {/* Script Text top right on desktop */}
-            <div className="hidden sm:block absolute right-8 top-0 pointer-events-none select-none text-right">
-              <p
-                className="text-white/80 text-xl sm:text-2xl font-normal drop-shadow-md leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Real People. <br />
-                Real Impact. <br />
-                <span className="text-sky-400">A Stronger Tomorrow.</span>
-              </p>
-            </div>
-
-            {/* Headline */}
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white tracking-tight leading-[1.18] mb-6">
-              Culture is what a community does when nobody is watching. <br className="hidden sm:inline" />
-              Ours is written down, so that everybody is.
-            </h2>
-
-            {/* Italic Belief Subline */}
-            <p className="font-serif italic text-lg sm:text-xl text-slate-300 mb-10">
-              Build Your Business. Build Your Relationships. Build Your Circle.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/membership"
-                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-xl shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
-              >
-                <span>Become a Peer</span>
-                <ArrowRight className="size-4" />
-              </Link>
-
-              <Link
-                href="/circles"
-                className="rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 text-sm font-semibold transition-all hover:scale-105"
-              >
-                Visit a Circle
-              </Link>
-            </div>
-
-          </div>
-
-          {/* Sub-bar Copyright / Mottos */}
-          <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-            <div>
-              Peers Global — World&apos;s First Community of Collaboration
-            </div>
-            <div className="italic text-slate-300">
-              &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="THE PEERS CODE BUILDS THE FUTURE"
+        title={
+          <>
+            Culture is what a community does when nobody is watching.{' '}
+            <span className="block sm:inline">Ours is written down, so that everybody is.</span>
+          </>
+        }
+        subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
+        description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
+        primaryButtonText="BECOME A PEER"
+        primaryButtonHref="/membership"
+        secondaryButtonText="VISIT A CIRCLE"
+        secondaryButtonHref="/circles"
+      />
 
     </div>
   )

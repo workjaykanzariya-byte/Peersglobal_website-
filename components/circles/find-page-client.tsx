@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   ChevronRight,
@@ -972,58 +973,19 @@ export function FindPageClient() {
       </section>
 
       {/* =================================================================
-          SECTION 7: CLOSING DARK BANNER
+          SECTION 7: CLOSING CTA SECTION
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#0F172A]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="h-px w-8 bg-white/30" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/50">YOUR NEXT OPPORTUNITY</span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight mb-6">
-                The answer that changes your business may come from a room where nobody does what you do.
-              </h2>
-              <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-3">
-                Every Peer in this community started with one conversation.
-              </p>
-              <p className="text-sm text-white/50 mb-8">
-                Build Your Business. Build Your Relationships. Build Your Circle.
-              </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-4 text-sm font-bold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
-                >
-                  <Smartphone className="size-4" />
-                  Download Unity App
-                </a>
-                <a
-                  href="#find-form"
-                  className="rounded-full border border-white/30 hover:border-white/60 text-white px-8 py-4 text-sm font-semibold transition-all hover:scale-105 inline-flex items-center gap-2"
-                >
-                  Submit Enquiry
-                  <ChevronRight className="size-4" />
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex flex-col items-end justify-center">
-              <div className="text-right select-none pointer-events-none" style={{ fontFamily: 'var(--font-script)' }}>
-                <p className="text-3xl sm:text-4xl text-white/30 leading-tight">Bigger</p>
-                <p className="text-3xl sm:text-4xl text-white/50 leading-tight">Perspectives</p>
-                <p className="text-4xl sm:text-5xl text-amber-300/80 leading-tight mt-1">Brighter</p>
-                <p className="text-4xl sm:text-5xl text-amber-300 leading-tight">Possibilities</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="YOUR NEXT OPPORTUNITY"
+        title="The answer that changes your business may come from a room where nobody does what you do."
+        subtitle="Every Peer in this community started with one conversation."
+        description="Build Your Business. Build Your Relationships. Build Your Circle."
+        primaryButtonText="Download Unity App"
+        primaryButtonHref="https://unity.peersglobal.com"
+        secondaryButtonText="Submit Enquiry"
+        secondaryButtonHref="#find-form"
+        secondaryButtonIcon={<ChevronRight className="size-4" />}
+      />
 
     </div>
   )

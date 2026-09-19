@@ -242,11 +242,10 @@ export function NewsroomPageClient() {
                 <button
                   key={yr}
                   onClick={() => setSelectedYear(yr)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                    selectedYear === yr
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${selectedYear === yr
                       ? 'bg-[#0062D2] text-white shadow-sm'
                       : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-                  }`}
+                    }`}
                 >
                   {yr}
                 </button>
