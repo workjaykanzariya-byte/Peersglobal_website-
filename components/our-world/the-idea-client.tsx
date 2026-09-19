@@ -581,324 +581,305 @@ export function TheIdeaClient() {
 
       {/* =========================================================================
           3. WHERE THIS IDEA CAME FROM (SUB-MODULE: ORIGIN STORY)
-          Matches Screenshots 3 & 5
+          Matches Reference 2 Exactly
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#061836] text-white pt-8 sm:pt-10 pb-8 sm:pb-10 border-b border-slate-900 selection:bg-blue-200 selection:text-slate-900">
+      <section className="relative overflow-hidden border-b border-slate-900 selection:bg-blue-100 selection:text-slate-900">
         
-        {/* Dynamic Curved Organic Arched Video Cut-Out on the Right */}
-        <div className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[48%] xl:w-[45%] pointer-events-none select-none z-0 overflow-hidden">
-          <div className="absolute inset-y-0 right-0 w-full h-full rounded-bl-[160px] sm:rounded-bl-[220px] lg:rounded-bl-[280px] overflow-hidden bg-slate-950">
-            {originStoryMedia.isYouTube && originStoryMedia.embedUrl ? (
-              <iframe
-                src={`${originStoryMedia.embedUrl}&mute=1&loop=1`}
-                title={originStoryMedia.title}
-                className="size-full border-0 pointer-events-none scale-125"
-                allow="autoplay; encrypted-media"
-              />
-            ) : (
-              <video
-                key={originStoryMedia.mediaUrl}
-                src={originStoryMedia.mediaUrl}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                className="size-full object-cover object-center scale-[1.05]"
-              >
-                <source src={originStoryMedia.mediaUrl} type="video/mp4" />
-              </video>
-            )}
-
-            <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-white/20 to-sky-900/40" />
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#061836] via-[#061836]/70 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#061836] via-[#061836]/40 to-transparent" />
-          </div>
+        {/* ──────── TOP HERO AREA: LIGHT ICE-BLUE BACKGROUND (Matches Reference 2) ──────── */}
+        <div className="relative bg-gradient-to-br from-[#ebf3fc] via-[#f4f8fe] to-[#e2eef9] pt-8 sm:pt-12 pb-10 sm:pb-14">
           
-          <div className="absolute -top-16 -right-16 size-[520px] rounded-full border border-sky-300/30 hidden xl:block" />
-          <div className="absolute top-10 right-10 size-[380px] rounded-full border border-sky-400/25 hidden xl:block" />
+          {/* Ambient soft glow lighting */}
+          <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-blue-200/40 rounded-full blur-[130px] pointer-events-none" />
+          <div className="absolute -top-10 -left-10 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center min-h-[380px] lg:min-h-[440px]">
+              
+              {/* ──────── COLUMN 1: LEFT CONTENT & DYNAMIC VIDEO CTA (lg:col-span-5) ──────── */}
+              <div className="lg:col-span-5 flex flex-col justify-center">
+                
+                {/* Eyebrow */}
+                <div className="flex items-center gap-2.5 mb-5">
+                  <span className="h-[2px] w-6 bg-[#0062D2]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                    Origin Story
+                  </span>
+                </div>
+
+                {/* H2 Title */}
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-[52px] font-bold text-[#061836] tracking-tight leading-[1.08]">
+                  Where this idea <br className="hidden sm:inline" />
+                  came from
+                </h2>
+
+                <p className="text-base sm:text-lg text-slate-800 font-semibold mt-4 leading-relaxed">
+                  In the words of our Founder, Dr. Pravin Parmar.
+                </p>
+
+                <p className="text-xs sm:text-[13.5px] text-slate-600 font-normal mt-3 leading-relaxed max-w-lg">
+                  Peers Global was born from real experiences, real people and real challenges. A small village in Botad to mentoring 10,000+ MSME promoters across India, this journey has always been about people, possibilities and a stronger tomorrow — together.
+                </p>
+
+                {/* Dynamic Watch Founder's Message Pill Button */}
+                <div className="flex items-center gap-3.5 mt-8">
+                  <button
+                    type="button"
+                    onClick={() => setActiveModalMedia(originStoryMedia)}
+                    aria-label="Watch the Founder's Message"
+                    className="size-13 rounded-full bg-[#0062D2] text-white flex items-center justify-center shadow-lg shadow-blue-600/30 hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all cursor-pointer group"
+                  >
+                    <Play className="size-5 fill-white ml-0.5 group-hover:scale-110 transition-transform" />
+                  </button>
+                  <div
+                    onClick={() => setActiveModalMedia(originStoryMedia)}
+                    className="flex flex-col cursor-pointer group/text"
+                  >
+                    <span className="text-xs sm:text-[13px] font-bold text-slate-900 leading-tight tracking-wide group-hover/text:text-[#0062D2] transition-colors">
+                      Watch the Founder&apos;s Message
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-light mt-0.5">
+                      {originStoryMedia.title || 'Origin Story — In the words of our Founder'}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* ──────── COLUMN 2: RIGHT UNIFIED HERO VISUAL FRAME (lg:col-span-7) ──────── */}
+              <div className="lg:col-span-7 relative">
+                
+                {/* Outer decorative ambient rings */}
+                <div className="absolute -top-8 -right-8 size-[480px] rounded-full border border-blue-300/40 pointer-events-none hidden xl:block" />
+                <div className="absolute top-10 -right-4 size-[360px] rounded-full border border-sky-400/30 pointer-events-none hidden xl:block" />
+
+                {/* Framed Container: Video Background + Play Button + Cutout Founder Photo + Quote Card */}
+                <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-blue-900/15 bg-[#040e24] shadow-[0_25px_70px_rgba(4,14,36,0.3)] min-h-[400px] sm:min-h-[440px] lg:min-h-[460px] w-full">
+                  
+                  {/* 1. Background Video Layer with Office Background Poster */}
+                  <div className="absolute inset-0 size-full overflow-hidden select-none">
+                    {originStoryMedia.isYouTube && originStoryMedia.embedUrl ? (
+                      <iframe
+                        src={`${originStoryMedia.embedUrl}&mute=1&loop=1`}
+                        title={originStoryMedia.title}
+                        className="size-full border-0 pointer-events-none scale-125 object-cover"
+                        allow="autoplay; encrypted-media"
+                      />
+                    ) : (
+                      <video
+                        key={originStoryMedia.mediaUrl}
+                        src={originStoryMedia.mediaUrl}
+                        poster="/images/origin-story-office-bg.jpg"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        className="size-full object-cover object-center scale-[1.03]"
+                      >
+                        <source src={originStoryMedia.mediaUrl} type="video/mp4" />
+                      </video>
+                    )}
+
+                    {/* Gradient overlays to ensure seamless composition and contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#040e24]/85 via-[#040e24]/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#040e24]/40 via-transparent to-[#040e24]/30" />
+                  </div>
+
+                  {/* 2. Quote Card (Bottom-Left Overlay) */}
+                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 max-w-[250px] sm:max-w-[290px] rounded-2xl bg-white/95 backdrop-blur-md border border-white p-4 sm:p-5 shadow-2xl text-slate-900">
+                    <span className="font-serif text-2xl sm:text-3xl font-black text-[#041E42] leading-none select-none block mb-1">
+                      “
+                    </span>
+                    <p className="font-serif italic text-xs sm:text-[13px] font-normal text-slate-800 leading-relaxed">
+                      Real progress happens when people come together with purpose.
+                    </p>
+                    <div className="mt-2.5 flex items-center gap-2">
+                      <span className="h-[1px] w-4 bg-slate-400" />
+                      <span className="text-[11px] font-bold text-slate-900 tracking-tight">
+                        Dr. Pravin Parmar
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 3. Founder Photo Cutout (Right Side, Layered in Foreground) */}
+                  <div className="absolute bottom-0 right-0 sm:right-2 lg:right-4 h-[90%] sm:h-[95%] lg:h-[98%] w-[270px] sm:w-[330px] lg:w-[380px] z-10 flex items-end justify-center pointer-events-none">
+                    <div className="relative size-full">
+                      <Image
+                        src="/images/dr-pravin-cutout.png"
+                        alt="Dr. Pravin Parmar — Founder, Peers Global"
+                        fill
+                        sizes="(max-width: 768px) 300px, (max-width: 1024px) 360px, 420px"
+                        className="object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.7)]"
+                        priority
+                      />
+                    </div>
+                  </div>
+
+                  {/* 4. Cursive Script Accent (Smaller size, neatly positioned in top right) */}
+                  <div className="absolute top-4 sm:top-5 right-4 sm:right-6 lg:right-7 z-20 select-none pointer-events-none">
+                    <p
+                      className="text-sm sm:text-base lg:text-[20px] text-white/90 leading-snug rotate-[-5deg] drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] text-right font-light tracking-wide"
+                      style={{ fontFamily: 'var(--font-script, cursive)' }}
+                    >
+                      People <br />
+                      Ideas <br />
+                      Opportunities <br />
+                      Together
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#0062D2]/20 rounded-full blur-[140px] pointer-events-none" />
-
-        <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center min-h-[380px] lg:min-h-[420px]">
+        {/* ──────── BOTTOM SECTION: DEEP NAVY BLUE CANVAS WITH 6 WHITE CARDS ──────── */}
+        <div className="relative bg-[#061836] text-white pt-6 pb-6 sm:pb-8">
+          <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            {/* ──────── COLUMN 1: LEFT CONTENT & DYNAMIC VIDEO CTA (lg:col-span-5) ──────── */}
-            <div className="lg:col-span-5 flex flex-col justify-center">
-              
-              {/* Eyebrow - Exactly matching Screenshot 5 */}
-              <div className="flex items-center gap-2.5 mb-5">
-                <span className="h-[1.5px] w-6 bg-sky-400" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
-                  Origin Story
-                </span>
-              </div>
-
-              {/* H2 Title */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[50px] font-semibold text-white tracking-tight leading-[1.12]">
-                Where this idea <br className="hidden sm:inline" />
-                came from
-              </h2>
-
-              <p className="text-base sm:text-lg text-slate-300 font-normal mt-4 leading-relaxed">
-                In the words of our Founder, Dr. Pravin Parmar.
-              </p>
-
-              <p className="text-xs sm:text-[13px] text-slate-400 font-light mt-3 leading-relaxed max-w-lg">
-                Peers Global was born from real experiences, real people and real challenges. A small village in Botad to mentoring 10,000+ MSME promoters across India, this journey has always been about people, possibilities and a stronger tomorrow — together.
-              </p>
-
-              {/* Dynamic Watch Founder's Message Pill Button */}
-              <div className="flex items-center gap-3.5 mt-8">
-                <button
-                  type="button"
-                  onClick={() => setActiveModalMedia(originStoryMedia)}
-                  aria-label="Watch the Founder's Message"
-                  className="size-12 rounded-full bg-[#0062D2] text-white flex items-center justify-center shadow-lg shadow-blue-600/30 hover:bg-blue-600 hover:scale-105 active:scale-95 transition-all cursor-pointer group"
-                >
-                  <Play className="size-4.5 fill-white ml-0.5 group-hover:scale-110 transition-transform" />
-                </button>
-                <div
-                  onClick={() => setActiveModalMedia(originStoryMedia)}
-                  className="flex flex-col cursor-pointer group/text"
-                >
-                  <span className="text-xs sm:text-[13px] font-bold text-white leading-tight tracking-wide group-hover/text:text-sky-300 transition-colors">
-                    Watch the Founder&apos;s Message
-                  </span>
-                  <span className="text-[11px] text-slate-400 font-light mt-0.5">
-                    {originStoryMedia.title || '2 min video'}
-                  </span>
+            {/* 6 Clean White Floating Cards (Grid) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5">
+              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-400">01</span>
+                    <Sprout className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="flex items-center justify-between mt-3 mb-1.5">
+                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                      Roots in Botad
+                    </h3>
+                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                    A small village. <br />
+                    Big lessons.
+                  </p>
                 </div>
               </div>
 
+              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-400">02</span>
+                    <BookOpen className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="flex items-center justify-between mt-3 mb-1.5">
+                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                      The Awakening
+                    </h3>
+                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                    Realising the power <br />
+                    of community.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-400">03</span>
+                    <Users2 className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="flex items-center justify-between mt-3 mb-1.5">
+                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                      A Bigger Vision
+                    </h3>
+                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                    From local impact <br />
+                    to a global community.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-400">04</span>
+                    <TrendingUp className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="flex items-center justify-between mt-3 mb-1.5">
+                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                      Building the Model
+                    </h3>
+                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                    The LSR model for <br />
+                    meaningful collaboration.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-400">05</span>
+                    <Award className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="flex items-center justify-between mt-3 mb-1.5">
+                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                      10,000+ Entrepreneurs
+                    </h3>
+                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                    Mentoring and enabling <br />
+                    across India.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-400">06</span>
+                    <Globe className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="flex items-center justify-between mt-3 mb-1.5">
+                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
+                      A Global Community
+                    </h3>
+                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
+                    People. Ideas. Opportunities. <br />
+                    Together.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* ──────── COLUMN 2: CENTER FOUNDER STANDING IMAGE & SCRIPT ACCENT (lg:col-span-4) ──────── */}
-            <div className="lg:col-span-4 relative flex items-end justify-center min-h-[320px] sm:min-h-[380px] lg:min-h-[420px]">
-              <div className="absolute top-12 left-0 sm:-left-4 lg:-left-12 z-20 select-none pointer-events-none hidden sm:block">
-                <p className="font-[family-name:var(--font-script)] text-2xl sm:text-3xl lg:text-[34px] text-sky-400/90 leading-tight rotate-[-7deg] drop-shadow-sm text-center">
-                  People <br />
-                  Ideas <br />
-                  Opportunities <br />
-                  Together
-                </p>
-                <svg className="w-20 sm:w-24 h-2.5 mx-auto text-sky-400/50 mt-1" viewBox="0 0 100 10" fill="none">
-                  <path d="M2 5 Q 25 1, 50 5 T 98 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
-
-              <div 
-                className="relative w-[280px] sm:w-[320px] lg:w-[360px] h-[320px] sm:h-[380px] lg:h-[420px] z-10 flex items-end justify-center"
-                style={{
-                  WebkitMaskImage: 'radial-gradient(ellipse 90% 95% at 50% 50%, black 75%, transparent 100%)',
-                  maskImage: 'radial-gradient(ellipse 90% 95% at 50% 50%, black 75%, transparent 100%)',
-                }}
-              >
-                <Image
-                  src="/images/founder-new.png"
-                  alt="Dr. Pravin Parmar — Founder, Peers Global"
-                  fill
-                  sizes="(max-width: 768px) 300px, (max-width: 1024px) 340px, 380px"
-                  className="object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)]"
-                  priority
-                />
-              </div>
-            </div>
-
-            {/* ──────── COLUMN 3: RIGHT QUOTE CARD & 3 STAT PILLS (lg:col-span-3) ──────── */}
-            <div className="lg:col-span-3 flex flex-col justify-center gap-6 relative z-10 pt-4 lg:pt-0">
-              <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-white p-5 sm:p-6 shadow-xl relative text-slate-900 max-w-[320px] ml-auto">
-                <span className="font-serif text-3xl font-black text-[#041E42] leading-none select-none block mb-1">
-                  “
-                </span>
-                <p className="font-serif italic text-xs sm:text-[13px] font-normal text-slate-800 leading-relaxed">
-                  Real progress happens when people come together with purpose.
-                </p>
-                <div className="mt-3 flex items-center gap-2">
-                  <span className="h-[1px] w-4 bg-slate-400" />
-                  <span className="text-[11px] font-bold text-slate-900 tracking-tight">
-                    Dr. Pravin Parmar
-                  </span>
+            {/* Bottom branding footer bar */}
+            <div className="pt-5 pb-1 mt-5 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
+              <div className="flex items-center gap-3">
+                <div className="size-7 rounded-full bg-gradient-to-tr from-[#0062D2] to-sky-400 text-white flex items-center justify-center font-serif text-xs font-bold shadow-sm">
+                  N
                 </div>
+                <span>Real People · Real Stories · A Brighter Tomorrow</span>
               </div>
-
-              <div className="flex flex-col gap-3.5 max-w-[280px] ml-auto">
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-sm border border-blue-100">
-                    <Users2 className="size-4.5" />
-                  </div>
-                  <div>
-                    <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                      10,000+
-                    </p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-light leading-snug">
-                      MSME Promoters Mentored
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-sm border border-blue-100">
-                    <MapPin className="size-4.5" />
-                  </div>
-                  <div>
-                    <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                      Pan India
-                    </p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-light leading-snug">
-                      Impact Across Cities
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-sm border border-blue-100">
-                    <Trophy className="size-4.5" />
-                  </div>
-                  <div>
-                    <p className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
-                      A Stronger
-                    </p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-light leading-snug">
-                      Tomorrow Together
-                    </p>
-                  </div>
+              <div className="flex items-center gap-3">
+                <span>Peers Global</span>
+                <div className="flex items-center gap-1.5 text-blue-500">
+                  <span className="size-1.5 rounded-full bg-blue-500" />
+                  <span className="size-1.5 rounded-full bg-blue-500" />
+                  <span className="size-1.5 rounded-full bg-blue-500" />
+                  <span className="size-1.5 rounded-full bg-blue-500" />
+                  <span className="size-1.5 rounded-full bg-blue-500" />
+                  <span className="size-1.5 rounded-full bg-blue-500" />
                 </div>
               </div>
             </div>
 
           </div>
-
-          {/* ──────── BOTTOM: 6 CLEAN WHITE FLOATING CARDS (GRID) ──────── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5 mt-6 sm:mt-8">
-            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400">01</span>
-                  <Sprout className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="flex items-center justify-between mt-3 mb-1.5">
-                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                    Roots in Botad
-                  </h3>
-                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                </div>
-                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                  A small village. <br />
-                  Big lessons.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400">02</span>
-                  <BookOpen className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="flex items-center justify-between mt-3 mb-1.5">
-                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                    The Awakening
-                  </h3>
-                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                </div>
-                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                  Realising the power <br />
-                  of community.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400">03</span>
-                  <Users2 className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="flex items-center justify-between mt-3 mb-1.5">
-                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                    A Bigger Vision
-                  </h3>
-                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                </div>
-                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                  From local impact <br />
-                  to a global community.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400">04</span>
-                  <TrendingUp className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="flex items-center justify-between mt-3 mb-1.5">
-                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                    Building the Model
-                  </h3>
-                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                </div>
-                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                  The LSR model for <br />
-                  meaningful collaboration.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400">05</span>
-                  <Award className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="flex items-center justify-between mt-3 mb-1.5">
-                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                    10,000+ Entrepreneurs
-                  </h3>
-                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                </div>
-                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                  Mentoring and enabling <br />
-                  across India.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-400">06</span>
-                  <Globe className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="flex items-center justify-between mt-3 mb-1.5">
-                  <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                    A Global Community
-                  </h3>
-                  <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                </div>
-                <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                  People. Ideas. Opportunities. <br />
-                  Together.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-5 pb-1 mt-5 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
-            <div className="flex items-center gap-3">
-              <span className="h-[1px] w-8 bg-slate-600" />
-              <span>Real People · Real Stories · A Brighter Tomorrow</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="h-[1px] w-8 bg-slate-600" />
-              <span>Peers Global</span>
-            </div>
-          </div>
-
         </div>
       </section>
 

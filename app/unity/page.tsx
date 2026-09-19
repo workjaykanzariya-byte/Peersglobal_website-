@@ -20,12 +20,33 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://peersglobal.com/unity',
   },
+}
+
+const FEATURES = [
   {
-    icon: CalendarDays,
-    tag: 'EVENTS',
-    title: 'Event Calendar & Passes',
-    body: 'Circle meetings, city mixers and conclaves with member pricing applied automatically and check-in on the door.',
-    color: 'from-[#D4AF37]/20 to-[#1e4ed8]/10',
+    icon: Users,
+    tag: 'PEER DIRECTORY',
+    title: 'Find Any Peer, Anywhere',
+    body: 'Search the full verified community by industry, city, capability or what you need right now. Every profile is a real founder, confirmed by their Circle Director.',
+    color: 'from-blue-500/10 to-primary/5',
+    accent: 'text-blue-400',
+    border: 'border-blue-500/20',
+  },
+  {
+    icon: ClipboardList,
+    tag: 'CIRCLE GOVERNANCE',
+    title: 'Circle Meetings & Governance',
+    body: 'Attendance, Hot Seat requests, impact logging and committee tracking — the full meeting record managed digitally before, during and after each session.',
+    color: 'from-emerald-500/10 to-teal-500/5',
+    accent: 'text-emerald-400',
+    border: 'border-emerald-500/20',
+  },
+  {
+    icon: Sparkles,
+    tag: 'IMPACT LEDGER',
+    title: 'The Live Impact Ledger',
+    body: 'Every introduction made, every referral given, every mentorship hour confirmed — logged by the recipient, timestamped and immutable. Your Life Impact Score in real time.',
+    color: 'from-[#D4AF37]/15 to-amber-500/5',
     accent: 'text-[#D4AF37]',
     border: 'border-[#D4AF37]/20',
   },
