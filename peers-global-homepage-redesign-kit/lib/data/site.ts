@@ -140,7 +140,6 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Industry Director', href: '/leadership/industry-director', desc: 'Sector ecosystem owner for the city', phase: 1 },
       { label: 'Executive Director', href: '/leadership/executive-director', desc: 'Area / District / State / Country leadership', phase: 1 },
       { label: 'Global Advisory Board', href: '/leadership/global-advisors', desc: 'Senior entrepreneurs guiding the movement', phase: 2 },
-      { label: 'Impact Income', href: '/leadership/impact-income', desc: 'Earn while contributing to ecosystem growth', phase: 1 },
       { label: 'Apply to Lead', href: '/leadership/apply', desc: 'Submit expression of interest for leadership', phase: 1 },
     ],
   },

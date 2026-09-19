@@ -102,46 +102,50 @@ const METRICS = [
 
 export function OurStoryClient() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
             <Link
               href="/"
-              className="hover:text-blue-600 transition-colors duration-200"
+              className="hover:text-[#0062D2] transition-colors duration-200"
             >
               Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-600">About</span>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Our Story</span>
+            <span className="text-slate-900 font-bold">Our Story</span>
           </nav>
         </div>
       </div>
 
       {/* ─── SECTION 1: HERO (THE HOSPITAL CORRIDOR TURNING POINT) ────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF]">
+        {/* Soft luminous ambient glows */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-blue-200/40 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute -top-10 -left-10 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-6 z-10">
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2] bg-white/90 px-3.5 py-1.5 rounded-full border border-blue-200 shadow-2xs">
                   — ABOUT PEERS GLOBAL —
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
+              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-serif font-bold text-[#061836] tracking-tight leading-[1.08]">
                 Our Story
               </h1>
 
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
+              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-semibold leading-snug">
                 It began with one observation, in a hospital corridor.
               </p>
 
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl">
                 Entrepreneurs do not fail only because of business problems. They fail because they fight alone.
               </p>
 
@@ -150,7 +154,7 @@ export function OurStoryClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#0062D2] text-white font-bold text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group active:scale-[0.98]"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -158,7 +162,7 @@ export function OurStoryClient() {
 
                 <Link
                   href="/the-idea"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white text-slate-800 font-semibold text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 active:scale-[0.98]"
                 >
                   <span>Read The Idea</span>
                   <ArrowRight className="w-4 h-4 text-slate-400" />
@@ -166,9 +170,9 @@ export function OurStoryClient() {
               </div>
             </div>
 
-            {/* Right Hero Visual with Horizontal Left Edge Fade */}
+            {/* Right Hero Visual with Rounded Glass Frame */}
             <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-[32px] overflow-hidden shadow-[0_25px_70px_rgba(4,14,36,0.25)] border border-blue-900/15 bg-[#040e24]">
                 <Image
                   src="/images/executive-director-conclave.jpg"
                   alt="Peers Global leadership assembly"
@@ -178,14 +182,14 @@ export function OurStoryClient() {
                 />
 
                 {/* Soft horizontal gradient edge fade on the left edge */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-[#040e24]/60 via-[#040e24]/20 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#040e24]/70 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#040e24]/95 via-[#040e24]/50 to-transparent pointer-events-none z-10" />
 
                 {/* Stage Backdrop Brand Overlay */}
-                <div className="absolute top-6 right-6 bg-slate-950/85 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px]">
+                <div className="absolute top-6 right-6 bg-[#040e24]/90 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px] shadow-lg">
                   <p className="text-xs font-semibold text-slate-200 leading-tight">
                     Designed in Bharat.
                   </p>
@@ -195,9 +199,9 @@ export function OurStoryClient() {
                 </div>
 
                 {/* Cursive overlay text */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[260px]">
+                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[280px]">
                   <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
                     style={{ fontFamily: 'var(--font-script)' }}
                   >
                     The right circle
@@ -214,12 +218,12 @@ export function OurStoryClient() {
       </section>
 
       {/* ─── SECTION 2: BEFORE THERE WAS A COMMUNITY ─────────────────────── */}
-      <section className="py-16 sm:py-20 bg-white border-y border-slate-200/80">
+      <section className="py-20 sm:py-24 bg-white border-y border-slate-200/80 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+          <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
             — THE ORIGINS —
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight leading-tight">
             Before there was a community
           </h2>
 
@@ -239,9 +243,13 @@ export function OurStoryClient() {
             <p>
               He paid his own fees by teaching other students while he was still studying. He built a company, was right about the product and early to the market, and eventually admitted to himself that it could run his present but not build his future. He closed it.
             </p>
-            <p className="font-serif text-xl sm:text-2xl text-slate-900 font-medium italic border-l-4 border-[#0062D2] pl-5 my-6 py-1">
-              Then a family crisis put him in a hospital, and hospitals strip every illusion a person carries.
-            </p>
+            
+            <div className="bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-transparent p-6 sm:p-7 rounded-2xl border-l-4 border-[#0062D2] shadow-2xs my-6">
+              <p className="font-serif text-xl sm:text-2xl text-[#061836] font-semibold italic leading-snug">
+                Then a family crisis put him in a hospital, and hospitals strip every illusion a person carries.
+              </p>
+            </div>
+
             <p>
               Standing there he understood something uncomfortable: skills mean very little without the right people around you. So does intelligence. So does hard work. What matters in those moments is who you can call.
             </p>
@@ -253,7 +261,7 @@ export function OurStoryClient() {
           <div className="pt-4">
             <Link
               href="/founder"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-50 text-[#0062D2] hover:bg-blue-50 font-semibold text-xs border border-blue-200 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-50 text-[#0062D2] hover:bg-blue-100 font-bold text-xs border border-blue-200 transition-all shadow-2xs"
             >
               <span>Read the Founder&apos;s Story</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -263,16 +271,19 @@ export function OurStoryClient() {
       </section>
 
       {/* ─── SECTION 3: THE STORY NOBODY WOULD PUBLISH ───────────────────── */}
-      <section className="py-16 sm:py-20 bg-[#FDFBF7]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+      <section className="py-20 sm:py-24 bg-gradient-to-b from-[#061836] via-[#081d42] to-[#040e24] text-white relative overflow-hidden border-b border-slate-900">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#0062D2]/20 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/3 right-10 w-96 h-96 bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
+          <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
             — THE INVISIBLE MSME —
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
             The story nobody would publish
           </h2>
 
-          <div className="text-base sm:text-lg text-slate-700 leading-relaxed space-y-5">
+          <div className="text-base sm:text-lg text-slate-300 leading-relaxed space-y-5">
             <p>
               There was a second moment.
             </p>
@@ -282,23 +293,27 @@ export function OurStoryClient() {
             <p>
               And MSMEs are the businesses that build families, cities and employment across this country.
             </p>
-            <p className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-xs font-medium text-slate-900">
-              That rejection produced a belief that still governs everything here: <strong>every honest business story deserves respect and visibility. Even if a business shuts down, its story should never die.</strong>
-            </p>
+            
+            <div className="bg-white/10 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/15 shadow-xl border-l-4 border-l-sky-400 text-slate-100">
+              <p className="font-medium text-base sm:text-lg leading-relaxed">
+                That rejection produced a belief that still governs everything here: <strong className="text-white">every honest business story deserves respect and visibility. Even if a business shuts down, its story should never die.</strong>
+              </p>
+            </div>
+
             <p>
-              It also produced <strong>VyapaarJagat.com</strong>, a media platform for the businesses nobody else was covering.
+              It also produced <strong className="text-sky-300">VyapaarJagat.com</strong>, a media platform for the businesses nobody else was covering.
             </p>
           </div>
         </div>
       </section>
 
       {/* ─── SECTION 4: WHY A COMMUNITY, NOT SOMETHING EASIER ────────────── */}
-      <section className="py-16 sm:py-20 bg-white border-y border-slate-200/80">
+      <section className="py-20 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+          <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
             — THE STRATEGIC DECISION —
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight leading-tight">
             Why a community, and not something easier
           </h2>
 
@@ -306,7 +321,7 @@ export function OurStoryClient() {
             <p>
               Events would have been simpler. Media was already built.
             </p>
-            <p className="font-serif text-2xl font-bold text-[#0062D2]">
+            <p className="font-serif text-2xl sm:text-3xl font-bold text-[#0062D2]">
               Events end. Media informs. Only community transforms.
             </p>
             <p>
@@ -315,9 +330,11 @@ export function OurStoryClient() {
             <p>
               So the decision was made to build rooms rather than audiences.
             </p>
-            <p className="text-xl font-serif font-semibold text-slate-950">
-              Circles, not crowds. Trust, not transactions. Peers, not gurus.
-            </p>
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <p className="text-xl font-serif font-bold text-[#061836]">
+                Circles, not crowds. Trust, not transactions. Peers, not gurus.
+              </p>
+            </div>
             <p>
               That was the beginning of Peers Global.
             </p>
@@ -326,13 +343,13 @@ export function OurStoryClient() {
       </section>
 
       {/* ─── SECTION 5: WHAT WE BUILT (6 PILLARS) ────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
               — THE ARCHITECTURE —
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight mt-1">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight mt-2">
               What we built
             </h2>
             <p className="text-base text-slate-600 mt-2">
@@ -346,18 +363,18 @@ export function OurStoryClient() {
               return (
                 <div
                   key={pillar.title}
-                  className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between"
+                  className="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
                 >
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <div
-                      className={`w-11 h-11 rounded-xl border flex items-center justify-center ${pillar.color}`}
+                      className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${pillar.color}`}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-serif font-bold text-slate-950 text-lg">
+                    <h3 className="font-serif font-bold text-[#061836] text-xl group-hover:text-[#0062D2] transition-colors">
                       {pillar.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                       {pillar.desc}
                     </p>
                   </div>
@@ -366,10 +383,10 @@ export function OurStoryClient() {
             })}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/the-idea"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] text-white font-medium text-xs shadow-md hover:bg-[#0052B4] transition-all"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0062D2] text-white font-bold text-xs shadow-md hover:bg-[#0052B4] transition-all hover:shadow-lg active:scale-[0.98]"
             >
               <span>Explore Our World</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -379,13 +396,13 @@ export function OurStoryClient() {
       </section>
 
       {/* ─── SECTION 6: DATED TIMELINE ───────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-y border-slate-200/80">
+      <section className="py-20 sm:py-28 bg-white border-y border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
               — OUR JOURNEY —
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight mt-1">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight mt-2">
               How the community evolved
             </h2>
             <p className="text-sm text-slate-600 mt-2">
@@ -397,13 +414,13 @@ export function OurStoryClient() {
             {TIMELINE.map((item) => (
               <div key={item.year} className="relative pl-6 sm:pl-8 group">
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0062D2] border-4 border-white shadow-xs group-hover:scale-125 transition-transform" />
-                <span className="text-xs font-bold font-mono text-[#0062D2] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60 inline-block mb-1.5">
+                <span className="text-xs font-bold font-mono text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-200 inline-block mb-2">
                   {item.year}
                 </span>
-                <h3 className="font-serif font-bold text-slate-950 text-lg sm:text-xl leading-snug">
+                <h3 className="font-serif font-bold text-[#061836] text-lg sm:text-xl leading-snug group-hover:text-[#0062D2] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1.5">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1.5 font-normal">
                   {item.desc}
                 </p>
               </div>
@@ -412,32 +429,35 @@ export function OurStoryClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 7: WHERE WE ARE NOW (LIVE COUNTERS) ─────────────────── */}
-      <section className="py-16 sm:py-20 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─── SECTION 7: WHERE WE ARE NOW (LIVE COUNTERS ON DEEP NAVY) ────── */}
+      <section className="py-20 sm:py-24 bg-[#061836] text-white relative overflow-hidden border-b border-slate-900">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#0062D2]/20 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-sky-500/15 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
               — WHERE WE ARE NOW —
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight mt-1">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight mt-2">
               Designed in Bharat. Built for the world.
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mt-2">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-2">
               Nineteen Circles across industries and ambitions. A community that began in Ahmedabad and now operates across cities — with a platform built from the start for entrepreneurs anywhere in the world.
             </p>
           </div>
 
-          {/* Metric Bar */}
+          {/* Metric Bar — Clean White Cards on Deep Midnight Navy Canvas */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {METRICS.map((m) => (
               <div
                 key={m.label}
-                className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm text-center flex flex-col justify-center"
+                className="bg-white text-slate-900 p-6 sm:p-7 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white text-center flex flex-col justify-center"
               >
-                <span className="text-2xl sm:text-3xl font-bold font-serif text-slate-950">
+                <span className="text-2xl sm:text-3xl font-bold font-serif text-[#061836]">
                   {m.value}
                 </span>
-                <span className="text-xs text-slate-500 font-medium mt-1">
+                <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1.5">
                   {m.label}
                 </span>
               </div>
@@ -447,7 +467,7 @@ export function OurStoryClient() {
           <div className="mt-8 text-center">
             <Link
               href="/the-territory"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4]"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors uppercase tracking-wider"
             >
               <span>See the Territory</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -457,26 +477,26 @@ export function OurStoryClient() {
       </section>
 
       {/* ─── SECTION 8: WHAT WE ARE BUILDING TOWARD & WHAT HAS NOT CHANGED ─ */}
-      <section className="py-16 sm:py-20 bg-white border-t border-slate-200/80">
+      <section className="py-20 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Building Toward */}
           <div className="space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
               — THE MISSION —
             </span>
-            <h2 className="text-3xl font-serif font-bold text-slate-950">
+            <h2 className="text-3xl font-serif font-bold text-[#061836]">
               What we are building toward
             </h2>
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
               One million lives impacted through entrepreneurship, collaboration and opportunity. Not one million members. One million lives.
             </p>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed font-normal">
               Built one relationship at a time — one introduction, one conversation that saves someone eighteen months, one partnership that opens a market, one entrepreneur who stops carrying it alone.
             </p>
             <div className="pt-2">
               <Link
                 href="/1-million-mission"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 text-[#0062D2] font-semibold text-xs border border-blue-200 hover:bg-blue-50 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-50 text-[#0062D2] font-bold text-xs border border-blue-200 hover:bg-blue-100 transition-all shadow-2xs"
               >
                 <span>See the 1 Million Mission</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -485,17 +505,17 @@ export function OurStoryClient() {
           </div>
 
           {/* What Has Not Changed */}
-          <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-blue-100 shadow-md space-y-4 border-l-4 border-l-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
               — UNCOMPROMISING CORE —
             </span>
-            <h3 className="text-2xl font-serif font-bold text-slate-950">
+            <h3 className="text-2xl font-serif font-bold text-[#061836]">
               What has not changed
             </h3>
-            <p className="text-xl font-serif italic text-slate-900">
+            <p className="text-xl font-serif italic text-slate-900 font-medium">
               The community has grown. The belief has not: Entrepreneurs should not have to build alone.
             </p>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
               Everything here — every Circle, every rule, every system — exists to make that true for one more person, and then one more after that.
             </p>
           </div>
@@ -503,8 +523,8 @@ export function OurStoryClient() {
       </section>
 
       {/* ─── SECTION 9: CLOSING DARK MOUNTAIN BANNER ─────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-slate-950 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-45 mix-blend-luminosity">
+      <section className="relative py-20 sm:py-28 bg-[#040E24] text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-40 mix-blend-luminosity">
           <Image
             src="/images/membership-mountain-closing.jpg"
             alt="Climber looking at sunrise from mountain peak"
@@ -512,13 +532,13 @@ export function OurStoryClient() {
             className="object-cover object-center"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#040E24] via-[#040E24]/80 to-[#040E24]/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Copy */}
             <div className="lg:col-span-8 space-y-5">
-              <p className="text-xs uppercase tracking-widest font-bold text-sky-400">
+              <p className="text-xs uppercase tracking-[0.22em] font-bold text-sky-400">
                 — BUILD A STRONGER TOMORROW —
               </p>
 
@@ -526,7 +546,7 @@ export function OurStoryClient() {
                 “The right circle can change your life faster than the right idea.”
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300">
+              <p className="text-base sm:text-lg text-slate-300 font-normal">
                 Build Your Business. Build Your Relationships. Build Your Circle.
               </p>
 
@@ -535,7 +555,7 @@ export function OurStoryClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] transition-all"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#0062D2] text-white font-bold text-sm shadow-md hover:bg-[#0052B4] transition-all hover:shadow-lg active:scale-[0.98]"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
@@ -543,7 +563,7 @@ export function OurStoryClient() {
 
                 <Link
                   href="/the-idea"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 text-white font-medium text-sm border border-white/20 hover:bg-white/20 transition-all"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 text-white font-semibold text-sm border border-white/20 hover:bg-white/20 transition-all active:scale-[0.98]"
                 >
                   <span>Read The Idea</span>
                   <ArrowRight className="w-4 h-4 text-slate-300" />
