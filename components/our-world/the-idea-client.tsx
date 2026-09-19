@@ -128,7 +128,7 @@ export function TheIdeaClient() {
       {/* =========================================================================
           1. HERO SECTION (EXACT ATTACHED DESIGN RECREATION)
           ========================================================================= */}
-      <section className="relative overflow-hidden border-b border-slate-200/80 bg-[#FAF9F6] pt-4 sm:pt-6 pb-3 sm:pb-4">
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF] pt-4 sm:pt-6 pb-3 sm:pb-4">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Main 2-Column Balanced Layout */}
