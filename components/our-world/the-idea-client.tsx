@@ -1262,7 +1262,7 @@ export function TheIdeaClient() {
               </div>
 
               {/* 3 Stat Counters Row */}
-              <div className="rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-xs grid grid-cols-3 divide-x divide-slate-100 items-center">
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-xs grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 items-center gap-3 sm:gap-0">
                 <div className="flex items-center gap-3 px-1.5 sm:px-3">
                   <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
                     <Users2 className="size-5" />

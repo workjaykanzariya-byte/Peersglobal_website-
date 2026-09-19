@@ -355,7 +355,7 @@ export function PurposePageClient() {
                 </div>
 
                 {/* Stat Band */}
-                <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full max-w-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 w-full max-w-lg">
                   <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
                     <div className="size-9 rounded-full bg-white flex items-center justify-center text-[#0062D2] shadow-2xs shrink-0">
                       <Target className="size-4" />

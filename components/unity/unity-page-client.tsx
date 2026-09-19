@@ -588,7 +588,7 @@ export function UnityPageClient() {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-5 gap-2 text-center pt-2">
+              <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 text-center pt-2">
                 {[
                   { step: '1', name: 'Download', sub: 'iOS & Android' },
                   { step: '2', name: 'Explore', sub: 'No commitment' },
