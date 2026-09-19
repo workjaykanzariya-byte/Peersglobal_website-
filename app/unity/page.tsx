@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import {
   Smartphone, Sparkles, ShieldCheck, MapPin, Zap, CheckCircle2,
-  BookOpen, Users, ClipboardList, ArrowLeftRight, Star, ChevronRight
+  BookOpen, Users, ClipboardList, ArrowLeftRight, Star, CalendarDays, ChevronRight
 } from 'lucide-react'
 import { Card, Cta, SectionHead } from '@/components/site/ui'
 import { UNITY_ROLES } from '@/lib/data/content'
@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://peersglobal.com/unity',
   },
+}
+
+const FEATURES = [
   {
     icon: CalendarDays,
     tag: 'EVENTS',
