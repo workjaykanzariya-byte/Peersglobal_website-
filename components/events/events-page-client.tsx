@@ -620,7 +620,7 @@ export function EventsPageClient() {
                 <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between">
                   <span className="text-[11px] text-slate-500">
                     {item.guestAllowed
-                      ? '✓ Open to Registered Guests'
+                      ? 'Open to Registered Guests'
                       : '🔒 Peers Only'}
                   </span>
                   <a

@@ -1108,13 +1108,14 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                       {/* Selected City Status Badge on top */}
                       {selectedMainCity !== 'All Cities' && (
                         <span
-                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
+                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 ${
                             isActiveInSelectedCity
                               ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                               : 'bg-amber-50 text-amber-700 border border-amber-200'
                           }`}
                         >
-                          {isActiveInSelectedCity ? '✓ Active' : 'Coming Soon'}
+                          <span className={`size-1.5 rounded-full ${isActiveInSelectedCity ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
+                          {isActiveInSelectedCity ? 'Active' : 'Coming Soon'}
                         </span>
                       )}
 
@@ -1177,13 +1178,14 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                       {/* Selected City Status Badge on top */}
                       {selectedMainCity !== 'All Cities' && (
                         <span
-                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
+                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 ${
                             isActiveInSelectedCity
                               ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                               : 'bg-amber-50 text-amber-700 border border-amber-200'
                           }`}
                         >
-                          {isActiveInSelectedCity ? '✓ Active' : 'Coming Soon'}
+                          <span className={`size-1.5 rounded-full ${isActiveInSelectedCity ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
+                          {isActiveInSelectedCity ? 'Active' : 'Coming Soon'}
                         </span>
                       )}
 
@@ -1465,14 +1467,24 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                     onChange={(e) => setModalCity(e.target.value)}
                     className="w-full px-3 py-2 text-xs font-semibold rounded-xl border border-slate-300 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0062D2] cursor-pointer"
                   >
-                    {(STATE_CITIES_MAP[modalState] || []).map((ct) => {
-                      const count = getCirclesForCity(ct).length
-                      return (
-                        <option key={ct} value={ct}>
-                          {ct} {count > 0 ? `✓ (${count} Circle${count > 1 ? 's' : ''})` : ''}
-                        </option>
-                      )
-                    })}
+                    {(() => {
+                      const cities = STATE_CITIES_MAP[modalState] || []
+                      const sorted = [...cities].sort((a, b) => {
+                        const countA = getCirclesForCity(a).length
+                        const countB = getCirclesForCity(b).length
+                        return countB - countA
+                      })
+
+                      return sorted.map((ct) => {
+                        const count = getCirclesForCity(ct).length
+                        const label = count > 0 ? `${ct} (${count} Circle${count > 1 ? 's' : ''})` : `${ct} (Upcoming)`
+                        return (
+                          <option key={ct} value={ct}>
+                            {label}
+                          </option>
+                        )
+                      })
+                    })()}
                   </select>
                 </div>
               </div>
