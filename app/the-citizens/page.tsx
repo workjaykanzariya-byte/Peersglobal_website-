@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   Users,
@@ -822,74 +823,22 @@ export default function TheCitizensPage() {
 
       {/* =========================================================================
           SECTION 6: CLOSING HERO ("A COMMUNITY IS ONLY AS STRONG...")
-          With Cinematic Earth Background Video
           ========================================================================= */}
-      <section className="relative py-28 sm:py-36 overflow-hidden bg-[#030B1C] text-white border-t border-slate-900">
-
-        {/* Background Looping Earth Video */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="size-full object-cover object-center filter brightness-[0.72] contrast-[1.15]"
-          >
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
-          </video>
-          {/* Smooth dark gradient fades on top and bottom into #030B1C */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#030B1C] via-[#030B1C]/55 to-[#030B1C] pointer-events-none" />
-          {/* Subtle radial vignette for crisp text contrast */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,11,28,0.25)_0%,rgba(3,11,28,0.85)_100%)] pointer-events-none" />
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-5">
-            <span className="w-6 h-[1.5px] bg-sky-400" />
-            <span>THE CITIZENS</span>
-            <span className="w-6 h-[1.5px] bg-sky-400" />
-          </div>
-
-          {/* Title */}
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.18] mb-6">
-            A community is only as strong <br />
-            as the people who choose to carry it.
-          </h2>
-
-          <p className="font-serif italic text-lg sm:text-xl text-slate-300 font-normal mb-10 max-w-xl mx-auto">
-            Build Your Business. Build Your Relationships. Build Your Circle.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-            <Link
-              href="/membership"
-              className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 flex items-center gap-2"
-            >
-              <span>BECOME A PEER</span>
-              <ArrowRight className="size-4" />
-            </Link>
-            <Link
-              href="/leadership"
-              className="rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 text-sm font-semibold transition-all hover:scale-105"
-            >
-              START A CIRCLE
-            </Link>
-          </div>
-
-          {/* Sub-footer strip */}
-          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-            <span>Peers Global — World&apos;s First Community of Collaboration</span>
-            <span className="italic font-serif text-slate-300">
-              &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
-            </span>
-          </div>
-
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="THE CITIZENS"
+        title={
+          <>
+            A community is only as strong{' '}
+            <span className="block sm:inline">as the people who choose to carry it.</span>
+          </>
+        }
+        subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
+        description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
+        primaryButtonText="BECOME A PEER"
+        primaryButtonHref="/membership"
+        secondaryButtonText="START A CIRCLE"
+        secondaryButtonHref="/leadership"
+      />
 
     </div>
   )

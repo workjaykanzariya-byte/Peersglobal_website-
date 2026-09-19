@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   ChevronRight,
@@ -798,74 +799,19 @@ export function CriteriaClient() {
       </section>
 
       {/* =================================================================
-          SECTION 7: CLOSING HERO BANNER — Mountain Sunrise Panorama
+          SECTION 7: CLOSING CTA SECTION
           ================================================================= */}
-      <section className="relative overflow-hidden bg-[#070F1E] text-white py-24 sm:py-32">
-        {/* Background Image */}
-        <div className="absolute inset-0 pointer-events-none">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Entrepreneur standing on mountain summit at sunrise"
-            fill
-            className="object-cover object-center opacity-40 mix-blend-luminosity"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070F1E] via-[#070F1E]/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070F1E] via-transparent to-[#070F1E]/70" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-            {/* Left Copy */}
-            <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="h-0.5 w-6 bg-sky-400" />
-                <span>YOUR NEXT STEP</span>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight mb-4">
-                Great entrepreneurs belong here.
-              </h2>
-
-              <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed mb-8">
-                Download the Unity App or apply for membership and take your next step.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-4 text-sm font-bold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
-                <Link
-                  href="/apply"
-                  className="rounded-full border border-white/30 hover:border-white/60 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-8 py-4 text-sm font-semibold transition-all inline-flex items-center gap-2"
-                >
-                  <UserCheck className="size-4" />
-                  <span>Apply for Membership</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Cursive Script Callout */}
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
-              <div className="text-left lg:text-right select-none pointer-events-none" style={{ fontFamily: 'var(--font-script)' }}>
-                <p className="text-3xl sm:text-4xl text-white/50 leading-tight">Build,</p>
-                <p className="text-3xl sm:text-4xl text-white/70 leading-tight">Connect,</p>
-                <p className="text-3xl sm:text-4xl text-white/90 leading-tight">Collaborate,</p>
-                <p className="text-4xl sm:text-5xl text-amber-300 font-medium leading-tight mt-1">
-                  Create Impact.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="YOUR NEXT STEP"
+        title="Great entrepreneurs belong here."
+        subtitle="Download the Unity App or apply for membership and take your next step."
+        description=""
+        primaryButtonText="Download Unity App"
+        primaryButtonHref="https://unity.peersglobal.com"
+        secondaryButtonText="Apply for Membership"
+        secondaryButtonHref="/apply"
+        secondaryButtonIcon={<UserCheck className="size-4" />}
+      />
 
     </div>
   )

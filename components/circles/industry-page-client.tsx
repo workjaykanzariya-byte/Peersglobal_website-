@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   Factory,
   Building2,
@@ -723,47 +724,18 @@ export function IndustryPageClient() {
         </div>
       </section>
 
-      {/* SECTION 7: CLOSING DARK BANNER */}
-      <section className="py-16 sm:py-24 bg-[#0F172A]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <span className="h-px w-8 bg-white/30" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/50">
-                YOUR INDUSTRY. YOUR CIRCLE.
-              </span>
-              <span className="h-px w-8 bg-white/30" />
-            </div>
-
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight mb-6">
-              Find the room where your business already belongs.
-            </h2>
-
-            <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-10 max-w-xl mx-auto">
-              Nine Industry Circles. Category exclusivity guaranteed. Visit as a guest before you decide.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/circles/find"
-                className="rounded-full bg-white hover:bg-slate-100 text-[#0F172A] px-8 py-4 text-sm font-bold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
-              >
-                <span>Find a Circle Near You</span>
-                <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                href="/circles"
-                className="rounded-full border border-white/30 hover:border-white/60 text-white px-8 py-4 text-sm font-semibold transition-all hover:scale-105 inline-flex items-center gap-2"
-              >
-                <span>All Circles</span>
-                <ChevronRight className="size-4" />
-              </Link>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      {/* SECTION 7: CLOSING CTA SECTION */}
+      <ClosingCtaSection
+        eyebrow="YOUR INDUSTRY. YOUR CIRCLE."
+        title="Find the room where your business already belongs."
+        subtitle="Nine Industry Circles. Category exclusivity guaranteed. Visit as a guest before you decide."
+        description=""
+        primaryButtonText="Find a Circle Near You"
+        primaryButtonHref="/circles/find"
+        secondaryButtonText="All Circles"
+        secondaryButtonHref="/circles"
+        secondaryButtonIcon={<ChevronRight className="size-4" />}
+      />
 
     </div>
   )

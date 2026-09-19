@@ -115,7 +115,6 @@ export const HEADER_NAV: NavItem[] = [
     children: [
       { label: 'Why Join', href: '/membership', desc: "Why your next breakthrough won't come alone", phase: 1 },
       { label: 'Who Belongs Here', href: '/who-belongs-here', desc: 'The fifteen names test & candidate fit', phase: 1 },
-      { label: 'Membership vs Peer Standing', href: '/membership-vs-peer-standing', desc: 'Status word vs relational standing', phase: 1 },
       { label: 'Compare Tiers', href: '/membership/tiers', desc: 'Full fee transparency & ₹2L+ value breakdown', phase: 1 },
       { label: 'Criteria & Process', href: '/membership/criteria', desc: '2-step application and Circle approval', phase: 1 },
       { label: 'What You Get', href: '/membership/benefits', desc: 'Complete annual calendar and inclusions', phase: 1 },
