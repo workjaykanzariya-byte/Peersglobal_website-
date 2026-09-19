@@ -878,7 +878,7 @@ export function CollaborationWinsClient() {
                 </div>
 
                 {/* 10 Ways Grid Counters */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
                   {WAYS_COUNTERS.map((item) => {
                     const Icon = item.icon
                     return (

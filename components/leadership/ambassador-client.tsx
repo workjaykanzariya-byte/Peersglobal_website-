@@ -428,7 +428,7 @@ export function AmbassadorClient() {
               </div>
 
               {/* 3 Pills Bar Underneath */}
-              <div className="bg-slate-50 rounded-2xl p-3 sm:p-4 border border-slate-200/80 shadow-sm grid grid-cols-3 gap-2 sm:gap-3 text-center">
+              <div className="bg-slate-50 rounded-2xl p-3 sm:p-4 border border-slate-200/80 shadow-sm grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 text-center">
                 <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-white border border-slate-200/70 shadow-xs">
                   <Users className="w-4 h-4 text-emerald-600" />
                   <span className="text-xs font-semibold text-slate-800">
