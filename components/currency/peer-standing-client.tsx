@@ -23,13 +23,13 @@ const STANDING_LEVELS = [
   {
     name: 'Explorer',
     badge: Compass,
-    color: 'text-neutral-600 bg-neutral-100 border-neutral-200',
+    color: 'text-slate-600 bg-slate-100 border-slate-200',
     desc: 'Getting started in the community. Learning the rhythm of contribution.',
   },
   {
     name: 'Contributor',
     badge: Sparkles,
-    color: 'text-blue-600 bg-blue-50 border-blue-200',
+    color: 'text-[#0062D2] bg-blue-50 border-blue-200',
     desc: 'Active giver. Regularly logging verified referrals and peer support.',
   },
   {
@@ -54,40 +54,46 @@ const STANDING_LEVELS = [
 
 export function PeerStandingClient() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-[#EADFC7]/50 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span>The Currency</span>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Peer Standing</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <Link href="/unity" className="hover:text-slate-900 transition-colors">
+            Unity
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Peer Standing</span>
         </div>
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-[#EADFC7]/60">
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                <Award className="w-3.5 h-3.5" />
+                Community Recognition
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
                 Peer Standing
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
+              <p className="text-xl sm:text-2xl font-serif text-[#0062D2] italic leading-relaxed font-normal">
                 What the community recognises you for.
               </p>
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
                 Earned through what you gave. Conferred by the people you gave it to.
               </p>
 
               <div className="pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-md"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md shadow-blue-500/20"
                 >
                   Download Unity App
                   <ArrowRight className="w-4 h-4" />
@@ -97,7 +103,7 @@ export function PeerStandingClient() {
 
             {/* Right Golden Star Trophy Visual */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#D8C7A5] shadow-2xl bg-[#E8DDD0]">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-slate-950">
                 <Image
                   src="/images/culture-hero-desk.jpg"
                   alt="Golden award star on wooden boardroom desk"
@@ -106,12 +112,12 @@ export function PeerStandingClient() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute top-4 right-4 text-right font-serif italic text-white/95 text-base sm:text-lg drop-shadow-md">
                   Respect Earned.<br />Not Given.
                 </div>
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-amber-200 border border-white/30">
+                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-sky-200 border border-white/30">
                     Social Equity Hierarchy
                   </span>
                 </div>
@@ -122,20 +128,20 @@ export function PeerStandingClient() {
       </section>
 
       {/* ─── The Closest Thing to Wealth ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#8A7356] font-bold">
-            <span className="w-6 h-[1.5px] bg-[#B88746]" />
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             The True Measure
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
             The closest thing to wealth in this community
           </h2>
-          <div className="prose prose-lg text-[#3D352E] leading-relaxed font-normal space-y-5">
-            <p className="text-lg sm:text-xl font-serif text-[#2B231B]">
+          <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5">
+            <p className="text-lg sm:text-xl font-serif text-slate-950 font-semibold">
               Money buys a subscription. It buys a seat, an app and the right to be in the room. It buys nothing else.
             </p>
-            <p className="text-xl font-serif font-bold text-[#1A1A1A]">
+            <p className="text-xl font-serif font-bold text-[#0062D2]">
               Standing — whether Peers open doors for you, whether your ask carries weight, whether you can lead — comes from a different currency entirely.
             </p>
             <p>
@@ -146,13 +152,16 @@ export function PeerStandingClient() {
       </section>
 
       {/* ─── Standing Levels ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF7F0]">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#F8FAFC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              — ADVANCEMENT TIERS —
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               Standing Levels
             </h2>
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-slate-600">
               As you contribute, your Peer Standing grows.
             </p>
           </div>
@@ -163,17 +172,17 @@ export function PeerStandingClient() {
               return (
                 <div
                   key={tier.name}
-                  className="p-6 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm text-center space-y-3 flex flex-col justify-between"
+                  className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm text-center space-y-3 flex flex-col justify-between hover:shadow-md transition-shadow"
                 >
                   <div className="space-y-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#FAF4E6] border border-[#EADBBD] flex items-center justify-center text-[#8C6422] mx-auto">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2] mx-auto">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-serif font-bold text-neutral-900">
+                      <h3 className="text-lg font-serif font-bold text-slate-950">
                         {tier.name}
                       </h3>
-                      <p className="text-xs text-neutral-600 mt-1 leading-relaxed">
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                         {tier.desc}
                       </p>
                     </div>
@@ -186,40 +195,40 @@ export function PeerStandingClient() {
       </section>
 
       {/* ─── What Standing Changes vs What Standing Is Not ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {/* What standing changes */}
-            <div className="p-8 rounded-3xl bg-white border border-[#E8DFC9] shadow-sm space-y-6">
-              <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+            <div className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm space-y-6">
+              <h2 className="text-2xl font-serif text-slate-950 font-bold">
                 What standing changes
               </h2>
-              <div className="space-y-3.5 text-xs sm:text-sm text-neutral-600">
+              <div className="space-y-3.5 text-xs sm:text-sm text-slate-600">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-neutral-900 font-bold">Recognition across the community</strong>
+                    <strong className="block text-slate-900 font-bold">Recognition across the community</strong>
                     Peers across Circles and cities see you are someone who gives. That reputation opens doors before you ask.
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-neutral-900 font-bold">Access to leadership opportunities</strong>
+                    <strong className="block text-slate-900 font-bold">Access to leadership opportunities</strong>
                     Every leadership role follows contribution. Standing is what makes a Peer a candidate.
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-neutral-900 font-bold">Priority consideration for initiatives</strong>
+                    <strong className="block text-slate-900 font-bold">Priority consideration for initiatives</strong>
                     Special conclaves, overseas delegations and high-level working committees prioritize top-standing peers.
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-neutral-900 font-bold">Greater visibility within Circles &amp; beyond</strong>
+                    <strong className="block text-slate-900 font-bold">Greater visibility within Circles &amp; beyond</strong>
                     Brand showcase priority and featured editorial coverage across VyapaarJagat.
                   </div>
                 </div>
@@ -227,44 +236,44 @@ export function PeerStandingClient() {
             </div>
 
             {/* What standing is not */}
-            <div className="p-8 rounded-3xl bg-white border border-[#E8DFC9] shadow-sm space-y-6 flex flex-col justify-between">
+            <div className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
-                <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+                <h2 className="text-2xl font-serif text-slate-950 font-bold">
                   What standing is not
                 </h2>
-                <div className="space-y-3.5 text-xs sm:text-sm text-neutral-600">
+                <div className="space-y-3.5 text-xs sm:text-sm text-slate-600">
                   <div className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-neutral-900 font-bold">It is not a hierarchy of importance</strong>
+                      <strong className="block text-slate-900 font-bold">It is not a hierarchy of importance</strong>
                       Peers are not ordered against each other or treated as second-class.
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-neutral-900 font-bold">It is not based on your business size</strong>
+                      <strong className="block text-slate-900 font-bold">It is not based on your business size</strong>
                       A micro-entrepreneur with huge generosity outranks a ₹100 Cr tycoon who only takes.
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-neutral-900 font-bold">It cannot be bought</strong>
+                      <strong className="block text-slate-900 font-bold">It cannot be bought</strong>
                       No sponsorship, donation or tier purchase produces standing.
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-neutral-900 font-bold">It is not permanent</strong>
+                      <strong className="block text-slate-900 font-bold">It is not permanent</strong>
                       Standing reflects an active contributing member. It ends when membership does.
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#FAF5EB] border border-[#EADBBD] text-xs font-serif italic text-[#8C6422] text-center">
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs font-serif italic text-[#0062D2] text-center shadow-xs">
                 &ldquo;Standing is not given. It is earned, one contribution at a time.&rdquo;
               </div>
             </div>

@@ -36,30 +36,30 @@ const TEN_WAYS = [
 
 export function HowToEarnImpactClient() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2]">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-[#EADFC7]/50 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <span>The Currency</span>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">How to Earn Impact</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">How to Earn Impact</span>
         </div>
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-[#EADFC7]/60">
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
                 How to Earn Impact
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
+              <p className="text-xl sm:text-2xl font-serif text-slate-700 italic leading-relaxed">
                 Ten ways to give. Every one of them counts.
               </p>
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
@@ -69,7 +69,7 @@ export function HowToEarnImpactClient() {
               <div className="pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
@@ -79,7 +79,7 @@ export function HowToEarnImpactClient() {
 
             {/* Right Sprouting Seedling Visual */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#D8C7A5] shadow-2xl bg-[#E8DDD0]">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-2xl bg-slate-100">
                 <Image
                   src="/images/founder-earth-showcase.jpg"
                   alt="Hands holding a growing seedling in soil"
@@ -93,7 +93,7 @@ export function HowToEarnImpactClient() {
                   Small Actions.<br />Bigger Impact.
                 </div>
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-amber-200 border border-white/30">
+                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-blue-200 border border-white/30">
                     Contribution Multipliers
                   </span>
                 </div>
@@ -104,13 +104,13 @@ export function HowToEarnImpactClient() {
       </section>
 
       {/* ─── Impact Follows the Ten Ways ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
+            <h2 className="text-3xl sm:text-4xl font-serif text-slate-950 font-bold">
               Impact follows the ten Ways
             </h2>
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-slate-600">
               Every contribution recorded here falls into one of the ten defined Ways of Collaboration.
             </p>
           </div>
@@ -121,19 +121,19 @@ export function HowToEarnImpactClient() {
               return (
                 <div
                   key={way.num}
-                  className="p-5 rounded-2xl bg-white border border-[#E8DFC9] shadow-xs space-y-3 hover:border-blue-400 transition-all flex flex-col justify-between"
+                  className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-3 hover:border-[#0062D2] transition-all flex flex-col justify-between"
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="w-8 h-8 rounded-full bg-[#FAF4E6] border border-[#EADBBD] text-[#8C6422] font-mono font-bold text-xs flex items-center justify-center">
+                      <span className="w-8 h-8 rounded-full bg-[#EFF6FF] border border-[#0062D2]/20 text-[#0062D2] font-mono font-bold text-xs flex items-center justify-center">
                         {way.num}
                       </span>
-                      <Icon className="w-4 h-4 text-neutral-400" />
+                      <Icon className="w-4 h-4 text-slate-400" />
                     </div>
-                    <h3 className="font-serif font-bold text-sm text-neutral-900 leading-tight">
+                    <h3 className="font-serif font-bold text-sm text-slate-900 leading-tight">
                       {way.title}
                     </h3>
-                    <p className="text-xs text-neutral-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed">
                       {way.desc}
                     </p>
                   </div>
@@ -145,7 +145,7 @@ export function HowToEarnImpactClient() {
           <div className="text-center pt-2">
             <Link
               href="/10-ways-of-collaboration"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 uppercase tracking-wider"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#0052B4] uppercase tracking-wider"
             >
               See the 10 Ways in Full <ArrowRight className="w-4 h-4" />
             </Link>
@@ -154,35 +154,35 @@ export function HowToEarnImpactClient() {
       </section>
 
       {/* ─── Contribution Beyond Collaboration & What Does Not Count ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF7F0]">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left: Contribution beyond collaboration */}
-            <div className="lg:col-span-6 p-8 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm space-y-6">
-              <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+            <div className="lg:col-span-6 p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6">
+              <h2 className="text-2xl font-serif text-slate-950 font-bold">
                 Contribution beyond collaboration
               </h2>
-              <div className="space-y-4 text-xs sm:text-sm text-neutral-600">
-                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
-                  <strong className="block text-neutral-900 font-bold mb-0.5">
+              <div className="space-y-4 text-xs sm:text-sm text-slate-600">
+                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+                  <strong className="block text-slate-900 font-bold mb-0.5">
                     Teaching a masterclass
                   </strong>
                   Sharing what you know with a room of peers on operations, finance, or hiring.
                 </div>
-                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
-                  <strong className="block text-neutral-900 font-bold mb-0.5">
+                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+                  <strong className="block text-slate-900 font-bold mb-0.5">
                     Serving on a committee
                   </strong>
                   Holding an active leadership role as Chair or Leader in your Circle.
                 </div>
-                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
-                  <strong className="block text-neutral-900 font-bold mb-0.5">
+                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+                  <strong className="block text-slate-900 font-bold mb-0.5">
                     Leading an ecosystem
                   </strong>
                   Founding a Circle, directing one, carrying an industry or territory.
                 </div>
-                <div className="p-4 rounded-2xl bg-[#FAF8F4] border border-[#EDE4D0]">
-                  <strong className="block text-neutral-900 font-bold mb-0.5">
+                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+                  <strong className="block text-slate-900 font-bold mb-0.5">
                     Bringing the right entrepreneur in
                   </strong>
                   Introducing a high-calibre peer who genuinely strengthens the community.
@@ -191,12 +191,12 @@ export function HowToEarnImpactClient() {
             </div>
 
             {/* Right: What does not earn impact */}
-            <div className="lg:col-span-6 p-8 rounded-3xl bg-white border border-[#E5DAC0] shadow-sm space-y-6 flex flex-col justify-between">
+            <div className="lg:col-span-6 p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
-                <h2 className="text-2xl font-serif text-[#1A1A1A] font-bold">
+                <h2 className="text-2xl font-serif text-slate-950 font-bold">
                   What does not earn impact
                 </h2>
-                <div className="space-y-4 text-xs sm:text-sm text-neutral-600">
+                <div className="space-y-4 text-xs sm:text-sm text-slate-600">
                   <div className="p-4 rounded-2xl bg-red-50/70 border border-red-100 flex items-start gap-3">
                     <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                     <div>
@@ -221,7 +221,7 @@ export function HowToEarnImpactClient() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#FAF5EB] border border-[#EADBBD] text-xs font-serif italic text-[#8C6422] text-center">
+              <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#0062D2]/20 text-xs font-serif italic text-[#0062D2] text-center">
                 &ldquo;The more you give, the more you grow.&rdquo;
               </div>
             </div>

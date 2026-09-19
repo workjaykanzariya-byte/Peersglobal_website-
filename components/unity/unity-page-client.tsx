@@ -222,9 +222,9 @@ export function UnityPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── SECTION 1: HERO (WITH PHONE MOCKUPS & EDGE FADE) ────────────── */}
-      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden border-b border-slate-200/80">
+      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content Column */}
@@ -316,10 +316,10 @@ export function UnityPageClient() {
                 />
 
                 {/* Soft gradient horizontal fade on the left edge */}
-                <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient edge shading */}
-                <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
 
                 {/* Cursive overlay text on right */}
                 <div className="absolute top-1/2 -translate-y-1/2 right-4 sm:right-6 text-right z-20 max-w-[200px]">
@@ -453,7 +453,7 @@ export function UnityPageClient() {
       </section>
 
       {/* ─── SECTION 3: WHAT UNITY DOES (11 CARDS + 1 QUOTE CARD = 12 GRID) ─ */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7] border-b border-slate-200/80">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -521,7 +521,7 @@ export function UnityPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Box 1: Your profile is private by default */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
                 <Lock className="w-6 h-6" />
               </div>
@@ -539,7 +539,7 @@ export function UnityPageClient() {
             </div>
 
             {/* Box 2: Why the app matters more than the meeting */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
                 <Clock className="w-6 h-6" />
               </div>
@@ -557,7 +557,7 @@ export function UnityPageClient() {
             </div>
 
             {/* Box 3: One community, every country */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
                 <Globe2 className="w-6 h-6" />
               </div>
@@ -578,7 +578,7 @@ export function UnityPageClient() {
             </div>
 
             {/* Box 4: Start here */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <Flag className="w-5 h-5" />
@@ -618,7 +618,7 @@ export function UnityPageClient() {
       </section>
 
       {/* ─── SECTION 5: TWO-COLUMN SECTION (COMMON QUESTIONS & NOT READY YET) ─ */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7] border-b border-slate-200/80">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left Column: Common Questions FAQ Accordion */}
