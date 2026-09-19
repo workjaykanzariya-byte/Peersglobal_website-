@@ -527,7 +527,7 @@ export function GalleryPageClient() {
           </div>
 
           {/* Filters and Controls Toolbar */}
-          <div className="bg-[#FDFBF7] p-4 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
+          <div className="bg-[#FAFBFD] p-4 rounded-2xl border border-slate-200/90 shadow-sm mb-8 space-y-4">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {/* City Filter */}
               <div>
@@ -773,7 +773,7 @@ export function GalleryPageClient() {
       </section>
 
       {/* ─── SECTION 3: EXPLORE BY COLLECTION ────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
+      <section className="py-16 sm:py-24 bg-[#FAFBFD]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4 mb-10">
             <div>

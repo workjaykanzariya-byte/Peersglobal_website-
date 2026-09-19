@@ -98,7 +98,7 @@ export function PartnerPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
       {/* ─── Breadcrumbs ─── */}
       <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
@@ -113,18 +113,18 @@ export function PartnerPageClient() {
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F5FD] via-[#FBFCFE] to-white">
+      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2] mx-auto">
             <Handshake className="w-3.5 h-3.5" />
             Institutional Alliances
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
             Partner With Us
           </h1>
 
-          <p className="text-xl sm:text-2xl font-serif text-[#1e3a8a] italic max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-xl sm:text-2xl font-serif text-slate-800 italic max-w-2xl mx-auto leading-relaxed font-normal">
             Reach entrepreneurs who are actually building something.
           </p>
 
@@ -152,7 +152,7 @@ export function PartnerPageClient() {
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Ecosystem Entities
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               Who we partner with
             </h2>
             <p className="text-base text-slate-600">
@@ -166,12 +166,12 @@ export function PartnerPageClient() {
               return (
                 <div
                   key={item.title}
-                  className="p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm space-y-4 hover:shadow-md transition-shadow"
+                  className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm space-y-4 hover:shadow-md transition-shadow"
                 >
                   <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-[#0D1F47]">
+                  <h3 className="text-2xl font-serif font-bold text-slate-950">
                     {item.title}
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
@@ -185,14 +185,14 @@ export function PartnerPageClient() {
       </section>
 
       {/* ─── What Partnership Looks Like ─── */}
-      <section className="py-20 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
+      <section className="py-20 md:py-24 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Collaboration Models
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               What partnership looks like
             </h2>
           </div>
@@ -203,7 +203,7 @@ export function PartnerPageClient() {
                 key={model.title}
                 className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2"
               >
-                <h3 className="text-xl font-serif font-bold text-[#0D1F47]">
+                <h3 className="text-xl font-serif font-bold text-slate-950">
                   {model.title}
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
@@ -213,7 +213,7 @@ export function PartnerPageClient() {
             ))}
             <div className="p-7 rounded-3xl bg-blue-50/70 border border-blue-200/80 flex flex-col justify-between space-y-4">
               <div>
-                <h3 className="text-xl font-serif font-bold text-[#0D1F47]">Sponsorship Opportunities</h3>
+                <h3 className="text-xl font-serif font-bold text-slate-950">Sponsorship Opportunities</h3>
                 <p className="text-sm text-slate-600 leading-relaxed mt-1">
                   Access comprehensive sponsorship decks for our upcoming national business conclaves.
                 </p>
@@ -229,12 +229,15 @@ export function PartnerPageClient() {
         </div>
       </section>
 
-      {/* ─── Who We Decline (CRITICAL INTEGRITY SECTION) ─── */}
-      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[#0B1220] text-white shadow-xl space-y-6 relative overflow-hidden">
+      {/* ─── Who We Decline (CRITICAL INTEGRITY SECTION - Dark Constellation Theme) ─── */}
+      <section className="relative py-20 md:py-28 border-b border-slate-800 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] text-white overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="p-8 sm:p-12 md:p-16 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] text-white shadow-2xl space-y-6 relative overflow-hidden backdrop-blur-sm">
             <div className="absolute top-0 right-0 p-8 opacity-10">
-              <ShieldAlert className="w-40 h-40 text-sky-400" />
+              <ShieldAlert className="w-40 h-40 text-cyan-400" />
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800/80 text-red-300 text-xs font-bold uppercase tracking-wider">
@@ -262,10 +265,10 @@ export function PartnerPageClient() {
       </section>
 
       {/* ─── Our Partners Wall ─── */}
-      <section className="py-20 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
+      <section className="py-20 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
           <div className="space-y-2">
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               Our Partners
             </h2>
             <p className="text-sm text-slate-600">
@@ -282,7 +285,7 @@ export function PartnerPageClient() {
             ].map((partner) => (
               <div
                 key={partner}
-                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-center text-sm font-serif font-bold text-slate-800 h-24 hover:border-blue-300 transition-colors"
+                className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200 shadow-sm flex items-center justify-center text-center text-sm font-serif font-bold text-slate-800 h-24 hover:border-blue-300 transition-colors"
               >
                 {partner}
               </div>
@@ -292,15 +295,15 @@ export function PartnerPageClient() {
       </section>
 
       {/* ─── Partnership Enquiry Form ─── */}
-      <section id="enquiry-form" className="py-20 md:py-28 border-b border-slate-200/80 bg-white">
+      <section id="enquiry-form" className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[#FAF7F0] border border-slate-200 shadow-md space-y-8">
+          <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-white border border-slate-200/90 shadow-md space-y-8">
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
                 <span className="w-6 h-[1.5px] bg-[#0062D2]" />
                 Institutional Registry
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
                 Partnership Enquiry
               </h2>
               <p className="text-sm text-slate-600">
@@ -313,7 +316,7 @@ export function PartnerPageClient() {
                 <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-[#0D1F47]">Partnership Brief Submitted</h3>
+                <h3 className="text-2xl font-serif font-bold text-slate-950">Partnership Brief Submitted</h3>
                 <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
                   Thank you. Your enquiry on behalf of{' '}
                   <span className="font-semibold text-[#0062D2]">{formData.organisation || 'your organisation'}</span> has been received by our Institutional Desk.
