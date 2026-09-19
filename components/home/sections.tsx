@@ -3970,8 +3970,9 @@ export function EventsSection() {
                   <h4 className="text-sm font-bold text-slate-900">Guest Registration Form</h4>
                   
                   {regStatus === 'success' ? (
-                    <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
-                      ✓ {regMessage}
+                    <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex items-center gap-2">
+                      <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                      <span>{regMessage}</span>
                     </div>
                   ) : (
                     <>
