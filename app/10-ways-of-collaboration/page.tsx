@@ -374,7 +374,7 @@ export default function TenWaysOfCollaborationPage() {
               <div className="flex flex-wrap items-center gap-3.5 mt-7">
                 <Link
                   href="/circles"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#0062D2] px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0062D2] px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all"
                 >
                   Find Your Circle
                   <ArrowRight className="size-4" />
@@ -382,7 +382,7 @@ export default function TenWaysOfCollaborationPage() {
 
                 <Link
                   href="/membership"
-                  className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-all"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-all"
                 >
                   Become a Peer
                 </Link>
@@ -915,14 +915,14 @@ export default function TenWaysOfCollaborationPage() {
               <div className="flex flex-wrap items-center gap-3.5 mb-9">
                 <Link
                   href="/circles"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] px-6 sm:px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-6 sm:px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
                 >
                   <span>Find Your Circle</span>
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
                   href="/membership"
-                  className="inline-flex items-center rounded-xl border border-slate-200/90 bg-white hover:bg-slate-50 px-6 sm:px-7 py-3.5 text-sm font-semibold text-slate-700 shadow-2xs transition-all hover:border-slate-300"
+                  className="inline-flex items-center rounded-full border border-slate-200/90 bg-white hover:bg-slate-50 px-6 sm:px-7 py-3.5 text-sm font-semibold text-slate-700 shadow-2xs transition-all hover:border-slate-300"
                 >
                   Become a Peer
                 </Link>
@@ -1009,7 +1009,7 @@ export default function TenWaysOfCollaborationPage() {
               {/* Floating Card: Same Entrepreneurs. Bigger Possibilities. */}
               <Link
                 href="/circles"
-                className="group block rounded-2xl bg-white p-4 sm:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-blue-200 transition-all duration-300 hover:-translate-y-0.5"
+                className="group block rounded-full bg-white p-4 sm:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-blue-200 transition-all duration-300 hover:-translate-y-0.5"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100/60 shadow-2xs">
@@ -1100,7 +1100,7 @@ export default function TenWaysOfCollaborationPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/30 hover:border-white hover:bg-white/20 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/30 hover:border-white hover:bg-white/20 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all"
             >
               Find Your Circle
               <ArrowRight className="size-4" />
@@ -1108,7 +1108,7 @@ export default function TenWaysOfCollaborationPage() {
 
             <Link
               href="/membership"
-              className="inline-flex items-center rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-[#0062D2] shadow-md hover:bg-slate-100 hover:shadow-lg transition-all"
+              className="inline-flex items-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#0062D2] shadow-md hover:bg-slate-100 hover:shadow-lg transition-all"
             >
               Become a Peer
             </Link>

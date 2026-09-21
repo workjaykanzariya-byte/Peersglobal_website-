@@ -295,7 +295,7 @@ export function WhoWeAreSection() {
                   <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
                     <Link
                       href="/the-idea"
-                      className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
                     >
                       Explore Peers Global
                       <ArrowRight className="size-4" />
@@ -415,7 +415,7 @@ export function WhoWeAreSection() {
 
                       <Link
                         href={p.link}
-                        className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-lg bg-white/90 backdrop-blur-sm px-3.5 py-1.5 text-xs font-semibold text-slate-900 shadow transition-all hover:bg-white"
+                        className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-full bg-white/90 backdrop-blur-sm px-3.5 py-1.5 text-xs font-semibold text-slate-900 shadow transition-all hover:bg-white"
                       >
                         <span>Learn More</span>
                         <ArrowRight className="size-3 text-blue-600 transition-transform group-hover:translate-x-1" />
@@ -526,7 +526,7 @@ export function PhilosophySection() {
               </div>
               <Link
                 href="/membership"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
               >
                 Become a Peer
                 <ArrowRight className="size-3.5" />
@@ -773,7 +773,7 @@ export function CirclesSection() {
               <div className="flex flex-wrap gap-3 lg:justify-end">
                 <Link
                   href="/circles/find"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
                 >
                   Find Your Circle
                   <ArrowRight className="size-4 text-white" />
@@ -781,7 +781,7 @@ export function CirclesSection() {
 
                 <Link
                   href="/start-a-circle"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/[0.07] px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.15] hover:border-white/55 hover:-translate-y-[2px] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/[0.07] px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.15] hover:border-white/55 hover:-translate-y-[2px] active:scale-[0.97]"
                 >
                   Start a Circle
                 </Link>
@@ -1065,7 +1065,7 @@ export function CirclesSection() {
                     <li key={item.slug}>
                       <Link
                         href={`/circles/${item.slug}`}
-                        className="group flex items-center justify-between gap-3 sm:gap-4 py-3.5 hover:bg-blue-50/40 -mx-3 px-3 rounded-2xl transition-all"
+                        className="group flex items-center justify-between gap-3 sm:gap-4 py-3.5 hover:bg-blue-50/40 -mx-3 px-3 rounded-full transition-all"
                       >
                         <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
                           <span className={`flex size-10 items-center justify-center rounded-2xl ${item.iconBg} shrink-0 shadow-sm transition-transform group-hover:scale-105`}>
@@ -1126,7 +1126,7 @@ export function CirclesSection() {
                     <li key={item.slug}>
                       <Link
                         href={`/circles/${item.slug}`}
-                        className="group flex items-center justify-between gap-3 sm:gap-4 py-3.5 hover:bg-amber-50/40 -mx-3 px-3 rounded-2xl transition-all"
+                        className="group flex items-center justify-between gap-3 sm:gap-4 py-3.5 hover:bg-amber-50/40 -mx-3 px-3 rounded-full transition-all"
                       >
                         <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
                           <span className={`flex size-10 items-center justify-center rounded-2xl ${item.iconBg} shrink-0 shadow-sm transition-transform group-hover:scale-105`}>
@@ -1162,7 +1162,7 @@ export function CirclesSection() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2.5 rounded-lg bg-[#1E4ED8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#1E4ED8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
             >
               Explore All 18 Circles
               <ArrowRight className="size-4 text-white" />
@@ -1398,7 +1398,7 @@ export function CollaborationSection() {
             <div className="pt-2">
               <Link
                 href="/10-forms-of-collaboration"
-                className="inline-flex items-center gap-2.5 rounded-lg bg-[#1E4ED8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                className="inline-flex items-center gap-2.5 rounded-full bg-[#1E4ED8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
               >
                 Explore Collaboration
                 <ArrowRight className="size-4 text-white" />
@@ -1830,7 +1830,7 @@ export function LsrSection() {
               <div className="mt-7">
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-2.5 rounded-xl bg-cyan-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_4px_25px_rgba(56,189,248,0.35)] transition-all duration-300 hover:bg-cyan-400 hover:shadow-[0_6px_30px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 group"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-cyan-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_4px_25px_rgba(56,189,248,0.35)] transition-all duration-300 hover:bg-cyan-400 hover:shadow-[0_6px_30px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 group"
                 >
                   See What Membership Includes
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -2254,7 +2254,7 @@ export function OutcomesSection() {
             <div className="mt-6 flex items-center gap-4">
               <Link
                 href="/the-currency"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
               >
                 See Our Impact
                 <ArrowRight className="size-4" />
@@ -2692,7 +2692,7 @@ export function MissionSection() {
             <div className="mt-7">
               <Link
                 href="/1-million-mission"
-                className="inline-flex items-center gap-2.5 rounded-lg bg-[#1E4ED8] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97] group"
+                className="inline-flex items-center gap-2.5 rounded-full bg-[#1E4ED8] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97] group"
               >
                 Join the 1 Million Mission
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -2929,7 +2929,7 @@ export function StoriesSection() {
             {/* Read More Peer Stories Pill Button */}
             <Link
               href="/stories"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
             >
               Read More Peer Stories
               <ArrowRight className="size-4" />
@@ -3420,7 +3420,7 @@ export function LeadershipSection() {
               <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2">
                 <Link
                   href="/leadership"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
                 >
                   Explore Leadership
                   <ArrowRight className="size-4" />
@@ -3428,7 +3428,7 @@ export function LeadershipSection() {
 
                 <Link
                   href="/start-a-circle"
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-xs transition-all duration-200 hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-[2px] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-xs transition-all duration-200 hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-[2px] active:scale-[0.97]"
                 >
                   Start a Circle
                 </Link>
@@ -3629,7 +3629,7 @@ export function EventsSection() {
             </p>
             <Link
               href="/events"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.97]"
             >
               View Full Calendar
               <ArrowRight className="size-4" />
@@ -3736,7 +3736,7 @@ export function EventsSection() {
                   <button
                     type="button"
                     onClick={() => handleOpenDetail(priority)}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.97] cursor-pointer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.97] cursor-pointer"
                   >
                     Event details and agenda
                     <ArrowRight className="size-4" />
@@ -3744,7 +3744,7 @@ export function EventsSection() {
                   <button
                     type="button"
                     onClick={() => toggleSaveEvent(priority.slug)}
-                    className={`inline-flex items-center gap-2 rounded-lg border px-5 py-3 text-sm font-semibold shadow-xs transition-all duration-200 active:scale-[0.97] ${
+                    className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold shadow-xs transition-all duration-200 active:scale-[0.97] ${
                       savedEvents[priority.slug]
                         ? 'border-blue-600 bg-blue-50 text-[#1E4ED8]'
                         : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-400'
@@ -4021,7 +4021,7 @@ export function EventsSection() {
                         <button
                           type="submit"
                           disabled={regStatus === 'loading'}
-                          className="rounded-xl bg-[#1E4ED8] px-6 py-2 text-xs font-semibold text-white shadow-md hover:bg-blue-700 transition-all disabled:opacity-50"
+                          className="rounded-full bg-[#1E4ED8] px-6 py-2 text-xs font-semibold text-white shadow-md hover:bg-blue-700 transition-all disabled:opacity-50"
                         >
                           {regStatus === 'loading' ? 'Submitting...' : 'Confirm Registration'}
                         </button>
@@ -4127,7 +4127,7 @@ export function ClosingSection() {
         <div className="flex shrink-0 flex-wrap items-center gap-4">
           <Link
             href="/membership"
-            className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
           >
             <span>JOIN PEERS GLOBAL</span>
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -4137,7 +4137,7 @@ export function ClosingSection() {
             href="https://unity.peersglobal.com"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-lg border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
           >
             <Download aria-hidden className="size-4" />
             <span>DOWNLOAD UNITY APP</span>

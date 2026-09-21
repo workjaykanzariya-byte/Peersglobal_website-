@@ -154,7 +154,7 @@ export function OurStoryClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#0062D2] text-white font-bold text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] text-white font-bold text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group active:scale-[0.98]"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -162,7 +162,7 @@ export function OurStoryClient() {
 
                 <Link
                   href="/the-idea"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white text-slate-800 font-semibold text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 font-semibold text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 active:scale-[0.98]"
                 >
                   <span>Read The Idea</span>
                   <ArrowRight className="w-4 h-4 text-slate-400" />
@@ -261,7 +261,7 @@ export function OurStoryClient() {
           <div className="pt-4">
             <Link
               href="/founder"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-50 text-[#0062D2] hover:bg-blue-100 font-bold text-xs border border-blue-200 transition-all shadow-2xs"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 text-[#0062D2] hover:bg-blue-100 font-bold text-xs border border-blue-200 transition-all shadow-2xs"
             >
               <span>Read the Founder&apos;s Story</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -386,7 +386,7 @@ export function OurStoryClient() {
           <div className="mt-12 text-center">
             <Link
               href="/the-idea"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0062D2] text-white font-bold text-xs shadow-md hover:bg-[#0052B4] transition-all hover:shadow-lg active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] text-white font-bold text-xs shadow-md hover:bg-[#0052B4] transition-all hover:shadow-lg active:scale-[0.98]"
             >
               <span>Explore Our World</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -496,7 +496,7 @@ export function OurStoryClient() {
             <div className="pt-2">
               <Link
                 href="/1-million-mission"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-50 text-[#0062D2] font-bold text-xs border border-blue-200 hover:bg-blue-100 transition-all shadow-2xs"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 text-[#0062D2] font-bold text-xs border border-blue-200 hover:bg-blue-100 transition-all shadow-2xs"
               >
                 <span>See the 1 Million Mission</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -557,7 +557,7 @@ export function OurStoryClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-white text-[#0062D2] hover:bg-slate-100 font-bold text-sm shadow-md transition-all hover:shadow-lg active:scale-[0.98] uppercase tracking-wider"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 font-bold text-sm shadow-md transition-all hover:shadow-lg active:scale-[0.98] uppercase tracking-wider"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
@@ -565,7 +565,7 @@ export function OurStoryClient() {
 
                 <Link
                   href="/the-idea"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 text-white font-semibold text-sm border border-white/20 hover:bg-white/20 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white font-semibold text-sm border border-white/20 hover:bg-white/20 transition-all active:scale-[0.98]"
                 >
                   <span>Read The Idea</span>
                   <ArrowRight className="w-4 h-4 text-slate-300" />

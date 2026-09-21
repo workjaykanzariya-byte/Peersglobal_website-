@@ -1012,7 +1012,7 @@ export function CollaborationWinsClient() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/80 hover:bg-black text-white transition-all shadow-md group border border-white/30 backdrop-blur-sm hover:scale-105"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black/80 hover:bg-black text-white transition-all shadow-md group border border-white/30 backdrop-blur-sm hover:scale-105"
                 >
                   <svg
                     className="w-7 h-7 fill-current"
@@ -1035,7 +1035,7 @@ export function CollaborationWinsClient() {
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/80 hover:bg-black text-white transition-all shadow-md group border border-white/30 backdrop-blur-sm hover:scale-105"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black/80 hover:bg-black text-white transition-all shadow-md group border border-white/30 backdrop-blur-sm hover:scale-105"
                 >
                   <svg
                     className="w-6 h-6 fill-current text-white"

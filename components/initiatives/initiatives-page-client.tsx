@@ -131,7 +131,7 @@ export function InitiativesPageClient() {
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />
@@ -226,7 +226,7 @@ export function InitiativesPageClient() {
                           href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#061836] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#0062D2] transition-all shadow-sm"
+                          className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#061836] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#0062D2] transition-all shadow-sm"
                         >
                           {item.linkText}
                           <ExternalLink className="w-3.5 h-3.5" />
@@ -234,7 +234,7 @@ export function InitiativesPageClient() {
                       ) : (
                         <Link
                           href={item.link}
-                          className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-200 text-xs font-bold uppercase tracking-wider hover:bg-blue-100 transition-all shadow-sm"
+                          className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-blue-50 text-[#0062D2] border border-blue-200 text-xs font-bold uppercase tracking-wider hover:bg-blue-100 transition-all shadow-sm"
                         >
                           {item.linkText}
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -280,7 +280,7 @@ export function InitiativesPageClient() {
           <div className="pt-4">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl uppercase tracking-wider active:scale-[0.98]"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl uppercase tracking-wider active:scale-[0.98]"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />

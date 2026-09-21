@@ -71,14 +71,14 @@ export function FounderClient() {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
                 >
                   Download Unity App
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/our-story"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-slate-800 text-sm font-semibold border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 text-sm font-semibold border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all active:scale-[0.98]"
                 >
                   Read Our Story
                 </Link>
@@ -430,7 +430,7 @@ export function FounderClient() {
           <div className="pt-4">
             <Link
               href="/contact?topic=media"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
             >
               Media &amp; Speaking Enquiries
               <ArrowRight className="w-4 h-4" />
@@ -470,14 +470,14 @@ export function FounderClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] uppercase tracking-wider"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/our-story"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all active:scale-[0.98]"
             >
               Read Our Story
             </Link>

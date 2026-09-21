@@ -258,7 +258,7 @@ export function UnityPageClient() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md hover:shadow-lg group"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black text-white hover:bg-slate-900 transition-all shadow-md hover:shadow-lg group"
                 >
                   {/* Apple Icon */}
                   <svg
@@ -282,7 +282,7 @@ export function UnityPageClient() {
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md hover:shadow-lg group"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black text-white hover:bg-slate-900 transition-all shadow-md hover:shadow-lg group"
                 >
                   {/* Google Play Icon */}
                   <svg
@@ -694,7 +694,7 @@ export function UnityPageClient() {
                       href="https://apps.apple.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black text-white hover:bg-slate-900 transition-all text-xs font-semibold w-full justify-center"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black text-white hover:bg-slate-900 transition-all text-xs font-semibold w-full justify-center"
                     >
                       <svg
                         className="w-4 h-4 fill-current"
@@ -709,7 +709,7 @@ export function UnityPageClient() {
                       href="https://play.google.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black text-white hover:bg-slate-900 transition-all text-xs font-semibold w-full justify-center"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black text-white hover:bg-slate-900 transition-all text-xs font-semibold w-full justify-center"
                     >
                       <svg
                         className="w-4 h-4 fill-current text-white"
@@ -767,7 +767,7 @@ export function UnityPageClient() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
                 >
                   <svg
                     className="w-7 h-7 fill-current"
@@ -790,7 +790,7 @@ export function UnityPageClient() {
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
                 >
                   <svg
                     className="w-6 h-6 fill-current text-white"

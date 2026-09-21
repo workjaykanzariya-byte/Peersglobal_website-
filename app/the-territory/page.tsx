@@ -251,7 +251,7 @@ export default function TheTerritoryPage() {
               <div className="flex flex-wrap items-center gap-3 mb-9">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] px-5 sm:px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-5 sm:px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
                 >
                   <Smartphone className="size-4" />
                   <span>Download Unity App</span>
@@ -259,14 +259,14 @@ export default function TheTerritoryPage() {
                 </Link>
                 <Link
                   href="/circles"
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-5 sm:px-6 py-3 text-sm font-semibold text-[#0062D2] shadow-xs transition-all hover:border-slate-300"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-5 sm:px-6 py-3 text-sm font-semibold text-[#0062D2] shadow-xs transition-all hover:border-slate-300"
                 >
                   <span>Find Your Circle</span>
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-5 sm:px-6 py-3 text-sm font-semibold text-[#0062D2] shadow-xs transition-all hover:border-slate-300"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-5 sm:px-6 py-3 text-sm font-semibold text-[#0062D2] shadow-xs transition-all hover:border-slate-300"
                 >
                   <span>Start a Circle</span>
                   <ArrowRight className="size-4" />
@@ -622,14 +622,14 @@ export default function TheTerritoryPage() {
               <div className="flex flex-wrap items-center gap-3.5 mb-8">
                 <Link
                   href="/circles"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
                 >
                   <span>Explore All Circles</span>
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
                   href="/circle-meeting-experience"
-                  className="inline-flex items-center rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/30"
+                  className="inline-flex items-center rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/30"
                 >
                   How a Circle Meeting Works
                 </Link>
@@ -1084,7 +1084,7 @@ export default function TheTerritoryPage() {
             <div className="flex items-center gap-4 flex-wrap">
               <Link
                 href="/circles"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
               >
                 <span>See Cities</span>
                 <ArrowRight className="size-4" />
@@ -1159,7 +1159,7 @@ export default function TheTerritoryPage() {
 
               <Link
                 href="/circles"
-                className="inline-flex items-center justify-between w-full rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
+                className="inline-flex items-center justify-between w-full rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
               >
                 <span>Explore Districts</span>
                 <ArrowRight className="size-3.5" />
@@ -1203,7 +1203,7 @@ export default function TheTerritoryPage() {
 
               <Link
                 href="/circles"
-                className="inline-flex items-center justify-between w-full rounded-xl bg-amber-600 hover:bg-amber-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
+                className="inline-flex items-center justify-between w-full rounded-full bg-amber-600 hover:bg-amber-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
               >
                 <span>Explore States</span>
                 <ArrowRight className="size-3.5" />
@@ -1247,7 +1247,7 @@ export default function TheTerritoryPage() {
 
               <Link
                 href="/circles"
-                className="inline-flex items-center justify-between w-full rounded-xl bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
+                className="inline-flex items-center justify-between w-full rounded-full bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
               >
                 <span>Peers Global India</span>
                 <ArrowRight className="size-3.5" />
@@ -1446,7 +1446,7 @@ export default function TheTerritoryPage() {
             <div className="flex items-center gap-4 flex-wrap mb-10">
               <Link
                 href="/circles"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
               >
                 <span>Explore Global Community</span>
                 <ArrowRight className="size-4" />
@@ -1531,14 +1531,14 @@ export default function TheTerritoryPage() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href="/membership"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
                   >
                     <span>Start a Circle</span>
                     <ArrowRight className="size-4" />
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs transition-all hover:border-slate-300"
+                    className="inline-flex items-center rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs transition-all hover:border-slate-300"
                   >
                     Bring Peers Global to My City
                   </Link>

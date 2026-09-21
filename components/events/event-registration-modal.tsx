@@ -120,7 +120,7 @@ export function EventRegistrationModal({ event, isOpen, onClose }: EventRegistra
             <button
               type="button"
               onClick={handleClose}
-              className="mt-2 rounded-xl bg-primary px-8 py-2.5 text-sm font-bold text-white hover:bg-blue-600 transition-colors shadow-lg shadow-blue-600/30"
+              className="mt-2 rounded-full bg-primary px-8 py-2.5 text-sm font-bold text-white hover:bg-blue-600 transition-colors shadow-lg shadow-blue-600/30"
             >
               Done
             </button>
@@ -268,14 +268,14 @@ export function EventRegistrationModal({ event, isOpen, onClose }: EventRegistra
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="rounded-xl border border-[var(--border)] px-4 py-2 text-xs font-semibold text-muted-foreground hover:bg-muted transition-colors"
+                  className="rounded-full border border-[var(--border)] px-4 py-2 text-xs font-semibold text-muted-foreground hover:bg-muted transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-xs font-bold text-white hover:bg-blue-600 disabled:opacity-50 transition-all shadow-md shadow-blue-600/30"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-xs font-bold text-white hover:bg-blue-600 disabled:opacity-50 transition-all shadow-md shadow-blue-600/30"
                 >
                   {isSubmitting ? (
                     <>

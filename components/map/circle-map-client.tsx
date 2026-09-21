@@ -370,7 +370,7 @@ export function CircleMapClient() {
 
               <Link
                 href={`/circles?city=${selectedCity.name.toLowerCase()}`}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-colors uppercase tracking-wider"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-colors uppercase tracking-wider"
               >
                 View Circles
                 <ArrowRight className="w-4 h-4" />
@@ -419,7 +419,7 @@ export function CircleMapClient() {
               <Link
                 key={idx}
                 href={`/cities#${city.slug}`}
-                className="group rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col"
+                className="group rounded-full bg-white border border-slate-200 overflow-hidden shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col"
               >
                 <div className="relative h-28 w-full overflow-hidden bg-slate-100">
                   <Image

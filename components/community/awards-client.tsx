@@ -198,7 +198,7 @@ export function AwardsClient() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-wider"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
@@ -471,7 +471,7 @@ export function AwardsClient() {
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-[#0062D2] text-xs sm:text-sm font-bold shadow-lg hover:shadow-xl transition-all uppercase tracking-wider active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-xs sm:text-sm font-bold shadow-lg hover:shadow-xl transition-all uppercase tracking-wider active:scale-[0.98]"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />

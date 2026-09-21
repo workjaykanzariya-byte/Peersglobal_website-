@@ -642,7 +642,7 @@ export function StoriesPageClient() {
 
               <button
                 type="button"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0062D2] text-white text-xs font-medium shadow-xs hover:bg-[#0052B4] transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-[#0062D2] text-white text-xs font-medium shadow-xs hover:bg-[#0052B4] transition-all cursor-pointer"
               >
                 Search
               </button>
@@ -945,7 +945,7 @@ export function StoriesPageClient() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
                 >
                   <svg
                     className="w-7 h-7 fill-current"
@@ -968,7 +968,7 @@ export function StoriesPageClient() {
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
                 >
                   <svg
                     className="w-6 h-6 fill-current text-white"

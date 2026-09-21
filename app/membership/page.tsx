@@ -286,7 +286,7 @@ export default function MembershipPage() {
 
             <Link
               href="/contact?intent=membership"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-primary text-white font-bold hover:bg-blue-600 active:scale-95 transition-all shadow-lg shadow-blue-600/25 shrink-0"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white font-bold hover:bg-blue-600 active:scale-95 transition-all shadow-lg shadow-blue-600/25 shrink-0"
             >
               Apply for Seat Review
               <ArrowRight className="size-4" />

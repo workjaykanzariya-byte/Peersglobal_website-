@@ -388,7 +388,7 @@ export function SpeakClient() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-all uppercase tracking-wider shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-full bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-all uppercase tracking-wider shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
                   >
                     Submit Speaking Enquiry
                     <Send className="w-4 h-4" />

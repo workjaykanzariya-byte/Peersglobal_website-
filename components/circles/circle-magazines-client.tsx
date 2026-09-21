@@ -514,7 +514,7 @@ export function CircleMagazinesClient() {
                   <div className="flex items-center gap-2">
                     <Link
                       href="/unity"
-                      className="w-full text-center py-2.5 px-4 rounded-xl bg-[#0062D2] text-white text-xs font-bold hover:bg-[#1a42c0] transition-colors shadow-2xs"
+                      className="w-full text-center py-2.5 px-4 rounded-full bg-[#0062D2] text-white text-xs font-bold hover:bg-[#1a42c0] transition-colors shadow-2xs"
                     >
                       View / Download
                     </Link>
