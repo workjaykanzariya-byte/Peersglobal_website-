@@ -375,7 +375,7 @@ export function InsightsPageClient() {
   }, [selectedCategory, selectedIndustry, selectedAuthor, searchQuery])
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -400,7 +400,7 @@ export function InsightsPageClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (THOUGHTFUL ENTREPRENEUR & EDGE FADE) ────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -538,7 +538,7 @@ export function InsightsPageClient() {
       </section>
 
       {/* ─── SECTION 2: WHAT WE PUBLISH (5 TOPIC PILLARS + QUOTE) ─────────── */}
-      <section className="py-16 sm:py-20 bg-white border-y border-slate-200/80">
+      <section className="py-16 sm:py-20 bg-[#FBFCFE] border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
             <div className="lg:col-span-8">
@@ -554,7 +554,7 @@ export function InsightsPageClient() {
             </div>
 
             {/* Right Quote Callout */}
-            <div className="lg:col-span-4 bg-[#FDFBF7] p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div className="lg:col-span-4 bg-[#FBFCFE] p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
               <div>
                 <Quote className="w-6 h-6 text-[#0062D2] mb-2 fill-current" />
                 <p className="text-sm sm:text-base font-serif font-bold text-slate-900 leading-snug">
@@ -607,7 +607,7 @@ export function InsightsPageClient() {
       </section>
 
       {/* ─── SECTION 3: BROWSE INSIGHTS (LATEST ARTICLES GRID) ────────────── */}
-      <section id="articles" className="py-16 sm:py-24 bg-[#FDFBF7] scroll-mt-14">
+      <section id="articles" className="py-16 sm:py-24 bg-[#FBFCFE] scroll-mt-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -807,7 +807,7 @@ export function InsightsPageClient() {
       </section>
 
       {/* ─── SECTION 4: WRITTEN BY PEERS & FAQS ───────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-t border-slate-200/80">
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left Column: Written by Peers */}

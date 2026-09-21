@@ -415,9 +415,9 @@ export function LeadershipLadderClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-sm hover:shadow-lg hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 group/stat"
                 >
-                  <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                  <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 group-hover/stat:scale-110 transition-transform duration-300">
                     <Icon className="size-6" />
                   </div>
                   <div>
@@ -567,7 +567,7 @@ export function LeadershipLadderClient() {
               return (
                 <div
                   key={idx}
-                  className="rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] p-7 sm:p-8 text-white shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden"
+                  className="rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] p-7 sm:p-8 text-white shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.15)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden"
                 >
                   {/* Subtle glass reflection */}
                   <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
@@ -650,7 +650,7 @@ export function LeadershipLadderClient() {
               return (
                 <div
                   key={role.id}
-                  className="rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-300 transition-all flex flex-col group"
+                  className="rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(0,98,210,0.12)] hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 flex flex-col group"
                 >
                   {/* Card Header with Icon */}
                   <div className="p-5 pb-3">
@@ -746,9 +746,9 @@ export function LeadershipLadderClient() {
                 {LEADERSHIP_PATHWAY.map((item) => (
                   <div
                     key={item.num}
-                    className="p-4 sm:p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-300 transition-colors flex items-start gap-4"
+                    className="p-4 sm:p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-4 group/path"
                   >
-                    <div className="size-10 rounded-xl bg-blue-100/70 text-[#0062D2] font-mono text-sm font-bold flex items-center justify-center shrink-0">
+                    <div className="size-10 rounded-xl bg-blue-100/70 text-[#0062D2] font-mono text-sm font-bold flex items-center justify-center shrink-0 group-hover/path:scale-110 group-hover/path:bg-blue-200/70 transition-all duration-300">
                       {item.num}
                     </div>
                     <div>
@@ -850,9 +850,9 @@ export function LeadershipLadderClient() {
             {COSTS.map((cost, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col"
+                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-amber-200 hover:-translate-y-1 transition-all duration-300 flex flex-col group/cost"
               >
-                <div className="size-8 rounded-lg bg-amber-50 text-amber-600 font-bold text-xs flex items-center justify-center mb-3">
+                <div className="size-8 rounded-lg bg-amber-50 text-amber-600 font-bold text-xs flex items-center justify-center mb-3 group-hover/cost:scale-110 group-hover/cost:bg-amber-100 transition-all duration-300">
                   0{idx + 1}
                 </div>
                 <h3 className="font-serif text-base font-bold text-slate-950 mb-2">
@@ -922,10 +922,10 @@ export function LeadershipLadderClient() {
             {HOW_TO_BEGIN.map((item) => (
               <div
                 key={item.step}
-                className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 flex flex-col justify-between"
+                className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 hover:border-blue-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group/step"
               >
                 <div>
-                  <div className="size-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center mb-3">
+                  <div className="size-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center mb-3 group-hover/step:scale-110 group-hover/step:bg-blue-700 transition-all duration-300">
                     {item.step}
                   </div>
                   <h4 className="font-serif text-base font-bold text-slate-950 mb-1">

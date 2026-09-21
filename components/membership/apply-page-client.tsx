@@ -200,7 +200,7 @@ export function ApplyPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#0F172A] font-sans antialiased selection:bg-[#0062D2] selection:text-white">
+    <div className="min-h-screen bg-[#FBFCFE] text-[#0F172A] font-sans antialiased selection:bg-[#0062D2] selection:text-white">
       {/* ─── Top Breadcrumb ─── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs font-medium text-slate-500">
@@ -216,169 +216,110 @@ export function ApplyPageClient() {
         </div>
       </div>
 
-      {/* ─── Hero Section: Full-Bleed Split Canvas (Matching Target Reference Image) ─── */}
-      <section className="relative w-full min-h-[92vh] lg:min-h-[860px] overflow-hidden bg-[#070E1E] flex items-center">
-        {/* Full-Bleed Background Visual (Video + High-Res Fallback Image) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/images/join-peers-hero.jpg"
-            className="absolute inset-0 w-full h-full object-cover object-[65%_center] sm:object-center select-none"
-          >
-            <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
-          </video>
-
-          {/* Static High-Res Photo Layer (Ensures Instant Sharp Render) */}
+      {/* ─── Hero Section: Clean Professional Split Layout ─── */}
+      <section className="relative w-full min-h-[88vh] lg:min-h-[820px] overflow-hidden bg-white flex items-center">
+        {/* Background Image — Right Side Only on Desktop */}
+        <div className="absolute inset-0 z-0">
           <Image
             src="/images/join-peers-hero.jpg"
-            alt="Peers Global entrepreneur overlooking metropolitan skyline at sunrise"
+            alt="Peers Global professional community"
             fill
             priority
-            className="object-cover object-[65%_center] sm:object-center select-none -z-10"
+            className="object-cover object-[70%_center] select-none"
           />
-
-          {/* Top-Left Luminous Sky Gradient for Crisp Dark Typography */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-transparent w-full lg:w-[65%] h-[60%] pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent w-full lg:w-[55%] pointer-events-none" />
-
-          {/* Bottom Dark Atmospheric Vignette for Glowing Glassmorphic Stat Cards */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/95 via-[#050B18]/80 to-transparent top-[40%] pointer-events-none" />
+          {/* Clean white overlay on left for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/60 lg:to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/30 lg:w-[60%] pointer-events-none" />
+          {/* Subtle bottom edge */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
         </div>
 
         {/* Foreground Content Container */}
-        <div className="relative z-10 w-full max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-14 lg:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-14 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* ── Left Column: Value Proposition & Direct Visual Overlay (No Card Box) ── */}
-            <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-between min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] space-y-8 lg:space-y-0">
+            {/* ── Left Column: Value Proposition ── */}
+            <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center space-y-7 py-6 lg:py-10">
               
-              {/* Top: Branding, Heading & 3 Real Badges */}
-              <div className="space-y-4 max-w-xl">
-                <div className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-[#B37822]">
-                  BECOME A PEER
+              {/* Branding & Heading */}
+              <div className="space-y-5 max-w-xl">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-6 h-0.5 bg-[#0062D2] rounded-full" />
+                  <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-[#0062D2]">
+                    BECOME A PEER
+                  </span>
                 </div>
 
-                <h1 className="text-5xl sm:text-6xl lg:text-[68px] font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.04]">
+                <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.04]">
                   Join <br />
                   <span className="text-[#0062D2]">Peers Global</span>
                 </h1>
 
-                <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-lg">
+                <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-lg">
                   A global community of entrepreneurs who give, grow and build together.
                 </p>
 
                 {/* 3 Real Badges Pills */}
-                <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-                  {/* Badge 1: Real Entrepreneurs */}
-                  <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-sm">
-                    <div className="size-8 rounded-lg bg-blue-500/15 text-[#0062D2] flex items-center justify-center shrink-0">
-                      <Users2 className="size-4" />
+                <div className="pt-1 flex flex-wrap items-center gap-3">
+                  <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="size-9 rounded-lg bg-[#0062D2]/10 text-[#0062D2] flex items-center justify-center shrink-0">
+                      <Users2 className="size-4.5" />
                     </div>
-                    <div className="text-xs font-bold text-slate-900 leading-tight">
-                      Real <br />
-                      <span className="text-slate-500 font-normal text-[11px]">Entrepreneurs</span>
-                    </div>
-                  </div>
-
-                  {/* Badge 2: Real Collaborations */}
-                  <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-sm">
-                    <div className="size-8 rounded-lg bg-amber-500/15 text-[#D97706] flex items-center justify-center shrink-0">
-                      <TrendingUp className="size-4" />
-                    </div>
-                    <div className="text-xs font-bold text-slate-900 leading-tight">
-                      Real <br />
-                      <span className="text-slate-500 font-normal text-[11px]">Collaborations</span>
+                    <div className="text-xs leading-tight">
+                      <span className="font-bold text-slate-900 block">Real</span>
+                      <span className="text-slate-500 text-[11px]">Entrepreneurs</span>
                     </div>
                   </div>
 
-                  {/* Badge 3: Real Impact */}
-                  <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-sm">
-                    <div className="size-8 rounded-lg bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0">
-                      <Globe2 className="size-4" />
+                  <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="size-9 rounded-lg bg-amber-500/10 text-[#D97706] flex items-center justify-center shrink-0">
+                      <TrendingUp className="size-4.5" />
                     </div>
-                    <div className="text-xs font-bold text-slate-900 leading-tight">
-                      Real <br />
-                      <span className="text-slate-500 font-normal text-[11px]">Impact</span>
+                    <div className="text-xs leading-tight">
+                      <span className="font-bold text-slate-900 block">Real</span>
+                      <span className="text-slate-500 text-[11px]">Collaborations</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="size-9 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                      <Globe2 className="size-4.5" />
+                    </div>
+                    <div className="text-xs leading-tight">
+                      <span className="font-bold text-slate-900 block">Real</span>
+                      <span className="text-slate-500 text-[11px]">Impact</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Center Floating Cursive Callout: "Bigger Together" */}
-              <div className="self-center sm:self-end sm:mr-12 lg:mr-20 py-2 select-none pointer-events-none -rotate-[10deg]">
-                <span className="font-serif italic font-semibold text-3xl sm:text-4xl lg:text-[46px] text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)] tracking-wide">
-                  Bigger <br className="sm:hidden" />
-                  Together
-                </span>
+              {/* Stats Row */}
+              <div className="flex items-center gap-6 sm:gap-8 pt-2">
+                <div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[#0D1F47] tracking-tight">10,000+</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">MSME Founders</div>
+                </div>
+                <div className="w-px h-10 bg-slate-200" />
+                <div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[#0D1F47] tracking-tight">50+</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">Cities</div>
+                </div>
+                <div className="w-px h-10 bg-slate-200" />
+                <div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[#0D1F47] tracking-tight">100+</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">Business Circles</div>
+                </div>
               </div>
 
-              {/* Bottom: 3 Glassmorphic Impact Cards & Indicator Dots */}
-              <div className="space-y-3 pt-4 max-w-2xl">
-                {/* Active Line Accent on Card 1 */}
-                <div className="flex items-center gap-1 ml-1 mb-1">
-                  <div className="h-0.5 w-9 bg-sky-400 rounded-full" />
-                  <div className="size-1 rounded-full bg-amber-400" />
-                </div>
-
-                {/* 3 Glass Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {/* Card 1: 10,000+ MSME Founders */}
-                  <div className="p-3.5 rounded-2xl bg-[#09152E]/85 backdrop-blur-md border border-sky-400/40 text-white shadow-xl flex items-center gap-3 transition-all hover:border-sky-300">
-                    <div className="size-10 rounded-full bg-sky-500/20 border border-sky-400/40 text-sky-400 flex items-center justify-center shrink-0 shadow-inner">
-                      <Users2 className="size-5" />
-                    </div>
-                    <div>
-                      <div className="text-sm sm:text-base font-bold text-white tracking-tight leading-tight">
-                        10,000+
-                      </div>
-                      <div className="text-[11px] text-slate-300 font-normal leading-tight mt-0.5">
-                        MSME Founders
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Card 2: Pan India Impact Across Cities */}
-                  <div className="p-3.5 rounded-2xl bg-[#09152E]/85 backdrop-blur-md border border-white/15 text-white shadow-xl flex items-center gap-3 transition-all hover:border-sky-300">
-                    <div className="size-10 rounded-full bg-sky-500/20 border border-sky-400/40 text-sky-400 flex items-center justify-center shrink-0 shadow-inner">
-                      <Building2 className="size-5" />
-                    </div>
-                    <div>
-                      <div className="text-sm sm:text-base font-bold text-white tracking-tight leading-tight">
-                        Pan India
-                      </div>
-                      <div className="text-[11px] text-slate-300 font-normal leading-tight mt-0.5">
-                        Impact Across Cities
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Card 3: A Stronger Tomorrow */}
-                  <div className="p-3.5 rounded-2xl bg-[#09152E]/85 backdrop-blur-md border border-white/15 text-white shadow-xl flex items-center gap-3 transition-all hover:border-sky-300">
-                    <div className="size-10 rounded-full bg-sky-500/20 border border-sky-400/40 text-sky-400 flex items-center justify-center shrink-0 shadow-inner">
-                      <ShieldCheck className="size-5" />
-                    </div>
-                    <div>
-                      <div className="text-sm sm:text-base font-bold text-white tracking-tight leading-tight">
-                        A Stronger
-                      </div>
-                      <div className="text-[11px] text-slate-300 font-normal leading-tight mt-0.5">
-                        Tomorrow
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pagination Dots Indicator */}
-                <div className="flex items-center gap-1.5 ml-1 pt-1">
-                  <div className="w-5 h-1 rounded-full bg-amber-400" />
-                  <div className="size-1 rounded-full bg-white/40" />
-                  <div className="size-1 rounded-full bg-white/40" />
-                  <div className="size-1 rounded-full bg-white/40" />
-                </div>
+              {/* Learn More CTA */}
+              <div className="pt-1">
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold text-sm shadow-lg shadow-blue-600/20 transition-all active:scale-[0.98]"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="size-4" />
+                </Link>
               </div>
             </div>
 
@@ -986,42 +927,42 @@ export function ApplyPageClient() {
         </div>
       </section>
 
-      {/* ─── Full-Width Stats Banner (Dark Navy) ─── */}
-      <section className="bg-[#070F1E] text-white py-12 sm:py-14 border-y border-slate-800">
+      {/* ─── Full-Width Stats Banner ─── */}
+      <section className="bg-gradient-to-r from-[#0052B4] to-[#0062D2] text-white py-10 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-800/80 text-center">
-            <div className="pt-3 sm:pt-0">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+            <div>
               <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
                 10,000+
               </div>
-              <div className="text-xs sm:text-sm text-slate-400 font-medium mt-1.5">
+              <div className="text-xs sm:text-sm text-white/70 font-medium mt-1.5">
                 Entrepreneurs
               </div>
             </div>
 
-            <div className="pt-3 sm:pt-0 sm:pl-6">
+            <div>
               <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
                 200+
               </div>
-              <div className="text-xs sm:text-sm text-slate-400 font-medium mt-1.5">
+              <div className="text-xs sm:text-sm text-white/70 font-medium mt-1.5">
                 Circles
               </div>
             </div>
 
-            <div className="pt-3 sm:pt-0 sm:pl-6">
+            <div>
               <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
                 75+
               </div>
-              <div className="text-xs sm:text-sm text-slate-400 font-medium mt-1.5">
+              <div className="text-xs sm:text-sm text-white/70 font-medium mt-1.5">
                 Cities
               </div>
             </div>
 
-            <div className="pt-3 sm:pt-0 sm:pl-6">
+            <div>
               <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
                 10+
               </div>
-              <div className="text-xs sm:text-sm text-slate-400 font-medium mt-1.5">
+              <div className="text-xs sm:text-sm text-white/70 font-medium mt-1.5">
                 Countries
               </div>
             </div>

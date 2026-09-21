@@ -73,7 +73,7 @@ export function BringToMyCityClient() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
       {/* ─── Breadcrumbs ─── */}
       <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
@@ -179,7 +179,7 @@ export function BringToMyCityClient() {
       </section>
 
       {/* ─── The Map is Not Finished ─── */}
-      <section className="py-16 md:py-20 border-b border-slate-200/80 bg-white">
+      <section className="py-16 md:py-20 border-b border-slate-200/80 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             <div className="lg:col-span-8 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 space-y-4 shadow-sm">
@@ -213,7 +213,7 @@ export function BringToMyCityClient() {
       </section>
 
       {/* ─── What Happens When You Register Interest vs Two Ways ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF9F5]">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left: What happens when you register interest */}
@@ -437,7 +437,7 @@ export function BringToMyCityClient() {
       </section>
 
       {/* ─── REGISTER INTEREST FORM ─── */}
-      <section id="register" className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF5EB]">
+      <section id="register" className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FBFCFE]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-[#8C6422]">

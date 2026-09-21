@@ -156,7 +156,7 @@ export function SiteFooter() {
       {/* ========================================================================= */}
       {/* 1. THRESHOLD BAND & APP DOWNLOAD                                          */}
       {/* ========================================================================= */}
-      <section className="w-full bg-white border-t border-slate-100 py-12 sm:py-16 px-4 sm:px-8 lg:px-12">
+      <section className="w-full bg-[#FBFCFE] border-t border-slate-100 py-12 sm:py-16 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left: Statement + App Badges */}
           <div className="flex flex-col gap-3.5 max-w-2xl text-left items-start">
