@@ -147,21 +147,31 @@ export function HomeHero() {
             <div className="mt-1 flex flex-wrap items-center gap-3">
               <Link
                 href="/membership"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-950 transition-all hover:bg-slate-100 hover:shadow-[0_0_24px_rgba(255,255,255,0.25)]"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:bg-slate-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.35)] hover:scale-[1.02] active:scale-[0.98]"
               >
-                Join Peers Global
-                <ArrowRight className="size-4 text-slate-900" />
+                <span>Join Peers Global</span>
+                <ArrowRight className="size-4 text-slate-900 transition-transform duration-300 group-hover:translate-x-1" />
+                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
               </Link>
 
-              <Link
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all hover:bg-white/[0.12] hover:border-white/35"
-              >
-                <Download className="size-4 text-slate-300" />
-                Download Unity App
-              </Link>
+              {/* Download Unity App with Peers Global Logo Color Matching (Red-Blue Glow & Gradient Hover) */}
+              <div className="relative group/unity-btn">
+                {/* Ambient Logo Colors Glow (Peers Red -> Peers Sky -> Royal Blue) */}
+                <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/unity-btn:opacity-80 group-hover/unity-btn:blur-lg" />
+                
+                <Link
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/25 bg-white/[0.08] px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-[#E53935]/25 hover:via-[#3B82F6]/30 hover:to-[#1E4ED8]/35 hover:shadow-[0_0_24px_rgba(0,98,210,0.4),0_0_16px_rgba(229,57,53,0.3)] hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <Download className="size-4 text-slate-200 transition-colors group-hover:text-white" />
+                  <span className="font-semibold tracking-wide">Download Unity App</span>
+                  
+                  {/* Shimmer Light Reflection Sweep on Hover */}
+                  <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                </Link>
+              </div>
 
               <Link
                 href="/circles/find"

@@ -18,6 +18,8 @@ const buttonVariants = cva(
         destructive:
           'bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40',
         link: 'text-primary underline-offset-4 hover:underline',
+        gradient:
+          'relative overflow-hidden rounded-full border border-blue-400/25 bg-gradient-to-r from-[#072B61] via-[#0052CC] to-[#0066E4] text-white font-bold shadow-[0_4px_14px_rgba(0,82,204,0.3),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:border-red-400/40 hover:from-[#0B3577] hover:to-[#0056D6] hover:shadow-[0_0_25px_rgba(229,57,53,0.45),0_8px_20px_rgba(0,82,204,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300',
       },
       size: {
         default:

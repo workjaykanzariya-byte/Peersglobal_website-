@@ -285,15 +285,29 @@ export function SiteHeader() {
 
           {/* Right Side Action: ENTER PEERS GLOBAL */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Primary Blue Pill CTA */}
-            <Link
-              href="/apply"
-              onMouseEnter={() => setOpenMenu(null)}
-              className="inline-flex items-center justify-center gap-1.5 bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold text-xs tracking-tight px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(0,98,210,0.25)] transition-all whitespace-nowrap active:scale-95 hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)]"
-            >
-              <span>ENTER PEERS GLOBAL</span>
-              <ArrowRight className="size-3.5" />
-            </Link>
+            {/* Dark Frosted Glass Pill with Logo Gradient Border & Dual-Tone Hover Glow */}
+            <div className="relative group/nav-btn">
+              {/* Ambient Logo Gradient Glow (Red -> Blue) behind the button on hover */}
+              <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/nav-btn:opacity-75 group-hover/nav-btn:blur-lg" />
+              
+              <Link
+                href="/apply"
+                onMouseEnter={() => setOpenMenu(null)}
+                className="group relative inline-flex items-center justify-center gap-2 rounded-full border border-slate-700/60 bg-[#0B1528] px-5 py-2.5 text-xs font-semibold tracking-wider text-white shadow-[0_2px_10px_rgba(0,0,0,0.2)] backdrop-blur-md transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-[#E53935] hover:via-[#2563EB] hover:to-[#1E4ED8] hover:shadow-[0_0_24px_rgba(0,98,210,0.4),0_0_16px_rgba(229,57,53,0.3)] hover:scale-[1.03] active:scale-[0.97] whitespace-nowrap overflow-hidden"
+              >
+                {/* Subtle Logo Red Accent Dot */}
+                <span className="size-1.5 rounded-full bg-[#E53935] shadow-[0_0_6px_#E53935] group-hover:bg-white group-hover:shadow-[0_0_8px_white] transition-colors" />
+
+                <span className="relative z-10 text-white font-semibold tracking-wider">
+                  ENTER PEERS GLOBAL
+                </span>
+                
+                <ArrowRight className="relative z-10 size-3.5 text-slate-300 group-hover:text-white transition-all duration-300 group-hover:translate-x-1" />
+
+                {/* Shimmer Light Reflection Sweep on Hover */}
+                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+              </Link>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -314,14 +328,18 @@ export function SiteHeader() {
         {mobileMenuOpen ? (
           <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 py-5 shadow-2xl text-slate-800 animate-in slide-in-from-top-2 duration-200">
             <div className="mb-4 flex flex-col gap-2.5 border-b border-slate-200 pb-4">
-              <Link
-                href="/apply"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full bg-[#0062D2] py-3 text-xs font-bold tracking-wider text-white shadow-md"
-              >
-                <span>ENTER PEERS GLOBAL</span>
-                <ArrowRight className="size-4" />
-              </Link>
+              <div className="relative group/mobile-btn">
+                <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] to-[#1E4ED8] opacity-0 blur-md transition-all duration-300 group-hover/mobile-btn:opacity-60" />
+                <Link
+                  href="/apply"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full border border-slate-700/60 bg-[#0B1528] py-3 text-xs font-semibold tracking-wider text-white shadow-md transition-all"
+                >
+                  <span className="size-1.5 rounded-full bg-[#E53935] shadow-[0_0_6px_#E53935]" />
+                  <span className="relative z-10">ENTER PEERS GLOBAL</span>
+                  <ArrowRight className="relative z-10 size-4" />
+                </Link>
+              </div>
             </div>
 
             <div className="flex flex-col divide-y divide-slate-100">

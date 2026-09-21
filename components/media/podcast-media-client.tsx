@@ -70,8 +70,8 @@ const FORMAT_CARDS = [
     image: '/images/conclave.png',
     desc: 'Video features on businesses, founders and the ecosystems they operate in across industrial belts.',
     ctaText: 'Watch Now',
-    ctaHref: '#channels',
-    external: false,
+    ctaHref: 'https://www.youtube.com/@VyapaarJagatTV',
+    external: true,
   },
   {
     id: 'vyapaarjagat',
