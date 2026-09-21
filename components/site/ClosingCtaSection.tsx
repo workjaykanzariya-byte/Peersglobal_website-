@@ -48,9 +48,9 @@ export function ClosingCtaSection({
   const isSecondaryExternal = secondaryButtonHref?.startsWith('http')
 
   return (
-    <section className={`relative overflow-hidden bg-[#0062D2] py-10 sm:py-14 lg:py-16 text-white ${className}`}>
+    <section className={`relative overflow-hidden bg-gradient-to-r from-[#040E24] via-[#061836] to-[#0A2558] border-t border-slate-800 py-10 sm:py-14 lg:py-16 text-white ${className}`}>
       {/* Subtle geometric orbital line art in top-right background */}
-      <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+      <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
         <svg
           viewBox="0 0 600 600"
           fill="none"
@@ -135,10 +135,10 @@ export function ClosingCtaSection({
               {primaryButtonText && primaryButtonHref && (
                 <Link
                   href={primaryButtonHref}
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#061836] shadow-md transition-all duration-200 hover:bg-slate-100 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
                 >
                   <span>{primaryButtonText}</span>
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-[#061836]" />
                 </Link>
               )}
 
@@ -148,7 +148,7 @@ export function ClosingCtaSection({
                     href={secondaryButtonHref}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/20 hover:border-white active:scale-[0.98] uppercase"
                   >
                     {secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
                     <span>{secondaryButtonText}</span>
@@ -156,7 +156,7 @@ export function ClosingCtaSection({
                 ) : (
                   <Link
                     href={secondaryButtonHref}
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/20 hover:border-white active:scale-[0.98] uppercase"
                   >
                     {secondaryButtonIcon}
                     <span>{secondaryButtonText}</span>

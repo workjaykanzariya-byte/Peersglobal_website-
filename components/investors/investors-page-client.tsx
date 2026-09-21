@@ -139,12 +139,12 @@ export function InvestorsPageClient() {
       </div>
 
       {/* ─── Master Hero Video Card Banner ─── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F6F9FD] via-[#FAFBFD] to-white pt-6 sm:pt-8 pb-10 sm:pb-12 border-b border-slate-200/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-3xl bg-white border border-slate-200/90 shadow-[0_12px_40px_rgba(0,40,120,0.06)] overflow-hidden min-h-[480px] sm:min-h-[540px] lg:min-h-[580px] flex items-center">
+      <section className="relative overflow-hidden bg-[#FBFCFE] pt-6 sm:pt-10 pb-10 sm:pb-16 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-8 sm:gap-10">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/80 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
             {/* Background looping video with mask */}
             <div
-              className="absolute right-0 top-0 bottom-0 w-full lg:w-[60%] pointer-events-none z-0 overflow-hidden"
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
               style={{
                 maskImage:
                   'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
@@ -153,23 +153,48 @@ export function InvestorsPageClient() {
               }}
             >
               <video
+                key={heroVideo}
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover object-center"
-                src={heroVideo}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/40 lg:hidden" />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-white/80 hidden lg:block" />
-            </div>
+                preload="auto"
+                className="size-full object-cover object-center"
+              >
+                <source src={heroVideo} type="video/mp4" />
+                <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
+                <source src="/videos/hero-background.mp4" type="video/mp4" />
+              </video>
 
-            {/* Subtle top right decorative script */}
-            <div
-              className="absolute top-6 right-8 hidden md:block text-2xl lg:text-3xl text-[#0062D2]/20 select-none pointer-events-none z-10"
-              style={{ fontFamily: 'var(--font-script)' }}
-            >
-              Collaborative Capital &amp; Infrastructure
+              {/* Seamless gradient overlays for the signature misty fade */}
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+
+              {/* Top-Right Script Typography with Drop Shadow */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none hidden md:block">
+                <p className="text-lg sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
+                  Collaborative Capital
+                </p>
+                <p className="text-xl sm:text-3xl text-white font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  &amp; Infrastructure
+                </p>
+              </div>
+
+              {/* Bottom-Right Frosted Glass Pill */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left flex items-center gap-2.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <div>
+                    <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
+                      INSTITUTIONAL DESK
+                    </p>
+                    <p className="text-xs font-bold tracking-wider text-white">
+                      PRE-SERIES A ENQUIRIES OPEN
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Left Hero Content */}
@@ -215,12 +240,6 @@ export function InvestorsPageClient() {
                   Explore Unit Economics
                 </a>
               </div>
-            </div>
-
-            {/* Bottom-right Frosted Glass Live Status Card */}
-            <div className="hidden sm:flex absolute bottom-5 right-6 z-10 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-md border border-white/60 shadow-lg text-xs font-semibold text-[#061836]">
-              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Pre-Series A Institutional Enquiries Open</span>
             </div>
           </div>
         </div>
@@ -671,10 +690,10 @@ export function InvestorsPageClient() {
         </div>
       </section>
 
-      {/* ─── Closing Banner (Royal Blue) ─── */}
-      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+      {/* ─── Closing Banner (Dark Blue) ─── */}
+      <section className="relative bg-gradient-to-r from-[#040E24] via-[#061836] to-[#0A2558] text-white py-24 md:py-32 overflow-hidden border-t border-slate-800">
         {/* SVG Orbital Geometric Lines Background */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
           <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
             <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
             <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
@@ -689,14 +708,14 @@ export function InvestorsPageClient() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
             The Infrastructure of Collaboration
           </h2>
-          <p className="text-base sm:text-lg text-white/90 font-light max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-white/80 font-light max-w-xl mx-auto">
             Participate in India’s most disciplined, governed business community platform.
           </p>
 
           <div className="pt-4">
             <a
               href="#investor-form"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg uppercase tracking-wider transition-all"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#061836] text-sm font-bold shadow-lg uppercase tracking-wider transition-all"
             >
               Investor Enquiry
               <ArrowRight className="w-4 h-4" />

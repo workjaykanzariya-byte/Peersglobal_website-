@@ -517,10 +517,10 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Royal Blue Closing Banner ─── */}
-      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+      {/* ─── Dark Blue Closing Banner ─── */}
+      <section className="relative bg-gradient-to-r from-[#040E24] via-[#061836] to-[#0A2558] text-white py-24 md:py-32 overflow-hidden border-t border-slate-800">
         {/* SVG Orbital Geometric Lines Background */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
           <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
             <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
             <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
@@ -540,7 +540,7 @@ export function FounderClient() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
               Build Your Business. Build Your Relationships. Build Your Circle.
             </h2>
-            <p className="text-base sm:text-lg text-white/90 font-normal max-w-xl mx-auto">
+            <p className="text-base sm:text-lg text-white/80 font-normal max-w-xl mx-auto">
               Join thousands of verified entrepreneurs building together on the Unity App.
             </p>
           </div>
@@ -548,7 +548,7 @@ export function FounderClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#061836] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] uppercase tracking-wider"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />

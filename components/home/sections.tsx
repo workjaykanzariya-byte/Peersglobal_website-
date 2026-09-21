@@ -4053,9 +4053,9 @@ export function EventsSection() {
 
 export function ClosingSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0062D2] py-16 sm:py-20 lg:py-24 text-white">
+    <section className="relative overflow-hidden bg-gradient-to-r from-[#040E24] via-[#061836] to-[#0A2558] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
       {/* Subtle geometric orbital line art in top-right background */}
-      <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+      <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
         <svg
           viewBox="0 0 600 600"
           fill="none"
@@ -4120,8 +4120,6 @@ export function ClosingSection() {
             </em>
           </h2>
 
-
-
           {/* Subheading: clean crisp white */}
           <p className="text-base sm:text-lg font-medium text-white/95 mt-1">
             Build Your Business. Build Your Relationships. Build Your Circle.
@@ -4136,7 +4134,7 @@ export function ClosingSection() {
         <div className="flex shrink-0 flex-wrap items-center gap-4">
           <Link
             href="/membership"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#061836] shadow-md transition-all duration-200 hover:bg-slate-100 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
           >
             <span>JOIN PEERS GLOBAL</span>
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -4146,7 +4144,7 @@ export function ClosingSection() {
             href="https://unity.peersglobal.com"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
           >
             <Download aria-hidden className="size-4" />
             <span>DOWNLOAD UNITY APP</span>
