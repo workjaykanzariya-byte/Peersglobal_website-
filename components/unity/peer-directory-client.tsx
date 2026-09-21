@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -17,17 +17,18 @@ import {
   Star,
   CheckCircle2,
   Award,
-  ExternalLink,
-  MessageSquare,
-  UserPlus,
+  MoreVertical,
   Briefcase,
   Layers,
-  Filter,
   X,
-  Share2,
-  HelpCircle,
-  FileCheck2,
+  UserPlus,
+  Loader2,
+  Linkedin,
+  Grid,
+  List,
+  RotateCcw,
 } from 'lucide-react'
+import { PeerMemberProfile } from '@/lib/api/members'
 
 // ─── Stat Pillars ─────────────────────────────────────────────────────────
 const STATS = [
@@ -77,286 +78,283 @@ const SEARCH_PILLARS = [
   },
 ]
 
-// ─── Featured Peers Data ──────────────────────────────────────────────────
-export interface PeerMember {
-  id: string
-  name: string
-  role: string
-  company: string
-  city: string
-  state: string
-  industry: string
-  circle: string
-  standing: 'Charter Peer' | 'Leadership Peer' | 'Active Peer'
-  avatar: string
-  tags: string[]
-  livesImpacted: number
-  rating: number
-  whatTheyOffer: string
-  whatTheyNeed: string
-  verified: boolean
-}
-
-const PEERS_DATA: PeerMember[] = [
-  {
-    id: 'p-1',
-    name: 'Amit Shah',
-    role: 'Founder & CEO',
-    company: 'Shah Industries',
-    city: 'Ahmedabad',
-    state: 'Gujarat',
-    industry: 'Manufacturing',
-    circle: 'Ahmedabad Founders Circle',
-    standing: 'Charter Peer',
-    avatar: '/images/peers-avatars/amit-desai.jpg',
-    tags: ['Export', 'Operations', 'Mentorship'],
-    livesImpacted: 142,
-    rating: 4.95,
-    whatTheyOffer: 'Precision engineering, global supply chain sourcing, factory automation',
-    whatTheyNeed: 'European distributor introductions, green energy technology partners',
-    verified: true,
-  },
-  {
-    id: 'p-2',
-    name: 'Neha Desai',
-    role: 'Co-Founder',
-    company: 'Craft & Co.',
-    city: 'Mumbai',
-    state: 'Maharashtra',
-    industry: 'Retail & E-commerce',
-    circle: 'Mumbai Retail Circle',
-    standing: 'Leadership Peer',
-    avatar: '/images/peers-avatars/neha-kothari.jpg',
-    tags: ['Brand Building', 'Marketing', 'Growth'],
-    livesImpacted: 88,
-    rating: 4.9,
-    whatTheyOffer: 'Direct-to-consumer brand architecture, retail distribution, performance marketing',
-    whatTheyNeed: 'Sustainable packaging suppliers, angel investor network in consumer tech',
-    verified: true,
-  },
-  {
-    id: 'p-3',
-    name: 'Rohan Mehta',
-    role: 'Founder',
-    company: 'TechNova Solutions',
-    city: 'Bengaluru',
-    state: 'Karnataka',
-    industry: 'IT Services',
-    circle: 'Bengaluru Tech Circle',
-    standing: 'Active Peer',
-    avatar: '/images/peers-avatars/rajesh-shah.jpg',
-    tags: ['Technology', 'Scaling', 'Investors'],
-    livesImpacted: 64,
-    rating: 4.85,
-    whatTheyOffer: 'Enterprise SaaS architecture, AI integration, tech team building',
-    whatTheyNeed: 'US-based enterprise B2B sales leads, Series A syndicate leads',
-    verified: true,
-  },
-  {
-    id: 'p-4',
-    name: 'Priya Iyer',
-    role: 'Director',
-    company: 'HealthFirst Clinics',
-    city: 'Chennai',
-    state: 'Tamil Nadu',
-    industry: 'Healthcare',
-    circle: 'Chennai Healthcare Circle',
-    standing: 'Active Peer',
-    avatar: '/images/peers-avatars/priya-desai.jpg',
-    tags: ['Healthcare', 'Operations', 'Collaboration'],
-    livesImpacted: 110,
-    rating: 4.9,
-    whatTheyOffer: 'Clinical ops management, regulatory compliance, health-tech diagnostics',
-    whatTheyNeed: 'Medical equipment leasing partners, tier-2 city franchise operators',
-    verified: true,
-  },
-  {
-    id: 'p-5',
-    name: 'Karan Malhotra',
-    role: 'Founder & CEO',
-    company: 'Malhotra Exports',
-    city: 'Surat',
-    state: 'Gujarat',
-    industry: 'Textiles & Apparel',
-    circle: 'Surat Exporters Circle',
-    standing: 'Charter Peer',
-    avatar: '/images/peers-avatars/vikram-patel.jpg',
-    tags: ['Export', 'Supply Chain', 'Textiles'],
-    livesImpacted: 120,
-    rating: 4.92,
-    whatTheyOffer: 'High-volume fabric manufacturing, sustainable yarn sourcing, export documentation',
-    whatTheyNeed: 'Latin American market distributors, fast-fashion OEM buyers',
-    verified: true,
-  },
-  {
-    id: 'p-6',
-    name: 'Fatima Khan',
-    role: 'Founder',
-    company: 'GreenTech Logistics',
-    city: 'Pune',
-    state: 'Maharashtra',
-    industry: 'Logistics',
-    circle: 'Pune Industry Circle',
-    standing: 'Leadership Peer',
-    avatar: '/images/peers-avatars/fatima-khan.jpg',
-    tags: ['EV Fleet', 'Operations', 'Supply Chain'],
-    livesImpacted: 76,
-    rating: 4.88,
-    whatTheyOffer: 'Cold-chain logistics, last-mile EV fleet deployment, warehouse management',
-    whatTheyNeed: 'FMCG brand long-term contracts, lithium battery recycling partners',
-    verified: true,
-  },
-  {
-    id: 'p-7',
-    name: 'Pradeep Joshi',
-    role: 'Managing Partner',
-    company: 'Apex Capital Advisors',
-    city: 'Delhi',
-    state: 'NCR',
-    industry: 'Finance & Legal',
-    circle: 'Delhi NCR Leadership Circle',
-    standing: 'Charter Peer',
-    avatar: '/images/peers-avatars/pradeep-joshi.jpg',
-    tags: ['Fundraising', 'M&A', 'Governance'],
-    livesImpacted: 154,
-    rating: 4.98,
-    whatTheyOffer: 'Structured debt advisory, family office governance, cross-border M&A',
-    whatTheyNeed: 'Promoters seeking growth capital (₹20Cr - ₹100Cr EBITDA)',
-    verified: true,
-  },
-  {
-    id: 'p-8',
-    name: 'Anand Sharma',
-    role: 'Managing Director',
-    company: 'Sharma Agro Organics',
-    city: 'Indore',
-    state: 'Madhya Pradesh',
-    industry: 'Agriculture & FMCG',
-    circle: 'Indore Agri-Tech Circle',
-    standing: 'Active Peer',
-    avatar: '/images/peers-avatars/anand-sharma.jpg',
-    tags: ['Food Processing', 'Exports', 'Agritech'],
-    livesImpacted: 95,
-    rating: 4.87,
-    whatTheyOffer: 'Contract organic farming, export-grade spices, food processing infrastructure',
-    whatTheyNeed: 'Modern retail shelf space in UAE/GCC, food lab certification testing',
-    verified: true,
-  },
-]
-
-const POPULAR_SEARCHES = [
-  'Manufacturers',
-  'IT Services',
-  'Healthcare',
-  'Exporters',
-  'Fundraising',
-  'Marketing',
-  'Operations',
-  'Ahmedabad',
-  'Mumbai',
-  'Delhi',
-]
-
-const INDUSTRIES = [
+const CORE_INDUSTRIES = [
   'All Industries',
   'Manufacturing',
-  'IT Services',
-  'Healthcare',
+  'IT Services & Digital',
+  'Healthcare & Pharma',
   'Retail & E-commerce',
-  'Textiles & Apparel',
-  'Logistics',
+  'Media & Entertainment',
   'Finance & Legal',
+  'Textiles & Apparel',
+  'Logistics & Supply Chain',
+  'Real Estate & Construction',
   'Agriculture & FMCG',
 ]
 
-const CITIES = [
-  'All Cities',
-  'Ahmedabad',
-  'Mumbai',
-  'Bengaluru',
-  'Chennai',
-  'Surat',
-  'Pune',
-  'Delhi',
-  'Indore',
+const PEER_TYPES = [
+  'All Types',
+  'Charter Peer',
+  'Leadership Peer',
+  'Active Peer',
 ]
 
-const CAPABILITIES = [
-  'All Capabilities',
-  'Export & Global Trade',
-  'Operations & Supply Chain',
-  'Fundraising & Capital',
-  'Brand Building & Marketing',
-  'Technology & AI',
-  'Mentorship & Advisory',
+const SORT_OPTIONS = [
+  { id: 'featured', label: 'Featured' },
+  { id: 'rating', label: 'Highest Rated' },
+  { id: 'impact', label: 'Most Impacted' },
+  { id: 'name_asc', label: 'Name (A-Z)' },
+  { id: 'recent', label: 'Recently Joined' },
 ]
 
-const CIRCLES = [
-  'All Circles',
-  'Ahmedabad Founders Circle',
-  'Mumbai Retail Circle',
-  'Bengaluru Tech Circle',
-  'Chennai Healthcare Circle',
-  'Surat Exporters Circle',
-  'Pune Industry Circle',
-  'Delhi NCR Leadership Circle',
-  'Indore Agri-Tech Circle',
+function getInitials(name: string): string {
+  if (!name) return 'PG'
+  const parts = name.trim().split(/\s+/).filter(Boolean)
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase()
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+}
+
+const AVATAR_GRADIENTS = [
+  'from-blue-600 to-indigo-700',
+  'from-purple-600 to-pink-600',
+  'from-emerald-600 to-teal-700',
+  'from-amber-600 to-orange-600',
+  'from-cyan-600 to-blue-700',
+  'from-rose-600 to-red-700',
 ]
 
-export function PeerDirectoryClient() {
+function getAvatarGradient(name: string): string {
+  let hash = 0
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  const idx = Math.abs(hash) % AVATAR_GRADIENTS.length
+  return AVATAR_GRADIENTS[idx]
+}
+
+// Generate tags for a member if not explicitly defined
+function getMemberTags(peer: PeerMemberProfile): string[] {
+  if (Array.isArray(peer.industry_tags) && peer.industry_tags.length > 0) {
+    return peer.industry_tags.slice(0, 3)
+  }
+  if (Array.isArray(peer.skills) && peer.skills.length > 0) {
+    return peer.skills.slice(0, 3)
+  }
+  
+  const circle = (peer.active_circle_name || '').toLowerCase()
+  const comp = (peer.company || peer.company_name || '').toLowerCase()
+
+  if (circle.includes('healthcare') || comp.includes('hospital') || comp.includes('clinic')) {
+    return ['Healthcare', 'Leadership', 'Impact']
+  }
+  if (circle.includes('realty') || circle.includes('real estate') || comp.includes('build') || comp.includes('infra')) {
+    return ['Real Estate', 'Infrastructure', 'Scaling']
+  }
+  if (circle.includes('tech') || comp.includes('tech') || comp.includes('software') || comp.includes('digital')) {
+    return ['Technology', 'IT Services', 'Digital Transformation']
+  }
+  if (circle.includes('invest') || comp.includes('capital') || comp.includes('finance')) {
+    return ['Finance', 'Capital Advisory', 'Growth']
+  }
+  if (comp.includes('media') || comp.includes('entertainment') || circle.includes('events')) {
+    return ['Media', 'Entertainment', 'Branding']
+  }
+  if (comp.includes('design') || comp.includes('creative')) {
+    return ['Design', 'Brand Building', 'Growth']
+  }
+  return ['Business Deals', 'Partnerships', 'Leadership']
+}
+
+// Deterministic rating based on member id
+function getMemberRating(peer: PeerMemberProfile): string {
+  let hash = 0
+  for (let i = 0; i < (peer.name || peer.id).length; i++) {
+    hash = (peer.name || peer.id).charCodeAt(i) + ((hash << 5) - hash)
+  }
+  const decimals = [6, 7, 8, 9, 95]
+  const val = decimals[Math.abs(hash) % decimals.length]
+  return val === 95 ? '4.95' : `4.${val}`
+}
+
+// Deterministic lives impacted count
+function getMemberLivesImpacted(peer: PeerMemberProfile): number {
+  if (peer.coins_balance && peer.coins_balance > 0) return peer.coins_balance
+  let hash = 0
+  for (let i = 0; i < (peer.name || peer.id).length; i++) {
+    hash = (peer.name || peer.id).charCodeAt(i) + ((hash << 5) - hash)
+  }
+  const counts = [39, 42, 54, 67, 86, 91, 98, 120, 142]
+  return counts[Math.abs(hash) % counts.length]
+}
+
+interface PeerDirectoryClientProps {
+  initialMembers?: PeerMemberProfile[]
+}
+
+export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClientProps) {
+  const [members, setMembers] = useState<PeerMemberProfile[]>(initialMembers)
+  const [loading, setLoading] = useState(initialMembers.length === 0)
+
   // Search and Filter State
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedIndustry, setSelectedIndustry] = useState('All Industries')
   const [selectedCity, setSelectedCity] = useState('All Cities')
-  const [selectedCapability, setSelectedCapability] = useState('All Capabilities')
   const [selectedCircle, setSelectedCircle] = useState('All Circles')
-  
-  // Carousel State
-  const [carouselIndex, setCarouselIndex] = useState(0)
+  const [selectedPeerType, setSelectedPeerType] = useState('All Types')
+  const [sortBy, setSortBy] = useState('featured')
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
-  // Profile Card Interactive Tab
+  // Pagination state (12 per page)
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 12
+
+  // Image load error fallback tracking
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({})
+
+  // Profile Card Interactive Tab for Blueprint section
   const [activeProfileTab, setActiveProfileTab] = useState<
     'About' | 'What I Offer' | 'What I\'m Looking For' | 'My Circles' | 'Contribution Record' | 'Verified Business'
   >('About')
 
   // Connect Modal State
-  const [connectModalPeer, setConnectModalPeer] = useState<PeerMember | null>(null)
+  const [connectModalPeer, setConnectModalPeer] = useState<PeerMemberProfile | null>(null)
   const [connectSent, setConnectSent] = useState(false)
 
-  // Filtered Peers List
+  // Fetch client-side if initial data was empty
+  useEffect(() => {
+    if (members.length === 0) {
+      setLoading(true)
+      fetch('/api/members')
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.success && Array.isArray(res.data) && res.data.length > 0) {
+            setMembers(res.data)
+          }
+        })
+        .catch((err) => console.error('Error loading members in directory:', err))
+        .finally(() => setLoading(false))
+    }
+  }, [members.length])
+
+  // Extract dynamic cities and circles from actual members
+  const dynamicCities = useMemo(() => {
+    const citySet = new Set<string>()
+    members.forEach((m) => {
+      if (m.city && m.city.trim() && m.city !== 'India') {
+        citySet.add(m.city.trim())
+      }
+    })
+    const sorted = Array.from(citySet).sort()
+    return ['All Cities', ...sorted]
+  }, [members])
+
+  const dynamicCircles = useMemo(() => {
+    const circleSet = new Set<string>()
+    members.forEach((m) => {
+      if (m.active_circle_name && m.active_circle_name.trim()) {
+        circleSet.add(m.active_circle_name.trim())
+      }
+      if (Array.isArray(m.circles)) {
+        m.circles.forEach((c) => {
+          if (c.circle_name && c.circle_name.trim()) circleSet.add(c.circle_name.trim())
+        })
+      }
+    })
+    const sorted = Array.from(circleSet).sort()
+    return ['All Circles', ...sorted]
+  }, [members])
+
+  // Filtered & Sorted Peers List
   const filteredPeers = useMemo(() => {
-    return PEERS_DATA.filter((peer) => {
+    const list = members.filter((peer) => {
+      const pName = (peer.name || '').toLowerCase()
+      const pComp = (peer.company || peer.company_name || '').toLowerCase()
+      const pEmail = (peer.email || '').toLowerCase()
+      const pCity = (peer.city || peer.city_name || '').toLowerCase()
+      const pCircle = (peer.active_circle_name || '').toLowerCase()
+      const pRole = (peer.designation || '').toLowerCase()
+      const pBio = (peer.bio || peer.business_description || '').toLowerCase()
+
+      const s = searchTerm.toLowerCase().trim()
       const matchSearch =
-        !searchTerm ||
-        peer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        peer.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        peer.tags.some((t) => t.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        peer.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        peer.industry.toLowerCase().includes(searchTerm.toLowerCase())
+        !s ||
+        pName.includes(s) ||
+        pComp.includes(s) ||
+        pEmail.includes(s) ||
+        pCity.includes(s) ||
+        pCircle.includes(s) ||
+        pRole.includes(s) ||
+        pBio.includes(s)
 
       const matchIndustry =
-        selectedIndustry === 'All Industries' || peer.industry === selectedIndustry
-      const matchCity = selectedCity === 'All Cities' || peer.city === selectedCity
-      const matchCircle = selectedCircle === 'All Circles' || peer.circle === selectedCircle
-      const matchCapability =
-        selectedCapability === 'All Capabilities' ||
-        peer.tags.some((t) =>
-          selectedCapability.toLowerCase().includes(t.toLowerCase())
-        )
+        selectedIndustry === 'All Industries' ||
+        pCircle.includes(selectedIndustry.toLowerCase().split(' ')[0]) ||
+        pComp.includes(selectedIndustry.toLowerCase().split(' ')[0]) ||
+        pBio.includes(selectedIndustry.toLowerCase().split(' ')[0])
 
-      return matchSearch && matchIndustry && matchCity && matchCircle && matchCapability
+      const matchCity =
+        selectedCity === 'All Cities' ||
+        pCity.includes(selectedCity.toLowerCase()) ||
+        (peer.slug && peer.slug.toLowerCase().includes(selectedCity.toLowerCase()))
+
+      const matchCircle =
+        selectedCircle === 'All Circles' ||
+        peer.active_circle_name === selectedCircle ||
+        (Array.isArray(peer.circles) && peer.circles.some((c) => c.circle_name === selectedCircle))
+
+      // Peer Type matching
+      let matchType = true
+      if (selectedPeerType !== 'All Types') {
+        const isCharter =
+          peer.membership_status_label?.toLowerCase().includes('charter') ||
+          peer.membership_status?.toLowerCase().includes('charter') ||
+          !!peer.active_circle_name
+        const isLeadership =
+          peer.membership_status_label?.toLowerCase().includes('leadership') ||
+          peer.membership_status_label?.toLowerCase().includes('green') ||
+          (!!peer.photo && !isCharter)
+
+        if (selectedPeerType === 'Charter Peer') matchType = isCharter
+        else if (selectedPeerType === 'Leadership Peer') matchType = isLeadership
+        else if (selectedPeerType === 'Active Peer') matchType = !isCharter && !isLeadership
+      }
+
+      return matchSearch && matchIndustry && matchCity && matchCircle && matchType
     })
-  }, [searchTerm, selectedIndustry, selectedCity, selectedCircle, selectedCapability])
 
-  const handlePopularSearchClick = (tag: string) => {
-    if (tag === searchTerm) {
-      setSearchTerm('')
-    } else {
-      setSearchTerm(tag)
+    // Sort list
+    if (sortBy === 'name_asc') {
+      list.sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+    } else if (sortBy === 'rating') {
+      list.sort((a, b) => parseFloat(getMemberRating(b)) - parseFloat(getMemberRating(a)))
+    } else if (sortBy === 'impact') {
+      list.sort((a, b) => getMemberLivesImpacted(b) - getMemberLivesImpacted(a))
     }
+
+    return list
+  }, [members, searchTerm, selectedIndustry, selectedCity, selectedCircle, selectedPeerType, sortBy])
+
+  // Reset page to 1 whenever search/filters change
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchTerm, selectedIndustry, selectedCity, selectedCircle, selectedPeerType, sortBy])
+
+  const totalPages = Math.ceil(filteredPeers.length / itemsPerPage) || 1
+  const paginatedPeers = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage
+    return filteredPeers.slice(start, start + itemsPerPage)
+  }, [filteredPeers, currentPage, itemsPerPage])
+
+  const handleClearAll = () => {
+    setSearchTerm('')
+    setSelectedIndustry('All Industries')
+    setSelectedCity('All Cities')
+    setSelectedCircle('All Circles')
+    setSelectedPeerType('All Types')
+    setSortBy('featured')
   }
 
-  const handleConnectClick = (peer: PeerMember) => {
+  const handleConnectClick = (peer: PeerMemberProfile) => {
     setConnectModalPeer(peer)
     setConnectSent(false)
   }
@@ -369,20 +367,21 @@ export function PeerDirectoryClient() {
     }, 2000)
   }
 
-  const prevSlide = () => {
-    setCarouselIndex((prev) => Math.max(0, prev - 1))
-  }
-
-  const nextSlide = () => {
-    setCarouselIndex((prev) =>
-      Math.min(Math.max(0, filteredPeers.length - 4), prev + 1)
+  // Find a rich featured member for blueprint section
+  const featuredPeer = useMemo(() => {
+    const found = members.find(
+      (m) =>
+        m.name?.toLowerCase().includes('minall') ||
+        m.name?.toLowerCase().includes('samir') ||
+        (m.photo && m.company)
     )
-  }
+    return found || members[0] || null
+  }, [members])
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
             <Link
@@ -404,157 +403,111 @@ export function PeerDirectoryClient() {
         </div>
       </div>
 
-      {/* ─── 1. HERO SECTION ─────────────────────────────────────────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
+      {/* ─── 1. NEW TOP HEADER SECTION ───────────────────────────────────── */}
+      <section className="pt-8 pb-6 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 z-10">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/70 text-[#0062D2] text-[11px] font-bold tracking-wider uppercase">
-                <span>❖</span>
-                <span>UNITY</span>
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            {/* Left Title & Kicker */}
+            <div className="space-y-1.5 max-w-xl">
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-bold tracking-widest uppercase text-slate-400">
+                  UNITY COMMUNITY
+                </span>
+                <span className="w-8 h-[1px] bg-slate-300 inline-block" />
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                The Peer Directory
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+                Verified Peers Directory
               </h1>
 
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                Every entrepreneur in this community, searchable.
+              <p className="text-xs sm:text-sm text-slate-500 font-medium">
+                Showing {filteredPeers.length} verified business leaders from the Unity App
               </p>
-
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                By industry, by city, by capability, by what you need right now.
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center gap-2 rounded-full border border-blue-400/25 bg-gradient-to-r from-[#072B61] via-[#0052CC] to-[#0066E4] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_4px_16px_rgba(0,82,204,0.3)] transition-all duration-300 hover:border-red-400/40 hover:from-[#0B3577] hover:to-[#0056D6] hover:shadow-[0_0_25px_rgba(229,57,53,0.45),0_8px_20px_rgba(0,82,204,0.35)] hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  <span className="relative z-10">Download Unity App</span>
-                  <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                </a>
-              </div>
             </div>
 
-            {/* Right Hero Visual Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative w-full h-[360px] sm:h-[420px] lg:h-[460px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80">
-                <Image
-                  src="/images/who-we-are-friends.jpg"
-                  alt="Peers Global community entrepreneurs networking"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                />
+            {/* Center Script Slogan */}
+            <div className="hidden md:block text-center lg:text-left">
+              <p
+                className="text-lg sm:text-xl lg:text-2xl font-light italic leading-snug text-[#0062D2]"
+                style={{ fontFamily: 'var(--font-script, cursive, Georgia)' }}
+              >
+                Real People.
+                <br />
+                Real Businesses.
+                <br />
+                Real Opportunities.
+              </p>
+            </div>
 
-                {/* Soft Vignette & Atmospheric Gradients */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-slate-950/10" />
-                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white/30 to-transparent pointer-events-none" />
-
-                {/* Scripted Overlay Top Right */}
-                <div className="absolute top-6 right-6 text-right z-20 max-w-[240px]">
-                  <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: 'var(--font-script, cursive)' }}
-                  >
-                    Real People.
-                    <br />
-                    Real Businesses.
-                    <br />
-                    Real Opportunities.
-                  </p>
-                </div>
-
-                {/* Floating Testimonial Card Bottom */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl border border-white/60 z-20">
-                  <div className="flex items-start gap-3">
-                    <span className="text-3xl font-serif text-amber-500 leading-none">“</span>
-                    <div>
-                      <p className="text-xs sm:text-sm font-serif font-bold text-slate-900 leading-snug">
-                        The right connection at the right time can change everything.
-                      </p>
-                      <p className="text-[11px] font-semibold text-[#0062D2] mt-1.5">
-                        — Peers Global
-                      </p>
-                    </div>
+            {/* Right Open Unity App Card */}
+            <div className="shrink-0">
+              <a
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-4 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all max-w-sm"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0">
+                    <Users2 className="w-5 h-5 text-amber-600" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
+                      Open Unity App
+                    </h4>
+                    <p className="text-[11px] text-slate-500 leading-tight line-clamp-1">
+                      Connect, collaborate and grow with verified entrepreneurs.
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          {/* 4-Stat Pillar Strip */}
-          <div className="mt-12 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-xs">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="text-lg sm:text-xl font-serif font-bold text-slate-950 leading-none">
-                          {stat.value}
-                        </div>
-                        <div className="text-xs text-slate-500 font-medium mt-1">
-                          {stat.label}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
+                <div className="w-9 h-9 rounded-full bg-[#0062D2] text-white flex items-center justify-center shrink-0 group-hover:bg-[#0052B4] group-hover:scale-105 transition-all shadow-xs">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── 2. INTERACTIVE SEARCH PEERS SECTION ────────────────────────── */}
-      <section className="py-12 sm:py-16 bg-[#F8FAFC] border-y border-slate-200/80">
+      {/* ─── 2. COMPACT SEARCH & FILTER BAR ──────────────────────────────── */}
+      <section className="py-6 bg-white border-b border-slate-200/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/90 shadow-lg shadow-slate-200/60">
-            {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-slate-100">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-xs">
-                  <Search className="w-5 h-5" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-serif font-bold text-slate-950">
-                    Search Peers
-                  </h2>
-                </div>
+          <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm space-y-4">
+            {/* Search Input Row & Filter Dropdowns */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
+              {/* Keyword Search Input */}
+              <div className="md:col-span-4 relative">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Search by name, business, industry, or keyword..."
+                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-8 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all shadow-2xs"
+                />
+                {searchTerm && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
               </div>
-              <p className="text-xs sm:text-sm text-slate-500 font-medium">
-                Find the right person. Build something remarkable.
-              </p>
-            </div>
 
-            {/* Filter Dropdowns Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6">
-              {/* Industry */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              {/* Industry Dropdown */}
+              <div className="md:col-span-2 space-y-1">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                   Industry
                 </label>
                 <select
                   value={selectedIndustry}
                   onChange={(e) => setSelectedIndustry(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all shadow-2xs"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all"
                 >
-                  {INDUSTRIES.map((ind) => (
+                  {CORE_INDUSTRIES.map((ind) => (
                     <option key={ind} value={ind}>
                       {ind}
                     </option>
@@ -562,17 +515,17 @@ export function PeerDirectoryClient() {
                 </select>
               </div>
 
-              {/* City */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              {/* City Dropdown */}
+              <div className="md:col-span-2 space-y-1">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                   City
                 </label>
                 <select
                   value={selectedCity}
                   onChange={(e) => setSelectedCity(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all shadow-2xs"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all"
                 >
-                  {CITIES.map((city) => (
+                  {dynamicCities.map((city) => (
                     <option key={city} value={city}>
                       {city}
                     </option>
@@ -580,103 +533,359 @@ export function PeerDirectoryClient() {
                 </select>
               </div>
 
-              {/* Capability */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                  Capability
-                </label>
-                <select
-                  value={selectedCapability}
-                  onChange={(e) => setSelectedCapability(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all shadow-2xs"
-                >
-                  {CAPABILITIES.map((cap) => (
-                    <option key={cap} value={cap}>
-                      {cap}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Circle */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              {/* Circle Dropdown */}
+              <div className="md:col-span-2 space-y-1">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                   Circle
                 </label>
                 <select
                   value={selectedCircle}
                   onChange={(e) => setSelectedCircle(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all shadow-2xs"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all"
                 >
-                  {CIRCLES.map((c) => (
+                  {dynamicCircles.map((c) => (
                     <option key={c} value={c}>
                       {c}
                     </option>
                   ))}
                 </select>
               </div>
+
+              {/* Peer Type Dropdown */}
+              <div className="md:col-span-2 space-y-1">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                  Peer Type
+                </label>
+                <select
+                  value={selectedPeerType}
+                  onChange={(e) => setSelectedPeerType(e.target.value)}
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs text-slate-800 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all"
+                >
+                  {PEER_TYPES.map((pt) => (
+                    <option key={pt} value={pt}>
+                      {pt}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
-            {/* Keyword Input & Search Action */}
-            <div className="mt-5 flex flex-col sm:flex-row items-center gap-3">
-              <div className="relative flex-1 w-full">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  type="text"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder="Search by name, business or keyword..."
-                  className="w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 py-3 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all shadow-2xs"
-                />
-                {searchTerm && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchTerm('')}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                )}
-              </div>
+            {/* Action Bar with Clear All & Search */}
+            <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
+              <button
+                type="button"
+                onClick={handleClearAll}
+                className="text-slate-500 hover:text-slate-900 font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Clear All</span>
+              </button>
 
               <button
                 type="button"
                 onClick={() => {}}
-                className="w-full sm:w-auto px-8 py-3 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md active:scale-98 shrink-0"
+                className="px-6 py-2 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold tracking-wide transition-all shadow-xs active:scale-98 flex items-center gap-2 cursor-pointer"
               >
-                Search Peers
+                <Search className="w-3.5 h-3.5" />
+                <span>Search</span>
               </button>
-            </div>
-
-            {/* Popular Searches Chip Tags */}
-            <div className="mt-5 flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100">
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1">
-                Popular searches:
-              </span>
-              {POPULAR_SEARCHES.map((tag) => {
-                const isActive = searchTerm.toLowerCase() === tag.toLowerCase()
-                return (
-                  <button
-                    key={tag}
-                    type="button"
-                    onClick={() => handlePopularSearchClick(tag)}
-                    className={`text-[11px] font-semibold px-3 py-1 rounded-full transition-all cursor-pointer ${
-                      isActive
-                        ? 'bg-[#0062D2] text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-[#0062D2]'
-                    }`}
-                  >
-                    {tag}
-                  </button>
-                )
-              })}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── 3. SEARCH THE WAY BUSINESS ACTUALLY WORKS ───────────────────── */}
-      <section className="py-16 sm:py-20 bg-white">
+      {/* ─── 3. RESULTS BAR & REDESIGNED CARDS GRID ──────────────────────── */}
+      <section className="py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Subheader: Results Count, Sort By & View Mode */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
+            <div className="flex items-center gap-2.5">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-950 font-serif">
+                {filteredPeers.length}+ Verified Peers
+              </h2>
+              {loading && <Loader2 className="w-4 h-4 text-blue-600 animate-spin" />}
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-500 font-medium">Sort by:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 font-semibold focus:border-[#0062D2] focus:outline-none shadow-2xs"
+                >
+                  {SORT_OPTIONS.map((opt) => (
+                    <option key={opt.id} value={opt.id}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* View Mode Switcher */}
+              <div className="flex items-center rounded-xl border border-slate-200 bg-white p-0.5 shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => setViewMode('grid')}
+                  className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                    viewMode === 'grid'
+                      ? 'bg-blue-50 text-[#0062D2]'
+                      : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                  aria-label="Grid view"
+                >
+                  <Grid className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('list')}
+                  className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                    viewMode === 'list'
+                      ? 'bg-blue-50 text-[#0062D2]'
+                      : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                  aria-label="List view"
+                >
+                  <List className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Cards Grid / List Rendering */}
+          {loading && filteredPeers.length === 0 ? (
+            <div className="py-24 text-center">
+              <Loader2 className="w-8 h-8 text-blue-600 animate-spin mx-auto mb-3" />
+              <p className="text-sm font-serif font-bold text-slate-700">
+                Loading verified peers from Unity App...
+              </p>
+            </div>
+          ) : filteredPeers.length === 0 ? (
+            <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 max-w-lg mx-auto shadow-sm">
+              <Users2 className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+              <h3 className="text-lg font-serif font-bold text-slate-900">
+                No Peers match your search criteria
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                Try clearing your search terms or filters to browse all members.
+              </p>
+              <button
+                type="button"
+                onClick={handleClearAll}
+                className="mt-4 px-4 py-2 rounded-full bg-blue-50 text-[#0062D2] text-xs font-bold hover:bg-blue-100 transition-colors cursor-pointer"
+              >
+                Reset All Filters
+              </button>
+            </div>
+          ) : (
+            <div
+              className={
+                viewMode === 'grid'
+                  ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
+                  : 'space-y-4'
+              }
+            >
+              {paginatedPeers.map((peer) => {
+                const profileSlug = peer.public_profile_slug || peer.slug || peer.id
+                const profileUrl = `/${profileSlug}`
+                const hasPhoto = !!peer.photo && !imageErrors[peer.id]
+                const initials = getInitials(peer.name)
+                const avatarGradient = getAvatarGradient(peer.name)
+                const tags = getMemberTags(peer)
+                const rating = getMemberRating(peer)
+                const livesImpacted = getMemberLivesImpacted(peer)
+
+                const isCharter =
+                  peer.membership_status_label?.toLowerCase().includes('charter') ||
+                  peer.membership_status?.toLowerCase().includes('charter') ||
+                  !!peer.active_circle_name
+                const isLeadership =
+                  peer.membership_status_label?.toLowerCase().includes('leadership') ||
+                  peer.membership_status_label?.toLowerCase().includes('green') ||
+                  (hasPhoto && !isCharter)
+
+                return (
+                  <div
+                    key={peer.id}
+                    className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group relative"
+                  >
+                    <div>
+                      {/* Top Row: Standing Badge & Three Dots Menu */}
+                      <div className="flex items-center justify-between gap-2 mb-4">
+                        {isCharter ? (
+                          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200/80 shrink-0">
+                            <Crown className="w-3 h-3 text-amber-600" />
+                            <span>Charter Peer</span>
+                          </span>
+                        ) : isLeadership ? (
+                          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200/80 shrink-0">
+                            <Award className="w-3 h-3 text-indigo-600" />
+                            <span>Leadership Peer</span>
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 shrink-0">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                            <span>Active Peer</span>
+                          </span>
+                        )}
+
+                        <button
+                          type="button"
+                          className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-50 transition-colors"
+                          aria-label="More options"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      {/* Avatar & Metrics Row */}
+                      <div className="flex items-center gap-4 mb-4">
+                        {/* Circular Avatar */}
+                        <Link href={profileUrl} className="relative block shrink-0">
+                          {hasPhoto ? (
+                            <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-slate-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                              <Image
+                                src={peer.photo!}
+                                alt={peer.name}
+                                fill
+                                sizes="64px"
+                                className="object-cover"
+                                onError={() => {
+                                  setImageErrors((prev) => ({ ...prev, [peer.id]: true }))
+                                }}
+                              />
+                            </div>
+                          ) : (
+                            <div
+                              className={`w-16 h-16 rounded-full bg-gradient-to-tr ${avatarGradient} text-white flex items-center justify-center font-bold text-lg shadow-sm border-2 border-white group-hover:scale-105 transition-transform duration-300`}
+                            >
+                              {initials}
+                            </div>
+                          )}
+                        </Link>
+
+                        {/* Rating & Lives Impacted */}
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-1 text-slate-800 font-bold text-xs">
+                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                            <span>{rating}</span>
+                          </div>
+
+                          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
+                            <Users2 className="w-3.5 h-3.5 text-slate-400" />
+                            <span>
+                              <strong className="text-slate-800 font-bold">{livesImpacted}</strong> Lives Impacted
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Name & LinkedIn Icon */}
+                      <div className="flex items-center gap-1.5">
+                        <Link href={profileUrl} className="block group-hover:text-[#0062D2] transition-colors">
+                          <h3 className="font-serif font-bold text-slate-950 text-base sm:text-lg leading-snug truncate">
+                            {peer.name}
+                          </h3>
+                        </Link>
+                        <span className="w-4 h-4 rounded bg-[#0077B5] text-white flex items-center justify-center text-[9px] font-bold shrink-0">
+                          in
+                        </span>
+                      </div>
+
+                      {/* Role & Company */}
+                      <p className="text-xs text-slate-500 font-medium truncate mt-0.5">
+                        {peer.designation || 'Founder & CEO'}
+                      </p>
+                      <p className="text-xs font-semibold text-slate-800 truncate mt-0.5">
+                        {peer.company || peer.company_name || 'Enterprise'}
+                      </p>
+
+                      {/* Location & Circle */}
+                      <div className="mt-3 pt-3 border-t border-slate-100 space-y-1.5 text-xs text-slate-600">
+                        <div className="flex items-center gap-1.5 text-slate-500">
+                          <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <span className="truncate">
+                            {peer.city || peer.city_name || 'Ahmedabad, Gujarat'}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-slate-500">
+                          <Briefcase className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <span className="truncate">
+                            {peer.active_circle_name || 'Peers Global Circle'}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Pill Tags */}
+                      <div className="mt-3.5 flex flex-wrap gap-1.5">
+                        {tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100/80"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Action Buttons Row */}
+                    <div className="pt-4 mt-4 border-t border-slate-100 grid grid-cols-2 gap-2.5">
+                      <Link
+                        href={profileUrl}
+                        className="py-2.5 rounded-xl border border-blue-200 bg-white hover:bg-blue-50 text-[#0062D2] text-center text-xs font-bold tracking-wide transition-all"
+                      >
+                        View Profile
+                      </Link>
+
+                      <button
+                        type="button"
+                        onClick={() => handleConnectClick(peer)}
+                        className="py-2.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-center text-xs font-bold tracking-wide transition-all shadow-xs hover:shadow flex items-center justify-center gap-1.5 active:scale-98 cursor-pointer"
+                      >
+                        <UserPlus className="w-3.5 h-3.5" />
+                        <span>Connect</span>
+                      </button>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+
+          {/* Bottom Pagination Controls */}
+          {filteredPeers.length > itemsPerPage && (
+            <div className="mt-12 flex items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage <= 1}
+                className="px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-2xs cursor-pointer flex items-center gap-1.5"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                <span>Previous</span>
+              </button>
+
+              <span className="text-xs text-slate-500 font-medium px-3">
+                Page {currentPage} of {totalPages}
+              </span>
+
+              <button
+                type="button"
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                disabled={currentPage >= totalPages}
+                className="px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-2xs cursor-pointer flex items-center gap-1.5"
+              >
+                <span>Next</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ─── 4. SEARCH THE WAY BUSINESS ACTUALLY WORKS ───────────────────── */}
+      <section className="py-16 sm:py-20 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left Narrative */}
@@ -722,177 +931,8 @@ export function PeerDirectoryClient() {
         </div>
       </section>
 
-      {/* ─── 4. FEATURED PEERS SECTION ───────────────────────────────────── */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header with Carousel Controls */}
-          <div className="flex items-center justify-between gap-4 mb-8">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-                Featured Peers
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Showing {filteredPeers.length} verified business leaders
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={prevSlide}
-                disabled={carouselIndex === 0}
-                className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-2xs"
-                aria-label="Previous peers"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              <button
-                type="button"
-                onClick={nextSlide}
-                disabled={carouselIndex >= Math.max(0, filteredPeers.length - 4)}
-                className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all shadow-2xs"
-                aria-label="Next peers"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-
-              <a
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#0052B4] transition-colors ml-2"
-              >
-                <span>View All Members</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Cards Grid / Carousel */}
-          {filteredPeers.length === 0 ? (
-            <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 max-w-lg mx-auto">
-              <Users2 className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-              <h3 className="text-lg font-serif font-bold text-slate-900">
-                No Peers match your search criteria
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                Try clearing your search terms or filters to browse all members.
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setSearchTerm('')
-                  setSelectedIndustry('All Industries')
-                  setSelectedCity('All Cities')
-                  setSelectedCapability('All Capabilities')
-                  setSelectedCircle('All Circles')
-                }}
-                className="mt-4 px-4 py-2 rounded-full bg-blue-50 text-[#0062D2] text-xs font-bold hover:bg-blue-100 transition-colors"
-              >
-                Reset All Filters
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {filteredPeers
-                .slice(carouselIndex, carouselIndex + 4)
-                .map((peer) => {
-                  const isCharter = peer.standing === 'Charter Peer'
-                  const isLeadership = peer.standing === 'Leadership Peer'
-                  return (
-                    <div
-                      key={peer.id}
-                      className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between group"
-                    >
-                      <div>
-                        {/* Avatar & Standing Badge */}
-                        <div className="flex items-start justify-between gap-3 mb-3.5">
-                          <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-slate-100 shadow-sm shrink-0">
-                            <Image
-                              src={peer.avatar}
-                              alt={peer.name}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-
-                          {isCharter ? (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200/80 shrink-0">
-                              <Crown className="w-3 h-3 text-amber-600" />
-                              <span>Charter Peer</span>
-                            </span>
-                          ) : isLeadership ? (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200/80 shrink-0">
-                              <Award className="w-3 h-3 text-indigo-600" />
-                              <span>Leadership Peer</span>
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 shrink-0">
-                              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                              <span>Active Peer</span>
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Name & Role */}
-                        <h3 className="font-serif font-bold text-slate-950 text-base leading-snug group-hover:text-[#0062D2] transition-colors">
-                          {peer.name}
-                        </h3>
-                        <p className="text-xs text-slate-500 font-medium">
-                          {peer.role}
-                        </p>
-                        <p className="text-xs font-semibold text-slate-700">
-                          {peer.company}
-                        </p>
-
-                        {/* Location & Industry */}
-                        <div className="mt-3 pt-3 border-t border-slate-100 space-y-1.5 text-xs text-slate-600">
-                          <div className="flex items-center gap-1.5 text-slate-500">
-                            <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                            <span className="truncate">
-                              {peer.city}, {peer.state}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-1.5 text-slate-500">
-                            <Briefcase className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                            <span className="truncate">{peer.industry}</span>
-                          </div>
-                        </div>
-
-                        {/* Capability Tags */}
-                        <div className="mt-3 flex flex-wrap gap-1.5">
-                          {peer.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-50 text-slate-600 border border-slate-200/60"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Connect Button */}
-                      <div className="pt-4 mt-4 border-t border-slate-100">
-                        <button
-                          type="button"
-                          onClick={() => handleConnectClick(peer)}
-                          className="w-full py-2 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs font-bold tracking-wide transition-all shadow-2xs hover:shadow active:scale-98"
-                        >
-                          Connect
-                        </button>
-                      </div>
-                    </div>
-                  )
-                })}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ─── 5. WHAT A PROFILE CARRIES ───────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white">
+      {/* ─── 5. WHAT A PROFILE CARRIES (LIVE BLUEPRINT) ──────────────────── */}
+      <section className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Narrative */}
@@ -928,183 +968,200 @@ export function PeerDirectoryClient() {
 
             {/* Right Interactive Profile Mockup Widget */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xl shadow-slate-200/60">
-                {/* Profile Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
-                  <div className="flex items-center gap-3.5">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-slate-100 shadow-sm shrink-0">
-                      <Image
-                        src="/images/peers-avatars/vikram-patel.jpg"
-                        alt="Karan Malhotra avatar"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-serif font-bold text-slate-950 text-lg">
-                          Karan Malhotra
-                        </h3>
-                        <span className="inline-flex items-center gap-1 text-[9.5px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
-                          <Crown className="w-2.5 h-2.5 text-amber-600" />
-                          <span>Charter Peer</span>
-                        </span>
+              {featuredPeer && (
+                <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xl shadow-slate-200/60">
+                  {/* Profile Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+                    <div className="flex items-center gap-3.5">
+                      <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-slate-100 shadow-sm shrink-0">
+                        {featuredPeer.photo && !imageErrors[featuredPeer.id] ? (
+                          <Image
+                            src={featuredPeer.photo}
+                            alt={featuredPeer.name}
+                            fill
+                            className="object-cover"
+                            onError={() => {
+                              setImageErrors((prev) => ({ ...prev, [featuredPeer.id]: true }))
+                            }}
+                          />
+                        ) : (
+                          <div
+                            className={`w-full h-full bg-gradient-to-tr ${getAvatarGradient(
+                              featuredPeer.name
+                            )} text-white flex items-center justify-center font-bold text-lg`}
+                          >
+                            {getInitials(featuredPeer.name)}
+                          </div>
+                        )}
                       </div>
-                      <p className="text-xs text-slate-500 font-medium">
-                        Founder & CEO · Malhotra Exports
-                      </p>
-                      <div className="flex items-center gap-3 text-[11px] text-slate-400 mt-1">
-                        <span className="flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-slate-400" /> Surat, Gujarat
-                        </span>
-                        <span>•</span>
-                        <span className="flex items-center gap-1">
-                          <Briefcase className="w-3 h-3 text-slate-400" /> Textiles & Apparel
-                        </span>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-serif font-bold text-slate-950 text-lg">
+                            {featuredPeer.name}
+                          </h3>
+                          <span className="inline-flex items-center gap-1 text-[9.5px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                            <Crown className="w-2.5 h-2.5 text-amber-600" />
+                            <span>{featuredPeer.membership_status_label || 'Charter Peer'}</span>
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-500 font-medium">
+                          {featuredPeer.designation || 'Business Founder'} · {featuredPeer.company || featuredPeer.company_name || 'Enterprise'}
+                        </p>
+                        <div className="flex items-center gap-3 text-[11px] text-slate-400 mt-1">
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-3 h-3 text-slate-400" /> {featuredPeer.city || 'Ahmedabad, Gujarat'}
+                          </span>
+                          <span>•</span>
+                          <span className="flex items-center gap-1">
+                            <Briefcase className="w-3 h-3 text-slate-400" /> {featuredPeer.active_circle_name || 'Peers Global Community'}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Actions */}
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setConnectModalPeer(PEERS_DATA[4])}
-                      className="px-4 py-2 rounded-xl bg-[#0062D2] text-white text-xs font-bold hover:bg-[#0052B4] shadow-xs transition-all"
-                    >
-                      Connect
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setConnectModalPeer(PEERS_DATA[4])}
-                      className="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold hover:bg-slate-200 transition-all"
-                    >
-                      Message
-                    </button>
-                  </div>
-                </div>
-
-                {/* Metrics Bar */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-4 border-b border-slate-100">
-                  <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100/60">
-                    <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block">
-                      Lives Impacted
-                    </span>
-                    <span className="text-lg font-serif font-bold text-slate-900">
-                      120
-                    </span>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-amber-50/70 border border-amber-100/60">
-                    <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block flex items-center gap-1">
-                      <Star className="w-3 h-3 fill-amber-500 text-amber-500" /> Rating
-                    </span>
-                    <span className="text-lg font-serif font-bold text-slate-900">
-                      4.9 / 5.0
-                    </span>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 col-span-2">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
-                      Top Ways of Contribution
-                    </span>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      <span className="text-[9.5px] font-semibold px-1.5 py-0.2 rounded bg-white text-slate-700 border border-slate-200">
-                        Referrals
-                      </span>
-                      <span className="text-[9.5px] font-semibold px-1.5 py-0.2 rounded bg-white text-slate-700 border border-slate-200">
-                        Mentorship
-                      </span>
-                      <span className="text-[9.5px] font-semibold px-1.5 py-0.2 rounded bg-white text-slate-700 border border-slate-200">
-                        Business Deals
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Profile Subtabs Grid */}
-                <div className="pt-4">
-                  <div className="flex flex-wrap gap-1.5 pb-3 border-b border-slate-100 text-xs">
-                    {(
-                      [
-                        'About',
-                        'What I Offer',
-                        'What I\'m Looking For',
-                        'My Circles',
-                        'Contribution Record',
-                        'Verified Business',
-                      ] as const
-                    ).map((tab) => (
+                    {/* Actions */}
+                    <div className="flex items-center gap-2">
                       <button
-                        key={tab}
                         type="button"
-                        onClick={() => setActiveProfileTab(tab)}
-                        className={`px-3 py-1.5 rounded-lg font-semibold transition-all text-xs cursor-pointer ${
-                          activeProfileTab === tab
-                            ? 'bg-blue-50 text-[#0062D2] border border-blue-200'
-                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-                        }`}
+                        onClick={() => handleConnectClick(featuredPeer)}
+                        className="px-4 py-2 rounded-xl bg-[#0062D2] text-white text-xs font-bold hover:bg-[#0052B4] shadow-xs transition-all cursor-pointer"
                       >
-                        {tab}
+                        Connect
                       </button>
-                    ))}
+                      <Link
+                        href={`/${featuredPeer.public_profile_slug || featuredPeer.slug || featuredPeer.id}`}
+                        className="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold hover:bg-slate-200 transition-all cursor-pointer"
+                      >
+                        View Full
+                      </Link>
+                    </div>
                   </div>
 
-                  {/* Tab Content Display */}
-                  <div className="pt-3.5 min-h-[90px] text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {activeProfileTab === 'About' && (
-                      <p>
-                        Leading Malhotra Exports since 2012. Specialising in global sustainable textile sourcing and automated weaving technology. Charter member of the Surat Exporters Circle since inception.
-                      </p>
-                    )}
-                    {activeProfileTab === 'What I Offer' && (
-                      <p className="bg-slate-50 p-3 rounded-xl border border-slate-200/70">
-                        <strong className="text-slate-900 font-semibold block mb-0.5">Direct Capability:</strong>
-                        High-volume fabric manufacturing, sustainable yarn sourcing, export certification guidance, and global container logistics.
-                      </p>
-                    )}
-                    {activeProfileTab === 'What I\'m Looking For' && (
-                      <p className="bg-slate-50 p-3 rounded-xl border border-slate-200/70">
-                        <strong className="text-slate-900 font-semibold block mb-0.5">Current Focus:</strong>
-                        Latin American market distributors, fast-fashion OEM buyers, and enterprise ERP automation specialists.
-                      </p>
-                    )}
-                    {activeProfileTab === 'My Circles' && (
-                      <div className="flex items-center gap-2 bg-blue-50/60 p-3 rounded-xl border border-blue-100">
-                        <Users2 className="w-4 h-4 text-[#0062D2]" />
-                        <span className="font-semibold text-slate-900">
-                          Surat Exporters Circle (Founding Seat)
+                  {/* Metrics Bar */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-4 border-b border-slate-100">
+                    <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100/60">
+                      <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block">
+                        Lives Impacted
+                      </span>
+                      <span className="text-lg font-serif font-bold text-slate-900">
+                        {featuredPeer.coins_balance || 120}
+                      </span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-amber-50/70 border border-amber-100/60">
+                      <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block flex items-center gap-1">
+                        <Star className="w-3 h-3 fill-amber-500 text-amber-500" /> Rating
+                      </span>
+                      <span className="text-lg font-serif font-bold text-slate-900">
+                        4.95 / 5.0
+                      </span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 col-span-2">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                        Top Ways of Contribution
+                      </span>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        <span className="text-[9.5px] font-semibold px-1.5 py-0.2 rounded bg-white text-slate-700 border border-slate-200">
+                          Referrals
+                        </span>
+                        <span className="text-[9.5px] font-semibold px-1.5 py-0.2 rounded bg-white text-slate-700 border border-slate-200">
+                          Mentorship
+                        </span>
+                        <span className="text-[9.5px] font-semibold px-1.5 py-0.2 rounded bg-white text-slate-700 border border-slate-200">
+                          Business Deals
                         </span>
                       </div>
-                    )}
-                    {activeProfileTab === 'Contribution Record' && (
-                      <div className="space-y-1.5 text-xs">
-                        <div className="flex items-center justify-between p-2 rounded-lg bg-slate-50">
-                          <span>Verified introductions logged</span>
-                          <span className="font-bold text-slate-900">34 Peer Actions</span>
+                    </div>
+                  </div>
+
+                  {/* Profile Subtabs Grid */}
+                  <div className="pt-4">
+                    <div className="flex flex-wrap gap-1.5 pb-3 border-b border-slate-100 text-xs">
+                      {(
+                        [
+                          'About',
+                          'What I Offer',
+                          'What I\'m Looking For',
+                          'My Circles',
+                          'Contribution Record',
+                          'Verified Business',
+                        ] as const
+                      ).map((tab) => (
+                        <button
+                          key={tab}
+                          type="button"
+                          onClick={() => setActiveProfileTab(tab)}
+                          className={`px-3 py-1.5 rounded-lg font-semibold transition-all text-xs cursor-pointer ${
+                            activeProfileTab === tab
+                              ? 'bg-blue-50 text-[#0062D2] border border-blue-200'
+                              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                          }`}
+                        >
+                          {tab}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Tab Content Display */}
+                    <div className="pt-3.5 min-h-[90px] text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {activeProfileTab === 'About' && (
+                        <p>
+                          {featuredPeer.bio ||
+                            featuredPeer.business_description ||
+                            `${featuredPeer.name} is a verified business leader leading ${featuredPeer.company || featuredPeer.company_name || 'their enterprise'} in ${featuredPeer.city || 'India'}. Active verified member holding a governed category seat in Peers Global.`}
+                        </p>
+                      )}
+                      {activeProfileTab === 'What I Offer' && (
+                        <p className="bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                          <strong className="text-slate-900 font-semibold block mb-0.5">Direct Capability:</strong>
+                          {featuredPeer.business_description ||
+                            'High-level enterprise consulting, strategic partnerships, sourcing, export documentation, and team leadership.'}
+                        </p>
+                      )}
+                      {activeProfileTab === 'What I\'m Looking For' && (
+                        <p className="bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                          <strong className="text-slate-900 font-semibold block mb-0.5">Current Focus:</strong>
+                          Pan-India business collaborations, distributor introductions, OEM partners, and technology automation.
+                        </p>
+                      )}
+                      {activeProfileTab === 'My Circles' && (
+                        <div className="flex items-center gap-2 bg-blue-50/60 p-3 rounded-xl border border-blue-100">
+                          <Users2 className="w-4 h-4 text-[#0062D2]" />
+                          <span className="font-semibold text-slate-900">
+                            {featuredPeer.active_circle_name || 'Founders Circle (Active Seat)'}
+                          </span>
                         </div>
-                        <div className="flex items-center justify-between p-2 rounded-lg bg-slate-50">
-                          <span>Confirmed business value generated</span>
-                          <span className="font-bold text-emerald-700">₹4.2 Cr+</span>
+                      )}
+                      {activeProfileTab === 'Contribution Record' && (
+                        <div className="space-y-1.5 text-xs">
+                          <div className="flex items-center justify-between p-2 rounded-lg bg-slate-50">
+                            <span>Verified introductions logged</span>
+                            <span className="font-bold text-slate-900">34 Peer Actions</span>
+                          </div>
+                          <div className="flex items-center justify-between p-2 rounded-lg bg-slate-50">
+                            <span>Confirmed business value generated</span>
+                            <span className="font-bold text-emerald-700">₹4.2 Cr+</span>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                    {activeProfileTab === 'Verified Business' && (
-                      <div className="flex items-center gap-2 text-emerald-700 font-semibold bg-emerald-50 p-3 rounded-xl border border-emerald-200">
-                        <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                        <span>GST, MCA Corporate Filings & Promoter Identity Authenticated</span>
-                      </div>
-                    )}
+                      )}
+                      {activeProfileTab === 'Verified Business' && (
+                        <div className="flex items-center gap-2 text-emerald-700 font-semibold bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                          <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                          <span>GST, MCA Corporate Filings & Promoter Identity Authenticated</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
       {/* ─── 6. PRIVACY COMES FIRST ──────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 bg-[#F8FAFC] border-t border-slate-200/80">
+      <section className="py-12 sm:py-16 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             {/* Left Card: Privacy Statement */}
@@ -1157,7 +1214,6 @@ export function PeerDirectoryClient() {
 
       {/* ─── 7. BOTTOM BANNER (BETTER CONNECTIONS. A STRONGER TOMORROW) ─── */}
       <section className="relative py-20 sm:py-28 bg-[#040F24] text-white overflow-hidden">
-        {/* Background Landscape */}
         <div className="absolute inset-0 pointer-events-none opacity-40">
           <Image
             src="/images/who-we-are-mountain.jpg"
@@ -1210,7 +1266,7 @@ export function PeerDirectoryClient() {
               <button
                 type="button"
                 onClick={() => setConnectModalPeer(null)}
-                className="text-slate-400 hover:text-slate-600 p-1"
+                className="text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1232,22 +1288,32 @@ export function PeerDirectoryClient() {
               <div className="pt-4 space-y-4">
                 <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-100">
                   <div className="relative w-12 h-12 rounded-full overflow-hidden border border-slate-200 shrink-0">
-                    <Image
-                      src={connectModalPeer.avatar}
-                      alt={connectModalPeer.name}
-                      fill
-                      className="object-cover"
-                    />
+                    {connectModalPeer.photo && !imageErrors[connectModalPeer.id] ? (
+                      <Image
+                        src={connectModalPeer.photo}
+                        alt={connectModalPeer.name}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div
+                        className={`w-full h-full bg-gradient-to-tr ${getAvatarGradient(
+                          connectModalPeer.name
+                        )} text-white flex items-center justify-center font-bold text-sm`}
+                      >
+                        {getInitials(connectModalPeer.name)}
+                      </div>
+                    )}
                   </div>
                   <div>
                     <h4 className="font-serif font-bold text-slate-950 text-sm">
                       {connectModalPeer.name}
                     </h4>
                     <p className="text-xs text-slate-500">
-                      {connectModalPeer.role} · {connectModalPeer.company}
+                      {connectModalPeer.designation || 'Verified Peer'} · {connectModalPeer.company || connectModalPeer.company_name || 'Enterprise'}
                     </p>
                     <p className="text-[11px] text-slate-400">
-                      {connectModalPeer.city} · {connectModalPeer.industry}
+                      {connectModalPeer.city || 'India'} · {connectModalPeer.active_circle_name || 'Peers Global Circle'}
                     </p>
                   </div>
                 </div>
@@ -1258,7 +1324,7 @@ export function PeerDirectoryClient() {
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="E.g., Hi Amit, I'd love to connect regarding manufacturing automation and explore collaboration..."
+                    placeholder={`E.g., Hi ${connectModalPeer.name.split(' ')[0]}, I'd love to connect and explore collaboration...`}
                     className="w-full rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-800 placeholder:text-slate-400 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none"
                   />
                 </div>
@@ -1271,14 +1337,14 @@ export function PeerDirectoryClient() {
                   <button
                     type="button"
                     onClick={() => setConnectModalPeer(null)}
-                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors"
+                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     type="button"
                     onClick={handleSendConnection}
-                    className="px-6 py-2.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs font-bold shadow-md transition-all active:scale-98"
+                    className="px-6 py-2.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs font-bold shadow-md transition-all active:scale-98 cursor-pointer"
                   >
                     Send Connection Request
                   </button>

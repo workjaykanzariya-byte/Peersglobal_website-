@@ -71,6 +71,43 @@ export interface PeerMemberProfile {
   coins_balance?: number;
 }
 
+function extractCityFromSlugOrAddress(slug?: string | null, address?: string | null): string | null {
+  if (address && address.trim()) {
+    const parts = address.split(',').map((s) => s.trim()).filter(Boolean);
+    if (parts.length > 0) return parts[parts.length - 1];
+  }
+  if (!slug) return null;
+  const lower = slug.toLowerCase();
+  const knownCities: Record<string, string> = {
+    ahmedabad: 'Ahmedabad',
+    mumbai: 'Mumbai',
+    siliguri: 'Siliguri',
+    surat: 'Surat',
+    bengaluru: 'Bengaluru',
+    bangalore: 'Bengaluru',
+    delhi: 'Delhi NCR',
+    pune: 'Pune',
+    chennai: 'Chennai',
+    indore: 'Indore',
+    rajkot: 'Rajkot',
+    vadodara: 'Vadodara',
+    kolkata: 'Kolkata',
+    hyderabad: 'Hyderabad',
+    jaipur: 'Jaipur',
+    gorubathan: 'Gorubathan',
+    abrama: 'Abrama',
+    dubai: 'Dubai',
+    london: 'London',
+  };
+
+  for (const [key, name] of Object.entries(knownCities)) {
+    if (lower.endsWith(`-${key}`) || lower.includes(`-${key}-`) || lower === key) {
+      return name;
+    }
+  }
+  return null;
+}
+
 function normalizeProfile(profile: PeerMemberProfile): PeerMemberProfile {
   // Normalize photo — API may return profile_photo_url instead of photo
   if (!profile.photo && profile.profile_photo_url) {
@@ -85,9 +122,15 @@ function normalizeProfile(profile: PeerMemberProfile): PeerMemberProfile {
     profile.social_links = profile.social_media;
   }
 
-  // Normalize city — API may return city_name
+  // Normalize city — API may return city_name or city
   if (!profile.city && profile.city_name) {
     profile.city = profile.city_name;
+  }
+  if (!profile.city) {
+    const extractedCity = extractCityFromSlugOrAddress(profile.slug || profile.public_profile_slug, (profile as any).address);
+    if (extractedCity) {
+      profile.city = extractedCity;
+    }
   }
 
   // Normalize company
@@ -98,6 +141,17 @@ function normalizeProfile(profile: PeerMemberProfile): PeerMemberProfile {
   // Normalize website from social_links
   if (!profile.website && profile.social_links?.website) {
     profile.website = profile.social_links.website;
+  }
+
+  // Normalize standing/membership label if not present
+  if (!profile.membership_status_label) {
+    if (profile.active_circle_name) {
+      profile.membership_status_label = 'Charter Peer';
+    } else if (profile.photo) {
+      profile.membership_status_label = 'Leadership Peer';
+    } else {
+      profile.membership_status_label = 'Active Peer';
+    }
   }
 
   // Ensure arrays are always arrays
@@ -120,7 +174,7 @@ export async function getAllMembers(): Promise<PeerMemberProfile[]> {
         Authorization: `Bearer ${MEMBERS_TOKEN}`,
       },
       cache: 'no-store',
-      signal: AbortSignal.timeout(3500),
+      signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
