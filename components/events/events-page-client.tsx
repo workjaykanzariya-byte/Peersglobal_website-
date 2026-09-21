@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -9,23 +9,23 @@ import {
   Calendar,
   Building2,
   Globe2,
-  TrendingUp,
   Users,
+  MapPin,
+  Ticket,
+  Smartphone,
   CheckCircle2,
   ChevronDown,
-  HelpCircle,
-  Clock,
-  MapPin,
-  Sparkles,
-  Ticket,
-  FileText,
-  Bell,
-  Smartphone,
-  Award,
   Search,
   Filter,
-  ExternalLink,
+  Sparkles,
+  Layers,
+  Clock,
+  Loader2,
+  X,
+  Share2,
+  CalendarDays,
 } from 'lucide-react'
+import { PeerEvent } from '@/lib/api/unity'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
@@ -55,8 +55,8 @@ const STATS = [
 const APP_BADGES = [
   { icon: Calendar, label: 'Browse Events' },
   { icon: Ticket, label: 'Register & Pay' },
-  { icon: FileText, label: 'Get Event Details' },
-  { icon: Bell, label: 'Receive Updates' },
+  { icon: CalendarDays, label: 'Get Event Details' },
+  { icon: Sparkles, label: 'Receive Updates' },
   { icon: Users, label: 'Attend & Engage' },
 ]
 
@@ -64,7 +64,7 @@ const APP_BADGES = [
 const EVENT_TYPES = [
   {
     title: 'Monthly Circle Meetings',
-    desc: 'Your consistent growth rhythm. Twelve a year, the same Peers, the same four-part agenda. Also run as Circle Mini-Conferences.',
+    desc: 'Your consistent growth rhythm. Twelve a year, the same Peers, the same four-part agenda.',
     linkText: 'See the Meeting Agenda',
     linkHref: '/circle-meeting-experience',
     image: '/images/circle-roundtable-topdown.jpg',
@@ -81,31 +81,31 @@ const EVENT_TYPES = [
     title: 'Mega Networking Events',
     desc: 'Two to four a year. Large gatherings bringing together Peers from across Circles, cities and industries.',
     linkText: 'View Upcoming Events',
-    linkHref: '#calendar',
+    linkHref: '#events-grid',
     image: '/images/philosophy-networking.jpg',
     tag: 'Cross-Circle',
   },
   {
-    title: 'MindMeld Cross-Circle City Meetups',
-    desc: 'Entrepreneurs from multiple industries, in one room. Powerful cross-industry collaborations that no single Circle could produce.',
+    title: 'MindMeld City Meetups',
+    desc: 'Entrepreneurs from multiple industries, in one room for powerful cross-industry collaborations.',
     image: '/images/industry-panel-leaders.jpg',
     tag: 'City Meetup',
   },
   {
     title: 'Leadership Retreats',
-    desc: 'Two a year. State-level and national retreats for Circle Directors, Founders and leadership — for deeper bonds, real learning, and time away from the day-to-day.',
+    desc: 'State-level and national retreats for Circle Directors and Founders for deeper strategic bonds.',
     image: '/images/who-we-are-mountain.jpg',
     tag: 'Leadership',
   },
   {
     title: 'Family Meetups',
-    desc: 'Two a year. Friends in Life, not just Partners in Business. Relationships that last decades.',
+    desc: 'Friends in Life, not just Partners in Business. Relationships that last decades.',
     image: '/images/who-we-are-impact.jpg',
-    tag: 'Community & Family',
+    tag: 'Community',
   },
   {
     title: 'Annual Awards & Recognition',
-    desc: 'The year’s highest contributors, the collaborations that produced the most, the Circles that changed the most lives.',
+    desc: 'The year’s highest contributors and the collaborations that changed the most lives.',
     linkText: 'See Awards & Recognition',
     linkHref: '/awards',
     image: '/images/founder-new.png',
@@ -113,74 +113,22 @@ const EVENT_TYPES = [
   },
   {
     title: 'Leadership Transition Events',
-    desc: 'Two a year. Where leadership hands over — with the standard intact. An institution that plans its succession outlives any individual in it.',
+    desc: 'Where leadership hands over with the governance standard intact.',
     image: '/images/industry-cross-city-handshake.jpg',
     tag: 'Governance',
   },
   {
     title: 'Regional Conclaves & Summits',
-    desc: 'Territory-wide gatherings hosted by Executive Directors, and the annual community summit. Multiple cities, senior speakers, and collaboration at scale.',
+    desc: 'Territory-wide gatherings hosted by Executive Directors, and the annual community summit.',
     image: '/images/executive-director-conclave.jpg',
     tag: 'Summits',
   },
   {
     title: 'Charter Gatherings',
-    desc: 'Retreats and special sessions for Charter Peers — entrepreneurs building at national and international scale.',
+    desc: 'Retreats and special sessions for Charter Peers building at national and international scale.',
     subnote: 'Who attends: Charter Peers.',
     image: '/images/who-we-are-boardroom.jpg',
     tag: 'Charter Exclusive',
-  },
-]
-
-// ─── Upcoming Calendar Events ─────────────────────────────────────────────
-const UPCOMING_EVENTS = [
-  {
-    id: 1,
-    title: 'Business Conclave 2026: Building for Bharat',
-    type: 'Regional Summit',
-    city: 'Ahmedabad',
-    date: 'Sat, 12 Oct 2026',
-    time: '10:00 AM – 4:00 PM',
-    venue: 'Grand Hyatt, Ahmedabad & Live on Unity',
-    guestAllowed: true,
-    fee: '₹1,500 (Free for Charter Peers)',
-    speakers: 'Dr. Pravin Parmar & Industry Directors',
-  },
-  {
-    id: 2,
-    title: 'Impact Mentor Masterclass: Scaling to ₹100 Cr ARR',
-    type: 'Masterclass',
-    city: 'Mumbai',
-    date: 'Thu, 24 Oct 2026',
-    time: '5:00 PM – 7:30 PM',
-    venue: 'BKC Executive Club, Mumbai',
-    guestAllowed: true,
-    fee: '₹750 (Included for Active Peers)',
-    speakers: 'Suresh Iyer (Charter Peer)',
-  },
-  {
-    id: 3,
-    title: 'MindMeld: Cross-Industry Collaboration Roundtable',
-    type: 'MindMeld Meetup',
-    city: 'Bengaluru',
-    date: 'Fri, 08 Nov 2026',
-    time: '4:00 PM – 7:00 PM',
-    venue: 'The Leela Palace, Bengaluru',
-    guestAllowed: false,
-    fee: '₹500 (Peers Only)',
-    speakers: 'Circle Directors & Founders',
-  },
-  {
-    id: 4,
-    title: 'National Leadership Retreat 2026',
-    type: 'Leadership Retreat',
-    city: 'Goa',
-    date: '20–22 Nov 2026',
-    time: '3-Day Immersive',
-    venue: 'Taj Exotica Resort, Goa',
-    guestAllowed: false,
-    fee: 'All-inclusive for Executive Board',
-    speakers: 'Peers Global Advisory Council',
   },
 ]
 
@@ -194,7 +142,7 @@ const FAQS = [
   {
     question: 'Can I attend if I am not a member?',
     answer:
-      'Yes, for designated guest sessions. Circle meetings and Impact Mentor Masterclasses accept guests and visitors. Simply register through the Unity App.',
+      'Yes, for designated guest sessions. Circle meetings and Impact Mentor Masterclasses accept guests and visitors. Simply register through the Unity App or on this page.',
   },
   {
     question: 'Are events free for members?',
@@ -223,25 +171,82 @@ const FAQS = [
   },
 ]
 
-export function EventsPageClient() {
+interface EventsPageClientProps {
+  initialEvents?: PeerEvent[]
+}
+
+export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) {
+  const [events, setEvents] = useState<PeerEvent[]>(initialEvents)
+  const [loading, setLoading] = useState(initialEvents.length === 0)
+  const [selectedCity, setSelectedCity] = useState<string>('Ahmedabad')
+  const [searchTerm, setSearchTerm] = useState<string>('')
   const [openFaq, setOpenFaq] = useState<number | null>(0)
-  const [selectedCity, setSelectedCity] = useState<string>('All')
+
+  // Fetch live events from Unity backend if initialEvents is empty
+  useEffect(() => {
+    if (events.length === 0) {
+      setLoading(true)
+      fetch('https://peersunity.com/api/v1/events/all')
+        .then((res) => res.json())
+        .then((json) => {
+          const data = json.data || json
+          const list = [
+            ...(data.upcoming_events || []),
+            ...(data.live_events || []),
+            ...(data.today_events || []),
+            ...(data.events || []),
+          ]
+          if (Array.isArray(list) && list.length > 0) {
+            setEvents(list)
+          }
+        })
+        .catch((err) => console.error('Error fetching live events:', err))
+        .finally(() => setLoading(false))
+    }
+  }, [events.length])
+
+  // Extract cities from events
+  const dynamicCities = useMemo(() => {
+    const citySet = new Set<string>(['All Events', 'Ahmedabad', 'Mumbai', 'Bengaluru', 'Rajkot', 'Surat', 'Online'])
+    events.forEach((ev) => {
+      if (ev.location) {
+        const parts = ev.location.split(',')
+        const c = parts[parts.length - 2]?.trim() || parts[0]?.trim()
+        if (c && c.length > 2) citySet.add(c)
+      }
+    })
+    return Array.from(citySet)
+  }, [events])
+
+  // Filtered Events
+  const filteredEvents = useMemo(() => {
+    return events.filter((ev) => {
+      const matchCity =
+        selectedCity === 'All Events' ||
+        (ev.location && ev.location.toLowerCase().includes(selectedCity.toLowerCase())) ||
+        (ev.circle?.name && ev.circle.name.toLowerCase().includes(selectedCity.toLowerCase())) ||
+        (selectedCity === 'Online' && ev.mode === 'virtual')
+
+      const s = searchTerm.toLowerCase().trim()
+      const matchSearch =
+        !s ||
+        ev.title.toLowerCase().includes(s) ||
+        (ev.description && ev.description.toLowerCase().includes(s)) ||
+        (ev.location && ev.location.toLowerCase().includes(s)) ||
+        (ev.circle?.name && ev.circle.name.toLowerCase().includes(s))
+
+      return matchCity && matchSearch
+    })
+  }, [events, selectedCity, searchTerm])
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
   }
 
-  const cities = ['All', 'Ahmedabad', 'Mumbai', 'Bengaluru', 'Goa']
-
-  const filteredCalendar =
-    selectedCity === 'All'
-      ? UPCOMING_EVENTS
-      : UPCOMING_EVENTS.filter((e) => e.city === selectedCity)
-
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
             <Link
@@ -253,153 +258,200 @@ export function EventsPageClient() {
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-600">Community Life</span>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">
-              Events & Summits
-            </span>
+            <span className="text-slate-900 font-semibold">Events & Summits</span>
           </nav>
         </div>
       </div>
 
-      {/* ─── SECTION 1: HERO (WITH AUDITORIUM SPEAKER & EDGE FADE) ────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
+      {/* ─── SECTION 1: MEETUP STYLE DISCOVERY HERO & CARDS ──────────────── */}
+      <section id="events-grid" className="pt-8 pb-16 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-6 space-y-6 z-10">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
-                  — COMMUNITY LIFE —
-                </span>
-              </div>
-
-              {/* Main Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Events
+          {/* Header Area matching Meetup Screenshot 1 */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-100">
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+                Events in {selectedCity === 'All Events' ? 'Peers Global' : selectedCity}
               </h1>
-
-              {/* Subline */}
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                This is where the community meets in person.
+              <p className="text-sm sm:text-base text-slate-500 mt-1">
+                Browse the most popular activities in {selectedCity === 'All Events' ? 'the community' : selectedCity}
               </p>
-
-              {/* Supporting line */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                Circle meetings, masterclasses, conclaves and summits — across
-                cities, all year.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-
-                <a
-                  href="#calendar"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
-                >
-                  <span>Browse Events</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
-                </a>
-              </div>
             </div>
 
-            {/* Right Hero Visual with Seamless Edge Fade */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[400px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/executive-director-conclave.jpg"
-                  alt="Business summit speaker addressing audience at Peers Global event"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-
-                {/* Soft horizontal gradient fade on the left edge blending into page background */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
-
-                {/* Ambient Top & Bottom Gradients */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent pointer-events-none z-10" />
-
-                {/* Stage Backdrop Brand Overlay on Top Right */}
-                <div className="absolute top-6 right-6 bg-slate-950/80 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px]">
-                  <div className="flex items-center justify-end gap-1.5 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white">
-                      PeersGlobal
-                    </span>
-                  </div>
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Ideas. Connections.
-                  </p>
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Collaborations.
-                  </p>
-                  <p className="text-[11px] font-bold text-sky-400 leading-tight mt-0.5">
-                    A Stronger Tomorrow.
-                  </p>
-                </div>
-
-                {/* Cursive overlay text on bottom right */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[240px]">
-                  <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    More People.
-                    <br />
-                    Real Conversations.
-                    <br />
-                    Greater Impact.
-                  </p>
-                </div>
-              </div>
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setSelectedCity('All Events')}
+                className="text-xs font-bold text-[#0062D2] hover:underline"
+              >
+                See all
+              </button>
             </div>
           </div>
 
-          {/* Floating Metric Stats Bar */}
-          <div className="mt-12 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-sm">
-                        <Icon className="w-6 h-6" />
+          {/* City Filter Pills & Search Input Row */}
+          <div className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            {/* City Tabs */}
+            <div className="flex flex-wrap items-center gap-2">
+              {dynamicCities.slice(0, 7).map((city) => (
+                <button
+                  key={city}
+                  type="button"
+                  onClick={() => setSelectedCity(city)}
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                    selectedCity === city
+                      ? 'bg-slate-900 text-white shadow-xs'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                  }`}
+                >
+                  {city}
+                </button>
+              ))}
+            </div>
+
+            {/* Keyword Filter Search */}
+            <div className="relative w-full sm:w-72">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search events by topic..."
+                className="w-full rounded-full border border-slate-200 bg-white pl-10 pr-8 py-2 text-xs text-slate-800 placeholder:text-slate-400 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 focus:outline-none transition-all shadow-2xs"
+              />
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Meetup Style Event Cards 4-Column Grid */}
+          {loading && filteredEvents.length === 0 ? (
+            <div className="py-24 text-center">
+              <Loader2 className="w-8 h-8 text-blue-600 animate-spin mx-auto mb-3" />
+              <p className="text-sm font-serif font-bold text-slate-700">
+                Loading live events from Unity App...
+              </p>
+            </div>
+          ) : filteredEvents.length === 0 ? (
+            <div className="bg-slate-50 rounded-3xl p-12 text-center border border-slate-200 max-w-lg mx-auto mt-6">
+              <Calendar className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+              <h3 className="text-lg font-serif font-bold text-slate-900">
+                No events found in {selectedCity}
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                Try switching city tabs or clearing your search keywords.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCity('All Events')
+                  setSearchTerm('')
+                }}
+                className="mt-4 px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-colors cursor-pointer"
+              >
+                View All Events
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-3">
+              {filteredEvents.map((ev) => {
+                const eventSlug =
+                  ev.event_id ||
+                  ev.occurrence_id ||
+                  ev.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+                const eventUrl = `/events/${eventSlug}`
+                const eventImage =
+                  ev.image_url || '/images/executive-director-conclave.jpg'
+                const circleName =
+                  ev.circle?.name || 'Peers Global Community'
+                const priceLabel =
+                  ev.event_type?.toLowerCase().includes('conclave')
+                    ? '₹1,500.00'
+                    : 'Free for Members'
+
+                return (
+                  <Link
+                    key={ev.event_id || ev.occurrence_id}
+                    href={eventUrl}
+                    className="group flex flex-col justify-between rounded-2xl bg-white transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <div>
+                      {/* Image Container with Rounded Corners & Top Badges */}
+                      <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-900 shadow-sm group-hover:shadow-md transition-shadow">
+                        <Image
+                          src={eventImage}
+                          alt={ev.title}
+                          fill
+                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          unoptimized={eventImage.startsWith('http')}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                        {/* Top Left Price Badge */}
+                        <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[11px] font-bold text-white shadow-sm">
+                          {priceLabel}
+                        </div>
+
+                        {/* Top Right Type Tag */}
+                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-bold text-slate-800 uppercase tracking-wider shadow-sm">
+                          {ev.event_type || 'Circle Event'}
+                        </div>
                       </div>
-                      <div>
-                        <div className="text-2xl sm:text-3xl font-bold font-serif text-slate-950 tracking-tight">
-                          {stat.value}
-                        </div>
-                        <div className="text-xs sm:text-sm text-slate-600 font-medium">
-                          {stat.label}
-                        </div>
+
+                      {/* Content Below Image matching Meetup exact typographic hierarchy */}
+                      <div className="pt-3.5 space-y-1">
+                        {/* Event Title */}
+                        <h3 className="font-bold text-slate-950 text-base leading-snug line-clamp-2 group-hover:text-[#0062D2] transition-colors">
+                          {ev.title}
+                        </h3>
+
+                        {/* Date & Time */}
+                        <p className="text-xs text-slate-500 font-medium">
+                          {ev.formatted_start_at}
+                        </p>
+
+                        {/* Host / Circle Attribution */}
+                        <p className="text-xs text-slate-500 truncate">
+                          by {circleName}
+                        </p>
+
+                        {/* Location Snippet */}
+                        {ev.location && (
+                          <div className="flex items-center gap-1 text-[11px] text-slate-400 pt-0.5 truncate">
+                            <MapPin className="w-3 h-3 shrink-0" />
+                            <span className="truncate">{ev.location}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
-                  )
-                })}
-              </div>
+
+                    {/* Attendees count badge */}
+                    <div className="pt-3 mt-2 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-100">
+                      <span className="flex items-center gap-1 font-medium text-slate-600">
+                        <Users className="w-3 h-3 text-slate-400" />
+                        <strong>{ev.registered_count || 12}</strong> attending
+                      </span>
+                      <span className="text-[#0062D2] font-semibold group-hover:underline flex items-center gap-0.5">
+                        Details <ChevronRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
-          </div>
+          )}
         </div>
       </section>
 
       {/* ─── SECTION 2: EVERYTHING RUNS THROUGH THE APP ─────────────────── */}
-      <section className="py-16 sm:py-20 bg-white border-y border-slate-200/80">
+      <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -417,7 +469,7 @@ export function EventsPageClient() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Box: How a guest attends */}
+            {/* Left Box */}
             <div className="lg:col-span-5 bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-xs">
@@ -445,9 +497,8 @@ export function EventsPageClient() {
               </div>
             </div>
 
-            {/* Center / Right: Phone Mockups + 5 Vertical Badges */}
+            {/* Right: 5 Badges */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-              {/* Phone Mockups Card */}
               <div className="sm:col-span-7 relative h-72 sm:h-80 rounded-2xl overflow-hidden bg-slate-950 shadow-md">
                 <Image
                   src="/images/unity-hero-phones.jpg"
@@ -457,7 +508,6 @@ export function EventsPageClient() {
                 />
               </div>
 
-              {/* 5 Action Badges */}
               <div className="sm:col-span-5 space-y-2.5">
                 {APP_BADGES.map((badge) => {
                   const Icon = badge.icon
@@ -481,7 +531,7 @@ export function EventsPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 3: WHAT WE RUN (10 EVENT TYPES) ─────────────────────── */}
+      {/* ─── SECTION 3: 10 EVENT TYPES ───────────────────────────────────── */}
       <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
@@ -493,7 +543,6 @@ export function EventsPageClient() {
             </h2>
           </div>
 
-          {/* 10 Event Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
             {EVENT_TYPES.map((ev) => (
               <div
@@ -546,105 +595,12 @@ export function EventsPageClient() {
         </div>
       </section>
 
-      {/* ─── LIVE EVENTS CALENDAR PREVIEW ────────────────────────────────── */}
-      <section
-        id="calendar"
-        className="py-16 sm:py-20 bg-white border-y border-slate-200/80 scroll-mt-12"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-                — CALENDAR PREVIEW —
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mt-1">
-                Upcoming Community Gatherings
-              </h2>
-            </div>
-
-            {/* City Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-2">
-              {cities.map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setSelectedCity(c)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                    selectedCity === c
-                      ? 'bg-[#0062D2] text-white shadow-xs'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                  }`}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {filteredCalendar.map((item) => (
-              <div
-                key={item.id}
-                className="p-5 rounded-2xl bg-slate-50/90 border border-slate-200 hover:border-blue-300 hover:bg-white transition-all shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2] bg-blue-50 px-2.5 py-0.5 rounded-md border border-blue-100">
-                      {item.type}
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500 flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                      {item.city}
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif font-bold text-slate-900 text-base mb-2">
-                    {item.title}
-                  </h3>
-
-                  <div className="space-y-1 text-xs text-slate-600 mb-4">
-                    <p className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                      <strong>Date:</strong> {item.date} • {item.time}
-                    </p>
-                    <p className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                      <strong>Venue:</strong> {item.venue}
-                    </p>
-                    <p className="flex items-center gap-1.5">
-                      <Ticket className="w-3.5 h-3.5 text-slate-400" />
-                      <strong>Access:</strong> {item.fee}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-500">
-                    {item.guestAllowed
-                      ? 'Open to Registered Guests'
-                      : '🔒 Peers Only'}
-                  </span>
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4]"
-                  >
-                    <span>Register in Unity</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 4: THREE-COLUMN SECTION ─────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
+      {/* ─── SECTION 4: FAQS & THREE-COLUMN SECTION ──────────────────────── */}
+      <section className="py-16 sm:py-24 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Column 1: How Events Work */}
-            <div className="lg:col-span-4 bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
+            <div className="lg:col-span-4 bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
                   — HOW EVENTS WORK —
@@ -683,7 +639,7 @@ export function EventsPageClient() {
 
               <div className="pt-6">
                 <a
-                  href="#calendar"
+                  href="#events-grid"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0062D2] font-semibold text-xs border border-blue-300 shadow-xs hover:bg-blue-50 transition-all"
                 >
                   <span>See the Full Calendar</span>
@@ -693,7 +649,7 @@ export function EventsPageClient() {
             </div>
 
             {/* Column 2: Bringing Your Team */}
-            <div className="lg:col-span-4 bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
+            <div className="lg:col-span-4 bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
                   — BRINGING YOUR TEAM —
@@ -731,14 +687,14 @@ export function EventsPageClient() {
                 </div>
               </div>
 
-              <p className="text-[11px] text-slate-500 italic pt-6 border-t border-slate-100">
+              <p className="text-[11px] text-slate-500 italic pt-6 border-t border-slate-200/60">
                 This is one of the most immediate benefits of membership, and
                 one your team will value.
               </p>
             </div>
 
-            {/* Column 3: Common Questions FAQ */}
-            <div className="lg:col-span-4 bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm">
+            {/* Column 3: FAQs */}
+            <div className="lg:col-span-4 bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm">
               <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
                 — COMMON QUESTIONS —
               </span>
@@ -752,8 +708,9 @@ export function EventsPageClient() {
                   return (
                     <div key={faq.question} className="py-3">
                       <button
+                        type="button"
                         onClick={() => toggleFaq(index)}
-                        className="w-full flex items-center justify-between gap-3 text-left group focus:outline-none"
+                        className="w-full flex items-center justify-between gap-3 text-left group focus:outline-none cursor-pointer"
                       >
                         <span className="text-xs sm:text-sm font-serif font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                           {faq.question}
@@ -779,56 +736,26 @@ export function EventsPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 5: CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure) ─── */}
+      {/* ─── SECTION 5: ROYAL BLUE CLOSING BANNER ────────────────────────── */}
       <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* Subtle Geometric Orbital Line Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg
-            viewBox="0 0 600 600"
-            fill="none"
-            className="w-full h-full text-white/30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white leading-tight max-w-2xl mx-auto">
+            Experience the Room in Person.
+          </h2>
+          <p className="text-sm sm:text-base text-blue-100 max-w-xl mx-auto leading-relaxed">
+            Download the Unity App to explore upcoming Circle meetings, register as a guest, and collaborate with verified business promoters.
+          </p>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — BE PART OF SOMETHING LARGER —
-              </span>
-
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                Build Your Business. Build Your Relationships.
-                <br />
-                Build Your Circle.
-              </h2>
-
-            </div>
-
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Ideas.
-                <br />
-                People.
-                <br />
-                Communities.
-                <br />
-                A Brighter Tomorrow.
-              </p>
-            </div>
+          <div className="pt-2">
+            <a
+              href="https://unity.peersglobal.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] font-bold text-sm shadow-xl hover:bg-blue-50 transition-all hover:scale-105 active:scale-95"
+            >
+              <span>Download Unity App</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>

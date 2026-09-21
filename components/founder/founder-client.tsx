@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -16,14 +16,50 @@ import {
   CheckCircle2,
   Users,
   Compass,
+  TrendingUp,
+  ShieldCheck,
+  Calendar,
+  Layers,
 } from 'lucide-react'
 
 export function FounderClient() {
+  const [heroVideo, setHeroVideo] = useState('/videos/homepage-hero-bg.mp4')
+
+  useEffect(() => {
+    const loadVideo = () => {
+      try {
+        const saved = localStorage.getItem('peers_admin_page_media')
+        if (saved) {
+          const items = JSON.parse(saved)
+          const target = items.find(
+            (i: any) =>
+              (i.pageSlug === '/founder' ||
+                i.pageId === 'founder' ||
+                i.pageName === 'Dr. Pravin Parmar' ||
+                i.pageSlug === '/' ||
+                i.pageId === 'home') &&
+              i.mediaType === 'video' &&
+              i.mediaUrl
+          )
+          if (target && target.mediaUrl) {
+            setHeroVideo(target.mediaUrl)
+          }
+        }
+      } catch {
+        // Fallback
+      }
+    }
+
+    loadVideo()
+    window.addEventListener('storage', loadVideo)
+    return () => window.removeEventListener('storage', loadVideo)
+  }, [])
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30 shadow-2xs">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
           <Link href="/" className="hover:text-[#0062D2] transition-colors">
             Home
           </Link>
@@ -34,116 +70,153 @@ export function FounderClient() {
         </div>
       </div>
 
-      {/* ─── Hero Section (Long-Form Editorial) ─── */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF] border-b border-slate-200/80">
-        {/* Soft luminous ambient glows */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-blue-200/40 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute -top-10 -left-10 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-[100px] pointer-events-none" />
+      {/* ─── Master Hero Card Banner ─── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F6F9FD] via-[#FAFBFD] to-white pt-6 sm:pt-8 pb-10 sm:pb-12 border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl bg-white border border-slate-200/90 shadow-[0_12px_40px_rgba(0,40,120,0.06)] overflow-hidden min-h-[500px] sm:min-h-[560px] lg:min-h-[600px] flex items-center">
+            {/* Background Dr. Pravin Parmar Executive Portrait with Mist Mask */}
+            <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[48%] pointer-events-none z-0 overflow-hidden bg-gradient-to-tr from-[#061836] via-[#0B2558] to-[#040E24]">
+              <div
+                className="relative w-full h-full"
+                style={{
+                  maskImage:
+                    'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 6%, rgba(0,0,0,0.6) 20%, black 40%)',
+                  WebkitMaskImage:
+                    'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 6%, rgba(0,0,0,0.6) 20%, black 40%)',
+                }}
+              >
+                <Image
+                  src="/images/founder-new.png"
+                  alt="Dr. Pravin Parmar — Founder of Peers Global"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 550px"
+                  className="object-cover object-top sm:object-[center_12%]"
+                  priority
+                />
+                {/* Cinematic subtle vignette gradients */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040E24]/90 via-transparent to-transparent hidden lg:block" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/50 to-transparent lg:hidden" />
+              </div>
+            </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left: Biography Opening */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-200 shadow-2xs text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            {/* Subtle top right decorative script */}
+            <div
+              className="absolute top-6 right-8 hidden md:block text-2xl lg:text-3xl text-white/50 select-none pointer-events-none z-10 drop-shadow-sm"
+              style={{ fontFamily: 'var(--font-script)' }}
+            >
+              People, Ideas, Partnerships, Impact
+            </div>
+
+            {/* Left Hero Content */}
+            <div className="relative z-10 w-full lg:w-[58%] p-6 sm:p-10 lg:p-14 space-y-6">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-[11px] font-bold uppercase tracking-[0.22em] text-[#0062D2] shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-[#0062D2]" />
                 Founder, Peers Global
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#061836] font-bold tracking-tight leading-[1.08]">
-                Dr. Pravin Parmar
-              </h1>
+              {/* Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-serif font-bold text-[#061836] tracking-tight leading-[1.08]">
+                  Dr. Pravin <span className="italic text-[#1E4ED8]">Parmar</span>
+                </h1>
+                <p className="text-lg sm:text-xl font-serif text-slate-800 italic leading-relaxed font-normal">
+                  Founder, Peers Global &amp; 1 Million Entrepreneurs International Forum
+                </p>
+              </div>
 
-              <p className="text-lg sm:text-xl font-serif text-slate-700 italic leading-relaxed">
-                Founder, Peers Global &amp; 1 Million Entrepreneurs International Forum
-              </p>
-
-              {/* Core Hero Quote Card */}
-              <div className="relative p-6 sm:p-7 rounded-2xl bg-white border border-blue-100 shadow-sm border-l-4 border-l-[#0062D2]">
-                <Quote className="w-8 h-8 text-blue-400/25 absolute top-4 right-4" />
+              {/* Core Quote Card */}
+              <div className="relative p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#EFF6FF] via-[#F8FAFC] to-white border border-blue-100 shadow-2xs border-l-4 border-l-[#0062D2]">
+                <Quote className="w-7 h-7 text-blue-400/25 absolute top-4 right-4" />
                 <p className="text-base sm:text-lg font-serif italic text-[#061836] leading-relaxed pr-6">
                   &ldquo;I come from a very poor farmer family. But I do not come from a weak mindset. That difference has shaped everything.&rdquo;
                 </p>
-                <p className="mt-3 text-xs uppercase tracking-widest text-slate-500 font-semibold">
+                <p className="mt-2.5 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
                   — Dr. Pravin Parmar
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+                  className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_22px_rgba(0,98,210,0.35)] transition-all active:scale-[0.98] overflow-hidden"
                 >
-                  Download Unity App
-                  <ArrowRight className="w-4 h-4" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    Download Unity App
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
                 </Link>
+
                 <Link
                   href="/our-story"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 text-sm font-semibold border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-semibold border border-slate-300 shadow-xs hover:border-slate-400 transition-all active:scale-[0.98]"
                 >
                   Read Our Story
                 </Link>
               </div>
             </div>
 
-            {/* Right: Editorial Portrait of Dr. Parmar */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-md">
-                {/* Visual Backdrop Frame */}
-                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-blue-100 to-sky-50 -rotate-1 blur-sm opacity-70 border border-blue-200/50" />
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-slate-200 shadow-2xl bg-[#040E24]">
-                  <Image
-                    src="/images/founder-new.png"
-                    alt="Dr. Pravin Parmar — Founder of Peers Global"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 420px"
-                    className="object-cover object-top"
-                    priority
-                  />
-                  {/* Subtle bottom gradient to blend */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#040e24]/90 via-[#040e24]/20 to-transparent" />
-                  <div className="absolute bottom-5 left-5 right-5 text-white">
-                    <p className="text-xs uppercase tracking-widest font-semibold text-sky-400">
-                      Visionary &amp; Community Architect
-                    </p>
-                    <p className="text-base font-serif font-medium mt-0.5">
-                      Dr. Pravin Parmar
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {/* Bottom-right Frosted Glass Live Badge */}
+            <div className="hidden sm:flex absolute bottom-5 right-6 z-10 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/85 backdrop-blur-md border border-white/60 shadow-lg text-xs font-semibold text-[#061836]">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#0062D2] animate-pulse" />
+              <span>Visionary &amp; Community Architect</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Chapter 1: Botad ─── */}
-      <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              The Roots
+      {/* ─── Fast-Track Editorial Overview Bar ─── */}
+      <section className="bg-[#FAFBFD] border-b border-slate-200/80 py-5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center sm:text-left">
+            <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-[#0062D2] block">Origin</span>
+              <span className="text-sm font-serif font-bold text-[#061836]">Botad, Gujarat</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
-              Botad
-            </h2>
-            <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
-              <p className="text-lg sm:text-xl font-serif text-[#061836] font-medium leading-relaxed">
-                He grew up in a farmer family in Botad, watching life closely — hard work, uncertainty, seasons deciding whether there would be income that year, and dignity without money.
-              </p>
-              <p>
-                When you grow up like that, you do not dream of shortcuts. You dream of stability, respect, and building something that lasts. There was no formal higher education in the household, but there was an unshakeable bedrock of moral character and perseverance.
-              </p>
-              <p>
-                He also watched a village carry its own people through a failed season. When the monsoon faltered or drought threatened the harvest, nobody faced catastrophe alone. Neighbors divided grain, elders shared wells, and people carried each other through the winter. In Botad that was ordinary. It took him thirty years to see how rare it was elsewhere.
-              </p>
+            <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-[#0062D2] block">Media Platform</span>
+              <span className="text-sm font-serif font-bold text-[#061836]">VyapaarJagat.com</span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-[#0062D2] block">Philanthropy</span>
+              <span className="text-sm font-serif font-bold text-[#061836]">1M Forum Foundation</span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-[#0062D2] block">Ecosystem</span>
+              <span className="text-sm font-serif font-bold text-[#061836]">Peers Global &amp; Unity</span>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Full-width editorial quote */}
+      {/* ─── Chapter 1: Botad (The Roots) ─── */}
+      <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            Chapter 01 &mdash; The Roots
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
+            Botad
+          </h2>
+          <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
+            <p className="text-lg sm:text-xl font-serif text-[#061836] font-medium leading-relaxed">
+              He grew up in a farmer family in Botad, watching life closely — hard work, uncertainty, seasons deciding whether there would be income that year, and dignity without money.
+            </p>
+            <p>
+              When you grow up like that, you do not dream of shortcuts. You dream of stability, respect, and building something that lasts. There was no formal higher education in the household, but there was an unshakeable bedrock of moral character and perseverance.
+            </p>
+            <p>
+              He also watched a village carry its own people through a failed season. When the monsoon faltered or drought threatened the harvest, nobody faced catastrophe alone. Neighbors divided grain, elders shared wells, and people carried each other through the winter. In Botad that was ordinary. It took him thirty years to see how rare it was elsewhere.
+            </p>
+          </div>
+        </div>
+
+        {/* Full-width editorial quote card */}
         <div className="mt-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-transparent border-l-4 border-[#0062D2] shadow-2xs">
+          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-white border-l-4 border-[#0062D2] border border-blue-100/80 shadow-2xs">
             <p className="text-xl sm:text-2xl md:text-3xl font-serif italic text-[#061836] leading-snug">
               &ldquo;When a season failed in Botad, nobody faced it alone. People carried each other. In that village it was ordinary. In the business world, it turned out to be almost non-existent.&rdquo;
             </p>
@@ -151,12 +224,12 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Chapter 2: The decision that set the direction ─── */}
-      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#F8FAFC]">
+      {/* ─── Chapter 2: The Decision That Set The Direction ─── */}
+      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            Self-Determination
+            Chapter 02 &mdash; Self-Determination
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
             The decision that set the direction
@@ -187,12 +260,12 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Chapter 3: Building, and stopping ─── */}
+      {/* ─── Chapter 3: Building, and Stopping ─── */}
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            Hard Truths
+            Chapter 03 &mdash; Hard Truths
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
             Building, and stopping
@@ -239,12 +312,12 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Chapter 4: The hospital ─── */}
-      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#F8FAFC]">
+      {/* ─── Chapter 4: The Hospital Corridor ─── */}
+      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            The Awakening
+            Chapter 04 &mdash; The Awakening
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
             The hospital
@@ -278,13 +351,13 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Chapter 5: What he built ─── */}
+      {/* ─── Chapter 5: What He Built (The Ecosystem) ─── */}
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              The Ecosystem
+              Chapter 05 &mdash; The Ecosystem
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
               What he built
@@ -296,7 +369,7 @@ export function FounderClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 1: Peers Global */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
               <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2] transition-transform duration-300 group-hover:scale-110">
                 <Users className="w-6 h-6" />
               </div>
@@ -315,7 +388,7 @@ export function FounderClient() {
             </div>
 
             {/* Card 2: VyapaarJagat.com */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
               <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 transition-transform duration-300 group-hover:scale-110">
                 <Globe2 className="w-6 h-6" />
               </div>
@@ -336,7 +409,7 @@ export function FounderClient() {
             </div>
 
             {/* Card 3: 1 Million Forum */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
               <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 transition-transform duration-300 group-hover:scale-110">
                 <Award className="w-6 h-6" />
               </div>
@@ -355,7 +428,7 @@ export function FounderClient() {
             </div>
 
             {/* Card 4: Fempreneur & Greenpreneur */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
               <div className="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 transition-transform duration-300 group-hover:scale-110">
                 <HeartHandshake className="w-6 h-6" />
               </div>
@@ -376,12 +449,12 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Chapter 6: What he is trying to leave behind ─── */}
-      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#F8FAFC]">
+      {/* ─── Chapter 6: What He Is Trying To Leave Behind (The Legacy) ─── */}
+      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            The Legacy
+            Chapter 06 &mdash; The Legacy
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
             What he is trying to leave behind
@@ -415,22 +488,27 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Chapter 7: Speaking and Media ─── */}
+      {/* ─── Chapter 7: Speaking & Media Engagements ─── */}
       <section className="py-20 md:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 text-[#0062D2] mx-auto shadow-2xs">
             <Mic2 className="w-6 h-6" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836]">
-            Speaking &amp; Media
-          </h2>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <div className="space-y-2">
+            <div className="text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+              Chapter 07 &mdash; Public Forum
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836]">
+              Speaking &amp; Media
+            </h2>
+          </div>
+          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
             Dr. Parmar speaks on entrepreneurship, community building, collaboration, and the MSME ecosystem at business summits, university forums, and corporate leadership offsites.
           </p>
           <div className="pt-4">
             <Link
               href="/contact?topic=media"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-sm font-bold shadow-[0_4px_16px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-wider"
             >
               Media &amp; Speaking Enquiries
               <ArrowRight className="w-4 h-4" />
