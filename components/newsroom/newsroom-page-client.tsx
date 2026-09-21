@@ -192,166 +192,40 @@ export function NewsroomPageClient() {
         </div>
       </div>
 
-      {/* ─── Hero Section: Homepage-Style Unified Master Banner Card ─── */}
-      <section className="relative pt-8 pb-16 md:pt-12 md:pb-20 overflow-hidden bg-[#FBFCFE] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-8 sm:gap-10">
-          
-          {/* Unified Master Hero Card (Matching Home Page Who We Are Hero Card) */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/80 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Right Media Background Layer (Fading into white on the left with live looping video) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              {/* High Definition Looping Background Video */}
-              <video
-                key={heroVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                className="size-full object-cover object-center"
-              >
-                <source src={heroVideo} type="video/mp4" />
-                <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
-                <source src="/videos/hero-background.mp4" type="video/mp4" />
-              </video>
-
-              {/* Seamless gradient overlays for signature misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography with Drop Shadow */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  People
-                </p>
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Ideas
-                </p>
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Partnerships
-                </p>
-                <p className="text-xl sm:text-3xl text-white font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Impact
-                </p>
-              </div>
-
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    PRESS &amp; MEDIA HUB
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    OFFICIAL DISPATCHES &amp; ASSETS
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content Area (Overlaid on the crisp white side) */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
-                
-                {/* Eyebrow */}
-                <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
-                    OFFICIAL PRESS &amp; MEDIA HUB
-                  </span>
-                </div>
-
-                {/* Main Heading & Subheading in exact homepage serif hierarchy */}
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
-                  Press &amp; <span className="italic text-[#1E4ED8]">Newsroom.</span>
-                  <span className="text-lg sm:text-xl lg:text-2xl text-slate-700 italic font-normal block mt-1.5 leading-snug">
-                    Announcements, coverage and everything accredited media needs.
-                  </span>
-                </h1>
-
-                {/* Description */}
-                <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-lg font-normal">
-                  Official communiqués, press releases, ecosystem milestones, and editorial brand assets from Peers Global Business Media.
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
-                  {/* Glowing Media Enquiries Button */}
-                  <div className="relative group/media-btn">
-                    <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/media-btn:opacity-80 group-hover/media-btn:blur-lg" />
-                    
-                    <Link
-                      href="/contact?intent=media"
-                      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#1E4ED8] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
-                    >
-                      <span>Media Enquiries</span>
-                      <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                    </Link>
-                  </div>
-
-                  <a
-                    href="#media-kit"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-xs transition-all duration-200 hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-[2px] active:scale-[0.98]"
-                  >
-                    <span>Download Media Kit</span>
-                  </a>
-                </div>
-
-                {/* 3 Impact Highlights */}
-                <div className="mt-2 grid grid-cols-3 gap-4 sm:gap-6 border-t border-slate-200/80 pt-6">
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">&lt; 24h</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Press Desk SLA</p>
-                    <p className="text-[11px] text-slate-400 font-medium">Fast-Track Access</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">1M+</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">MSME Readers</p>
-                    <p className="text-[11px] text-slate-400 font-medium">National Syndication</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">100%</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Verified Releases</p>
-                    <p className="text-[11px] text-slate-400 font-medium">Official Statements</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
+      {/* ─── Hero Section ─── */}
+      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2] mx-auto">
+            <Megaphone className="w-3.5 h-3.5" />
+            Official Press &amp; Media Hub
           </div>
 
-          {/* ─── Fast-Track Callout Card ─── */}
-          <div className="rounded-2xl sm:rounded-[28px] bg-white border border-slate-200/80 shadow-sm p-5 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-5 transition-all duration-300 hover:shadow-md hover:border-blue-200">
-            <div className="flex items-center gap-4 text-left w-full sm:w-auto">
-              <div className="size-12 sm:size-14 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-[#1E4ED8] shrink-0 shadow-2xs">
-                <Megaphone className="w-6 h-6 sm:w-7 sm:h-7" />
-              </div>
-              <div>
-                <h2 className="font-serif text-base sm:text-lg font-bold text-[#061836]">
-                  Interview Dr. Pravin Parmar &amp; Leadership
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                  Our Media Secretariat coordinates exclusive editorial commentary, keynote appearances, and broadcast panel seats.
-                </p>
-              </div>
-            </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
+            Newsroom
+          </h1>
 
+          <p className="text-xl sm:text-2xl font-serif text-slate-800 italic max-w-2xl mx-auto leading-relaxed font-normal">
+            Announcements, coverage and everything media needs.
+          </p>
+
+          <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto">
+            Official communiqués, press releases, ecosystem milestones, and editorial brand assets from Peers Global Business Media.
+          </p>
+
+          <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link
-              href="/contact?intent=media"
-              className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#1E4ED8] text-white text-xs sm:text-sm font-semibold hover:bg-[#1a42c0] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+              href="/contact?topic=media"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all"
             >
-              <span>Schedule Interview</span>
+              Media Enquiries
               <ArrowRight className="w-4 h-4" />
             </Link>
+            <a
+              href="#media-kit"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-slate-800 text-sm font-semibold border border-slate-200 hover:bg-slate-50 transition-all shadow-xs"
+            >
+              Download Media Kit
+            </a>
           </div>
 
         </div>
@@ -615,17 +489,16 @@ export function NewsroomPageClient() {
         </div>
       </section>
 
-      {/* ─── Section 6: Closing CTA Banner (Homepage Royal Blue Style) ─── */}
+      {/* ─── Closing Banner ─── */}
       <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
         {/* SVG Orbital Geometric Lines Background */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
           </svg>
         </div>
 

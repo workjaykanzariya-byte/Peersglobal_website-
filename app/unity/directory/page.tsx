@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { getAllMembers } from '@/lib/api/members'
 import { PeerDirectoryClient } from '@/components/unity/peer-directory-client'
 
 export const metadata: Metadata = {
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function PeerDirectoryPage() {
-  return <PeerDirectoryClient />
+export const dynamic = 'force-dynamic'
+
+export default async function PeerDirectoryPage() {
+  const members = await getAllMembers()
+  return <PeerDirectoryClient initialMembers={members} />
 }
