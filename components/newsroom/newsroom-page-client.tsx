@@ -140,40 +140,96 @@ export function NewsroomPageClient() {
         </div>
       </div>
 
-      {/* ─── Hero Section ─── */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2] mx-auto">
-            <Megaphone className="w-3.5 h-3.5" />
-            Official Press &amp; Media Hub
-          </div>
+      {/* ─── Hero Section (Redesigned matching Our Story) ─── */}
+      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF] border-b border-slate-200/80">
+        {/* Soft luminous ambient glows */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-blue-200/40 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute -top-10 -left-10 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-[100px] pointer-events-none" />
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
-            Newsroom
-          </h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-6 space-y-6 z-10">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2] bg-white/90 px-3.5 py-1.5 rounded-full border border-blue-200 shadow-2xs">
+                  — OFFICIAL PRESS &amp; MEDIA HUB —
+                </span>
+              </div>
 
-          <p className="text-xl sm:text-2xl font-serif text-slate-800 italic max-w-2xl mx-auto leading-relaxed font-normal">
-            Announcements, coverage and everything media needs.
-          </p>
+              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-serif font-bold text-[#061836] tracking-tight leading-[1.08]">
+                Newsroom
+              </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto">
-            Official communiqués, press releases, ecosystem milestones, and editorial brand assets from Peers Global Business Media.
-          </p>
+              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-semibold leading-snug">
+                Announcements, coverage and everything media needs.
+              </p>
 
-          <div className="pt-2 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact?topic=media"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all"
-            >
-              Media Enquiries
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="#media-kit"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-slate-800 text-sm font-semibold border border-slate-200 hover:bg-slate-50 transition-all shadow-xs"
-            >
-              Download Media Kit
-            </a>
+              <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl">
+                Official communiqués, press releases, ecosystem milestones, and editorial brand assets from Peers Global Business Media.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/contact?topic=media"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] text-white font-bold text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group active:scale-[0.98]"
+                >
+                  <span>Media Enquiries</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+
+                <a
+                  href="#media-kit"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 font-semibold text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 active:scale-[0.98]"
+                >
+                  <span>Download Media Kit</span>
+                  <Download className="w-4 h-4 text-slate-400" />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Hero Visual with Rounded Glass Frame */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-[32px] overflow-hidden shadow-[0_25px_70px_rgba(4,14,36,0.25)] border border-blue-900/15 bg-[#040e24]">
+                <Image
+                  src="/images/conclave.png"
+                  alt="Peers Global Press and Media"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
+
+                {/* Soft horizontal gradient edge fade on the left edge */}
+                <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-[#040e24]/60 via-[#040e24]/20 to-transparent pointer-events-none z-10" />
+
+                {/* Ambient Top & Bottom Vignettes */}
+                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#040e24]/70 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#040e24]/95 via-[#040e24]/50 to-transparent pointer-events-none z-10" />
+
+                {/* Stage Backdrop Brand Overlay */}
+                <div className="absolute top-6 right-6 bg-[#040e24]/90 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px] shadow-lg">
+                  <p className="text-xs font-semibold text-slate-200 leading-tight">
+                    Voice of Collaboration.
+                  </p>
+                  <p className="text-[11px] font-bold text-sky-400 leading-tight mt-0.5">
+                    Impact Across Bharat.
+                  </p>
+                </div>
+
+                {/* Cursive overlay text */}
+                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[300px]">
+                  <p
+                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
+                    style={{ fontFamily: 'var(--font-script)' }}
+                  >
+                    Every story of growth
+                    <br />
+                    deserves a stage
+                    <br />
+                    that amplifies its truth.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -423,16 +479,29 @@ export function NewsroomPageClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-24 md:py-32">
+        {/* Deep celestial radial gradients & luminous aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+        />
+
         {/* SVG Orbital Geometric Lines Background */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
           </svg>
         </div>
 

@@ -296,22 +296,36 @@ export function LifeImpactScoreClient() {
         </div>
       </section>
 
-      {/* ─── Closing Banner — Royal Blue Theme (Preserving Exact Structure) ─── */}
-      <section className="relative bg-[#0062D2] text-white py-20 md:py-28 overflow-hidden">
+      {/* ─── Closing Banner ─── */}
+      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 md:py-28">
+        {/* Deep celestial radial gradients & luminous aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+        />
+
         {/* Subtle Geometric Orbital Line Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
           <svg
-            viewBox="0 0 600 600"
+            viewBox="0 0 760 520"
             fill="none"
-            className="w-full h-full text-white/30"
+            className="h-full w-full"
+            preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
           </svg>
         </div>
 
