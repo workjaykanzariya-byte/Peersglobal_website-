@@ -279,7 +279,7 @@ export function StoriesPageClient() {
   }, [selectedCity, selectedCircle, selectedIndustry, selectedWay, searchQuery])
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -299,7 +299,7 @@ export function StoriesPageClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (TWO PEERS HANDSHAKE & SEAMLESS FADE) ───────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -359,11 +359,11 @@ export function StoriesPageClient() {
                   priority
                 />
 
-                {/* Soft horizontal gradient fade on the left edge smoothly blending into #FDFBF7 */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                {/* Soft horizontal gradient fade on the left edge smoothly blending into page background */}
+                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none z-10" />
 
                 {/* Stage Backdrop Brand Overlay on Top Right */}
@@ -521,7 +521,7 @@ export function StoriesPageClient() {
       </section>
 
       {/* ─── SECTION 3: BROWSE THE STORIES (FILTERS & SEARCH) ─────────────── */}
-      <section className="py-12 bg-[#FDFBF7] border-b border-slate-200/80">
+      <section className="py-12 bg-slate-50 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -767,7 +767,7 @@ export function StoriesPageClient() {
       </section>
 
       {/* ─── SECTION 5: THE KINDS OF STORIES THIS COMMUNITY PRODUCES ─────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight">
@@ -820,7 +820,7 @@ export function StoriesPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1: How stories are recorded */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <Compass className="w-6 h-6" />
@@ -850,7 +850,7 @@ export function StoriesPageClient() {
             {/* Card 2: Share your story */}
             <div
               id="share-story"
-              className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between scroll-mt-20"
+              className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between scroll-mt-20"
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
@@ -881,7 +881,7 @@ export function StoriesPageClient() {
             </div>
 
             {/* Card 3: One million lives */}
-            <div className="bg-[#FDFBF7] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
                   <Target className="w-6 h-6" />
@@ -911,24 +911,25 @@ export function StoriesPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 7: CLOSING DARK MOUNTAIN BANNER ─────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-slate-950 text-white overflow-hidden">
-        {/* Background Image: Mountain Climber */}
-        <div className="absolute inset-0 opacity-45 mix-blend-luminosity">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Climber looking at sunrise from mountain peak"
-            fill
-            className="object-cover object-center"
-          />
+      {/* ─── SECTION 7: CLOSING ROYAL BLUE BANNER ─────────────────────── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Copy */}
             <div className="lg:col-span-8 space-y-5">
-              <p className="text-sm font-semibold tracking-wider text-slate-300 uppercase">
+              <p className="text-sm font-semibold tracking-wider text-sky-200 uppercase">
                 None of these entrepreneurs knew each other before a Circle put them in the same room.
               </p>
 
@@ -991,7 +992,7 @@ export function StoriesPageClient() {
             {/* Right Cursive Script */}
             <div className="lg:col-span-4 text-center lg:text-right">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-slate-200 drop-shadow-lg"
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 A Stronger

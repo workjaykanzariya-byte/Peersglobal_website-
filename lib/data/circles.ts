@@ -367,9 +367,9 @@ export const CIRCLES: Circle[] = [
     nextMeeting: '12 August 2026',
     focus: ['Land Joint Ventures', 'RERA & Approvals', 'Material Procurement', 'Commercial Leasing'],
     eligibility: ['Promoter or Partner in a Real Estate or Construction enterprise'],
-    founder: { name: 'Nikhil Jain', role: 'Circle Founder', company: 'Jain Realty Group', city: 'Surat' },
+    founder: { name: 'Dr. Pravin Parmar', role: 'Circle Founder', company: 'Peers Global', city: 'Ahmedabad' },
     peerMembers: [
-      { id: 'vitthal-patel', name: 'Vitthal Patel', company: 'Shivam Impex', city: 'Ahmedabad', role: 'Circle Member', joinedAt: '2026-05-25', email: 'vitthalpate7233@gmail.com' }
+      { id: 'vithal-patel', name: 'Vithal Patel', company: 'Shivam Impex', city: 'Ahmedabad', role: 'Circle Member', joinedAt: '2026-05-25', email: 'vithalpatel@shivamimpex.com' }
     ],
     testimonials: [],
     faqs: faqsBase('Ahmedabad Real Estate Circle'),

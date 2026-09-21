@@ -439,7 +439,7 @@ export function CollaborationWinsClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
       <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -464,7 +464,7 @@ export function CollaborationWinsClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (LIVE RECORD WITH HORIZONTAL EDGE FADE) ───────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden">
+      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -512,10 +512,10 @@ export function CollaborationWinsClient() {
                 />
 
                 {/* Soft horizontal gradient edge fade on the left side */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FDFBF7] via-[#FDFBF7]/60 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
 
                 {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FDFBF7]/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
                 <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none z-10" />
 
                 {/* Stage Backdrop Brand Overlay */}
@@ -672,7 +672,7 @@ export function CollaborationWinsClient() {
       </section>
 
       {/* ─── SECTION 3: THIS MONTH'S WINS (FEED & SIDEBAR LAYOUT) ─────────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* ─── LEFT COLUMN: LIVE FEED (8 SPAN) ─── */}
@@ -971,24 +971,30 @@ export function CollaborationWinsClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 4: CLOSING DARK MOUNTAIN BANNER ─────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-slate-950 text-white overflow-hidden">
-        {/* Background Image: Mountain Climber */}
-        <div className="absolute inset-0 opacity-45 mix-blend-luminosity">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Climber looking at sunrise from mountain peak"
-            fill
-            className="object-cover object-center"
-          />
+      {/* ─── SECTION 4: CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure) ─── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* Subtle Geometric Orbital Line Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Copy */}
             <div className="lg:col-span-8 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-400">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
                 — BUILD A STRONGER TOMORROW —
               </span>
 
@@ -1006,7 +1012,7 @@ export function CollaborationWinsClient() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/80 hover:bg-black text-white transition-all shadow-md group border border-white/30 backdrop-blur-sm hover:scale-105"
                 >
                   <svg
                     className="w-7 h-7 fill-current"
@@ -1029,7 +1035,7 @@ export function CollaborationWinsClient() {
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black text-white hover:bg-slate-900 transition-all shadow-md group border border-white/20"
+                  className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/80 hover:bg-black text-white transition-all shadow-md group border border-white/30 backdrop-blur-sm hover:scale-105"
                 >
                   <svg
                     className="w-6 h-6 fill-current text-white"
@@ -1051,9 +1057,9 @@ export function CollaborationWinsClient() {
             </div>
 
             {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-slate-200 drop-shadow-lg"
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Ideas.

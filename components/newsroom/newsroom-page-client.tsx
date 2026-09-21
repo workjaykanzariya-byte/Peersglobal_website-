@@ -126,7 +126,7 @@ export function NewsroomPageClient() {
       : PRESS_RELEASES.filter((r) => r.year === selectedYear)
 
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
       {/* ─── Breadcrumbs ─── */}
       <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
@@ -141,18 +141,18 @@ export function NewsroomPageClient() {
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F5FD] via-[#FBFCFE] to-white">
+      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2] mx-auto">
             <Megaphone className="w-3.5 h-3.5" />
             Official Press &amp; Media Hub
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
             Newsroom
           </h1>
 
-          <p className="text-xl sm:text-2xl font-serif text-[#1e3a8a] italic max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-xl sm:text-2xl font-serif text-slate-800 italic max-w-2xl mx-auto leading-relaxed font-normal">
             Announcements, coverage and everything media needs.
           </p>
 
@@ -187,7 +187,7 @@ export function NewsroomPageClient() {
                 <span className="w-6 h-[1.5px] bg-[#0062D2]" />
                 Fresh Updates
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47] mt-1">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
                 Latest Announcements
               </h2>
             </div>
@@ -197,7 +197,7 @@ export function NewsroomPageClient() {
             {ANNOUNCEMENTS.map((item) => (
               <div
                 key={item.title}
-                className="p-7 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
+                className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs">
@@ -206,7 +206,7 @@ export function NewsroomPageClient() {
                     </span>
                     <span className="text-slate-500 font-mono">{item.date}</span>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-[#0D1F47] leading-snug">
+                  <h3 className="text-xl font-serif font-bold text-slate-950 leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
@@ -219,23 +219,26 @@ export function NewsroomPageClient() {
         </div>
       </section>
 
-      {/* ─── Press Releases Archive ─── */}
-      <section className="py-20 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* ─── Press Releases Archive (Dark Constellation Theme) ─── */}
+      <section className="relative py-20 md:py-24 border-b border-slate-800 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] text-white overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
-                <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-cyan-400 font-bold">
+                <span className="w-6 h-[1.5px] bg-cyan-400" />
                 Official Record
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47] mt-1">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">
                 Press Releases
               </h2>
             </div>
 
             {/* Filter by Year */}
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-300 mr-1">
                 Year:
               </span>
               {['All', '2026', '2025'].map((yr) => (
@@ -243,8 +246,8 @@ export function NewsroomPageClient() {
                   key={yr}
                   onClick={() => setSelectedYear(yr)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${selectedYear === yr
-                      ? 'bg-[#0062D2] text-white shadow-sm'
-                      : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                      ? 'bg-cyan-500 text-slate-950 shadow-sm font-bold'
+                      : 'bg-slate-800/80 text-slate-300 border border-slate-700 hover:bg-slate-700'
                     }`}
                 >
                   {yr}
@@ -253,25 +256,25 @@ export function NewsroomPageClient() {
             </div>
           </div>
 
-          <div className="divide-y divide-slate-200 rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm">
+          <div className="divide-y divide-slate-800 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] backdrop-blur-sm overflow-hidden shadow-xl">
             {filteredReleases.map((pr) => (
               <div
                 key={pr.title}
-                className="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-50 transition-colors"
+                className="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-800/40 transition-colors"
               >
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2.5 text-xs text-slate-500 font-mono">
-                    <span className="font-bold text-[#0062D2]">{pr.tag}</span>
+                  <div className="flex items-center gap-2.5 text-xs text-slate-400 font-mono">
+                    <span className="font-bold text-cyan-400">{pr.tag}</span>
                     <span>•</span>
                     <span>{pr.date}</span>
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-[#0D1F47]">
+                  <h3 className="text-lg font-serif font-bold text-white">
                     {pr.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => alert('Press release copy: Available upon request via media office.')}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#1a42c0] shrink-0 self-start sm:self-center uppercase tracking-wider"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 shrink-0 self-start sm:self-center uppercase tracking-wider"
                 >
                   Read Release <ChevronRight className="w-4 h-4" />
                 </button>
@@ -289,7 +292,7 @@ export function NewsroomPageClient() {
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               External Coverage
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47] mt-1">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
               In the media
             </h2>
           </div>
@@ -298,13 +301,13 @@ export function NewsroomPageClient() {
             {MEDIA_COVERAGE.map((item) => (
               <div
                 key={item.headline}
-                className="p-7 rounded-3xl bg-[#FAF7F0] border border-slate-200 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
+                className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
               >
                 <div className="space-y-2">
                   <span className="text-xs uppercase tracking-wider font-bold text-[#0062D2]">
                     {item.publication}
                   </span>
-                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0D1F47] leading-snug">
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-slate-950 leading-snug">
                     &ldquo;{item.headline}&rdquo;
                   </h3>
                 </div>
@@ -321,14 +324,14 @@ export function NewsroomPageClient() {
       </section>
 
       {/* ─── Media Kit & Boilerplate ─── */}
-      <section id="media-kit" className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAF7F0]">
+      <section id="media-kit" className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Brand Assets
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47] mt-1">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
               Media kit
             </h2>
             <p className="text-sm text-slate-600 mt-2">
@@ -369,7 +372,7 @@ export function NewsroomPageClient() {
           {/* Official Boilerplate Box */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-serif font-bold text-[#0D1F47]">
+              <h3 className="text-lg font-serif font-bold text-slate-950">
                 Official Corporate Boilerplate
               </h3>
               <button
@@ -397,13 +400,13 @@ export function NewsroomPageClient() {
           <div className="w-14 h-14 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2] mx-auto">
             <Mail className="w-6 h-6" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
             Media Enquiries
           </h2>
           <p className="text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
             For journalist interviews with Dr. Pravin Parmar, official commentary on Indian MSME developments, or event press passes, contact our communications desk directly.
           </p>
-          <div className="p-6 rounded-3xl bg-[#FAF7F0] border border-slate-200 max-w-md mx-auto space-y-2 text-sm shadow-xs">
+          <div className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200 max-w-md mx-auto space-y-2 text-sm shadow-xs">
             <p className="font-serif font-bold text-slate-900">Peers Global Media Relations Office</p>
             <p className="text-slate-600">
               Email:{' '}
@@ -420,37 +423,38 @@ export function NewsroomPageClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0B1220] text-white py-24 md:py-32 overflow-hidden border-t border-slate-800">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <Image
-            src="/images/who-we-are-mountain.jpg"
-            alt="Mountain ridge horizon"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/80 to-transparent" />
+      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
             Stay Connected with the Community
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 font-light max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-white/90 font-light max-w-xl mx-auto">
             Get the latest stories, research reports and community milestones delivered directly.
           </p>
 
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.35)] hover:shadow-xl uppercase tracking-wider transition-all"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg uppercase tracking-wider transition-all"
             >
               Join the Movement
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact?topic=media"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/15 transition-all backdrop-blur-sm"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm"
             >
               Contact Media Desk
             </Link>

@@ -75,14 +75,13 @@ export function InvestorsPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
       {/* ─── Breadcrumbs ─── */}
       <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
           <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <span>About</span>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
@@ -91,18 +90,18 @@ export function InvestorsPageClient() {
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F5FD] via-[#FBFCFE] to-white">
+      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2] mx-auto">
             <TrendingUp className="w-3.5 h-3.5" />
             Ecosystem Infrastructure
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
             Investors
           </h1>
 
-          <p className="text-xl sm:text-2xl font-serif text-[#1e3a8a] italic max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-xl sm:text-2xl font-serif text-slate-800 italic max-w-2xl mx-auto leading-relaxed font-normal">
             Building the infrastructure for how entrepreneurs collaborate.
           </p>
 
@@ -123,17 +122,17 @@ export function InvestorsPageClient() {
       </section>
 
       {/* ─── The Opportunity ─── */}
-      <section className="py-20 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
+      <section className="py-20 md:py-24 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             Macro Thesis
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
             The Opportunity
           </h2>
           <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5">
-            <p className="text-lg sm:text-xl font-serif text-[#0D1F47] font-semibold">
+            <p className="text-lg sm:text-xl font-serif text-slate-950 font-semibold">
               India runs on MSMEs. They employ crores of people and build employment, families and cities — largely without support systems, visibility or infrastructure.
             </p>
             <p>
@@ -154,7 +153,7 @@ export function InvestorsPageClient() {
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Unit Economics &amp; Scale
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               The Model
             </h2>
             <p className="text-base text-slate-600">
@@ -168,12 +167,12 @@ export function InvestorsPageClient() {
               return (
                 <div
                   key={stream.title}
-                  className="p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm space-y-4 hover:shadow-md transition-shadow"
+                  className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm space-y-4 hover:shadow-md transition-shadow"
                 >
                   <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-[#0D1F47]">
+                  <h3 className="text-2xl font-serif font-bold text-slate-950">
                     {stream.title}
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
@@ -186,18 +185,21 @@ export function InvestorsPageClient() {
         </div>
       </section>
 
-      {/* ─── Where We Are (Verified Metrics) ─── */}
-      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAF7F0]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {/* ─── Where We Are (Verified Metrics - Dark Constellation Theme) ─── */}
+      <section className="relative py-20 md:py-28 border-b border-slate-800 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] text-white overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-cyan-400 font-bold">
+              <span className="w-6 h-[1.5px] bg-cyan-400" />
               Current Footprint
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
               Where We Are
             </h2>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-slate-300">
               Verified operational data as of Q3 2026.
             </p>
           </div>
@@ -206,15 +208,15 @@ export function InvestorsPageClient() {
             {VERIFIED_METRICS.map((metric) => (
               <div
                 key={metric.label}
-                className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm text-center space-y-2"
+                className="p-6 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] backdrop-blur-sm shadow-xl text-center space-y-2 hover:border-cyan-500/40 transition-colors"
               >
-                <div className="text-3xl sm:text-4xl font-mono font-bold text-[#0062D2]">
+                <div className="text-3xl sm:text-4xl font-mono font-bold text-cyan-400">
                   {metric.value}
                 </div>
-                <div className="text-xs font-serif font-bold text-slate-900">
+                <div className="text-xs font-serif font-bold text-white">
                   {metric.label}
                 </div>
-                <p className="text-[11px] text-slate-500 font-sans">
+                <p className="text-[11px] text-slate-300 font-sans">
                   {metric.sub}
                 </p>
               </div>
@@ -226,13 +228,13 @@ export function InvestorsPageClient() {
       {/* ─── Investor Enquiries Form ─── */}
       <section id="investor-form" className="py-20 md:py-28 border-b border-slate-200/80 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[#FAF7F0] border border-slate-200 shadow-md space-y-8">
+          <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-md space-y-8">
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
                 <span className="w-6 h-[1.5px] bg-[#0062D2]" />
                 Direct Desk
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
                 Investor Enquiries
               </h2>
               <p className="text-sm text-slate-600">
@@ -245,7 +247,7 @@ export function InvestorsPageClient() {
                 <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-[#0D1F47]">Enquiry Logged</h3>
+                <h3 className="text-2xl font-serif font-bold text-slate-950">Enquiry Logged</h3>
                 <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
                   Thank you, <strong>{formData.name || 'Investor'}</strong>. Your brief has been forwarded directly to the Founder&apos;s office. Our team will coordinate next steps confidentially.
                 </p>
@@ -349,30 +351,31 @@ export function InvestorsPageClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0B1220] text-white py-24 md:py-32 overflow-hidden border-t border-slate-800">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <Image
-            src="/images/who-we-are-mountain.jpg"
-            alt="Mountain ridge horizon"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-[#0B1220]/80 to-transparent" />
+      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
             The Infrastructure of Collaboration
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 font-light max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-white/90 font-light max-w-xl mx-auto">
             Participate in India’s most disciplined, governed business community platform.
           </p>
 
           <div className="pt-4">
             <a
               href="#investor-form"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.35)] hover:shadow-xl uppercase tracking-wider transition-all"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg uppercase tracking-wider transition-all"
             >
               Investor Enquiry
               <ArrowRight className="w-4 h-4" />

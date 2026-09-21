@@ -73,83 +73,83 @@ export function BringToMyCityClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-[#EADFC7]/50 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <Link href="/circles" className="hover:text-neutral-900 transition-colors">
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <Link href="/circles" className="hover:text-slate-900 transition-colors">
             Circles
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Bring Peers Global to Your City</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Bring Peers Global to Your City</span>
         </div>
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-[#EADFC7]/60">
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-slate-950 tracking-tight leading-[1.08]">
                 Bring Peers Global to Your City
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
+              <p className="text-xl sm:text-2xl font-serif text-slate-800 italic leading-relaxed">
                 Every city in this community began with one entrepreneur who wanted it there.
               </p>
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
                 The entrepreneurs who bring this community to a new city are the ones who shape what it becomes there.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0D6EFD] text-white text-xs sm:text-sm font-bold hover:bg-blue-600 transition-all shadow-md hover:shadow-lg uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-all shadow-md hover:shadow-lg uppercase tracking-wider"
                 >
                   Download Unity App
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
                   href="#register"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#D5C7B0] text-xs sm:text-sm font-semibold text-neutral-800 hover:bg-[#F4EFE6] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-300 text-xs sm:text-sm font-semibold text-slate-800 hover:bg-slate-100 transition-colors"
                 >
                   Register Interest
                 </a>
               </div>
 
               {/* Stats Bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[#EADFC7]/70">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200/80">
                 <div className="space-y-0.5">
-                  <span className="text-xl font-serif font-bold text-[#1A1A1A]">19+</span>
-                  <span className="text-[11px] text-neutral-500 block">Cities & growing</span>
+                  <span className="text-xl font-serif font-bold text-slate-950">19+</span>
+                  <span className="text-[11px] text-slate-500 block">Cities & growing</span>
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-xl font-serif font-bold text-[#1A1A1A]">Thousands</span>
-                  <span className="text-[11px] text-neutral-500 block">Entrepreneurs</span>
+                  <span className="text-xl font-serif font-bold text-slate-950">Thousands</span>
+                  <span className="text-[11px] text-slate-500 block">Entrepreneurs</span>
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-xl font-serif font-bold text-[#1A1A1A]">One</span>
-                  <span className="text-[11px] text-neutral-500 block">Across Bharat & beyond</span>
+                  <span className="text-xl font-serif font-bold text-slate-950">One</span>
+                  <span className="text-[11px] text-slate-500 block">Across Bharat & beyond</span>
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-xl font-serif font-bold text-[#8C6422]">More Cities</span>
-                  <span className="text-[11px] text-neutral-500 block">Coming soon</span>
+                  <span className="text-xl font-serif font-bold text-[#0062D2]">More Cities</span>
+                  <span className="text-[11px] text-slate-500 block">Coming soon</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Visual: City Horizon & Calligraphy */}
+            {/* Right Visual: City Horizon & Calligraphy (Dark Constellation Card) */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E8DFC9] bg-gradient-to-b from-[#141A23] to-[#0A0D12] text-white p-8">
-                <div className="absolute top-4 right-5 text-xs font-serif italic text-amber-300">
+              <div className="relative rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] text-white p-8 shadow-2xl backdrop-blur-sm">
+                <div className="absolute top-4 right-5 text-xs font-serif italic text-cyan-300">
                   New Cities. More Entrepreneurs. A Stronger Bharat.
                 </div>
                 <div className="pt-8 pb-4 space-y-4">
-                  <div className="relative h-60 rounded-2xl overflow-hidden border border-white/15">
+                  <div className="relative h-60 rounded-2xl overflow-hidden border border-slate-600/60">
                     <Image
                       src="/images/who-we-are-boardroom.jpg"
                       alt="Entrepreneurs convening"
@@ -158,7 +158,7 @@ export function BringToMyCityClient() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D12] via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-xs space-y-1">
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold border border-amber-400/30">
+                      <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[10px] font-bold border border-cyan-400/30">
                         Launch Threshold
                       </span>
                       <p className="text-sm font-serif font-bold text-white">
@@ -168,7 +168,7 @@ export function BringToMyCityClient() {
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-neutral-300 space-y-1">
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 space-y-1">
                   <strong className="text-white block">Local Ownership, National Scale</strong>
                   We do not open cities from a head office. A community of trust needs a local champion.
                 </div>
@@ -179,32 +179,32 @@ export function BringToMyCityClient() {
       </section>
 
       {/* ─── The Map is Not Finished ─── */}
-      <section className="py-16 md:py-20 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-20 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            <div className="lg:col-span-8 p-8 sm:p-10 rounded-3xl bg-white border border-[#E8DFC9] space-y-4 shadow-2xs">
+            <div className="lg:col-span-8 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 space-y-4 shadow-sm">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-[#0D6EFD]">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif text-[#1A1A1A]">
+                <h2 className="text-2xl sm:text-3xl font-serif text-slate-950">
                   The map is not finished
                 </h2>
               </div>
-              <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-medium">
+              <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
                 Peers Global operates in a growing number of cities, and there are many more where it does not exist yet.
               </p>
-              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 If yours is one of them, that is not a closed door. It is an opening. The entrepreneurs who bring this community to a new city are the ones who shape what it becomes there — who is in the first room, what standard it holds, and how it grows over the next decade.
               </p>
             </div>
 
-            <div className="lg:col-span-4 p-8 rounded-3xl bg-[#FAF5EB] border border-[#EADBBD] flex flex-col justify-center text-center space-y-4">
-              <span className="text-4xl text-[#8C6422] font-serif leading-none">&ldquo;</span>
-              <p className="text-lg sm:text-xl font-serif italic text-[#5B4834] leading-relaxed">
+            <div className="lg:col-span-4 p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 flex flex-col justify-center text-center space-y-4">
+              <span className="text-4xl text-[#0062D2] font-serif leading-none">&ldquo;</span>
+              <p className="text-lg sm:text-xl font-serif italic text-slate-800 leading-relaxed">
                 Every city begins with one entrepreneur who decides to make it happen.
               </p>
-              <span className="text-xs text-neutral-500 font-medium">
+              <span className="text-xs text-slate-500 font-medium">
                 — Peers Global Territory Charter
               </span>
             </div>
@@ -587,20 +587,20 @@ export function BringToMyCityClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0D1117] text-white py-24 md:py-32 overflow-hidden border-t border-neutral-800">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <Image
-            src="/images/who-we-are-mountain.jpg"
-            alt="Mountain ridge horizon"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/80 to-transparent" />
+      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <p className="text-xs uppercase tracking-widest font-semibold text-neutral-400">
+          <p className="text-xs uppercase tracking-widest font-semibold text-white/80">
             There is a room your city does not have yet.
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
@@ -610,14 +610,14 @@ export function BringToMyCityClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg shadow-black/10 hover:shadow-xl uppercase tracking-wider transition-all"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="#register"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-bold border border-white/20 transition-all uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-bold border border-white/20 transition-all uppercase tracking-wider backdrop-blur-sm"
             >
               Register Interest
             </a>

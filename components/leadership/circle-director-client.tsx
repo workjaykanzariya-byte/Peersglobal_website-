@@ -491,18 +491,51 @@ export function CircleDirectorClient() {
         </div>
       </section>
 
-      {/* ─── 3. YOU LEAD THE LEADERS WHO LEAD THE CIRCLE ────────────────── */}
-      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─── 3. YOU LEAD THE LEADERS WHO LEAD THE CIRCLE (HOMEPAGE DARK CONSTELLATION THEME) ─── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80">
+        {/* Background Glow & Atmospheric Orbs */}
+        <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
+        <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
+
+        {/* Constellation Star Particle Overlay */}
+        <svg viewBox="0 0 1400 600" className="absolute inset-0 size-full pointer-events-none opacity-20" preserveAspectRatio="none">
+          <g fill="#38BDF8">
+            <circle cx="80" cy="60" r="1.5" /><circle cx="200" cy="130" r="1" /><circle cx="340" cy="45" r="2" />
+            <circle cx="500" cy="100" r="1.2" /><circle cx="680" cy="35" r="1.5" /><circle cx="850" cy="110" r="1" />
+            <circle cx="1020" cy="60" r="2" /><circle cx="1180" cy="160" r="1.2" /><circle cx="1340" cy="80" r="1.5" />
+            <circle cx="150" cy="500" r="1.2" /><circle cx="400" cy="540" r="1.8" /><circle cx="640" cy="560" r="1" />
+            <circle cx="900" cy="520" r="1.5" /><circle cx="1100" cy="550" r="1" /><circle cx="70" cy="320" r="1" />
+            <circle cx="310" cy="270" r="1.8" /><circle cx="760" cy="300" r="1.2" /><circle cx="1260" cy="360" r="1" />
+          </g>
+          <g stroke="#38BDF8" strokeWidth="0.5" opacity="0.35" fill="none">
+            <line x1="80" y1="60" x2="200" y2="130" /><line x1="200" y1="130" x2="340" y2="45" />
+            <line x1="500" y1="100" x2="680" y2="35" /><line x1="850" y1="110" x2="1020" y2="60" />
+            <line x1="1020" y1="60" x2="1180" y2="160" />
+          </g>
+        </svg>
+
+        {/* Orbit rings decorative */}
+        <div className="pointer-events-none absolute -bottom-24 -left-20 size-[380px] opacity-20">
+          <svg viewBox="0 0 400 400" className="size-full stroke-cyan-400/30 fill-none">
+            <circle cx="100" cy="300" r="260" strokeWidth="1" strokeDasharray="6 6" />
+            <circle cx="100" cy="300" r="210" strokeWidth="1" />
+            <circle cx="100" cy="300" r="160" strokeWidth="1" />
+            <circle cx="100" cy="90" r="3.5" fill="#38bdf8" className="animate-pulse" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
+              <span className="w-5 h-px bg-cyan-400" />
               YOU LEAD THE LEADERS
+              <span className="w-5 h-px bg-cyan-400" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-3">
               You lead the leaders who lead the Circle
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-light">
+            <p className="text-base sm:text-lg text-slate-300 font-light">
               A Circle is not run by one person. It is run by its Chairs and its committees, and the Director develops all of them. Three committees. Three Chairs. One Director behind them.
             </p>
           </div>
@@ -515,16 +548,19 @@ export function CircleDirectorClient() {
                 return (
                   <div
                     key={idx}
-                    className={`p-6 rounded-3xl bg-white border ${card.border} shadow-sm flex flex-col justify-between`}
+                    className="p-6 sm:p-7 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                   >
-                    <div>
-                      <div className={`size-12 rounded-2xl ${card.bg} ${card.color} flex items-center justify-center mb-4`}>
+                    {/* Subtle glass reflection */}
+                    <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
+
+                    <div className="relative z-10">
+                      <div className="size-12 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
                         <Icon className="size-6" />
                       </div>
-                      <h3 className="font-serif text-lg font-bold text-slate-950 mb-2">
+                      <h3 className="font-serif text-lg font-bold text-white mb-2">
                         {card.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                         {card.desc}
                       </p>
                     </div>
@@ -535,16 +571,17 @@ export function CircleDirectorClient() {
 
             {/* Right Highlight Quote Card */}
             <div className="lg:col-span-4">
-              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-emerald-50 via-teal-50/50 to-blue-50/40 border border-emerald-200/80 shadow-sm flex flex-col justify-between">
-                <div>
-                  <div className="size-12 rounded-full bg-blue-100 text-[#0062D2] flex items-center justify-center mb-5">
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-[#0e2246] via-[#0d1c38] to-[#091428] border border-cyan-500/30 shadow-[0_20px_50px_rgba(11,21,40,0.4)] flex flex-col justify-between relative overflow-hidden">
+                <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/[0.08] via-transparent to-transparent" />
+                <div className="relative z-10">
+                  <div className="size-12 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 flex items-center justify-center mb-5">
                     <Quote className="size-6" />
                   </div>
-                  <blockquote className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug tracking-tight mb-4">
+                  <blockquote className="font-serif text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight mb-4">
                     “Nothing in business gives you this. You develop leaders you did not hire, who owe you nothing, and who will carry what you taught them into rooms you will never sit in.”
                   </blockquote>
                 </div>
-                <div className="text-xs font-bold tracking-widest text-[#0062D2] uppercase pt-4 border-t border-emerald-200/60">
+                <div className="relative z-10 text-xs font-bold tracking-widest text-cyan-400 uppercase pt-4 border-t border-slate-700/60">
                   PEERS GLOBAL
                 </div>
               </div>
@@ -852,32 +889,39 @@ export function CircleDirectorClient() {
         </div>
       </section>
 
-      {/* ─── 9. CLOSING DARK MOUNTAIN BANNER ───────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0A1120] text-white py-20 lg:py-28">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Entrepreneur standing on mountain ridge at dawn"
-            fill
-            className="object-cover object-center opacity-70"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1120]/95 via-[#0A1120]/80 to-transparent" />
+      {/* ─── 9. CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure) ─── */}
+      <section className="relative overflow-hidden bg-[#0062D2] text-white py-20 lg:py-28">
+        {/* Subtle Geometric Orbital Line Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">
-                <span className="w-5 h-px bg-blue-400" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-sky-200 mb-3">
+                <span className="w-5 h-px bg-sky-200" />
                 READY TO LEAD?
-                <span className="w-5 h-px bg-blue-400" />
+                <span className="w-5 h-px bg-sky-200" />
               </div>
 
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
                 Take the next step.
               </h2>
 
-              <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light mb-8 max-w-2xl">
+              <p className="text-base sm:text-xl text-white/90 leading-relaxed font-light mb-8 max-w-2xl">
                 Download the Unity App or apply to lead a Circle and create a lasting impact.
               </p>
 
@@ -886,14 +930,14 @@ export function CircleDirectorClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  className="rounded-full bg-white hover:bg-blue-50 text-[#0062D2] px-8 py-3.5 text-sm font-semibold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="size-4" />
                 </a>
                 <Link
                   href="/contact?intent=leadership"
-                  className="rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
+                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
                 >
                   <span>Apply to Lead</span>
                   <ArrowRight className="size-4" />
@@ -903,19 +947,19 @@ export function CircleDirectorClient() {
 
             <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg">
               <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
+                className="text-2xl sm:text-3xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Leaders
               </p>
               <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium mt-1"
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium mt-1"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Build People.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium mt-1"
+                className="text-2xl sm:text-3xl text-white leading-tight font-medium mt-1"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 People Build

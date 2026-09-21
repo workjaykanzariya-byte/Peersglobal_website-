@@ -513,18 +513,50 @@ export function LeadershipLadderClient() {
       </section>
 
       {/* ─── 3. WHAT LEADERSHIP HERE ACTUALLY DEVELOPS (6 CARDS) ───────── */}
-      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80">
+        {/* Background Glow & Atmospheric Orbs */}
+        <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
+        <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
+
+        {/* Constellation Star Particle Overlay */}
+        <svg viewBox="0 0 1400 600" className="absolute inset-0 size-full pointer-events-none opacity-20" preserveAspectRatio="none">
+          <g fill="#38BDF8">
+            <circle cx="80" cy="60" r="1.5" /><circle cx="200" cy="130" r="1" /><circle cx="340" cy="45" r="2" />
+            <circle cx="500" cy="100" r="1.2" /><circle cx="680" cy="35" r="1.5" /><circle cx="850" cy="110" r="1" />
+            <circle cx="1020" cy="60" r="2" /><circle cx="1180" cy="160" r="1.2" /><circle cx="1340" cy="80" r="1.5" />
+            <circle cx="150" cy="500" r="1.2" /><circle cx="400" cy="540" r="1.8" /><circle cx="640" cy="560" r="1" />
+            <circle cx="900" cy="520" r="1.5" /><circle cx="1100" cy="550" r="1" /><circle cx="70" cy="320" r="1" />
+            <circle cx="310" cy="270" r="1.8" /><circle cx="760" cy="300" r="1.2" /><circle cx="1260" cy="360" r="1" />
+          </g>
+          <g stroke="#38BDF8" strokeWidth="0.5" opacity="0.35" fill="none">
+            <line x1="80" y1="60" x2="200" y2="130" /><line x1="200" y1="130" x2="340" y2="45" />
+            <line x1="500" y1="100" x2="680" y2="35" /><line x1="850" y1="110" x2="1020" y2="60" />
+            <line x1="1020" y1="60" x2="1180" y2="160" />
+          </g>
+        </svg>
+
+        {/* Orbit rings decorative */}
+        <div className="pointer-events-none absolute -bottom-24 -left-20 size-[380px] opacity-20">
+          <svg viewBox="0 0 400 400" className="size-full stroke-cyan-400/30 fill-none">
+            <circle cx="100" cy="300" r="260" strokeWidth="1" strokeDasharray="6 6" />
+            <circle cx="100" cy="300" r="210" strokeWidth="1" />
+            <circle cx="100" cy="300" r="160" strokeWidth="1" />
+            <circle cx="100" cy="90" r="3.5" fill="#38bdf8" className="animate-pulse" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
+              <span className="w-5 h-px bg-cyan-400" />
               WHAT LEADERSHIP HERE ACTUALLY DEVELOPS
-              <span className="w-5 h-px bg-[#0062D2]" />
+              <span className="w-5 h-px bg-cyan-400" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
               Six permanent capabilities.
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-3 font-light">
+            <p className="text-base sm:text-lg text-slate-300 mt-3 font-light">
               Skills you build by serving people who owe you nothing — that you take back to your own company for life.
             </p>
           </div>
@@ -535,15 +567,18 @@ export function LeadershipLadderClient() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col items-center text-center group"
+                  className="rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] p-7 sm:p-8 text-white shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col items-center text-center group relative overflow-hidden"
                 >
-                  <div className="size-14 rounded-full bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  {/* Subtle glass reflection */}
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
+
+                  <div className="size-14 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
                     <Icon className="size-6" />
                   </div>
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-950 mb-2 leading-snug">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white mb-2.5 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-300 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
@@ -923,34 +958,40 @@ export function LeadershipLadderClient() {
         </div>
       </section>
 
-      {/* ─── 10. CLOSING DARK MOUNTAIN BANNER ───────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0A1120] text-white py-20 lg:py-28">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Entrepreneur standing atop mountain ridge at dawn looking at vast horizons"
-            fill
-            className="object-cover object-center opacity-70"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1120]/95 via-[#0A1120]/80 to-transparent" />
+      {/* ─── 10. CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure) ─── */}
+      <section className="relative overflow-hidden bg-[#0062D2] text-white py-20 lg:py-28">
+        {/* Subtle Geometric Orbital Line Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">
-                <span className="w-5 h-px bg-blue-400" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-sky-200 mb-3">
+                <span className="w-5 h-px bg-sky-200" />
                 YOUR LEADERSHIP JOURNEY
-                <span className="w-5 h-px bg-blue-400" />
+                <span className="w-5 h-px bg-sky-200" />
               </div>
 
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
                 A stronger you. A stronger tomorrow.
               </h2>
 
-              <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light mb-8 max-w-2xl">
+              <p className="text-base sm:text-xl text-white/90 leading-relaxed font-light mb-8 max-w-2xl">
                 Download the Unity App or apply to lead and take your next step.
               </p>
 
@@ -959,14 +1000,14 @@ export function LeadershipLadderClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  className="rounded-full bg-white hover:bg-blue-50 text-[#0062D2] px-8 py-3.5 text-sm font-semibold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="size-4" />
                 </a>
                 <Link
                   href="/contact?intent=leadership"
-                  className="rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
+                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
                 >
                   <span>Apply to Lead</span>
                   <ArrowRight className="size-4" />
@@ -977,19 +1018,19 @@ export function LeadershipLadderClient() {
             {/* Right Cursive Script */}
             <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg">
               <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
+                className="text-2xl sm:text-3xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Build
               </p>
               <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium mt-1"
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium mt-1"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Connect
               </p>
               <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium mt-1"
+                className="text-2xl sm:text-3xl text-white leading-tight font-medium mt-1"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Collaborate

@@ -126,7 +126,7 @@ export function SiteHeader() {
             {/* Smooth Sliding Pill Indicator */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 -translate-y-1/2 h-9 rounded-full border border-blue-500/20 bg-blue-50/80 shadow-[0_2px_8px_rgba(30,78,216,0.06)] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              className="pointer-events-none absolute top-1/2 -translate-y-1/2 h-9 rounded-full border border-[#0062D2]/20 bg-[#EFF6FF]/80 shadow-[0_2px_8px_rgba(0,98,210,0.06)] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
               style={{
                 left: pillStyle.left,
                 width: pillStyle.width,
@@ -158,8 +158,8 @@ export function SiteHeader() {
                       className={cn(
                         'relative z-10 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap inline-flex items-center',
                         isHovered || (isActive && !openMenu)
-                          ? 'text-[#1E4ED8] font-semibold'
-                          : 'text-slate-700 hover:text-[#1E4ED8]'
+                          ? 'text-[#0062D2] font-semibold'
+                          : 'text-slate-700 hover:text-[#0062D2]'
                       )}
                     >
                       {item.label}
@@ -184,15 +184,15 @@ export function SiteHeader() {
                     className={cn(
                       'relative z-10 inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap select-none',
                       isHovered || (isActive && !openMenu)
-                        ? 'text-[#1E4ED8] font-semibold'
-                        : 'text-slate-700 hover:text-[#1E4ED8]'
+                        ? 'text-[#0062D2] font-semibold'
+                        : 'text-slate-700 hover:text-[#0062D2]'
                     )}
                   >
                     <span>{item.label}</span>
                     <ChevronDown
                       className={cn(
                         'size-3.5 transition-transform duration-200 ease-out',
-                        isHovered ? 'rotate-180 text-[#1E4ED8] opacity-100' : 'text-slate-400 opacity-70'
+                        isHovered ? 'rotate-180 text-[#0062D2] opacity-100' : 'text-slate-400 opacity-70'
                       )}
                     />
                   </Link>
@@ -218,7 +218,7 @@ export function SiteHeader() {
                       <div className="w-[360px] sm:w-[440px] rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-3 shadow-[0_20px_45px_rgba(15,23,42,0.12),0_2px_8px_rgba(15,23,42,0.04)] text-slate-900">
                         {/* Header Label */}
                         <div className="flex items-center justify-between px-2.5 pb-2 mb-1.5 border-b border-slate-100">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#1E4ED8]">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2]">
                             {item.label}
                           </span>
                           <span className="text-[10px] text-slate-400 font-medium">
@@ -236,12 +236,12 @@ export function SiteHeader() {
                                 href={child.href}
                                 onClick={() => setOpenMenu(null)}
                                 className={cn(
-                                  'group/link flex flex-col justify-center rounded-xl px-2.5 py-2 transition-all duration-150 hover:bg-slate-50 hover:translate-x-0.5',
-                                  isChildActive && 'bg-blue-50/70 text-[#1E4ED8]'
+                                  'group/link flex flex-col justify-center rounded-xl px-2.5 py-2 transition-all duration-150 hover:bg-[#EFF6FF]/60 hover:translate-x-0.5',
+                                  isChildActive && 'bg-[#EFF6FF] text-[#0062D2]'
                                 )}
                               >
                                 <div className="flex items-center justify-between gap-1">
-                                  <span className="text-[13px] font-semibold text-slate-800 group-hover/link:text-[#1E4ED8] transition-colors truncate">
+                                  <span className="text-[13px] font-semibold text-slate-800 group-hover/link:text-[#0062D2] transition-colors truncate">
                                     {child.label}
                                   </span>
                                   {child.phase === 2 && (
@@ -269,7 +269,7 @@ export function SiteHeader() {
                             <Link
                               href={item.ctaCard.ctaHref}
                               onClick={() => setOpenMenu(null)}
-                              className="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#1E4ED8] hover:text-[#1a42c0] transition-colors"
+                              className="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#0062D2] hover:text-[#0052B4] transition-colors"
                             >
                               <span>{item.ctaCard.ctaText || 'Explore →'}</span>
                             </Link>
@@ -289,7 +289,7 @@ export function SiteHeader() {
             <Link
               href="/apply"
               onMouseEnter={() => setOpenMenu(null)}
-              className="inline-flex items-center justify-center gap-1.5 bg-[#1E4ED8] hover:bg-[#1a42c0] text-white font-bold text-xs tracking-tight px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(30,78,216,0.25)] transition-all whitespace-nowrap active:scale-95 hover:shadow-[0_6px_18px_rgba(30,78,216,0.35)]"
+              className="inline-flex items-center justify-center gap-1.5 bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold text-xs tracking-tight px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(0,98,210,0.25)] transition-all whitespace-nowrap active:scale-95 hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)]"
             >
               <span>ENTER PEERS GLOBAL</span>
               <ArrowRight className="size-3.5" />
@@ -317,7 +317,7 @@ export function SiteHeader() {
               <Link
                 href="/apply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full bg-[#1E4ED8] py-3 text-xs font-bold tracking-wider text-white shadow-md"
+                className="flex items-center justify-center gap-2 rounded-full bg-[#0062D2] py-3 text-xs font-bold tracking-wider text-white shadow-md"
               >
                 <span>ENTER PEERS GLOBAL</span>
                 <ArrowRight className="size-4" />
@@ -335,7 +335,7 @@ export function SiteHeader() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="py-3 text-[14px] font-semibold text-slate-800 hover:text-[#1E4ED8] flex items-center justify-between"
+                      className="py-3 text-[14px] font-semibold text-slate-800 hover:text-[#0062D2] flex items-center justify-between"
                     >
                       <span>{item.label}</span>
                       <ArrowRight className="size-3.5 text-slate-400" />
@@ -354,7 +354,7 @@ export function SiteHeader() {
                       <ChevronDown
                         className={cn(
                           'size-4 text-slate-400 transition-transform duration-200',
-                          isAccordionOpen && 'rotate-180 text-[#1E4ED8]'
+                          isAccordionOpen && 'rotate-180 text-[#0062D2]'
                         )}
                       />
                     </button>
@@ -366,7 +366,7 @@ export function SiteHeader() {
                             <Link
                               href={child.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block py-1 text-[13px] text-slate-600 hover:text-[#1E4ED8]"
+                              className="block py-1 text-[13px] text-slate-600 hover:text-[#0062D2]"
                             >
                               <span>{child.label}</span>
                               {child.phase === 2 ? (

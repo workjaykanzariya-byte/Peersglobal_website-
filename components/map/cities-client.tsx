@@ -166,43 +166,43 @@ export function CitiesClient() {
   })
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-[#EADFC7]/50 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-slate-50/90 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-slate-600 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <Link href="/map" className="hover:text-neutral-900 transition-colors">
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <Link href="/map" className="hover:text-slate-900 transition-colors">
             The Territory
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Cities</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Cities</span>
         </div>
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-14 md:pt-16 md:pb-18 border-b border-[#EADFC7]/60">
+      <section className="relative pt-12 pb-14 md:pt-16 md:pb-18 border-b border-slate-200 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
             <div className="space-y-4 max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#8C6422]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
                 OUR CITIES
               </span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-slate-900 tracking-tight leading-[1.08] font-bold">
                 Cities
               </h1>
-              <p className="text-xl font-serif text-[#5B4834] italic">
+              <p className="text-xl font-serif text-slate-700 italic">
                 Local rooms. A global community.
               </p>
-              <p className="text-sm sm:text-base text-neutral-600">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 Find a Circle in your city. Meet entrepreneurs who think like you, work like you, and want to grow together.
               </p>
             </div>
 
             <div className="text-right hidden lg:block">
-              <span className="text-base font-serif italic text-[#8C6422] block">
+              <span className="text-base font-serif italic text-slate-700 block">
                 Same Spirit. Different Cities. One Community.
               </span>
             </div>
@@ -211,18 +211,18 @@ export function CitiesClient() {
       </section>
 
       {/* ─── Filter & Search Bar ─── */}
-      <section className="py-8 border-b border-[#EADFC7]/60 bg-white sticky top-0 z-30 shadow-2xs">
+      <section className="py-6 border-b border-slate-200 bg-[#FAFBFD] sticky top-0 z-30 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Search Input */}
             <div className="relative w-full md:w-96">
-              <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search city (e.g. Ahmedabad)"
-                className="w-full pl-10 pr-4 py-2.5 rounded-full border border-[#E8DFC9] bg-[#FDFBF7] text-xs focus:outline-none focus:border-[#8C6422]"
+                className="w-full pl-10 pr-4 py-2.5 rounded-full border border-slate-300 bg-white text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0062D2] focus:ring-1 focus:ring-[#0062D2]"
               />
             </div>
 
@@ -231,7 +231,7 @@ export function CitiesClient() {
               <select
                 value={selectedState}
                 onChange={(e) => setSelectedState(e.target.value)}
-                className="text-xs rounded-xl border border-[#E8DFC9] bg-[#FDFBF7] px-3 py-2 text-neutral-700 focus:outline-none focus:border-[#8C6422]"
+                className="text-xs rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-700 focus:outline-none focus:border-[#0062D2]"
               >
                 <option value="All">All States</option>
                 <option value="Gujarat">Gujarat</option>
@@ -245,7 +245,7 @@ export function CitiesClient() {
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="text-xs rounded-xl border border-[#E8DFC9] bg-[#FDFBF7] px-3 py-2 text-neutral-700 focus:outline-none focus:border-[#8C6422]"
+                className="text-xs rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-700 focus:outline-none focus:border-[#0062D2]"
               >
                 <option value="All">All Circle Types</option>
                 <option value="General">General Circles</option>
@@ -253,11 +253,11 @@ export function CitiesClient() {
                 <option value="Cross-Border">Cross-Border Circles</option>
               </select>
 
-              <div className="flex items-center border border-[#E8DFC9] rounded-xl overflow-hidden bg-[#FDFBF7]">
+              <div className="flex items-center border border-slate-300 rounded-xl overflow-hidden bg-white">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`p-2 transition-colors ${
-                    viewMode === 'grid' ? 'bg-[#1A1A1A] text-white' : 'text-neutral-600 hover:bg-neutral-100'
+                    viewMode === 'grid' ? 'bg-[#0062D2] text-white' : 'text-slate-600 hover:bg-slate-100'
                   }`}
                   aria-label="Grid view"
                 >
@@ -266,7 +266,7 @@ export function CitiesClient() {
                 <button
                   onClick={() => setViewMode('list')}
                   className={`p-2 transition-colors ${
-                    viewMode === 'list' ? 'bg-[#1A1A1A] text-white' : 'text-neutral-600 hover:bg-neutral-100'
+                    viewMode === 'list' ? 'bg-[#0062D2] text-white' : 'text-slate-600 hover:bg-slate-100'
                   }`}
                   aria-label="List view"
                 >
@@ -276,9 +276,9 @@ export function CitiesClient() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs text-neutral-500 pt-1">
+          <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
             <span>Showing {filteredCities.length} cities</span>
-            <Link href="/circles/find" className="font-semibold text-[#0D6EFD] hover:underline">
+            <Link href="/circles/find" className="font-semibold text-[#0062D2] hover:underline">
               Find Your Circle by Industry →
             </Link>
           </div>
@@ -286,16 +286,16 @@ export function CitiesClient() {
       </section>
 
       {/* ─── Cities Directory ─── */}
-      <section className="py-12 md:py-16 border-b border-[#EADFC7]/60">
+      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {viewMode === 'grid' ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCities.map((city) => (
                 <div
                   key={city.id}
-                  className="rounded-3xl bg-white border border-[#E8DFC9] overflow-hidden hover:shadow-md transition-all flex flex-col justify-between"
+                  className="rounded-3xl bg-white border border-slate-200 overflow-hidden hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between"
                 >
-                  <div className="relative h-44 w-full bg-neutral-900">
+                  <div className="relative h-44 w-full bg-slate-900">
                     <Image
                       src={city.image}
                       alt={city.name}
@@ -305,7 +305,7 @@ export function CitiesClient() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between">
                       <div>
-                        <span className="text-[11px] uppercase tracking-wider text-amber-300 font-semibold block">
+                        <span className="text-[11px] uppercase tracking-wider text-cyan-300 font-semibold block">
                           {city.state}
                         </span>
                         <h3 className="text-2xl font-serif font-bold text-white leading-tight">
@@ -318,26 +318,26 @@ export function CitiesClient() {
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-4">
-                    <div className="grid grid-cols-2 gap-2 text-xs py-1 border-b border-neutral-100">
+                  <div className="p-6 space-y-4 bg-[#FAFBFD]">
+                    <div className="grid grid-cols-2 gap-2 text-xs py-1 border-b border-slate-200">
                       <div>
-                        <span className="text-neutral-400 block text-[10px] uppercase font-semibold">Circles</span>
-                        <span className="font-serif font-bold text-sm text-neutral-900">{city.circlesCount} Active</span>
+                        <span className="text-slate-400 block text-[10px] uppercase font-semibold">Circles</span>
+                        <span className="font-serif font-bold text-sm text-slate-900">{city.circlesCount} Active</span>
                       </div>
                       <div>
-                        <span className="text-neutral-400 block text-[10px] uppercase font-semibold">Peers</span>
-                        <span className="font-serif font-bold text-sm text-neutral-900">{city.peersCount}+ Members</span>
+                        <span className="text-slate-400 block text-[10px] uppercase font-semibold">Peers</span>
+                        <span className="font-serif font-bold text-sm text-slate-900">{city.peersCount}+ Members</span>
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between text-xs pt-1">
-                      <div className="flex items-center gap-1.5 text-neutral-600">
-                        <Calendar className="w-3.5 h-3.5 text-neutral-400" />
+                      <div className="flex items-center gap-1.5 text-slate-600">
+                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
                         <span>Next: {city.nextMeeting}</span>
                       </div>
                       <Link
                         href="/circles"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0D6EFD] hover:text-blue-700"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0062D2] hover:text-[#1a42c0]"
                       >
                         View <ChevronRight className="w-3.5 h-3.5" />
                       </Link>
@@ -351,34 +351,34 @@ export function CitiesClient() {
               {filteredCities.map((city) => (
                 <div
                   key={city.id}
-                  className="p-5 rounded-2xl bg-white border border-[#E8DFC9] flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-xs transition-all"
+                  className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-xs transition-all"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-[#8C6422]">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-base font-serif font-bold text-neutral-900">{city.name}</h4>
-                      <span className="text-xs text-neutral-500">{city.state} · {city.circleType}</span>
+                      <h4 className="text-base font-serif font-bold text-slate-900">{city.name}</h4>
+                      <span className="text-xs text-slate-500">{city.state} · {city.circleType}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-6 text-xs">
                     <div>
-                      <span className="text-neutral-400 block text-[10px]">Circles</span>
-                      <span className="font-bold text-neutral-900">{city.circlesCount} Active</span>
+                      <span className="text-slate-400 block text-[10px]">Circles</span>
+                      <span className="font-bold text-slate-900">{city.circlesCount} Active</span>
                     </div>
                     <div>
-                      <span className="text-neutral-400 block text-[10px]">Peers</span>
-                      <span className="font-bold text-neutral-900">{city.peersCount}+</span>
+                      <span className="text-slate-400 block text-[10px]">Peers</span>
+                      <span className="font-bold text-slate-900">{city.peersCount}+</span>
                     </div>
                     <div>
-                      <span className="text-neutral-400 block text-[10px]">Meeting</span>
-                      <span className="font-bold text-neutral-900">{city.nextMeeting}</span>
+                      <span className="text-slate-400 block text-[10px]">Meeting</span>
+                      <span className="font-bold text-slate-900">{city.nextMeeting}</span>
                     </div>
                     <Link
                       href="/circles"
-                      className="px-4 py-2 rounded-full bg-[#1A1A1A] text-white text-xs font-semibold hover:bg-neutral-800"
+                      className="px-4 py-2 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#1a42c0] transition-colors"
                     >
                       Explore
                     </Link>
@@ -389,18 +389,18 @@ export function CitiesClient() {
           )}
 
           {/* Don't see your city callout */}
-          <div className="p-8 rounded-3xl bg-[#FAF5EB] border border-[#EADBBD] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div className="space-y-1">
-              <h3 className="text-xl font-serif font-bold text-neutral-900">
+              <h3 className="text-xl font-serif font-bold text-slate-900">
                 Don&apos;t see your city?
               </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 max-w-lg">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-lg">
                 Help us bring Peers Global to your city. Register your interest and join our upcoming territorial launch index.
               </p>
             </div>
             <Link
               href="/bring-to-my-city"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0D6EFD] text-white text-xs font-bold hover:bg-blue-600 transition-colors uppercase tracking-wider shadow-sm whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] text-white text-xs font-bold hover:bg-[#1a42c0] transition-colors uppercase tracking-wider shadow-sm whitespace-nowrap"
             >
               Register Interest
               <ArrowRight className="w-4 h-4" />
@@ -410,16 +410,16 @@ export function CitiesClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0D1117] text-white py-24 md:py-32 overflow-hidden border-t border-neutral-800">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <Image
-            src="/images/who-we-are-mountain.jpg"
-            alt="Mountain ridge horizon"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/80 to-transparent" />
+      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
@@ -430,7 +430,7 @@ export function CitiesClient() {
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg shadow-black/10 hover:shadow-xl uppercase tracking-wider transition-all"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />

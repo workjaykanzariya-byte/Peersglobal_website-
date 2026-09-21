@@ -497,14 +497,48 @@ export function IndustryDirectorClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 3: WHAT THE ROLE CARRIES (5 CARDS) ──────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-              — WHAT THE ROLE CARRIES —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
+      {/* ─── SECTION 3: WHAT THE ROLE CARRIES (5 CARDS - HOMEPAGE DARK CONSTELLATION THEME) ─── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80">
+        {/* Background Glow & Atmospheric Orbs */}
+        <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
+        <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
+
+        {/* Constellation Star Particle Overlay */}
+        <svg viewBox="0 0 1400 600" className="absolute inset-0 size-full pointer-events-none opacity-20" preserveAspectRatio="none">
+          <g fill="#38BDF8">
+            <circle cx="80" cy="60" r="1.5" /><circle cx="200" cy="130" r="1" /><circle cx="340" cy="45" r="2" />
+            <circle cx="500" cy="100" r="1.2" /><circle cx="680" cy="35" r="1.5" /><circle cx="850" cy="110" r="1" />
+            <circle cx="1020" cy="60" r="2" /><circle cx="1180" cy="160" r="1.2" /><circle cx="1340" cy="80" r="1.5" />
+            <circle cx="150" cy="500" r="1.2" /><circle cx="400" cy="540" r="1.8" /><circle cx="640" cy="560" r="1" />
+            <circle cx="900" cy="520" r="1.5" /><circle cx="1100" cy="550" r="1" /><circle cx="70" cy="320" r="1" />
+            <circle cx="310" cy="270" r="1.8" /><circle cx="760" cy="300" r="1.2" /><circle cx="1260" cy="360" r="1" />
+          </g>
+          <g stroke="#38BDF8" strokeWidth="0.5" opacity="0.35" fill="none">
+            <line x1="80" y1="60" x2="200" y2="130" /><line x1="200" y1="130" x2="340" y2="45" />
+            <line x1="500" y1="100" x2="680" y2="35" /><line x1="850" y1="110" x2="1020" y2="60" />
+            <line x1="1020" y1="60" x2="1180" y2="160" />
+          </g>
+        </svg>
+
+        {/* Orbit rings decorative */}
+        <div className="pointer-events-none absolute -bottom-24 -left-20 size-[380px] opacity-20">
+          <svg viewBox="0 0 400 400" className="size-full stroke-cyan-400/30 fill-none">
+            <circle cx="100" cy="300" r="260" strokeWidth="1" strokeDasharray="6 6" />
+            <circle cx="100" cy="300" r="210" strokeWidth="1" />
+            <circle cx="100" cy="300" r="160" strokeWidth="1" />
+            <circle cx="100" cy="90" r="3.5" fill="#38bdf8" className="animate-pulse" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-14 text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
+              <span className="w-5 h-px bg-cyan-400" />
+              WHAT THE ROLE CARRIES
+              <span className="w-5 h-px bg-cyan-400" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
               More than a title. A bigger responsibility.
             </h2>
           </div>
@@ -516,18 +550,19 @@ export function IndustryDirectorClient() {
               return (
                 <div
                   key={role.title}
-                  className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
+                  className="rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] p-6 text-white shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                 >
-                  <div>
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 border transition-transform duration-300 group-hover:scale-110 ${role.badgeColor}`}
-                    >
-                      <Icon className="w-5 h-5" />
+                  {/* Subtle glass reflection */}
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
+
+                  <div className="relative z-10">
+                    <div className="size-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
+                      <Icon className="size-5" />
                     </div>
-                    <h3 className="font-serif font-bold text-slate-900 text-base leading-snug mb-2">
+                    <h3 className="font-serif text-base font-bold text-white mb-2 leading-snug">
                       {role.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                       {role.description}
                     </p>
                   </div>
@@ -640,24 +675,30 @@ export function IndustryDirectorClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 5: CLOSING DARK MOUNTAIN BANNER ────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-slate-950 text-white overflow-hidden">
-        {/* Background Image: Mountain Climber */}
-        <div className="absolute inset-0 opacity-45 mix-blend-luminosity">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Climber looking at sunrise from mountain peak"
-            fill
-            className="object-cover object-center"
-          />
+      {/* ─── SECTION 5: CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure) ─── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* Subtle Geometric Orbital Line Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Copy */}
             <div className="lg:col-span-8 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-400">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
                 — READY TO LEAD —
               </span>
 
@@ -665,7 +706,7 @@ export function IndustryDirectorClient() {
                 Take Your Industry Further.
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
                 Download the Unity App or apply to lead and create a lasting impact.
               </p>
 
@@ -675,7 +716,7 @@ export function IndustryDirectorClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-xl hover:bg-[#0052B4] transition-all duration-200 group"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -683,18 +724,18 @@ export function IndustryDirectorClient() {
 
                 <Link
                   href="/contact?intent=leadership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/25 backdrop-blur-sm transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
                 >
                   <span>Apply to Lead</span>
-                  <ArrowRight className="w-4 h-4 text-slate-300" />
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </Link>
               </div>
             </div>
 
             {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-slate-200 drop-shadow-lg"
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 People
