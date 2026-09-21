@@ -74,31 +74,34 @@ export function FounderClient() {
       <section className="relative overflow-hidden bg-gradient-to-b from-[#F6F9FD] via-[#FAFBFD] to-white pt-6 sm:pt-8 pb-10 sm:pb-12 border-b border-slate-200/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl bg-white border border-slate-200/90 shadow-[0_12px_40px_rgba(0,40,120,0.06)] overflow-hidden min-h-[500px] sm:min-h-[560px] lg:min-h-[600px] flex items-center">
-            {/* Background Looping Video Overlay with Mist Mask */}
-            <div
-              className="absolute right-0 top-0 bottom-0 w-full lg:w-[60%] pointer-events-none z-0 overflow-hidden"
-              style={{
-                maskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover object-center"
-                src={heroVideo}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/40 lg:hidden" />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-white/80 hidden lg:block" />
+            {/* Background Dr. Pravin Parmar Executive Portrait with Mist Mask */}
+            <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[48%] pointer-events-none z-0 overflow-hidden bg-gradient-to-tr from-[#061836] via-[#0B2558] to-[#040E24]">
+              <div
+                className="relative w-full h-full"
+                style={{
+                  maskImage:
+                    'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 6%, rgba(0,0,0,0.6) 20%, black 40%)',
+                  WebkitMaskImage:
+                    'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 6%, rgba(0,0,0,0.6) 20%, black 40%)',
+                }}
+              >
+                <Image
+                  src="/images/founder-new.png"
+                  alt="Dr. Pravin Parmar — Founder of Peers Global"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 550px"
+                  className="object-cover object-top sm:object-[center_12%]"
+                  priority
+                />
+                {/* Cinematic subtle vignette gradients */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040E24]/90 via-transparent to-transparent hidden lg:block" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/50 to-transparent lg:hidden" />
+              </div>
             </div>
 
             {/* Subtle top right decorative script */}
             <div
-              className="absolute top-6 right-8 hidden md:block text-2xl lg:text-3xl text-[#0062D2]/25 select-none pointer-events-none z-10"
+              className="absolute top-6 right-8 hidden md:block text-2xl lg:text-3xl text-white/50 select-none pointer-events-none z-10 drop-shadow-sm"
               style={{ fontFamily: 'var(--font-script)' }}
             >
               People, Ideas, Partnerships, Impact
