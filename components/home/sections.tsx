@@ -71,6 +71,7 @@ export function WhoWeAreSection() {
   const [isRevealed, setIsRevealed] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [whoWeAreVideo, setWhoWeAreVideo] = useState('/videos/homepage-hero-bg.mp4')
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const loadVideo = () => {
@@ -101,6 +102,17 @@ export function WhoWeAreSection() {
       window.removeEventListener('peers_media_updated', loadVideo)
     }
   }, [])
+
+  useEffect(() => {
+    if (isRevealed && videoRef.current) {
+      videoRef.current.defaultMuted = true
+      videoRef.current.muted = true
+      const playPromise = videoRef.current.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {})
+      }
+    }
+  }, [isRevealed, whoWeAreVideo])
 
   const handleReveal = () => {
     if (isTransitioning) return
@@ -226,17 +238,21 @@ export function WhoWeAreSection() {
                   WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
                 }}
               >
-                {/* Active Video with Fallback Poster */}
+                {/* Active Directly Playing Video */}
                 <video
+                  ref={videoRef}
                   key={whoWeAreVideo}
-                  src={whoWeAreVideo}
-                  poster="/images/who-we-are-boardroom.jpg"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   className="size-full object-cover object-center"
-                />
+                >
+                  <source src={whoWeAreVideo} type="video/mp4" />
+                  <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
+                  <source src="/videos/hero-background.mp4" type="video/mp4" />
+                </video>
 
                 {/* Seamless gradient overlays for the signature misty fade */}
                 <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
@@ -275,13 +291,6 @@ export function WhoWeAreSection() {
               {/* Left Content Area (Overlaid on the crisp white side) */}
               <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
                 <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
-                  <div className="flex items-center gap-3">
-                    <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
-                      STRONG TOGETHER
-                    </span>
-                  </div>
-
                   <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
                     A global community of entrepreneurs who choose to{' '}
                     <span className="italic text-[#1E4ED8]">grow together.</span>
