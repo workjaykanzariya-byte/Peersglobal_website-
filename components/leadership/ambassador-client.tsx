@@ -711,7 +711,7 @@ export function AmbassadorClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0062D2] text-white font-semibold text-xs shadow-md hover:bg-[#0052B4] transition-all duration-200"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#0062D2] text-white font-semibold text-xs shadow-md hover:bg-[#0052B4] transition-all duration-200"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -719,7 +719,7 @@ export function AmbassadorClient() {
 
                 <Link
                   href="/contact?intent=leadership"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white text-slate-800 font-semibold text-xs border border-slate-300 shadow-sm hover:bg-slate-50 transition-all duration-200"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-white text-slate-800 font-semibold text-xs border border-slate-300 shadow-sm hover:bg-slate-50 transition-all duration-200"
                 >
                   <span>Apply to Lead</span>
                   <ArrowRight className="w-3.5 h-3.5 text-slate-400" />

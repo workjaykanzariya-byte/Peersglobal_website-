@@ -70,8 +70,8 @@ const FORMAT_CARDS = [
     image: '/images/conclave.png',
     desc: 'Video features on businesses, founders and the ecosystems they operate in across industrial belts.',
     ctaText: 'Watch Now',
-    ctaHref: '#channels',
-    external: false,
+    ctaHref: 'https://www.youtube.com/@VyapaarJagatTV',
+    external: true,
   },
   {
     id: 'vyapaarjagat',
@@ -964,7 +964,7 @@ export function PodcastMediaClient() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4] transition-all cursor-pointer shadow-md"
+                    className="w-full py-3 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4] transition-all cursor-pointer shadow-md"
                   >
                     Submit Nomination
                   </button>

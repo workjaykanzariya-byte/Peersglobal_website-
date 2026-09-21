@@ -105,7 +105,7 @@ export function SiteFooter() {
         { label: 'Collaboration Wins', href: '/stories/wins' },
         { label: 'Awards & Recognition', href: '/awards' },
         { label: 'Podcast & Media', href: '/media' },
-        { label: 'Vyapaar Jagat TV', href: '/media/vyapaar-jagat-tv' },
+        { label: 'Vyapaar Jagat TV', href: 'https://www.youtube.com/@VyapaarJagatTV', external: true },
         { label: 'VyapaarJagat.com', href: 'https://vyapaarjagat.com', external: true },
         { label: 'Gallery', href: '/gallery' },
         { label: 'Blog & Insights', href: '/insights' },

@@ -8,7 +8,7 @@ type CtaVariant = 'primary' | 'gold' | 'red' | 'outline' | 'onDark' | 'quiet'
 type CtaSize = 'sm' | 'md' | 'lg'
 
 const ctaBase =
-  'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)] disabled:opacity-50 active:scale-[0.97] select-none whitespace-nowrap rounded-lg'
+  'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)] disabled:opacity-50 active:scale-[0.97] select-none whitespace-nowrap rounded-full'
 
 const ctaVariants: Record<CtaVariant, string> = {
   primary:

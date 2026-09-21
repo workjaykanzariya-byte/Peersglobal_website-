@@ -404,7 +404,7 @@ export const FOOTER_BANDS: FooterBand[] = [
         links: [
           { label: 'Newsroom', href: '/newsroom', phase: 'P2', headerShared: true },
           { label: 'Podcast & Media', href: '/media', phase: 'P2', headerShared: true },
-          { label: 'Vyapaar Jagat TV', href: '/media/vyapaar-jagat-tv', phase: 'P2' },
+          { label: 'Vyapaar Jagat TV', href: 'https://www.youtube.com/@VyapaarJagatTV', phase: 'P2', external: true },
           { label: 'VyapaarJagat.com', href: 'https://vyapaarjagat.com', phase: 'P2', external: true },
           { label: 'Gallery', href: '/gallery', phase: 'P2', headerShared: true },
           { label: 'Press Coverage', href: '/newsroom/coverage', phase: 'P2' },

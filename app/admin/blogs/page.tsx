@@ -219,7 +219,7 @@ export default function AdminBlogsPage() {
         <div className="flex items-center gap-2.5 shrink-0">
           <button
             onClick={handleExportJSON}
-            className="px-3.5 py-2.5 rounded-xl bg-[#0F172A] hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs flex items-center gap-2 transition border border-slate-800 shadow-sm"
+            className="px-3.5 py-2.5 rounded-full bg-[#0F172A] hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs flex items-center gap-2 transition border border-slate-800 shadow-sm"
             title="Export all blogs data as JSON"
           >
             <Download className="w-4 h-4 text-blue-400" />
@@ -228,7 +228,7 @@ export default function AdminBlogsPage() {
 
           <button
             onClick={handleOpenAddModal}
-            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#1E4ED8] to-[#1E3A8A] hover:from-[#2563EB] hover:to-[#1D4ED8] text-white font-semibold text-xs flex items-center gap-2 transition shadow-lg shadow-blue-600/25 shrink-0 cursor-pointer"
+            className="px-4 py-2.5 rounded-full bg-gradient-to-r from-[#1E4ED8] to-[#1E3A8A] hover:from-[#2563EB] hover:to-[#1D4ED8] text-white font-semibold text-xs flex items-center gap-2 transition shadow-lg shadow-blue-600/25 shrink-0 cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Create Article</span>
@@ -507,7 +507,7 @@ export default function AdminBlogsPage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#1E4ED8] to-[#1E3A8A] hover:from-[#2563EB] hover:to-[#1D4ED8] text-white font-semibold shadow-lg shadow-blue-600/25 transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1E4ED8] to-[#1E3A8A] hover:from-[#2563EB] hover:to-[#1D4ED8] text-white font-semibold shadow-lg shadow-blue-600/25 transition cursor-pointer"
                 >
                   {editingPost ? 'Save Article Changes' : 'Publish Article'}
                 </button>

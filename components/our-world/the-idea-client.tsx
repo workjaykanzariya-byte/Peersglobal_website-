@@ -201,7 +201,7 @@ export function TheIdeaClient() {
                 <div className="flex flex-wrap gap-3.5 items-center">
                   <Link
                     href="/membership"
-                    className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-700 text-white px-7 py-3.5 text-sm sm:text-base font-bold transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-[#0062D2] hover:bg-blue-700 text-white px-7 py-3.5 text-sm sm:text-base font-bold transition-all shadow-sm hover:shadow-md active:scale-[0.98]"
                   >
                     <span>Join Peers Global</span>
                     <ArrowRight className="size-4.5" />
@@ -209,7 +209,7 @@ export function TheIdeaClient() {
 
                   <Link
                     href="/circles"
-                    className="inline-flex items-center gap-2.5 rounded-lg border border-slate-300/90 bg-white hover:bg-slate-50 text-slate-800 px-7 py-3.5 text-sm sm:text-base font-semibold transition-all shadow-2xs active:scale-[0.98]"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-slate-300/90 bg-white hover:bg-slate-50 text-slate-800 px-7 py-3.5 text-sm sm:text-base font-semibold transition-all shadow-2xs active:scale-[0.98]"
                   >
                     <span>Find Your Circle</span>
                   </Link>
@@ -1651,7 +1651,7 @@ export function TheIdeaClient() {
           <div className="flex justify-center mt-8 sm:mt-10 relative z-10">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-700 text-white px-8 py-3.5 text-sm sm:text-base font-bold transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:-translate-y-0.5 active:scale-[0.98] group"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#0062D2] hover:bg-blue-700 text-white px-8 py-3.5 text-sm sm:text-base font-bold transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:-translate-y-0.5 active:scale-[0.98] group"
             >
               <span>Explore Our World</span>
               <ArrowRight className="size-4.5 group-hover:translate-x-1 transition-transform" />
@@ -1847,7 +1847,7 @@ export function TheIdeaClient() {
           <div className="flex justify-center mb-8 sm:mb-10">
             <Link
               href="/the-idea"
-              className="inline-flex items-center gap-2.5 rounded-xl bg-[#0062D2] hover:bg-blue-600 text-white px-8 py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:scale-[0.98] transition-all group"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#0062D2] hover:bg-blue-600 text-white px-8 py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:scale-[0.98] transition-all group"
             >
               <span>See the 1 Million Mission</span>
               <ArrowRight className="size-4.5 group-hover:translate-x-1 transition-transform" />

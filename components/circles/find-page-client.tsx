@@ -139,7 +139,7 @@ function PillButton({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all cursor-pointer text-left ${
+      className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium border transition-all cursor-pointer text-left ${
         selected
           ? 'bg-[#0062D2] border-[#0062D2] text-white shadow-md shadow-blue-600/20'
           : 'bg-white border-slate-200 text-slate-700 hover:border-[#0062D2] hover:text-[#0062D2]'
@@ -394,7 +394,7 @@ export function FindPageClient() {
                   href="https://play.google.com/store"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all"
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all"
                 >
                   <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M3.18 23.76c.37.21.8.22 1.19.06L16.91 12 4.37.18C3.98.02 3.55.03 3.18.24 2.46.65 2 1.44 2 2.31v19.38c0 .87.46 1.66 1.18 2.07zM17.62 12.76l2.33-2.33-13.1-7.57L17.62 12.76zm-13.1 8.39 13.1-7.57-2.33-2.32L6.85 18.77l-2.33-2.33V17.38l.36.36-2.69-2.76.14 6.17zM20.47 10.28l-1.67-1.67-1.18 1.59 1.18 1.8 1.72-1.72z"/></svg>
                   Get it on Google Play
@@ -403,7 +403,7 @@ export function FindPageClient() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all"
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all"
                 >
                   <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                   Download on App Store
@@ -867,7 +867,7 @@ export function FindPageClient() {
                   href="https://play.google.com/store"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold transition-all"
+                  className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold transition-all"
                 >
                   <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M3.18 23.76c.37.21.8.22 1.19.06L16.91 12 4.37.18C3.98.02 3.55.03 3.18.24 2.46.65 2 1.44 2 2.31v19.38c0 .87.46 1.66 1.18 2.07zM17.62 12.76l2.33-2.33-13.1-7.57L17.62 12.76zm-13.1 8.39 13.1-7.57-2.33-2.32L6.85 18.77l-2.33-2.33V17.38l.36.36-2.69-2.76.14 6.17zM20.47 10.28l-1.67-1.67-1.18 1.59 1.18 1.8 1.72-1.72z"/></svg>
                   Google Play
@@ -876,7 +876,7 @@ export function FindPageClient() {
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold transition-all"
+                  className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold transition-all"
                 >
                   <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                   App Store

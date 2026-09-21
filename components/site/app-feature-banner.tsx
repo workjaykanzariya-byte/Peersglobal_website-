@@ -45,7 +45,7 @@ export function AppFeatureBanner({
         <div className="flex shrink-0 flex-wrap items-center gap-3">
           <Link
             href="/unity"
-            className="inline-flex items-center gap-2 rounded-2xl bg-[#D4AF37] text-[#0b1b3a] px-6 py-3.5 text-sm font-extrabold hover:bg-amber-400 active:scale-95 transition-all shadow-lg shadow-[#D4AF37]/25"
+            className="inline-flex items-center gap-2 rounded-full bg-[#D4AF37] text-[#0b1b3a] px-6 py-3.5 text-sm font-extrabold hover:bg-amber-400 active:scale-95 transition-all shadow-lg shadow-[#D4AF37]/25"
           >
             Explore Unity App
             <ArrowRight className="size-4" />

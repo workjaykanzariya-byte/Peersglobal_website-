@@ -708,7 +708,7 @@ export function InsightsPageClient() {
 
               <button
                 type="button"
-                className="w-full sm:w-auto px-6 py-2 rounded-xl bg-[#0062D2] text-white text-xs font-medium hover:bg-[#0052B4] transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2 rounded-full bg-[#0062D2] text-white text-xs font-medium hover:bg-[#0052B4] transition-all cursor-pointer"
               >
                 Search
               </button>

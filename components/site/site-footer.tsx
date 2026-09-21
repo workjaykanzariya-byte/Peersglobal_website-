@@ -115,7 +115,7 @@ export function SiteFooter() {
         { label: 'Collaboration Wins', href: '/stories/wins' },
         { label: 'Awards & Recognition', href: '/awards' },
         { label: 'Podcast & Media', href: '/media' },
-        { label: 'Vyapaar Jagat TV', href: '/media/vyapaar-jagat-tv' },
+        { label: 'Vyapaar Jagat TV', href: 'https://www.youtube.com/@VyapaarJagatTV', external: true },
         { label: 'VyapaarJagat.com', href: 'https://vyapaarjagat.com', external: true },
         { label: 'Gallery', href: '/gallery' },
         { label: 'Learning Hub', href: '/learning' },
@@ -189,7 +189,7 @@ export function SiteFooter() {
                 href={SITE.appStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-lg bg-black hover:bg-neutral-800 text-white px-3.5 py-2 transition-colors shadow-xs"
+                className="inline-flex items-center gap-2.5 rounded-full bg-black hover:bg-neutral-800 text-white px-3.5 py-2 transition-colors shadow-xs"
               >
                 <Apple className="size-5 fill-white" />
                 <div className="text-left leading-none">
@@ -202,7 +202,7 @@ export function SiteFooter() {
                 href={SITE.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-lg bg-black hover:bg-neutral-800 text-white px-3.5 py-2 transition-colors shadow-xs"
+                className="inline-flex items-center gap-2.5 rounded-full bg-black hover:bg-neutral-800 text-white px-3.5 py-2 transition-colors shadow-xs"
               >
                 <svg className="size-5 shrink-0" viewBox="0 0 24 24" fill="none">
                   <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
@@ -258,7 +258,7 @@ export function SiteFooter() {
                 />
                 <button
                   type="submit"
-                  className="whitespace-nowrap rounded-lg bg-[#0062D2] hover:bg-blue-700 text-white px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all shrink-0 shadow-xs active:scale-[0.98]"
+                  className="whitespace-nowrap rounded-full bg-[#0062D2] hover:bg-blue-700 text-white px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all shrink-0 shadow-xs active:scale-[0.98]"
                 >
                   Subscribe
                 </button>

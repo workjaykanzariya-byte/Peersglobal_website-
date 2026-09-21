@@ -126,7 +126,7 @@ export default function UnityPage() {
 
             {/* Download Badges */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              <a href="#" className="group inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/8 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/15 hover:border-white/30 hover:scale-105 shadow-lg">
+              <a href="#" className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/8 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/15 hover:border-white/30 hover:scale-105 shadow-lg">
                 <svg viewBox="0 0 20 20" className="size-5 fill-white shrink-0" aria-hidden>
                   <path d="M14.5 10.7c0-2 1.3-3 1.4-3.1-0.8-1.1-2-1.3-2.4-1.3-1-0.1-2 0.6-2.5 0.6s-1.3-0.6-2.2-0.6c-1.1 0-2.2 0.7-2.8 1.7-1.2 2-0.3 5 0.8 6.7 0.6 0.8 1.2 1.7 2.1 1.7s1.1-0.5 2.2-0.5 1.3 0.5 2.2 0.5 1.5-0.9 2-1.7c0.7-1 1-1.9 1-2zm-2.8-7.2c0.5-0.6 0.9-1.4 0.8-2.2-0.7 0-1.6 0.5-2.1 1.1-0.5 0.5-0.9 1.4-0.8 2.1 0.8 0.1 1.6-0.4 2.1-1z" />
                 </svg>
@@ -135,7 +135,7 @@ export default function UnityPage() {
                   <p className="text-sm font-bold text-white">App Store</p>
                 </div>
               </a>
-              <a href="#" className="group inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/8 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/15 hover:border-white/30 hover:scale-105 shadow-lg">
+              <a href="#" className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/8 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/15 hover:border-white/30 hover:scale-105 shadow-lg">
                 <svg viewBox="0 0 20 20" className="size-5 fill-white shrink-0" aria-hidden>
                   <path d="M3.2 1.8L11.5 10 3.2 18.2c-0.3-0.2-0.5-0.5-0.5-0.9V2.7c0-0.4 0.2-0.7 0.5-0.9zm10.6 5.6L16.2 9l-2 1.1L12 9l-0.4-0.4L13.8 7.4zm-0.8 5.3L16.2 11l-2 1.1L12 11l1.8-1.6 1.2 3.3zM4 1l8 4.6-1.8 1.8L4 1zm0 18l6.2-6.4L12 14.6 4 19z" />
                 </svg>
