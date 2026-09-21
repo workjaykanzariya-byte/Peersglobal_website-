@@ -167,9 +167,9 @@ export function WatchlistClient() {
   })
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+    <div className="min-h-screen bg-[#FBFCFE] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-[#EADFC7]/50 bg-[#FDFBF7]">
+      <div className="border-b border-[#EADFC7]/50 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
           <Link href="/" className="hover:text-neutral-900 transition-colors">
             Home

@@ -190,7 +190,7 @@ export function ExecutiveDirectorClient() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="flex flex-col min-h-screen bg-[#FBFCFE] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       {/* ─── 1. HERO SECTION ────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-5 sm:pt-6 pb-3 sm:pb-4 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -342,7 +342,7 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── SECTION 2: FOUR LEVELS. ONE RESPONSIBILITY. ─────────────────── */}
-      <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-white border-y border-slate-200/80">
+      <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-[#FBFCFE] border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left Content Column: Title + 4 Cards */}
@@ -430,7 +430,7 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── SECTION 3: WHERE THE COMMUNITY ACTUALLY GROWS ───────────────── */}
-      <section className="py-16 sm:py-20 bg-[#FDFBF7] border-b border-slate-200/80">
+      <section className="py-16 sm:py-20 bg-[#FBFCFE] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Content */}
@@ -485,7 +485,7 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── SECTION 4: WHAT THE ROLE CARRIES (SIX RESPONSIBILITIES) ─────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200">
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
@@ -526,7 +526,7 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── SECTION 5: TWO-COLUMN SECTION (WHO YOU BECOME & WHO THIS IS FOR) ── */}
-      <section className="py-16 sm:py-24 bg-[#FDFBF7]">
+      <section className="py-16 sm:py-24 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
             {/* Left Column: Who You Become */}
@@ -671,7 +671,7 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── SECTION 6: COMMON QUESTIONS (FAQ ACCORDION) ────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-t border-slate-200">
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">

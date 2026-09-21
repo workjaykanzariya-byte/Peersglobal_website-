@@ -13,7 +13,7 @@ import {
 
 export function RefundPolicyClient() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] antialiased">
+    <div className="min-h-screen bg-[#FBFCFE] text-[#1A1A1A] antialiased">
       {/* Breadcrumb */}
       <div className="border-b border-[#EADFC7]/60 bg-[#FAF6EE]/90 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-neutral-600">

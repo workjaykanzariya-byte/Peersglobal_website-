@@ -145,7 +145,7 @@ export function CircleRolesClient() {
       </section>
 
       {/* ─── The Circle Leadership (Founder & Director) ─── */}
-      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold mb-2">
@@ -162,7 +162,7 @@ export function CircleRolesClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Circle Founder Card */}
-            <div className="p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm flex flex-col sm:flex-row gap-6 items-start">
+            <div className="p-8 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col sm:flex-row gap-6 items-start">
               <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shrink-0">
                 <Image
                   src="/images/leadership-circle-founder.jpg"
@@ -194,7 +194,7 @@ export function CircleRolesClient() {
             </div>
 
             {/* Circle Director Card */}
-            <div className="p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm flex flex-col sm:flex-row gap-6 items-start">
+            <div className="p-8 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col sm:flex-row gap-6 items-start">
               <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shrink-0">
                 <Image
                   src="/images/circle-director-hero.jpg"
@@ -232,7 +232,7 @@ export function CircleRolesClient() {
       </section>
 
       {/* ─── The Three Committees ─── */}
-      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold mb-2">
@@ -393,7 +393,7 @@ export function CircleRolesClient() {
       </section>
 
       {/* ─── Project Chairs (Nine Roles) ─── */}
-      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold mb-2">
@@ -414,7 +414,7 @@ export function CircleRolesClient() {
               return (
                 <div
                   key={pc.name}
-                  className="p-5 rounded-2xl bg-[#FAF7F0] border border-slate-200 shadow-xs text-center space-y-2.5 flex flex-col items-center justify-center hover:border-blue-300 transition-all hover:bg-blue-50/50"
+                  className="p-5 rounded-2xl bg-[#FBFCFE] border border-slate-200 shadow-xs text-center space-y-2.5 flex flex-col items-center justify-center hover:border-blue-300 transition-all hover:bg-blue-50/50"
                 >
                   <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
                     <Icon className="w-5 h-5" />
