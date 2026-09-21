@@ -1156,35 +1156,46 @@ export function PeerDirectoryClient() {
       </section>
 
       {/* ─── 7. BOTTOM BANNER (BETTER CONNECTIONS. A STRONGER TOMORROW) ─── */}
-      <section className="relative py-20 sm:py-28 bg-[#040F24] text-white overflow-hidden">
-        {/* Background Landscape */}
-        <div className="absolute inset-0 pointer-events-none opacity-40">
-          <Image
-            src="/images/who-we-are-mountain.jpg"
-            alt="Mountain peaks at dawn"
-            fill
-            className="object-cover object-center"
-          />
+      <section className="relative isolate overflow-hidden bg-[#040F24] py-20 text-white sm:py-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.22),transparent_38%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.14),transparent_32%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/10 blur-3xl"
+        />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none">
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
+          </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#040F24] via-[#040F24]/80 to-transparent" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="max-w-2xl space-y-3">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white leading-tight">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-center lg:gap-16">
+            <div className="max-w-2xl space-y-4">
+              <h2 className="font-serif text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
                 Better Connections. A Stronger Tomorrow.
               </h2>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
                 Join a global community of entrepreneurs who give, grow and build together.
               </p>
             </div>
 
-            <div className="shrink-0">
+            <div className="shrink-0 lg:pr-8">
               <a
                 href="https://unity.peersglobal.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-2.5 rounded-full border border-blue-400/30 bg-[#0062D2] px-8 py-4 text-sm font-bold tracking-wide text-white shadow-[0_4px_20px_rgba(0,98,210,0.5)] transition-all duration-300 hover:bg-[#0052B4] hover:shadow-[0_6px_28px_rgba(0,98,210,0.65)] hover:scale-[1.03] active:scale-[0.97]"
+                className="group relative inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-blue-300/40 bg-gradient-to-r from-[#0878E8] via-[#0062D2] to-[#0751B8] px-8 py-4 text-sm font-bold tracking-wide text-white shadow-[0_8px_28px_rgba(0,98,210,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-sky-200/60 hover:shadow-[0_12px_34px_rgba(0,122,255,0.48)] active:translate-y-0 sm:w-auto"
               >
                 <span>Download Unity App</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
