@@ -137,10 +137,10 @@ export function ClosingCtaSection({
               {primaryButtonText && primaryButtonHref && (
                 <Link
                   href={primaryButtonHref}
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#061836] shadow-md transition-all duration-200 hover:bg-slate-100 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
                 >
                   <span>{primaryButtonText}</span>
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-[#061836]" />
                 </Link>
               )}
 
@@ -150,7 +150,7 @@ export function ClosingCtaSection({
                     href={secondaryButtonHref}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/20 hover:border-white active:scale-[0.98] uppercase"
                   >
                     {secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
                     <span>{secondaryButtonText}</span>
@@ -158,7 +158,7 @@ export function ClosingCtaSection({
                 ) : (
                   <Link
                     href={secondaryButtonHref}
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/20 hover:border-white active:scale-[0.98] uppercase"
                   >
                     {secondaryButtonIcon}
                     <span>{secondaryButtonText}</span>

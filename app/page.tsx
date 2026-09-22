@@ -65,8 +65,8 @@ export default function HomePage() {
       {/* Section 13 — Leadership */}
       <LeadershipSection />
 
-      {/* Events Calendar */}
-      <EventsSection />
+      {/* Events Calendar (Hidden per request) */}
+      {/* <EventsSection /> */}
 
       {/* Section 14 — Final Call */}
       <ClosingSection />

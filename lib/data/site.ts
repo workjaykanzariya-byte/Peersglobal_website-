@@ -167,7 +167,7 @@ export const HEADER_NAV: NavItem[] = [
   },
   {
     label: 'Community Life',
-    href: '/events',
+    href: '/stories',
     type: 'mega',
     phase: 1,
     ctaCard: {
@@ -178,7 +178,7 @@ export const HEADER_NAV: NavItem[] = [
       ctaHref: '/stories',
     },
     children: [
-      { label: 'Events & Summits', href: '/events', desc: 'Monthly meetings, conclaves & retreats', phase: 1 },
+      // { label: 'Events & Summits', href: '/events', desc: 'Monthly meetings, conclaves & retreats', phase: 1 },
       { label: 'Peer Stories', href: '/stories', desc: 'Named Peers, verified numbers, real outcomes', phase: 1 },
       { label: 'Blog & Insights', href: '/insights', desc: 'Written by entrepreneurs who built the thing', phase: 1 },
       { label: 'Awards & Recognition', href: '/awards', desc: 'Recognising public contribution and impact', phase: 2 },

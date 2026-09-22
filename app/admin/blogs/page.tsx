@@ -13,6 +13,9 @@ import {
   CheckCircle2,
   Clock,
   Eye,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 
 interface BlogPostItem {
@@ -153,7 +156,7 @@ export default function AdminBlogsPage() {
     setIsModalOpen(true)
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this blog post?')) {
       const updated = blogs.filter((b) => b.id !== id)
       setBlogs(updated)
@@ -197,6 +200,9 @@ export default function AdminBlogsPage() {
   const filteredBlogs = blogs.filter((b) => {
     return b.title.toLowerCase().includes(search.toLowerCase()) || (b.content && b.content.toLowerCase().includes(search.toLowerCase()))
   })
+
+  const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage) || 1
+  const paginatedBlogs = filteredBlogs.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
 
   return (
     <div className="space-y-6 font-sans">
@@ -272,7 +278,7 @@ export default function AdminBlogsPage() {
                   </td>
                 </tr>
               ) : (
-                filteredBlogs.map((post) => (
+                paginatedBlogs.map((post) => (
                   <tr key={post.id} className="hover:bg-[#0F172A]/60 transition">
                     <td className="p-4 max-w-sm">
                       <p className="font-semibold text-white truncate hover:text-blue-400 transition">{post.title}</p>
