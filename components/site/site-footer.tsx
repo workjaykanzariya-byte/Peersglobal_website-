@@ -95,7 +95,7 @@ export function SiteFooter() {
     {
       title: 'Community Life',
       links: [
-        { label: 'Events & Summits', href: '/events' },
+        // { label: 'Events & Summits', href: '/events' },
         { label: 'Speak at Peers Global', href: '/events/speak' },
         { label: 'Peer Stories & Wins', href: '/stories' },
         { label: 'Awards & Recognition', href: '/awards' },

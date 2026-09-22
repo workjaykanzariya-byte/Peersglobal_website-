@@ -3189,7 +3189,7 @@ export function UniverseSection() {
     { title: 'Leadership', desc: 'A structure built and led by entrepreneurs', href: '/leadership', icon: Layers },
     { title: 'Recognition', desc: 'Contribution seen and celebrated', href: '/outcomes', icon: Award },
     { title: 'Unity App', desc: 'The digital ecosystem platform', href: '/unity', icon: Smartphone },
-    { title: 'Events', desc: 'Meetings, conclaves and the global summit', href: '/events', icon: CalendarDays },
+    // { title: 'Events', desc: 'Meetings, conclaves and the global summit', href: '/events', icon: CalendarDays },
     { title: 'Media', desc: 'Stories, podcasts and publications', href: '/stories', icon: Play },
     { title: 'Learning', desc: 'Masterclasses and actionable playbooks', href: '/lsr-framework', icon: BookOpen },
     { title: 'Opportunities', desc: 'Business, partnerships and markets', href: '/outcomes', icon: TrendingUp },
