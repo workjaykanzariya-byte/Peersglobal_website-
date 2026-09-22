@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   Clock,
   Eye,
+  ChevronDown,
 } from 'lucide-react'
 
 interface BlogPostItem {
@@ -153,7 +154,7 @@ export default function AdminBlogsPage() {
     setIsModalOpen(true)
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this blog post?')) {
       const updated = blogs.filter((b) => b.id !== id)
       setBlogs(updated)
