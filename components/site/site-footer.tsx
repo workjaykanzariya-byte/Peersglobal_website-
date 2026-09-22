@@ -61,7 +61,6 @@ export function SiteFooter() {
         { label: 'Start a Circle', href: '/start-a-circle' },
         { label: 'Circle Map — Cities', href: '/map' },
         { label: 'Unity Overview', href: '/unity' },
-        { label: 'Peer Directory', href: '/unity/directory' },
         { label: 'Circle Magazines', href: '/circle-magazines' },
       ],
     },

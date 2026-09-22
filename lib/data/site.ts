@@ -312,7 +312,6 @@ export const FOOTER_BANDS: FooterBand[] = [
         title: 'Unity App',
         links: [
           { label: 'Unity Overview', href: '/unity', phase: 'P1', headerShared: true },
-          { label: 'Peer Directory', href: '/unity/directory', phase: 'P2' },
           { label: 'Connections', href: '/unity/connections', phase: 'P2' },
           { label: 'One-to-One Booking', href: '/unity/one-to-one', phase: 'P2' },
           { label: 'Contribution Logging', href: '/unity/contributions', phase: 'P2' },
