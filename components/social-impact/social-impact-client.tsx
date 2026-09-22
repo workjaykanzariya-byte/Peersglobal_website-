@@ -137,7 +137,7 @@ export function SocialImpactClient() {
           const items = JSON.parse(saved)
           const target = items.find(
             (i: any) =>
-              (i.pageSlug === '/social-impact' ||
+              (i.pageSlug === '/foundation-social-impact' ||
                 i.pageId === 'social-impact' ||
                 i.pageName === 'Social Impact' ||
                 i.pageSlug === '/' ||

@@ -53,8 +53,8 @@ export default function HomePage() {
       {/* Section 9 — The 1 Million Mission */}
       <MissionSection />
 
-      {/* Section 10 — Real Collaborations */}
-      <StoriesSection />
+      {/* Section 10 — Real Collaborations (hidden) */}
+      {/* <StoriesSection /> */}
 
       {/* Section 11 — The Peers Global Universe */}
       <UniverseSection />

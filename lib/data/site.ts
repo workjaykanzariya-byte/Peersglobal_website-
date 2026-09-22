@@ -180,7 +180,6 @@ export const HEADER_NAV: NavItem[] = [
     children: [
       { label: 'Events & Summits', href: '/events', desc: 'Monthly meetings, conclaves & retreats', phase: 1 },
       { label: 'Peer Stories', href: '/stories', desc: 'Named Peers, verified numbers, real outcomes', phase: 1 },
-      { label: 'Collaboration Wins', href: '/stories/wins', desc: 'Live feed of confirmed peer actions', phase: 1 },
       { label: 'Blog & Insights', href: '/insights', desc: 'Written by entrepreneurs who built the thing', phase: 1 },
       { label: 'Awards & Recognition', href: '/awards', desc: 'Recognising public contribution and impact', phase: 2 },
       { label: 'Gallery', href: '/gallery', desc: 'Moments from conclaves and Circle meetings', phase: 2 },
@@ -204,7 +203,7 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Dr. Pravin Parmar', href: '/founder', desc: 'Founder, Peers Global', phase: 1 },
       { label: 'Contact', href: '/contact', desc: 'Direct routing & corporate headquarters', phase: 1 },
       { label: 'Our Initiatives', href: '/initiatives', desc: 'VyapaarJagat, Fempreneur & Greenpreneur', phase: 2 },
-      { label: 'Foundation & Social Impact', href: '/social-impact', desc: 'Section 8 foundation & evidenced SDGs', phase: 2 },
+      { label: 'Foundation & Social Impact', href: '/foundation-social-impact', desc: 'Section 8 foundation & evidenced SDGs', phase: 2 },
       { label: 'Newsroom', href: '/newsroom', desc: 'Press releases, coverage & media kit', phase: 2 },
       { label: 'Partner With Us', href: '/partner', desc: 'Institutional partnerships and alliances', phase: 2 },
       { label: 'Investors', href: '/investors', desc: 'Pre-Series A institutional overview', phase: 2 },
@@ -395,7 +394,7 @@ export const FOOTER_BANDS: FooterBand[] = [
         title: 'Stories',
         links: [
           { label: 'Peer Stories', href: '/stories', phase: 'P1', headerShared: true },
-          { label: 'Collaboration Wins', href: '/stories/wins', phase: 'P1', headerShared: true },
+
           { label: 'Stories by City', href: '/stories/city', phase: 'P2' },
           { label: 'Stories by Circle', href: '/stories/circle', phase: 'P2' },
           { label: 'Video Testimonials', href: '/testimonials', phase: 'P2' },
@@ -449,8 +448,7 @@ export const FOOTER_BANDS: FooterBand[] = [
         groupNumber: 15,
         title: 'Social Impact',
         links: [
-          { label: 'Social Impact', href: '/social-impact', phase: 'P2', headerShared: true },
-          { label: 'The Foundation', href: '/foundation', phase: 'P2' },
+          { label: 'Foundation & Social Impact', href: '/foundation-social-impact', phase: 'P2', headerShared: true },
           { label: 'SDGs We Impact', href: '/sdgs', phase: 'P2' },
           { label: 'Mentor & Train', href: '/social-impact/mentor', phase: 'P2' },
           { label: 'Volunteer', href: '/social-impact/volunteer', phase: 'P2' },

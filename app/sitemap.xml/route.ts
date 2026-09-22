@@ -7,7 +7,7 @@ const STATIC_ROUTES = [
   '/the-idea',
   '/founder',
   '/1-million-mission',
-  '/social-impact',
+  '/foundation-social-impact',
   '/media',
   '/stories',
   '/circles',
