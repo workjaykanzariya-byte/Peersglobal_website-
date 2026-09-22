@@ -48,9 +48,23 @@ export function ClosingCtaSection({
   const isSecondaryExternal = secondaryButtonHref?.startsWith('http')
 
   return (
-    <section className={`relative overflow-hidden bg-gradient-to-r from-[#040E24] via-[#061836] to-[#0A2558] border-t border-slate-800 py-10 sm:py-14 lg:py-16 text-white ${className}`}>
-      {/* Subtle geometric orbital line art in top-right background */}
-      <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
+    <section className={`relative isolate overflow-hidden bg-[#040F24] py-14 sm:py-18 lg:py-20 text-white ${className}`}>
+      {/* Deep celestial radial gradients & luminous aura */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+      />
+
+      {/* Subtle geometric orbital line art */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
         <svg
           viewBox="0 0 760 520"
           fill="none"
