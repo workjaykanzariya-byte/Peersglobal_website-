@@ -201,6 +201,9 @@ export default function AdminBlogsPage() {
     return b.title.toLowerCase().includes(search.toLowerCase()) || (b.content && b.content.toLowerCase().includes(search.toLowerCase()))
   })
 
+  const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage) || 1
+  const paginatedBlogs = filteredBlogs.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+
   return (
     <div className="space-y-6 font-sans">
       {/* Header */}
@@ -275,7 +278,7 @@ export default function AdminBlogsPage() {
                   </td>
                 </tr>
               ) : (
-                filteredBlogs.map((post) => (
+                paginatedBlogs.map((post) => (
                   <tr key={post.id} className="hover:bg-[#0F172A]/60 transition">
                     <td className="p-4 max-w-sm">
                       <p className="font-semibold text-white truncate hover:text-blue-400 transition">{post.title}</p>
