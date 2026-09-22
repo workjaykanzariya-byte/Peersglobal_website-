@@ -14,6 +14,8 @@ import {
   Clock,
   Eye,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 
 interface BlogPostItem {
