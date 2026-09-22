@@ -203,17 +203,9 @@ export function HomeHero() {
                 {/* Subtle dark vignette overlay for depth and badge readability */}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
 
-                {/* Top-Left Pill: REAL PEOPLE. REAL COLLABORATION. */}
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-2.5 rounded-full border border-white/20 bg-slate-950/75 px-3.5 py-1.5 backdrop-blur-md shadow-lg">
-                  <span className="size-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8]" />
-                  <span className="text-[10.5px] font-semibold tracking-[0.16em] uppercase text-white/90">
-                    Real People. Real Collaboration.
-                  </span>
-                </div>
-
-                {/* Top-Right Pill Box: IDEAS, PEOPLE, OPPORTUNITIES, IMPACT */}
+                {/* Top-Right Pill Box: LEARN, SALES, RESOURCES */}
                 <div className="absolute top-4 right-4 z-20 flex flex-col items-end gap-1 rounded-xl border border-white/15 bg-slate-950/75 p-3 backdrop-blur-md shadow-xl">
-                  {['Ideas', 'People', 'Opportunities', 'Impact'].map((item) => (
+                  {['Learn', 'Sales', 'Resources'].map((item) => (
                     <span
                       key={item}
                       className="text-[9.5px] font-bold tracking-[0.2em] uppercase text-white/80 transition-colors hover:text-cyan-400"
