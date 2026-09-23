@@ -1,0 +1,1965 @@
+/* ==========================================================================
+   MINDVALLEY 1:1 HOMEPAGE DESIGN SYSTEM & SECTION STYLES
+   ========================================================================== */
+
+/* --- Fonts: Google Sans Flex & Sharp Grotesk --- */
+@font-face {
+  font-family: 'Google Sans Flex';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/googlesansflex/v22/t5sEIQcYNIWbFgDgAAzZ34auoVyXkJCOvp3SFWJbN5hF8Ju1x6sKCyp0l9sI40swNJwInycYAJzz0m7kJ4qFQOJBOjLvDSndo0SKMpKSTzwliVdHAy4bxTDHg_ugnAakp8ubq8BIo1pdkkXZj4igdvKCDV-NG2sPGA0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Google Sans Flex';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/googlesansflex/v22/t5sEIQcYNIWbFgDgAAzZ34auoVyXkJCOvp3SFWJbN5hF8Ju1x6sKCyp0l9sI40swNJwInycYAJzz0m7kJ4qFQOJBOjLvDSndo0SKMpKSTzwliVdHAy4bxTDHg_ugnAakp8ubq8BIo1pdkkXZj4igdvKMDV-NG2sP.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Sharp Grotesk Cyr Medium 20';
+  src: url(https://storyblok-assets-ng.mindvalley.com/_fonts/XM0lcIR5jtc9EWoO0om8g8lpZvVmytX2r3lBpl5ktDQ-AjhNJchoblKX7y35SBQdFDt0MEWDZkilPd11Uzfl3AY.woff2) format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Sharp Grotesk Cyr Book 19';
+  src: url(https://storyblok-assets-ng.mindvalley.com/_fonts/Z0ESm6-VWhFubvEziDIyA3QXvAVQPihrGeqvZP3Hiaw-0zXkNVdIbJD53mgWZ8ZpV2TnfgModQYWKM1_IY64xB8.woff2) format('woff2');
+}
+
+/* --- Container & Utilities --- */
+.container-jumbo {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (min-width: 1024px) {
+  .container-jumbo {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+.title-bold-11 {
+  font-family: 'Sharp Grotesk Cyr Medium 20', 'Google Sans Flex', -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.title-9 {
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.caption-disclaimer {
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.text-cool-grey-900 { color: #0f131a; }
+.text-cool-grey-600 { color: #4b5563; }
+.text-cool-grey-500 { color: #6b7280; }
+.text-cool-grey-450 { color: #828a97; }
+.text-cool-grey-250 { color: #d6d9de; }
+.text-cool-grey-200 { color: #e5e7eb; }
+.border-cool-grey-250 { border-color: #e2e5e9; }
+.border-cool-grey-200 { border-color: #e5e7eb; }
+
+/* Scroll reveal helper */
+[data-fd-rise] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* === EXTRACTED FROM scratch_style_3.css === */
+.mega-nav__skip-link{background:#000;border-radius:4px;color:#fff;font-weight:600;left:0;padding:8px 16px;position:absolute;text-decoration:none;top:-40px;transition:top .2s ease;z-index:10001}.mega-nav__skip-link:focus{outline:2px solid #7a12d4;outline-offset:2px;top:8px}.mega-nav__item{align-items:center;background:transparent;border:none;border-radius:128px;color:#0f131a;cursor:pointer;display:inline-flex;font-size:.875rem;font-weight:500;line-height:1.25rem;padding:12px 16px;text-decoration:none;transition:background-color .15s ease;white-space:nowrap}.mega-nav__item:hover{background:#0000000a}.mega-nav__item.is-active{background:#0000000f}.mega-nav__item:focus-visible{outline:2px solid #7a12d4;outline-offset:2px}.mega-nav__item:focus:not(:focus-visible){outline:none}.mega-nav__section-title{color:#000;font-size:.6875rem;font-weight:600;letter-spacing:.08em;margin-bottom:4px;text-transform:uppercase}.mega-nav__see-all{color:#7a12d4;display:inline-block;font-size:.75rem;font-weight:600;margin-top:4px;padding:4px 12px;text-decoration:none}.mega-nav__see-all:hover{text-decoration:underline}.mega-nav__see-all:focus-visible{border-radius:4px;outline:2px solid #7a12d4;outline-offset:2px}.mega-nav__see-all:focus:not(:focus-visible){outline:none}.mega-nav__col-scroll{display:flex;flex-direction:column;max-height:calc(100vh - 200px);overflow-x:hidden;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none}.mega-nav__col-scroll::-webkit-scrollbar{display:none}.mega-nav__scroll-arrow{align-items:center;background:#fffffff2;border:none;border-radius:50%;bottom:0;box-shadow:0 2px 8px #00000026;color:#666;cursor:pointer;display:flex;height:32px;justify-content:center;left:50%;padding:0;position:absolute;transform:translate(-50%);transition:all .2s ease;width:32px;z-index:10}.mega-nav__scroll-arrow:hover{background:#fff;box-shadow:0 4px 12px #0003;color:#000}.mega-nav__scroll-arrow:focus-visible{outline:2px solid #7a12d4;outline-offset:2px}.mega-nav__scroll-arrow:focus:not(:focus-visible){outline:none}.mega-nav__cta{height:auto!important;min-width:auto!important;padding:12px 20px!important}.mega-nav__focus-ring:focus-visible{outline:2px solid #7a12d4;outline-offset:2px}.mega-nav__focus-ring:focus:not(:focus-visible){outline:none}.mega-nav__slide-up{transform:translateY(-100%);transition:transform .3s ease-in-out}.mega-nav__slide-down{transform:translateY(0);transition:transform .3s ease-in-out}.mega-nav-fade-enter-active{transition:opacity .3s ease-in-out}.mega-nav-fade-leave-active{transition:opacity .2s ease-in-out}.mega-nav-fade-enter-from,.mega-nav-fade-leave-to{opacity:0}.mega-nav-fade-enter-to,.mega-nav-fade-leave-from{opacity:1}.mega-nav-slide-enter-active{transition:all .3s ease-out}.mega-nav-slide-leave-active{transition:all .25s ease-in}.mega-nav-slide-enter-from{opacity:0;transform:translate(-20px)}.mega-nav-slide-enter-to,.mega-nav-slide-leave-from{opacity:1;transform:translate(0)}.mega-nav-slide-leave-to{opacity:0;transform:translate(20px)}#mega-nav-mobile-menu{scrollbar-width:none;-ms-overflow-style:none}#mega-nav-mobile-menu::-webkit-scrollbar{display:none}.mega-nav__btn-secondary{align-items:center;background:transparent;border:none;cursor:pointer;display:inline-flex;padding:6px 8px;text-decoration:none;white-space:nowrap}.mega-nav__btn-secondary:hover{text-decoration:underline;text-decoration-color:#7a12d4;text-decoration-thickness:1px;text-underline-offset:3px}.mega-nav__btn-secondary:focus-visible{border-radius:4px;outline:2px solid #7a12d4;outline-offset:2px}.mega-nav__btn-secondary:focus:not(:focus-visible){outline:none}
+
+/* === EXTRACTED FROM scratch_style_4.css === */
+body.mega-nav-no-scroll,html.mega-nav-no-scroll{overflow:hidden}.mega-nav__bar{box-shadow:0 1px 3px #00000014;will-change:transform}
+
+/* === EXTRACTED FROM scratch_style_5.css === */
+.language-selector__focus-ring:focus-visible{outline:2px solid #7a12d4;outline-offset:2px}.language-selector__focus-ring:focus:not(:focus-visible){outline:none}.lang-selector-fade-enter-active{transition:opacity .2s ease}.lang-selector-fade-leave-active{transition:opacity .15s ease}.lang-selector-fade-enter-from,.lang-selector-fade-leave-to{opacity:0}
+
+/* === EXTRACTED FROM scratch_style_7.css === */
+.hexagon-clip{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+
+/* === EXTRACTED FROM scratch_style_9.css === */
+
+/* ---------------- scroll reveal (Tier 1) ----------------
+   Ported verbatim from the MV pathway pages so the homepage shares one motion
+   vocabulary. .fd-rise is applied by JS, so with no JS or reduced motion nothing
+   is ever hidden. Composited properties only: no layout, no CLS. */
+.fd-rise{opacity:0; transform:translateY(24px);}
+.fd-rise.fd-shown{
+  opacity:1; transform:none;
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1) var(--fd-rd,0ms),
+             transform .7s cubic-bezier(.22,.61,.36,1) var(--fd-rd,0ms);
+}
+@media (prefers-reduced-motion:reduce){ .fd-rise{opacity:1; transform:none;} }
+
+
+/* === EXTRACTED FROM scratch_style_10.css === */
+
+/* ── Press block → Google Sans Flex ─────────────────────────────────
+   The MV DS type classes hardcode "Sharp Grotesk Cyr *". The Editor and
+   PressSnippetsWidget components expose no font-family field, so the face
+   can only be corrected from here.
+   Scoped to the 5 DS classes used ONLY by the press block (7 elements):
+     .title-bold-8  TRUSTED WORLDWIDE          .body-small   x2 snippet cards
+     .title-bold-4  "Recognized worldwide..."  .title-7      x2 snippet quotes
+     p.body         press body copy
+   Deliberately NOT touched: the footer's .title-bold-11 / .title-9 /
+   .caption-disclaimer and MegaNav, which stay on MV house style.
+   !important is required to beat the DS stylesheet's specificity.
+   ------------------------------------------------------------------- */
+.title-bold-8,
+.title-bold-4,
+p.body,
+.body-small,
+.title-7 {
+  font-family: "Google Sans Flex", sans-serif !important;
+}
+
+/* ── Order-menu section title ───────────────────────────────────────
+   Figma node 3611:61044 specifies #E2CEA0 / #FFFFFF / #CED1D7. The DS
+   palette has no gold/sand token (only cool-grey-* / white) and the Editor
+   renderer drops raw hex, so the pre-headline colour must come from here.
+   Scoped to the .mv-ordermenu-title wrapper column, NOT to
+   #pathway-order-menu: the PathwayOrderMenu component reuses .title-bold-8
+   internally for pathway titles, "/year" price suffixes and the included
+   box, so a section-wide rule turned all of those gold.
+   Figma marks "Cancel anytime." at weight 700; the richtext bold mark
+   resolves to 500, so it is restated here. */
+.mv-ordermenu-title .title-bold-8 { color: #E2CEA0 !important; }
+.mv-ordermenu-title p.body b,
+.mv-ordermenu-title p.body strong { font-weight: 700 !important; }
+
+
+/* === EXTRACTED FROM scratch_style_11.css === */
+
+.fd-hero{
+  /* MV tokens actually used in this section */
+  --mv-brand: #7a12d4;
+  --mv-brand-bright: #9b37f2;
+  --mv-white: #ffffff;
+  --mv-grey-300: #ced1d7;
+  --mv-black: #0f131a;
+
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 700px;
+  padding: 80px 120px;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--mv-black);
+  font-family: 'Google Sans Flex', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.fd-hero *,
+.fd-hero *::before,
+.fd-hero *::after{ box-sizing: border-box; }
+.fd-hero img{ max-width: 100%; }
+
+/* ---------- background video + Figma scrim stack ---------- */
+.fd-hero__video{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+/* Figma fill stack on the Hero frame (node 3794:47944), topmost first:
+   left→right black 60%→0%, then the flat black 20%.
+   DEVIATION from Figma, deliberate: Figma's fills are a flat 20% over the whole frame plus a
+   linear 60%->0 ramp, which veiled the faces in the montage from the centre rightward. Both
+   layers now hold full strength across the copy and then fall away.
+   WHY max() AND NOT A PLAIN %: the copy column is a fixed 588px inside a centred 1200px
+   container, so the widest inked text (the sub-headline) ends at 697px — that is 48% of a
+   1440px viewport but 68% of a 1025px one. A fixed % stop would either barely lighten wide
+   screens or strip the scrim out from under the text on a small laptop. max(<pct>, <px>)
+   pins each stop to whichever is further right, so the hold always clears the text and the
+   release still scales on big screens. Measured: identical to 0-50% at >=1440 and DARKER than
+   before under the text at 1025-1280; centre-right and right drop hard.
+   Do not replace these with plain percentages without re-measuring the text edge. */
+.fd-hero__scrim{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right,
+      rgba(0,0,0,.6) 0%,
+      rgba(0,0,0,.3) max(50%, 700px),
+      rgba(0,0,0,0) max(82%, 940px)),
+    linear-gradient(to right,
+      rgba(0,0,0,.2) 0%,
+      rgba(0,0,0,.2) max(52%, 700px),
+      rgba(0,0,0,0) max(74%, 980px));
+}
+
+/* ---------- content column: 1200px inside a 120px gutter ---------- */
+.fd-hero__inner{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.fd-hero__wrapper{
+  width: 100%;
+  max-width: 588px;
+}
+.fd-hero__stack{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+.fd-hero__group{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+/* ---------- Trustpilot social proof ---------- */
+.fd-hero__trustpilot{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  height: 20px;
+}
+.fd-hero__tp-stars{ display: block; flex: 0 0 auto; width: 108px; height: 20px; }
+.fd-hero__tp-logo{ display: block; flex: 0 0 auto; width: 82px; height: 16px; }
+.fd-hero__reviews{
+  margin: 0;
+  flex: 0 0 auto;
+  color: var(--mv-white);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: .4px;
+  white-space: nowrap;
+}
+.fd-hero__reviews strong{ font-weight: 700; }
+
+/* ---------- type ---------- */
+.fd-hero__headline{
+  margin: 0;
+  color: var(--mv-white);
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 68px;
+  letter-spacing: -.25px;
+}
+.fd-hero__sub{
+  margin: 0;
+  color: var(--mv-grey-300);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+/* ---------- buttons (CSS replicas of the MV Button component) ---------- */
+.fd-hero__cta{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fd-hero__btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 100px;
+  color: var(--mv-white);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .2s ease, background-image .2s ease, opacity .2s ease;
+}
+.fd-hero__btn--brand{
+  background-image: linear-gradient(180deg, var(--mv-brand-bright) 0%, var(--mv-brand) 100%);
+  letter-spacing: .25px;
+}
+.fd-hero__btn--brand:hover,
+.fd-hero__btn--brand:focus-visible{
+  background-image: linear-gradient(180deg, var(--mv-brand) 0%, var(--mv-brand) 100%);
+}
+.fd-hero__btn--ghost{
+  background-color: rgba(255,255,255,.18);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  letter-spacing: .2px;
+}
+.fd-hero__btn--ghost:hover,
+.fd-hero__btn--ghost:focus-visible{
+  background-color: rgba(255,255,255,.28);
+}
+
+/* ---------- responsive (self-derived: no tablet/mobile Figma frames) ---------- */
+
+/* Desktop only (min-width 1025px). The hero clip is 1920×1080, so a full-bleed
+   `cover` fill renders at width×0.5625 and a fixed 700px hero discards the rest
+   — 110px at 1440, 272px at 1728, 380px at 1920, clipping the faces in the
+   montage's higher-framed shots. Tracking the video's own 16:9 ratio removes the
+   crop outright from ~1244px to 1513px; beyond that the 851px cap keeps the CTAs
+   above the fold and the 30% anchor takes the remaining crop off the bottom
+   rather than off the faces.
+   Tablet/mobile are deliberately unchanged — their min-heights (620px / 560px)
+   always beat 56.25vw at those widths, and this query never reaches them. */
+@media (min-width: 1025px){
+  .fd-hero{
+    height: 56.25vw;      /* 9 ÷ 16 — the clip's exact ratio */
+    max-height: 851px;   /* 1512 × 0.5625 — stop growing at the 14" laptop height */
+  }
+  .fd-hero__video{ object-position: center 30%; }
+}
+@media (max-width: 1024px){
+  .fd-hero{ min-height: 620px; padding: 64px 40px; }
+  /* same two-layer stack, but the copy column takes up proportionally more width here
+     (it ends at 59% at 1024px and 78% at 768px), so the flat veil is held further right
+     before being released, and the primary gradient's right-edge floor drops .15 -> .08 so
+     the far right clears too. */
+  .fd-hero__scrim{
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,.6) 0%, rgba(0,0,0,.08) 100%),
+      linear-gradient(to right, rgba(0,0,0,.3) 0%, rgba(0,0,0,.3) 75%, rgba(0,0,0,0) 95%);
+  }
+  .fd-hero__wrapper{ max-width: 560px; }
+  .fd-hero__headline{ font-size: clamp(40px, 5.6cqw, 56px); line-height: 1.1; }
+  .fd-hero__sub{ font-size: 21px; line-height: 28px; }
+  .fd-hero__stack{ gap: 32px; }
+}
+
+@media (max-width: 640px){
+  .fd-hero{ min-height: 560px; padding: 56px 20px; align-items: flex-end; }
+  .fd-hero__scrim{
+    background-image:
+      linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 55%),
+      linear-gradient(to right, rgba(0,0,0,.45) 0%, rgba(0,0,0,.25) 100%),
+      linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2));
+  }
+  .fd-hero__wrapper{ max-width: 100%; }
+  .fd-hero__stack{ gap: 28px; }
+  .fd-hero__group{ gap: 16px; }
+  .fd-hero__headline{ font-size: clamp(32px, 9.5cqw, 42px); line-height: 1.12; }
+  .fd-hero__sub{ font-size: 17px; line-height: 26px; }
+  .fd-hero__trustpilot{ gap: 10px; }
+  .fd-hero__cta{ flex-direction: column; align-items: stretch; width: 100%; gap: 12px; }
+  .fd-hero__btn{ width: 100%; }
+}
+
+
+/* === EXTRACTED FROM scratch_style_12.css === */
+
+.fd-what-is-mindvalley {
+  /* MV tokens actually used */
+  --mv-white: #ffffff;
+
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  container-type: inline-size;
+  padding: 128px 120px;
+  /* Figma frame fill (3794:48248): ONE 180deg ramp #F8F9FE -> #CADEFC spanning both this
+     section and fd-how-it-works. They are separate Storyblok blocks and cannot share a
+     background box, so the ramp is split at their height boundary (59.4% at desktop) and
+     both sides meet on the same colour, #DDE9FD — continuous, no seam. Change one end and
+     you must recompute the other block's handoff colour too. */
+  background: linear-gradient(180deg, #F8F9FE 0%, #DDE9FD 100%);
+  font-family: 'Google Sans Flex', sans-serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fd-what-is-mindvalley *,
+.fd-what-is-mindvalley *::before,
+.fd-what-is-mindvalley *::after {
+  box-sizing: border-box;
+}
+
+.fd-what-is-mindvalley h2,
+.fd-what-is-mindvalley p {
+  margin: 0;
+}
+
+.fd-what-is-mindvalley img {
+  max-width: 100%;
+}
+
+.fd-what-is-mindvalley__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  /* 80px = Figma's stats -> video gap. It is a margin (not the flex gap) because the video is
+     now an injected component sitting OUTSIDE __inner, as a bare top-level sibling. */
+  margin: 0 auto 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* 3309:4340 */
+.fd-what-is-mindvalley__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 3309:4342 */
+.fd-what-is-mindvalley__titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 3309:4343 */
+.fd-what-is-mindvalley__eyebrow {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25.04px;
+  /* Figma states 0.2px, but its own render (ref/what-is-mindvalley.png, renderBounds
+     215.54px) needs 0.46px — screenshot-measured, Figma value discarded. */
+  letter-spacing: 0.46px;
+  color: #292D38;
+}
+
+/* 3309:4344 */
+.fd-what-is-mindvalley__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 796px;
+  max-width: 100%;
+}
+
+/* 3309:4348 */
+.fd-what-is-mindvalley__headline {
+  width: 100%;
+  /* The two sentences are separate <span>s, NOT one string with a <br>. A forced break
+     defeats Chrome's balancer (it falls back to greedy wrapping and stranded "live" on its
+     own line at 430px), so the break is left to `balance` at every width.
+     Desktop/tablet: each span is its own block -> one sentence per line, balanced.
+     Mobile (<=640px): the spans go inline and the two sentences flow as ONE balanced block —
+     measured 3 lines at 16px raggedness vs 4 lines at 69px when kept apart. The terminal
+     periods (not the line break) are what mark the sentence boundary there, which is why
+     they are required, not decorative. */
+  text-wrap: balance;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+  /* Figma states 0; its own render is ~5px wider per line. Screenshot-measured. */
+  letter-spacing: 0.15px;
+  color: #0F131A;
+}
+.fd-what-is-mindvalley__headline > span {
+  display: block;
+  text-wrap: balance;
+}
+
+/* 3309:4353 */
+.fd-what-is-mindvalley__paragraph {
+  width: 100%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  /* Figma states 0.4px; its own render is 12px narrower per line. Screenshot-measured. */
+  letter-spacing: 0.26px;
+  color: #0F131A;
+}
+
+/* 3309:4364 */
+.fd-what-is-mindvalley__stats {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 64px;
+}
+
+/* 3309:4365 / 4370 / 4375 */
+.fd-what-is-mindvalley__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.fd-what-is-mindvalley__stat-value {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0;
+  /* Figma fills these three numbers with a gradient, not a flat colour — clipped to the
+     glyphs. The flat fallback colour is the ramp's midpoint for any engine that ignores
+     background-clip:text. */
+  color: #1E6D92;
+  display: inline-block;
+  background-image: linear-gradient(180deg, #2F7EA8 0%, #0D5D7C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .fd-what-is-mindvalley__stat-value { color: transparent; -webkit-text-fill-color: transparent; }
+}
+
+.fd-what-is-mindvalley__stat-label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  /* Figma states 0.2px; its own bbox (SUCCESS STORIES = 139px) is the 0 tracking width. */
+  letter-spacing: 0;
+  color: #0F131A;
+}
+
+/* 3309:4438 — the video region carries NO CSS here on purpose: the injected
+   WebinarVideoPlayer owns its own aspect ratio (16:9), radius (lg = 8px) and shadow, and its
+   inline-styled wrapper owns only the 1200px width constraint. Adding rules for it would be
+   exactly the page-CSS-reaching-into-the-component failure MARKER_CONVENTION forbids. */
+
+/* ---- Responsive (self-derived: no tablet/mobile Figma frames provided) ---- */
+@media (max-width: 1024px) {
+  .fd-what-is-mindvalley {
+    padding: 80px 40px;
+  }
+  .fd-what-is-mindvalley__inner {
+    gap: 56px;
+    margin-bottom: 56px;
+  }
+  .fd-what-is-mindvalley__intro {
+    gap: 32px;
+  }
+  .fd-what-is-mindvalley__headline {
+    font-size: clamp(26px, 4cqw, 36px);
+    line-height: 1.2222;
+  }
+  .fd-what-is-mindvalley__stats {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .fd-what-is-mindvalley {
+    padding: 56px 20px;
+  }
+  .fd-what-is-mindvalley__inner {
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .fd-what-is-mindvalley__intro {
+    gap: 28px;
+  }
+  .fd-what-is-mindvalley__eyebrow {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .fd-what-is-mindvalley__headline {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  /* seamless back-to-back: the h2's own `balance` governs the whole run */
+  .fd-what-is-mindvalley__headline > span {
+    display: inline;
+  }
+  .fd-what-is-mindvalley__paragraph {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .fd-what-is-mindvalley__stats {
+    flex-wrap: wrap;
+    gap: 24px 32px;
+  }
+  .fd-what-is-mindvalley__stat-value {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .fd-what-is-mindvalley__stat-label {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+
+/* === EXTRACTED FROM scratch_style_13.css === */
+
+/* ── Anchor landing offset ──────────────────────────────────────────
+   MegaNav is position:fixed (64px mobile / 76px desktop) and takes no
+   layout space, so a native #hash jump scrolls the target to y=0 and its
+   first ~76px sit behind the nav. scroll-margin-top keeps the section
+   heading clear. This is the no-JS fallback; the script below measures the
+   nav live and applies the same offset with easing. */
+#fd-what-is-mindvalley { scroll-margin-top: 92px; }
+@media (max-width: 1023px) {
+  #fd-what-is-mindvalley { scroll-margin-top: 80px; }
+}
+
+
+/* === EXTRACTED FROM scratch_style_14.css === */
+
+/* ---------------- scroll reveal (Tier 1) ----------------
+   Ported verbatim from the MV pathway pages so the homepage shares one motion
+   vocabulary. .fd-rise is applied by JS, so with no JS or reduced motion nothing
+   is ever hidden. Composited properties only: no layout, no CLS. */
+.fd-rise{opacity:0; transform:translateY(24px);}
+.fd-rise.fd-shown{
+  opacity:1; transform:none;
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1) var(--fd-rd,0ms),
+             transform .7s cubic-bezier(.22,.61,.36,1) var(--fd-rd,0ms);
+}
+@media (prefers-reduced-motion:reduce){ .fd-rise{opacity:1; transform:none;} }
+
+
+/* === EXTRACTED FROM scratch_style_15.css === */
+
+.fd-how-it-works{
+  /* MV tokens actually used */
+  --mv-black:#0f131a;
+  --mv-white:#ffffff;
+  /* section-local one-offs (no matching MV token) */
+  --fd-hiw-eyebrow:#292D38;
+  --fd-hiw-stroke:#ebedef;
+  --fd-hiw-gap:24px;
+
+  container-type:inline-size;
+  font-family:'Google Sans Flex',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  /* Figma frame fill (3794:48248): the lower half of the one 180deg ramp that also paints
+     fd-what-is-mindvalley. It starts on that section's end colour (#DDE9FD) so the two
+     blocks read as a single continuous gradient. See the note in that block. */
+  background:linear-gradient(180deg,#DDE9FD 0%,#CADEFC 100%);
+  /* the 128px Figma bottom pad lives on .__nav's padding-bottom so the
+     container queries below (which can never target their own container)
+     can shrink it responsively */
+  padding:0;
+  overflow:hidden;
+}
+.fd-how-it-works,
+.fd-how-it-works *,
+.fd-how-it-works *::before,
+.fd-how-it-works *::after{box-sizing:border-box}
+.fd-how-it-works img{max-width:100%}
+
+/* ---------- heading ---------- */
+.fd-how-it-works__head{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+  text-align:center;
+}
+.fd-how-it-works__eyebrow{
+  margin:0;
+  font-size:clamp(14px,1.4cqw,20px);
+  line-height:1.252;
+  font-weight:600;
+  /* Figma reports .2px but its own render measures 154px wide for "HOW IT WORKS"
+     — only .02em (.4px @20px) reproduces that. Screenshot wins. */
+  letter-spacing:.02em;
+  color:var(--fd-hiw-eyebrow);
+}
+.fd-how-it-works__title{
+  margin:20px 0 0;
+  font-size:clamp(26px,2.51cqw,36px);
+  line-height:1.2222;
+  font-weight:600;
+  letter-spacing:0;
+  color:#0F131A;
+}
+
+/* ---------- carousel ---------- */
+.fd-how-it-works__carousel{
+  /* 1440 = 3 whole 384px cards + an equal 96px peek of the previous / next one.
+     Card first (capped at Figma's 384), then the rail inset is derived from it so
+     the two peeks stay equal at every width — at 1440 this resolves to exactly
+     the Figma 120px inset. */
+  --fd-hiw-card:min(384px,calc((100cqw - 240px - 2 * var(--fd-hiw-gap)) / 3));
+  --fd-hiw-pad:calc((100cqw - 3 * var(--fd-hiw-card) - 2 * var(--fd-hiw-gap)) / 2);
+  --fd-hiw-step:calc(var(--fd-hiw-card) + var(--fd-hiw-gap));
+  margin-top:40px;
+  overflow:hidden;
+}
+.fd-how-it-works__track{
+  display:flex;
+  gap:var(--fd-hiw-gap);
+  margin:0;
+  padding:0 0 0 var(--fd-hiw-pad);
+  list-style:none;
+  transform:translateX(calc(-1 * var(--fd-i,1) * var(--fd-hiw-step)));
+  transition:transform .45s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.fd-how-it-works__card{
+  position:relative;
+  flex:0 0 var(--fd-hiw-card);
+  width:var(--fd-hiw-card);
+  aspect-ratio:2 / 3;
+  border-radius:40px;
+  overflow:hidden;
+  container-type:inline-size;
+  color:var(--mv-white);
+}
+.fd-how-it-works__card--ink{color:var(--mv-black)}
+.fd-how-it-works__card img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.fd-how-it-works__copy{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  /* Figma pads 40 / gaps kicker->label 6, but Figma parks the baseline of a
+     line-height-24 / 20px line 1px lower than Chrome does. +1 here and -1 on
+     the label gap lands BOTH lines exactly on the reference screenshot. */
+  padding:min(41px,10.68cqw) min(32px,8.34cqw) 0;
+}
+.fd-how-it-works__kicker{
+  margin:0;
+  font-size:min(20px,5.21cqw);
+  line-height:1.2;
+  font-weight:500;
+  /* see eyebrow: Figma's .2px under-reports its own render by 2x */
+  letter-spacing:.02em;
+  color:inherit;
+}
+.fd-how-it-works__label{
+  margin:min(5px,1.3cqw) 0 0;
+  font-size:min(28px,7.3cqw);
+  line-height:1.2536;
+  font-weight:600;
+  letter-spacing:0;
+  color:inherit;
+}
+.fd-how-it-works__copy--wide .fd-how-it-works__label{margin-top:min(11px,2.87cqw)}
+
+/* ---------- nav ---------- */
+.fd-how-it-works__nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin-top:40px;
+  padding-bottom:128px;
+}
+.fd-how-it-works__arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:48px;
+  height:48px;
+  padding:12px;
+  border-radius:999px;
+  border:1px solid var(--fd-hiw-stroke);
+  background:var(--mv-white);
+  color:var(--mv-black);
+  box-shadow:0 5px 20px rgba(0,0,0,.10);
+  cursor:pointer;
+  transition:background-color .2s ease;
+}
+.fd-how-it-works__arrow:hover{background:#f4f5f6}
+.fd-how-it-works__arrow:focus-visible{outline:2px solid var(--mv-black);outline-offset:2px}
+.fd-how-it-works__arrow svg{display:block;width:24px;height:24px;fill:currentColor}
+
+/* ---------- tablet (self-derived: no tablet frame in Figma) ---------- */
+@container (max-width:1024px){
+  .fd-how-it-works__carousel{
+    /* 2 whole cards + equal peeks (48px inset at 768) */
+    --fd-hiw-card:min(384px,calc((100cqw - 96px - var(--fd-hiw-gap)) / 2));
+    --fd-hiw-pad:calc((100cqw - 2 * var(--fd-hiw-card) - var(--fd-hiw-gap)) / 2);
+    margin-top:32px;
+  }
+  .fd-how-it-works__title{margin-top:16px}
+  .fd-how-it-works__nav{margin-top:32px;padding-bottom:96px}
+}
+
+/* ---------- mobile (self-derived: no mobile frame in Figma) ---------- */
+@container (max-width:640px){
+  .fd-how-it-works__head{padding:0 20px}
+  .fd-how-it-works__carousel{
+    /* 1 whole card + equal peeks (36px inset / 20px peek at 390) */
+    --fd-hiw-gap:16px;
+    --fd-hiw-card:min(384px,calc(100cqw - 72px));
+    --fd-hiw-pad:calc((100cqw - var(--fd-hiw-card)) / 2);
+    margin-top:24px;
+  }
+  .fd-how-it-works__card{border-radius:24px}
+  .fd-how-it-works__nav{margin-top:24px;padding-bottom:64px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fd-how-it-works__track{transition:none}
+}
+
+
+/* === EXTRACTED FROM scratch_style_16.css === */
+
+  .fd-pathway-hero {
+    --mv-white: #ffffff;
+
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-color: #0f131a;
+    font-family: 'Google Sans Flex', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .fd-pathway-hero *,
+  .fd-pathway-hero *::before,
+  .fd-pathway-hero *::after {
+    box-sizing: border-box;
+  }
+
+  .fd-pathway-hero img,
+  .fd-pathway-hero video {
+    max-width: 100%;
+  }
+
+  /* Full-bleed looping background video */
+  .fd-pathway-hero__video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border: 0;
+    pointer-events: none;
+  }
+
+  /* Figma frame overlays: 24% black tint + bottom-up black gradient (transparent at 59.73%) */
+  .fd-pathway-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 59.73%, rgba(0, 0, 0, 1) 100%),
+      rgba(0, 0, 0, 0.24);
+  }
+
+  .fd-pathway-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 160px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 96px;
+  }
+
+  .fd-pathway-hero__copy {
+    /* Figma 3794:49011 reserved a 470px CTA column (1120 content - 470 = 650), but the
+       button is `flex:0 0 auto` and renders at 166px, so ~208px of that column was only
+       ever empty gap. The headline "One Life. Six Pathways to Transform It." needs 651px
+       at 36px/600 — it was losing to 650 by a single pixel and orphaning "It." onto line
+       two. 730px takes 80px of the unused gap and leaves ~79px of headroom, enough to
+       survive the ~1% metric variance between builds of Google Sans Flex. The CTA stays
+       pinned right via space-between; below 1280 flex-shrink returns it to two lines.
+       flex-shrink is enabled (basis stays `auto` so the mobile column layout, where
+       flex-basis would size the HEIGHT, is unaffected). */
+    width: 730px;
+    max-width: 100%;
+    flex: 0 1 auto;
+  }
+
+  .fd-pathway-hero__eyebrow {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #ffe4c7;
+  }
+
+  .fd-pathway-hero__headline {
+    margin: 8px 0 0;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: 0;
+    color: var(--mv-white);
+  }
+
+  .fd-pathway-hero__body {
+    /* held at the original 650px so widening the column above does not stretch the
+       paragraph's line length — it already runs ~81ch, past the 45-75ch comfort range.
+       Inert below 1280, where the column shrinks under 650 on its own. */
+    max-width: 650px;
+    margin: 12px 0 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0;
+    color: #ebedef;
+  }
+
+  .fd-pathway-hero__cta {
+    /* the button must never be compressed; space-between pins it to the right edge */
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  /* MV Button — variant: solid, color: neutral, size: medium */
+  .fd-pathway-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0;
+    padding: 11px 24px;
+    border: 0;
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .fd-pathway-hero__btn--neutral {
+    background-color: var(--mv-white);
+    color: #000000;
+  }
+
+  .fd-pathway-hero__btn--neutral:hover,
+  .fd-pathway-hero__btn--neutral:focus-visible {
+    background-color: #ebedef;
+    color: #000000;
+  }
+
+  /* Tablet — self-derived (no tablet frame in Figma) */
+  @media (max-width: 1024px) {
+    .fd-pathway-hero__inner {
+      padding: 40px 40px 0;
+      gap: 40px;
+    }
+  }
+
+  /* Mobile — self-derived (no mobile frame in Figma) */
+  @media (max-width: 640px) {
+    /* copy stacks above the button, so the scrim has to reach further up
+       to keep the same text contrast the desktop frame has */
+    .fd-pathway-hero::after {
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 1) 100%),
+        rgba(0, 0, 0, 0.24);
+    }
+
+    .fd-pathway-hero__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 24px;
+      padding: 64px 20px 40px;
+    }
+
+    .fd-pathway-hero__copy {
+      width: 100%;
+    }
+
+    .fd-pathway-hero__headline {
+      font-size: 28px;
+      line-height: 34px;
+    }
+
+    .fd-pathway-hero__body {
+      /* was 15px — the only section body below the page's 16px mobile floor.
+         Desktop is 16px (Figma Body/Body), so mobile simply holds at 16. */
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .fd-pathway-hero__cta {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .fd-pathway-hero__btn {
+      min-height: 44px;
+      padding: 13px 24px;
+    }
+  }
+
+
+/* === EXTRACTED FROM scratch_style_17.css === */
+
+/* ============================================================================
+   Pathway cards — Figma xBou6ShJQ7SlhBywnpV6HC / node 3309:4809
+   ("Stories" child 3310:7040 is a separate native StoryWidget — NOT built here)
+   ========================================================================== */
+.fd-pathway-cards{
+  --mv-white:#ffffff;
+  --mv-grey-300:#ced1d7;
+  --mv-black:#0f131a;
+  font-family:'Google Sans Flex',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  /* Figma frame fill: linear #000000 -> #071e29 over the full 5296px frame.
+     This section is the 4219.875px slice above "Stories", so the stop sits at
+     5296/4219.875 = 125.5% to keep the ramp identical to the reference. */
+  background:linear-gradient(180deg,#000000 0%,#071e29 125.5%);
+  padding:64px max(24px,calc((100% - 1200px) / 2)) 128px;
+  container-type:inline-size;
+}
+.fd-pathway-cards *,.fd-pathway-cards *::before,.fd-pathway-cards *::after{box-sizing:border-box}
+.fd-pathway-cards img{max-width:100%}
+.fd-pathway-cards__defs{position:absolute;width:0;height:0;overflow:hidden}
+.fd-pathway-cards__inner{display:flex;flex-direction:column;gap:24px;width:100%;max-width:1200px;margin:0 auto}
+
+/* ---- block shell (Figma "Form": 1200x651.3125, r16, no visible border) ---- */
+.fd-pathway-cards__block{display:flex;border-radius:16px;overflow:hidden}
+.fd-pathway-cards__left{flex:0 0 42.41667%;min-width:0;display:flex;flex-direction:column;gap:16px;
+  padding:40px 24px;background:linear-gradient(180deg,var(--pw-from) 0%,var(--pw-to) 100%)}
+.fd-pathway-cards__right{flex:0 0 57.58333%;min-width:0;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;padding:40px 24px;background:var(--pw-from)}
+
+/* ---- per-pathway palettes (Figma per-block gradient / eyebrow hexes) ---- */
+.fd-pathway-cards__block--mind{--pw-from:#071739;--pw-to:#1d4bb0;--pw-eyebrow:#92cdfe}
+.fd-pathway-cards__block--entrepreneur{--pw-from:#0f0131;--pw-to:#3515b4;--pw-eyebrow:#adceff}
+.fd-pathway-cards__block--authority{--pw-from:#311905;--pw-to:#834f10;--pw-eyebrow:#fbe149}
+.fd-pathway-cards__block--connection{--pw-from:#300d18;--pw-to:#882c4b;--pw-eyebrow:#edb4cf}
+.fd-pathway-cards__block--body{--pw-from:#051f18;--pw-to:#11543e;--pw-eyebrow:#7dd8b1}
+.fd-pathway-cards__block--mystic{--pw-from:#1c0131;--pw-to:#6c15b4;--pw-eyebrow:#d8adff}
+
+/* ---- left column ---- */
+.fd-pathway-cards__hero{display:block;width:100%;height:auto;aspect-ratio:461 / 259.3125;object-fit:cover;border-radius:16px}
+.fd-pathway-cards__body{display:flex;flex-direction:column;align-items:flex-start;gap:20px;width:100%}
+.fd-pathway-cards__text{display:flex;flex-direction:column;gap:12px;width:100%}
+.fd-pathway-cards__head{display:flex;flex-direction:column;gap:8px;width:100%}
+.fd-pathway-cards__eyebrow{margin:0;font-size:16px;font-weight:600;line-height:20.032px;letter-spacing:.2px;color:var(--pw-eyebrow)}
+.fd-pathway-cards__title{margin:0;font-size:30px;font-weight:600;line-height:34px;letter-spacing:0;color:var(--mv-white)}
+.fd-pathway-cards__desc{margin:0;font-size:16px;font-weight:400;line-height:22px;letter-spacing:.4px;color:var(--mv-grey-300)}
+.fd-pathway-cards__list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;width:100%}
+.fd-pathway-cards__item{display:flex;align-items:center;gap:6px;min-height:24px;font-size:16px;font-weight:400;
+  line-height:22px;letter-spacing:.4px;color:var(--mv-grey-300)}
+.fd-pathway-cards__check{flex:0 0 24px;width:24px;height:24px;display:block}
+
+/* ---- CTA: MV Button replica (variant neutral / size medium) ---- */
+.fd-pathway-cards__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;
+  font-size:14px;font-weight:500;line-height:18px;letter-spacing:.2px;padding:11px 24px;border-radius:100px;
+  border:0;background:var(--mv-white);color:#000000;text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:background-color .2s ease,opacity .2s ease}
+.fd-pathway-cards__btn:hover{background:var(--mv-grey-300)}
+
+/* ---- right column: paginated 3x4 program grid ---- */
+.fd-pathway-cards__carousel{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;min-width:0}
+.fd-pathway-cards__track{display:flex;width:100%;min-width:0;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
+.fd-pathway-cards__track::-webkit-scrollbar{display:none}
+.fd-pathway-cards__page{flex:0 0 100%;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px 12px;align-content:start;scroll-snap-align:start}
+.fd-pathway-cards__card{display:flex;flex-direction:column;min-width:0}
+.fd-pathway-cards__media{display:grid;grid-template-columns:1fr 0.375fr;gap:4px;
+  aspect-ratio:206.3333 / 82.7725;margin-bottom:4px}
+.fd-pathway-cards__cover{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+.fd-pathway-cards__face{width:100%;height:100%;object-fit:cover;border-radius:4px;display:block}
+.fd-pathway-cards__prog{margin:0;font-size:12px;font-weight:500;line-height:16px;letter-spacing:.2px;text-align:center;
+  color:var(--mv-white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fd-pathway-cards__auth{margin:0;font-size:10px;font-weight:400;line-height:14px;letter-spacing:.4px;text-align:center;
+  /* ARBITER override: Figma node says #595e67, the reference render is #ced1d7 */
+  color:var(--mv-grey-300);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* TODO placeholder — asset genuinely missing; identical box, clearly marked */
+.fd-pathway-cards__ph{display:flex;align-items:center;justify-content:center;text-align:center;font-size:7px;
+  font-weight:500;line-height:1.25;letter-spacing:.08em;color:rgba(255,255,255,.55);
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 5px,rgba(255,255,255,.04) 5px 10px);
+  outline:1px dashed rgba(255,255,255,.28);outline-offset:-1px}
+
+/* ---- carousel nav: replica of the MV Carousel Button ---- */
+.fd-pathway-cards__nav{display:flex;gap:12px;flex:0 0 auto}
+.fd-pathway-cards__navbtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:8px;
+  border-radius:48px;background:var(--mv-white);border:1px solid #ebedef;box-shadow:0 5px 20px rgba(0,0,0,.1);
+  color:var(--mv-black);
+  /* UA <button> reset — keeps the replica pixel-identical to the verified render */
+  font:inherit;margin:0;-webkit-appearance:none;appearance:none;cursor:pointer}
+.fd-pathway-cards__navbtn svg{width:20px;height:20px;display:block}
+/* end-stop state, applied by the carousel script only (no-JS render is unchanged) */
+.fd-pathway-cards__navbtn[disabled]{opacity:.4;cursor:default}
+
+@media (prefers-reduced-motion:reduce){
+  .fd-pathway-cards__track{scroll-behavior:auto}
+}
+
+/* ---- responsive: SELF-DERIVED (Figma has desktop-1440 only) ---- */
+@media (max-width:1024px){
+  .fd-pathway-cards{padding:48px 24px 80px}
+  .fd-pathway-cards__block{flex-direction:column}
+  .fd-pathway-cards__left,.fd-pathway-cards__right{flex:1 1 auto;width:100%}
+  .fd-pathway-cards__left{padding:32px 24px;gap:20px}
+  .fd-pathway-cards__right{padding:0 24px 32px;justify-content:flex-start}
+  .fd-pathway-cards__title{font-size:clamp(24px,3.6cqw,30px);line-height:1.16}
+}
+@media (max-width:640px){
+  .fd-pathway-cards{padding:40px 16px 64px}
+  .fd-pathway-cards__inner{gap:16px}
+  .fd-pathway-cards__block{border-radius:12px}
+  .fd-pathway-cards__left{padding:20px 16px;gap:16px}
+  .fd-pathway-cards__right{padding:24px 16px 24px}
+  .fd-pathway-cards__hero{border-radius:12px}
+  .fd-pathway-cards__desc,.fd-pathway-cards__item{font-size:15px;line-height:21px}
+  .fd-pathway-cards__item{align-items:flex-start}
+  .fd-pathway-cards__btn{width:100%;padding:13px 24px;min-height:44px}
+  .fd-pathway-cards__page{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fd-pathway-cards__prog{font-size:13px;line-height:18px;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-overflow:clip}
+  .fd-pathway-cards__auth{font-size:12px;line-height:16px;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-overflow:clip}
+  .fd-pathway-cards__navbtn{width:44px;height:44px;padding:12px}
+  .fd-pathway-cards__navbtn svg{width:20px;height:20px}
+}
+
+
+/* === EXTRACTED FROM scratch_style_18.css === */
+
+/* ---------------- pathway card stack: sticky deck (variant A + recede) ----------------
+   The 6 cards are flex children of a 4220px .fd-pathway-cards__inner, and that tall
+   parent is what gives sticky its travel. Do NOT wrap each card in a per-card slot:
+   that confines it to its own 651px box and kills the pin entirely.
+
+   Desktop only, gated on VIEWPORT HEIGHT as well as width — pinning needs
+   card(651) + MegaNav(76) + 24 = 751px, so short laptops fall back to the normal
+   stacked layout rather than pinning a card that cannot fit.
+
+   Measured: a view() timeline KEEPS ADVANCING while its subject is sticky-pinned,
+   so the recede rides directly on the card and needs no proxy element. The recede
+   does not finish before the card is fully covered, which is fine — it is hidden by
+   then. What matters is that it is imperceptible while the card is the active one
+   and visibly sinking during the hand-off. */
+@keyframes fd-pw-sink{ to{ transform:scale(.90); filter:brightness(.45); } }
+
+@media (min-width:1025px) and (min-height:780px){
+  .fd-pathway-cards__block{
+    position:sticky;
+    top:100px;
+    transform-origin:top center;
+    box-shadow:0 -6px 40px rgba(0,0,0,.18);
+  }
+  /* lit top edge — the real separation cue on a near-black ground, where a dark
+     shadow has almost no headroom to darken into. Clipped by the block's own
+     overflow:hidden so it follows the 16px radius. */
+  .fd-pathway-cards__block::before{
+    content:"";
+    position:absolute; inset:0 0 auto 0; height:1px;
+    background:rgba(255,255,255,.14);
+    z-index:2; pointer-events:none;
+  }
+}
+@supports (animation-timeline:view()){
+  @media (min-width:1025px) and (min-height:780px){
+    .fd-pathway-cards__block{
+      animation:fd-pw-sink linear both;
+      animation-timeline:view();
+      animation-range:contain 0% contain 100%;
+    }
+  }
+}
+/* Reduced motion: no pin, no sink — the plain stacked layout. */
+@media (min-width:1025px) and (min-height:780px) and (prefers-reduced-motion:reduce){
+  .fd-pathway-cards__block{
+    position:static; animation:none; transform:none; filter:none; box-shadow:none;
+  }
+  .fd-pathway-cards__block::before{ display:none; }
+}
+
+
+/* === EXTRACTED FROM scratch_style_19.css === */
+
+/* ---------------- per-pathway background wash ----------------
+   As the deck locks, the section behind it takes on the active pathway's own
+   --pw-from tone (the dark end its card gradient starts from, luminance <0.014,
+   16.5:1+ against white, so legibility is unchanged) instead of sitting on the
+   flat black->#071E29 ramp.
+
+   Built as SIX stacked radial panels cross-faded by OPACITY ONLY — opacity is a
+   compositor property, background-color is not, and animating background-color
+   across a 4220x1440 section every frame would be paint-bound and janky.
+
+   The layer is position:sticky + height:100vh + margin-bottom:-100vh, so it costs
+   ZERO flow space (verified: section height unchanged) and the composited texture
+   is capped at ONE viewport instead of the full 4220px.
+
+   Panels read each CARD's own view() timeline via timeline-scope on the section.
+   Envelope holds at opacity 1 rather than fading out: the visible colour is then
+   simply "the newest card that has faded in", which depends only on ordering, not
+   on viewport-sensitive percentages — and the last card keeps its wash until the
+   section ends instead of dropping to black while still pinned. */
+@keyframes fd-pw-wash{ 0%{opacity:0} 12%{opacity:0} 26%{opacity:1} 50%{opacity:1} 66%{opacity:0} 100%{opacity:0} }
+@keyframes fd-pw-washout{ 0%{opacity:0} 30%{opacity:0} 70%{opacity:1} 100%{opacity:1} }
+@keyframes fd-pw-wash-last{ 0%{opacity:0} 12%{opacity:0} 26%{opacity:1} 100%{opacity:1} }
+
+.fd-pathway-cards__tint{ display:none }
+
+@media (min-width:1025px) and (min-height:780px){
+  .fd-pathway-cards{
+    position:relative;
+    timeline-scope:--pw1,--pw2,--pw3,--pw4,--pw5,--pw6;
+    view-timeline-name:--pwsec;
+  }
+  /* The tint container is ABSOLUTE so inset:0 resolves against the section's
+     PADDING box — i.e. the full viewport width — with no vw units at all. The
+     section pads to keep a 1200px content box (40px at 1280 up to 360px at 1920),
+     so a block child would only ever be 1200px wide and the wash would hide
+     entirely behind the cards. Avoiding vw also avoids the classic-scrollbar
+     overflow that 100vw causes on Windows. */
+  .fd-pathway-cards__tint{
+    display:block;
+    position:absolute; inset:0;
+    overflow:clip;
+    z-index:0; pointer-events:none;
+  }
+  .fd-pathway-cards__inner{ position:relative; z-index:1; }
+  /* Each panel is sticky + 100vh + a cancelling negative margin, so all six
+     overlap at the container's top and each composited texture is ONE viewport
+     rather than the section's full 4220px (6 x 1440 x 4220 would be ~146MB of
+     GPU memory and would fall back to main-thread paint). */
+  .fd-pathway-cards__wash{
+    position:sticky; top:0; height:100vh; margin-bottom:-100vh; opacity:0;
+    /* wider than the box so the 120px gutters sit INSIDE the coloured region,
+       not out in its falloff — otherwise the blob hides entirely behind the cards */
+    background-repeat:no-repeat;
+  }
+  .fd-pathway-cards__wash--1{ background-image:radial-gradient(125% 85% at 50% 42%, #071739 0%, #071739 34%, rgba(0,0,0,0) 78%); }
+  .fd-pathway-cards__wash--2{ background-image:radial-gradient(125% 85% at 50% 42%, #0f0131 0%, #0f0131 34%, rgba(0,0,0,0) 78%); }
+  .fd-pathway-cards__wash--3{ background-image:radial-gradient(125% 85% at 50% 42%, #311905 0%, #311905 34%, rgba(0,0,0,0) 78%); }
+  .fd-pathway-cards__wash--4{ background-image:radial-gradient(125% 85% at 50% 42%, #300d18 0%, #300d18 34%, rgba(0,0,0,0) 78%); }
+  .fd-pathway-cards__wash--5{ background-image:radial-gradient(125% 85% at 50% 42%, #051f18 0%, #051f18 34%, rgba(0,0,0,0) 78%); }
+  /* flat, not radial: it must fully neutralise the purple, not leave it at the edges */
+  .fd-pathway-cards__wash--out{ background-image:linear-gradient(#000000,#000000); }
+  .fd-pathway-cards__wash--6{ background-image:radial-gradient(125% 85% at 50% 42%, #1c0131 0%, #1c0131 34%, rgba(0,0,0,0) 78%); }
+  .fd-pathway-cards__block--mind{ view-timeline-name:--pw1; }
+  .fd-pathway-cards__block--entrepreneur{ view-timeline-name:--pw2; }
+  .fd-pathway-cards__block--authority{ view-timeline-name:--pw3; }
+  .fd-pathway-cards__block--connection{ view-timeline-name:--pw4; }
+  .fd-pathway-cards__block--body{ view-timeline-name:--pw5; }
+  .fd-pathway-cards__block--mystic{ view-timeline-name:--pw6; }
+}
+@supports (animation-timeline:view()){
+  @media (min-width:1025px) and (min-height:780px){
+    .fd-pathway-cards__wash--1{ animation:fd-pw-wash linear both; animation-timeline:--pw1; animation-range:contain 0% contain 100%; }
+    .fd-pathway-cards__wash--2{ animation:fd-pw-wash linear both; animation-timeline:--pw2; animation-range:contain 0% contain 100%; }
+    .fd-pathway-cards__wash--3{ animation:fd-pw-wash linear both; animation-timeline:--pw3; animation-range:contain 0% contain 100%; }
+    .fd-pathway-cards__wash--4{ animation:fd-pw-wash linear both; animation-timeline:--pw4; animation-range:contain 0% contain 100%; }
+    .fd-pathway-cards__wash--5{ animation:fd-pw-wash linear both; animation-timeline:--pw5; animation-range:contain 0% contain 100%; }
+    .fd-pathway-cards__wash--6{ animation:fd-pw-wash-last linear both; animation-timeline:--pw6; animation-range:contain 0% contain 100%; }
+    .fd-pathway-cards__wash--out{ animation:fd-pw-washout linear both; animation-timeline:--pwsec; animation-range:exit 0% exit 100%; }
+  }
+}
+/* Reduced motion: no scroll-linked colour change at all. */
+@media (prefers-reduced-motion:reduce){
+  .fd-pathway-cards__tint{ display:none; }
+}
+
+
+/* ============================================================================
+   110+ World-Class Quests Section — fd-world-class-quest
+   ========================================================================== */
+.fd-world-class-quest {
+  --mv-white: #ffffff;
+  --mv-grey-300: #ced1d7;
+  --wcq-gold: #e2cea0;
+  --wcq-surface: #fcfaf5;
+  --wcq-media-w: min(100cqw, 1200px);
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  padding: 80px 120px 0;
+  background: var(--wcq-surface);
+  overflow: hidden;
+  font-family: 'Google Sans Flex', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.fd-world-class-quest,
+.fd-world-class-quest * {
+  box-sizing: border-box;
+}
+.fd-world-class-quest img,
+.fd-world-class-quest video {
+  max-width: 100%;
+}
+
+.fd-world-class-quest__bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: calc(0.13034 * var(--wcq-media-w));
+  pointer-events: none;
+  background:
+    radial-gradient(62.292% 114.716% at 67.604% -34.634%,
+      rgba(0,0,0,0) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,.21) 50%, rgba(0,0,0,.2005) 75%, rgba(0,0,0,0) 100%),
+    radial-gradient(93.854% 74.468% at -58.229% 65.012%,
+      rgba(0,0,0,.5) 0%, rgba(0,0,0,.587) 25%, rgba(0,0,0,.4695) 50%, rgba(0,0,0,.2585) 75%, rgba(0,0,0,0) 100%),
+    radial-gradient(41.667% 189.125% at -47.639% -30.142%,
+      rgba(0,0,0,.3) 0%, rgba(0,0,0,.175) 25%, rgba(0,0,0,.05) 50%, rgba(0,0,0,.025) 75%, rgba(0,0,0,0) 100%),
+    radial-gradient(107.465% 160.52% at 90.139% 149.468%,
+      rgba(255,244,215,.916) 0%, rgba(255,244,215,.713) 25%, rgba(255,244,215,.4135) 50%, rgba(255,244,215,.2475) 75%, rgba(255,244,215,0) 100%),
+    radial-gradient(148.229% 174.764% at 53.229% 109.338%,
+      rgba(157,118,50,.634) 0%, rgba(157,118,50,.7365) 25%, rgba(157,118,50,.8545) 50%, rgba(157,118,50,.3715) 75%, rgba(157,118,50,0) 100%),
+    rgb(1,4,9);
+}
+
+.fd-world-class-quest__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.fd-world-class-quest__titles {
+  width: 100%;
+  max-width: 689px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.fd-world-class-quest__eyebrow {
+  margin: 0;
+  font-size: 20px;
+  line-height: 25.04px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  color: var(--wcq-gold);
+}
+.fd-world-class-quest__headline {
+  margin: 0;
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--mv-white);
+}
+.fd-world-class-quest__body {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--mv-grey-300);
+}
+
+.fd-world-class-quest__player-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+  aspect-ratio: 16 / 9;
+  background-color: #010409;
+}
+
+@media (max-width: 1024px) {
+  .fd-world-class-quest { padding: 64px 40px 0; }
+  .fd-world-class-quest__inner { gap: 32px; margin-bottom: 32px; }
+  .fd-world-class-quest__headline { font-size: 32px; line-height: 40px; }
+}
+
+@media (max-width: 640px) {
+  .fd-world-class-quest { padding: 48px 20px 0; }
+  .fd-world-class-quest__inner { gap: 24px; margin-bottom: 24px; }
+  .fd-world-class-quest__titles { gap: 14px; }
+  .fd-world-class-quest__eyebrow { font-size: 16px; line-height: 20px; letter-spacing: .16px; }
+  .fd-world-class-quest__headline { font-size: 28px; line-height: 34px; }
+  .fd-world-class-quest__body { font-size: 16px; line-height: 22px; }
+}
+
+/* === MEET YOUR MENTORS SECTION === */
+.fd-meet-your-mentors{
+  /* MV tokens actually used */
+  --mv-white:#ffffff;
+  --mv-black:#0f131a;      /* headline ink + card scrim */
+  --mv-grey-600:#292d38;   /* eyebrow + lede */
+  /* section-local (one-off Figma values) */
+  --fd-mym-cream:#fcfaf5;  /* section bg top stop — no MV token matches */
+  --fd-mym-card-w:282px;
+  --fd-mym-card-h:423px;
+  --fd-mym-gap:16px;
+  container-type:inline-size;
+  box-sizing:border-box;
+  /* Full-bleed: the Figma frame for this section is 1854 wide (vs the 1440 page), so the
+     marquee rows are meant to run past the page column. NO max-width here — the section
+     spans 100% of its host column and the header block below is what holds the 1200
+     content measure. Width stays 100% of the host column — never a viewport unit (§1). */
+  width:100%;
+  margin:0 auto;
+  padding:128px 0;
+  background:linear-gradient(180deg,var(--fd-mym-cream) 0%,var(--mv-white) 100%);
+  font-family:'Google Sans Flex',sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.fd-meet-your-mentors *{box-sizing:border-box}
+.fd-meet-your-mentors img{max-width:100%}
+.fd-meet-your-mentors__sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ---------- header (Figma 3309:6967 — vertical stack, 20px gaps) ---------- */
+.fd-meet-your-mentors__head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+}
+.fd-meet-your-mentors__eyebrow{
+  margin:0;
+  font-size:20px;
+  font-weight:600;
+  line-height:25.04px;
+  /* Figma says .2px; its own render measures 218px wide for this string (mine 213 at
+     .2px) — the node carries a stale face. Screenshot wins (contract §0). */
+  letter-spacing:.5px;
+  color:var(--mv-grey-600);
+  text-align:center;
+}
+.fd-meet-your-mentors__headline{
+  margin:0;
+  max-width:792px;
+  font-size:36px;
+  font-weight:600;
+  line-height:44px;
+  /* Figma says 0; its render is 3-4px wider per line than 0 gives. Screenshot wins. */
+  letter-spacing:.2px;
+  color:var(--mv-black);
+  text-align:center;
+}
+.fd-meet-your-mentors__lede{
+  margin:0;
+  max-width:792px;
+  font-size:18px;
+  font-weight:400;
+  line-height:24px;
+  /* Figma says .4px; that renders 34px wider per line than the reference. Screenshot wins. */
+  letter-spacing:0;
+  color:var(--mv-grey-600);
+  text-align:center;
+}
+
+/* Figma centres headline line 1 including its trailing space (the source string is
+   "100+ Teachers. " + newline), which pulls the ink 4px left of the box centre — that
+   is what the &nbsp; reproduces. The lede's line break is Figma's too; it is dropped
+   below 1024px so the copy reflows. */
+.fd-meet-your-mentors__wbr{display:inline}
+
+/* ---------- carousel (Figma 3309:6993 — two rows, 16px apart) ---------- */
+.fd-meet-your-mentors__carousel{
+  display:flex;
+  flex-direction:column;
+  gap:var(--fd-mym-gap);
+  margin-top:40px;
+}
+.fd-meet-your-mentors__row{
+  position:relative;
+  height:var(--fd-mym-card-h);
+  overflow:hidden;
+}
+.fd-meet-your-mentors__track{
+  display:flex;
+  gap:var(--fd-mym-gap);
+  width:max-content;
+  will-change:transform;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+/* Figma: Row1 starts at page x -207, Row2 at -127 (80px stagger, Row2 padding) */
+.fd-meet-your-mentors__track--1{
+  margin-left:-207px;
+  animation-name:fd-mym-scroll-left;
+  animation-duration:52.15s;
+}
+.fd-meet-your-mentors__track--2{
+  margin-left:-127px;
+  animation-name:fd-mym-scroll-right;
+  animation-duration:52.15s;
+}
+.fd-meet-your-mentors__row:hover .fd-meet-your-mentors__track,
+.fd-meet-your-mentors__row:focus-within .fd-meet-your-mentors__track{animation-play-state:paused}
+/* Each track holds THREE identical sets of 7 unique mentors. The animation only ever
+   travels one set + gap (7 x 298 = 2086px per row, both at 40px/s => 52.15s), so two sets
+   already loop seamlessly; the third exists purely so a full-bleed row on a wide viewport
+   (3200+) never reaches the end of the track at any animation phase. */
+.fd-meet-your-mentors__set{
+  display:flex;
+  gap:var(--fd-mym-gap);
+}
+@keyframes fd-mym-scroll-left{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-2086px,0,0)}
+}
+@keyframes fd-mym-scroll-right{
+  from{transform:translate3d(-2086px,0,0)}
+  to{transform:translate3d(0,0,0)}
+}
+
+/* ---------- card (Figma Assets/Trainer Card — 282x423, r16) ---------- */
+.fd-meet-your-mentors__card{
+  position:relative;
+  flex:0 0 auto;
+  width:var(--fd-mym-card-w);
+  height:var(--fd-mym-card-h);
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--mv-black);
+  /* Bottom-anchored stack: the wordmark -> role gap is now STRUCTURAL (8px),
+     not derived from each wordmark Figma absolute position. Previously those
+     positions made the gap vary 4.0-52.9px across the 14 mentors. Photo and
+     scrim stay absolutely positioned, so they are unaffected by this context. */
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  gap:8px;
+  padding:0 16px 20px;
+  box-sizing:border-box;
+}
+.fd-meet-your-mentors__photo{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+/* Figma "Dark Overlay": bottom 185px, transparent -> #0f131a */
+.fd-meet-your-mentors__scrim{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:185px;
+  background:linear-gradient(180deg,rgba(15,19,26,0) 0%,var(--mv-black) 100%);
+}
+.fd-meet-your-mentors__wm{
+  /* Static flex item: centred by the card align-items, and vertically placed by
+     the card gap. Replaces 14 hardcoded left/bottom pairs. */
+  position:relative;
+  z-index:1;
+  flex:0 0 auto;
+  display:block;
+  color:var(--mv-white);
+  fill:currentColor;
+}
+.fd-meet-your-mentors__wm--monty-moran{width:162.07px;height:80.83px}
+.fd-meet-your-mentors__wm--tim-storey{width:227.39px;height:74.88px}
+.fd-meet-your-mentors__wm--maye-musk{width:220px;height:104.95px}
+.fd-meet-your-mentors__wm--vishen{width:220px;height:36.46px}
+.fd-meet-your-mentors__wm--marisa-peer{width:205px;height:74.28px}
+.fd-meet-your-mentors__wm--naveen-jain{width:209px;height:75.83px}
+.fd-meet-your-mentors__wm--paul-mckenna{width:227.67px;height:69.2px}
+.fd-meet-your-mentors__wm--regan-hillyer-lg{width:220px;height:114.5px}
+.fd-meet-your-mentors__wm--michael-beckwith{width:231px;height:83.13px}
+.fd-meet-your-mentors__wm--kwame-christian{width:220px;height:93.44px}
+.fd-meet-your-mentors__wm--keith-ferrazzi{width:233px;height:67.13px}
+.fd-meet-your-mentors__wm--jim-kwik{width:235px;height:43.77px}
+.fd-meet-your-mentors__wm--nir-eyal{width:169px;height:73.74px}
+.fd-meet-your-mentors__wm--ken-honda{width:160px;height:94.08px}
+.fd-meet-your-mentors__role{
+  position:relative;
+  z-index:1;
+  width:100%;
+  margin:0;
+  font-size:12px;
+  font-weight:500;
+  line-height:16px;
+  /* Figma says .35px (on a stale Sharp Grotesk face); its render is ~6px wider. */
+  letter-spacing:.5px;
+  color:var(--mv-white);
+  text-align:center;
+}
+
+/* ---------- responsive (self-derived — no tablet/mobile Figma frame) ---------- */
+@media (max-width:1024px){
+  .fd-meet-your-mentors{padding:96px 0}
+  .fd-meet-your-mentors__wbr{display:none}
+  .fd-meet-your-mentors__headline{font-size:clamp(28px,3.6cqw,36px);line-height:1.222}
+  .fd-meet-your-mentors__lede{font-size:clamp(16px,1.9cqw,18px);line-height:1.333}
+}
+@media (max-width:640px){
+  .fd-meet-your-mentors{padding:64px 0}
+  .fd-meet-your-mentors__head{gap:16px;padding:0 24px}
+  .fd-meet-your-mentors__eyebrow{font-size:16px;line-height:20px}
+  .fd-meet-your-mentors__headline{font-size:clamp(24px,7.2cqw,36px)}
+  .fd-meet-your-mentors__lede{font-size:16px;line-height:22px}
+  .fd-meet-your-mentors__carousel{margin-top:32px}
+  .fd-meet-your-mentors__track--1{margin-left:-96px}
+  .fd-meet-your-mentors__track--2{margin-left:-32px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fd-meet-your-mentors__track{animation:none}
+}
+
+
+/* === CASE STUDIES SECTION === */
+.fd-case-studies{
+  --mv-brand:#7a12d4;
+  --mv-black:#0f131a;
+  --mv-white:#ffffff;
+  --mv-grey-600:#292d38;
+  container-type:inline-size;
+  box-sizing:border-box;
+  /* Full-bleed: the collage band runs edge-to-edge to the browser at any width, so there is
+     NO max-width here — the section spans 100% of its host column and the copy wrapper below
+     holds the 384px Figma content measure. (No 100vw — contract §1.) */
+  width:100%;
+  margin:0 auto;
+  padding:0 0 128px;
+  background:var(--mv-white);
+  font-family:'Google Sans Flex',sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.fd-case-studies *,
+.fd-case-studies *::before,
+.fd-case-studies *::after{box-sizing:border-box}
+.fd-case-studies img{max-width:100%}
+
+/* ---- collage band: flattened Figma "Stories Collage" frame, 1440x802 ---- */
+.fd-case-studies__band{
+  position:relative;
+  height:802px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.fd-case-studies__band::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("https://a.storyblok.com/f/312081/98796add48/case_casestudy-background.webp");
+  background-repeat:no-repeat;
+  background-position:center top;
+  /* CROP, never stretch. The webp is the flattened 2880x1604 "Stories Collage" frame = a
+     1440x802 band at 1:1. `cover` keeps that aspect exactly: for any band width \u003C=1440 it
+     resolves to 1440x802 (identical to the old explicit size — the sides crop inward, as the
+     Figma frame itself does via clipsContent); above 1440 it scales up proportionally off the
+     width so the collage still reaches both edges, cropping the bottom. Faces never squash. */
+  background-size:cover;
+  pointer-events:none;
+}
+
+/* ---- centre wrapper (Figma "Wrapper": 384w, vertical, gap 24, centred) ---- */
+.fd-case-studies__wrapper{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+  width:100%;
+  max-width:384px;
+}
+.fd-case-studies__title{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  width:100%;
+}
+.fd-case-studies__stat{
+  margin:0;
+  font-size:72px;
+  font-weight:600;
+  line-height:80px;
+  letter-spacing:-0.25px;
+  text-align:center;
+  color:var(--mv-black);
+}
+.fd-case-studies__subtitle{
+  margin:0;
+  font-size:24px;
+  font-weight:500;
+  line-height:30px;
+  letter-spacing:0;
+  text-align:center;
+  color:var(--mv-grey-600);
+}
+.fd-case-studies__body{
+  margin:0;
+  width:100%;
+  font-size:18px;
+  font-weight:400;
+  line-height:24px;
+  letter-spacing:0;
+  text-align:center;
+  color:var(--mv-grey-600);
+}
+.fd-case-studies__link{
+  color:var(--mv-brand);
+  text-decoration:none;
+}
+.fd-case-studies__link:hover{text-decoration:underline}
+
+/* ---- CTA (Figma "Neutral Button" / size Large) ---- */
+.fd-case-studies__cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+.fd-case-studies__btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:48px;
+  padding:14px 24px;
+  border:0;
+  border-radius:100px;
+  font-family:'Google Sans Flex',sans-serif;
+  font-size:16px;
+  font-weight:500;
+  line-height:20px;
+  letter-spacing:0.2px;
+  text-align:center;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background-color .2s ease,opacity .2s ease;
+}
+.fd-case-studies__btn--neutral{
+  background:#000000;
+  color:var(--mv-white);
+}
+.fd-case-studies__btn--neutral:hover{background:var(--mv-grey-600)}
+
+/* ---- tablet: collage crops inward, centre gutter preserved (self-derived) ---- */
+@media (max-width:1024px){
+  .fd-case-studies{padding-bottom:96px}
+  .fd-case-studies__band{padding:0 24px}
+}
+
+/* ---- mobile: collage reflows to a full-width strip, copy stacks beneath ---- */
+/* Mobile-only collage image. Desktop keeps the 1440x802 background band on
+   .fd-case-studies__band::before; this \u003Cimg> is inert above 640px. */
+.fd-case-studies__mobile{display:none}
+
+@media (max-width:640px){
+  .fd-case-studies{padding-bottom:64px}
+  /* body copy was left at the desktop 18/24 here, 2px above every other section's
+     mobile body; brought onto the page's 16/22 mobile step */
+  .fd-case-studies__body{font-size:16px;line-height:22px}
+  /* Mobile swaps the desktop background band for a purpose-made collage image
+     (mvcom_hp_stories_mobile.webp, 1125x694) STACKED ABOVE the copy.
+     Why: the desktop artwork is a wide band whose centre is deliberately empty
+     so the stat/copy can sit inside it. At mobile widths that composition has no
+     good answer - crop it enough to keep the copy clear and the faces get pushed
+     off-screen; keep the faces and the copy lands on top of them. A separately
+     authored portrait-dense image avoids the trade-off entirely. */
+  .fd-case-studies__band{
+    display:block;
+    height:auto;
+    padding:0;
+  }
+  .fd-case-studies__band::before{display:none}
+  .fd-case-studies__mobile{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .fd-case-studies__wrapper{
+    margin:8px auto 0;
+    padding:0 24px;
+    max-width:432px;
+  }
+  .fd-case-studies__stat{
+    font-size:clamp(44px,14cqw,72px);
+    line-height:1.111;
+  }
+  .fd-case-studies__subtitle{
+    font-size:clamp(20px,5.4cqw,24px);
+    line-height:1.25;
+  }
+}
+
+
+/* === MEDITATIONS SECTION === */
+.fd-med-menu{
+  position:relative;
+  width:100%;
+  box-sizing:border-box;
+  padding:128px 0;
+  /* clips the full-bleed rows at the viewport edge */
+  overflow:hidden;
+  /* Figma frame fill (3824:58169) — this section's own full ramp */
+  background:linear-gradient(180deg,#F8F9FE 0%,#CADEFC 100%);
+  font-family:'Google Sans Flex',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-align:center;
+}
+.fd-med-menu *,
+.fd-med-menu *::before,
+.fd-med-menu *::after{box-sizing:border-box}
+
+/* ---------- copy: 1200 box, text capped at Figma's 792 ---------- */
+.fd-med-menu__inner{
+  max-width:1200px;
+  margin:0 auto;
+  /* 40px bottom = the Figma Main Box bottom padding, i.e. the copy -> rows gap */
+  padding:0 120px 40px;
+}
+.fd-med-menu__eyebrow{
+  margin:0;
+  color:#292D38;
+  font-size:20px;
+  font-weight:600;
+  line-height:25px;
+  letter-spacing:.2px;
+}
+.fd-med-menu__headline{
+  max-width:792px;
+  margin:20px auto 0;
+  color:#0F131A;
+  font-size:36px;
+  font-weight:600;
+  line-height:44px;
+  letter-spacing:0;
+  text-wrap:balance;
+}
+.fd-med-menu__body{
+  max-width:792px;
+  margin:20px auto 0;
+  color:#000000;
+  font-size:18px;
+  font-weight:400;
+  line-height:24px;
+  letter-spacing:.4px;
+}
+.fd-med-menu__cta{
+  margin-top:24px;
+  display:flex;
+  justify-content:center;
+}
+/* MV Button — variant: filled, color: neutral (black), size: large */
+.fd-med-menu__btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:14px 24px;
+  border:0;
+  border-radius:100px;
+  background-color:#000000;
+  color:#ffffff;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:500;
+  line-height:20px;
+  letter-spacing:.2px;
+  text-align:center;
+  text-decoration:none;
+  white-space:nowrap;
+  cursor:pointer;
+  transition:background-color .2s ease;
+}
+.fd-med-menu__btn:hover{background-color:#1f2430}
+.fd-med-menu__btn:focus-visible{outline:2px solid #0F131A;outline-offset:2px}
+
+/* ---------- full-bleed marquee ---------- */
+.fd-med-menu__rows{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:19px;
+  overflow:hidden;
+}
+.fd-med-menu__row{
+  display:flex;
+  width:max-content;
+}
+.fd-med-menu__strip{
+  display:flex;
+  gap:19px;
+  /* keeps the inter-tile rhythm across the seam between copies */
+  padding-right:19px;
+  flex:0 0 auto;
+}
+.fd-med-menu__strip img{
+  display:block;
+  width:125.15px;
+  height:125.15px;
+  border-radius:16px;
+  object-fit:cover;
+  flex:0 0 auto;
+}
+@media (prefers-reduced-motion:no-preference){
+  .fd-med-menu__row{animation:fd-med-menu-left 60s linear infinite}
+  .fd-med-menu__row--rev{animation:fd-med-menu-right 75s linear infinite}
+  .fd-med-menu__row--alt{animation-duration:50s}
+  @keyframes fd-med-menu-left{from{transform:translateX(0)}to{transform:translateX(-25%)}}
+  @keyframes fd-med-menu-right{from{transform:translateX(-25%)}to{transform:translateX(0)}}
+}
+
+/* ---------- responsive (self-derived: no tablet/mobile Figma frames) ---------- */
+@media (max-width:1024px){
+  .fd-med-menu{padding:80px 0}
+  .fd-med-menu__inner{padding:0 40px 40px}
+}
+@media (max-width:640px){
+  .fd-med-menu{padding:56px 0}
+  .fd-med-menu__inner{padding:0 20px 28px}
+  .fd-med-menu__eyebrow{font-size:16px;line-height:20px}
+  .fd-med-menu__headline{font-size:28px;line-height:34px;margin-top:16px}
+  .fd-med-menu__body{font-size:16px;line-height:22px;margin-top:16px}
+  .fd-med-menu__cta{margin-top:20px}
+  .fd-med-menu__rows{gap:12px}
+  .fd-med-menu__strip{gap:12px;padding-right:12px}
+  .fd-med-menu__strip img{width:96px;height:96px;border-radius:12px}
+}
+
