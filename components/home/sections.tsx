@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -63,6 +63,372 @@ import { INDUSTRY_CIRCLES, PURPOSE_CIRCLES } from '@/lib/data/circles'
 import { UPCOMING_EVENTS, EventRecord } from '@/lib/data/events'
 import { ROLES } from '@/lib/data/leadership'
 import { OUTCOME_STATS, SITE } from '@/lib/data/site'
+
+/* =========================================================================
+   SECTION 1.5 — MEET OUR LEADERS & MENTORS (MINDVALLEY STYLE SPOTLIGHT)
+   ========================================================================= */
+
+export function LeadersSpotlightSection() {
+  const spotlightPeers = [
+    {
+      id: 1,
+      name: 'VIKRAM SHROFF',
+      role: 'Chairman & Managing Director',
+      organization: 'Apex Infrastructure Group',
+      tag: 'Infrastructure & Real Estate',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
+      location: 'Mumbai Chapter',
+    },
+    {
+      id: 2,
+      name: 'ANANYA BIRLA',
+      role: 'Founder & Managing Partner',
+      organization: 'Nexus Growth Equity',
+      tag: 'Venture & Private Capital',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+      location: 'Bengaluru Chapter',
+    },
+    {
+      id: 3,
+      name: 'RAJESH AGARWAL',
+      role: 'President & CEO',
+      organization: 'TransGlobal Supply Chain Ltd',
+      tag: 'Global Trade & Logistics',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80',
+      location: 'Ahmedabad Chapter',
+    },
+    {
+      id: 4,
+      name: 'DR. KAVITA SHUKLA',
+      role: 'Chief Scientific Officer & Co-Founder',
+      organization: 'BioGenesis Therapeutics',
+      tag: 'Healthcare & Pharma',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
+      location: 'Pune Chapter',
+    },
+    {
+      id: 5,
+      name: 'HARSHIL PATEL',
+      role: 'Founder & Group CEO',
+      organization: 'FinTech Horizon Labs',
+      tag: 'Fintech & Digital Banking',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+      location: 'Dubai Chapter',
+    },
+    {
+      id: 6,
+      name: 'PRIYA MENON',
+      role: 'Executive Director',
+      organization: 'Kalyan Renewable Energy',
+      tag: 'CleanTech & Energy',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+      location: 'Hyderabad Chapter',
+    },
+    {
+      id: 7,
+      name: 'SUNIL MITTAL',
+      role: 'Founder & Managing Director',
+      organization: 'Sterling Manufacturing Consortium',
+      tag: 'Advanced Engineering',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+      location: 'Delhi NCR Chapter',
+    },
+    {
+      id: 8,
+      name: 'SANGEETA REDDY',
+      role: 'Managing Partner',
+      organization: 'Cross-Border Advisory Partners',
+      tag: 'M&A and Strategic Advisory',
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80',
+      location: 'Singapore Chapter',
+    },
+    {
+      id: 9,
+      name: 'AMIT CHOPRA',
+      role: 'Co-Founder & Chief Technology Officer',
+      organization: 'OmniCloud Enterprise',
+      tag: 'Enterprise SaaS & AI',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80',
+      location: 'Bengaluru Chapter',
+    },
+    {
+      id: 10,
+      name: 'MEERA KAPOOR',
+      role: 'Chief Executive Officer',
+      organization: 'Vanguard Retail & Lifestyle',
+      tag: 'Consumer Brands & D2C',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
+      location: 'Mumbai Chapter',
+    },
+    {
+      id: 11,
+      name: 'DEEPAK MEHTA',
+      role: 'Senior Managing Partner',
+      organization: 'Paramount Capital Group',
+      tag: 'Family Office & Real Assets',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
+      location: 'London Chapter',
+    },
+    {
+      id: 12,
+      name: 'ROHIT KHANNA',
+      role: 'Founder & Chairperson',
+      organization: 'AeroSpace Components India',
+      tag: 'Defense & Aerospace',
+      image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=800&q=80',
+      location: 'Chennai Chapter',
+    },
+  ]
+
+  const row1 = spotlightPeers.slice(0, 6)
+  const row2 = spotlightPeers.slice(6, 12)
+  const infiniteRow1 = [...row1, ...row1, ...row1]
+  const infiniteRow2 = [...row2, ...row2, ...row2]
+
+  const [selectedLeader, setSelectedLeader] = useState<typeof spotlightPeers[0] | null>(null)
+
+  return (
+    <section id="mentors-spotlight" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
+      
+      {/* Dynamic CSS keyframes for smooth dual-row continuous marquees */}
+      <style jsx global>{`
+        @keyframes marqueeLeft {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-33.3333%);
+          }
+        }
+        @keyframes marqueeRight {
+          0% {
+            transform: translateX(-33.3333%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+        .animate-marquee-left {
+          display: flex;
+          width: max-content;
+          animation: marqueeLeft 38s linear infinite;
+        }
+        .animate-marquee-right {
+          display: flex;
+          width: max-content;
+          animation: marqueeRight 42s linear infinite;
+        }
+        .marquee-track:hover .animate-marquee-left,
+        .marquee-track:hover .animate-marquee-right {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      {/* Ambient background glow */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-blue-500/[0.03] blur-[150px]" />
+
+      <div className="shell flex flex-col items-center">
+        
+        {/* Section Header (Matching Mindvalley centered format with Microsoft Typography) */}
+        <div className="flex flex-col items-center text-center max-w-3xl mb-12 sm:mb-16">
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#0078D4] mb-3 block">
+            MEET OUR LEADERS &amp; MENTORS
+          </span>
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-[2.85rem] font-semibold text-slate-900 leading-[1.16] tracking-tight">
+            500+ Industry Leaders.<br className="hidden sm:block" /> Decades of Collective Wisdom.
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+            Entrepreneurs, enterprise leaders, investors, and visionaries who have spent decades mastering their craft—so you can accelerate yours.
+          </p>
+        </div>
+
+      </div>
+
+      {/* Dual Row Portrait Card Marquee Container */}
+      <div className="marquee-track flex flex-col gap-4 sm:gap-6 overflow-hidden w-full select-none">
+        
+        {/* Row 1 — Moving Left */}
+        <div className="animate-marquee-left flex gap-4 sm:gap-6 px-3">
+          {infiniteRow1.map((peer, idx) => (
+            <div
+              key={`r1-${peer.id}-${idx}`}
+              onClick={() => setSelectedLeader(peer)}
+              className="group relative w-[200px] sm:w-[240px] md:w-[270px] h-[290px] sm:h-[350px] md:h-[390px] rounded-2xl sm:rounded-[22px] overflow-hidden shadow-lg border border-slate-200/80 bg-slate-900 shrink-0 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
+            >
+              {/* Portrait Image */}
+              <Image
+                src={peer.image}
+                alt={peer.name}
+                fill
+                sizes="(max-width: 640px) 200px, 270px"
+                className="size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+
+              {/* Bottom Gradient Overlay (Deep dark fade matching Mindvalley) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 via-60% to-transparent" />
+
+              {/* Top Chapter Tag */}
+              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-[10px] sm:text-[11px] font-medium text-slate-200 tracking-wide">
+                  {peer.location}
+                </span>
+              </div>
+
+              {/* Bottom Typography & Details */}
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-10 flex flex-col justify-end text-left">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-blue-300 mb-1 block">
+                  {peer.tag}
+                </span>
+                <h3 className="font-sans text-xl sm:text-2xl md:text-[1.65rem] font-bold uppercase tracking-tight text-white leading-tight drop-shadow-md group-hover:text-blue-200 transition-colors">
+                  {peer.name}
+                </h3>
+                <p className="text-[11px] sm:text-xs text-slate-300 mt-1 line-clamp-1 font-normal leading-snug">
+                  {peer.role}
+                </p>
+                <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium line-clamp-1">
+                  {peer.organization}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 — Moving Right */}
+        <div className="animate-marquee-right flex gap-4 sm:gap-6 px-3">
+          {infiniteRow2.map((peer, idx) => (
+            <div
+              key={`r2-${peer.id}-${idx}`}
+              onClick={() => setSelectedLeader(peer)}
+              className="group relative w-[200px] sm:w-[240px] md:w-[270px] h-[290px] sm:h-[350px] md:h-[390px] rounded-2xl sm:rounded-[22px] overflow-hidden shadow-lg border border-slate-200/80 bg-slate-900 shrink-0 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
+            >
+              {/* Portrait Image */}
+              <Image
+                src={peer.image}
+                alt={peer.name}
+                fill
+                sizes="(max-width: 640px) 200px, 270px"
+                className="size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+
+              {/* Bottom Gradient Overlay (Deep dark fade matching Mindvalley) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 via-60% to-transparent" />
+
+              {/* Top Chapter Tag */}
+              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-10">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-[10px] sm:text-[11px] font-medium text-slate-200 tracking-wide">
+                  {peer.location}
+                </span>
+              </div>
+
+              {/* Bottom Typography & Details */}
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-10 flex flex-col justify-end text-left">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-blue-300 mb-1 block">
+                  {peer.tag}
+                </span>
+                <h3 className="font-sans text-xl sm:text-2xl md:text-[1.65rem] font-bold uppercase tracking-tight text-white leading-tight drop-shadow-md group-hover:text-blue-200 transition-colors">
+                  {peer.name}
+                </h3>
+                <p className="text-[11px] sm:text-xs text-slate-300 mt-1 line-clamp-1 font-normal leading-snug">
+                  {peer.role}
+                </p>
+                <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium line-clamp-1">
+                  {peer.organization}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* Bottom Action / Supporting Information */}
+      <div className="shell mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200 pt-6">
+        <p className="text-xs sm:text-sm text-slate-600 font-normal">
+          Hover over any leader to pause · Continuous global peer network
+        </p>
+        <Link
+          href="/membership"
+          className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-sm"
+        >
+          <span>Explore All Leaders &amp; Circles</span>
+          <ArrowRight className="size-4" />
+        </Link>
+      </div>
+
+      {/* Detail Leader Modal */}
+      {selectedLeader && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          onClick={() => setSelectedLeader(null)}
+        >
+          <div
+            className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 p-6 sm:p-8 text-white shadow-2xl animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setSelectedLeader(null)}
+              className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-[4px] bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="size-4" />
+            </button>
+
+            {/* Profile Content */}
+            <div className="flex items-center gap-4 mb-5">
+              <div className="relative size-16 sm:size-20 rounded-xl overflow-hidden border border-white/20 shrink-0">
+                <Image
+                  src={selectedLeader.image}
+                  alt={selectedLeader.name}
+                  fill
+                  className="size-full object-cover"
+                />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-1">
+                  {selectedLeader.tag} · {selectedLeader.location}
+                </span>
+                <h3 className="font-sans text-xl sm:text-2xl font-bold uppercase text-white leading-tight">
+                  {selectedLeader.name}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 font-medium">
+                  {selectedLeader.role}
+                </p>
+                <p className="text-xs text-slate-400">
+                  {selectedLeader.organization}
+                </p>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/10 pt-4">
+              Experienced founder and circle contributor within Peers Global, actively mentoring upcoming founders, participating in high-value cross-border collaborations, and lending institutional credibility across global chapters.
+            </p>
+
+            <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              <Link
+                href="/membership"
+                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-4 py-2 text-xs sm:text-sm font-semibold text-white transition-colors"
+              >
+                <span>Connect with Mentors</span>
+                <ArrowRight className="size-4" />
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSelectedLeader(null)}
+                className="text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </section>
+  )
+}
+
 
 /* =========================================================================
    SECTION 2 — WHO WE ARE & WHAT PEERS GLOBAL IS
@@ -363,749 +729,778 @@ export function WhoWeAreSection() {
    ========================================================================= */
 
 export function PhilosophySection() {
+  const [videoUrl, setVideoUrl] = useState('/videos/homepage-hero-bg.mp4')
+  const videoRef = useRef<HTMLVideoElement>(null)
+
   const steps = [
     {
-      num: '1. Relationships',
+      num: '01',
+      title: 'RELATIONSHIPS',
       desc: 'Business grows through relationships',
       icon: Users,
-      color: '#1D4ED8',
-      textColor: 'text-[#1D4ED8]',
     },
     {
-      num: '2. Trust',
+      num: '02',
+      title: 'TRUST',
       desc: 'Relationships grow through trust',
       icon: ShieldCheck,
-      color: '#059669',
-      textColor: 'text-slate-900',
     },
     {
-      num: '3. Contribution',
+      num: '03',
+      title: 'CONTRIBUTION',
       desc: 'Trust grows through contribution',
       icon: Handshake,
-      color: '#D97706',
-      textColor: 'text-slate-900',
     },
     {
-      num: '4. Impact',
+      num: '04',
+      title: 'IMPACT',
       desc: 'Contribution creates true impact',
       icon: TrendingUp,
-      color: '#E11D48',
-      textColor: 'text-slate-900',
     },
   ]
 
   return (
-    <section className="relative overflow-hidden bg-white border-b border-slate-200">
-      <div className="grid lg:grid-cols-[1.14fr_0.86fr] items-stretch min-h-[580px]">
-        {/* Left Column: Content */}
-        <div className="flex flex-col justify-center px-6 py-12 sm:px-12 sm:py-16 lg:pl-16 lg:pr-12">
-          <div className="flex flex-col gap-5 max-w-xl">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
-                OUR PHILOSOPHY
-              </span>
-            </div>
+    <section id="our-philosophy" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
+      <div className="shell flex flex-col items-center text-center">
+        
+        {/* Eyebrow */}
+        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-3 block">
+          OUR PHILOSOPHY
+        </span>
 
-            {/* H2 Title */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-slate-950 leading-[1.15] tracking-tight">
-              Peers are Partners in Business and{' '}
-              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                Friends in Life.
-              </span>
-            </h2>
+        {/* Headline (Mindvalley Centered Style in Microsoft Segoe UI) */}
+        <h2 className="font-sans text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-slate-900 leading-[1.18] tracking-tight max-w-4xl">
+          Peers are Partners in Business.
+          <br className="hidden sm:inline" />
+          <span className="block mt-1 sm:mt-2 text-slate-900">
+            And Friends in Life.
+          </span>
+        </h2>
 
-            {/* Subline */}
-            <p className="text-sm sm:text-base font-semibold text-[#1D4ED8]">
-              This is the conviction the whole community runs on.
-            </p>
+        {/* Subline */}
+        <p className="mt-3 text-sm sm:text-base font-semibold text-[#0078D4]">
+          This is the conviction the whole community runs on.
+        </p>
 
-            {/* Body */}
-            <p className="text-sm leading-relaxed text-slate-600 font-normal">
-              A Peer gives an introduction without keeping score. Shares a hard-won lesson without charging for it. Celebrates another Peer&apos;s win as if it were their own. Over time, business partners become friends, and friends become the reason the business grows.
-            </p>
+        {/* Body Description */}
+        <p className="mt-3 max-w-2xl text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+          A Peer gives an introduction without keeping score. Shares a hard-won lesson without charging for it. Celebrates another Peer&apos;s win as if it were their own. Over time, business partners become friends, and friends become the reason the business grows.
+        </p>
 
-            {/* 4 Steps Horizontal Row */}
-            <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 pt-3 border-t border-slate-100">
-              {steps.map((s) => {
-                const Icon = s.icon
-                return (
-                  <div key={s.num} className="flex flex-col gap-1.5">
-                    <Icon className="size-6 mb-1" style={{ color: s.color }} />
-                    <span className={`text-xs sm:text-[13px] font-bold ${s.textColor}`}>
-                      {s.num}
-                    </span>
-                    <span className="text-[11.5px] leading-snug text-slate-500">
-                      {s.desc}
-                    </span>
-                  </div>
-                )
-              })}
-            </div>
-
-            {/* Bottom Bar: Quote & Button */}
-            <div className="mt-6 pt-5 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
-              <div className="flex items-center gap-2.5 flex-1 min-w-[220px]">
-                <span className="text-xl font-serif text-slate-400 select-none">“</span>
-                <p className="text-xs sm:text-sm font-semibold text-slate-700 whitespace-nowrap">
-                  Give first. Everything else follows.
-                </p>
-                <span className="h-px bg-slate-200 flex-1 hidden sm:block ml-2" />
+        {/* 4 Core Pillars / Stats Row (Mindvalley Metric Style) */}
+        <div className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 max-w-4xl w-full">
+          {steps.map((step) => {
+            const Icon = step.icon
+            return (
+              <div key={step.num} className="flex flex-col items-center p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span className="text-xs font-bold text-[#0078D4] mb-1">{step.num}</span>
+                <span className="text-sm sm:text-base font-semibold text-slate-900 tracking-tight">
+                  {step.title}
+                </span>
+                <span className="mt-1 text-xs text-slate-500 font-normal leading-snug text-center">
+                  {step.desc}
+                </span>
               </div>
+            )
+          })}
+        </div>
+
+        {/* Wide Featured Video Frame (Mindvalley Layout with Video) */}
+        <div className="mt-12 sm:mt-14 w-full max-w-5xl">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-950 shadow-2xl border border-slate-200/80">
+            <video
+              ref={videoRef}
+              key={videoUrl}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="size-full object-cover"
+            >
+              <source src={videoUrl} type="video/mp4" />
+              <source src="/videos/hero-background.mp4" type="video/mp4" />
+            </video>
+
+            {/* Dark Vignette Overlay */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-slate-950/20" />
+
+            {/* Top-Left Tag */}
+            <div className="absolute top-4 sm:top-6 left-4 sm:left-6 z-10 flex items-center gap-2 rounded-full bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 border border-white/20">
+              <span className="size-2 rounded-full bg-[#0078D4] animate-pulse" />
+              <span className="text-[11px] font-semibold text-white uppercase tracking-wider">
+                Better Conversations · Bigger Opportunities
+              </span>
+            </div>
+
+            {/* Bottom-Left Caption */}
+            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-10 text-left">
+              <span className="text-xs sm:text-sm font-semibold text-white/90 uppercase tracking-widest block">
+                COMMUNITY CONCLAVES &amp; TRUSTED CIRCLES
+              </span>
+              <span className="text-sm sm:text-lg font-semibold text-white drop-shadow-md">
+                Where entrepreneurs build lifelong partnerships
+              </span>
+            </div>
+
+            {/* Bottom-Right CTA */}
+            <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-10">
               <Link
                 href="/membership"
-                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-none"
+                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-md"
               >
-                Become a Peer
-                <ArrowRight className="size-3.5" />
+                <span>Become a Peer</span>
+                <ArrowRight className="size-4" />
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Image with organic curved wave mask */}
-        <div className="relative min-h-[380px] lg:min-h-[580px] overflow-hidden bg-slate-900">
-          <Image
-            src="/images/philosophy-conference-event.jpg"
-            alt="Peers Global community meeting and collaboration session"
-            fill
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="object-cover object-center"
-          />
-
-          {/* Soft dark vignette */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30 pointer-events-none" />
-
-          {/* Subtitle in top-right */}
-          <div className="absolute top-8 right-8 z-10 text-right drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] pointer-events-none select-none">
-            <span className="inline-flex flex-col items-end gap-1 px-4 py-2.5 rounded-2xl bg-slate-950/75 border border-white/20 backdrop-blur-md">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Better Conversations</span>
-              <span className="text-sm font-bold text-white">Bigger Opportunities</span>
-            </span>
-          </div>
-
-          {/* Left curved wave swoosh overlay */}
-          <svg
-            className="absolute inset-y-0 -left-px h-full w-24 sm:w-32 lg:w-44 text-white fill-white pointer-events-none drop-shadow-[4px_0_12px_rgba(0,0,0,0.12)]"
-            viewBox="0 0 100 500"
-            preserveAspectRatio="none"
-          >
-            {/* The white masking wave */}
-            <path d="M 0,0 L 50,0 C 18,140 10,260 70,390 C 88,430 96,470 100,500 L 0,500 Z" />
-            {/* Accent glowing blue stroke along the contour */}
-            <path
-              d="M 50,0 C 18,140 10,260 70,390 C 88,430 96,470 100,500"
-              fill="none"
-              stroke="#1D4ED8"
-              strokeWidth="2.5"
-              opacity="0.4"
-            />
-          </svg>
+        {/* Bottom Quote & Action */}
+        <div className="mt-8 pt-6 flex flex-wrap items-center justify-center gap-4 max-w-xl">
+          <p className="text-xs sm:text-sm font-semibold text-slate-700 italic">
+            &ldquo;Give first. Everything else follows.&rdquo;
+          </p>
         </div>
+
       </div>
     </section>
   )
 }
 
+
 /* =========================================================================
-   SECTION 4 — TRUSTED CIRCLES
+   SECTION 4 — 18 INDUSTRY & GOAL CIRCLES (MINDVALLEY PATHWAYS REDESIGN)
    ========================================================================= */
 
+interface CircleItem {
+  id: string
+  title: string
+  category: string
+  lead: string
+  leadImage: string
+  artImage: string
+  seatsOpen: number
+  cities: string[]
+  slug: string
+}
+
+interface CirclePathway {
+  id: string
+  tabName: string
+  badgeName: string
+  pathwayTitle: string
+  headline: string
+  tagline: string
+  description: string
+  bullets: string[]
+  emblemGradient: string
+  emblemRingColor: string
+  circles: CircleItem[]
+}
+
 export function CirclesSection() {
+  const pathways: CirclePathway[] = [
+    {
+      id: 'industry',
+      tabName: 'Industry Circles',
+      badgeName: 'THE INDUSTRY CIRCLES',
+      pathwayTitle: 'The Industry Circles PATHWAY',
+      headline: 'Category-Locked Peer Groups',
+      tagline: 'Focused conversations. Relevant opportunities. Real collaboration.',
+      description:
+        'Connect with vetted founders, CEOs, and operators without internal category competition. Share exclusive deal flow, supply chains, and board-level insights with industry allies.',
+      bullets: [
+        'Single-seat category exclusivity with zero internal competition',
+        'Weekly structured masterminds, supply chain access & deal sharing',
+        'High-trust collaboration across vetted founders & industry heads',
+      ],
+      emblemGradient: 'from-blue-600 via-indigo-700 to-slate-900',
+      emblemRingColor: '#38bdf8',
+      circles: [
+        {
+          id: 'c1',
+          title: 'Ahmedabad Tech Circle',
+          category: 'Technology, SaaS & AI',
+          lead: 'Rajesh Agarwal',
+          leadImage: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Ahmedabad', 'Gandhinagar'],
+          slug: 'ahmedabad-tech',
+        },
+        {
+          id: 'c2',
+          title: 'Cross-Border Global Trade',
+          category: 'Logistics, Customs & Trade',
+          lead: 'Dr. Kavita Shukla',
+          leadImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Ahmedabad', 'Mundra'],
+          slug: 'ahmedabad-import-export',
+        },
+        {
+          id: 'c3',
+          title: 'Investors & FinTech Circle',
+          category: 'Venture Capital, Angel & Wealth',
+          lead: 'Sunil Mittal',
+          leadImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 29,
+          cities: ['Pune', 'Ahmedabad'],
+          slug: 'investors-circle',
+        },
+        {
+          id: 'c4',
+          title: 'Real Estate & Infrastructure',
+          category: 'Commercial Real Estate & EPC',
+          lead: 'Vikram Shroff',
+          leadImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 29,
+          cities: ['Ahmedabad', 'Surat'],
+          slug: 'ahmedabad-real-estate',
+        },
+        {
+          id: 'c5',
+          title: 'Franchise & Licensing Circle',
+          category: 'Multi-Unit Brands & Retail',
+          lead: 'Priya Menon',
+          leadImage: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Ahmedabad'],
+          slug: 'ahmedabad-franchise-licensing',
+        },
+        {
+          id: 'c6',
+          title: 'BioGenesis & Healthcare Circle',
+          category: 'Life Sciences & MedTech',
+          lead: 'Ananya Birla',
+          leadImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Ahmedabad', 'Vadodara'],
+          slug: 'healthcare-circle',
+        },
+      ],
+    },
+    {
+      id: 'purpose',
+      tabName: 'Purpose-Led Circles',
+      badgeName: 'PURPOSE-LED COMMUNITIES',
+      pathwayTitle: 'The Purpose Circles PATHWAY',
+      headline: 'Bigger Than Business',
+      tagline: 'United by a common ambition and shared vision for impact.',
+      description:
+        'These circles bring together foundational entrepreneurs building lasting institutions, mentoring emerging leaders, and architecting regional economic ecosystems.',
+      bullets: [
+        'Dedicated peer mastermind focused on long-term ecosystem building',
+        'Cross-district collaboration between metropolitan chapter founders',
+        'Continuous accountability and friendships that turn peers into life allies',
+      ],
+      emblemGradient: 'from-amber-600 via-rose-700 to-slate-900',
+      emblemRingColor: '#fbbf24',
+      circles: [
+        {
+          id: 'p1',
+          title: 'Ahmedabad District Founders',
+          category: 'Chapter Architecture & Growth',
+          lead: 'Hardik Patel',
+          leadImage: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Ahmedabad'],
+          slug: 'ahmedabad-district-founding-members',
+        },
+        {
+          id: 'p2',
+          title: 'Bengaluru District Founders',
+          category: 'Innovation & DeepTech Catalysts',
+          lead: 'Sangeeta Reddy',
+          leadImage: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Bengaluru'],
+          slug: 'bengaluru-district-founding-members',
+        },
+        {
+          id: 'p3',
+          title: 'Delhi NCR District Founders',
+          category: 'Enterprise Scale & Policy',
+          lead: 'Harshil Patel',
+          leadImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Delhi NCR'],
+          slug: 'delhi-district-founding-members',
+        },
+        {
+          id: 'p4',
+          title: 'Mumbai District Founders',
+          category: 'Capital Markets & Scale',
+          lead: 'Rakesh Sharma',
+          leadImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Mumbai'],
+          slug: 'mumbai-district-founding-members',
+        },
+        {
+          id: 'p5',
+          title: 'Rajkot District Founders',
+          category: 'Manufacturing Scale & Infra',
+          lead: 'Nilesh Vora',
+          leadImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Rajkot'],
+          slug: 'rajkot-district-founding-members',
+        },
+        {
+          id: 'p6',
+          title: 'Community Builders Circle',
+          category: 'Philanthropy & Ecosystems',
+          lead: 'Meera Desai',
+          leadImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Ahmedabad', 'Mumbai'],
+          slug: 'community-builders',
+        },
+      ],
+    },
+    {
+      id: 'global',
+      tabName: 'Regional & Global Hubs',
+      badgeName: 'REGIONAL & GLOBAL HUBS',
+      pathwayTitle: 'The Global Hubs PATHWAY',
+      headline: 'Cross-Border Networks',
+      tagline: 'Connecting district leaders across international corridors.',
+      description:
+        'Uniting entrepreneurs across Dubai, London, and Singapore with Indian industrial leaders for cross-border expansion, family governance, and next-generation modernization.',
+      bullets: [
+        'Direct access to cross-border chapters in Dubai, London & Singapore',
+        'Specialized mentorship on succession, ESG & Industry 4.0 scaling',
+        'Unified collaboration platform backed by the Unity mobile app',
+      ],
+      emblemGradient: 'from-emerald-600 via-teal-700 to-slate-900',
+      emblemRingColor: '#34d399',
+      circles: [
+        {
+          id: 'g1',
+          title: 'Cross-Border Global Advisory',
+          category: 'International Legal & Markets',
+          lead: 'Alex Thorne',
+          leadImage: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Dubai', 'London', 'Ahmedabad'],
+          slug: 'cross-border-advisory',
+        },
+        {
+          id: 'g2',
+          title: 'Next-Gen Family Business',
+          category: 'Succession & Modernization',
+          lead: 'Siddharth Mehta',
+          leadImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Ahmedabad', 'Mumbai'],
+          slug: 'family-business',
+        },
+        {
+          id: 'g3',
+          title: 'Sustainable Energy & CleanTech',
+          category: 'Renewables, Solar & ESG',
+          lead: 'Amit Joshi',
+          leadImage: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Gujarat', 'Rajasthan'],
+          slug: 'cleantech-circle',
+        },
+        {
+          id: 'g4',
+          title: 'Digital Media & Brand Scalers',
+          category: 'Omni-Channel & Media Tech',
+          lead: 'Tara Sen',
+          leadImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Mumbai', 'Delhi'],
+          slug: 'digital-media-circle',
+        },
+        {
+          id: 'g5',
+          title: 'Advanced Manufacturing 4.0',
+          category: 'Industry 4.0 & Robotics',
+          lead: 'Kirit Shah',
+          leadImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['Rajkot', 'Pune', 'Ahmedabad'],
+          slug: 'manufacturing-robotics',
+        },
+        {
+          id: 'g6',
+          title: 'Women Executive Leaders',
+          category: 'High-Growth Venture Scaling',
+          lead: 'Pooja Singhania',
+          leadImage: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
+          artImage: 'https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?auto=format&fit=crop&w=600&q=80',
+          seatsOpen: 30,
+          cities: ['National Network'],
+          slug: 'women-executives',
+        },
+      ],
+    },
+  ]
+
+  const [activePathwayIndex, setActivePathwayIndex] = useState(0)
+  const [currentPage, setCurrentPage] = useState(0)
+  const itemsPerPage = 6
+
+  const activePathway = pathways[activePathwayIndex]
+  const totalPages = Math.ceil(activePathway.circles.length / itemsPerPage)
+
+  const handlePrevPage = () => {
+    setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1))
+  }
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0))
+  }
+
+  const displayedCircles = activePathway.circles.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  )
+
   const howCircleWorks = [
     {
       num: '01',
       title: 'The right people',
       body: 'Each Circle is composed of entrepreneurs from complementary businesses, chosen for fit and relevance.',
       icon: Users,
-      badgeColor: 'bg-blue-500/15 border-blue-400/30 text-blue-400',
     },
     {
       num: '02',
       title: 'A fixed rhythm',
       body: 'The same Peers meet on a regular schedule, so trust has time to build.',
       icon: CalendarDays,
-      badgeColor: 'bg-emerald-500/15 border-emerald-400/30 text-emerald-400',
     },
     {
       num: '03',
       title: 'A structure for giving',
       body: 'Every meeting has a defined space for Peers to share what they can offer and what they need.',
       icon: HeartHandshake,
-      badgeColor: 'bg-amber-500/15 border-amber-400/30 text-amber-400',
     },
     {
       num: '04',
       title: 'Continuity',
       body: 'The Circle carries on inside the Unity App between meetings.',
       icon: TrendingUp,
-      badgeColor: 'bg-purple-500/15 border-purple-400/30 text-purple-400',
-    },
-  ]
-
-  const industryList = [
-    {
-      slug: 'ahmedabad-tech',
-      name: 'Ahmedabad Tech Circle',
-      members: 0,
-      cities: ['Ahmedabad', 'Gandhinagar'],
-      seatsOpen: 30,
-      icon: Laptop,
-      iconBg: 'bg-blue-100 text-blue-600',
-    },
-    {
-      slug: 'ahmedabad-import-export',
-      name: 'Ahmedabad Import, Export & Global Trade Circle',
-      members: 0,
-      cities: ['Ahmedabad', 'Mundra'],
-      seatsOpen: 30,
-      icon: Globe2,
-      iconBg: 'bg-amber-100 text-amber-600',
-    },
-    {
-      slug: 'investors-circle',
-      name: 'Investors Circle',
-      members: 1,
-      cities: ['Pune', 'Ahmedabad'],
-      seatsOpen: 29,
-      icon: BarChart3,
-      iconBg: 'bg-emerald-100 text-emerald-600',
-    },
-    {
-      slug: 'ahmedabad-real-estate',
-      name: 'Ahmedabad Real Estate, Construction & Infrastructure Circle',
-      members: 1,
-      cities: ['Ahmedabad', 'Surat'],
-      seatsOpen: 29,
-      icon: Building2,
-      iconBg: 'bg-purple-100 text-purple-600',
-    },
-    {
-      slug: 'ahmedabad-franchise-licensing',
-      name: 'Ahmedabad Franchise & Licensing Circle',
-      members: 0,
-      cities: ['Ahmedabad'],
-      seatsOpen: 30,
-      icon: FileText,
-      iconBg: 'bg-rose-100 text-rose-500',
-    },
-    {
-      slug: 'ahmedabad-investors',
-      name: 'Ahmedabad Investors Circle',
-      members: 0,
-      cities: ['Ahmedabad'],
-      seatsOpen: 30,
-      icon: Users,
-      iconBg: 'bg-cyan-100 text-cyan-600',
-    },
-  ]
-
-  const purposeList = [
-    {
-      slug: 'ahmedabad-district-founding-members',
-      name: 'Ahmedabad District Founding Members',
-      members: 0,
-      cities: ['Ahmedabad'],
-      seatsOpen: 30,
-      icon: Users,
-      iconBg: 'bg-rose-100 text-rose-500',
-    },
-    {
-      slug: 'bengaluru-district-founding-members',
-      name: 'Bengaluru District Founding Members',
-      members: 0,
-      cities: ['Bengaluru'],
-      seatsOpen: 30,
-      icon: Landmark,
-      iconBg: 'bg-blue-100 text-blue-600',
-    },
-    {
-      slug: 'delhi-district-founding-members',
-      name: 'Delhi District Founding Members',
-      members: 0,
-      cities: ['Delhi'],
-      seatsOpen: 30,
-      icon: Landmark,
-      iconBg: 'bg-purple-100 text-purple-600',
-    },
-    {
-      slug: 'mumbai-district-founding-members',
-      name: 'Mumbai District Founding Members',
-      members: 0,
-      cities: ['Mumbai'],
-      seatsOpen: 30,
-      icon: Building,
-      iconBg: 'bg-emerald-100 text-emerald-600',
-    },
-    {
-      slug: 'rajkot-district-founding-members',
-      name: 'Rajkot District Founding Members',
-      members: 0,
-      cities: ['Rajkot'],
-      seatsOpen: 30,
-      icon: Network,
-      iconBg: 'bg-rose-100 text-rose-500',
-    },
-    {
-      slug: 'community-builders',
-      name: 'Community Builders Circle',
-      members: 0,
-      cities: ['Ahmedabad', 'Mumbai'],
-      seatsOpen: 30,
-      icon: Heart,
-      iconBg: 'bg-cyan-100 text-cyan-600',
     },
   ]
 
   return (
-    <>
-      {/* SECTION 4A — TRUSTED CIRCLES (DARK LUXURY) */}
-      <section id="circles" className="relative overflow-hidden bg-[#050B17] text-white border-b border-white/10 py-16 sm:py-24">
-        {/* Background ambient lighting */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-40 right-10 h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[140px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-10 left-10 h-[450px] w-[450px] rounded-full bg-cyan-500/10 blur-[130px]"
-        />
+    <section
+      id="circles"
+      className="relative overflow-hidden bg-white text-slate-900 py-20 sm:py-24 lg:py-28 border-b border-slate-200"
+    >
+      {/* ─── Ambient Subtle Light Glow ─── */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[600px] w-[1000px] rounded-full bg-blue-500/[0.03] blur-[160px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 right-0 h-[450px] w-[500px] rounded-full bg-cyan-500/[0.03] blur-[140px]"
+      />
 
-        <div className="shell relative z-10 flex flex-col gap-12 lg:gap-14">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          {/* Top Header Row */}
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <span className="h-0.5 w-6 bg-cyan-400 shadow-[0_0_8px_#38bdf8]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-400">
-                  TRUSTED CIRCLES
-                </span>
-              </div>
-
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-white leading-[1.18]">
-                Every Peer belongs to a{' '}
-                <span className="font-serif italic font-medium text-cyan-400 drop-shadow-[0_0_24px_rgba(56,189,248,0.45)]">
-                  Circle.
-                </span>
-              </h2>
-            </div>
-
-            <div className="flex flex-col gap-5 lg:items-end">
-              <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-300 font-normal lg:text-right">
-                A Circle brings together the right entrepreneurs around a common industry, interest, location or business opportunity. It is the heart of the community and the place where relationships are actually built.
-              </p>
-
-              <div className="flex flex-wrap gap-3 lg:justify-end">
-                <Link
-                  href="/circles/find"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
-                >
-                  Find Your Circle
-                  <ArrowRight className="size-4 text-white" />
-                </Link>
-
-                <Link
-                  href="/start-a-circle"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/[0.07] px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.15] hover:border-white/55 hover:-translate-y-[2px] active:scale-[0.97]"
-                >
-                  Start a Circle
-                </Link>
-              </div>
-            </div>
+        {/* ─── Section Header (Clean Microsoft Typography & Top CTA) ─── */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 sm:mb-12">
+          <div className="flex flex-col gap-3 max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0078D4]">
+              THE 18 CIRCLES
+            </span>
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-slate-900 tracking-tight leading-[1.16]">
+              One Community. 18 Circles to Build It.
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mt-1">
+              Choose from three specialized circle categories — industry-locked peer groups, purpose-led chapters, and regional hubs — featuring curated masterminds from leading entrepreneurs. Access your home circle or collaborate across the entire network.
+            </p>
           </div>
 
-          {/* 4 Sleek Dark Step Cards */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href="/circles"
+              className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white font-semibold px-6 py-3 text-sm shadow-sm transition-all active:scale-[0.98]"
+            >
+              <span>Find Your Circle</span>
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* ─── Pathway Selection Tabs (Pill Buttons) ─── */}
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-8">
+          {pathways.map((p, idx) => {
+            const isActive = idx === activePathwayIndex
+            return (
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => {
+                  setActivePathwayIndex(idx)
+                  setCurrentPage(0)
+                }}
+                className={`rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? 'bg-[#0078D4] text-white shadow-sm ring-1 ring-blue-600'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80 border border-slate-200'
+                }`}
+              >
+                {p.tabName}
+              </button>
+            )
+          })}
+        </div>
+
+        {/* ─── Main Interactive Pathway Box (Dual-Column Showcase) ─── */}
+        <div className="relative rounded-3xl bg-[#f8fafc] border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-[0_10px_35px_rgba(15,23,42,0.05)] transition-all duration-300">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+            {/* ── Left Column: 3D Emblem Card + Pathway Copy + Bullet Points + CTA ── */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+
+              {/* 3D Glass Emblem Poster Card */}
+              <div
+                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${activePathway.emblemGradient} p-6 sm:p-8 border border-white/20 shadow-md min-h-[200px] sm:min-h-[220px] flex flex-col justify-between`}
+              >
+                {/* 3D Holographic Ring Graphic (CSS / SVG) */}
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none size-40 sm:size-48 opacity-90">
+                  <svg viewBox="0 0 200 200" fill="none" className="size-full animate-pulse">
+                    <defs>
+                      <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor={activePathway.emblemRingColor} stopOpacity="0.9" />
+                        <stop offset="50%" stopColor="#ffffff" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0.4" />
+                      </linearGradient>
+                    </defs>
+                    <ellipse
+                      cx="100"
+                      cy="100"
+                      rx="70"
+                      ry="40"
+                      stroke="url(#ringGrad)"
+                      strokeWidth="8"
+                      transform="rotate(-25 100 100)"
+                      className="drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]"
+                    />
+                    <ellipse
+                      cx="100"
+                      cy="100"
+                      rx="55"
+                      ry="30"
+                      stroke="rgba(255,255,255,0.4)"
+                      strokeWidth="3"
+                      transform="rotate(35 100 100)"
+                    />
+                    <circle cx="100" cy="100" r="16" fill="white" fillOpacity="0.15" />
+                  </svg>
+                </div>
+
+                {/* Poster Typography */}
+                <div className="relative z-10">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-200 block mb-1">
+                    PEERS GLOBAL
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+                    {activePathway.pathwayTitle}
+                  </h3>
+                </div>
+
+                <div className="relative z-10 pt-4">
+                  <span className="inline-block rounded-[4px] bg-white/15 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm border border-white/20">
+                    18 Total Circles Available
+                  </span>
+                </div>
+              </div>
+
+              {/* Pathway Details */}
+              <div className="flex flex-col gap-2.5">
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0078D4]">
+                  {activePathway.badgeName}
+                </span>
+                <h4 className="font-sans text-2xl font-bold text-slate-900 tracking-tight">
+                  {activePathway.headline}
+                </h4>
+                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                  {activePathway.description}
+                </p>
+              </div>
+
+              {/* Checklist Items */}
+              <ul className="flex flex-col gap-2.5 pt-1">
+                {activePathway.bullets.map((bullet, i) => (
+                  <li key={i} className="flex items-start gap-3 text-xs sm:text-[13px] text-slate-700">
+                    <CheckCircle2 className="size-4 text-[#0078D4] shrink-0 mt-0.5" />
+                    <span className="font-medium">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA Button */}
+              <div className="pt-2">
+                <Link
+                  href="/circles"
+                  className="inline-flex items-center gap-2 rounded-[4px] bg-slate-900 hover:bg-slate-800 text-white font-semibold px-7 py-3 text-sm shadow-sm transition-all active:scale-[0.98]"
+                >
+                  <span>Explore This Pathway</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+
+            </div>
+
+            {/* ── Right Column: Dual-Image Program Cards Grid (3x2 or 3x3) ── */}
+            <div className="lg:col-span-7 flex flex-col justify-between h-full">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+                {displayedCircles.map((circle) => (
+                  <Link
+                    key={circle.id}
+                    href={`/circles/${circle.slug}`}
+                    className="group flex flex-col rounded-xl overflow-hidden bg-white border border-slate-200/90 hover:border-[#0078D4] transition-all duration-300 hover:-translate-y-1 shadow-xs hover:shadow-md"
+                  >
+                    {/* Card Media Banner (Dual Visual: Artwork Left + Leader Portrait Right) */}
+                    <div className="relative w-full h-[110px] sm:h-[115px] overflow-hidden bg-slate-100 flex">
+                      
+                      {/* Left 62% Artwork */}
+                      <div className="relative w-[62%] h-full overflow-hidden">
+                        <Image
+                          src={circle.artImage}
+                          alt={circle.title}
+                          fill
+                          sizes="240px"
+                          className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/60" />
+                      </div>
+
+                      {/* Right 38% Leader Portrait */}
+                      <div className="relative w-[38%] h-full border-l border-white/20 overflow-hidden bg-slate-200">
+                        <Image
+                          src={circle.leadImage}
+                          alt={circle.lead}
+                          fill
+                          sizes="180px"
+                          className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+
+                      {/* Top Overlay Badge */}
+                      <div className="absolute top-2 left-2 z-10">
+                        <span className="rounded-md bg-slate-900/80 px-2 py-0.5 text-[9px] font-bold text-white backdrop-blur-sm border border-white/10 uppercase tracking-wider">
+                          {circle.seatsOpen} seats
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="p-3.5 flex flex-col gap-1 bg-white">
+                      <h5 className="text-xs sm:text-[13px] font-bold text-slate-900 group-hover:text-[#0078D4] transition-colors line-clamp-1">
+                        {circle.title}
+                      </h5>
+                      <p className="text-[11px] text-slate-500 truncate">
+                        {circle.lead} · <span className="text-slate-400">{circle.cities.join(', ')}</span>
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Bottom Carousel / Slider Navigation Controls */}
+              <div className="flex items-center justify-between pt-6 mt-4 border-t border-slate-200">
+                <div className="text-xs text-slate-500 font-medium">
+                  Showing <span className="text-slate-900 font-semibold">{displayedCircles.length}</span> of {activePathway.circles.length} Circles in {activePathway.tabName}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePrevPage}
+                    className="size-9 rounded-full bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-2xs"
+                    aria-label="Previous circles"
+                  >
+                    <ChevronLeft className="size-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNextPage}
+                    className="size-9 rounded-full bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-2xs"
+                    aria-label="Next circles"
+                  >
+                    <ChevronRight className="size-4" />
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* ─── 4 Core Tenets: How a Circle Works (Embedded Elegant Row) ─── */}
+        <div className="mt-14 sm:mt-16 pt-10 border-t border-slate-200">
+          <div className="text-center mb-8">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0078D4]">
+              THE CIRCLE RHYTHM
+            </span>
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1">
+              How Every Circle Delivers Value
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {howCircleWorks.map((item) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.title}
-                  className="group flex flex-col justify-between rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.02] p-6 backdrop-blur-md transition-all duration-300 hover:border-cyan-400/40 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(56,189,248,0.15)]"
+                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs transition-all hover:shadow-sm hover:border-[#0078D4]/40"
                 >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-slate-400 font-mono tracking-wider">
-                        {item.num}
-                      </span>
-                      <span className={`inline-flex items-center justify-center rounded-xl p-2.5 border ${item.badgeColor} shadow-sm`}>
-                        <Icon className="size-5" />
-                      </span>
-                    </div>
-
-                    <h3 className="mt-5 text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-slate-300">
-                      {item.body}
-                    </p>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-mono font-bold text-[#0078D4]">
+                      {item.num}
+                    </span>
+                    <span className="p-2 rounded-lg bg-blue-50 text-[#0078D4] border border-blue-100">
+                      <Icon className="size-4" />
+                    </span>
                   </div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">{item.body}</p>
                 </div>
               )
             })}
           </div>
-
-          {/* Bottom Cinematic Continuous Moving Arrow Bar */}
-          <div className="relative mt-4 pt-6 overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            {/* Subtle curved arc in bottom-left exactly as in mockup */}
-            <svg
-              className="pointer-events-none absolute -left-10 -bottom-8 h-44 w-44 stroke-cyan-500/25 fill-none"
-              viewBox="0 0 160 160"
-            >
-              <path d="M 0 160 A 130 130 0 0 1 130 30" strokeWidth="1.5" strokeDasharray="3 4" />
-            </svg>
-
-            {/* Left Text */}
-            <div className="relative z-10 flex items-center gap-3 shrink-0">
-              <span className="h-px w-6 bg-cyan-400 shadow-[0_0_8px_#38bdf8]" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">
-                MEANINGFUL CIRCLES. LASTING IMPACT.
-              </span>
-            </div>
-
-            {/* Cinematic Continuous Forward-Moving Arrow Track */}
-            <div className="relative z-10 flex-1 w-full h-8 flex items-center overflow-hidden">
-              {/* Background static full track line with right arrowhead */}
-              <div className="absolute inset-x-0 h-px bg-cyan-500/25" />
-
-              {/* Continuous stream of arrows moving forward */}
-              <div className="relative w-full h-full flex items-center overflow-hidden">
-                {/* Primary continuous forward moving arrow with comet trail */}
-                <div className="peers-moving-arrow-1 absolute left-0 flex items-center">
-                  <span className="h-[2px] w-36 sm:w-56 bg-gradient-to-r from-transparent via-cyan-400 to-blue-400 shadow-[0_0_12px_#38bdf8]" />
-                  <svg
-                    className="size-5 -ml-2 shrink-0 text-cyan-300 drop-shadow-[0_0_14px_#38bdf8]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </div>
-
-                {/* Secondary staggered continuous forward moving arrow for seamless infinite motion */}
-                <div className="peers-moving-arrow-2 absolute left-0 flex items-center">
-                  <span className="h-[2px] w-28 sm:w-44 bg-gradient-to-r from-transparent via-blue-400 to-cyan-300 shadow-[0_0_10px_#38bdf8]" />
-                  <svg
-                    className="size-5 -ml-2 shrink-0 text-cyan-200 drop-shadow-[0_0_14px_#38bdf8]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </div>
-
-                {/* Fixed Right Edge Target Arrowhead */}
-                <div className="absolute right-0 flex items-center text-cyan-400 peers-pulse-arrow">
-                  <svg
-                    className="size-5 text-cyan-300 drop-shadow-[0_0_12px_#38bdf8]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        {/* Embedded CSS for the continuous forward moving arrow animation */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          @keyframes arrowGlideForward {
-            0% {
-              transform: translateX(-100%);
-              opacity: 0;
-            }
-            10% {
-              opacity: 1;
-            }
-            90% {
-              opacity: 1;
-            }
-            100% {
-              transform: translateX(450%);
-              opacity: 0;
-            }
-          }
-          @keyframes arrowTipPulse {
-            0%, 100% {
-              transform: translateX(0);
-              opacity: 0.85;
-            }
-            50% {
-              transform: translateX(6px);
-              opacity: 1;
-            }
-          }
-          .peers-moving-arrow-1 {
-            animation: arrowGlideForward 2.6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-          }
-          .peers-moving-arrow-2 {
-            animation: arrowGlideForward 2.6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-            animation-delay: 1.3s;
-          }
-          .peers-pulse-arrow {
-            animation: arrowTipPulse 1.3s ease-in-out infinite;
-          }
-        ` }} />
-      </section>
-
-      {/* SECTION 4B — 18 INDUSTRY & GOAL CIRCLES (LIGHT LUXURY REDESIGN) */}
-      <section id="circles-directory" className="relative overflow-hidden bg-gradient-to-b from-[#F2F7FF] via-[#FAFCFF] to-[#F1F6FE] py-16 sm:py-24 border-b border-slate-200/80 text-slate-900">
-        {/* Ambient atmospheric lighting */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 right-10 h-[450px] w-[450px] rounded-full bg-blue-400/10 blur-[130px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-24 left-10 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[120px]"
-        />
-
-        <div className="shell relative z-10 flex flex-col gap-12 sm:gap-14">
-
-          {/* Top Header Row with Graphic Background & Badges */}
-          <div className="relative">
-            {/* World Map with Dotted Flight Lines Graphic */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -top-6 right-0 w-[440px] h-[230px] opacity-45 select-none hidden md:block"
-            >
-              <svg viewBox="0 0 440 230" fill="none" className="w-full h-full text-blue-500/25">
-                <g fill="currentColor">
-                  <circle cx="80" cy="70" r="3" />
-                  <circle cx="110" cy="80" r="2.5" />
-                  <circle cx="140" cy="65" r="3" />
-                  <circle cx="170" cy="60" r="2.5" />
-                  <circle cx="210" cy="70" r="3" />
-                  <circle cx="255" cy="85" r="4" className="text-blue-600 animate-pulse" />
-                  <circle cx="275" cy="115" r="3.5" className="text-cyan-500 animate-pulse" />
-                  <circle cx="295" cy="100" r="3" />
-                  <circle cx="335" cy="110" r="2.5" />
-                  <circle cx="255" cy="130" r="2" />
-                  <circle cx="180" cy="140" r="2" />
-                  <circle cx="370" cy="120" r="2.5" />
-                </g>
-                <path d="M 80 70 Q 165 20 255 85" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
-                <path d="M 210 70 Q 240 40 275 115" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
-                <path d="M 275 115 Q 305 90 335 110" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" />
-                <path d="M 140 65 Q 205 110 275 115" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-              </svg>
-            </div>
-
-            <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center relative z-10">
-              {/* Left Column: Heading & Subtitle */}
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <span className="h-0.5 w-6 bg-blue-600 shadow-[0_0_8px_#3b82f6]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-blue-600">
-                    WE PUT THE RIGHT PEOPLE IN THE ROOM
-                  </span>
-                </div>
-
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-tight text-[#0B1528] leading-[1.16]">
-                  18 Industry &amp; Goal Circles.<br />
-                  <span className="font-serif font-bold text-[#0B1528]">One </span>
-                  <span className="font-serif font-bold text-[#1E6BFF] drop-shadow-[0_2px_15px_rgba(30,107,255,0.25)]">
-                    Powerful Community.
-                  </span>
-                </h2>
-
-                <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate-600 font-normal">
-                  From industry-focused circles to purpose-led communities, Peers Global brings together entrepreneurs who share a vision to grow, collaborate and create impact.
-                </p>
-              </div>
-
-              {/* Right Column: Executive Metric & Floating Pill Card */}
-              <div className="flex flex-col items-start lg:items-end gap-3 justify-center">
-                {/* Executive Sub-badge */}
-                <div className="flex items-center gap-2 rounded-full border border-slate-200/90 bg-white/90 px-4 py-1.5 shadow-xs backdrop-blur-sm">
-                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-semibold text-slate-700">Different Industries · A Shared Purpose</span>
-                </div>
-
-                {/* Floating pill badge card */}
-                <div className="flex items-center gap-3.5 rounded-2xl border border-slate-200/80 bg-white/95 px-5 py-3 shadow-[0_10px_25px_rgba(15,23,42,0.06)] backdrop-blur-md">
-                  <span className="flex size-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60 shadow-inner">
-                    <Users className="size-5" />
-                  </span>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-bold text-slate-900 leading-tight">18 Circles</span>
-                    <span className="text-xs text-slate-500 font-medium">Growing Together</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Two White Floating Luxury Cards Grid */}
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* Left Card: Industry Circles (Category-Locked) */}
-            <div className="flex flex-col rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-[0_12px_36px_rgba(15,23,42,0.05)] transition-all hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-              {/* Card Header */}
-              <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-5">
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <span className="flex size-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-100/80 shadow-sm shrink-0">
-                    <Layers className="size-6" />
-                  </span>
-                  <div className="flex flex-col min-w-0">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 truncate">
-                      Industry Circles (Category-Locked)
-                    </h3>
-                    <p className="text-xs text-slate-500 truncate mt-0.5">
-                      Focused conversations. Relevant opportunities. Real collaboration.
-                    </p>
-                  </div>
-                </div>
-                <span className="rounded-full bg-blue-50 border border-blue-100/80 px-3.5 py-1 text-xs font-semibold text-blue-600 shrink-0">
-                  6 Circles
-                </span>
-              </div>
-
-              {/* Items List */}
-              <ul className="flex flex-col divide-y divide-slate-100 pt-2">
-                {industryList.map((item) => {
-                  const ItemIcon = item.icon
-                  return (
-                    <li key={item.slug}>
-                      <Link
-                        href={`/circles/${item.slug}`}
-                        className="group flex items-center justify-between gap-3 sm:gap-4 py-3.5 hover:bg-blue-50/40 -mx-3 px-3 rounded-full transition-all"
-                      >
-                        <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
-                          <span className={`flex size-10 items-center justify-center rounded-2xl ${item.iconBg} shrink-0 shadow-sm transition-transform group-hover:scale-105`}>
-                            <ItemIcon className="size-5" />
-                          </span>
-                          <div className="flex flex-col min-w-0">
-                            <span className="text-[0.92rem] sm:text-[0.95rem] font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
-                              {item.name}
-                            </span>
-                            <span className="text-xs text-slate-500 truncate mt-0.5">
-                              {item.members} members · {item.cities.join(', ')}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-                          <span className="rounded-full bg-[#EBF3FF] px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-semibold text-[#1E6BFF]">
-                            {item.seatsOpen} seats open
-                          </span>
-                          <span className="flex size-7 sm:size-8 items-center justify-center rounded-full bg-[#F1F6FE] text-[#1E6BFF] transition-all group-hover:bg-[#1E6BFF] group-hover:text-white group-hover:translate-x-0.5 shadow-sm">
-                            <ArrowRight className="size-3.5 sm:size-4" />
-                          </span>
-                        </div>
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-
-            {/* Right Card: Purpose-Led Circles (Shared Ambition) */}
-            <div className="flex flex-col rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-[0_12px_36px_rgba(15,23,42,0.05)] transition-all hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-              {/* Card Header */}
-              <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-5">
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <span className="flex size-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-600 border border-amber-100/80 shadow-sm shrink-0">
-                    <Target className="size-6" />
-                  </span>
-                  <div className="flex flex-col min-w-0">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 truncate">
-                      Purpose-Led Circles (Shared Ambition)
-                    </h3>
-                    <p className="text-xs text-slate-500 truncate mt-0.5">
-                      Bigger than business. United by a common purpose.
-                    </p>
-                  </div>
-                </div>
-                <span className="rounded-full bg-amber-50 border border-amber-100/80 px-3.5 py-1 text-xs font-semibold text-amber-700 shrink-0">
-                  6 Circles
-                </span>
-              </div>
-
-              {/* Items List */}
-              <ul className="flex flex-col divide-y divide-slate-100 pt-2">
-                {purposeList.map((item) => {
-                  const ItemIcon = item.icon
-                  return (
-                    <li key={item.slug}>
-                      <Link
-                        href={`/circles/${item.slug}`}
-                        className="group flex items-center justify-between gap-3 sm:gap-4 py-3.5 hover:bg-amber-50/40 -mx-3 px-3 rounded-full transition-all"
-                      >
-                        <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
-                          <span className={`flex size-10 items-center justify-center rounded-2xl ${item.iconBg} shrink-0 shadow-sm transition-transform group-hover:scale-105`}>
-                            <ItemIcon className="size-5" />
-                          </span>
-                          <div className="flex flex-col min-w-0">
-                            <span className="text-[0.92rem] sm:text-[0.95rem] font-bold text-slate-900 truncate group-hover:text-amber-600 transition-colors">
-                              {item.name}
-                            </span>
-                            <span className="text-xs text-slate-500 truncate mt-0.5">
-                              {item.members} members · {item.cities.join(', ')}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-                          <span className="rounded-full bg-[#FEF6E7] px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-semibold text-[#D97706]">
-                            {item.seatsOpen} seats open
-                          </span>
-                          <span className="flex size-7 sm:size-8 items-center justify-center rounded-full bg-[#FDF8EE] text-[#D97706] transition-all group-hover:bg-[#D97706] group-hover:text-white group-hover:translate-x-0.5 shadow-sm">
-                            <ArrowRight className="size-3.5 sm:size-4" />
-                          </span>
-                        </div>
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom Action Bar with Explore Button & Mantra */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2">
-            <Link
-              href="/circles"
-              className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
-            >
-              Explore All 18 Circles
-              <ArrowRight className="size-4 text-white" />
-            </Link>
-
-            <div className="flex items-center gap-4 text-slate-400">
-              <span className="h-px w-16 sm:w-24 bg-slate-300" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-slate-500">
-                STRONGER CIRCLES. A BRIGHTER TOMORROW.
-              </span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 
+
 /* =========================================================================
-   SECTION 5 — HOW COLLABORATION WORKS (11 FORMS)
+   SECTION 5 — HOW COLLABORATION WORKS (11 FORMS) - INFINITE SLIDER & DETAIL MODAL
    ========================================================================= */
 
 export function CollaborationSection() {
@@ -1118,7 +1513,12 @@ export function CollaborationSection() {
       desc: 'Direct, warm introductions to decision-makers, senior enterprise leaders, and institutional buyers who rarely respond to cold outreach.',
       impact: 'Executive Access · Zero Cold Friction',
       icon: DoorOpen,
-      iconBg: 'bg-blue-50 text-blue-600 border-blue-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#0f1d38] via-[#091326] to-[#040812]',
+      borderAccent: 'border-blue-500/30',
+      accentColor: 'text-[#0078D4]',
+      badgeBg: 'bg-blue-500/15 border-blue-400/30 text-blue-300',
+      longDetails:
+        'Warm introductions within Peers Global are peer-vetted and high-priority. When an entrepreneur introduces another peer, they lend their personal reputation and institutional trust, converting 6-month cold outreach cycles into immediate C-suite conversations.',
     },
     {
       num: '02',
@@ -1128,7 +1528,12 @@ export function CollaborationSection() {
       desc: 'Pre-vetted client recommendations backed by peer reputation, compressing sales cycles from months to days with unmatched credibility.',
       impact: 'Peer-Vetted Trust · Faster Deal Closing',
       icon: Users,
-      iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#0e2a1e] via-[#071912] to-[#030d09]',
+      borderAccent: 'border-emerald-500/30',
+      accentColor: 'text-emerald-400',
+      badgeBg: 'bg-emerald-500/15 border-emerald-400/30 text-emerald-300',
+      longDetails:
+        'Client referrals among peers bypass procurement bureaucracy. Fellow members understand your capabilities and match client needs with verified solutions, resulting in higher contract values and multi-year client relationships.',
     },
     {
       num: '03',
@@ -1138,7 +1543,12 @@ export function CollaborationSection() {
       desc: 'Co-bidding on mega-tenders, cross-selling shared client portfolios, and joint ventures that multiply collective market reach.',
       impact: 'Shared Pipeline · Revenue Multiplication',
       icon: Handshake,
-      iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#24133b] via-[#140a23] to-[#08030e]',
+      borderAccent: 'border-purple-500/30',
+      accentColor: 'text-purple-400',
+      badgeBg: 'bg-purple-500/15 border-purple-400/30 text-purple-300',
+      longDetails:
+        'Combine capabilities with complementary non-competing businesses. Form consortiums to win tier-1 government and private enterprise bids that neither firm could execute alone.',
     },
     {
       num: '04',
@@ -1148,7 +1558,12 @@ export function CollaborationSection() {
       desc: 'Hard-won operational playbooks, regulatory lessons, and founder experience that save years of expensive trial and error.',
       impact: 'Unfiltered Founder Truth · Risk Avoidance',
       icon: Lightbulb,
-      iconBg: 'bg-amber-50 text-amber-600 border-amber-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#2e210b] via-[#1a1205] to-[#0d0902]',
+      borderAccent: 'border-amber-500/30',
+      accentColor: 'text-amber-400',
+      badgeBg: 'bg-amber-500/15 border-amber-400/30 text-amber-300',
+      longDetails:
+        'Confidential masterclasses and unvarnished operational war-stories. Learn how veteran peers tackled factory compliance, cross-border tax structures, debt covenants, and crisis management.',
     },
     {
       num: '05',
@@ -1158,7 +1573,12 @@ export function CollaborationSection() {
       desc: 'One-on-one confidential counsel from veterans who have already navigated scale, debt structuring, governance, and IPO milestones.',
       impact: 'Strategic Perspective · Blindspot Elimination',
       icon: Award,
-      iconBg: 'bg-rose-50 text-rose-600 border-rose-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#2d1123] via-[#190813] to-[#0a0207]',
+      borderAccent: 'border-rose-500/30',
+      accentColor: 'text-rose-400',
+      badgeBg: 'bg-rose-500/15 border-rose-400/30 text-rose-300',
+      longDetails:
+        'Direct advisory access to seasoned founders who have taken companies from ₹10 Cr to ₹500 Cr+ and navigated public listings, giving you objective board-level counsel.',
     },
     {
       num: '06',
@@ -1168,7 +1588,12 @@ export function CollaborationSection() {
       desc: 'Immediate inroads into uncharted sectors, regional clusters, and tier-1 corporate accounts through fellow member networks.',
       impact: 'Cluster Inroads · Warm Introductions',
       icon: ShoppingBag,
-      iconBg: 'bg-cyan-50 text-cyan-600 border-cyan-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#0c242f] via-[#06141a] to-[#02090c]',
+      borderAccent: 'border-cyan-500/30',
+      accentColor: 'text-cyan-400',
+      badgeBg: 'bg-cyan-500/15 border-cyan-400/30 text-cyan-300',
+      longDetails:
+        'Unlock new B2B customer verticals across retail, manufacturing, logistics, healthcare, and technology through established peer relationships in those industries.',
     },
     {
       num: '07',
@@ -1178,7 +1603,12 @@ export function CollaborationSection() {
       desc: 'Curated introductions to angel syndicates, institutional family offices, and growth equity partners who know and back the peer.',
       impact: 'Aligned Capital · Warm LP Introductions',
       icon: TrendingUp,
-      iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#102a1b] via-[#08170e] to-[#030a06]',
+      borderAccent: 'border-emerald-500/30',
+      accentColor: 'text-emerald-400',
+      badgeBg: 'bg-emerald-500/15 border-emerald-400/30 text-emerald-300',
+      longDetails:
+        'Access smart capital from family offices, angel networks, and venture funds that invest with aligned founder-friendly governance and sector expertise.',
     },
     {
       num: '08',
@@ -1188,7 +1618,12 @@ export function CollaborationSection() {
       desc: 'Shared warehousing, idle manufacturing lines, testing labs, specialized tooling, and overflow engineering bandwidth.',
       impact: 'CapEx Efficiency · Shared Infrastructure',
       icon: Boxes,
-      iconBg: 'bg-purple-50 text-purple-600 border-purple-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#1e1338] via-[#100921] to-[#070310]',
+      borderAccent: 'border-indigo-500/30',
+      accentColor: 'text-indigo-400',
+      badgeBg: 'bg-indigo-500/15 border-indigo-400/30 text-indigo-300',
+      longDetails:
+        'Monetize idle machinery or leverage excess storage and logistics bandwidth from peers, minimizing capital expenditure while maintaining rapid operational agility.',
     },
     {
       num: '09',
@@ -1198,7 +1633,12 @@ export function CollaborationSection() {
       desc: 'Local on-the-ground support, office facilities, regulatory navigation, and regional credibility when expanding into new territories.',
       impact: 'Local Footprint · Cross-Border Ease',
       icon: Globe2,
-      iconBg: 'bg-blue-50 text-blue-600 border-blue-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#0e213a] via-[#061221] to-[#020810]',
+      borderAccent: 'border-blue-500/30',
+      accentColor: 'text-blue-400',
+      badgeBg: 'bg-blue-500/15 border-blue-400/30 text-blue-300',
+      longDetails:
+        'Tap into local chapters across 11+ cities and international corridors for turnkey branch setups, local vendor introductions, and regional market credibility.',
     },
     {
       num: '10',
@@ -1208,7 +1648,12 @@ export function CollaborationSection() {
       desc: 'Deep domain insights across manufacturing, tax treaties, supply chain resilience, and compliance without expensive consulting fees.',
       impact: 'Domain Mastery · On-Demand Knowledge',
       icon: Cpu,
-      iconBg: 'bg-amber-50 text-amber-600 border-amber-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#2a1a0d] via-[#170e06] to-[#0a0502]',
+      borderAccent: 'border-amber-500/30',
+      accentColor: 'text-amber-400',
+      badgeBg: 'bg-amber-500/15 border-amber-400/30 text-amber-300',
+      longDetails:
+        'Get rapid technical, legal, and operational input directly from business owners who specialize in that exact domain, saving hundreds of hours and high consultant retainers.',
     },
     {
       num: '11',
@@ -1218,342 +1663,456 @@ export function CollaborationSection() {
       desc: 'Cross-border trade delegations, bilateral commerce pacts, and international circle summits connecting local peers worldwide.',
       impact: 'Global Reach · Limitless Opportunities',
       icon: Compass,
-      iconBg: 'bg-teal-50 text-teal-600 border-teal-200/60',
+      bgGradient: 'bg-gradient-to-br from-[#0c2725] via-[#051615] to-[#020a09]',
+      borderAccent: 'border-teal-500/30',
+      accentColor: 'text-teal-400',
+      badgeBg: 'bg-teal-500/15 border-teal-400/30 text-teal-300',
+      longDetails:
+        'Participate in global buyer delegations, overseas business conclaves, and international chapter exchanges that take your domestic brand onto the global stage.',
     },
   ]
 
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [dragStartX, setDragStartX] = useState<number | null>(null)
-  const [isDragging, setIsDragging] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-  const [isInView, setIsInView] = useState(false)
+  // Deck state: ordered array of indices from back to front (the last element is the top/front card)
+  const [deck, setDeck] = useState<number[]>([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].reverse())
+  const [swappingCardId, setSwappingCardId] = useState<number | null>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const [selectedForm, setSelectedForm] = useState<typeof forms[0] | null>(null)
 
-  // Only run auto-advance when section is actually in the user's viewport
-  useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting)
-      },
-      { threshold: 0.1 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
+  // Current active top card (last element of deck)
+  const currentTopIndex = deck[deck.length - 1]
+  const currentForm = forms[currentTopIndex]
 
-  // Auto-advance slider automatically forward starting from 0
+  // Function to move the top card to the back of the deck (3D swap animation)
+  const moveCard = useCallback(() => {
+    if (swappingCardId !== null) return
+    const topIndex = deck[deck.length - 1]
+    setSwappingCardId(topIndex)
+
+    setTimeout(() => {
+      setDeck((prevDeck) => {
+        const top = prevDeck[prevDeck.length - 1]
+        const remaining = prevDeck.slice(0, prevDeck.length - 1)
+        return [top, ...remaining]
+      })
+      setSwappingCardId(null)
+    }, 1100)
+  }, [deck, swappingCardId])
+
+  // Function to move the back card to the front
+  const prevCard = useCallback(() => {
+    if (swappingCardId !== null) return
+    setDeck((prevDeck) => {
+      const bottom = prevDeck[0]
+      const remaining = prevDeck.slice(1)
+      return [...remaining, bottom]
+    })
+  }, [swappingCardId])
+
+  // Autoplay interval
   useEffect(() => {
-    if (!isPlaying || !isInView) return
+    if (isPaused) return
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % forms.length)
-    }, 3800)
+      moveCard()
+    }, 4500)
     return () => clearInterval(timer)
-  }, [isPlaying, isInView, forms.length])
-
-  // Slide interactions: slide left -> go back, slide right -> go forward
-  const handleDragStart = (clientX: number) => {
-    setDragStartX(clientX)
-    setIsDragging(true)
-  }
-
-  const handleDragEnd = (clientX: number) => {
-    if (dragStartX === null) return
-    const diff = clientX - dragStartX
-    if (diff > 35) {
-      // Slide right -> go forward
-      setActiveIndex((prev) => (prev + 1) % forms.length)
-    } else if (diff < -35) {
-      // Slide left -> go back
-      setActiveIndex((prev) => (prev === 0 ? forms.length - 1 : prev - 1))
-    }
-    setDragStartX(null)
-    setIsDragging(false)
-  }
-
-  const currentItem = forms[activeIndex]
+  }, [isPaused, moveCard])
 
   return (
-    <section
-      ref={sectionRef}
-      id="collaboration"
-      className="relative overflow-hidden bg-[#FAF8F5] py-20 sm:py-28 border-b border-slate-200/70 text-slate-900"
-    >
-      {/* Subtle ambient warm lighting */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 right-12 h-[450px] w-[450px] rounded-full bg-amber-500/[0.04] blur-[140px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 left-12 h-[400px] w-[400px] rounded-full bg-blue-500/[0.04] blur-[130px]"
-      />
+    <section id="collaboration" className="relative overflow-hidden bg-[#f8fafc] py-16 sm:py-20 lg:py-28 border-b border-slate-200 text-slate-900">
+      
+      {/* CSS 3D Stacking & Keyframe Swap Animation */}
+      <style jsx global>{`
+        .pg-deck-stack {
+          position: relative;
+          width: 100%;
+          height: 480px;
+          perspective: 1200px;
+        }
 
-      <div className="shell relative z-10 flex flex-col gap-14 sm:gap-16">
+        .pg-deck-card {
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%;
+          width: 320px;
+          height: 440px;
+          border-radius: 16px;
+          transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+          user-select: none;
+        }
 
-        {/* Main 2-Column Split: Headline & CTA on left, 11 practices slider on right */}
-        <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        /* 5th and further cards behind */
+        .pg-deck-card:nth-last-child(n + 5) {
+          --x: calc(-50% + 75px);
+          transform: translate(var(--x), -50%) scale(0.86);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          opacity: 0.6;
+        }
 
-          {/* Left Column: Heading, description, and button */}
-          <div className="flex flex-col gap-6 lg:sticky lg:top-28">
-            <div className="flex items-center gap-3">
-              <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
+        /* 4th card */
+        .pg-deck-card:nth-last-child(4) {
+          --x: calc(-50% + 50px);
+          transform: translate(var(--x), -50%) scale(0.9);
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+          opacity: 0.8;
+        }
+
+        /* 3rd card */
+        .pg-deck-card:nth-last-child(3) {
+          --x: calc(-50% + 25px);
+          transform: translate(var(--x), -50%) scale(0.95);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+          opacity: 0.95;
+        }
+
+        /* 2nd card */
+        .pg-deck-card:nth-last-child(2) {
+          --x: calc(-50%);
+          transform: translate(var(--x), -50%) scale(1);
+          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+          opacity: 1;
+        }
+
+        /* 1st (Front/Top) card */
+        .pg-deck-card:nth-last-child(1) {
+          --x: calc(-50% - 25px);
+          transform: translate(var(--x), -50%) scale(1.04);
+          box-shadow: 0 20px 40px rgba(0, 120, 212, 0.22), 0 8px 16px rgba(0, 0, 0, 0.18);
+          opacity: 1;
+          cursor: pointer;
+        }
+
+        /* 3D Swap Keyframe Animation */
+        .pg-card-swap {
+          animation: pgSwapAnim 1.15s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+          pointer-events: none;
+        }
+
+        @keyframes pgSwapAnim {
+          35% {
+            transform: translate(calc(var(--x) - 220px), -50%) scale(0.88) rotate(-6deg) rotateY(55deg);
+            opacity: 0.8;
+          }
+          100% {
+            transform: translate(calc(var(--x) - 25px), -50%) scale(0.65);
+            z-index: -1;
+            opacity: 0;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .pg-deck-stack {
+            height: 420px;
+          }
+          .pg-deck-card {
+            width: 280px;
+            height: 390px;
+          }
+          @keyframes pgSwapAnim {
+            35% {
+              transform: translate(calc(var(--x) - 140px), -50%) scale(0.88) rotate(-5deg) rotateY(45deg);
+            }
+            100% {
+              transform: translate(calc(var(--x) - 20px), -50%) scale(0.65);
+              z-index: -1;
+            }
+          }
+        }
+
+        @media (max-width: 640px) {
+          .pg-deck-stack {
+            height: 380px;
+          }
+          .pg-deck-card {
+            width: 250px;
+            height: 350px;
+          }
+        }
+      `}</style>
+
+      {/* Subtle ambient lighting */}
+      <div className="pointer-events-none absolute -top-32 right-12 size-[450px] rounded-full bg-blue-500/[0.04] blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-32 left-12 size-[400px] rounded-full bg-cyan-500/[0.04] blur-[130px]" />
+
+      <div className="shell">
+        
+        {/* Main 2-Column Grid (Left: Microsoft Typography & Dynamic Card Info | Right: 3D Deck) */}
+        <div 
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          
+          {/* Left Column: Microsoft Typography, Dynamic Active Card Content, Actions */}
+          <div className="lg:col-span-6 flex flex-col items-start text-left">
+            
+            {/* Microsoft Overline */}
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0078D4]">
                 DEFINED PRACTICE
               </span>
+              <span className="h-1 w-1 rounded-full bg-slate-300" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Way {currentForm.num} of 11
+              </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold tracking-tight text-slate-950 leading-[1.15]">
-              Eleven ways a<br />
-              Peer creates<br />
-              value for<br />
-              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                another Peer.
-              </span>
+            {/* Microsoft Azure Style Heading */}
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-slate-900 leading-[1.18] tracking-tight mb-4">
+              Eleven Ways a Peer Creates Value
             </h2>
 
-            <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-600 font-normal">
-              Collaboration at Peers Global is a defined practice. These are the forms it takes.
+            {/* Active Card Title Highlight */}
+            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-md bg-blue-50 border border-blue-200/80 mb-4">
+              <span className="text-xs font-bold text-[#0078D4] uppercase tracking-wider">
+                Way {currentForm.num}
+              </span>
+              <span className="text-xs font-medium text-slate-700">
+                {currentForm.tag}
+              </span>
+            </div>
+
+            <h3 className="font-sans text-xl sm:text-2xl font-semibold text-slate-800 leading-snug tracking-tight mb-3">
+              {currentForm.title}
+            </h3>
+
+            {/* Active Card Dynamic Description */}
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-6 max-w-xl">
+              {currentForm.desc}
             </p>
 
-            <div className="pt-2">
-              <Link
-                href="/10-forms-of-collaboration"
-                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
-              >
-                Explore Collaboration
-                <ArrowRight className="size-4 text-white" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: 3D Looping Cards Slider */}
-          <div
-            className="flex flex-col min-w-0 lg:border-l lg:border-slate-200/80 lg:pl-10 xl:pl-12"
-            onMouseEnter={() => setIsPlaying(false)}
-            onMouseLeave={() => setIsPlaying(true)}
-          >
-            {/* Control Bar: Way Count & Play/Pause */}
-            <div className="flex items-center justify-between gap-4 pb-5 border-b border-slate-200/70">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100">
-                  Way {currentItem.num} of 11
-                </span>
-                <span className="text-xs font-semibold text-slate-500 hidden sm:inline">
-                  Auto-gliding sequence
-                </span>
+            {/* Dynamic Impact Badge */}
+            <div className="w-full max-w-xl rounded-[6px] bg-slate-100/90 border border-slate-200/90 p-3.5 mb-7 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="flex size-7 items-center justify-center rounded-full bg-[#0078D4] text-white">
+                  <Check className="size-3.5" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
+                    Proven Impact
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-800">
+                    {currentForm.impact}
+                  </span>
+                </div>
               </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  title={isPlaying ? 'Pause auto-slider' : 'Play auto-slider'}
-                  className="size-8 rounded-lg border border-slate-200 bg-white text-slate-600 hover:text-blue-600 hover:border-blue-200 flex items-center justify-center transition-colors shadow-sm focus:outline-none"
-                >
-                  {isPlaying ? <Pause className="size-3.5" /> : <Play className="size-3.5 ml-0.5" />}
-                </button>
-              </div>
-            </div>
-
-            {/* GSAP 3D Looping Card Deck with Side Animated Navigation Buttons */}
-            <div className="relative flex flex-col gap-6 pt-4">
-              {/* Left Hit Area (Visually hidden as requested, but clicking still goes back) */}
               <button
                 type="button"
-                onClick={() => setActiveIndex((prev) => (prev === 0 ? forms.length - 1 : prev - 1))}
-                aria-label="Previous way"
-                className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 z-40 h-44 w-16 opacity-0 cursor-pointer focus:outline-none"
-              />
+                onClick={() => setSelectedForm(currentForm)}
+                className="text-xs font-semibold text-[#0078D4] hover:text-[#005a9e] underline-offset-4 hover:underline shrink-0"
+              >
+                Deep Dive →
+              </button>
+            </div>
 
-              {/* Right Button (Go Forward) with micro-bounce animation */}
+            {/* Microsoft Fluent Button & Slider Controls */}
+            <div className="flex flex-wrap items-center gap-4">
               <button
                 type="button"
-                onClick={() => setActiveIndex((prev) => (prev + 1) % forms.length)}
-                aria-label="Next way"
-                title="Next way"
-                className="group/next absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-40 flex size-11 sm:size-13 items-center justify-center rounded-full bg-white/95 text-slate-800 shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-slate-200/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-[#0B1528] hover:text-white hover:border-[#0B1528] hover:shadow-[0_12px_35px_rgba(11,21,40,0.25)] active:scale-95 focus:outline-none"
+                onClick={() => setSelectedForm(currentForm)}
+                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-sm font-semibold text-white transition-colors shadow-sm active:scale-[0.98]"
               >
-                <ChevronRight className="size-5 sm:size-6 transition-transform duration-300 group-hover/next:translate-x-0.5" />
+                <span>Explore More</span>
+                <ArrowRight className="size-4" />
               </button>
 
-              {/* 3D Looping Cards Stage */}
-              <div
-                className={`relative w-full py-4 select-none touch-pan-y ${isDragging ? 'cursor-grabbing' : 'cursor-grab'
-                  }`}
-                style={{ perspective: '1100px', minHeight: '410px' }}
-                onMouseDown={(e) => handleDragStart(e.clientX)}
-                onMouseUp={(e) => handleDragEnd(e.clientX)}
-                onMouseLeave={() => {
-                  setDragStartX(null)
-                  setIsDragging(false)
-                }}
-                onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
-                onTouchEnd={(e) => {
-                  if (e.changedTouches.length > 0) {
-                    handleDragEnd(e.changedTouches[0].clientX)
-                  }
-                }}
-              >
-                {forms.map((item, idx) => {
-                  const ItemIcon = item.icon
-                  // 3D circular offset relative to activeIndex
-                  const offset = (idx - activeIndex + forms.length) % forms.length
+              {/* Slider Prev / Next Controls */}
+              <div className="flex items-center gap-2 border-l border-slate-200 pl-4">
+                <button
+                  type="button"
+                  onClick={prevCard}
+                  aria-label="Previous card"
+                  className="flex size-9 items-center justify-center rounded-[4px] border border-slate-300 bg-white text-slate-700 shadow-2xs transition-all hover:bg-slate-50 hover:border-slate-400 active:scale-95"
+                >
+                  <ChevronLeft className="size-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={moveCard}
+                  aria-label="Next card"
+                  className="flex size-9 items-center justify-center rounded-[4px] border border-slate-300 bg-white text-slate-700 shadow-2xs transition-all hover:bg-slate-50 hover:border-slate-400 active:scale-95"
+                >
+                  <ChevronRight className="size-4" />
+                </button>
+                <span className="text-xs font-mono text-slate-400 ml-1">
+                  {currentForm.num}/11
+                </span>
+              </div>
+            </div>
 
-                  let transformStyle: React.CSSProperties = {}
-                  let isClickable = false
+            {/* Quick helper note */}
+            <p className="mt-4 text-[12px] text-slate-400">
+              Click the top card or use arrows to cycle through all 11 collaboration pillars.
+            </p>
 
-                  if (offset === 0) {
-                    // Front active card
-                    isClickable = true
-                    transformStyle = {
-                      transform: 'translate3d(0px, 0px, 0px) scale(1)',
-                      opacity: 1,
-                      zIndex: 30,
-                      filter: 'none',
-                      pointerEvents: 'auto',
-                    }
-                  } else if (offset === 1) {
-                    // 1st card stacked behind (clearly peeking to the left)
-                    isClickable = true
-                    transformStyle = {
-                      transform: 'translate3d(-60px, -12px, -90px) scale(0.92)',
-                      opacity: 0.85,
-                      zIndex: 20,
-                      filter: 'brightness(0.9)',
-                      pointerEvents: 'auto',
-                      cursor: 'pointer',
-                    }
-                  } else if (offset === 2) {
-                    // 2nd card stacked behind
-                    isClickable = true
-                    transformStyle = {
-                      transform: 'translate3d(-118px, -24px, -180px) scale(0.84)',
-                      opacity: 0.55,
-                      zIndex: 15,
-                      filter: 'brightness(0.8)',
-                      pointerEvents: 'auto',
-                      cursor: 'pointer',
-                    }
-                  } else if (offset === 3) {
-                    // 3rd card stacked behind
-                    transformStyle = {
-                      transform: 'translate3d(-172px, -36px, -270px) scale(0.76)',
-                      opacity: 0.28,
-                      zIndex: 10,
-                      filter: 'brightness(0.7)',
-                      pointerEvents: 'none',
-                    }
-                  } else if (offset === forms.length - 1) {
-                    // Card exiting (glides up and fades out)
-                    transformStyle = {
-                      transform: 'translate3d(40px, 25px, 60px) scale(1.03)',
-                      opacity: 0,
-                      zIndex: 35,
-                      filter: 'blur(4px)',
-                      pointerEvents: 'none',
-                    }
-                  } else {
-                    // Cards waiting deep in queue
-                    transformStyle = {
-                      transform: 'translate3d(-220px, -46px, -360px) scale(0.68)',
-                      opacity: 0,
-                      zIndex: 1,
-                      pointerEvents: 'none',
-                    }
-                  }
+          </div>
 
-                  return (
-                    <div
-                      key={item.num}
-                      onClick={() => isClickable && idx !== activeIndex && setActiveIndex(idx)}
-                      className="absolute right-0 top-0 w-[84%] sm:w-[82%] rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] p-7 sm:p-9 text-white shadow-[0_25px_60px_rgba(11,21,40,0.35)] transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] select-none will-change-transform"
-                      style={transformStyle}
-                    >
-                      {/* Subtle glass reflection overlay */}
-                      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.08] via-transparent to-black/30" />
+          {/* Right Column: 3D Stacked Card Deck */}
+          <div className="lg:col-span-6 flex items-center justify-center py-4">
+            <div className="pg-deck-stack">
+              {deck.map((formIndex) => {
+                const item = forms[formIndex]
+                const ItemIcon = item.icon
+                const isSwapping = swappingCardId === formIndex
+                const isTop = formIndex === currentTopIndex
 
-                      {/* Watermarked Number Background */}
-                      <span
-                        aria-hidden
-                        className="pointer-events-none absolute right-6 top-3 select-none font-serif text-[6.5rem] sm:text-[8rem] font-bold leading-none text-white/[0.05]"
-                      >
-                        {item.num}
+                return (
+                  <div
+                    key={item.num}
+                    onClick={() => {
+                      if (isTop) {
+                        moveCard()
+                      } else {
+                        setSelectedForm(item)
+                      }
+                    }}
+                    className={`pg-deck-card ${item.bgGradient} ${item.borderAccent} border ${
+                      isSwapping ? 'pg-card-swap' : ''
+                    } p-6 text-white flex flex-col justify-between overflow-hidden cursor-pointer`}
+                  >
+                    {/* Top Glow bar on front card */}
+                    {isTop && (
+                      <div className="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400" />
+                    )}
+
+                    {/* Top Header inside card */}
+                    <div className="flex items-center justify-between gap-2 pb-3 border-b border-white/10 z-10">
+                      <div className="flex items-center gap-2">
+                        <span className="flex size-6 items-center justify-center rounded-full bg-white/15 text-[10px] font-bold text-white font-mono">
+                          {item.num}
+                        </span>
+                        <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-300">
+                          {item.tag}
+                        </span>
+                      </div>
+                      <span className="flex size-8 items-center justify-center rounded-lg bg-white/10 text-white">
+                        <ItemIcon className="size-4" />
                       </span>
+                    </div>
 
-                      <div className="relative z-10 flex flex-col justify-between h-full min-h-[290px] sm:min-h-[310px]">
-                        <div className="flex flex-col gap-4">
-                          {/* Top Row: Tag & Glowing Icon Badge */}
-                          <div className="flex items-center justify-between gap-3">
-                            <span className="rounded-full bg-blue-500/15 border border-blue-400/30 px-3.5 py-1 text-xs font-semibold text-blue-300 backdrop-blur-sm">
-                              {item.tag}
-                            </span>
-                            <span className="flex size-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-cyan-300 shadow-inner backdrop-blur-md">
-                              <ItemIcon className="size-6" />
-                            </span>
-                          </div>
+                    {/* Clean Middle Content */}
+                    <div className="flex flex-col gap-2.5 my-auto py-3 z-10">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-blue-300">
+                        {item.shortTitle}
+                      </span>
+                      <h4 className="font-sans text-lg sm:text-xl font-semibold text-white leading-snug">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-slate-300/90 leading-relaxed line-clamp-3">
+                        {item.desc}
+                      </p>
+                    </div>
 
-                          {/* Main Title */}
-                          <h3 className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold tracking-tight text-white leading-snug">
-                            {item.title}
-                          </h3>
-
-                          {/* Explanatory Paragraph */}
-                          <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-normal max-w-xl">
-                            {item.desc}
-                          </p>
-                        </div>
-
-                        {/* Bottom Feature Pill & Link */}
-                        <div className="flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-white/10 mt-4">
-                          <span className="inline-flex items-center gap-2 text-xs font-medium text-slate-400">
-                            <span className="size-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8] animate-pulse" />
-                            {item.impact}
-                          </span>
-
-                          <Link
-                            href="/10-forms-of-collaboration"
-                            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-400 hover:text-cyan-300 transition-colors group/link"
-                          >
-                            Learn more about {item.shortTitle}
-                            <ArrowRight className="size-3.5 transition-transform group-hover/link:translate-x-1" />
-                          </Link>
-                        </div>
+                    {/* Bottom Impact & Action Strip */}
+                    <div className="z-10 pt-3 border-t border-white/10">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-[11px] font-medium text-slate-300 truncate max-w-[180px]">
+                          {item.impact}
+                        </span>
+                        <span className={`text-[11px] font-bold ${item.accentColor} shrink-0`}>
+                          {isTop ? 'Next Card ↷' : 'View →'}
+                        </span>
                       </div>
                     </div>
-                  )
-                })}
-              </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Area: People · Trust · Opportunity · Impact & Quote Card */}
-        <div className="flex flex-col gap-5 pt-4">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-6 bg-slate-300" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-400">
-              PEOPLE · TRUST · OPPORTUNITY · IMPACT
-            </span>
+        {/* Bottom Supporting Quote Strip */}
+        <div className="mt-14 w-full max-w-4xl mx-auto rounded-[6px] border border-slate-200 bg-white p-5 sm:p-6 shadow-2xs flex items-center gap-4">
+          <div className="flex size-10 items-center justify-center rounded-[4px] bg-blue-50 text-[#0078D4] shrink-0">
+            <Quote className="size-5" />
           </div>
-
-          <div className="rounded-2xl border border-blue-100/80 bg-gradient-to-r from-blue-50/60 via-white/80 to-blue-50/40 p-6 sm:p-7 shadow-[0_4px_25px_rgba(30,107,255,0.03)] backdrop-blur-sm flex items-start sm:items-center gap-4 sm:gap-6">
-            <div className="flex size-11 items-center justify-center rounded-2xl bg-blue-100/70 text-blue-600 shadow-sm shrink-0">
-              <Quote className="size-5 fill-blue-600/20" />
-            </div>
-            <p className="font-serif italic text-slate-700 text-sm sm:text-[1.05rem] leading-relaxed">
-              &ldquo;A connection becomes valuable when it creates an opportunity, solves a problem or
-              improves a life. Every one of these does exactly that.&rdquo;
-            </p>
-          </div>
+          <p className="text-xs sm:text-sm italic text-slate-700 leading-relaxed font-normal">
+            &ldquo;A connection becomes valuable when it creates an opportunity, solves a problem or improves a life. Every one of these does exactly that.&rdquo;
+          </p>
         </div>
 
       </div>
+
+      {/* Interactive Detail Modal */}
+      {selectedForm && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          onClick={() => setSelectedForm(null)}
+        >
+          <div 
+            className="relative w-full max-w-xl overflow-hidden rounded-[8px] border border-slate-700 bg-slate-950 p-6 sm:p-8 text-white shadow-2xl animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Close Button */}
+            <button
+              type="button"
+              onClick={() => setSelectedForm(null)}
+              className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-[4px] bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="size-4" />
+            </button>
+
+            {/* Header Badge */}
+            <div className="flex items-center gap-2 mb-3">
+              <span className={`px-3 py-1 rounded-[4px] text-xs font-semibold border ${selectedForm.badgeBg}`}>
+                Way {selectedForm.num} · {selectedForm.tag}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h3 className="font-sans text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug mt-2">
+              {selectedForm.title}
+            </h3>
+
+            {/* Description */}
+            <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+              {selectedForm.desc}
+            </p>
+
+            {/* Deep-Dive Operational Breakdown */}
+            <div className="mt-5 rounded-[6px] bg-white/5 border border-white/10 p-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-400 block mb-1">
+                How It Works Inside Peers Global
+              </span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {selectedForm.longDetails}
+              </p>
+            </div>
+
+            {/* Impact Metric Bar */}
+            <div className="mt-4 flex items-center justify-between rounded-[4px] bg-blue-950/60 border border-blue-800/40 p-3 text-xs">
+              <span className="text-slate-300 font-medium">Outcome Metric:</span>
+              <span className="font-semibold text-white">{selectedForm.impact}</span>
+            </div>
+
+            {/* Modal Actions */}
+            <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+              <Link
+                href="/membership"
+                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-md"
+              >
+                <span>Join Peers Global</span>
+                <ArrowRight className="size-4" />
+              </Link>
+
+              <Link
+                href="/10-forms-of-collaboration"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors underline-offset-4 hover:underline"
+              >
+                <span>View All 10 Forms Guide →</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
     </section>
   )
 }
+
+
 
 /* =========================================================================
    SECTION 6 — LEARN, SALES, RESOURCES (LSR)
@@ -1575,12 +2134,12 @@ export function LsrSection() {
       tag: 'KNOWLEDGE',
       impact: 'Actionable Insights',
       shortTitle: 'Learn',
-      iconColor: 'text-cyan-400',
-      iconBg: 'bg-cyan-500/15 border-cyan-400/30',
-      labelColor: 'text-cyan-400',
-      watermarkColor: 'text-white/[0.04]',
-      bulletBg: 'bg-cyan-500/20',
-      bulletIconColor: 'text-cyan-300',
+      iconColor: 'text-[#0078D4]',
+      iconBg: 'bg-blue-50 border-blue-100',
+      labelColor: 'text-[#0078D4]',
+      watermarkColor: 'text-slate-100',
+      bulletBg: 'bg-blue-50',
+      bulletIconColor: 'text-[#0078D4]',
       bullets: [
         'Learn from real founders',
         'Practical, actionable insights',
@@ -1597,12 +2156,12 @@ export function LsrSection() {
       tag: 'GROWTH',
       impact: 'Direct Revenue',
       shortTitle: 'Sales',
-      iconColor: 'text-emerald-400',
-      iconBg: 'bg-emerald-500/15 border-emerald-400/30',
-      labelColor: 'text-emerald-400',
-      watermarkColor: 'text-white/[0.04]',
-      bulletBg: 'bg-emerald-500/20',
-      bulletIconColor: 'text-emerald-300',
+      iconColor: 'text-emerald-600',
+      iconBg: 'bg-emerald-50 border-emerald-100',
+      labelColor: 'text-emerald-600',
+      watermarkColor: 'text-slate-100',
+      bulletBg: 'bg-emerald-50',
+      bulletIconColor: 'text-emerald-600',
       bullets: [
         'Direct B2B introductions',
         'Verified customer leads',
@@ -1619,12 +2178,12 @@ export function LsrSection() {
       tag: 'ECOSYSTEM',
       impact: 'Strategic Assets',
       shortTitle: 'Resources',
-      iconColor: 'text-amber-400',
-      iconBg: 'bg-amber-500/15 border-amber-400/30',
-      labelColor: 'text-amber-400',
-      watermarkColor: 'text-white/[0.04]',
-      bulletBg: 'bg-amber-500/20',
-      bulletIconColor: 'text-amber-300',
+      iconColor: 'text-amber-600',
+      iconBg: 'bg-amber-50 border-amber-100',
+      labelColor: 'text-amber-600',
+      watermarkColor: 'text-slate-100',
+      bulletBg: 'bg-amber-50',
+      bulletIconColor: 'text-amber-600',
       bullets: [
         'Vetted investor network',
         'High-tier talent referrals',
@@ -1677,72 +2236,44 @@ export function LsrSection() {
   return (
     <section
       id="framework"
-      className="section relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80"
+      className="section relative overflow-hidden bg-[#fafafa] py-20 sm:py-24 lg:py-28 text-slate-900 border-b border-slate-200"
     >
-      {/* Background Glow & Atmospheric Orbs */}
-      <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
-      <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
-      <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
-
-      {/* Constellation Star Particle Overlay */}
-      <svg viewBox="0 0 1400 600" className="absolute inset-0 size-full pointer-events-none opacity-20" preserveAspectRatio="none">
-        <g fill="#38BDF8">
-          <circle cx="80" cy="60" r="1.5" /><circle cx="200" cy="130" r="1" /><circle cx="340" cy="45" r="2" />
-          <circle cx="500" cy="100" r="1.2" /><circle cx="680" cy="35" r="1.5" /><circle cx="850" cy="110" r="1" />
-          <circle cx="1020" cy="60" r="2" /><circle cx="1180" cy="160" r="1.2" /><circle cx="1340" cy="80" r="1.5" />
-          <circle cx="150" cy="500" r="1.2" /><circle cx="400" cy="540" r="1.8" /><circle cx="640" cy="560" r="1" />
-          <circle cx="900" cy="520" r="1.5" /><circle cx="1100" cy="550" r="1" /><circle cx="70" cy="320" r="1" />
-          <circle cx="310" cy="270" r="1.8" /><circle cx="760" cy="300" r="1.2" /><circle cx="1260" cy="360" r="1" />
-        </g>
-        <g stroke="#38BDF8" strokeWidth="0.5" opacity="0.35" fill="none">
-          <line x1="80" y1="60" x2="200" y2="130" /><line x1="200" y1="130" x2="340" y2="45" />
-          <line x1="500" y1="100" x2="680" y2="35" /><line x1="850" y1="110" x2="1020" y2="60" />
-          <line x1="1020" y1="60" x2="1180" y2="160" />
-        </g>
-      </svg>
-
-      {/* Orbit rings decorative */}
-      <div className="pointer-events-none absolute -bottom-24 -left-20 size-[380px] opacity-20">
-        <svg viewBox="0 0 400 400" className="size-full stroke-cyan-400/30 fill-none">
-          <circle cx="100" cy="300" r="260" strokeWidth="1" strokeDasharray="6 6" />
-          <circle cx="100" cy="300" r="210" strokeWidth="1" />
-          <circle cx="100" cy="300" r="160" strokeWidth="1" />
-          <circle cx="100" cy="90" r="3.5" fill="#38bdf8" className="animate-pulse" />
-        </svg>
-      </div>
+      {/* Background Subtle Light Glow */}
+      <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-500/[0.03] blur-[120px]" />
+      <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/[0.03] blur-[140px]" />
 
       {/* Top-right executive framework badge */}
-      <div className="pointer-events-none absolute top-8 right-6 lg:right-14 select-none opacity-80 hidden sm:block z-10">
-        <div className="flex flex-col items-end gap-1 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[#60A5FA]">CORE FRAMEWORK</span>
-          <span className="text-xs font-semibold text-slate-200">Learn · Sales · Resources</span>
+      <div className="pointer-events-none absolute top-8 right-6 lg:right-14 select-none hidden sm:block z-10">
+        <div className="flex flex-col items-end gap-1 px-4 py-2 rounded-2xl bg-white border border-slate-200 shadow-2xs">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#0078D4]">CORE FRAMEWORK</span>
+          <span className="text-xs font-semibold text-slate-700">Learn · Sales · Resources</span>
         </div>
       </div>
 
       <div className="shell relative z-10 max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-[33%_67%] xl:grid-cols-[31%_69%] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[34%_66%] xl:grid-cols-[32%_68%] lg:items-center">
 
           {/* Left Column: Heading, Subtitle & Membership CTA */}
           <div className="flex flex-col justify-between">
             <div>
               {/* Eyebrow */}
-              <div className="flex items-center gap-2 mb-3.5">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="h-[2px] w-6 bg-[#0078D4] rounded-full" />
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0078D4]">
                   THE FRAMEWORK
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-white tracking-tight leading-[1.15]">
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-slate-900 tracking-tight leading-[1.16]">
                 LSR — the three things{' '}
-                <span className="bg-gradient-to-r from-[#60A5FA] to-[#F43F5E] bg-clip-text text-transparent block">
+                <span className="text-[#0078D4] block">
                   every business runs on.
                 </span>
               </h2>
 
               {/* Subtitle / Lede */}
-              <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed max-w-md font-normal">
+              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed max-w-md font-normal">
                 Learn. Sales. Resources. All of it built on trusted peer relationships.
               </p>
 
@@ -1750,24 +2281,24 @@ export function LsrSection() {
               <div className="mt-7">
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_18px_rgba(29,78,216,0.35)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_25px_rgba(225,29,72,0.45)] hover:-translate-y-0.5 active:translate-y-0 group"
+                  className="inline-flex items-center gap-2.5 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all active:scale-[0.98] group"
                 >
-                  See What Membership Includes
+                  <span>See What Membership Includes</span>
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
 
             {/* Bottom Footnote Tracker */}
-            <div className="mt-14 sm:mt-20 flex items-center gap-3">
-              <span className="h-px w-8 bg-slate-700" />
-              <span className="text-[10.5px] font-bold uppercase tracking-[0.24em] text-slate-400">
+            <div className="mt-12 sm:mt-16 flex items-center gap-3">
+              <span className="h-px w-8 bg-slate-300" />
+              <span className="text-[10.5px] font-bold uppercase tracking-[0.22em] text-slate-400">
                 PEOPLE · TRUST · OPPORTUNITY · IMPACT
               </span>
             </div>
           </div>
 
-          {/* Right Column: 3D Stacked Layered Cards Slider (Dark Navy Theme) */}
+          {/* Right Column: 3D Stacked Layered Cards Slider (Light White Theme) */}
           <div
             className="relative flex flex-col items-center justify-center select-none w-full"
             onMouseEnter={() => setIsHovered(true)}
@@ -1779,11 +2310,10 @@ export function LsrSection() {
               type="button"
               onClick={handleNext}
               aria-label="Next card"
-              className="absolute -right-3 sm:-right-6 lg:-right-7 top-1/2 -translate-y-1/2 z-40 flex size-11 sm:size-12 items-center justify-center rounded-full bg-white/95 text-slate-800 shadow-[0_8px_30px_rgba(0,0,0,0.3)] border border-slate-700/80 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-cyan-500 hover:text-slate-950 hover:border-cyan-400 active:scale-95 focus:outline-none"
+              className="absolute -right-3 sm:-right-6 lg:-right-7 top-1/2 -translate-y-1/2 z-40 flex size-11 sm:size-12 items-center justify-center rounded-full bg-white text-slate-800 shadow-md border border-slate-200 transition-all duration-300 hover:scale-110 hover:bg-[#0078D4] hover:text-white hover:border-[#0078D4] active:scale-95 focus:outline-none"
             >
               <ChevronRight className="size-5" />
             </button>
-
 
             {/* Stage Container with 3D perspective & cascading cards */}
             <div
@@ -1822,7 +2352,7 @@ export function LsrSection() {
                     transform: `translate3d(${x}px, ${y}px, -90px) scale(0.92)`,
                     opacity: 0.85,
                     zIndex: 20,
-                    filter: 'brightness(0.9)',
+                    filter: 'brightness(0.96)',
                     pointerEvents: 'auto',
                     cursor: 'pointer',
                   }
@@ -1832,9 +2362,9 @@ export function LsrSection() {
                   const y = isMobile ? 0 : -20
                   transformStyle = {
                     transform: `translate3d(${x}px, ${y}px, -180px) scale(0.84)`,
-                    opacity: 0.55,
+                    opacity: 0.6,
                     zIndex: 15,
-                    filter: 'brightness(0.8)',
+                    filter: 'brightness(0.92)',
                     pointerEvents: 'auto',
                     cursor: 'pointer',
                   }
@@ -1852,15 +2382,12 @@ export function LsrSection() {
                     key={card.num}
                     onClick={() => isClickable && idx !== activeIndex && setActiveIndex(idx)}
                     style={transformStyle}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] sm:w-[290px] lg:w-[280px] xl:w-[295px] rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] p-6 sm:p-7 text-white shadow-[0_25px_60px_rgba(11,21,40,0.45)] transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex flex-col justify-between min-h-[430px] sm:min-h-[450px]"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] sm:w-[290px] lg:w-[280px] xl:w-[295px] rounded-3xl border border-slate-200 bg-white p-6 sm:p-7 text-slate-900 shadow-[0_15px_35px_rgba(15,23,42,0.07)] transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform flex flex-col justify-between min-h-[430px] sm:min-h-[450px]"
                   >
-                    {/* Subtle glass reflection overlay */}
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.08] via-transparent to-black/30" />
-
                     {/* Watermarked Number Background */}
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute right-5 top-2 text-[6rem] sm:text-[6.6rem] font-black leading-none select-none text-white/[0.04]"
+                      className="pointer-events-none absolute right-5 top-2 text-[6rem] sm:text-[6.6rem] font-black leading-none select-none text-slate-100"
                     >
                       {card.num}
                     </span>
@@ -1872,35 +2399,35 @@ export function LsrSection() {
                           <span className="text-xs font-bold tracking-wider text-slate-400">
                             {card.indexLabel}
                           </span>
-                          <span className="rounded-full bg-blue-500/15 border border-blue-400/30 px-3 py-0.5 text-[10px] font-bold text-cyan-300 backdrop-blur-sm">
+                          <span className="rounded-full bg-blue-50 border border-blue-100 px-3 py-0.5 text-[10px] font-bold text-[#0078D4]">
                             {card.category}
                           </span>
                         </div>
 
                         {/* Circular Icon Badge */}
-                        <div className={`mt-4 sm:mt-5 flex size-13 sm:size-14 items-center justify-center rounded-2xl border shadow-inner backdrop-blur-md bg-white/10 border-white/10 ${card.iconColor}`}>
+                        <div className={`mt-4 sm:mt-5 flex size-13 sm:size-14 items-center justify-center rounded-2xl border shadow-2xs ${card.iconBg} ${card.iconColor}`}>
                           <CardIcon className="size-6" />
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-lg sm:text-xl font-bold text-white leading-snug mt-4 tracking-tight">
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug mt-4 tracking-tight">
                           {card.title}
                         </h3>
 
                         {/* Body Paragraph */}
-                        <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed mt-2.5 font-normal">
+                        <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-2.5 font-normal">
                           {card.body}
                         </p>
                       </div>
 
                       {/* Checklist Bullets */}
-                      <div className="mt-5 sm:mt-6 flex flex-col gap-2.5 sm:gap-3 pt-4 sm:pt-5 border-t border-white/10">
+                      <div className="mt-5 sm:mt-6 flex flex-col gap-2.5 sm:gap-3 pt-4 sm:pt-5 border-t border-slate-100">
                         {card.bullets.map((bullet, bIdx) => (
                           <div key={bIdx} className="flex items-center gap-2.5">
-                            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[#0078D4]">
                               <Check className="size-3 stroke-[3]" />
                             </span>
-                            <span className="text-xs sm:text-[13px] font-medium text-slate-200">
+                            <span className="text-xs sm:text-[13px] font-medium text-slate-700">
                               {bullet}
                             </span>
                           </div>
@@ -1921,8 +2448,8 @@ export function LsrSection() {
                   onClick={() => setActiveIndex(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
                   className={`h-1.5 transition-all duration-300 rounded-full ${activeIndex === idx
-                    ? 'w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shadow-[0_0_12px_rgba(225,29,72,0.6)]'
-                    : 'w-4 bg-slate-700 hover:bg-slate-600'
+                    ? 'w-8 bg-[#0078D4] shadow-sm'
+                    : 'w-4 bg-slate-200 hover:bg-slate-300'
                     }`}
                 />
               ))}
@@ -1931,6 +2458,839 @@ export function LsrSection() {
 
         </div>
       </div>
+    </section>
+  )
+}
+
+/* =========================================================================
+   SECTION 6B — MEDITATIONS & PLAYBOOK VAULT (MINDVALLEY 3-ROW MOSAIC MARQUEE)
+   ========================================================================= */
+
+interface MeditationTrackItem {
+  id: string
+  title: string
+  subtitle: string
+  mentor: string
+  category: string
+  duration: string
+  image: string
+  accentColor: string
+  fontStyle: 'serif' | 'sans' | 'script' | 'bold'
+  description: string
+  takeaways: string[]
+}
+
+export function MasterclassesSection() {
+  // ── Row 1 Tracks (Matching the top row of Mindvalley's meditation marquee) ──
+  const row1Tracks: MeditationTrackItem[] = [
+    {
+      id: 'med-1',
+      title: 'RESTFUL SLEEP',
+      subtitle: 'Delta Wave Recovery',
+      mentor: 'Dr. Michael Breus',
+      category: 'Deep Rest & Sleep',
+      duration: '25 mins · Guided Audio',
+      image: 'https://images.unsplash.com/photo-1511295742362-92c96b124e52?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-indigo-900/90 via-slate-950/80 to-purple-950/90',
+      fontStyle: 'bold',
+      description: 'A scientifically engineered binaural delta-wave induction that quiets active neurological loops, lowers cortisol, and promotes restorative rapid eye movement sleep.',
+      takeaways: ['Instant nervous system down-regulation', 'Circadian rhythm synchronization', 'Zero sleep-onset friction'],
+    },
+    {
+      id: 'med-2',
+      title: 'THE 6 PHASE MEDITATION',
+      subtitle: 'Peak State Alignment',
+      mentor: 'Vishen Lakhiani',
+      category: 'Daily Alignment',
+      duration: '21 mins · Master Protocol',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-blue-900/90 via-sky-950/80 to-cyan-950/90',
+      fontStyle: 'serif',
+      description: 'The world-renowned 6-step cognitive protocol unifying compassion, gratitude, forgiveness, future visioning, perfect day priming, and the universal blessing.',
+      takeaways: ['Compassion & connection priming', '3-year trajectory visualization', 'Daily sovereign state calibration'],
+    },
+    {
+      id: 'med-3',
+      title: 'Awakening Your Joy',
+      subtitle: 'Inner Radiance Flow',
+      mentor: 'Sadhvi Bhagawati',
+      category: 'Emotional Mastery',
+      duration: '18 mins · Heart Practice',
+      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-amber-900/90 via-orange-950/80 to-rose-950/90',
+      fontStyle: 'script',
+      description: 'Dissolve latent sorrow and awaken authentic inner happiness using sacred somatic breathing and heart-centered awareness.',
+      takeaways: ['Release conditioned heaviness', 'Open heart energetic center', 'Unconditional joy activation'],
+    },
+    {
+      id: 'med-4',
+      title: 'Stop Holding Back',
+      subtitle: 'Breakthrough Power',
+      mentor: 'Lisa Nichols',
+      category: 'Unshakable Courage',
+      duration: '22 mins · Empowerment',
+      image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-rose-950/90 via-slate-900/80 to-amber-950/90',
+      fontStyle: 'bold',
+      description: 'Shatter impostor syndrome, declare your divine worth, and step unapologetically into rooms with absolute sovereign presence.',
+      takeaways: ['Conquer fear of rejection', 'Reclaim vocal authority', 'Step into high-stakes leadership'],
+    },
+    {
+      id: 'med-5',
+      title: 'PURE CONFIDENCE',
+      subtitle: 'Executive Radiance',
+      mentor: 'Robin Sharma',
+      category: 'Leadership Mindset',
+      duration: '15 mins · Power Meditation',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-yellow-950/90 via-slate-900/80 to-amber-950/90',
+      fontStyle: 'bold',
+      description: 'Anchor the physiological and psychological state of unshakable self-trust before entering boardrooms, major negotiations, or keynote stages.',
+      takeaways: ['Posture & vocal tone resonance', 'Eradicate micro-doubts', 'Command respectful attention'],
+    },
+    {
+      id: 'med-6',
+      title: 'ACTIVATING YOUR SUCCESS ENERGY',
+      subtitle: 'Vibrational Mastery',
+      mentor: 'Marie Diamond',
+      category: 'Energetic Alignment',
+      duration: '20 mins · Quantum Flow',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-cyan-950/90 via-blue-950/80 to-emerald-950/90',
+      fontStyle: 'bold',
+      description: 'Harmonize your personal energetic signature with quantum abundance and accelerate the manifest speed of your highest business goals.',
+      takeaways: ['Quantum aura cleansing', 'Abundance magnet activation', 'Spatial energy harmonizing'],
+    },
+    {
+      id: 'med-7',
+      title: 'RESTORING YOUR AURA',
+      subtitle: 'Pranic Cleansing',
+      mentor: 'Jeffrey Allen',
+      category: 'Energy Clearing',
+      duration: '24 mins · Deep Cleanse',
+      image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-purple-950/90 via-fuchsia-950/80 to-indigo-950/90',
+      fontStyle: 'serif',
+      description: 'Clear stagnant psychic debris, emotional absorption from others, and reinforce your energetic field with luminous protection.',
+      takeaways: ['Release boundary leaks', 'Recharge spiritual vitality', 'Energetic shield establishment'],
+    },
+    {
+      id: 'med-8',
+      title: 'SUPER MIND BELIEFS',
+      subtitle: 'Subconscious Reprogramming',
+      mentor: 'Marisa Peer',
+      category: 'Rapid Transformational',
+      duration: '30 mins · Hypno-Therapy',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-blue-950/90 via-sky-900/80 to-teal-950/90',
+      fontStyle: 'bold',
+      description: 'Rewrite limiting childhood beliefs around worthiness, wealth ceiling, and visibility using proven neuro-linguistic hypnotherapy.',
+      takeaways: ['Eradicate "I am not enough"', 'Reprogram baseline self-worth', 'Install prosperity blueprint'],
+    },
+    {
+      id: 'med-9',
+      title: 'ENHANCING RELATIONSHIPS',
+      subtitle: 'Sacred Heart Resonance',
+      mentor: 'Katherine Woodward Thomas',
+      category: 'Conscious Love & Bonds',
+      duration: '20 mins · Connection',
+      image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-rose-950/90 via-amber-950/80 to-pink-950/90',
+      fontStyle: 'script',
+      description: 'Heal relational triggers, foster genuine vulnerability, and cultivate deep mutual admiration with your life partner and peer circle.',
+      takeaways: ['De-escalate defensive loops', 'Authentic empathic listening', 'Deepen emotional intimacy'],
+    },
+    {
+      id: 'med-10',
+      title: 'SHIFTING YOUR PARADIGM',
+      subtitle: 'Universal Laws of Wealth',
+      mentor: 'Bob Proctor',
+      category: 'Abundance Mindset',
+      duration: '35 mins · Classic Audio',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-slate-950/90 via-blue-950/80 to-amber-950/90',
+      fontStyle: 'bold',
+      description: 'Master the immutable mental laws of circulation, supply, and non-resistance to bridge the knowing-doing gap in your enterprise.',
+      takeaways: ['Break through revenue ceilings', 'Align conscious with subconscious', 'The Law of Perpetual Transmutation'],
+    },
+  ]
+
+  // ── Row 2 Tracks (Middle row of Mindvalley's meditation marquee) ──
+  const row2Tracks: MeditationTrackItem[] = [
+    {
+      id: 'med-11',
+      title: 'FIND YOUR CONFIDENCE AND BE BOLD',
+      subtitle: 'Courage & Magnetism',
+      mentor: 'Reggie Rivers',
+      category: 'Public Speaking & Presence',
+      duration: '16 mins · Power Audio',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-amber-950/90 via-yellow-950/80 to-slate-950/90',
+      fontStyle: 'bold',
+      description: 'Ignite authentic charisma, command authority without aggression, and speak with unwavering clarity.',
+      takeaways: ['Neutralize stage anxiety', 'Anchor decisive executive tone', 'Project magnetic warmth'],
+    },
+    {
+      id: 'med-12',
+      title: 'Success Is My Natural State',
+      subtitle: 'Flow-State Alignment',
+      mentor: 'Michael Beckwith',
+      category: 'Spiritual Wisdom',
+      duration: '22 mins · Affirmation Track',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-emerald-950/90 via-teal-950/80 to-blue-950/90',
+      fontStyle: 'script',
+      description: 'Dissolve the false struggle myth and align with the effortless momentum of natural evolutionary success.',
+      takeaways: ['Shift from force to power', 'Eliminate burnout patterns', 'Harmonize with universal timing'],
+    },
+    {
+      id: 'med-13',
+      title: 'RELEASE FROM WORRY',
+      subtitle: 'Somatic Nervous Reset',
+      mentor: 'Dr. Neeta Bhushan',
+      category: 'Anxiety Relief',
+      duration: '18 mins · Calming Breath',
+      image: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-pink-950/90 via-rose-950/80 to-slate-950/90',
+      fontStyle: 'serif',
+      description: 'Somatic vagus nerve toning to release anticipatory dread, future catastrophizing, and physical tension in the stomach and shoulders.',
+      takeaways: ['Instant vagal tone activation', 'Ground in the present breath', 'Unclench cognitive worry spirals'],
+    },
+    {
+      id: 'med-14',
+      title: 'SALES TO SERVICE',
+      subtitle: 'Heart-Centered Closing',
+      mentor: 'Jason Campbell',
+      category: 'Ethical Influence',
+      duration: '20 mins · Commercial Flow',
+      image: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-amber-950/90 via-orange-950/80 to-yellow-950/90',
+      fontStyle: 'bold',
+      description: 'Reframe commercial selling into pure service and love for your client, making closing natural, graceful, and mutually transformative.',
+      takeaways: ['Overcome sales guilt', 'Deep client empathy calibration', 'Elevate deal close certainty'],
+    },
+    {
+      id: 'med-15',
+      title: 'GETTING MOTIVATED',
+      subtitle: 'High Velocity Drive',
+      mentor: 'Jim Kwik',
+      category: 'Cognitive Velocity',
+      duration: '12 mins · Morning Booster',
+      image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-blue-950/90 via-cyan-950/80 to-slate-950/90',
+      fontStyle: 'serif',
+      description: 'Trigger dopamine-optimized neural pathways for rapid task initiation, deep creative flow, and zero morning inertia.',
+      takeaways: ['Dopamine baseline priming', 'Overcome procrastination', 'Hyperfocus state ignition'],
+    },
+    {
+      id: 'med-16',
+      title: 'ALLEVIATING SOCIAL ANXIETY',
+      subtitle: 'Grace in Crowds & Galas',
+      mentor: 'Dr. Shefali Tsabary',
+      category: 'Social Freedom',
+      duration: '21 mins · Guided Presence',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-slate-950/90 via-stone-900/80 to-zinc-950/90',
+      fontStyle: 'bold',
+      description: 'Feel completely relaxed, grounded, and genuinely curious when entering networking galas, high-table summits, and large social events.',
+      takeaways: ['Dissolve external judgment fears', 'Relax facial & chest muscles', 'Organic conversation opening'],
+    },
+    {
+      id: 'med-17',
+      title: 'HYPNOTIC TRANCE FOR INSTANT CONFIDENCE',
+      subtitle: 'Deep Subconscious Anchor',
+      mentor: 'Paul McKenna',
+      category: 'Clinical Hypnosis',
+      duration: '25 mins · Hypnotic Audio',
+      image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-cyan-950/90 via-teal-950/80 to-blue-950/90',
+      fontStyle: 'bold',
+      description: 'World-famous clinical hypnotherapy protocol to program absolute, instinctive poise under severe pressure.',
+      takeaways: ['Physical kinesthetic anchor creation', 'Eradicate subconscious hesitation', 'Calm heart rate under scrutiny'],
+    },
+    {
+      id: 'med-18',
+      title: 'DEEP GROUNDING PRACTICE',
+      subtitle: 'Earth Resonance & Rooting',
+      mentor: 'Agapi Stassinopoulos',
+      category: 'Somatic Stability',
+      duration: '17 mins · Earth Centering',
+      image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-orange-950/90 via-amber-950/80 to-stone-950/90',
+      fontStyle: 'serif',
+      description: 'Reconnect with the stabilizing gravity of the earth when feeling scattered, overwhelmed by decisions, or energetically ungrounded.',
+      takeaways: ['Root chakra grounding', 'Mental chatter dissolution', 'Sovereign center stabilization'],
+    },
+    {
+      id: 'med-19',
+      title: 'HEART OPENING MEDITATION',
+      subtitle: 'Compassion & Gratitude',
+      mentor: 'Dr. Joe Dispenza',
+      category: 'Heart Coherence',
+      duration: '28 mins · Coherence Protocol',
+      image: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-rose-950/90 via-red-950/80 to-pink-950/90',
+      fontStyle: 'bold',
+      description: 'Create mathematical brain-heart coherence to elevate your electromagnetic field and broadcast elevated emotions of gratitude and love.',
+      takeaways: ['Elevated emotion broadcasting', 'Sympathetic nervous reset', 'Heart rate variability optimization'],
+    },
+    {
+      id: 'med-20',
+      title: 'TUNE IN WITH YOURSELF',
+      subtitle: 'Soul Voice Alignment',
+      mentor: 'Kristina Mänd-Lakhiani',
+      category: 'Self-Authenticity',
+      duration: '16 mins · Reflection',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-amber-950/90 via-red-950/80 to-slate-950/90',
+      fontStyle: 'bold',
+      description: 'Strip away expectations of parents, peers, and society to hear your true authentic inner compass with sparkling clarity.',
+      takeaways: ['Differentiate ego vs truth', 'End self-betrayal habits', 'Cultivate fierce self-acceptance'],
+    },
+    {
+      id: 'med-21',
+      title: 'SILVA CENTERING EXERCISE',
+      subtitle: 'Alpha Level Activation (3 to 1)',
+      mentor: 'Jose Silva Method',
+      category: 'Alpha Mind Programming',
+      duration: '26 mins · Dynamic Meditation',
+      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-blue-950/90 via-purple-950/80 to-indigo-950/90',
+      fontStyle: 'serif',
+      description: 'The legendary Silva Ultramind technique to drop your brainwave frequency from Beta (20Hz) to deep Alpha (10Hz) for rapid problem solving.',
+      takeaways: ['Instant 3-to-1 countdown countdown', 'Mental video screen technique', 'Genius intuitive flashes on demand'],
+    },
+  ]
+
+  // ── Row 3 Tracks (Bottom row of Mindvalley's meditation marquee) ──
+  const row3Tracks: MeditationTrackItem[] = [
+    {
+      id: 'med-22',
+      title: 'MIND BODY ALIGNMENT',
+      subtitle: 'Pranic Energy Balance',
+      mentor: 'Gellért Varga',
+      category: 'Holistic Vitality',
+      duration: '22 mins · Somatic Flow',
+      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-indigo-950/90 via-sky-950/80 to-purple-950/90',
+      fontStyle: 'bold',
+      description: 'Integrate physical cells, meridian channels, and mental clarity into a unified harmonious operating vessel.',
+      takeaways: ['Cellular tension release', 'Meridian energy alignment', 'Physical vitality replenishment'],
+    },
+    {
+      id: 'med-23',
+      title: 'MANIFESTING ABUNDANCE',
+      subtitle: 'Golden Horizon Dawn',
+      mentor: 'Regan Hillyer',
+      category: 'Wealth Acceleration',
+      duration: '20 mins · Energetic Coding',
+      image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-amber-950/90 via-yellow-900/80 to-orange-950/90',
+      fontStyle: 'serif',
+      description: 'Anchor the energetic architecture of 8-figure wealth, luxury comfort, and philanthropic overflow into your cellular memory.',
+      takeaways: ['Expand financial capacity', 'Eliminate fear of sudden wealth', 'Accelerate timeline convergence'],
+    },
+    {
+      id: 'med-24',
+      title: 'Present in the Moment',
+      subtitle: 'Pure Zen Awareness',
+      mentor: 'Jon Kabat-Zinn',
+      category: 'Mindful Living',
+      duration: '15 mins · Silent Witness',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-sky-950/90 via-blue-900/80 to-cyan-950/90',
+      fontStyle: 'script',
+      description: 'Stop the relentless mental time-travel between yesterday regrets and tomorrow anxieties to dwell fully in the eternal now.',
+      takeaways: ['Single-tasking clarity', 'Savoring micro-moments', 'End mindless scrolling compulsion'],
+    },
+    {
+      id: 'med-25',
+      title: 'HEALING YOUR RELATIONSHIP WITH MONEY',
+      subtitle: 'Financial Peace & Flow',
+      mentor: 'Ken Honda',
+      category: 'Happy Money',
+      duration: '24 mins · Gratitude Practice',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-amber-950/90 via-emerald-950/80 to-slate-950/90',
+      fontStyle: 'bold',
+      description: 'Replace historical guilt, ancestral scarcity, and hoarding tension with the joyful, flowing currency of "Arigato Money".',
+      takeaways: ['Bless incoming & outgoing wealth', 'Dissolve financial anxiety', 'Magnetize peaceful prosperity'],
+    },
+    {
+      id: 'med-26',
+      title: 'Soulmate',
+      subtitle: 'Deep Emotional Intimacy',
+      mentor: 'Arielle Ford',
+      category: 'Sacred Partnership',
+      duration: '19 mins · Heart Magnet',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-stone-950/90 via-amber-950/80 to-rose-950/90',
+      fontStyle: 'script',
+      description: 'Cultivate the emotional frequency and unconditional self-love that effortlessly draws your true life companion into your reality.',
+      takeaways: ['Heal past romantic wounds', 'Clarity on partner values', 'Vibrational alignment with soul love'],
+    },
+    {
+      id: 'med-27',
+      title: 'Embrace The Goddess Within',
+      subtitle: 'Radiant Feminine Power',
+      mentor: 'Saida Désilets',
+      category: 'Divine Feminine',
+      duration: '22 mins · Sacred Sovereignty',
+      image: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-amber-950/90 via-rose-950/80 to-purple-950/90',
+      fontStyle: 'script',
+      description: 'Reconnect with sacred intuition, sensual vitality, and the luminous fierce wisdom of the empowered feminine leader.',
+      takeaways: ['Reclaim intuitive authority', 'Honor cyclical natural rhythms', 'Radiate magnetic grace'],
+    },
+    {
+      id: 'med-28',
+      title: 'ELEVATE YOUR FOCUS',
+      subtitle: 'Hyper-Concentration Laser',
+      mentor: 'Nir Eyal',
+      category: 'Indistractable Mind',
+      duration: '14 mins · Deep Work Prep',
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-fuchsia-950/90 via-purple-950/80 to-blue-950/90',
+      fontStyle: 'bold',
+      description: 'A 14-minute cognitive warmup designed to shut down peripheral sensory distractors and lock you into 90 minutes of pure deep work.',
+      takeaways: ['Block internal triggers', 'Establish deep work tunnel', 'Double daily output quality'],
+    },
+    {
+      id: 'med-29',
+      title: 'Inner Journey',
+      subtitle: 'Subconscious Exploration',
+      mentor: 'Michael Singer',
+      category: 'Untethered Soul',
+      duration: '25 mins · Transcendence',
+      image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-emerald-950/90 via-teal-950/80 to-slate-950/90',
+      fontStyle: 'script',
+      description: 'Step behind the mind into the seat of the silent witnessing consciousness, releasing all resistance to reality.',
+      takeaways: ['Transcend obsessive self-talk', 'Surrender to life flow', 'Unconditional inner peace'],
+    },
+    {
+      id: 'med-30',
+      title: 'REGAIN CONTROL',
+      subtitle: 'Calm in Chaos',
+      mentor: 'Robin Sharma',
+      category: 'Crisis Mastery',
+      duration: '18 mins · Centering Audio',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80',
+      accentColor: 'from-slate-950/90 via-indigo-950/80 to-blue-950/90',
+      fontStyle: 'bold',
+      description: 'Reclaim your executive focus, emotional poise, and strategic clarity when market conditions or company crises threaten stability.',
+      takeaways: ['Stop reaction loops', 'Identify the single critical leverage point', 'Execute with ice-cold calmness'],
+    },
+  ]
+
+  const infiniteRow1 = [...row1Tracks, ...row1Tracks, ...row1Tracks]
+  const infiniteRow2 = [...row2Tracks, ...row2Tracks, ...row2Tracks]
+  const infiniteRow3 = [...row3Tracks, ...row3Tracks, ...row3Tracks]
+
+  const [selectedTrack, setSelectedTrack] = useState<MeditationTrackItem | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [playbackProgress, setPlaybackProgress] = useState(35)
+
+  const togglePlayback = () => {
+    setIsPlaying(!isPlaying)
+  }
+
+  return (
+    <section id="meditations-collection" className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28 border-b border-slate-200 text-slate-900">
+      
+      {/* ── CSS Keyframes for the 3 staggered continuous infinite marquees ── */}
+      <style jsx global>{`
+        @keyframes pgMedMarqueeLeft {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-33.3333%);
+          }
+        }
+        @keyframes pgMedMarqueeRight {
+          0% {
+            transform: translateX(-33.3333%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+        .animate-med-marquee-left {
+          display: flex;
+          width: max-content;
+          animation: pgMedMarqueeLeft 46s linear infinite;
+        }
+        .animate-med-marquee-right {
+          display: flex;
+          width: max-content;
+          animation: pgMedMarqueeRight 52s linear infinite;
+        }
+        .animate-med-marquee-left-fast {
+          display: flex;
+          width: max-content;
+          animation: pgMedMarqueeLeft 40s linear infinite;
+        }
+        .med-marquee-wrap:hover .animate-med-marquee-left,
+        .med-marquee-wrap:hover .animate-med-marquee-right,
+        .med-marquee-wrap:hover .animate-med-marquee-left-fast {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      {/* Ambient background glow */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[850px] rounded-full bg-blue-500/[0.025] blur-[160px]" />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* ── Section Header (Exact Mindvalley-style Centered Layout with Segoe UI Hierarchy) ── */}
+        <div className="flex flex-col items-center text-center mx-auto mb-10 sm:mb-14">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-slate-700 mb-3.5 block">
+            MINDVALLEY MEDITATIONS
+          </span>
+
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-[2.9rem] font-bold text-slate-900 tracking-tight leading-[1.14] max-w-3xl">
+            The Meditation Collection<br className="hidden sm:block" /> That Transforms Your Life
+          </h2>
+
+          <p className="mt-4 text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl">
+            Discover 1,000+ guided meditations designed to help you find calm, gain clarity, heal deeply, and become more of who you&apos;re meant to be.
+          </p>
+
+          <div className="mt-7 sm:mt-8">
+            <Link
+              href="/lsr-framework"
+              className="inline-flex items-center gap-2 rounded-full bg-black hover:bg-slate-800 text-white font-semibold px-8 py-3.5 text-sm sm:text-base shadow-md transition-all active:scale-[0.98]"
+            >
+              <span>Explore Meditations</span>
+            </Link>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ── 3-Row Staggered Mosaic Infinite Marquee (Album Cover Styled Rounded Square Tiles) ── */}
+      <div className="med-marquee-wrap flex flex-col gap-3.5 sm:gap-4 overflow-hidden w-full select-none pt-2 pb-2">
+
+        {/* ── Row 1 — Sliding Left ── */}
+        <div className="animate-med-marquee-left flex gap-3.5 sm:gap-4 px-2">
+          {infiniteRow1.map((item, idx) => (
+            <div
+              key={`med-r1-${item.id}-${idx}`}
+              onClick={() => {
+                setSelectedTrack(item)
+                setIsPlaying(true)
+              }}
+              className="group relative w-[165px] h-[165px] sm:w-[195px] sm:h-[195px] md:w-[215px] md:h-[215px] rounded-[22px] sm:rounded-[26px] overflow-hidden shadow-sm hover:shadow-2xl border border-black/5 bg-slate-950 shrink-0 cursor-pointer transition-all duration-300 hover:scale-[1.04] hover:z-20"
+            >
+              {/* Background Art Image */}
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="215px"
+                className="size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+
+              {/* Dynamic Gradient Tint Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-t ${item.accentColor} opacity-75 group-hover:opacity-85 transition-opacity duration-300`} />
+
+              {/* Top Subtitle Tag */}
+              <div className="absolute top-2.5 inset-x-2.5 z-10 flex items-center justify-between pointer-events-none">
+                <span className="text-[8.5px] sm:text-[9.5px] font-bold uppercase tracking-wider text-white/90 drop-shadow-sm px-1.5 py-0.5 rounded bg-black/30 backdrop-blur-xs">
+                  {item.duration.split('·')[0]}
+                </span>
+                <span className="size-2 rounded-full bg-white/60 group-hover:bg-white transition-colors" />
+              </div>
+
+              {/* Centered Artistic Typography (Matching Mindvalley Album Cover Aesthetics) */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10">
+                <h3
+                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${
+                    item.fontStyle === 'script'
+                      ? 'font-serif italic text-lg sm:text-xl md:text-2xl font-bold tracking-normal'
+                      : item.fontStyle === 'serif'
+                      ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
+                      : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
+                  }`}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-white/80 font-medium mt-1 drop-shadow-md line-clamp-1">
+                  {item.subtitle}
+                </p>
+              </div>
+
+              {/* Bottom Mentor Stamp */}
+              <div className="absolute inset-x-0 bottom-2.5 px-3 z-10 flex items-center justify-between text-[9px] sm:text-[10px] text-white/70 font-medium">
+                <span className="truncate max-w-[120px] drop-shadow-xs">{item.mentor}</span>
+                <div className="size-5 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Play className="size-2.5 fill-current ml-0.5" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Row 2 — Sliding Right ── */}
+        <div className="animate-med-marquee-right flex gap-3.5 sm:gap-4 px-2">
+          {infiniteRow2.map((item, idx) => (
+            <div
+              key={`med-r2-${item.id}-${idx}`}
+              onClick={() => {
+                setSelectedTrack(item)
+                setIsPlaying(true)
+              }}
+              className="group relative w-[165px] h-[165px] sm:w-[195px] sm:h-[195px] md:w-[215px] md:h-[215px] rounded-[22px] sm:rounded-[26px] overflow-hidden shadow-sm hover:shadow-2xl border border-black/5 bg-slate-950 shrink-0 cursor-pointer transition-all duration-300 hover:scale-[1.04] hover:z-20"
+            >
+              {/* Background Art Image */}
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="215px"
+                className="size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+
+              {/* Dynamic Gradient Tint Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-t ${item.accentColor} opacity-75 group-hover:opacity-85 transition-opacity duration-300`} />
+
+              {/* Top Subtitle Tag */}
+              <div className="absolute top-2.5 inset-x-2.5 z-10 flex items-center justify-between pointer-events-none">
+                <span className="text-[8.5px] sm:text-[9.5px] font-bold uppercase tracking-wider text-white/90 drop-shadow-sm px-1.5 py-0.5 rounded bg-black/30 backdrop-blur-xs">
+                  {item.duration.split('·')[0]}
+                </span>
+                <span className="size-2 rounded-full bg-white/60 group-hover:bg-white transition-colors" />
+              </div>
+
+              {/* Centered Artistic Typography */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10">
+                <h3
+                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${
+                    item.fontStyle === 'script'
+                      ? 'font-serif italic text-lg sm:text-xl md:text-2xl font-bold tracking-normal'
+                      : item.fontStyle === 'serif'
+                      ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
+                      : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
+                  }`}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-white/80 font-medium mt-1 drop-shadow-md line-clamp-1">
+                  {item.subtitle}
+                </p>
+              </div>
+
+              {/* Bottom Mentor Stamp */}
+              <div className="absolute inset-x-0 bottom-2.5 px-3 z-10 flex items-center justify-between text-[9px] sm:text-[10px] text-white/70 font-medium">
+                <span className="truncate max-w-[120px] drop-shadow-xs">{item.mentor}</span>
+                <div className="size-5 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Play className="size-2.5 fill-current ml-0.5" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Row 3 — Sliding Left Fast ── */}
+        <div className="animate-med-marquee-left-fast flex gap-3.5 sm:gap-4 px-2">
+          {infiniteRow3.map((item, idx) => (
+            <div
+              key={`med-r3-${item.id}-${idx}`}
+              onClick={() => {
+                setSelectedTrack(item)
+                setIsPlaying(true)
+              }}
+              className="group relative w-[165px] h-[165px] sm:w-[195px] sm:h-[195px] md:w-[215px] md:h-[215px] rounded-[22px] sm:rounded-[26px] overflow-hidden shadow-sm hover:shadow-2xl border border-black/5 bg-slate-950 shrink-0 cursor-pointer transition-all duration-300 hover:scale-[1.04] hover:z-20"
+            >
+              {/* Background Art Image */}
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="215px"
+                className="size-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+
+              {/* Dynamic Gradient Tint Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-t ${item.accentColor} opacity-75 group-hover:opacity-85 transition-opacity duration-300`} />
+
+              {/* Top Subtitle Tag */}
+              <div className="absolute top-2.5 inset-x-2.5 z-10 flex items-center justify-between pointer-events-none">
+                <span className="text-[8.5px] sm:text-[9.5px] font-bold uppercase tracking-wider text-white/90 drop-shadow-sm px-1.5 py-0.5 rounded bg-black/30 backdrop-blur-xs">
+                  {item.duration.split('·')[0]}
+                </span>
+                <span className="size-2 rounded-full bg-white/60 group-hover:bg-white transition-colors" />
+              </div>
+
+              {/* Centered Artistic Typography */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10">
+                <h3
+                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${
+                    item.fontStyle === 'script'
+                      ? 'font-serif italic text-lg sm:text-xl md:text-2xl font-bold tracking-normal'
+                      : item.fontStyle === 'serif'
+                      ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
+                      : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
+                  }`}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-white/80 font-medium mt-1 drop-shadow-md line-clamp-1">
+                  {item.subtitle}
+                </p>
+              </div>
+
+              {/* Bottom Mentor Stamp */}
+              <div className="absolute inset-x-0 bottom-2.5 px-3 z-10 flex items-center justify-between text-[9px] sm:text-[10px] text-white/70 font-medium">
+                <span className="truncate max-w-[120px] drop-shadow-xs">{item.mentor}</span>
+                <div className="size-5 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Play className="size-2.5 fill-current ml-0.5" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* ── Interactive Audio Player & Track Deep Dive Modal ── */}
+      {selectedTrack && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          onClick={() => {
+            setSelectedTrack(null)
+            setIsPlaying(false)
+          }}
+        >
+          <div
+            className="relative w-full max-w-lg overflow-hidden rounded-[20px] border border-slate-200 bg-white p-6 sm:p-8 text-slate-900 shadow-2xl animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Close Button */}
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedTrack(null)
+                setIsPlaying(false)
+              }}
+              className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="size-4" />
+            </button>
+
+            {/* Header Album Cover Preview */}
+            <div className="flex items-center gap-4 mb-5">
+              <div className="relative size-20 sm:size-24 rounded-2xl overflow-hidden border border-slate-200 shadow-md shrink-0">
+                <Image
+                  src={selectedTrack.image}
+                  alt={selectedTrack.title}
+                  fill
+                  className="size-full object-cover"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${selectedTrack.accentColor} opacity-80 flex items-center justify-center`}>
+                  <button
+                    type="button"
+                    onClick={togglePlayback}
+                    className="size-10 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
+                    aria-label={isPlaying ? 'Pause preview' : 'Play preview'}
+                  >
+                    {isPlaying ? (
+                      <Pause className="size-4 fill-current" />
+                    ) : (
+                      <Play className="size-4 fill-current ml-0.5" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0078D4] bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-full">
+                    {selectedTrack.category}
+                  </span>
+                  <span className="text-[11px] text-slate-500 font-medium">
+                    {selectedTrack.duration}
+                  </span>
+                </div>
+                <h3 className="font-sans text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                  {selectedTrack.title}
+                </h3>
+                <p className="text-xs text-slate-500 font-medium mt-0.5">
+                  Instructor: <span className="text-slate-800 font-semibold">{selectedTrack.mentor}</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Audio Waveform / Playback Simulation Bar */}
+            <div className="rounded-xl bg-slate-50 border border-slate-200 p-3.5 mb-4">
+              <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium mb-2">
+                <span className="flex items-center gap-1.5 text-[#0078D4] font-semibold">
+                  <span className="size-2 rounded-full bg-[#0078D4] animate-ping" />
+                  {isPlaying ? 'Streaming Audio Preview' : 'Preview Paused'}
+                </span>
+                <span>04:18 / {selectedTrack.duration.split('·')[0]}</span>
+              </div>
+
+              {/* Simulated Waveform Visualizer */}
+              <div className="flex items-end gap-1 h-8 w-full py-1">
+                {[14, 28, 45, 60, 85, 40, 70, 95, 65, 30, 80, 100, 75, 45, 90, 60, 35, 80, 50, 68, 88, 55, 30, 70, 90, 45, 60, 35, 20].map((h, i) => (
+                  <div
+                    key={i}
+                    style={{ height: `${isPlaying ? Math.max(15, (h * (0.6 + Math.random() * 0.4))) : h * 0.3}%` }}
+                    className={`flex-1 rounded-full transition-all duration-150 ${
+                      i < 12 ? 'bg-[#0078D4]' : 'bg-slate-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              {selectedTrack.description}
+            </p>
+
+            {/* Key Benefits */}
+            <div className="mt-4 rounded-xl bg-slate-50 border border-slate-200/80 p-3.5 sm:p-4">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-900 block mb-2">
+                Key Mindset Activations:
+              </span>
+              <ul className="flex flex-col gap-1.5">
+                {selectedTrack.takeaways.map((t, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="size-3.5 text-[#0078D4] shrink-0 mt-0.5" />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <Link
+                href="/lsr-framework"
+                className="inline-flex items-center gap-2 rounded-full bg-black hover:bg-slate-800 text-white font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-sm transition-colors"
+              >
+                <span>Listen to Full Series</span>
+                <ArrowRight className="size-3.5" />
+              </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedTrack(null)
+                  setIsPlaying(false)
+                }}
+                className="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+              >
+                Close Preview
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </section>
   )
 }
@@ -2672,396 +4032,342 @@ export function MissionSection() {
 
 
 /* =========================================================================
-   SECTION 10 — REAL COLLABORATIONS
+   SECTION 10 — REAL COLLABORATIONS (CINEMATIC FLOATING CARDS & CASE STUDIES)
    ========================================================================= */
 
-export function StoriesSection() {
-  const [activeDot, setActiveDot] = useState(0)
-  const [stories, setStories] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
+interface ProximityCardProps {
+  item: {
+    id: string
+    name: string
+    role: string
+    image: string
+    size: string
+    rounded: string
+    initialTransform: string
+    floatAnim: string
+  }
+}
 
-  useEffect(() => {
-    async function loadCollaborations() {
-      try {
-        setLoading(true)
-        const res = await fetch('/api/collaborations', { cache: 'no-store' })
-        if (res.ok) {
-          const json = await res.json()
-          if (json.data && Array.isArray(json.data) && json.data.length > 0) {
-            const themePalettes = [
-              {
-                categoryTagBg: 'bg-blue-50 text-[#1E4ED8] border-blue-100',
-                iconBg: 'bg-blue-50 text-[#1E4ED8]',
-                icon: Boxes,
-                cornerGradient: 'from-transparent via-blue-50/40 to-blue-100/60',
-                badgeBg: 'bg-blue-50/80 text-[#1E4ED8] border-blue-100 hover:bg-blue-100/80',
-                arrowColor: 'text-[#1E4ED8]',
-                badgeIcon: BarChart3,
-              },
-              {
-                categoryTagBg: 'bg-purple-50 text-purple-700 border-purple-100',
-                iconBg: 'bg-purple-50 text-purple-600',
-                icon: Laptop,
-                cornerGradient: 'from-transparent via-purple-50/40 to-purple-100/60',
-                badgeBg: 'bg-purple-50/80 text-purple-700 border-purple-100 hover:bg-purple-100/80',
-                arrowColor: 'text-purple-700',
-                badgeIcon: Rocket,
-              },
-              {
-                categoryTagBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
-                iconBg: 'bg-emerald-50 text-emerald-600',
-                icon: Leaf,
-                cornerGradient: 'from-transparent via-emerald-50/40 to-emerald-100/60',
-                badgeBg: 'bg-emerald-50/80 text-emerald-700 border-emerald-100 hover:bg-emerald-100/80',
-                arrowColor: 'text-emerald-700',
-                badgeIcon: Leaf,
-              },
-            ]
+function ProximityFloatingCard({ item }: ProximityCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+  const rafId = useRef<number | null>(null)
 
-            const formatted = json.data.slice(0, 10).map((item: any, idx: number) => {
-              const theme = themePalettes[idx % themePalettes.length]
-              return {
-                id: item.id || idx + 1,
-                category: item.category || 'COLLABORATION',
-                categoryTagBg: item.categoryTagBg || theme.categoryTagBg,
-                iconBg: item.iconBg || theme.iconBg,
-                icon: item.icon || theme.icon,
-                location: item.location || 'India',
-                outcome: item.outcome || '₹ 1.0 Cr',
-                outcomeLabel: item.outcomeLabel || 'IN OUTCOMES GENERATED',
-                collab: item.collab ? (item.collab.startsWith('“') ? item.collab : `“${item.collab}”`) : '“Strategic peer collaboration delivering measurable growth.”',
-                cornerGradient: item.cornerGradient || theme.cornerGradient,
-                peer1: {
-                  name: item.peer1?.name || 'Promoter 1',
-                  company: item.peer1?.company || 'Enterprise',
-                  city: item.peer1?.city || 'India',
-                  avatar: item.peer1?.avatar || '/images/peers-avatars/rajesh-shah.jpg',
-                },
-                peer2: {
-                  name: item.peer2?.name || 'Promoter 2',
-                  company: item.peer2?.company || 'Enterprise',
-                  city: item.peer2?.city || 'India',
-                  avatar: item.peer2?.avatar || '/images/peers-avatars/vikram-patel.jpg',
-                },
-                badge: {
-                  icon: theme.badgeIcon,
-                  text: item.badge?.text || 'Partnership established',
-                  bg: theme.badgeBg,
-                  arrowColor: theme.arrowColor,
-                },
-              }
-            })
-            setStories(formatted)
-          } else {
-            setStories([])
-          }
-        }
-      } catch (e) {
-        console.warn('Failed to load collaborations dynamically:', e)
-        setStories([])
-      } finally {
-        setLoading(false)
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const cardCenterX = rect.left + rect.width / 2
+    const cardCenterY = rect.top + rect.height / 2
+    const mouseX = e.clientX - cardCenterX
+    const mouseY = e.clientY - cardCenterY
+
+    // Smooth subtle tilt - max 3-4 degrees, max 4px translation
+    const rotateX = -((mouseY / (rect.height / 2)) * 3.5).toFixed(2)
+    const rotateY = ((mouseX / (rect.width / 2)) * 3.5).toFixed(2)
+    const translateX = ((mouseX / (rect.width / 2)) * 3).toFixed(2)
+    const translateY = ((mouseY / (rect.height / 2)) * 3).toFixed(2)
+
+    if (rafId.current) cancelAnimationFrame(rafId.current)
+    rafId.current = requestAnimationFrame(() => {
+      if (cardRef.current) {
+        cardRef.current.style.transform = `perspective(1000px) translate3d(${translateX}px, ${translateY}px, 12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`
       }
+    })
+  }
+
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+    if (cardRef.current) {
+      cardRef.current.style.transition = 'transform 0.2s cubic-bezier(0.25, 1, 0.5, 1)'
     }
+  }
 
-    loadCollaborations()
-  }, [])
-
-  const pageSize = 3
-  const totalPages = Math.max(1, Math.ceil(stories.length / pageSize))
-  const displayedStories = stories.length > pageSize
-    ? stories.slice(activeDot * pageSize, (activeDot + 1) * pageSize)
-    : stories
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    if (rafId.current) cancelAnimationFrame(rafId.current)
+    if (cardRef.current) {
+      cardRef.current.style.transition = 'transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1)'
+      cardRef.current.style.transform = 'perspective(1000px) translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1)'
+    }
+  }
 
   return (
-    <section id="real-collaborations" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-[var(--border)]">
-      {/* Subtle floating ambient bokeh circles */}
-      <div aria-hidden className="pointer-events-none absolute top-12 left-1/3 size-3 rounded-full bg-[#38BDF8]/60 blur-[0.5px]" />
-      <div aria-hidden className="pointer-events-none absolute top-20 right-1/2 size-4 rounded-full bg-[#60A5FA]/40 blur-[0.5px]" />
-      <div aria-hidden className="pointer-events-none absolute top-32 right-[42%] size-2 rounded-full bg-[#38BDF8]/50 blur-[0.5px]" />
-
-      {/* Top-right organic skyline hero visual cutout */}
+    <div className="w-fit h-fit justify-self-center my-2">
       <div
-        aria-hidden
-        className="pointer-events-none absolute top-0 right-0 w-[480px] sm:w-[580px] lg:w-[680px] h-[340px] sm:h-[400px] overflow-hidden select-none z-0 hidden md:block"
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="relative cursor-pointer select-none will-change-transform"
+        style={{
+          transform: 'perspective(1000px) translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1)',
+          zIndex: isHovered ? 30 : 10,
+        }}
       >
-        {/* Soft background glow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-gradient-to-bl from-sky-200/40 via-blue-100/20 to-transparent blur-2xl" />
+        {/* Continuous smooth air floating keyframe (never interrupted by mouse outside) */}
+        <div className={item.floatAnim}>
+          <div
+            className={`group relative overflow-hidden ${item.size} ${item.rounded} ${item.initialTransform} shadow-xl hover:shadow-2xl border border-slate-200/90 bg-slate-900 transition-shadow duration-300`}
+          >
+            <Image
+              src={item.image}
+              alt={item.name}
+              fill
+              sizes="240px"
+              className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
 
-        {/* Image Masked in an organic curved arch */}
-        <div
-          className="absolute top-3 right-4 w-[420px] lg:w-[520px] h-[260px] lg:h-[300px] overflow-hidden rounded-[36px] shadow-xs"
-          style={{
-            maskImage: 'radial-gradient(ellipse 95% 85% at 85% 45%, black 45%, rgba(0,0,0,0.3) 75%, transparent 100%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 95% 85% at 85% 45%, black 45%, rgba(0,0,0,0.3) 75%, transparent 100%)',
-          }}
-        >
-          <Image
-            src="/images/who-we-are-friends.jpg"
-            alt="Peers standing overlooking city skyline"
-            fill
-            sizes="520px"
-            className="object-cover object-center opacity-90"
-          />
-          {/* Daylight gradient wash overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent" />
+            {/* Floating Caption on Hover */}
+            <div className="absolute inset-x-0 bottom-0 p-3.5 z-10 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+              <p className="text-xs font-bold text-white leading-tight drop-shadow-md">
+                {item.name}
+              </p>
+              <p className="text-[10px] text-slate-300 truncate mt-0.5">
+                {item.role}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  )
+}
 
-      <div className="shell relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+export function StoriesSection() {
+  const leftMosaics = [
+    {
+      id: 'm1',
+      name: 'Dr. Kavita Shukla',
+      role: 'BioGenesis Therapeutics',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[145px] sm:w-[175px] lg:w-[195px] h-[175px] sm:h-[215px] lg:h-[235px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: 'translate-y-4 -rotate-2',
+      floatAnim: 'animate-pg-float-1',
+    },
+    {
+      id: 'm2',
+      name: 'Rajesh Agarwal',
+      role: 'TransGlobal Supply Chain',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[135px] sm:w-[155px] lg:w-[180px] h-[155px] sm:h-[185px] lg:h-[210px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: '-translate-y-6 rotate-3',
+      floatAnim: 'animate-pg-float-2',
+    },
+    {
+      id: 'm3',
+      name: 'Priya Menon',
+      role: 'Kalyan Renewable Energy',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[140px] sm:w-[165px] lg:w-[190px] h-[165px] sm:h-[200px] lg:h-[225px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: 'translate-y-2 rotate-1',
+      floatAnim: 'animate-pg-float-3',
+    },
+    {
+      id: 'm4',
+      name: 'Vikram Shroff',
+      role: 'Apex Infrastructure Group',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[130px] sm:w-[150px] lg:w-[170px] h-[145px] sm:h-[175px] lg:h-[195px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: '-translate-y-4 -rotate-3',
+      floatAnim: 'animate-pg-float-4',
+    },
+  ]
 
-        {/* =========================================================================
-           TOP HEADER: Left Eyebrow/Title + Right CTA & Luminous Script
-           ========================================================================= */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 pb-12 sm:pb-14">
+  const rightMosaics = [
+    {
+      id: 'm5',
+      name: 'Sunil Mittal',
+      role: 'Sterling Engineering',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[145px] sm:w-[175px] lg:w-[195px] h-[175px] sm:h-[215px] lg:h-[235px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: '-translate-y-4 rotate-2',
+      floatAnim: 'animate-pg-float-2',
+    },
+    {
+      id: 'm6',
+      name: 'Ananya Birla',
+      role: 'Nexus Growth Equity',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[135px] sm:w-[155px] lg:w-[180px] h-[155px] sm:h-[185px] lg:h-[210px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: 'translate-y-5 -rotate-2',
+      floatAnim: 'animate-pg-float-1',
+    },
+    {
+      id: 'm7',
+      name: 'Harshil Patel',
+      role: 'FinTech Horizon Labs',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[140px] sm:w-[165px] lg:w-[190px] h-[165px] sm:h-[200px] lg:h-[225px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: '-translate-y-2 rotate-3',
+      floatAnim: 'animate-pg-float-4',
+    },
+    {
+      id: 'm8',
+      name: 'Sangeeta Reddy',
+      role: 'Cross-Border Advisory',
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',
+      size: 'w-[130px] sm:w-[150px] lg:w-[170px] h-[145px] sm:h-[175px] lg:h-[195px]',
+      rounded: 'rounded-2xl sm:rounded-3xl',
+      initialTransform: 'translate-y-3 -rotate-1',
+      floatAnim: 'animate-pg-float-3',
+    },
+  ]
 
-          {/* Left Column: Eyebrow, Main Heading, Lede */}
-          <div className="flex flex-col gap-3 max-w-2xl">
-            {/* Eyebrow with brand gradient line */}
-            <div className="flex items-center gap-2">
-              <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
-                REAL COLLABORATIONS
-              </span>
-            </div>
+  return (
+    <section
+      id="real-collaborations"
+      className="relative overflow-hidden bg-[#fafafa] py-20 sm:py-24 lg:py-32 border-b border-slate-200"
+    >
+      {/* ─── Custom Floating & Anti-Gravity Keyframe Styles ───────────────── */}
+      <style jsx global>{`
+        @keyframes pgFloat1 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-16px) rotate(1.8deg);
+          }
+        }
+        @keyframes pgFloat2 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-22px) rotate(-2deg);
+          }
+        }
+        @keyframes pgFloat3 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-14px) rotate(1.5deg);
+          }
+        }
+        @keyframes pgFloat4 {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-19px) rotate(-1.6deg);
+          }
+        }
+        .animate-pg-float-1 {
+          animation: pgFloat1 5.4s ease-in-out infinite;
+        }
+        .animate-pg-float-2 {
+          animation: pgFloat2 6.8s ease-in-out infinite;
+        }
+        .animate-pg-float-3 {
+          animation: pgFloat3 4.8s ease-in-out infinite;
+        }
+        .animate-pg-float-4 {
+          animation: pgFloat4 6.2s ease-in-out infinite;
+        }
+      `}</style>
 
-            {/* Main Heading */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-slate-950 leading-[1.15] tracking-tight">
-              What this looks like <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                in real life.
-              </span>
-            </h2>
+      {/* Soft ambient background glow */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[700px] rounded-full bg-blue-500/[0.04] blur-[160px]" />
 
-            {/* Subtitle */}
-            <p className="text-sm sm:text-base leading-relaxed text-slate-600 font-normal max-w-lg mt-1">
-              Real stories between real Peers across industries and cities. <br className="hidden sm:inline" />
-              What they built together and what it produced.
-            </p>
-          </div>
-
-          {/* Right Area: CTA Button + Executive Badge */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-5 lg:gap-6 shrink-0 relative z-10">
-            {/* Read More Peer Stories Pill Button */}
-            <Link
-              href="/stories"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
-            >
-              Read More Peer Stories
-              <ArrowRight className="size-4" />
-            </Link>
-
-            {/* Executive Badge */}
-            <div className="flex items-center gap-4 select-none bg-slate-50 border border-slate-200/80 px-4 py-2.5 rounded-2xl">
-              <div className="flex flex-col text-right">
-                <span className="text-[10px] font-bold text-[#1D4ED8] uppercase tracking-wider">COLLABORATION MATRIX</span>
-                <span className="text-xs font-semibold text-slate-800">Ideas · Partnerships · Impact</span>
-              </div>
-              <div className="h-8 w-px bg-slate-200" />
-              <div className="flex flex-col text-[9.5px] font-bold tracking-[0.16em] uppercase text-slate-400 leading-tight">
-                <span>PEOPLE</span>
-                <span>RESULTS</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* =========================================================================
-           FEATURED COLLABORATION CARDS (REAL DATABASE TOP 10 DATA)
-           ========================================================================= */}
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 py-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="h-72 rounded-3xl border border-slate-100 bg-slate-50/60 animate-pulse p-6" />
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* 3-Column Grid: Left Floating Cards | Center Metric & Info | Right Floating Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[520px]">
+          
+          {/* Left Floating Cards Cluster (Continuous Float + Proximity 3D on Hover) */}
+          <div className="hidden lg:grid lg:col-span-3 grid-cols-2 gap-4 items-center justify-items-end select-none">
+            {leftMosaics.map((item) => (
+              <ProximityFloatingCard key={item.id} item={item} />
             ))}
           </div>
-        ) : stories.length === 0 ? (
-          <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50/50 p-12 text-center my-4">
-            <div className="inline-flex size-12 items-center justify-center rounded-2xl bg-blue-50 text-[#1E4ED8] mb-3">
-              <Boxes className="size-6" />
-            </div>
-            <h3 className="text-base font-bold text-slate-800">No Collaborations in Database</h3>
-            <p className="text-xs text-slate-500 max-w-md mx-auto mt-1">
-              Real collaborations from your database will automatically appear here once added to PostgreSQL or the Unity backend.
+
+          {/* Center Column: Mindvalley Big Stat & Clean Microsoft Content */}
+          <div className="lg:col-span-6 flex flex-col items-center text-center px-4 sm:px-8 z-20">
+            
+            {/* Top Eyebrow Tag */}
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#0078D4] mb-3 block">
+              VERIFIED IMPACT &amp; OUTCOMES
+            </span>
+
+            {/* Giant Metric Number */}
+            <span className="font-sans text-5xl sm:text-6xl lg:text-[4.75rem] font-bold text-slate-900 tracking-tight leading-none mb-3">
+              1,200+
+            </span>
+
+            {/* Headline */}
+            <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2.15rem] font-bold text-slate-900 leading-tight tracking-tight mb-4">
+              Case Studies of Success
+            </h2>
+
+            {/* Subtitle Description */}
+            <p className="max-w-lg text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8">
+              Peers Global has some of the highest verified collaboration rates in the world at transforming businesses. Browse case studies and stories of success across our global chapters.
             </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-            {displayedStories.map((s) => {
-              const IconComponent = s.icon || Boxes
-              const BadgeIcon = s.badge?.icon || BarChart3
 
-              return (
-                <div
-                  key={s.id}
-                  className="group relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                >
-                  {/* Bottom-Right Soft Pastel Wave Background */}
-                  <div
-                    className={`pointer-events-none absolute -bottom-10 -right-10 size-48 rounded-full bg-gradient-to-tl ${s.cornerGradient || 'from-transparent via-blue-50/40 to-blue-100/60'} blur-xl`}
-                  />
+            {/* CTA Button */}
+            <Link
+              href="/stories"
+              className="inline-flex items-center gap-2.5 rounded-[4px] bg-slate-900 hover:bg-slate-800 text-white px-7 py-3.5 text-sm font-semibold shadow-md transition-all active:scale-[0.98] group"
+            >
+              <span>Read Our Stories</span>
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
 
-                  <div className="relative z-10">
-                    {/* Top Row: Circular Category Icon + Category Badge + Location */}
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2.5">
-                        <div className={`flex size-10 items-center justify-center rounded-xl ${s.iconBg} border border-slate-100 shadow-2xs`}>
-                          <IconComponent className="size-4.5" />
-                        </div>
-                        <span className={`px-2.5 py-0.8 rounded-full text-[11px] font-semibold border ${s.categoryTagBg}`}>
-                          {s.category}
-                        </span>
-                      </div>
+            {/* Direct Link Caption */}
+            <Link
+              href="/stories"
+              className="mt-4 text-xs font-medium text-[#0078D4] hover:text-[#005a9e] underline-offset-4 hover:underline"
+            >
+              Browse verified stories at stories.peersglobal.com
+            </Link>
 
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-                        <MapPin className="size-3.5 text-slate-400" />
-                        <span>{s.location}</span>
-                      </div>
-                    </div>
-
-                    {/* Big Impact Metric with Growth Arrow ↗ */}
-                    <div className="mt-5">
-                      <div className="flex items-center gap-2">
-                        <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-none">
-                          {s.outcome}
-                        </span>
-                        <span className="text-xl sm:text-2xl font-extrabold text-[#00C48C] leading-none mb-1">
-                          ↗
-                        </span>
-                      </div>
-                      <div className="text-[10.5px] font-bold text-slate-400 tracking-[0.16em] uppercase mt-2">
-                        {s.outcomeLabel}
-                      </div>
-                    </div>
-
-                    {/* Collaboration Quote */}
-                    <p className="mt-4 text-xs sm:text-[13px] leading-relaxed text-slate-600 font-normal">
-                      {s.collab}
-                    </p>
-                  </div>
-
-                  <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 flex flex-col gap-3.5">
-                    {/* People Collaboration Section: Avatar 1, ✕, Avatar 2 */}
-                    <div className="flex items-center justify-between gap-2">
-                      {/* Peer 1 */}
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white">
-                          <Image
-                            src={s.peer1?.avatar || '/images/peers-avatars/rajesh-shah.jpg'}
-                            alt={s.peer1?.name || 'Promoter'}
-                            fill
-                            sizes="40px"
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="min-w-0 leading-tight">
-                          <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
-                            {s.peer1?.name}
-                          </div>
-                          <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
-                            {s.peer1?.company}
-                          </div>
-                          <div className="text-[10px] text-slate-400 truncate">
-                            ({s.peer1?.city})
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Middle Cross Collaboration Symbol */}
-                      <div className="text-slate-300 font-light text-base select-none px-1">
-                        ✕
-                      </div>
-
-                      {/* Peer 2 */}
-                      <div className="flex items-center gap-2.5 min-w-0 text-right justify-end">
-                        <div className="min-w-0 leading-tight order-1">
-                          <div className="text-xs sm:text-[13px] font-bold text-slate-900 truncate">
-                            {s.peer2?.name}
-                          </div>
-                          <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
-                            {s.peer2?.company}
-                          </div>
-                          <div className="text-[10px] text-slate-400 truncate">
-                            ({s.peer2?.city})
-                          </div>
-                        </div>
-                        <div className="relative size-10 shrink-0 overflow-hidden rounded-full border border-slate-200 shadow-2xs ring-2 ring-white order-2">
-                          <Image
-                            src={s.peer2?.avatar || '/images/peers-avatars/vikram-patel.jpg'}
-                            alt={s.peer2?.name || 'Promoter'}
-                            fill
-                            sizes="40px"
-                            className="object-cover"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom Pill Highlight */}
-                    <div
-                      className={`flex items-center justify-between rounded-xl border px-3.5 py-2.5 sm:px-4 sm:py-3 transition-colors ${s.badge?.bg || 'bg-blue-50/80 text-[#1E4ED8] border-blue-100'}`}
-                    >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <BadgeIcon className="size-4 shrink-0" />
-                        <span className="text-xs sm:text-[12.5px] font-semibold truncate">
-                          {s.badge?.text}
-                        </span>
-                      </div>
-                      <ArrowRight className={`size-3.5 shrink-0 transition-transform group-hover:translate-x-1 ${s.badge?.arrowColor || 'text-[#1E4ED8]'}`} />
-                    </div>
-                  </div>
-
-                </div>
-              )
-            })}
-          </div>
-        )}
-
-        {/* =========================================================================
-           BOTTOM SUB-FOOTER BAR: Logo Left, Slogan Center-Left, Pagination Dots, Dot Grid
-           ========================================================================= */}
-        <div className="mt-14 sm:mt-16 pt-6 border-t border-slate-200/70 flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
-
-          {/* Left: Navy Circle Emblem + Slogan */}
-          <div className="flex items-center gap-3.5">
-            <div className="size-8 rounded-full bg-[#0B1E3F] text-white flex items-center justify-center font-bold text-xs shadow-xs">
-              N
-            </div>
-            <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-              REAL PEOPLE. REAL PARTNERSHIPS. REAL IMPACT.
-            </div>
           </div>
 
-          {/* Right: Pagination Dots + Dot Matrix Grid */}
-          <div className="flex items-center gap-6 ml-auto">
-            {/* Dynamic Pagination Dots */}
-            {totalPages > 1 && (
-              <div className="flex items-center gap-2">
-                {Array.from({ length: totalPages }).map((_, dot) => (
-                  <button
-                    key={dot}
-                    onClick={() => setActiveDot(dot)}
-                    type="button"
-                    aria-label={`Go to page ${dot + 1}`}
-                    className={`size-2.5 rounded-full transition-all duration-300 ${activeDot === dot ? 'bg-[#1E4ED8] ring-4 ring-blue-100 scale-110' : 'bg-sky-200 hover:bg-sky-300'
-                      }`}
-                  />
-                ))}
-              </div>
-            )}
-
-            {/* 3x4 Dot Matrix Grid */}
-            <div className="grid grid-cols-4 gap-1.5 opacity-60">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <span key={i} className="size-1 rounded-full bg-sky-300" />
-              ))}
-            </div>
+          {/* Right Floating Cards Cluster (Continuous Float + Proximity 3D on Hover) */}
+          <div className="hidden lg:grid lg:col-span-3 grid-cols-2 gap-4 items-center justify-items-start select-none">
+            {rightMosaics.map((item) => (
+              <ProximityFloatingCard key={item.id} item={item} />
+            ))}
           </div>
 
         </div>
 
+        {/* Mobile / Tablet Horizontal Mosaic Row with gentle floating */}
+        <div className="flex lg:hidden overflow-x-auto gap-3.5 pb-2 pt-6 px-1 select-none no-scrollbar">
+          {[...leftMosaics, ...rightMosaics].map((item, idx) => (
+            <div
+              key={`m-mob-${item.id}`}
+              className={`${idx % 2 === 0 ? 'animate-pg-float-1' : 'animate-pg-float-3'} shrink-0`}
+            >
+              <div className="relative overflow-hidden w-[130px] sm:w-[160px] h-[150px] sm:h-[180px] rounded-2xl shadow-md border border-slate-200 bg-slate-900">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="160px"
+                  className="size-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-2 left-2 right-2 text-left">
+                  <p className="text-[10px] font-bold text-white truncate">
+                    {item.name}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
+
     </section>
   )
 }

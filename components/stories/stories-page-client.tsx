@@ -4,1083 +4,637 @@ import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  ArrowRight,
-  ChevronRight,
-  Users,
-  Handshake,
-  TrendingUp,
-  Globe2,
   Search,
-  Quote,
-  CheckCircle2,
-  ExternalLink,
+  ArrowRight,
   X,
-  Building2,
+  Heart,
+  Bookmark,
+  Share2,
+  CheckCircle2,
   MapPin,
-  Clock,
-  Sparkles,
-  Layers,
-  HeartHandshake,
-  FileCheck,
-  Send,
-  Target,
-  Compass,
+  Building2,
+  TrendingUp,
   Award,
+  Users,
+  Compass,
+  Sparkles,
+  SlidersHorizontal,
 } from 'lucide-react'
 
-// ─── 4 Stats Bar ────────────────────────────────────────────────────────────
-const STATS = [
-  {
-    icon: Users,
-    label: 'Real Entrepreneurs',
-    desc: 'Founders & Promoters',
-  },
-  {
-    icon: Handshake,
-    label: 'Real Collaborations',
-    desc: '10 Ways of Giving',
-  },
-  {
-    icon: TrendingUp,
-    label: 'Real Outcomes',
-    desc: 'Hard Verified Metrics',
-  },
-  {
-    icon: Globe2,
-    label: 'A Stronger Tomorrow',
-    desc: '1 Million Mission',
-  },
-]
-
-// ─── 4 Featured Stories Data ────────────────────────────────────────────────
-export interface PeerStory {
+// ─── Stories Data ────────────────────────────────────────────────────────────
+export interface StoryItem {
   id: string
-  peer1: {
-    name: string
-    business: string
-    city: string
-  }
-  peer2: {
-    name: string
-    business: string
-    city: string
-  }
-  way: string
-  tagColor: string
-  circle: string
+  category: string
+  categoryColor: string
   headline: string
-  outcomeNumber: string
+  authorName: string
+  authorRole: string
+  authorCompany: string
+  city: string
+  chapter: string
   image: string
+  outcome: string
+  impactBadge: string
+  likes: number
   situation: string
   whatHappened: string
-  now: string
-  industry: string
+  results: string
 }
 
-const FEATURED_STORIES: PeerStory[] = [
+const ALL_STORIES: StoryItem[] = [
   {
-    id: 'jignesh-rohit-referral',
-    peer1: {
-      name: 'Jignesh Shah',
-      business: 'Shah Packaging',
-      city: 'Ahmedabad',
-    },
-    peer2: {
-      name: 'Rohit Mehta',
-      business: 'Mehta Trading',
-      city: 'Mumbai',
-    },
-    way: 'Referrals',
-    tagColor: 'bg-purple-100 text-purple-700 border-purple-200',
-    circle: 'Manufacturing & Packaging Circle',
-    industry: 'Packaging & Logistics',
-    headline: 'A referral that became ₹1.2 Cr in business.',
-    outcomeNumber: '₹1.2 Cr',
-    image: '/images/story-jignesh-rohit.jpg',
+    id: 'story-1',
+    category: 'MANUFACTURING & PACKAGING',
+    categoryColor: 'text-purple-600',
+    headline: '“A single peer referral became a ₹1.2 Crore recurring annual supply contract.”',
+    authorName: 'Jignesh Shah',
+    authorRole: 'Founder & Managing Director',
+    authorCompany: 'Shah Packaging Pvt Ltd',
+    city: 'Ahmedabad',
+    chapter: 'Ahmedabad Chapter',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
+    outcome: '₹1.2 Cr Annual Revenue',
+    impactBadge: 'Client Acquisition · Zero Cold Friction',
+    likes: 42,
     situation:
-      'Shah Packaging had idle corrugation capacity following plant expansion in Sanand, while Mehta Trading was experiencing delayed shipments and poor QC from their existing regional suppliers.',
+      'Shah Packaging had idle corrugation capacity following a major plant expansion in Sanand, while fellow peer Rohit Mehta was experiencing delayed shipments and quality control issues from legacy regional suppliers.',
     whatHappened:
       'During a cross-Circle Collaboration Roundtable, Rohit learned of Jignesh’s high-precision corrugated box production. Instead of a standard commercial pitch, Rohit passed a key automotive client relationship directly to Jignesh.',
-    now: 'An initial ₹15 Lakh test order expanded into an annual ₹1.2 Crore continuous packaging supply contract spanning across three Western region distribution hubs.',
+    results:
+      'An initial ₹15 Lakh test order expanded into an annual ₹1.2 Crore continuous packaging supply contract spanning across three Western region distribution hubs.',
   },
   {
-    id: 'priya-karan-jv',
-    peer1: {
-      name: 'Priya Desai',
-      business: 'Desai Exports',
-      city: 'Surat',
-    },
-    peer2: {
-      name: 'Karan Malhotra',
-      business: 'Malhotra Logistics',
-      city: 'Delhi',
-    },
-    way: 'Joint Venture',
-    tagColor: 'bg-blue-100 text-blue-700 border-blue-200',
-    circle: 'Export & Global Trade Circle',
-    industry: 'Textiles & Trade',
-    headline: 'A joint venture that opened 3 new markets.',
-    outcomeNumber: '3 New Markets',
-    image: '/images/story-priya-karan.jpg',
+    id: 'story-2',
+    category: 'CROSS-BORDER TRADE & EXPORTS',
+    categoryColor: 'text-blue-600',
+    headline: '“Our joint export corridor unlocked 3 new international markets within 9 months.”',
+    authorName: 'Priya Desai',
+    authorRole: 'Co-Founder & CEO',
+    authorCompany: 'Desai Global Exports',
+    city: 'Surat',
+    chapter: 'Surat Chapter',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    outcome: '3 Global Corridors',
+    impactBadge: 'Shared Infrastructure · 18% Cost Cut',
+    likes: 67,
     situation:
-      'Desai Exports held premium organic textile inventory but lacked bonded cold-chain freight and compliant European customs clearing channels. Malhotra Logistics held trade corridors but lacked manufacturer exclusivity.',
+      'Desai Exports held premium organic textile inventory but lacked bonded cold-chain freight and compliant European customs clearing channels. Fellow peer Karan Malhotra held trade corridors but lacked manufacturer exclusivity.',
     whatHappened:
       'Meeting at the National Conclave, both founders structured a 50:50 joint export venture under which Malhotra handled all multi-modal clearance while Desai concentrated strictly on export-grade production.',
-    now: 'Successfully shipped 24 container loads into Hamburg, Rotterdam, and Dubai within 9 months, cutting freight landing costs by 18%.',
+    results:
+      'Successfully shipped 24 container loads into Hamburg, Rotterdam, and Dubai within 9 months, cutting freight landing costs by 18% and generating over ₹8.5 Cr in top-line exports.',
   },
   {
-    id: 'amit-sandeep-knowledge',
-    peer1: {
-      name: 'Amit Trivedi',
-      business: 'Trivedi Chemicals',
-      city: 'Vadodara',
-    },
-    peer2: {
-      name: 'Sandeep Kulkarni',
-      business: 'Kulkarni Solutions',
-      city: 'Pune',
-    },
-    way: 'Knowledge Sharing',
-    tagColor: 'bg-amber-100 text-amber-800 border-amber-200',
-    circle: 'Speciality Chemicals & MSME Circle',
-    industry: 'Chemical & Industrial',
-    headline: 'A conversation that saved 18 months.',
-    outcomeNumber: '18 Months Saved',
-    image: '/images/story-amit-sandeep.jpg',
+    id: 'story-3',
+    category: 'OPERATIONAL WISDOM & RISK',
+    categoryColor: 'text-amber-600',
+    headline: '“A 45-minute confidential hot-seat session saved our factory 18 months of compliance delays.”',
+    authorName: 'Amit Trivedi',
+    authorRole: 'Managing Director',
+    authorCompany: 'Trivedi Chemicals Ltd',
+    city: 'Vadodara',
+    chapter: 'Vadodara Chapter',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80',
+    outcome: '₹38 Lakhs Saved',
+    impactBadge: 'Risk Avoidance · Rapid Green Clearance',
+    likes: 89,
     situation:
       'Amit was preparing to invest ₹65 Lakhs in an imported solvent recovery column for his Dahej plant, based on vendor promises that overlooked complex pollution control board (GPCB) regulatory hurdles.',
     whatHappened:
-      'In a 45-minute hot seat session, Sandeep, who had commissioned the exact same system in Maharashtra two years earlier, laid bare the compliance bottlenecks and recommended an indigenous modified catalytic alternate.',
-    now: 'Amit avoided a costly 18-month equipment lock-in, saved ₹38 Lakhs in capital expenditure, and achieved environmental zero-discharge clearance on the first inspection.',
+      'In a 45-minute confidential peer review session, Sandeep Kulkarni, who had commissioned the exact same system in Maharashtra two years earlier, laid bare the compliance bottlenecks and recommended an indigenous modified catalytic alternate.',
+    results:
+      'Amit avoided a costly 18-month equipment lock-in, saved ₹38 Lakhs in capital expenditure, and achieved environmental zero-discharge clearance on the very first inspection.',
   },
   {
-    id: 'neha-simran-introductions',
-    peer1: {
-      name: 'Neha Patel',
-      business: 'Patel HR Solutions',
-      city: 'Ahmedabad',
-    },
-    peer2: {
-      name: 'Simran Kaur',
-      business: 'Kaur Tech',
-      city: 'Bengaluru',
-    },
-    way: 'Introductions',
-    tagColor: 'bg-violet-100 text-violet-700 border-violet-200',
-    circle: 'IT & Professional Services Circle',
-    industry: 'IT & Software',
-    headline: 'An introduction that led to a long-term partnership.',
-    outcomeNumber: '42 Placements',
-    image: '/images/story-neha-simran.jpg',
+    id: 'story-4',
+    category: 'ENTERPRISE TECH & TALENT',
+    categoryColor: 'text-emerald-600',
+    headline: '“We built a turnkey 60-engineer specialized delivery pod in 3 weeks through peer collaboration.”',
+    authorName: 'Neha Patel',
+    authorRole: 'Founder & CEO',
+    authorCompany: 'Patel Talent Labs',
+    city: 'Bengaluru',
+    chapter: 'Bengaluru Chapter',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
+    outcome: '60 Engineers Deployed',
+    impactBadge: 'Resource Sharing · Multi-Year Retainer',
+    likes: 54,
     situation:
-      'Kaur Tech had secured a massive Series-A enterprise project but was facing a severe engineering talent crunch in Bengaluru with recruitment agencies failing to vet candidate backgrounds reliably.',
+      'Simran Kaur’s enterprise SaaS platform secured a Tier-1 US fintech contract requiring 60 certified React Native and cloud security engineers within 30 days or face contract cancellation penalties.',
     whatHappened:
-      'Neha received an introduction from her Circle Director to Simran. Neha immediately mobilized a curated technical assessment pipeline tailored for Kaur Tech’s Golang and distributed architecture requirements.',
-    now: 'Patel HR successfully placed 42 senior engineers over 10 months, slashing hiring cycle time from 60 days to 14 days and establishing a standing master vendor agreement.',
-  },
-]
-
-// ─── 6 Kinds of Stories ─────────────────────────────────────────────────────
-const STORY_KINDS = [
-  {
-    icon: CheckCircle2,
-    iconColor: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-    title: 'A referral that became a client for a decade.',
-    desc: 'Not a lead. A relationship, passed from one entrepreneur to another because the trust was already there.',
+      'Through a direct introduction by a Bengaluru Chapter peer, Neha Patel redirected an entire bench of vetted engineers under a custom white-label master services agreement.',
+    results:
+      'The client went live 6 days ahead of schedule, generating ₹2.4 Cr in annual billing and turning into a recurring 3-year partnership.',
   },
   {
-    icon: Users,
-    iconColor: 'text-emerald-600',
-    bgColor: 'bg-emerald-50',
-    title: 'An introduction that opened a market.',
-    desc: 'One message from someone who held a door that would have taken eighteen months to reach from outside.',
+    id: 'story-5',
+    category: 'INFRASTRUCTURE & MEGA TENDERS',
+    categoryColor: 'text-rose-600',
+    headline: '“Our two mid-size firms formed a consortium to win a ₹45 Crore smart highway tender.”',
+    authorName: 'Vikram Shroff',
+    authorRole: 'Chairman & MD',
+    authorCompany: 'Apex Infrastructure Group',
+    city: 'Mumbai',
+    chapter: 'Mumbai Chapter',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+    outcome: '₹45 Cr Bid Won',
+    impactBadge: 'Consortium Bidding · Scale Multiplication',
+    likes: 112,
+    situation:
+      'State highway tenders required both Class-A civil engineering pre-qualification and specialized IoT toll sensor telematics. Neither firm met all criteria alone.',
+    whatHappened:
+      'Within their Circle, Vikram Shroff and IoT sensor founder Harshil Patel structured a legally governed joint bidding consortium with shared performance guarantees.',
+    results:
+      'They beat two legacy corporate conglomerates to win the ₹45 Cr EPC contract, creating 140 new regional jobs.',
   },
   {
-    icon: Handshake,
-    iconColor: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-    title: 'A joint venture neither could have won alone.',
-    desc: 'Complementary strengths, a bigger opportunity. Capacity meeting distribution for larger scale.',
+    id: 'story-6',
+    category: 'GROWTH CAPITAL & FAMILY OFFICE',
+    categoryColor: 'text-cyan-600',
+    headline: '“Instead of months of pitch decks, a warm introduction closed our ₹15 Crore Series-A in 14 days.”',
+    authorName: 'Ananya Birla',
+    authorRole: 'Founder & Managing Partner',
+    authorCompany: 'Nexus Growth Equity',
+    city: 'Bengaluru',
+    chapter: 'Bengaluru Chapter',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+    outcome: '₹15 Cr Capital Raised',
+    impactBadge: 'Founder-Friendly Terms · Zero Brokerage',
+    likes: 76,
+    situation:
+      'A fast-scaling clean mobility venture needed growth capital for battery swapping stations but was facing predatory term sheets from speculative funds.',
+    whatHappened:
+      'A veteran peer connected the founder directly to an institutional family office principal within Peers Global who values sustainable unit economics.',
+    results:
+      'Closed ₹15 Crore at founder-favorable governance terms with full closing completed in 14 business days.',
   },
   {
-    icon: Award,
-    iconColor: 'text-amber-600',
-    bgColor: 'bg-amber-50',
-    title: 'Knowledge that saved eighteen months.',
-    desc: 'Forty minutes with someone who had already made the mistake, and a costly year avoided entirely.',
+    id: 'story-7',
+    category: 'SHARED CAPEX & LABS',
+    categoryColor: 'text-indigo-600',
+    headline: '“We monetized 40% idle testing line capacity, turning a ₹25 Lakh monthly loss into profit.”',
+    authorName: 'Sunil Mittal',
+    authorRole: 'Managing Director',
+    authorCompany: 'Sterling Engineering Consortium',
+    city: 'Delhi NCR',
+    chapter: 'Delhi NCR Chapter',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+    outcome: '100% Line Utilization',
+    impactBadge: 'CapEx Efficiency · Shared Tooling',
+    likes: 48,
+    situation:
+      'High-precision robotic testing equipment sat idle 3 days a week, while 2 fellow peers in automotive diagnostics were struggling with 8-week lab backlogs.',
+    whatHappened:
+      'The peers structured a shared-access schedule with certified operator time and co-calibrated QA standards.',
+    results:
+      'Both peers slashed testing turnaround from 8 weeks to 48 hours while the facility owner covered 100% of equipment debt servicing.',
   },
   {
-    icon: Layers,
-    iconColor: 'text-rose-600',
-    bgColor: 'bg-rose-50',
-    title: 'A vendor connection that solved a persistent problem.',
-    desc: 'Six years of experience, handed over in one honest recommendation without commercial friction.',
+    id: 'story-8',
+    category: 'CROSS-BORDER M&A',
+    categoryColor: 'text-teal-600',
+    headline: '“Navigated our maiden cross-border UK acquisition with zero brokerage and trusted local counsel.”',
+    authorName: 'Sangeeta Reddy',
+    authorRole: 'Managing Partner',
+    authorCompany: 'Cross-Border Advisory Partners',
+    city: 'Singapore',
+    chapter: 'Singapore Chapter',
+    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80',
+    outcome: 'Turnkey UK Acquisition',
+    impactBadge: 'Cross-Border Ease · High-Trust Counsel',
+    likes: 95,
+    situation:
+      'A Pune-based engineering firm was expanding into the Midlands in the UK but had no trusted local corporate tax or regulatory guidance.',
+    whatHappened:
+      'Peers from the London and Singapore Chapters facilitated direct introductions to vetted UK corporate solicitors and local industrial development boards.',
+    results:
+      'Completed the acquisition 4 months faster with complete regulatory clearance and local grant subsidies.',
   },
   {
-    icon: HeartHandshake,
-    iconColor: 'text-teal-600',
-    bgColor: 'bg-teal-50',
-    title: 'Support through the hardest month.',
-    desc: 'No transaction. Just a Peer who understood, and who stayed when decisions were heavy.',
+    id: 'story-9',
+    category: 'CLEANTECH & RENEWABLES',
+    categoryColor: 'text-emerald-600',
+    headline: '“Replaced diesel generators across 12 industrial facilities with a shared rooftop solar PPA.”',
+    authorName: 'Priya Menon',
+    authorRole: 'Executive Director',
+    authorCompany: 'Kalyan Renewable Energy',
+    city: 'Hyderabad',
+    chapter: 'Hyderabad Chapter',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
+    outcome: '4.2 MW Solar Grid',
+    impactBadge: '32% Energy Savings · ESG Compliance',
+    likes: 63,
+    situation:
+      'Multiple manufacturing peers in the Cherlapally industrial belt faced rising grid power tariffs and unreliable power back-up costs.',
+    whatHappened:
+      'Priya grouped the 12 peer factories into a single rooftop solar power purchase agreement (PPA) with zero upfront capital required from factory owners.',
+    results:
+      'Delivered 4.2 MW clean capacity, saving each business owner 32% on monthly electricity expenditures.',
   },
 ]
 
 export function StoriesPageClient() {
-  const [selectedStory, setSelectedStory] = useState<PeerStory | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [selectedChapter, setSelectedChapter] = useState('All')
+  const [activeStory, setActiveStory] = useState<StoryItem | null>(null)
+  const [likedStories, setLikedStories] = useState<Record<string, boolean>>({})
 
-  // Filter States
-  const [selectedCity, setSelectedCity] = useState<string>('All')
-  const [selectedCircle, setSelectedCircle] = useState<string>('All')
-  const [selectedIndustry, setSelectedIndustry] = useState<string>('All')
-  const [selectedWay, setSelectedWay] = useState<string>('All')
-  const [searchQuery, setSearchQuery] = useState<string>('')
+  // Unique lists for filter pills
+  const categories = useMemo(() => {
+    const list = Array.from(new Set(ALL_STORIES.map((s) => s.category)))
+    return ['All', ...list]
+  }, [])
 
-  // Filter Options
-  const cities = ['All', 'Ahmedabad', 'Mumbai', 'Surat', 'Delhi', 'Vadodara', 'Pune', 'Bengaluru']
-  const circles = [
-    'All',
-    'Manufacturing & Packaging Circle',
-    'Export & Global Trade Circle',
-    'Speciality Chemicals & MSME Circle',
-    'IT & Professional Services Circle',
-  ]
-  const industries = ['All', 'Packaging & Logistics', 'Textiles & Trade', 'Chemical & Industrial', 'IT & Software']
-  const ways = ['All', 'Referrals', 'Joint Venture', 'Knowledge Sharing', 'Introductions']
+  const chapters = useMemo(() => {
+    const list = Array.from(new Set(ALL_STORIES.map((s) => s.chapter)))
+    return ['All', ...list]
+  }, [])
 
-  // Filtered Stories
+  // Filtered stories
   const filteredStories = useMemo(() => {
-    return FEATURED_STORIES.filter((story) => {
-      const matchCity =
-        selectedCity === 'All' ||
-        story.peer1.city.toLowerCase() === selectedCity.toLowerCase() ||
-        story.peer2.city.toLowerCase() === selectedCity.toLowerCase()
-
-      const matchCircle =
-        selectedCircle === 'All' || story.circle.toLowerCase() === selectedCircle.toLowerCase()
-
-      const matchIndustry =
-        selectedIndustry === 'All' || story.industry.toLowerCase() === selectedIndustry.toLowerCase()
-
-      const matchWay =
-        selectedWay === 'All' || story.way.toLowerCase() === selectedWay.toLowerCase()
-
-      const matchSearch =
-        !searchQuery.trim() ||
-        story.peer1.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.peer2.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.peer1.business.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.peer2.business.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    return ALL_STORIES.filter((story) => {
+      const matchesSearch =
+        searchQuery.trim() === '' ||
         story.headline.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.situation.toLowerCase().includes(searchQuery.toLowerCase())
+        story.authorName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        story.authorCompany.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        story.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        story.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        story.outcome.toLowerCase().includes(searchQuery.toLowerCase())
 
-      return matchCity && matchCircle && matchIndustry && matchWay && matchSearch
+      const matchesCategory =
+        selectedCategory === 'All' || story.category === selectedCategory
+
+      const matchesChapter =
+        selectedChapter === 'All' || story.chapter === selectedChapter
+
+      return matchesSearch && matchesCategory && matchesChapter
     })
-  }, [selectedCity, selectedCircle, selectedIndustry, selectedWay, searchQuery])
+  }, [searchQuery, selectedCategory, selectedChapter])
+
+  const toggleLike = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    setLikedStories((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }))
+  }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link
-              href="/"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-600">Community Life</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Peer Stories</span>
-          </nav>
-        </div>
-      </div>
-
-      {/* ─── SECTION 1: HERO (TWO PEERS HANDSHAKE & SEAMLESS FADE) ───────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6 z-10">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
-                  — COMMUNITY LIFE —
-                </span>
-              </div>
-
-              {/* Main H1 */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Peer Stories
-              </h1>
-
-              {/* Subline */}
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                What entrepreneurs build when they stop building alone.
-              </p>
-
-              {/* Supporting Line */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                Real names. Real businesses. Real outcomes.
-              </p>
-
-              {/* Dual Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-
-                <a
-                  href="#share-story"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
-                >
-                  <span>Share Your Story</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Hero Visual with Horizontal Left Edge Fade */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/peer-stories-hero.jpg"
-                  alt="Two Indian business entrepreneurs shaking hands warmly at Peers Global gathering"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                />
-
-                {/* Soft horizontal gradient fade on the left edge smoothly blending into page background */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
-
-                {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none z-10" />
-
-                {/* Stage Backdrop Brand Overlay on Top Right */}
-                <div className="absolute top-6 right-6 bg-slate-950/85 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px]">
-                  <div className="flex items-center justify-end gap-1.5 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white">
-                      PeersGlobal
-                    </span>
-                  </div>
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Ideas. Connections.
-                  </p>
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Collaborations.
-                  </p>
-                  <p className="text-[11px] font-bold text-sky-400 leading-tight mt-0.5">
-                    A Stronger Tomorrow.
-                  </p>
-                </div>
-
-                {/* Cursive overlay text on bottom right */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[240px]">
-                  <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Real People.
-                    <br />
-                    Real Collaborations.
-                    <br />
-                    Real Impact.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 4-Stat Pillar Bar */}
-          <div className="mt-12 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-sm">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="text-sm sm:text-base font-serif font-bold text-slate-950 leading-snug">
-                          {stat.label}
-                        </div>
-                        <div className="text-xs text-slate-500 font-medium mt-0.5">
-                          {stat.desc}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 2: EVERY STORY HAS TWO PEOPLE ───────────────────────── */}
-      <section className="py-16 sm:py-20 bg-white border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Narrative */}
-            <div className="lg:col-span-6 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-                — EVERY STORY HAS TWO PEOPLE —
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
-                Every story here has two people in it.
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                That is what makes them different from testimonials. A
-                testimonial tells you someone was satisfied. A story tells you
-                what two entrepreneurs did together — who gave, who received,
-                what existed before, and what exists now.
-              </p>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Every story on this page names both. Their businesses, their
-                cities, and which of the ten Ways of Collaboration made it happen.
-              </p>
-
-              <div className="pt-2">
-                <Link
-                  href="/10-ways-of-collaboration"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#0062D2] font-semibold text-xs sm:text-sm border border-blue-200 shadow-sm hover:bg-blue-50 hover:border-blue-400 transition-all"
-                >
-                  <span>See the 10 Ways of Collaboration</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Split Card: Quote + Mountain Canvas */}
-            <div className="lg:col-span-6">
-              <div className="rounded-3xl overflow-hidden shadow-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-12 bg-white">
-                {/* Left Half: Quote */}
-                <div className="sm:col-span-6 p-7 sm:p-8 flex flex-col justify-between bg-slate-50/70 border-b sm:border-b-0 sm:border-r border-slate-200/80">
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                      <Quote className="w-5 h-5 fill-current text-[#0062D2]" />
-                    </div>
-                    <p className="text-lg sm:text-xl font-serif font-bold text-slate-900 leading-snug">
-                      “Alone we can do so little. Together we build so much more.”
-                    </p>
-                  </div>
-
-                  <div className="pt-6">
-                    <span className="text-[11px] font-bold tracking-widest uppercase text-[#0062D2]">
-                      PEERS GLOBAL
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right Half: Mountain Landscape with Cursive overlay */}
-                <div className="sm:col-span-6 relative h-56 sm:h-auto min-h-[220px]">
-                  <Image
-                    src="/images/who-we-are-mountain.jpg"
-                    alt="Mountain peaks at dawn"
-                    fill
-                    className="object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/35 to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-                    <p
-                      className="text-xl sm:text-2xl font-light italic text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] leading-tight"
-                      style={{ fontFamily: 'var(--font-script)' }}
-                    >
-                      Entrepreneurs
-                      <br />
-                      Create Opportunities.
-                      <br />
-                      Communities
-                      <br />
-                      Create Change.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 3: BROWSE THE STORIES (FILTERS & SEARCH) ─────────────── */}
-      <section className="py-12 bg-slate-50 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-              — BROWSE THE STORIES —
+    <div className="min-h-screen bg-white text-slate-900">
+      
+      {/* ─── Top Brand Header Bar (Mindvalley Style) ───────────────────────── */}
+      <header className="border-b border-slate-100 bg-white sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <Link href="/stories" className="flex items-center gap-2">
+            <span className="font-sans text-lg sm:text-xl font-bold tracking-tight text-slate-900">
+              Peers Global <span className="text-[#0078D4]">Stories</span>
             </span>
-            <p className="text-sm text-slate-600 mt-1">
-              Find stories by city, circle, industry or way of collaboration.
-            </p>
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <Link
+              href="/contact?intent=share-story"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-[#0078D4] hover:bg-[#006cbd] px-4 py-2 text-xs font-semibold text-white transition-all shadow-xs"
+            >
+              <span>Tell your story</span>
+            </Link>
+            <Link
+              href="/membership"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 hover:border-slate-400 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-colors"
+            >
+              <span>Join Peers</span>
+            </Link>
           </div>
+        </div>
+      </header>
 
-          {/* Interactive Filter Grid */}
-          <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-              {/* City Filter */}
-              <div>
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  City
-                </label>
-                <select
-                  value={selectedCity}
-                  onChange={(e) => setSelectedCity(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  {cities.map((city) => (
-                    <option key={city} value={city}>
-                      {city === 'All' ? 'All Cities' : city}
-                    </option>
-                  ))}
-                </select>
-              </div>
+      {/* ─── Main Hero Section ────────────────────────────────────────────── */}
+      <section className="pt-12 sm:pt-16 pb-8 sm:pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl">
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-950 tracking-tight leading-[1.12]">
+            A living library of <br />
+            entrepreneur{' '}
+            <span className="bg-gradient-to-r from-[#0078D4] via-[#6366F1] to-[#8B5CF6] bg-clip-text text-transparent">
+              collaboration.
+            </span>
+          </h1>
 
-              {/* Circle Filter */}
-              <div>
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  Circle
-                </label>
-                <select
-                  value={selectedCircle}
-                  onChange={(e) => setSelectedCircle(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  {circles.map((cir) => (
-                    <option key={cir} value={cir}>
-                      {cir === 'All' ? 'All Circles' : cir}
-                    </option>
-                  ))}
-                </select>
-              </div>
+          <p className="mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl">
+            First-person stories from across Peers Global circles, trade delegations, and joint ventures. Search by circle, outcome, or chapter, and find the exact proof you need.
+          </p>
 
-              {/* Industry Filter */}
-              <div>
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  Industry
-                </label>
-                <select
-                  value={selectedIndustry}
-                  onChange={(e) => setSelectedIndustry(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  {industries.map((ind) => (
-                    <option key={ind} value={ind}>
-                      {ind === 'All' ? 'All Industries' : ind}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Way of Collaboration Filter */}
-              <div>
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  Way of Collaboration
-                </label>
-                <select
-                  value={selectedWay}
-                  onChange={(e) => setSelectedWay(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  {ways.map((w) => (
-                    <option key={w} value={w}>
-                      {w === 'All' ? 'All Ways of Collaboration' : w}
-                    </option>
-                  ))}
-                </select>
-              </div>
+          {/* 3 Key Stats Counters */}
+          <div className="mt-8 flex items-center gap-8 sm:gap-14 border-t border-slate-100 pt-6">
+            <div>
+              <span className="block font-sans text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                1,200+
+              </span>
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Stories
+              </span>
             </div>
 
-            {/* Keyword Search Bar */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-slate-100">
-              <div className="relative flex-1 w-full">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search stories by name, business or keyword..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+            <div className="h-8 w-px bg-slate-200" />
 
-              {(selectedCity !== 'All' ||
-                selectedCircle !== 'All' ||
-                selectedIndustry !== 'All' ||
-                selectedWay !== 'All' ||
-                searchQuery) && (
-                <button
-                  onClick={() => {
-                    setSelectedCity('All')
-                    setSelectedCircle('All')
-                    setSelectedIndustry('All')
-                    setSelectedWay('All')
-                    setSearchQuery('')
-                  }}
-                  className="px-4 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 rounded-xl transition-colors shrink-0 cursor-pointer"
-                >
-                  Reset Filters
-                </button>
-              )}
+            <div>
+              <span className="block font-sans text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                11+
+              </span>
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Chapters / Cities
+              </span>
+            </div>
 
-              <button
-                type="button"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-[#0062D2] text-white text-xs font-medium shadow-xs hover:bg-[#0052B4] transition-all cursor-pointer"
-              >
-                Search
-              </button>
+            <div className="h-8 w-px bg-slate-200" />
+
+            <div>
+              <span className="block font-sans text-2xl sm:text-3xl font-bold text-[#0078D4] tracking-tight">
+                100%
+              </span>
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Verified Impact
+              </span>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ─── SECTION 4: FEATURED STORIES (4-CARD STORY GRID) ─────────────── */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 mb-10">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-                — FEATURED STORIES —
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mt-1">
-                Real partnerships forged in Circle rooms.
-              </h2>
-            </div>
-
-            <button
-              onClick={() => {
-                setSelectedCity('All')
-                setSelectedCircle('All')
-                setSelectedIndustry('All')
-                setSelectedWay('All')
-                setSearchQuery('')
-              }}
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors cursor-pointer"
-            >
-              <span>View All Stories</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+        {/* ─── Search & Filter Bar ────────────────────────────────────────── */}
+        <div className="mt-10 max-w-5xl">
+          {/* Big Search Input */}
+          <div className="relative">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 size-5 text-slate-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search stories, outcomes, founders, chapters..."
+              className="w-full rounded-full border border-slate-200 bg-white pl-13 pr-6 py-4 text-sm sm:text-base text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-[#0078D4] focus:ring-2 focus:ring-[#0078D4]/20 outline-none transition-all"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-5 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-600"
+              >
+                Clear
+              </button>
+            )}
           </div>
 
-          {filteredStories.length === 0 ? (
-            <div className="text-center py-16 bg-slate-50 rounded-3xl border border-slate-200/80">
-              <p className="text-slate-600 text-sm">
-                No stories match your specific filters right now.
-              </p>
+          {/* Filter Dropdowns / Pills Row */}
+          <div className="mt-4 flex flex-wrap items-center gap-2.5">
+            {/* Category Filter */}
+            <div className="relative">
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-2xs hover:bg-slate-50 transition cursor-pointer outline-none focus:border-[#0078D4]"
+              >
+                <option value="All">All Categories ▾</option>
+                {categories
+                  .filter((c) => c !== 'All')
+                  .map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+              </select>
+            </div>
+
+            {/* Chapter Filter */}
+            <div className="relative">
+              <select
+                value={selectedChapter}
+                onChange={(e) => setSelectedChapter(e.target.value)}
+                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-2xs hover:bg-slate-50 transition cursor-pointer outline-none focus:border-[#0078D4]"
+              >
+                <option value="All">All Chapters ▾</option>
+                {chapters
+                  .filter((c) => c !== 'All')
+                  .map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+              </select>
+            </div>
+
+            {/* Reset Filter Button if active */}
+            {(selectedCategory !== 'All' || selectedChapter !== 'All' || searchQuery !== '') && (
               <button
                 onClick={() => {
-                  setSelectedCity('All')
-                  setSelectedCircle('All')
-                  setSelectedIndustry('All')
-                  setSelectedWay('All')
+                  setSelectedCategory('All')
+                  setSelectedChapter('All')
                   setSearchQuery('')
                 }}
-                className="mt-4 px-5 py-2 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4] cursor-pointer"
+                className="rounded-full bg-slate-100 hover:bg-slate-200 px-3.5 py-2 text-xs font-semibold text-slate-600 transition"
               >
                 Reset All Filters
               </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {filteredStories.map((story) => (
-                <div
-                  key={story.id}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    {/* Story Photo */}
-                    <div className="relative h-52 w-full overflow-hidden bg-slate-900">
-                      <Image
-                        src={story.image}
-                        alt={`${story.peer1.name} and ${story.peer2.name}`}
-                        fill
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+            )}
+          </div>
 
-                      {/* Tag for Way of Collaboration */}
-                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white/95 backdrop-blur-md shadow-xs text-slate-800 border border-slate-200">
-                        {story.way}
-                      </span>
-                    </div>
-
-                    {/* Card Content */}
-                    <div className="p-5 space-y-3">
-                      {/* Two Peers & Businesses */}
-                      <div className="space-y-1 text-xs">
-                        <div className="font-semibold text-slate-900">
-                          {story.peer1.name}
-                        </div>
-                        <div className="text-slate-500 text-[11px]">
-                          {story.peer1.business}, {story.peer1.city}
-                        </div>
-                        <div className="text-slate-400 text-[10px] font-medium uppercase tracking-wider pt-0.5">
-                          and
-                        </div>
-                        <div className="font-semibold text-slate-900">
-                          {story.peer2.name}
-                        </div>
-                        <div className="text-slate-500 text-[11px]">
-                          {story.peer2.business}, {story.peer2.city}
-                        </div>
-                      </div>
-
-                      {/* Headline Outcome */}
-                      <h3 className="font-serif font-bold text-slate-950 text-base leading-snug pt-1">
-                        {story.headline}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Read Full Story Button */}
-                  <div className="p-5 pt-0">
-                    <button
-                      onClick={() => setSelectedStory(story)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors group cursor-pointer"
-                    >
-                      <span>Read Full Story</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          {/* Counter Headline */}
+          <div className="mt-8 text-xs font-semibold text-slate-500">
+            {filteredStories.length} verified {filteredStories.length === 1 ? 'story' : 'stories'} for you
+          </div>
         </div>
       </section>
 
-      {/* ─── SECTION 5: THE KINDS OF STORIES THIS COMMUNITY PRODUCES ─────── */}
-      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight">
-              The kinds of stories this community produces
-            </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Six common forms of peer collaboration that occur across our Circles every single month.
+      {/* ─── 3-Column Story Cards Grid ───────────────────────────────────── */}
+      <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {filteredStories.length === 0 ? (
+          <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50 p-12 text-center">
+            <h3 className="text-base font-bold text-slate-800">No matching stories found</h3>
+            <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+              Try adjusting your search term or reset the category filters to view all stories.
             </p>
           </div>
-
-          {/* 6 Grid Items */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {STORY_KINDS.map((kind) => {
-              const Icon = kind.icon
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredStories.map((story) => {
+              const isLiked = !!likedStories[story.id]
               return (
                 <div
-                  key={kind.title}
-                  className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between"
+                  key={story.id}
+                  onClick={() => setActiveStory(story)}
+                  className="group flex flex-col justify-between rounded-2xl overflow-hidden border border-slate-200/90 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
                 >
-                  <div className="space-y-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl ${kind.bgColor} ${kind.iconColor} flex items-center justify-center`}
-                    >
-                      <Icon className="w-6 h-6" />
+                  <div>
+                    {/* Top Portrait Image */}
+                    <div className="relative w-full aspect-[4/3] bg-slate-100 overflow-hidden">
+                      <Image
+                        src={story.image}
+                        alt={story.authorName}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="size-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* Top Chapter Pill */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-semibold text-white">
+                          {story.city}
+                        </span>
+                      </div>
                     </div>
 
-                    <h3 className="font-serif font-bold text-slate-950 text-base leading-snug">
-                      {kind.title}
-                    </h3>
+                    {/* Content Section */}
+                    <div className="p-6">
+                      {/* Overline Category */}
+                      <span className={`text-[11px] font-bold uppercase tracking-wider block mb-2 ${story.categoryColor}`}>
+                        {story.category}
+                      </span>
 
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {kind.desc}
-                    </p>
+                      {/* Quote Headline */}
+                      <h3 className="font-sans text-lg sm:text-xl font-bold text-slate-900 leading-snug tracking-tight group-hover:text-[#0078D4] transition-colors line-clamp-3">
+                        {story.headline}
+                      </h3>
+
+                      {/* Author Info */}
+                      <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
+                        <div>
+                          <p className="text-xs sm:text-sm font-bold text-slate-900">
+                            {story.authorName}
+                          </p>
+                          <p className="text-[11px] text-slate-500 truncate max-w-[240px]">
+                            {story.authorRole} · {story.authorCompany}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Outcome & Like Action Strip */}
+                  <div className="px-6 pb-5 pt-2 flex items-center justify-between border-t border-slate-100/80 text-xs">
+                    <span className="font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200/60 text-[11px]">
+                      {story.outcome}
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={(e) => toggleLike(story.id, e)}
+                      className="flex items-center gap-1.5 text-slate-400 hover:text-rose-500 transition-colors"
+                      aria-label="Like story"
+                    >
+                      <Heart
+                        className={`size-4 ${
+                          isLiked ? 'fill-rose-500 text-rose-500' : 'text-slate-400'
+                        }`}
+                      />
+                      <span className="text-[11px] font-mono">
+                        {story.likes + (isLiked ? 1 : 0)}
+                      </span>
+                    </button>
                   </div>
                 </div>
               )
             })}
           </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-xs sm:text-sm font-medium text-slate-500 italic max-w-2xl mx-auto">
-              Every one of these is a life changed, and every one began with a Peer choosing to give.
-            </p>
-          </div>
-        </div>
+        )}
       </section>
 
-      {/* ─── SECTION 6: THREE BOTTOM INFO CARDS ──────────────────────────── */}
-      <section className="py-16 sm:py-20 bg-white border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1: How stories are recorded */}
-            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                  <Compass className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  How stories are recorded
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Collaboration at Peers Global is logged, not remembered. When a
-                  Peer gives through any of the ten Ways, it is recorded in the
-                  Unity App and confirmed by the entrepreneur who received it.
-                  Both Peers review and approve their story before publication.
-                </p>
-              </div>
-
-              <div className="pt-6">
-                <Link
-                  href="/the-currency"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0062D2] font-semibold text-xs border border-blue-200 shadow-xs hover:bg-blue-50 transition-all"
-                >
-                  <span>Understand the Currency</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2: Share your story */}
-            <div
-              id="share-story"
-              className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between scroll-mt-20"
-            >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                  <Send className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  Share your story
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  If a Peer changed something in your business, say so publicly.
-                  It matters because the Peer who helped you is recognised, other
-                  entrepreneurs learn what is actually possible here, and it
-                  counts toward the 1 Million Mission.
-                </p>
-              </div>
-
-              <div className="pt-6">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#0062D2] text-white font-medium text-xs shadow-md hover:bg-[#0052B4] transition-all"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Card 3: One million lives */}
-            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                  <Target className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  One million lives
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Every story here is one entry in a much longer count. Our
-                  mission is to impact one million lives through
-                  entrepreneurship, collaboration and opportunity. Every referral,
-                  introduction, mentorship and partnership moves that number.
-                </p>
-              </div>
-
-              <div className="pt-6">
-                <Link
-                  href="/1-million-mission"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0062D2] font-semibold text-xs border border-blue-200 shadow-xs hover:bg-blue-50 transition-all"
-                >
-                  <span>See the 1 Million Mission</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 7: CLOSING BANNER ─────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-20 sm:py-28 text-white">
-        {/* Deep celestial radial gradients & luminous aura */}
+      {/* ─── Detail Story Modal ───────────────────────────────────────────── */}
+      {activeStory && (
         <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
-        />
-
-        {/* SVG Orbital Geometric Lines Background */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <p className="text-sm font-semibold tracking-wider text-sky-200 uppercase">
-                None of these entrepreneurs knew each other before a Circle put them in the same room.
-              </p>
-
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                Build Your Business. Build Your Relationships.
-                <br />
-                Build Your Circle.
-              </h2>
-
-            </div>
-
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                A Stronger
-                <br />
-                Tomorrow.
-                <br />
-                Together.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── MODAL: FULL STORY DETAILS (THE 6 MANDATORY ELEMENTS) ────────── */}
-      {selectedStory && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative">
-            {/* Close Button */}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          onClick={() => setActiveStory(null)}
+        >
+          <div
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-700 bg-slate-950 p-6 sm:p-8 text-white shadow-2xl animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Close Button */}
             <button
-              onClick={() => setSelectedStory(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-colors cursor-pointer"
+              type="button"
+              onClick={() => setActiveStory(null)}
+              className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-[4px] bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white transition-colors"
+              aria-label="Close modal"
             >
-              <X className="w-5 h-5" />
+              <X className="size-4" />
             </button>
 
-            {/* Modal Image Header */}
-            <div className="relative h-64 sm:h-72 w-full bg-slate-950">
-              <Image
-                src={selectedStory.image}
-                alt={`${selectedStory.peer1.name} and ${selectedStory.peer2.name}`}
-                fill
-                className="object-cover object-top"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-              <div className="absolute bottom-4 left-6 right-6 text-white">
-                <span className="px-2.5 py-1 rounded-md text-[11px] font-bold bg-blue-600 text-white inline-block mb-2">
-                  Way of Collaboration: {selectedStory.way}
+            {/* Author Header */}
+            <div className="flex items-center gap-4 pb-5 border-b border-white/10">
+              <div className="relative size-16 sm:size-20 rounded-xl overflow-hidden border border-white/20 shrink-0">
+                <Image
+                  src={activeStory.image}
+                  alt={activeStory.authorName}
+                  fill
+                  className="size-full object-cover"
+                />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-1">
+                  {activeStory.category} · {activeStory.chapter}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold leading-tight">
-                  {selectedStory.headline}
+                <h3 className="font-sans text-xl sm:text-2xl font-bold text-white leading-tight">
+                  {activeStory.authorName}
                 </h3>
+                <p className="text-xs sm:text-sm text-slate-300">
+                  {activeStory.authorRole} · {activeStory.authorCompany}
+                </p>
               </div>
             </div>
 
-            {/* Modal Body: 6 Elements */}
-            <div className="p-6 sm:p-8 space-y-6">
-              {/* Element 1 & 2: Two Peers, Businesses, Cities & Circle */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                    First Peer
-                  </span>
-                  <p className="text-sm font-bold text-slate-900">
-                    {selectedStory.peer1.name}
-                  </p>
-                  <p className="text-xs text-slate-600">
-                    {selectedStory.peer1.business} · {selectedStory.peer1.city}
-                  </p>
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                    Collaborating Peer
-                  </span>
-                  <p className="text-sm font-bold text-slate-900">
-                    {selectedStory.peer2.name}
-                  </p>
-                  <p className="text-xs text-slate-600">
-                    {selectedStory.peer2.business} · {selectedStory.peer2.city}
-                  </p>
-                </div>
-              </div>
+            {/* Main Headline */}
+            <h4 className="font-sans text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mt-6">
+              {activeStory.headline}
+            </h4>
 
-              <div className="text-xs text-slate-500 font-medium">
-                <strong>Meeting Room / Circle:</strong> {selectedStory.circle}
-              </div>
+            {/* Outcome Metric Highlight Bar */}
+            <div className="mt-4 flex items-center justify-between rounded-lg bg-blue-950/70 border border-blue-800/50 p-3.5 text-xs">
+              <span className="text-slate-300 font-medium">Verified Metric:</span>
+              <span className="font-bold text-emerald-400 text-sm">
+                {activeStory.outcome} ({activeStory.impactBadge})
+              </span>
+            </div>
 
-              {/* Elements 3, 4, 5: Before, What Happened, Now */}
-              <div className="space-y-4 text-xs sm:text-sm">
-                <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-slate-400 space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 block">
-                    Before: The Situation
-                  </span>
-                  <p className="text-slate-700 leading-relaxed">
-                    {selectedStory.situation}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-blue-50/60 border-l-4 border-[#0062D2] space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2] block">
-                    What Happened: The Specific Act of Collaboration
-                  </span>
-                  <p className="text-slate-800 leading-relaxed">
-                    {selectedStory.whatHappened}
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-emerald-50/70 border-l-4 border-emerald-600 space-y-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block">
-                    Now: The Verified Outcome
-                  </span>
-                  <p className="text-slate-900 font-semibold leading-relaxed">
-                    {selectedStory.now}
-                  </p>
-                </div>
-              </div>
-
-              {/* Verification Stamp */}
-              <div className="pt-2 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
-                <span className="flex items-center gap-1.5 text-emerald-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4" />
-                  Confirmed by both Peers & Logged in Unity
+            {/* Narrative Case Study Breakdown */}
+            <div className="mt-6 flex flex-col gap-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1">
+                  The Initial Situation
                 </span>
-                <button
-                  onClick={() => setSelectedStory(null)}
-                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-xs transition-colors cursor-pointer"
-                >
-                  Close
-                </button>
+                <p>{activeStory.situation}</p>
               </div>
+
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-400 block mb-1">
+                  What Happened
+                </span>
+                <p>{activeStory.whatHappened}</p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-1">
+                  The Measurable Results
+                </span>
+                <p>{activeStory.results}</p>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+              <Link
+                href="/membership"
+                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-md"
+              >
+                <span>Join Peers Global</span>
+                <ArrowRight className="size-4" />
+              </Link>
+              <button
+                type="button"
+                onClick={() => setActiveStory(null)}
+                className="text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+              >
+                Close Story
+              </button>
             </div>
           </div>
         </div>
       )}
+
     </div>
   )
 }

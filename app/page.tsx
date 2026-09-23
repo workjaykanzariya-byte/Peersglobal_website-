@@ -7,7 +7,9 @@ import {
   EventsSection,
   JourneySection,
   LeadershipSection,
+  LeadersSpotlightSection,
   LsrSection,
+  MasterclassesSection,
   MissionSection,
   OutcomesSection,
   PhilosophySection,
@@ -32,8 +34,14 @@ export default function HomePage() {
       {/* Our Philosophy */}
       <PhilosophySection />
 
+      {/* Leaders & Mentors Spotlight (Mindvalley Style) */}
+      <LeadersSpotlightSection />
+
       {/* Who We Are & What Peers Global Is */}
       <WhoWeAreSection />
+
+      {/* Case Studies of Success (Stories Section) */}
+      <StoriesSection />
 
       {/* Section 4 — Trusted Circles */}
       <CirclesSection />
@@ -44,6 +52,9 @@ export default function HomePage() {
       {/* Section 6 — Learn, Sales, Resources (LSR) */}
       <LsrSection />
 
+      {/* Masterclasses & Playbooks Collection (Mindvalley 3-Row Infinite Marquee) */}
+      <MasterclassesSection />
+
       {/* Section 7 — The Unity App */}
       <UnitySection />
 
@@ -52,9 +63,6 @@ export default function HomePage() {
 
       {/* Section 9 — The 1 Million Mission */}
       <MissionSection />
-
-      {/* Section 10 — Real Collaborations */}
-      <StoriesSection />
 
       {/* Section 11 — The Peers Global Universe */}
       <UniverseSection />
