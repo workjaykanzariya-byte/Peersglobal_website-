@@ -999,11 +999,10 @@ function ContactPageInner() {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    { name: 'LinkedIn', url: 'https://linkedin.com/company/peersglobal' },
-                    { name: 'Instagram', url: 'https://instagram.com/peersglobal' },
-                    { name: 'Facebook', url: 'https://facebook.com/peersglobal' },
-                    { name: 'YouTube', url: 'https://youtube.com/@peersglobal' },
-                    { name: 'X (Twitter)', url: 'https://x.com/peersglobal' },
+                    { name: 'Facebook', url: SITE.socials.facebook },
+                    { name: 'YouTube', url: SITE.socials.youtube },
+                    { name: 'Instagram', url: SITE.socials.instagram },
+                    { name: 'LinkedIn', url: SITE.socials.linkedin },
                   ].map((social) => (
                     <a
                       key={social.name}

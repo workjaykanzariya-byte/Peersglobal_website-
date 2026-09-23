@@ -107,25 +107,25 @@ export function HomeHero() {
         className="pointer-events-none absolute bottom-10 left-1/3 h-[300px] w-[300px] rounded-full bg-cyan-500/10 blur-[100px]"
       />
 
-      <div className="shell relative z-10 pt-6 sm:pt-8 lg:pt-10 pb-8 flex flex-col justify-between">
+      <div className="shell relative z-10 pt-8 sm:pt-10 lg:pt-12 pb-8 flex flex-col justify-between">
         {/* Main Grid: Left copy, Right card */}
         <div className="grid items-center gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
           
           {/* Left Column */}
           <div className="flex flex-col gap-4 sm:gap-5">
-            {/* Eyebrow with leading cyan bar */}
+            {/* Eyebrow with leading gradient bar */}
             <div className="flex items-center gap-3">
-              <span className="h-0.5 w-6 bg-cyan-400 shadow-[0_0_8px_#38bdf8]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-400">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full shadow-[0_0_8px_rgba(225,29,72,0.6)]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-slate-200">
                 World&apos;s First Community of Collaboration
               </span>
             </div>
 
             {/* H1 Heading */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.65rem] font-normal tracking-tight text-white leading-[1.18] drop-shadow-md">
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-[3.65rem] font-bold tracking-tight text-white leading-[1.15] drop-shadow-md">
               Build Your Business.
               <br />
-              <span className="italic bg-gradient-to-r from-[#2563EB] via-[#38BDF8] to-[#60A5FA] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#3B82F6] via-[#EC4899] to-[#E11D48] bg-clip-text text-transparent font-extrabold">
                 Build Your Relationships.
               </span>
               <br />
@@ -139,34 +139,31 @@ export function HomeHero() {
             </p>
 
             {/* Supporting quote */}
-            <p className="max-w-xl text-sm sm:text-base italic text-slate-300 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="max-w-xl text-sm sm:text-base italic text-slate-300/90 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               &ldquo;{SITE.promise}&rdquo;
             </p>
 
             {/* CTA buttons */}
-            <div className="mt-1 flex flex-wrap items-center gap-3">
+            <div className="mt-2 flex flex-wrap items-center gap-3.5">
               <Link
                 href="/membership"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:bg-slate-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.35)] hover:scale-[1.02] active:scale-[0.98]"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_20px_rgba(29,78,216,0.4)] transition-all duration-300 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_25px_rgba(225,29,72,0.5)] hover:scale-[1.02] active:scale-[0.98]"
               >
-                <span>Join Peers Global</span>
-                <ArrowRight className="size-4 text-slate-900 transition-transform duration-300 group-hover:translate-x-1" />
-                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                <span className="relative z-10">Join Peers Global</span>
+                <ArrowRight className="relative z-10 size-4 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
               </Link>
 
-              {/* Download Unity App with Peers Global Logo Color Matching (Red-Blue Glow & Gradient Hover) */}
+              {/* Download Unity App with Brand Gradient Trim */}
               <div className="relative group/unity-btn">
-                {/* Ambient Logo Colors Glow (Peers Red -> Peers Sky -> Royal Blue) */}
-                <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/unity-btn:opacity-80 group-hover/unity-btn:blur-lg" />
-                
                 <Link
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/25 bg-white/[0.08] px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-[#E53935]/25 hover:via-[#3B82F6]/30 hover:to-[#1E4ED8]/35 hover:shadow-[0_0_24px_rgba(0,98,210,0.4),0_0_16px_rgba(229,57,53,0.3)] hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/30 bg-white/[0.1] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-transparent hover:bg-white/[0.2] hover:shadow-[0_0_24px_rgba(29,78,216,0.35)] hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <Download className="size-4 text-slate-200 transition-colors group-hover:text-white" />
-                  <span className="font-semibold tracking-wide">Download Unity App</span>
+                  <span className="tracking-wide">Download Unity App</span>
                   
                   {/* Shimmer Light Reflection Sweep on Hover */}
                   <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
@@ -175,7 +172,7 @@ export function HomeHero() {
 
               <Link
                 href="/circles/find"
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white/85 transition-colors hover:text-white underline-offset-4 hover:underline"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-white/90 transition-colors hover:text-white underline-offset-4 hover:underline"
               >
                 Find Your Circle →
               </Link>
@@ -185,11 +182,11 @@ export function HomeHero() {
           {/* Right Column: Directly playing video card (no cover image, no play button) */}
           <div className="relative">
             {/* Ambient glow behind card */}
-            <div className="absolute -inset-1 rounded-[30px] bg-gradient-to-tr from-cyan-500/20 via-transparent to-blue-600/20 blur-xl opacity-70 pointer-events-none" />
+            <div className="absolute -inset-1 rounded-[28px] bg-gradient-to-tr from-[#1D4ED8]/25 via-transparent to-[#E11D48]/25 blur-xl opacity-75 pointer-events-none" />
 
             {/* Outer card frame */}
-            <div className="relative rounded-[28px] border border-white/15 bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent p-2 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_35px_rgba(56,189,248,0.12)] backdrop-blur-sm">
-              <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[22px] bg-black">
+            <div className="relative rounded-[24px] border border-white/20 bg-gradient-to-b from-white/[0.15] via-white/[0.05] to-transparent p-2 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] backdrop-blur-md">
+              <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[18px] bg-black">
                 {/* Directly playing video with infinite loop, autoplay, muted, playsInline */}
                 <video
                   src="/videos/homepage-hero-bg.mp4"
@@ -201,32 +198,31 @@ export function HomeHero() {
                 />
 
                 {/* Subtle dark vignette overlay for depth and badge readability */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
                 {/* Top-Left Pill: REAL PEOPLE. REAL COLLABORATION. */}
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-2.5 rounded-full border border-white/20 bg-slate-950/75 px-3.5 py-1.5 backdrop-blur-md shadow-lg">
-                  <span className="size-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8]" />
-                  <span className="text-[10.5px] font-semibold tracking-[0.16em] uppercase text-white/90">
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/80 px-3.5 py-1.5 backdrop-blur-md shadow-lg">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shadow-[0_0_8px_#E11D48]" />
+                  <span className="text-[10.5px] font-bold tracking-[0.16em] uppercase text-white/95">
                     Real People. Real Collaboration.
                   </span>
                 </div>
 
                 {/* Top-Right Pill Box: IDEAS, PEOPLE, OPPORTUNITIES, IMPACT */}
-                <div className="absolute top-4 right-4 z-20 flex flex-col items-end gap-1 rounded-xl border border-white/15 bg-slate-950/75 p-3 backdrop-blur-md shadow-xl">
+                <div className="absolute top-4 right-4 z-20 flex flex-col items-end gap-1 rounded-xl border border-white/15 bg-slate-950/80 p-2.5 backdrop-blur-md shadow-xl">
                   {['Ideas', 'People', 'Opportunities', 'Impact'].map((item) => (
                     <span
                       key={item}
-                      className="text-[9.5px] font-bold tracking-[0.2em] uppercase text-white/80 transition-colors hover:text-cyan-400"
+                      className="text-[9.5px] font-bold tracking-[0.2em] uppercase text-white/80 transition-colors hover:text-[#E11D48]"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
 
-                {/* Bottom-Right Script text: Stronger Together */}
+                {/* Bottom-Right Subtitle */}
                 <div
-                  className="pointer-events-none absolute bottom-4 right-6 z-20 text-2xl sm:text-3xl text-white font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
-                  style={{ fontFamily: 'var(--font-script)' }}
+                  className="pointer-events-none absolute bottom-4 right-5 z-20 text-xl font-bold tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
                 >
                   Stronger Together
                 </div>

@@ -153,12 +153,13 @@ export function SiteFooter() {
                 href={SITE.appStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-[2px] bg-[#111111] hover:bg-[#242424] text-white px-4 py-2 text-xs font-semibold transition-colors shadow-xs"
+                className="app-badge-btn"
+                aria-label="Download on the Apple App Store"
               >
-                <Apple className="size-4" />
-                <div className="text-left leading-tight">
-                  <span className="block text-[9px] text-gray-400">Download on the</span>
-                  <span className="block text-[11px] font-bold">App Store</span>
+                <Apple className="size-5.5 fill-white shrink-0" />
+                <div className="text-left">
+                  <span className="app-badge-sub">Download on the</span>
+                  <span className="app-badge-title">App Store</span>
                 </div>
               </a>
 
@@ -166,16 +167,22 @@ export function SiteFooter() {
                 href={SITE.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-[2px] bg-[#111111] hover:bg-[#242424] text-white px-4 py-2 text-xs font-semibold transition-colors shadow-xs"
+                className="app-badge-btn"
+                aria-label="Get it on Google Play"
               >
-                <Smartphone className="size-4 text-[#e5b850]" />
-                <div className="text-left leading-tight">
-                  <span className="block text-[9px] text-gray-400">GET IT ON</span>
-                  <span className="block text-[11px] font-bold">Google Play</span>
+                <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                  <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                  <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                  <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                  <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                </svg>
+                <div className="text-left">
+                  <span className="app-badge-sub">GET IT ON</span>
+                  <span className="app-badge-title">Google Play</span>
                 </div>
               </a>
 
-              <span className="text-xs text-[#737373] ml-1">
+              <span className="text-[15px] text-[#737373] ml-1">
                 Unity Platform · iOS & Android
               </span>
             </div>
@@ -231,7 +238,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-4">
             {/* Facebook */}
             <a
-              href="https://facebook.com/peersglobal"
+              href={SITE.socials.facebook}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow Peers Global on Facebook"
@@ -242,22 +249,9 @@ export function SiteFooter() {
               </svg>
             </a>
 
-            {/* X / Twitter */}
-            <a
-              href="https://x.com/peersglobal"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Peers Global on X"
-              className="flex size-9 items-center justify-center rounded-full bg-[#f2f2f2] hover:bg-[#e6e6e6] text-[#111111] transition-colors shadow-2xs"
-            >
-              <svg className="size-3.5 fill-current" viewBox="0 0 24 24" aria-hidden>
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-
             {/* YouTube */}
             <a
-              href="https://youtube.com/@peersglobal"
+              href={SITE.socials.youtube}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Subscribe to Peers Global on YouTube"
@@ -270,7 +264,7 @@ export function SiteFooter() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com/company/peersglobal"
+              href={SITE.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Connect with Peers Global on LinkedIn"
@@ -283,7 +277,7 @@ export function SiteFooter() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com/peersglobal"
+              href={SITE.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow Peers Global on Instagram"

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import {
   Smartphone, Sparkles, ShieldCheck, MapPin, Zap, CheckCircle2,
-  BookOpen, Users, ClipboardList, ArrowLeftRight, Star, CalendarDays, ChevronRight
+  BookOpen, Users, ClipboardList, ArrowLeftRight, Star, CalendarDays, ChevronRight, Apple
 } from 'lucide-react'
 import { Card, Cta, SectionHead } from '@/components/site/ui'
 import { UNITY_ROLES } from '@/lib/data/content'
+import { SITE } from '@/lib/data/site'
 
 export const metadata: Metadata = {
   title: 'Peers Global Unity App | A Global Community of Entrepreneurs',
@@ -126,22 +127,35 @@ export default function UnityPage() {
 
             {/* Download Badges */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              <a href="#" className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/8 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/15 hover:border-white/30 hover:scale-105 shadow-lg">
-                <svg viewBox="0 0 20 20" className="size-5 fill-white shrink-0" aria-hidden>
-                  <path d="M14.5 10.7c0-2 1.3-3 1.4-3.1-0.8-1.1-2-1.3-2.4-1.3-1-0.1-2 0.6-2.5 0.6s-1.3-0.6-2.2-0.6c-1.1 0-2.2 0.7-2.8 1.7-1.2 2-0.3 5 0.8 6.7 0.6 0.8 1.2 1.7 2.1 1.7s1.1-0.5 2.2-0.5 1.3 0.5 2.2 0.5 1.5-0.9 2-1.7c0.7-1 1-1.9 1-2zm-2.8-7.2c0.5-0.6 0.9-1.4 0.8-2.2-0.7 0-1.6 0.5-2.1 1.1-0.5 0.5-0.9 1.4-0.8 2.1 0.8 0.1 1.6-0.4 2.1-1z" />
-                </svg>
+              <a
+                href={SITE.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="app-badge-btn"
+                aria-label="Download on the Apple App Store"
+              >
+                <Apple className="size-5.5 fill-white shrink-0" />
                 <div className="text-left">
-                  <p className="text-[0.6rem] font-mono text-white/50 uppercase">Download on the</p>
-                  <p className="text-sm font-bold text-white">App Store</p>
+                  <span className="app-badge-sub">Download on the</span>
+                  <span className="app-badge-title">App Store</span>
                 </div>
               </a>
-              <a href="#" className="group inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/8 px-5 py-3 backdrop-blur-md transition-all hover:bg-white/15 hover:border-white/30 hover:scale-105 shadow-lg">
-                <svg viewBox="0 0 20 20" className="size-5 fill-white shrink-0" aria-hidden>
-                  <path d="M3.2 1.8L11.5 10 3.2 18.2c-0.3-0.2-0.5-0.5-0.5-0.9V2.7c0-0.4 0.2-0.7 0.5-0.9zm10.6 5.6L16.2 9l-2 1.1L12 9l-0.4-0.4L13.8 7.4zm-0.8 5.3L16.2 11l-2 1.1L12 11l1.8-1.6 1.2 3.3zM4 1l8 4.6-1.8 1.8L4 1zm0 18l6.2-6.4L12 14.6 4 19z" />
+              <a
+                href={SITE.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="app-badge-btn"
+                aria-label="Get it on Google Play"
+              >
+                <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                  <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                  <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                  <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                  <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
                 </svg>
                 <div className="text-left">
-                  <p className="text-[0.6rem] font-mono text-white/50 uppercase">Get it on</p>
-                  <p className="text-sm font-bold text-white">Google Play</p>
+                  <span className="app-badge-sub">GET IT ON</span>
+                  <span className="app-badge-title">Google Play</span>
                 </div>
               </a>
             </div>

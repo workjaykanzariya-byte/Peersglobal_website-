@@ -126,7 +126,7 @@ export function SiteHeader() {
             {/* Smooth Sliding Pill Indicator */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 -translate-y-1/2 h-9 rounded-full border border-[#0062D2]/20 bg-[#EFF6FF]/80 shadow-[0_2px_8px_rgba(0,98,210,0.06)] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              className="pointer-events-none absolute top-1/2 -translate-y-1/2 h-9 rounded-full border border-[#1D4ED8]/20 bg-[#EFF6FF]/90 shadow-[0_2px_8px_rgba(29,78,216,0.08)] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
               style={{
                 left: pillStyle.left,
                 width: pillStyle.width,
@@ -156,10 +156,10 @@ export function SiteHeader() {
                       }}
                       href={item.href}
                       className={cn(
-                        'relative z-10 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap inline-flex items-center',
+                        'relative z-10 px-4 py-2 text-[13.5px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap inline-flex items-center',
                         isHovered || (isActive && !openMenu)
-                          ? 'text-[#0062D2] font-semibold'
-                          : 'text-slate-700 hover:text-[#0062D2]'
+                          ? 'text-[#1D4ED8] font-bold'
+                          : 'text-slate-700 hover:text-[#1D4ED8]'
                       )}
                     >
                       {item.label}
@@ -182,17 +182,17 @@ export function SiteHeader() {
                     href={item.href}
                     aria-expanded={isHovered}
                     className={cn(
-                      'relative z-10 inline-flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap select-none',
+                      'relative z-10 inline-flex items-center gap-1.5 px-4 py-2 text-[13.5px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap select-none',
                       isHovered || (isActive && !openMenu)
-                        ? 'text-[#0062D2] font-semibold'
-                        : 'text-slate-700 hover:text-[#0062D2]'
+                        ? 'text-[#1D4ED8] font-bold'
+                        : 'text-slate-700 hover:text-[#1D4ED8]'
                     )}
                   >
                     <span>{item.label}</span>
                     <ChevronDown
                       className={cn(
                         'size-3.5 transition-transform duration-200 ease-out',
-                        isHovered ? 'rotate-180 text-[#0062D2] opacity-100' : 'text-slate-400 opacity-70'
+                        isHovered ? 'rotate-180 text-[#1D4ED8] opacity-100' : 'text-slate-400 opacity-70'
                       )}
                     />
                   </Link>
@@ -215,13 +215,14 @@ export function SiteHeader() {
                       <div className="absolute -top-3 left-0 right-0 h-4 bg-transparent" />
 
                       {/* Clean Floating White Card */}
-                      <div className="w-[360px] sm:w-[440px] rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-3 shadow-[0_20px_45px_rgba(15,23,42,0.12),0_2px_8px_rgba(15,23,42,0.04)] text-slate-900">
+                      <div className="w-[360px] sm:w-[440px] rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-3.5 shadow-[0_20px_45px_rgba(15,23,42,0.12),0_2px_8px_rgba(15,23,42,0.04)] text-slate-900">
                         {/* Header Label */}
-                        <div className="flex items-center justify-between px-2.5 pb-2 mb-1.5 border-b border-slate-100">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2]">
+                        <div className="flex items-center justify-between px-2.5 pb-2.5 mb-1.5 border-b border-slate-100">
+                          <span className="text-[11.5px] font-bold uppercase tracking-wider text-[#1D4ED8] flex items-center gap-1.5">
+                            <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                             {item.label}
                           </span>
-                          <span className="text-[10px] text-slate-400 font-medium">
+                          <span className="text-[10.5px] text-slate-400 font-medium">
                             {item.children?.length} sections
                           </span>
                         </div>
@@ -236,12 +237,12 @@ export function SiteHeader() {
                                 href={child.href}
                                 onClick={() => setOpenMenu(null)}
                                 className={cn(
-                                  'group/link flex flex-col justify-center rounded-xl px-2.5 py-2 transition-all duration-150 hover:bg-[#EFF6FF]/60 hover:translate-x-0.5',
-                                  isChildActive && 'bg-[#EFF6FF] text-[#0062D2]'
+                                  'group/link flex flex-col justify-center rounded-xl px-3 py-2 transition-all duration-150 hover:bg-[#EFF6FF]/70 hover:translate-x-0.5',
+                                  isChildActive && 'bg-[#EFF6FF] text-[#1D4ED8]'
                                 )}
                               >
                                 <div className="flex items-center justify-between gap-1">
-                                  <span className="text-[13px] font-semibold text-slate-800 group-hover/link:text-[#0062D2] transition-colors truncate">
+                                  <span className="text-[13.5px] font-semibold text-slate-800 group-hover/link:text-[#1D4ED8] transition-colors truncate">
                                     {child.label}
                                   </span>
                                   {child.phase === 2 && (
@@ -251,7 +252,7 @@ export function SiteHeader() {
                                   )}
                                 </div>
                                 {child.desc && (
-                                  <p className="line-clamp-1 text-[11px] leading-normal text-slate-500 group-hover/link:text-slate-600 mt-0.5 font-normal">
+                                  <p className="line-clamp-1 text-[11.5px] leading-normal text-slate-500 group-hover/link:text-slate-600 mt-0.5 font-normal">
                                     {child.desc}
                                   </p>
                                 )}
@@ -262,14 +263,14 @@ export function SiteHeader() {
 
                         {/* Footer Explore CTA */}
                         {item.ctaCard && (
-                          <div className="mt-2 pt-2 border-t border-slate-100 px-2 flex items-center justify-between">
-                            <span className="text-[11px] text-slate-500 font-medium truncate max-w-[240px]">
+                          <div className="mt-2.5 pt-2.5 border-t border-slate-100 px-2 flex items-center justify-between">
+                            <span className="text-[11.5px] text-slate-500 font-medium truncate max-w-[240px]">
                               {item.ctaCard.eyebrow || 'Peers Global'}
                             </span>
                             <Link
                               href={item.ctaCard.ctaHref}
                               onClick={() => setOpenMenu(null)}
-                              className="inline-flex items-center gap-1 text-[11.5px] font-bold text-[#0062D2] hover:text-[#0052B4] transition-colors"
+                              className="inline-flex items-center gap-1 text-[12px] font-bold text-[#1D4ED8] hover:text-[#E11D48] transition-colors"
                             >
                               <span>{item.ctaCard.ctaText || 'Explore →'}</span>
                             </Link>
@@ -285,29 +286,14 @@ export function SiteHeader() {
 
           {/* Right Side Action: ENTER PEERS GLOBAL */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Dark Frosted Glass Pill with Logo Gradient Border & Dual-Tone Hover Glow */}
-            <div className="relative group/nav-btn">
-              {/* Ambient Logo Gradient Glow (Red -> Blue) behind the button on hover */}
-              <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/nav-btn:opacity-75 group-hover/nav-btn:blur-lg" />
-              
-              <Link
-                href="/apply"
-                onMouseEnter={() => setOpenMenu(null)}
-                className="group relative inline-flex items-center justify-center gap-2 rounded-full border border-slate-700/60 bg-[#0B1528] px-5 py-2.5 text-xs font-semibold tracking-wider text-white shadow-[0_2px_10px_rgba(0,0,0,0.2)] backdrop-blur-md transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-[#E53935] hover:via-[#2563EB] hover:to-[#1E4ED8] hover:shadow-[0_0_24px_rgba(0,98,210,0.4),0_0_16px_rgba(229,57,53,0.3)] hover:scale-[1.03] active:scale-[0.97] whitespace-nowrap overflow-hidden"
-              >
-                {/* Subtle Logo Red Accent Dot */}
-                <span className="size-1.5 rounded-full bg-[#E53935] shadow-[0_0_6px_#E53935] group-hover:bg-white group-hover:shadow-[0_0_8px_white] transition-colors" />
-
-                <span className="relative z-10 text-white font-semibold tracking-wider">
-                  ENTER PEERS GLOBAL
-                </span>
-                
-                <ArrowRight className="relative z-10 size-3.5 text-slate-300 group-hover:text-white transition-all duration-300 group-hover:translate-x-1" />
-
-                {/* Shimmer Light Reflection Sweep on Hover */}
-                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-              </Link>
-            </div>
+            <Link
+              href="/apply"
+              onMouseEnter={() => setOpenMenu(null)}
+              className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors whitespace-nowrap shadow-none"
+            >
+              <span>ENTER PEERS GLOBAL</span>
+              <ArrowRight className="size-3.5" />
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -315,7 +301,7 @@ export function SiteHeader() {
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
               aria-expanded={mobileMenuOpen}
-              className="flex size-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-700 lg:hidden hover:bg-slate-100 focus:outline-none"
+              className="flex size-9 items-center justify-center rounded-[4px] border border-slate-200 bg-slate-50 text-slate-700 lg:hidden hover:bg-slate-100 focus:outline-none"
             >
               {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
@@ -328,18 +314,14 @@ export function SiteHeader() {
         {mobileMenuOpen ? (
           <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 py-5 shadow-2xl text-slate-800 animate-in slide-in-from-top-2 duration-200">
             <div className="mb-4 flex flex-col gap-2.5 border-b border-slate-200 pb-4">
-              <div className="relative group/mobile-btn">
-                <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] to-[#1E4ED8] opacity-0 blur-md transition-all duration-300 group-hover/mobile-btn:opacity-60" />
-                <Link
-                  href="/apply"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="relative flex items-center justify-center gap-2 overflow-hidden rounded-full border border-slate-700/60 bg-[#0B1528] py-3 text-xs font-semibold tracking-wider text-white shadow-md transition-all"
-                >
-                  <span className="size-1.5 rounded-full bg-[#E53935] shadow-[0_0_6px_#E53935]" />
-                  <span className="relative z-10">ENTER PEERS GLOBAL</span>
-                  <ArrowRight className="relative z-10 size-4" />
-                </Link>
-              </div>
+              <Link
+                href="/apply"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] py-2.5 text-xs font-semibold tracking-wide text-white transition-colors"
+              >
+                <span>ENTER PEERS GLOBAL</span>
+                <ArrowRight className="size-4" />
+              </Link>
             </div>
 
             <div className="flex flex-col divide-y divide-slate-100">

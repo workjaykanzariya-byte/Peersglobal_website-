@@ -7,6 +7,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   Award,
+  Apple,
   BarChart3,
   Bell,
   Bookmark,
@@ -68,8 +69,6 @@ import { OUTCOME_STATS, SITE } from '@/lib/data/site'
    ========================================================================= */
 
 export function WhoWeAreSection() {
-  const [isRevealed, setIsRevealed] = useState(false)
-  const [isTransitioning, setIsTransitioning] = useState(false)
   const [whoWeAreVideo, setWhoWeAreVideo] = useState('/videos/homepage-hero-bg.mp4')
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -103,38 +102,13 @@ export function WhoWeAreSection() {
     }
   }, [])
 
-  useEffect(() => {
-    if (isRevealed && videoRef.current) {
-      videoRef.current.defaultMuted = true
-      videoRef.current.muted = true
-      const playPromise = videoRef.current.play()
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {})
-      }
-    }
-  }, [isRevealed, whoWeAreVideo])
-
-  const handleReveal = () => {
-    if (isTransitioning) return
-    setIsTransitioning(true)
-    setTimeout(() => {
-      setIsRevealed(true)
-      setIsTransitioning(false)
-    }, 700)
-  }
-
-  const handleReset = () => {
-    setIsRevealed(false)
-    setIsTransitioning(false)
-  }
-
   const pillars = [
     {
       title: 'A leadership organisation, not a networking group.',
       body: 'Built on the LSR Growth Model — Learning, Sales and Resources — with a mission to enhance the lives of one million entrepreneurs.',
       tag: 'LSR Model',
       icon: Layers,
-      bgColor: 'bg-blue-50 text-blue-600 border-blue-100',
+      bgColor: 'bg-blue-50 text-[#1D4ED8] border-blue-100',
       image: '/images/who-we-are-mountain.jpg',
       link: '/the-idea',
     },
@@ -143,7 +117,7 @@ export function WhoWeAreSection() {
       body: '20–40 curated entrepreneurs. Category exclusivity, so there is no competition inside the room.',
       tag: 'Category Exclusivity',
       icon: ShieldCheck,
-      bgColor: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+      bgColor: 'bg-rose-50 text-[#E11D48] border-rose-100',
       image: '/images/who-we-are-inner-board.jpg',
       link: '/circles',
     },
@@ -152,7 +126,7 @@ export function WhoWeAreSection() {
       body: 'Most communities measure activity. We measure impact. Strictly unweighted and confirmed outcomes.',
       tag: 'True Impact',
       icon: Target,
-      bgColor: 'bg-amber-50 text-amber-600 border-amber-100',
+      bgColor: 'bg-emerald-50 text-emerald-600 border-emerald-100',
       image: '/images/who-we-are-impact.jpg',
       link: '/1-million-mission',
     },
@@ -161,281 +135,223 @@ export function WhoWeAreSection() {
       body: 'Two Family Meetups a year. A Confidential Forum. Lifelong relationships measured in decades.',
       tag: 'Lifelong Bonds',
       icon: HeartHandshake,
-      bgColor: 'bg-purple-50 text-purple-600 border-purple-100',
+      bgColor: 'bg-amber-50 text-amber-600 border-amber-100',
       image: '/images/who-we-are-friends.jpg',
       link: '/stories',
     },
   ]
 
   return (
-    <section id="who-we-are" className="relative overflow-hidden bg-[#FBFCFE] border-b border-[var(--border)] py-14 sm:py-20 lg:py-24">
+    <section id="who-we-are" className="relative overflow-hidden bg-[#f8fafc] border-b border-slate-200 py-16 sm:py-20 lg:py-24">
       <div className="shell flex flex-col gap-12 lg:gap-14">
 
-        {!isRevealed ? (
-          /* Clean White Teaser with only "Strong Together" in Logo Color */
+        {/* Top Header Row */}
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2.5">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
+              WHO WE ARE &amp; WHAT PEERS GLOBAL IS
+            </span>
+          </div>
+        </div>
+
+        {/* Top Hero Banner with Smooth Left-Fading Video/Visual */}
+        <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] bg-white border border-slate-200/90 shadow-sm min-h-[460px] lg:min-h-[500px] flex items-center">
+
+          {/* Media Background Layer (Right ~60% fading into white on the left) */}
           <div
-            onClick={handleReveal}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') handleReveal()
+            className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
             }}
-            className={`group relative min-h-[360px] sm:min-h-[440px] w-full cursor-pointer overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 p-8 sm:p-14 flex items-center justify-center text-center shadow-sm transition-all duration-700 select-none hover:border-blue-200 hover:shadow-md ${isTransitioning
-              ? 'opacity-0 scale-95 pointer-events-none'
-              : 'opacity-100 scale-100'
-              }`}
           >
-            {/* Center Content: "Strong Together" & "click here" in Logo Blue & Script Font */}
-            <div className="relative z-10 flex flex-col items-center gap-2 sm:gap-3 transition-transform duration-300 group-hover:scale-105">
-              <h3
-                className="text-6xl sm:text-7xl lg:text-8xl font-semibold text-[#1E4ED8] drop-shadow-sm select-none leading-none"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Who We Are...
-              </h3>
-              <p
-                className="text-xl sm:text-2xl text-[#1E4ED8] font-normal select-none tracking-wide"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                click here
-              </p>
+            {/* Active Directly Playing Video */}
+            <video
+              ref={videoRef}
+              key={whoWeAreVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="size-full object-cover object-center"
+            >
+              <source src={whoWeAreVideo} type="video/mp4" />
+              <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
+              <source src="/videos/hero-background.mp4" type="video/mp4" />
+            </video>
+
+            {/* Seamless gradient overlays */}
+            <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+
+            {/* Top-Right Tags */}
+            <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 border border-white/20 text-xs font-bold text-white tracking-widest uppercase backdrop-blur-md">
+                <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                PEOPLE · IDEAS · IMPACT
+              </span>
             </div>
 
-            {/* Black transition overlay when clicked */}
-            {isTransitioning && (
-              <div className="absolute inset-0 z-50 bg-black transition-opacity duration-700 ease-out animate-in fade-in" />
-            )}
+            {/* Bottom-Right Frosted Glass Pill */}
+            <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
+              <div className="rounded-xl border border-white/20 bg-black/50 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
+                <p className="text-[10px] uppercase font-bold tracking-widest text-slate-300">
+                  A STRONGER
+                </p>
+                <p className="text-xs font-bold tracking-wider text-white">
+                  MORE CONNECTED WORLD
+                </p>
+              </div>
+            </div>
           </div>
-        ) : (
-          /* The Full Who We Are Section Revealed */
-          <div className="flex flex-col gap-12 lg:gap-14 animate-in fade-in slide-in-from-bottom-6 duration-700 ease-out">
-            {/* Top Bar with Replay Button */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
-                  STRONG TOGETHER
+
+          {/* Left Content Area (Overlaid on the crisp white side) */}
+          <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+            <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
+              <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2.65rem] font-bold tracking-tight text-slate-950 leading-[1.15]">
+                A global community of entrepreneurs who choose to{' '}
+                <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  grow together.
                 </span>
-              </div>
-              <button
-                onClick={handleReset}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1 text-xs font-semibold text-slate-600 shadow-xs transition-all hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200 cursor-pointer"
-                title="Replay the Stronger Together intro"
-              >
-                <span>↺</span>
-                <span>Replay Intro</span>
-              </button>
-            </div>
+              </h2>
 
-            {/* Top Hero Banner with Smooth Left-Fading Video/Visual */}
-            <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/80 shadow-sm min-h-[460px] lg:min-h-[500px] flex items-center">
+              <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-lg font-normal">
+                Peers Global brings together entrepreneurs and business leaders from across industries, cities and countries into one governed, high-trust leadership ecosystem.
+              </p>
 
-              {/* Media Background Layer (Right ~60% fading into white on the left) */}
-              <div
-                className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-                style={{
-                  maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                }}
-              >
-                {/* Active Directly Playing Video */}
-                <video
-                  ref={videoRef}
-                  key={whoWeAreVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="size-full object-cover object-center"
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
+                <Link
+                  href="/the-idea"
+                  className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-sm font-semibold text-white transition-colors shadow-none"
                 >
-                  <source src={whoWeAreVideo} type="video/mp4" />
-                  <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
-                  <source src="/videos/hero-background.mp4" type="video/mp4" />
-                </video>
+                  Explore Peers Global
+                  <ArrowRight className="size-4" />
+                </Link>
 
-                {/* Seamless gradient overlays for the signature misty fade */}
-                <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-                {/* Top-Right Script Typography */}
-                <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                  <p className="text-lg sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                    People
-                  </p>
-                  <p className="text-lg sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                    Ideas
-                  </p>
-                  <p className="text-lg sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                    Opportunities
-                  </p>
-                  <p className="text-xl sm:text-3xl text-white font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                    Impact
-                  </p>
-                </div>
-
-                {/* Bottom-Right Frosted Glass Pill */}
-                <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                  <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                    <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                      A STRONGER
-                    </p>
-                    <p className="text-xs font-bold tracking-wider text-white">
-                      MORE CONNECTED WORLD
-                    </p>
+                <Link
+                  href="/video-stories"
+                  className="group inline-flex items-center gap-3 transition-colors"
+                >
+                  <span className="flex size-10 items-center justify-center rounded-full border border-slate-300 bg-white text-[#1D4ED8] shadow-xs transition-all group-hover:scale-105 group-hover:border-[#1D4ED8] group-hover:bg-blue-50">
+                    <Play className="size-3.5 fill-current ml-0.5" />
+                  </span>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 leading-none">
+                      Watch
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors leading-tight">
+                      Our Story
+                    </span>
                   </div>
-                </div>
+                </Link>
               </div>
 
-              {/* Left Content Area (Overlaid on the crisp white side) */}
-              <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-                <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
-                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
-                    A global community of entrepreneurs who choose to{' '}
-                    <span className="italic text-[#1E4ED8]">grow together.</span>
-                  </h2>
-
-                  <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-lg font-normal">
-                    Peers Global brings together entrepreneurs and business leaders from across industries, cities and countries into one connected community.
-                  </p>
-
-                  {/* CTA Buttons */}
-                  <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
-                    <Link
-                      href="/the-idea"
-                      className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
-                    >
-                      Explore Peers Global
-                      <ArrowRight className="size-4" />
-                    </Link>
-
-                    <Link
-                      href="/video-stories"
-                      className="group inline-flex items-center gap-3 transition-colors"
-                    >
-                      <span className="flex size-10 items-center justify-center rounded-full border-2 border-blue-600/40 bg-white text-[#1E4ED8] shadow-sm transition-all group-hover:scale-105 group-hover:border-blue-600 group-hover:bg-blue-50">
-                        <Play className="size-3.5 fill-current ml-0.5" />
-                      </span>
-                      <div className="flex flex-col text-left">
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 leading-none">
-                          Watch
-                        </span>
-                        <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors leading-tight">
-                          Our Story
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-
-                  {/* 3 Stats underneath matching the mockup */}
-                  <div className="mt-2 grid grid-cols-3 gap-4 sm:gap-6 border-t border-slate-200/80 pt-6">
-                    <div>
-                      <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">1M+</p>
-                      <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Entrepreneurs to Impact</p>
-                      <p className="text-[11px] text-slate-400 font-medium">By 2030</p>
-                    </div>
-                    <div>
-                      <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">18</p>
-                      <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Industry &amp; Goal Circles</p>
-                      <p className="text-[11px] text-slate-400 font-medium">Category-exclusive</p>
-                    </div>
-                    <div>
-                      <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">100+</p>
-                      <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Events &amp; Initiatives</p>
-                      <p className="text-[11px] text-slate-400 font-medium">Every Year</p>
-                    </div>
-                  </div>
+              {/* 3 Stats underneath matching Microsoft layout */}
+              <div className="mt-2 grid grid-cols-3 gap-4 sm:gap-6 border-t border-slate-200 pt-6">
+                <div>
+                  <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">1M+</p>
+                  <p className="text-xs text-slate-700 font-semibold leading-snug mt-1">Entrepreneurs to Impact</p>
+                  <p className="text-[11px] text-slate-500 font-medium">By 2030</p>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">18</p>
+                  <p className="text-xs text-slate-700 font-semibold leading-snug mt-1">Industry &amp; Goal Circles</p>
+                  <p className="text-[11px] text-slate-500 font-medium">Category-exclusive</p>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">100+</p>
+                  <p className="text-xs text-slate-700 font-semibold leading-snug mt-1">Events &amp; Initiatives</p>
+                  <p className="text-[11px] text-slate-500 font-medium">Every Year</p>
                 </div>
               </div>
-            </div>
-
-            {/* Middle Callout Card: We call our members Peers */}
-            <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-50/70 via-white to-slate-50/80 p-6 sm:p-8 shadow-sm">
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                <div className="flex items-start gap-4 sm:gap-5 max-w-4xl">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#1E4ED8] text-white shadow-md shadow-blue-500/25">
-                    <Users className="size-6" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-                      We call our members <span className="text-[#1E4ED8]">Peers</span>.
-                    </h3>
-                    <p className="text-sm sm:text-[0.95rem] leading-relaxed text-slate-600">
-                      A Peer is an entrepreneur who believes in building trusted relationships, contributing
-                      to others, and growing together. Peers meet in Trusted Circles, collaborate through the
-                      Unity App, learn from one another, create opportunities for one another, and carry the
-                      community forward through leadership.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Handwritten script stamp on right */}
-                <div className="shrink-0 text-right self-end md:self-center select-none">
-                  <p
-                    className="text-2xl sm:text-3xl text-[#1E4ED8] -rotate-3 font-semibold drop-shadow-sm whitespace-nowrap"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Stronger Together ✨
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Grid: 4 Feature Cards with Images at the bottom */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {pillars.map((p) => {
-                const Icon = p.icon
-                return (
-                  <div
-                    key={p.title}
-                    className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl"
-                  >
-                    {/* Upper Text Content */}
-                    <div className="flex flex-col gap-3.5 p-6">
-                      <div className="flex items-center justify-between">
-                        <span className={`inline-flex items-center justify-center rounded-xl p-2.5 border ${p.bgColor} shadow-xs`}>
-                          <Icon className="size-5" />
-                        </span>
-                        <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                          {p.tag}
-                        </span>
-                      </div>
-
-                      <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
-                        {p.title}
-                      </h3>
-
-                      <p className="text-xs sm:text-[13px] leading-relaxed text-slate-500">
-                        {p.body}
-                      </p>
-                    </div>
-
-                    {/* Bottom Image Thumbnail with Hover Reveal */}
-                    <div className="relative aspect-[16/10] w-full overflow-hidden border-t border-slate-100 bg-slate-100">
-                      <Image
-                        src={p.image}
-                        alt={p.title}
-                        fill
-                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent opacity-85 transition-opacity group-hover:opacity-95" />
-
-                      <Link
-                        href={p.link}
-                        className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-full bg-white/90 backdrop-blur-sm px-3.5 py-1.5 text-xs font-semibold text-slate-900 shadow transition-all hover:bg-white"
-                      >
-                        <span>Learn More</span>
-                        <ArrowRight className="size-3 text-blue-600 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </div>
-                  </div>
-                )
-              })}
             </div>
           </div>
-        )}
+        </div>
+
+        {/* Middle Callout Card: We call our members Peers */}
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="flex items-start gap-4 sm:gap-5 max-w-4xl">
+              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md">
+                <Users className="size-6" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  We call our members <span className="text-[#1D4ED8]">Peers</span>.
+                </h3>
+                <p className="text-sm sm:text-[0.95rem] leading-relaxed text-slate-600">
+                  A Peer is an entrepreneur who believes in building trusted relationships, contributing
+                  to others, and growing together. Peers meet in Trusted Circles, collaborate through the
+                  Unity App, learn from one another, create opportunities for one another, and carry the
+                  community forward through leadership.
+                </p>
+              </div>
+            </div>
+
+            <div className="shrink-0 text-right self-end md:self-center select-none">
+              <span className="brand-pill">
+                STRONGER TOGETHER
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Grid: 4 Feature Cards with Images */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((p) => {
+            const Icon = p.icon
+            return (
+              <div
+                key={p.title}
+                className="ms-card group flex flex-col justify-between overflow-hidden"
+              >
+                {/* Upper Text Content */}
+                <div className="flex flex-col gap-3.5 p-6">
+                  <div className="flex items-center justify-between">
+                    <span className={`inline-flex items-center justify-center rounded-xl p-2.5 border ${p.bgColor} shadow-xs`}>
+                      <Icon className="size-5" />
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      {p.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-bold text-slate-900 leading-snug group-hover:text-[#1D4ED8] transition-colors">
+                    {p.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-[13px] leading-relaxed text-slate-500">
+                    {p.body}
+                  </p>
+                </div>
+
+                {/* Bottom Image Thumbnail with Hover Reveal */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden border-t border-slate-100 bg-slate-100">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent opacity-85 transition-opacity group-hover:opacity-95" />
+
+                  <Link
+                    href={p.link}
+                    className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-full bg-white/95 backdrop-blur-sm px-3.5 py-1.5 text-xs font-semibold text-slate-900 shadow transition-all hover:bg-white"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight className="size-3 text-[#1D4ED8] transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
+        </div>
 
       </div>
     </section>
@@ -452,62 +368,66 @@ export function PhilosophySection() {
       num: '1. Relationships',
       desc: 'Business grows through relationships',
       icon: Users,
-      color: '#2563EB',
-      textColor: 'text-[#2563EB]',
+      color: '#1D4ED8',
+      textColor: 'text-[#1D4ED8]',
     },
     {
       num: '2. Trust',
       desc: 'Relationships grow through trust',
       icon: ShieldCheck,
-      color: '#10B981',
+      color: '#059669',
       textColor: 'text-slate-900',
     },
     {
       num: '3. Contribution',
       desc: 'Trust grows through contribution',
       icon: Handshake,
-      color: '#F59E0B',
+      color: '#D97706',
       textColor: 'text-slate-900',
     },
     {
       num: '4. Impact',
       desc: 'Contribution creates true impact',
       icon: TrendingUp,
-      color: '#EF4444',
+      color: '#E11D48',
       textColor: 'text-slate-900',
     },
   ]
 
   return (
-    <section className="relative overflow-hidden bg-white border-b border-[var(--border)]">
+    <section className="relative overflow-hidden bg-white border-b border-slate-200">
       <div className="grid lg:grid-cols-[1.14fr_0.86fr] items-stretch min-h-[580px]">
         {/* Left Column: Content */}
         <div className="flex flex-col justify-center px-6 py-12 sm:px-12 sm:py-16 lg:pl-16 lg:pr-12">
           <div className="flex flex-col gap-5 max-w-xl">
             {/* Eyebrow */}
-            <p className="text-xs font-bold tracking-[0.22em] text-[#1E4ED8] uppercase">
-              OUR PHILOSOPHY
-            </p>
+            <div className="flex items-center gap-2.5">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
+                OUR PHILOSOPHY
+              </span>
+            </div>
 
             {/* H2 Title */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-serif font-normal text-slate-900 leading-[1.18] tracking-tight">
-              Peers are Partners<br />
-              in Business and<br />
-              <span className="italic text-[#1E4ED8]">Friends in Life.</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-slate-950 leading-[1.15] tracking-tight">
+              Peers are Partners in Business and{' '}
+              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                Friends in Life.
+              </span>
             </h2>
 
             {/* Subline */}
-            <p className="text-sm sm:text-base font-semibold text-[#1E4ED8]">
-              This is the sentence the whole community runs on.
+            <p className="text-sm sm:text-base font-semibold text-[#1D4ED8]">
+              This is the conviction the whole community runs on.
             </p>
 
             {/* Body */}
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal">
+            <p className="text-sm leading-relaxed text-slate-600 font-normal">
               A Peer gives an introduction without keeping score. Shares a hard-won lesson without charging for it. Celebrates another Peer&apos;s win as if it were their own. Over time, business partners become friends, and friends become the reason the business grows.
             </p>
 
             {/* 4 Steps Horizontal Row */}
-            <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 pt-2 border-t border-slate-100">
+            <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 pt-3 border-t border-slate-100">
               {steps.map((s) => {
                 const Icon = s.icon
                 return (
@@ -516,7 +436,7 @@ export function PhilosophySection() {
                     <span className={`text-xs sm:text-[13px] font-bold ${s.textColor}`}>
                       {s.num}
                     </span>
-                    <span className="text-[11px] leading-snug text-slate-500">
+                    <span className="text-[11.5px] leading-snug text-slate-500">
                       {s.desc}
                     </span>
                   </div>
@@ -528,14 +448,14 @@ export function PhilosophySection() {
             <div className="mt-6 pt-5 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
               <div className="flex items-center gap-2.5 flex-1 min-w-[220px]">
                 <span className="text-xl font-serif text-slate-400 select-none">“</span>
-                <p className="text-xs sm:text-sm italic font-medium text-slate-700 whitespace-nowrap">
+                <p className="text-xs sm:text-sm font-semibold text-slate-700 whitespace-nowrap">
                   Give first. Everything else follows.
                 </p>
                 <span className="h-px bg-slate-200 flex-1 hidden sm:block ml-2" />
               </div>
               <Link
                 href="/membership"
-                className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-none"
               >
                 Become a Peer
                 <ArrowRight className="size-3.5" />
@@ -555,16 +475,14 @@ export function PhilosophySection() {
           />
 
           {/* Soft dark vignette */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30 pointer-events-none" />
 
-          {/* Script typography in top-right */}
+          {/* Subtitle in top-right */}
           <div className="absolute top-8 right-8 z-10 text-right drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] pointer-events-none select-none">
-            <p className="text-xl sm:text-2xl text-white/90 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-              Better Conversations
-            </p>
-            <p className="text-2xl sm:text-3xl text-white font-medium leading-tight mt-1" style={{ fontFamily: 'var(--font-script)' }}>
-              Bigger Opportunities
-            </p>
+            <span className="inline-flex flex-col items-end gap-1 px-4 py-2.5 rounded-2xl bg-slate-950/75 border border-white/20 backdrop-blur-md">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Better Conversations</span>
+              <span className="text-sm font-bold text-white">Bigger Opportunities</span>
+            </span>
           </div>
 
           {/* Left curved wave swoosh overlay */}
@@ -579,7 +497,7 @@ export function PhilosophySection() {
             <path
               d="M 50,0 C 18,140 10,260 70,390 C 88,430 96,470 100,500"
               fill="none"
-              stroke="#3B82F6"
+              stroke="#1D4ED8"
               strokeWidth="2.5"
               opacity="0.4"
             />
@@ -782,7 +700,7 @@ export function CirclesSection() {
               <div className="flex flex-wrap gap-3 lg:justify-end">
                 <Link
                   href="/circles/find"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
                 >
                   Find Your Circle
                   <ArrowRight className="size-4 text-white" />
@@ -1015,21 +933,16 @@ export function CirclesSection() {
                 </p>
               </div>
 
-              {/* Right Column: Slanted Handwritten Note & Floating Pill Card */}
+              {/* Right Column: Executive Metric & Floating Pill Card */}
               <div className="flex flex-col items-start lg:items-end gap-3 justify-center">
-                {/* Slanted cursive note */}
-                <div className="font-serif italic text-slate-400 text-lg sm:text-xl -rotate-3 select-none leading-tight lg:text-right">
-                  <span>Different Industries,</span><br />
-                  <span className="relative inline-block text-slate-500">
-                    A Shared Purpose
-                    <svg className="absolute -bottom-1 left-0 w-full h-1.5 text-slate-300" viewBox="0 0 100 10" preserveAspectRatio="none">
-                      <path d="M 0 5 Q 50 9 100 4" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                    </svg>
-                  </span>
+                {/* Executive Sub-badge */}
+                <div className="flex items-center gap-2 rounded-full border border-slate-200/90 bg-white/90 px-4 py-1.5 shadow-xs backdrop-blur-sm">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-semibold text-slate-700">Different Industries · A Shared Purpose</span>
                 </div>
 
                 {/* Floating pill badge card */}
-                <div className="mt-1 flex items-center gap-3.5 rounded-2xl border border-slate-200/80 bg-white/95 px-5 py-3 shadow-[0_10px_25px_rgba(15,23,42,0.06)] backdrop-blur-md">
+                <div className="flex items-center gap-3.5 rounded-2xl border border-slate-200/80 bg-white/95 px-5 py-3 shadow-[0_10px_25px_rgba(15,23,42,0.06)] backdrop-blur-md">
                   <span className="flex size-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100/60 shadow-inner">
                     <Users className="size-5" />
                   </span>
@@ -1171,7 +1084,7 @@ export function CirclesSection() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2.5 rounded-full bg-[#1E4ED8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+              className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
             >
               Explore All 18 Circles
               <ArrowRight className="size-4 text-white" />
@@ -1179,7 +1092,7 @@ export function CirclesSection() {
 
             <div className="flex items-center gap-4 text-slate-400">
               <span className="h-px w-16 sm:w-24 bg-slate-300" />
-              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-slate-400">
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-slate-500">
                 STRONGER CIRCLES. A BRIGHTER TOMORROW.
               </span>
             </div>
@@ -1385,17 +1298,17 @@ export function CollaborationSection() {
           {/* Left Column: Heading, description, and button */}
           <div className="flex flex-col gap-6 lg:sticky lg:top-28">
             <div className="flex items-center gap-3">
-              <span className="h-0.5 w-6 bg-blue-600 shadow-[0_0_8px_#3b82f6]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-blue-600">
+              <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
                 DEFINED PRACTICE
               </span>
             </div>
 
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-[#0B1528] leading-[1.14]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold tracking-tight text-slate-950 leading-[1.15]">
               Eleven ways a<br />
               Peer creates<br />
               value for<br />
-              <span className="font-serif italic text-[#1E6BFF] drop-shadow-[0_2px_15px_rgba(30,107,255,0.25)]">
+              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                 another Peer.
               </span>
             </h2>
@@ -1407,7 +1320,7 @@ export function CollaborationSection() {
             <div className="pt-2">
               <Link
                 href="/10-forms-of-collaboration"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[#1E4ED8] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
               >
                 Explore Collaboration
                 <ArrowRight className="size-4 text-white" />
@@ -1798,15 +1711,11 @@ export function LsrSection() {
         </svg>
       </div>
 
-      {/* Top-right cursive watermark */}
-      <div className="pointer-events-none absolute top-8 right-6 lg:right-14 select-none opacity-60 hidden sm:block z-10">
-        <div className="font-serif italic text-xl lg:text-2xl font-normal leading-tight text-cyan-400/70 tracking-wide text-right transform -rotate-12">
-          <span className="block">Learn</span>
-          <span className="block mr-2">Sales</span>
-          <span className="block mr-4 font-semibold">Resources</span>
-          <svg viewBox="0 0 120 12" className="w-28 mt-1 stroke-cyan-400/50 fill-none ml-auto" strokeWidth="2" strokeLinecap="round">
-            <path d="M 4 6 Q 60 2 116 7" />
-          </svg>
+      {/* Top-right executive framework badge */}
+      <div className="pointer-events-none absolute top-8 right-6 lg:right-14 select-none opacity-80 hidden sm:block z-10">
+        <div className="flex flex-col items-end gap-1 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#60A5FA]">CORE FRAMEWORK</span>
+          <span className="text-xs font-semibold text-slate-200">Learn · Sales · Resources</span>
         </div>
       </div>
 
@@ -1818,16 +1727,18 @@ export function LsrSection() {
             <div>
               {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-3.5">
-                <span className="h-[2px] w-6 bg-cyan-400 rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">
                   THE FRAMEWORK
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal text-white tracking-tight leading-[1.18]">
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-white tracking-tight leading-[1.15]">
                 LSR — the three things{' '}
-                <span className="italic text-cyan-400 block">every business runs on.</span>
+                <span className="bg-gradient-to-r from-[#60A5FA] to-[#F43F5E] bg-clip-text text-transparent block">
+                  every business runs on.
+                </span>
               </h2>
 
               {/* Subtitle / Lede */}
@@ -1839,7 +1750,7 @@ export function LsrSection() {
               <div className="mt-7">
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-cyan-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_4px_25px_rgba(56,189,248,0.35)] transition-all duration-300 hover:bg-cyan-400 hover:shadow-[0_6px_30px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 group"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_18px_rgba(29,78,216,0.35)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_25px_rgba(225,29,72,0.45)] hover:-translate-y-0.5 active:translate-y-0 group"
                 >
                   See What Membership Includes
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -1949,7 +1860,7 @@ export function LsrSection() {
                     {/* Watermarked Number Background */}
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute right-5 top-2 font-serif text-[6rem] sm:text-[6.6rem] font-bold leading-none select-none text-white/[0.05]"
+                      className="pointer-events-none absolute right-5 top-2 text-[6rem] sm:text-[6.6rem] font-black leading-none select-none text-white/[0.04]"
                     >
                       {card.num}
                     </span>
@@ -1958,10 +1869,10 @@ export function LsrSection() {
                       <div>
                         {/* Top Counter & Tag */}
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold tracking-wider text-slate-400 font-mono">
+                          <span className="text-xs font-bold tracking-wider text-slate-400">
                             {card.indexLabel}
                           </span>
-                          <span className="rounded-full bg-blue-500/15 border border-blue-400/30 px-3 py-0.5 text-[10px] font-semibold text-cyan-300 backdrop-blur-sm">
+                          <span className="rounded-full bg-blue-500/15 border border-blue-400/30 px-3 py-0.5 text-[10px] font-bold text-cyan-300 backdrop-blur-sm">
                             {card.category}
                           </span>
                         </div>
@@ -1972,7 +1883,7 @@ export function LsrSection() {
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-serif text-lg sm:text-xl font-bold text-white leading-snug mt-4">
+                        <h3 className="text-lg sm:text-xl font-bold text-white leading-snug mt-4 tracking-tight">
                           {card.title}
                         </h3>
 
@@ -2010,7 +1921,7 @@ export function LsrSection() {
                   onClick={() => setActiveIndex(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
                   className={`h-1.5 transition-all duration-300 rounded-full ${activeIndex === idx
-                    ? 'w-7 bg-cyan-400 shadow-[0_0_10px_#38bdf8]'
+                    ? 'w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shadow-[0_0_12px_rgba(225,29,72,0.6)]'
                     : 'w-4 bg-slate-700 hover:bg-slate-600'
                     }`}
                 />
@@ -2071,25 +1982,37 @@ export function UnitySection() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Cta
+            <a
               href={SITE.appStoreUrl}
               target="_blank"
-              rel="noreferrer"
-              size="lg"
+              rel="noopener noreferrer"
+              className="app-badge-btn"
+              aria-label="Download on the Apple App Store"
             >
-              <Download aria-hidden className="size-4" />
-              Download on App Store
-            </Cta>
-            <Cta
+              <Apple className="size-5.5 fill-white shrink-0" />
+              <div className="text-left">
+                <span className="app-badge-sub">Download on the</span>
+                <span className="app-badge-title">App Store</span>
+              </div>
+            </a>
+            <a
               href={SITE.playStoreUrl}
               target="_blank"
-              rel="noreferrer"
-              variant="outline"
-              size="lg"
+              rel="noopener noreferrer"
+              className="app-badge-btn"
+              aria-label="Get it on Google Play"
             >
-              <Download aria-hidden className="size-4" />
-              Get it on Google Play
-            </Cta>
+              <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+              </svg>
+              <div className="text-left">
+                <span className="app-badge-sub">GET IT ON</span>
+                <span className="app-badge-title">Google Play</span>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -2192,21 +2115,11 @@ export function OutcomesSection() {
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[650px] rounded-full bg-blue-400/10 blur-3xl" />
       <div className="pointer-events-none absolute -top-32 right-10 size-[420px] rounded-full bg-indigo-400/10 blur-3xl" />
 
-      {/* Top Right Cursive Watermark: People Ideas Opportunities Impact */}
-      <div className="pointer-events-none absolute top-8 right-6 lg:right-14 select-none opacity-80 hidden md:block z-10">
-        <div className="font-serif italic text-2xl lg:text-[1.85rem] font-normal leading-tight text-[#0066FF]/65 tracking-wide text-right transform -rotate-12">
-          <span className="block">People</span>
-          <span className="block mr-3">Ideas</span>
-          <span className="block mr-6">Opportunities</span>
-          <span className="block mr-8 font-semibold">Impact</span>
-          <svg
-            viewBox="0 0 160 14"
-            className="w-40 sm:w-48 mt-1.5 stroke-sky-500 fill-none ml-auto"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          >
-            <path d="M 6 7 Q 80 2 154 8" />
-          </svg>
+      {/* Top Right Executive Pill Badge */}
+      <div className="pointer-events-none absolute top-8 right-6 lg:right-14 select-none opacity-85 hidden md:block z-10">
+        <div className="flex flex-col items-end gap-1 px-4 py-2.5 rounded-2xl bg-white/90 border border-slate-200/90 shadow-xs backdrop-blur-md">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#1D4ED8]">MEASURED IMPACT</span>
+          <span className="text-xs font-semibold text-slate-700">People · Ideas · Opportunities · Impact</span>
         </div>
       </div>
 
@@ -2220,16 +2133,18 @@ export function OutcomesSection() {
           <div className="flex flex-col">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-[#0066FF] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0066FF]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1D4ED8]">
                 PRACTICAL IMPACT
               </span>
             </div>
 
             {/* Main Heading */}
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal text-slate-900 tracking-tight leading-[1.18]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-slate-950 tracking-tight leading-[1.15]">
               We count lives{' '}
-              <span className="italic text-[#0066FF] block">impacted.</span>
+              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent block">
+                impacted.
+              </span>
             </h2>
 
             {/* Subtitle */}
@@ -2243,7 +2158,7 @@ export function OutcomesSection() {
                 const IconComponent = pt.icon
                 return (
                   <li key={i} className="flex items-center gap-3">
-                    <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-[#0066FF] border border-blue-200/70 shadow-xs">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-200/70 shadow-xs">
                       <IconComponent className="size-4" />
                     </div>
                     <span className="text-xs sm:text-[13px] font-medium text-slate-700 leading-snug">
@@ -2263,7 +2178,7 @@ export function OutcomesSection() {
             <div className="mt-6 flex items-center gap-4">
               <Link
                 href="/the-currency"
-                className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
               >
                 See Our Impact
                 <ArrowRight className="size-4" />
@@ -2646,21 +2561,11 @@ export function MissionSection() {
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#030712] via-[#030712]/60 to-transparent pointer-events-none z-10" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#030712] via-[#030712]/60 to-transparent pointer-events-none z-10" />
 
-      {/* Top Right Cursive Script Watermark: A Global Community. A Brighter Tomorrow. */}
+      {/* Top Right Executive Pill Badge */}
       <div className="pointer-events-none absolute top-8 right-6 lg:right-14 select-none opacity-85 hidden sm:block z-20">
-        <div className="font-serif italic text-xl lg:text-2xl font-normal leading-tight text-[#38BDF8]/80 tracking-wide text-right transform -rotate-12">
-          <span className="block">A Global</span>
-          <span className="block mr-2">Community.</span>
-          <span className="block mt-1">A Brighter</span>
-          <span className="block mr-3 font-semibold text-[#60A5FA]">Tomorrow.</span>
-          <svg
-            viewBox="0 0 140 12"
-            className="w-32 sm:w-40 mt-1 stroke-[#38BDF8]/70 fill-none ml-auto"
-            strokeWidth="2"
-            strokeLinecap="round"
-          >
-            <path d="M 6 6 Q 70 2 134 7" />
-          </svg>
+        <div className="flex flex-col items-end gap-1 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#60A5FA]">GLOBAL REACH · 2030</span>
+          <span className="text-xs font-semibold text-slate-200">A Global Community · A Brighter Tomorrow</span>
         </div>
       </div>
 
@@ -2672,17 +2577,17 @@ export function MissionSection() {
           <div className="flex flex-col">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-3.5">
-              <span className="h-[2px] w-6 bg-[#0088FF] rounded-full shadow-[0_0_8px_#0088FF]" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0088FF]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full shadow-[0_0_8px_#1D4ED8]" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">
                 THE 1 MILLION MISSION
               </span>
             </div>
 
             {/* Main Headline */}
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal text-white tracking-tight leading-[1.18]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-white tracking-tight leading-[1.15]">
               One million <br />
               lives{' '}
-              <span className="font-serif italic text-[#0099FF] drop-shadow-[0_0_30px_rgba(0,153,255,0.7)]">
+              <span className="bg-gradient-to-r from-[#60A5FA] to-[#F43F5E] bg-clip-text text-transparent">
                 impacted.
               </span>
             </h2>
@@ -2701,7 +2606,7 @@ export function MissionSection() {
             <div className="mt-7">
               <Link
                 href="/1-million-mission"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[#1E4ED8] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97] group"
+                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-7 py-3.5 text-sm font-bold text-white shadow-[0_4px_18px_rgba(29,78,216,0.35)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_25px_rgba(225,29,72,0.45)] hover:-translate-y-[2px] active:scale-[0.97] group"
               >
                 Join the 1 Million Mission
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -2715,7 +2620,7 @@ export function MissionSection() {
             <div className="absolute size-[320px] rounded-full bg-blue-500/20 blur-[90px] pointer-events-none" />
 
             <div className="relative">
-              <span className="display text-7xl sm:text-8xl lg:text-[7.5rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-blue-200 drop-shadow-[0_0_45px_rgba(0,153,255,0.85)] tracking-tight leading-none">
+              <span className="display text-7xl sm:text-8xl lg:text-[7.5rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-[#F43F5E] drop-shadow-[0_0_45px_rgba(29,78,216,0.85)] tracking-tight leading-none">
                 1M+
               </span>
             </div>
@@ -2912,18 +2817,20 @@ export function StoriesSection() {
 
           {/* Left Column: Eyebrow, Main Heading, Lede */}
           <div className="flex flex-col gap-3 max-w-2xl">
-            {/* Eyebrow with blue line */}
+            {/* Eyebrow with brand gradient line */}
             <div className="flex items-center gap-2">
-              <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+              <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
                 REAL COLLABORATIONS
               </span>
             </div>
 
-            {/* Main Heading in Site-wide Editorial Serif */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-serif font-normal text-slate-900 leading-[1.18] tracking-tight">
+            {/* Main Heading */}
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold text-slate-950 leading-[1.15] tracking-tight">
               What this looks like <br className="hidden sm:inline" />
-              <span className="italic text-[#1E4ED8]">in real life.</span>
+              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                in real life.
+              </span>
             </h2>
 
             {/* Subtitle */}
@@ -2933,39 +2840,26 @@ export function StoriesSection() {
             </p>
           </div>
 
-          {/* Right Area: CTA Button + Glowing Calligraphy & 4 Pillars */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-6 lg:gap-8 shrink-0 relative z-10">
+          {/* Right Area: CTA Button + Executive Badge */}
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-5 lg:gap-6 shrink-0 relative z-10">
             {/* Read More Peer Stories Pill Button */}
             <Link
               href="/stories"
-              className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
             >
               Read More Peer Stories
               <ArrowRight className="size-4" />
             </Link>
 
-            {/* Glowing Calligraphy & Vertical Metadata */}
-            <div className="flex items-center gap-5 select-none bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-2 sm:p-0 rounded-2xl">
-              {/* Blue / Cyan Luminous Calligraphy */}
-              <div
-                className="text-lg sm:text-2xl font-semibold text-sky-500 drop-shadow-[0_0_10px_rgba(56,189,248,0.4)] leading-tight text-right transform -rotate-3"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                <span className="block font-medium text-sky-600">Ideas</span>
-                <span className="block my-0.5 mr-2 text-sky-500">Collaborations</span>
-                <span className="relative inline-block font-bold text-sky-600 underline decoration-sky-400 decoration-2 underline-offset-4">
-                  Real Impact
-                </span>
+            {/* Executive Badge */}
+            <div className="flex items-center gap-4 select-none bg-slate-50 border border-slate-200/80 px-4 py-2.5 rounded-2xl">
+              <div className="flex flex-col text-right">
+                <span className="text-[10px] font-bold text-[#1D4ED8] uppercase tracking-wider">COLLABORATION MATRIX</span>
+                <span className="text-xs font-semibold text-slate-800">Ideas · Partnerships · Impact</span>
               </div>
-
-              {/* Vertical Divider */}
-              <div className="h-14 w-px bg-slate-200" />
-
-              {/* Stacked Vertical Pillar List */}
-              <div className="flex flex-col text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 leading-relaxed">
+              <div className="h-8 w-px bg-slate-200" />
+              <div className="flex flex-col text-[9.5px] font-bold tracking-[0.16em] uppercase text-slate-400 leading-tight">
                 <span>PEOPLE</span>
-                <span>PARTNERSHIPS</span>
-                <span>OPPORTUNITIES</span>
                 <span>RESULTS</span>
               </div>
             </div>
@@ -3215,30 +3109,30 @@ export function UniverseSection() {
               <Link
                 key={u.title}
                 href={u.href}
-                className="group relative flex flex-col gap-3 p-5 rounded-xl border border-[var(--border)] bg-card transition-all duration-200
-                  hover:-translate-y-[3px] hover:border-[#1E4ED8]/40 hover:shadow-[0_10px_28px_rgba(30,78,216,0.12)]
-                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E4ED8]"
+                className="group relative flex flex-col gap-3 p-5 rounded-2xl border border-slate-200/90 bg-white shadow-2xs transition-all duration-200
+                  hover:-translate-y-[3px] hover:border-[#1D4ED8]/40 hover:shadow-[0_10px_28px_rgba(29,78,216,0.12)]
+                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D4ED8]"
               >
                 {/* Top row: icon + arrow */}
                 <div className="flex items-center justify-between">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/8 text-primary transition-colors duration-200 group-hover:bg-[#1E4ED8] group-hover:text-white">
-                    <Icon className="size-4" />
+                  <span className="flex size-9 items-center justify-center rounded-xl bg-blue-50 text-[#1D4ED8] transition-colors duration-200 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white">
+                    <Icon className="size-4.5" />
                   </span>
-                  <ArrowUpRight className="size-3.5 text-muted-foreground opacity-0 -translate-x-1 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-[#1E4ED8]" />
+                  <ArrowUpRight className="size-4 text-slate-400 opacity-0 -translate-x-1 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-[#1D4ED8]" />
                 </div>
 
                 {/* Text */}
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-base font-semibold text-[var(--ink)] transition-colors duration-200 group-hover:text-[#1E4ED8]">
+                  <h3 className="text-base font-bold text-slate-900 transition-colors duration-200 group-hover:text-[#1D4ED8]">
                     {u.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-xs leading-relaxed text-slate-500 font-normal">
                     {u.desc}
                   </p>
                 </div>
 
                 {/* Bottom glow line on hover */}
-                <span className="absolute bottom-0 left-5 right-5 h-[2px] rounded-full bg-[#1E4ED8] scale-x-0 origin-left transition-transform duration-250 group-hover:scale-x-100" />
+                <span className="absolute bottom-0 inset-x-5 h-[2px] rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] scale-x-0 origin-left transition-transform duration-250 group-hover:scale-x-100" />
               </Link>
             )
           })}
@@ -3282,7 +3176,7 @@ export function JourneySection() {
   ]
 
   return (
-    <section className="section border-b border-[var(--border)]">
+    <section className="section border-b border-[var(--border)] bg-slate-50/50">
       <div className="shell flex flex-col gap-10">
         <SectionHead
           eyebrow="The Path"
@@ -3292,15 +3186,14 @@ export function JourneySection() {
 
         <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((s) => (
-            <Card as="li" key={s.num} className="flex flex-col gap-3 p-6">
+            <Card as="li" key={s.num} className="flex flex-col gap-3.5 p-6 rounded-2xl border border-slate-200/90 bg-white shadow-2xs hover:shadow-md transition-shadow">
               <span
-                className="flex size-9 items-center justify-center bg-primary text-sm font-bold text-primary-foreground"
-                style={{ borderRadius: 'var(--btn-radius)' }}
+                className="flex size-9 items-center justify-center bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-sm font-bold text-white rounded-xl shadow-xs"
               >
                 {s.num}
               </span>
-              <h3 className="display text-lg">{s.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+              <h3 className="text-base font-bold text-slate-900">{s.title}</h3>
+              <p className="text-xs sm:text-[13px] leading-relaxed text-slate-500 font-normal">{s.desc}</p>
             </Card>
           ))}
         </ol>
@@ -3402,16 +3295,18 @@ export function LeadershipSection() {
             <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
               {/* Eyebrow */}
               <div className="flex items-center gap-3">
-                <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+                <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
                   LEADERSHIP
                 </span>
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold tracking-tight text-slate-950 leading-[1.15]">
                 Built and led by{' '}
-                <span className="italic text-[#1E4ED8]">entrepreneurs.</span>
+                <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  entrepreneurs.
+                </span>
               </h2>
 
               {/* Description Body */}
@@ -3421,7 +3316,7 @@ export function LeadershipSection() {
 
               {/* Sub-line Highlight */}
               <div className="flex items-start sm:items-center gap-2.5 pt-1 text-xs sm:text-sm font-medium text-slate-800">
-                <span className="flex size-2 rounded-full bg-[#1E4ED8] shrink-0 mt-1 sm:mt-0 animate-pulse" />
+                <span className="flex size-2 rounded-full bg-[#1D4ED8] shrink-0 mt-1 sm:mt-0 animate-pulse" />
                 <span>Leadership here follows contribution. Peers who give the most are the ones who lead.</span>
               </div>
 
@@ -3429,7 +3324,7 @@ export function LeadershipSection() {
               <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-2">
                 <Link
                   href="/leadership"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
                 >
                   Explore Leadership
                   <ArrowRight className="size-4" />
@@ -3607,38 +3502,34 @@ export function EventsSection() {
         {/* ── Top Header Row ── */}
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="flex flex-col gap-3">
-            <Eyebrow>Calendar</Eyebrow>
-            <h2 className="font-serif text-balance text-2xl sm:text-3xl lg:text-[2.5rem] font-normal leading-[1.15] tracking-tight text-slate-900">
+            <div className="flex items-center gap-3">
+              <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
+                CALENDAR &amp; GATHERINGS
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.65rem] font-bold leading-[1.15] tracking-tight text-slate-950">
               Where you can meet{' '}
               <br className="hidden sm:block" />
               the network{' '}
-              <em
-                className="not-italic text-[#1E4ED8]"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)', fontStyle: 'italic' }}
-              >
+              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                 next.
-              </em>
+              </span>
             </h2>
             <p className="text-sm leading-relaxed text-slate-500 max-w-lg">
               Conclaves, city mixers and open Circle meetings. Meet entrepreneurs across the community.
             </p>
           </div>
 
-          {/* Right side: script text + CTA */}
-          <div className="flex flex-col items-end gap-5">
-            <p
-              className="text-right text-xl sm:text-2xl text-[#1E4ED8] leading-snug select-none hidden lg:block"
-              style={{ fontFamily: 'var(--font-script, Georgia, serif)', fontStyle: 'italic' }}
-            >
-              Ideas
-              <br />
-              People
-              <br />
-              Opportunities
-            </p>
+          {/* Right side: executive badge + CTA */}
+          <div className="flex flex-col items-end gap-4">
+            <div className="flex items-center gap-3 select-none bg-slate-50 border border-slate-200/80 px-4 py-2 rounded-2xl hidden lg:flex">
+              <span className="text-[10px] font-bold text-[#1D4ED8] uppercase tracking-wider">UPCOMING GATHERINGS</span>
+              <span className="text-xs font-semibold text-slate-700">Ideas · People · Opportunities</span>
+            </div>
             <Link
               href="/events"
-              className="inline-flex items-center gap-2 rounded-full bg-[#1E4ED8] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:-translate-y-[2px] hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(29,78,216,0.30)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(225,29,72,0.40)] active:scale-[0.97]"
             >
               View Full Calendar
               <ArrowRight className="size-4" />
@@ -4112,17 +4003,12 @@ export function ClosingSection() {
           </div>
 
           {/* Heading */}
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.5rem] font-normal leading-[1.18] tracking-tight text-white">
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-bold leading-[1.15] tracking-tight text-white">
             A community you can belong to, contribute to, grow with, and build relationships{' '}
-            <em
-              className="not-italic text-[#7DD3FC]"
-              style={{ fontFamily: 'var(--font-script, Georgia, serif)', fontStyle: 'italic' }}
-            >
+            <span className="bg-gradient-to-r from-[#60A5FA] to-[#F43F5E] bg-clip-text text-transparent">
               for life.
-            </em>
+            </span>
           </h2>
-
-
 
           {/* Subheading: clean crisp white */}
           <p className="text-base sm:text-lg font-medium text-white/95 mt-1">
@@ -4138,7 +4024,7 @@ export function ClosingSection() {
         <div className="flex shrink-0 flex-wrap items-center gap-4">
           <Link
             href="/membership"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#0062D2] shadow-md transition-all duration-200 hover:bg-blue-50 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-8 py-4 text-xs sm:text-sm font-bold tracking-wider text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] hover:-translate-y-0.5 active:scale-[0.98] uppercase"
           >
             <span>JOIN PEERS GLOBAL</span>
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -4148,7 +4034,7 @@ export function ClosingSection() {
             href="https://unity.peersglobal.com"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/[0.08] px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/15 hover:border-white/70 active:scale-[0.98] uppercase"
           >
             <Download aria-hidden className="size-4" />
             <span>DOWNLOAD UNITY APP</span>

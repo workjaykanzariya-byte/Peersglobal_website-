@@ -127,30 +127,27 @@ export function SiteFooter() {
       {/* ========================================================================= */}
       {/* 1. THRESHOLD BAND & APP DOWNLOAD                                          */}
       {/* ========================================================================= */}
-      <section className="w-full bg-[#FBFCFE] border-t border-slate-100 py-12 sm:py-16 px-4 sm:px-8 lg:px-12">
+      <section className="w-full bg-[#f8fafc] border-t border-slate-200 py-12 sm:py-16 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left: Statement + App Badges */}
           <div className="flex flex-col gap-3.5 max-w-2xl text-left items-start">
-            {/* Eyebrow with blue dash */}
+            {/* Eyebrow with gradient bar */}
             <div className="flex items-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1D4ED8]">
                 The Core Conviction
               </span>
             </div>
 
-            {/* Heading with italic blue "build alone." */}
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-slate-900 tracking-tight leading-tight">
+            {/* Heading with brand gradient punchline */}
+            <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-slate-900 tracking-tight leading-tight">
               You were never meant to{' '}
-              <em
-                className="not-italic text-[#0062D2]"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)', fontStyle: 'italic' }}
-              >
+              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                 build alone.
-              </em>
+              </span>
             </h2>
 
-            <p className="text-[15px] text-slate-500 leading-relaxed">
+            <p className="text-[15.5px] text-slate-600 leading-relaxed">
               The right circle can change your life faster than the right idea.
             </p>
 
@@ -160,12 +157,13 @@ export function SiteFooter() {
                 href={SITE.appStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full bg-black hover:bg-neutral-800 text-white px-4 py-2.5 transition-colors shadow-xs"
+                className="app-badge-btn"
+                aria-label="Download Peers Global on the Apple App Store"
               >
-                <Apple className="size-5 fill-white" />
-                <div className="text-left leading-none">
-                  <span className="block text-[11px] text-gray-300 font-normal">Download on the</span>
-                  <span className="block text-[13px] font-semibold tracking-tight mt-0.5">App Store</span>
+                <Apple className="size-5.5 fill-white shrink-0" />
+                <div className="text-left">
+                  <span className="app-badge-sub">Download on the</span>
+                  <span className="app-badge-title">App Store</span>
                 </div>
               </a>
 
@@ -173,47 +171,48 @@ export function SiteFooter() {
                 href={SITE.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full bg-black hover:bg-neutral-800 text-white px-4 py-2.5 transition-colors shadow-xs"
+                className="app-badge-btn"
+                aria-label="Get Peers Global on Google Play"
               >
-                <svg className="size-5 shrink-0" viewBox="0 0 24 24" fill="none">
+                <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
                   <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
                   <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
                   <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
                   <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
                 </svg>
-                <div className="text-left leading-none">
-                  <span className="block text-[11px] text-gray-300 uppercase font-semibold">GET IT ON</span>
-                  <span className="block text-[13px] font-semibold tracking-tight mt-0.5">Google Play</span>
+                <div className="text-left">
+                  <span className="app-badge-sub">GET IT ON</span>
+                  <span className="app-badge-title">Google Play</span>
                 </div>
               </a>
 
               {/* Vertical divider */}
-              <div className="hidden sm:block h-6 w-[1px] bg-slate-200 mx-1.5" />
+              <div className="hidden sm:block h-7 w-[1.5px] bg-slate-200 mx-1.5" />
 
-              <span className="text-[15px] text-slate-500 font-medium">
-                Unity Platform · iOS & Android
+              <span className="text-[14.5px] text-slate-500 font-medium">
+                Unity Platform · iOS &amp; Android
               </span>
             </div>
           </div>
 
           {/* Right: Modern Newsletter Card */}
-          <div className="w-full lg:w-auto min-w-[320px] sm:min-w-[420px] lg:min-w-[460px] flex flex-col gap-3.5 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-xs">
+          <div className="w-full lg:w-auto min-w-[320px] sm:min-w-[420px] lg:min-w-[460px] flex flex-col gap-3.5 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm">
             <div className="flex items-start gap-3.5">
-              <div className="size-11 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
-                <Mail className="size-5 text-[#0062D2]" />
+              <div className="size-11 rounded-xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 text-[#1D4ED8] flex items-center justify-center shrink-0 border border-[#1D4ED8]/20">
+                <Mail className="size-5 text-[#1D4ED8]" />
               </div>
               <div className="flex flex-col gap-0.5">
                 <h3 className="text-base font-bold text-slate-900 leading-snug">
                   Get the Weekly Collaboration Brief
                 </h3>
-                <p className="text-[15px] text-slate-500 leading-relaxed">
+                <p className="text-[14px] text-slate-500 leading-relaxed">
                   Real collaboration stories, verified wins, and practical playbooks from MSME owners.
                 </p>
               </div>
             </div>
 
             {subscribed ? (
-              <div className="flex items-center gap-2 text-[15px] font-semibold text-emerald-700 bg-emerald-50 p-3 rounded-lg border border-emerald-200 mt-1">
+              <div className="flex items-center gap-2 text-[14.5px] font-semibold text-emerald-700 bg-emerald-50 p-3 rounded-xl border border-emerald-200 mt-1">
                 <CheckCircle2 className="size-5 shrink-0 text-emerald-600" />
                 <span>Subscribed successfully. You will receive the next Brief.</span>
               </div>
@@ -225,19 +224,19 @@ export function SiteFooter() {
                   value={emailInput}
                   onChange={(e) => setEmailInput(e.target.value)}
                   placeholder="Enter your business email"
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-[15px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#0062D2] focus:ring-2 focus:ring-blue-500/15 transition-all"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-[14.5px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-500/15 transition-all"
                 />
                 <button
                   type="submit"
-                  className="whitespace-nowrap rounded-full bg-[#0062D2] hover:bg-blue-700 text-white px-6 py-2.5 text-[15px] font-bold transition-all shrink-0 shadow-xs active:scale-[0.98] cursor-pointer"
+                  className="whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-6 py-2.5 text-[14px] font-bold transition-all shrink-0 shadow-sm active:scale-[0.98] cursor-pointer"
                 >
                   Subscribe
                 </button>
               </form>
             )}
 
-            <p className="text-[13px] text-slate-400">
-              No spam. Just opportunities.
+            <p className="text-[12.5px] text-slate-400">
+              No spam. Just verified opportunities.
             </p>
           </div>
         </div>
@@ -246,112 +245,101 @@ export function SiteFooter() {
       {/* ========================================================================= */}
       {/* 2. SOCIAL BAR: "Follow Peers Global"                                      */}
       {/* ========================================================================= */}
-      <section className="w-full bg-white py-8 border-t border-[#e6e6e6]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col items-center justify-center gap-3.5">
-          <span className="text-[15px] font-bold text-[#242424]">
-            Follow Peers Global
-          </span>
-          <div className="flex items-center gap-4">
+      <section className="w-full bg-white py-6 border-t border-slate-200">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <span className="text-[14px] font-bold text-slate-900">
+              Follow Peers Global:
+            </span>
+            <span className="text-[12.5px] text-slate-500 hidden md:inline">
+              Official verified accounts
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
             {/* Facebook */}
             <a
-              href="https://facebook.com/peersglobal"
+              href={SITE.socials.facebook}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow Peers Global on Facebook"
-              className="flex size-10 items-center justify-center rounded-full bg-[#f2f2f2] hover:bg-[#e6e6e6] text-[#1877f2] transition-colors shadow-2xs"
-            >
-              <svg className="size-4.5 fill-current" viewBox="0 0 24 24" aria-hidden>
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </a>
-
-            {/* X / Twitter */}
-            <a
-              href="https://x.com/peersglobal"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Peers Global on X"
-              className="flex size-10 items-center justify-center rounded-full bg-[#f2f2f2] hover:bg-[#e6e6e6] text-[#111111] transition-colors shadow-2xs"
+              className="flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-[#1877f2] transition-colors shadow-2xs"
             >
               <svg className="size-4 fill-current" viewBox="0 0 24 24" aria-hidden>
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
             </a>
 
             {/* YouTube */}
             <a
-              href="https://youtube.com/@peersglobal"
+              href={SITE.socials.youtube}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Subscribe to Peers Global on YouTube"
-              className="flex size-10 items-center justify-center rounded-full bg-[#f2f2f2] hover:bg-[#e6e6e6] text-[#ff0000] transition-colors shadow-2xs"
+              className="flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-[#ff0000] transition-colors shadow-2xs"
             >
-              <svg className="size-4.5 fill-current" viewBox="0 0 24 24" aria-hidden>
+              <svg className="size-4 fill-current" viewBox="0 0 24 24" aria-hidden>
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
             </a>
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com/company/peersglobal"
+              href={SITE.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Connect with Peers Global on LinkedIn"
-              className="flex size-10 items-center justify-center rounded-full bg-[#f2f2f2] hover:bg-[#e6e6e6] text-[#0a66c2] transition-colors shadow-2xs"
+              className="flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-[#0a66c2] transition-colors shadow-2xs"
             >
-              <svg className="size-4.5 fill-current" viewBox="0 0 24 24" aria-hidden>
+              <svg className="size-4 fill-current" viewBox="0 0 24 24" aria-hidden>
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
             </a>
 
             {/* Instagram */}
             <a
-              href="https://instagram.com/peersglobal"
+              href={SITE.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow Peers Global on Instagram"
-              className="flex size-10 items-center justify-center rounded-full bg-[#f2f2f2] hover:bg-[#e6e6e6] text-[#e4405f] transition-colors shadow-2xs"
+              className="flex size-9 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-[#e4405f] transition-colors shadow-2xs"
             >
-              <svg className="size-4.5 fill-current" viewBox="0 0 24 24" aria-hidden>
+              <svg className="size-4 fill-current" viewBox="0 0 24 24" aria-hidden>
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
             </a>
           </div>
-          <p className="text-[13px] text-[#737373] italic">
-            These are our only official accounts.
-          </p>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. MAIN FOOTER (Spacious 6-Column Grid Layout)                            */}
+      {/* 3. MAIN FOOTER (Microsoft Enterprise 6-Column Directory Grid)             */}
       {/* ========================================================================= */}
-      <footer className="w-full bg-[#f2f2f2] text-[#242424] pt-12 pb-10">
+      <footer className="w-full bg-[#f8fafc] text-slate-800 pt-12 pb-10 border-t border-slate-200">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
           {/* 6 Clean Columns */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 lg:gap-x-10 gap-y-8 sm:gap-y-10">
             {FOOTER_COLUMNS.map((col) => {
               const isOpen = Boolean(openAccordion[col.title])
               return (
-                <div key={col.title} className="flex flex-col border-b border-[#e6e6e6] sm:border-0 pb-3 sm:pb-0 gap-3.5">
+                <div key={col.title} className="flex flex-col border-b border-slate-200 sm:border-0 pb-3 sm:pb-0 gap-3.5">
                   {/* Mobile Clickable Header / Desktop Static Header */}
                   <button
                     type="button"
                     onClick={() => toggleAccordion(col.title)}
                     className="flex items-center justify-between w-full text-left sm:cursor-auto focus:outline-none"
                   >
-                    <h3 className="text-[#242424] font-bold text-base sm:text-[17px] leading-tight tracking-tight">
+                    <h3 className="text-slate-900 font-bold text-[13.5px] uppercase tracking-wider leading-tight">
                       {col.title}
                     </h3>
                     <ChevronDown
-                      className={`size-4 text-[#616161] transition-transform duration-200 sm:hidden ${
+                      className={`size-4 text-slate-400 transition-transform duration-200 sm:hidden ${
                         isOpen ? 'rotate-180' : 'rotate-0'
                       }`}
                     />
                   </button>
 
                   {/* Links List */}
-                  <ul className={`flex flex-col gap-2.5 ${isOpen ? 'block pt-1' : 'hidden sm:flex'}`}>
+                  <ul className={`flex flex-col gap-2 ${isOpen ? 'block pt-1' : 'hidden sm:flex'}`}>
                     {col.links.map((link) => {
                       const isExternal = link.external || link.href.startsWith('http')
                       return (
@@ -361,14 +349,14 @@ export function SiteFooter() {
                               href={link.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[#555555] hover:text-[#0062D2] hover:underline text-[15px] leading-relaxed block transition-colors font-medium"
+                              className="text-slate-600 hover:text-[#1D4ED8] text-[13.5px] leading-relaxed block transition-colors font-normal hover:underline underline-offset-4"
                             >
                               {link.label}
                             </a>
                           ) : (
                             <Link
                               href={link.href}
-                              className="text-[#555555] hover:text-[#0062D2] hover:underline text-[15px] leading-relaxed block transition-colors font-medium"
+                              className="text-slate-600 hover:text-[#1D4ED8] text-[13.5px] leading-relaxed block transition-colors font-normal hover:underline underline-offset-4"
                             >
                               {link.label}
                             </Link>
@@ -383,14 +371,14 @@ export function SiteFooter() {
           </div>
 
           {/* Active Cities Chapter Footnote */}
-          <div className="mt-12 pt-8 border-t border-[#e0e0e0] flex flex-wrap items-center gap-x-3 gap-y-2 text-[15px] text-[#555555]">
-            <span className="font-bold text-[#242424]">Active Chapters:</span>
+          <div className="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13.5px] text-slate-600">
+            <span className="font-bold text-slate-900">Active Chapters:</span>
             {ACTIVE_CITIES.map((city, idx) => (
               <span key={city} className="flex items-center gap-3">
-                <Link href={`/circles?city=${encodeURIComponent(city)}`} className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href={`/circles?city=${encodeURIComponent(city)}`} className="hover:text-[#1D4ED8] hover:underline font-medium">
                   {city}
                 </Link>
-                {idx < ACTIVE_CITIES.length - 1 ? <span className="text-[#cccccc]">·</span> : null}
+                {idx < ACTIVE_CITIES.length - 1 ? <span className="text-slate-300">·</span> : null}
               </span>
             ))}
           </div>
@@ -398,68 +386,68 @@ export function SiteFooter() {
           {/* ======================================================================= */}
           {/* 4. BOTTOM LEGAL BAR                                                    */}
           {/* ======================================================================= */}
-          <div className="mt-8 pt-8 border-t border-[#e0e0e0] space-y-4 text-[15px] text-[#555555]">
+          <div className="mt-8 pt-8 border-t border-slate-200 space-y-4 text-[13.5px] text-slate-600">
             {/* Top Row: Privacy & Legal Links */}
             <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-5 sm:gap-6 shrink-0">
-                <div className="inline-flex items-center gap-2 text-[#555555] font-medium">
-                  <Globe className="size-4.5 text-[#555555]" />
+                <div className="inline-flex items-center gap-2 text-slate-700 font-medium">
+                  <Globe className="size-4 text-slate-500" />
                   <span>English (India)</span>
                 </div>
 
                 <Link
-                  href="/legal/privacy-policy"
-                  className="inline-flex items-center gap-1.5 text-[#555555] hover:text-[#111111] hover:underline font-medium"
+                  href="/privacy-policy"
+                  className="inline-flex items-center gap-1.5 text-slate-600 hover:text-[#1D4ED8] font-medium hover:underline"
                 >
-                  <svg className="size-4 fill-[#0067b8]" viewBox="0 0 16 16" aria-hidden>
+                  <svg className="size-3.5 fill-[#1D4ED8]" viewBox="0 0 16 16" aria-hidden>
                     <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 14.5a6.5 6.5 0 110-13 6.5 6.5 0 010 13z" />
                     <path d="M7 4.5h2v7H7z" />
                   </svg>
                   <span>Your Privacy Choices</span>
                 </Link>
 
-                <span className="text-[#737373] hidden sm:inline font-medium">
+                <span className="text-slate-400 hidden sm:inline font-medium">
                   Designed in Bharat. Built for the World.
                 </span>
               </div>
 
               {/* Legal Links */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[15px]">
-                <Link href="/contact" className="hover:text-[#0062D2] hover:underline font-medium">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px]">
+                <Link href="/contact" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Contact Peers Global
                 </Link>
-                <Link href="/privacy-policy" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/privacy-policy" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Privacy Policy
                 </Link>
-                <Link href="/terms-of-use" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/terms-of-use" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Terms of Use
                 </Link>
-                <Link href="/community-guidelines" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/community-guidelines" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Community Guidelines
                 </Link>
-                <Link href="/peers-code" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/peers-code" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   The Peers Code
                 </Link>
-                <Link href="/refund-policy" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/refund-policy" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Refund Policy
                 </Link>
-                <Link href="/grievance" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/grievance" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Grievance Redressal
                 </Link>
-                <Link href="/security" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/security" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Security
                 </Link>
-                <Link href="/disclaimer" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/disclaimer" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Disclaimer
                 </Link>
-                <Link href="/sitemap" className="hover:text-[#0062D2] hover:underline font-medium">
+                <Link href="/sitemap" className="hover:text-[#1D4ED8] hover:underline font-normal">
                   Sitemap
                 </Link>
               </div>
             </div>
 
             {/* Bottom Row: Corporate Registration & Copyright */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-[#e8e8e8] text-[13px] text-[#737373]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-slate-200/80 text-[12.5px] text-slate-500">
               <span>CIN: {SITE.cin} · GST: {SITE.gstin}</span>
               <span>© {new Date().getFullYear()} {SITE.legalName}. All rights reserved.</span>
             </div>
@@ -474,12 +462,11 @@ export function SiteFooter() {
         <button
           type="button"
           onClick={scrollToTop}
-          className="group relative flex size-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#1E4ED8] via-[#2563eb] to-[#38bdf8] text-white shadow-[0_8px_25px_rgba(30,78,216,0.45)] hover:shadow-[0_12px_30px_rgba(30,78,216,0.65)] hover:scale-110 active:scale-95 transition-all duration-300 border border-white/25 cursor-pointer"
+          className="group relative flex size-11 items-center justify-center rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-[0_4px_14px_rgba(29,78,216,0.35)] hover:shadow-[0_8px_25px_rgba(225,29,72,0.45)] hover:scale-105 active:scale-95 transition-all duration-300 border border-white/25 cursor-pointer"
           aria-label="Back to top"
           title="Back to top"
         >
-          <ArrowUp className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5" strokeWidth={2.5} />
-          <span className="absolute inset-0 rounded-full bg-blue-400/20 blur-sm -z-10 group-hover:blur-md transition-all" />
+          <ArrowUp className="size-4.5 transition-transform duration-300 group-hover:-translate-y-0.5" strokeWidth={2.5} />
         </button>
       </div>
     </div>

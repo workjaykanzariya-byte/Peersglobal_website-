@@ -1,17 +1,10 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Montserrat, Poppins, Dancing_Script, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import { DesignProvider, DesignScript } from '@/components/design/design-provider'
 import { DesignSwitcher } from '@/components/design/design-switcher'
 import { SiteShell } from '@/components/site/site-shell'
 import './globals.css'
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
-})
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -20,25 +13,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: 'swap',
 })
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800', '900'],
-  variable: '--font-montserrat',
-  display: 'swap',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-serif',
-  display: 'swap',
-})
-
-const dancingScript = Dancing_Script({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-script',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-sans-inter',
   display: 'swap',
 })
 
@@ -79,7 +57,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-design="d1"
-      className={`bg-background ${plusJakarta.variable} ${poppins.variable} ${montserrat.variable} ${playfair.variable} ${dancingScript.variable}`}
+      className={`bg-background ${plusJakarta.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
       <head>

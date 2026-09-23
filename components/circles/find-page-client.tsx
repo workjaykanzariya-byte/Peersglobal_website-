@@ -23,7 +23,9 @@ import {
   Star,
   Check,
   Loader2,
+  Apple,
 } from 'lucide-react'
+import { SITE } from '@/lib/data/site'
 
 // ─── Industries list ───────────────────────────────────────────────────────
 const INDUSTRIES = [
@@ -391,22 +393,35 @@ export function FindPageClient() {
               </p>
               <div className="flex flex-wrap gap-3 mt-auto">
                 <a
-                  href="https://play.google.com/store"
+                  href={SITE.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all"
+                  className="app-badge-btn"
+                  aria-label="Download on the Apple App Store"
                 >
-                  <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M3.18 23.76c.37.21.8.22 1.19.06L16.91 12 4.37.18C3.98.02 3.55.03 3.18.24 2.46.65 2 1.44 2 2.31v19.38c0 .87.46 1.66 1.18 2.07zM17.62 12.76l2.33-2.33-13.1-7.57L17.62 12.76zm-13.1 8.39 13.1-7.57-2.33-2.32L6.85 18.77l-2.33-2.33V17.38l.36.36-2.69-2.76.14 6.17zM20.47 10.28l-1.67-1.67-1.18 1.59 1.18 1.8 1.72-1.72z"/></svg>
-                  Get it on Google Play
+                  <Apple className="size-5.5 fill-white shrink-0" />
+                  <div className="text-left">
+                    <span className="app-badge-sub">Download on the</span>
+                    <span className="app-badge-title">App Store</span>
+                  </div>
                 </a>
                 <a
-                  href="https://apps.apple.com"
+                  href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all"
+                  className="app-badge-btn"
+                  aria-label="Get it on Google Play"
                 >
-                  <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                  Download on App Store
+                  <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                  </svg>
+                  <div className="text-left">
+                    <span className="app-badge-sub">GET IT ON</span>
+                    <span className="app-badge-title">Google Play</span>
+                  </div>
                 </a>
               </div>
             </div>
@@ -864,22 +879,35 @@ export function FindPageClient() {
 
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="https://play.google.com/store"
+                  href={SITE.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold transition-all"
+                  className="app-badge-btn"
+                  aria-label="Download on the Apple App Store"
                 >
-                  <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M3.18 23.76c.37.21.8.22 1.19.06L16.91 12 4.37.18C3.98.02 3.55.03 3.18.24 2.46.65 2 1.44 2 2.31v19.38c0 .87.46 1.66 1.18 2.07zM17.62 12.76l2.33-2.33-13.1-7.57L17.62 12.76zm-13.1 8.39 13.1-7.57-2.33-2.32L6.85 18.77l-2.33-2.33V17.38l.36.36-2.69-2.76.14 6.17zM20.47 10.28l-1.67-1.67-1.18 1.59 1.18 1.8 1.72-1.72z"/></svg>
-                  Google Play
+                  <Apple className="size-5.5 fill-white shrink-0" />
+                  <div className="text-left">
+                    <span className="app-badge-sub">Download on the</span>
+                    <span className="app-badge-title">App Store</span>
+                  </div>
                 </a>
                 <a
-                  href="https://apps.apple.com"
+                  href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-semibold transition-all"
+                  className="app-badge-btn"
+                  aria-label="Get it on Google Play"
                 >
-                  <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                  App Store
+                  <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                  </svg>
+                  <div className="text-left">
+                    <span className="app-badge-sub">GET IT ON</span>
+                    <span className="app-badge-title">Google Play</span>
+                  </div>
                 </a>
               </div>
             </div>

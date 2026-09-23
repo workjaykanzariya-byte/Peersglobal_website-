@@ -13,6 +13,9 @@ import {
   CheckCircle2,
   Clock,
   Eye,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 
 interface BlogPostItem {
@@ -153,7 +156,7 @@ export default function AdminBlogsPage() {
     setIsModalOpen(true)
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this blog post?')) {
       const updated = blogs.filter((b) => b.id !== id)
       setBlogs(updated)
@@ -198,6 +201,9 @@ export default function AdminBlogsPage() {
     return b.title.toLowerCase().includes(search.toLowerCase()) || (b.content && b.content.toLowerCase().includes(search.toLowerCase()))
   })
 
+  const totalPages = Math.max(1, Math.ceil(filteredBlogs.length / itemsPerPage))
+  const paginatedBlogs = filteredBlogs.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+
   return (
     <div className="space-y-6 font-sans">
       {/* Header */}
@@ -236,22 +242,46 @@ export default function AdminBlogsPage() {
         </div>
       </div>
 
-      {/* Search Bar */}
-      <div className="bg-[#0B1220]/80 border border-slate-800/90 rounded-2xl p-3.5 shadow-sm">
-        <div className="relative w-full">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by article title, author, or keyword..."
-            className="w-full bg-[#070D18] border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
-          />
+      {/* Stats row */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="p-4 rounded-2xl bg-[#0B1528] border border-slate-800 shadow-xs">
+          <span className="text-xs text-slate-400">Total Articles</span>
+          <p className="text-2xl font-bold text-white mt-1">{totalArticles}</p>
+        </div>
+        <div className="p-4 rounded-2xl bg-[#0B1528] border border-slate-800 shadow-xs">
+          <span className="text-xs text-slate-400">Published</span>
+          <p className="text-2xl font-bold text-emerald-400 mt-1">{publishedCount}</p>
+        </div>
+        <div className="p-4 rounded-2xl bg-[#0B1528] border border-slate-800 shadow-xs">
+          <span className="text-xs text-slate-400">Drafts</span>
+          <p className="text-2xl font-bold text-blue-400 mt-1">{draftsCount}</p>
+        </div>
+        <div className="p-4 rounded-2xl bg-[#0B1528] border border-slate-800 shadow-xs">
+          <span className="text-xs text-slate-400">Total Readership</span>
+          <p className="text-2xl font-bold text-indigo-400 mt-1">{totalViews.toLocaleString()}</p>
         </div>
       </div>
 
-      {/* Blogs Table */}
-      <div className="bg-[#0B1220]/80 border border-slate-800/90 rounded-2xl overflow-hidden shadow-xl">
+      {/* Main card */}
+      <div className="rounded-2xl bg-[#0B1528] border border-slate-800 shadow-xs overflow-hidden">
+        {/* Search bar */}
+        <div className="p-4 border-b border-slate-800">
+          <div className="relative max-w-md">
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value)
+                setCurrentPage(1)
+              }}
+              placeholder="Search by title or keyword..."
+              className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#070D18] border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-blue-500"
+            />
+          </div>
+        </div>
+
+        {/* Table */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-slate-300">
             <thead className="bg-[#070D18] border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider text-[10px]">
@@ -264,7 +294,7 @@ export default function AdminBlogsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800/60">
-              {filteredBlogs.length === 0 ? (
+              {paginatedBlogs.length === 0 ? (
                 <tr>
                   <td colSpan={5} className="p-10 text-center text-slate-500">
                     <p className="text-sm font-medium">No articles found matching criteria.</p>
@@ -272,7 +302,7 @@ export default function AdminBlogsPage() {
                   </td>
                 </tr>
               ) : (
-                filteredBlogs.map((post) => (
+                paginatedBlogs.map((post) => (
                   <tr key={post.id} className="hover:bg-[#0F172A]/60 transition">
                     <td className="p-4 max-w-sm">
                       <p className="font-semibold text-white truncate hover:text-blue-400 transition">{post.title}</p>

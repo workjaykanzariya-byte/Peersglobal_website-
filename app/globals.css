@@ -38,10 +38,10 @@
   --color-panel-muted: var(--panel-muted);
   --color-panel-border: var(--panel-border);
 
-  --font-sans: var(--font-sans-modern), var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: var(--font-montserrat), var(--font-sans-modern), var(--font-poppins), sans-serif;
-  --font-serif: var(--font-serif), 'Playfair Display', Georgia, serif;
-  --font-script: var(--font-script), 'Dancing Script', cursive;
+  --font-sans: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-display: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-serif: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-script: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --radius-sm: calc(var(--radius) * 0.45);
@@ -53,102 +53,144 @@
   --radius-4xl: calc(var(--radius) * 2.5);
   --radius-btn: var(--btn-radius);
 
-  --text-2xs: 15px;
-  --text-xs: 15px;
-  --text-sm: 15px;
+  --text-2xs: 0.625rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
 }
 
-/* =============================================================
-   ACCESSIBILITY & READABILITY RULE: MINIMUM 15PX TYPOGRAPHY
-   Guarantee that small texts, footnotes, labels, links, and badges 
-   have at least 15px font size for clear visibility.
-============================================================= */
 html, body {
-  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.text-xs,
-.text-2xs,
-.text-sm,
-[class*='text-\[8px\]'],
-[class*='text-\[9px\]'],
-[class*='text-\[9.5px\]'],
-[class*='text-\[10px\]'],
-[class*='text-\[11px\]'],
-[class*='text-\[12px\]'],
-[class*='text-\[13px\]'],
-[class*='text-\[14px\]'] {
-  font-size: 15px !important;
-  line-height: 1.5;
+/* =============================================================
+   PIXEL-PERFECT APP STORE & GOOGLE PLAY DOWNLOAD BADGES
+============================================================= */
+.app-badge-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  height: 48px !important;
+  padding: 0 18px !important;
+  border-radius: 9999px !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  vertical-align: middle !important;
+  cursor: pointer !important;
+}
+
+.app-badge-btn:hover {
+  background-color: #1a1a1a !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.app-badge-btn:active {
+  transform: scale(0.98) !important;
+}
+
+.app-badge-sub {
+  display: block !important;
+  font-size: 9.5px !important;
+  line-height: 1 !important;
+  color: #cbd5e1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 600 !important;
+  margin-bottom: 2.5px !important;
+}
+
+.app-badge-title {
+  display: block !important;
+  font-size: 14.5px !important;
+  line-height: 1 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
 }
 
 /* ---------------------------------------------------------------
    Brand constants (Peers Global brand kit v1.0)
-   Blue #1E4ED8 · Red #E53935 · White · Dark Grey #4B5563
-   Light Grey #F5F7FA · Sky #3B82F6 · Gold #D4AF37
+   Exact Logo Gradient: [Color(0xFF1D4ED8), Color(0xFFE11D48)]
+   Blue #1D4ED8 · Crimson/Red #E11D48 · Sky #2563EB · Gold #D4AF37
 ----------------------------------------------------------------*/
 :root {
-  --brand-blue: #0067b8;
-  --brand-red: #d83b01;
-  --brand-sky: #0078d4;
-  --gold: #ffb900;
-  --grey-dark: #242424;
-  --grey-light: #f2f2f2;
+  --font-sans: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-display: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-serif: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-script: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-montserrat: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-poppins: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --brand-blue: #1D4ED8;
+  --brand-red: #E11D48;
+  --brand-sky: #2563EB;
+  --gold: #D4AF37;
+  --grey-dark: #0f172a;
+  --grey-light: #f8fafc;
+  --brand-gradient: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
+  --brand-gradient-hover: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%);
+  --brand-gradient-horizontal: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
+  --brand-gradient-subtle: linear-gradient(135deg, rgba(29, 78, 216, 0.06) 0%, rgba(225, 29, 72, 0.06) 100%);
+  --brand-gradient-border: linear-gradient(135deg, rgba(29, 78, 216, 0.35) 0%, rgba(225, 29, 72, 0.35) 100%);
+  --brand-gradient-glow: 0 0 24px rgba(29, 78, 216, 0.35), 0 0 16px rgba(225, 29, 72, 0.25);
 }
 
 /* =============================================================
-   DIRECTION 1 — MICROSOFT FLUENT (SHARP & CLEAN)
-   White canvas, Microsoft #0067b8 blue, sharp 2px corners, Segoe UI
+   DIRECTION 1 — MICROSOFT ENTERPRISE (CLEAN, SHARP & ROYAL)
+   White canvas, #1D4ED8 Royal Blue, #E11D48 Accent, Segoe / Plus Jakarta Sans
 ============================================================= */
 [data-design='d1'] {
   color-scheme: light;
   --background: #ffffff;
-  --foreground: #242424;
-  --ink: #111827;
+  --foreground: #0f172a;
+  --ink: #0f172a;
   --card: #ffffff;
-  --card-foreground: #242424;
-  --primary: #0067b8;
+  --card-foreground: #0f172a;
+  --primary: #0078D4;
   --primary-foreground: #ffffff;
-  --secondary: #f2f2f2;
-  --secondary-foreground: #242424;
-  --muted: #f8f9fa;
-  --muted-foreground: #616161;
-  --accent: #d83b01;
+  --secondary: #f8fafc;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #E11D48;
   --accent-foreground: #ffffff;
-  --border: #e6e6e6;
-  --ring: #0067b8;
+  --border: #e2e8f0;
+  --ring: #0078D4;
 
-  --hero: #ffffff;
-  --hero-foreground: #242424;
-  --hero-muted: #616161;
-  --hero-border: #e6e6e6;
+  --hero: #050B17;
+  --hero-foreground: #ffffff;
+  --hero-muted: #94a3b8;
+  --hero-border: rgba(255, 255, 255, 0.12);
 
-  --panel: #f2f2f2;
-  --panel-foreground: #242424;
-  --panel-muted: #616161;
-  --panel-border: #e6e6e6;
+  --panel: #f8fafc;
+  --panel-foreground: #0f172a;
+  --panel-muted: #64748b;
+  --panel-border: #e2e8f0;
 
-  --radius: 0.125rem;
-  --btn-radius: 0.125rem;
-  --display-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+  --radius: 0.375rem;
+  --btn-radius: 4px;
+  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 600;
   --display-tracking: -0.015em;
   --display-leading: 1.15;
   --eyebrow-transform: uppercase;
-  --eyebrow-tracking: 0.12em;
+  --eyebrow-tracking: 0.08em;
   --eyebrow-weight: 600;
-  --section-y: 4.5rem;
+  --section-y: 5.5rem;
   --container: 1400px;
-  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
   --card-border-width: 1px;
   --rule-color: var(--brand-blue);
 }
 
 /* =============================================================
    DIRECTION 2 — EDITORIAL
-   Warm off-white, Montserrat display, red rules, zero radius
+   Segoe UI display, red rules, sharp borders
 ============================================================= */
 [data-design='d2'] {
   color-scheme: light;
@@ -180,12 +222,12 @@ html, body {
 
   --radius: 0.0625rem;
   --btn-radius: 0rem;
-  --display-family: var(--font-montserrat);
+  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 700;
-  --display-tracking: -0.035em;
-  --display-leading: 1.02;
+  --display-tracking: -0.02em;
+  --display-leading: 1.05;
   --eyebrow-transform: uppercase;
-  --eyebrow-tracking: 0.24em;
+  --eyebrow-tracking: 0.2em;
   --eyebrow-weight: 700;
   --section-y: 6.5rem;
   --container: 1140px;
@@ -196,7 +238,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 3 — PREMIUM DARK
-   Deep navy, gold premium accent, Montserrat display
+   Deep navy, gold premium accent, Segoe UI typography
 ============================================================= */
 [data-design='d3'] {
   color-scheme: dark;
@@ -228,10 +270,10 @@ html, body {
 
   --radius: 0.75rem;
   --btn-radius: 0.5rem;
-  --display-family: var(--font-montserrat);
+  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 600;
-  --display-tracking: -0.028em;
-  --display-leading: 1.06;
+  --display-tracking: -0.02em;
+  --display-leading: 1.08;
   --eyebrow-transform: uppercase;
   --eyebrow-tracking: 0.2em;
   --eyebrow-weight: 600;
@@ -244,7 +286,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 4 — BOLD
-   High contrast, blue slabs, red CTAs, pill buttons, huge type
+   High contrast, blue slabs, red CTAs, pill buttons, Segoe UI type
 ============================================================= */
 [data-design='d4'] {
   color-scheme: light;
@@ -276,10 +318,10 @@ html, body {
 
   --radius: 1.25rem;
   --btn-radius: 999px;
-  --display-family: var(--font-poppins);
+  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 700;
-  --display-tracking: -0.042em;
-  --display-leading: 0.98;
+  --display-tracking: -0.02em;
+  --display-leading: 1.05;
   --eyebrow-transform: uppercase;
   --eyebrow-tracking: 0.1em;
   --eyebrow-weight: 700;
@@ -292,7 +334,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 5 — SOFT
-   Tinted light-blue canvas, airy, rounded, soft shadows
+   Tinted light-blue canvas, airy, rounded, Segoe UI typography
 ============================================================= */
 [data-design='d5'] {
   color-scheme: light;
@@ -324,7 +366,7 @@ html, body {
 
   --radius: 1.5rem;
   --btn-radius: 999px;
-  --display-family: var(--font-poppins);
+  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 600;
   --display-tracking: -0.02em;
   --display-leading: 1.1;
@@ -339,18 +381,32 @@ html, body {
 }
 
 @layer base {
-  * {
+  *, ::before, ::after {
     border-color: var(--border);
+    font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
   }
-  body {
+  html, body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+    font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif !important;
   }
   ::selection {
     background: var(--primary);
     color: var(--primary-foreground);
   }
+}
+
+/* =============================================================
+   UNIVERSAL MICROSOFT FONT ENFORCEMENT
+   Strictly applies Microsoft Segoe UI typography everywhere
+============================================================= */
+.font-serif,
+.font-display,
+.font-script,
+[class*="font-serif"],
+[class*="font-script"],
+[style*="font-family"] {
+  font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif !important;
 }
 
 @layer components {
@@ -417,6 +473,117 @@ html, body {
   .mask-gradient-x {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* =============================================================
+     PEERS GLOBAL BRAND GRADIENT & MICROSOFT ENTERPRISE UTILITIES
+  ============================================================= */
+  .bg-brand-gradient {
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  }
+
+  .bg-brand-gradient-h {
+    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%) !important;
+  }
+
+  .text-brand-gradient {
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  .border-brand-gradient {
+    border-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) 1 !important;
+  }
+
+  /* Microsoft-style enterprise card with subtle elevation and smooth hover lift */
+  .ms-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .ms-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+    transform: translateY(-2px);
+  }
+
+  /* Brand gradient primary CTA button with shimmer & hover lift */
+  .btn-brand-gradient {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.625rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff !important;
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .btn-brand-gradient:hover {
+    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%);
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.35), 0 4px 12px rgba(29, 78, 216, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-brand-gradient:active {
+    transform: scale(0.98);
+  }
+
+  .btn-brand-outline {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.625rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0f172a;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-brand-outline:hover {
+    border-color: #1D4ED8;
+    color: #1D4ED8;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Microsoft-style Category / Pill Tag */
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.875rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(29, 78, 216, 0.08) 0%, rgba(225, 29, 72, 0.08) 100%);
+    border: 1px solid rgba(29, 78, 216, 0.2);
+    color: #1D4ED8;
   }
 }
 

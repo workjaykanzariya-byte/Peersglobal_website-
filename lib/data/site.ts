@@ -12,6 +12,12 @@ export const SITE = {
   memberLoginUrl: 'https://unity.peersglobal.com',
   appStoreUrl: 'https://apps.apple.com/app/peers-global/id6475800000',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.peersglobal.unity',
+  socials: {
+    facebook: 'https://www.facebook.com/PeersGlobalCommunity/',
+    youtube: 'https://www.youtube.com/@PeersGlobalTV',
+    instagram: 'https://www.instagram.com/peersglobal/?hl=en',
+    linkedin: 'https://www.linkedin.com/company/peersglobal/posts/?feedView=all',
+  },
   statsAsOf: 'Figures verified against Unity platform records.',
 }
 
