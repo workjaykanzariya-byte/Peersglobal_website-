@@ -189,7 +189,7 @@ export function LeadersSpotlightSection() {
 
   return (
     <section id="mentors-spotlight" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
-      
+
       {/* Dynamic CSS keyframes for smooth dual-row continuous marquees */}
       <style jsx global>{`
         @keyframes marqueeLeft {
@@ -228,7 +228,7 @@ export function LeadersSpotlightSection() {
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-blue-500/[0.03] blur-[150px]" />
 
       <div className="shell flex flex-col items-center">
-        
+
         {/* Section Header (Matching Mindvalley centered format with Microsoft Typography) */}
         <div className="flex flex-col items-center text-center max-w-3xl mb-12 sm:mb-16">
           <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#0078D4] mb-3 block">
@@ -246,7 +246,7 @@ export function LeadersSpotlightSection() {
 
       {/* Dual Row Portrait Card Marquee Container */}
       <div className="marquee-track flex flex-col gap-4 sm:gap-6 overflow-hidden w-full select-none">
-        
+
         {/* Row 1 — Moving Left */}
         <div className="animate-marquee-left flex gap-4 sm:gap-6 px-3">
           {infiniteRow1.map((peer, idx) => (
@@ -762,7 +762,7 @@ export function PhilosophySection() {
   return (
     <section id="our-philosophy" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
       <div className="shell flex flex-col items-center text-center">
-        
+
         {/* Eyebrow */}
         <span className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 mb-3 block">
           OUR PHILOSOPHY
@@ -1258,11 +1258,10 @@ export function CirclesSection() {
                   setActivePathwayIndex(idx)
                   setCurrentPage(0)
                 }}
-                className={`rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                  isActive
+                className={`rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${isActive
                     ? 'bg-[#0078D4] text-white shadow-sm ring-1 ring-blue-600'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80 border border-slate-200'
-                }`}
+                  }`}
               >
                 {p.tabName}
               </button>
@@ -1272,7 +1271,7 @@ export function CirclesSection() {
 
         {/* ─── Main Interactive Pathway Box (Dual-Column Showcase) ─── */}
         <div className="relative rounded-3xl bg-[#f8fafc] border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-[0_10px_35px_rgba(15,23,42,0.05)] transition-all duration-300">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
             {/* ── Left Column: 3D Emblem Card + Pathway Copy + Bullet Points + CTA ── */}
@@ -1380,7 +1379,7 @@ export function CirclesSection() {
                   >
                     {/* Card Media Banner (Dual Visual: Artwork Left + Leader Portrait Right) */}
                     <div className="relative w-full h-[110px] sm:h-[115px] overflow-hidden bg-slate-100 flex">
-                      
+
                       {/* Left 62% Artwork */}
                       <div className="relative w-[62%] h-full overflow-hidden">
                         <Image
@@ -1719,7 +1718,7 @@ export function CollaborationSection() {
 
   return (
     <section id="collaboration" className="relative overflow-hidden bg-[#f8fafc] py-16 sm:py-20 lg:py-28 border-b border-slate-200 text-slate-900">
-      
+
       {/* CSS 3D Stacking & Keyframe Swap Animation */}
       <style jsx global>{`
         .pg-deck-stack {
@@ -1835,17 +1834,17 @@ export function CollaborationSection() {
       <div className="pointer-events-none absolute -bottom-32 left-12 size-[400px] rounded-full bg-cyan-500/[0.04] blur-[130px]" />
 
       <div className="shell">
-        
+
         {/* Main 2-Column Grid (Left: Microsoft Typography & Dynamic Card Info | Right: 3D Deck) */}
-        <div 
+        <div
           className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          
+
           {/* Left Column: Microsoft Typography, Dynamic Active Card Content, Actions */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
-            
+
             {/* Microsoft Overline */}
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0078D4]">
@@ -1966,9 +1965,8 @@ export function CollaborationSection() {
                         setSelectedForm(item)
                       }
                     }}
-                    className={`pg-deck-card ${item.bgGradient} ${item.borderAccent} border ${
-                      isSwapping ? 'pg-card-swap' : ''
-                    } p-6 text-white flex flex-col justify-between overflow-hidden cursor-pointer`}
+                    className={`pg-deck-card ${item.bgGradient} ${item.borderAccent} border ${isSwapping ? 'pg-card-swap' : ''
+                      } p-6 text-white flex flex-col justify-between overflow-hidden cursor-pointer`}
                   >
                     {/* Top Glow bar on front card */}
                     {isTop && (
@@ -2036,11 +2034,11 @@ export function CollaborationSection() {
 
       {/* Interactive Detail Modal */}
       {selectedForm && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200"
           onClick={() => setSelectedForm(null)}
         >
-          <div 
+          <div
             className="relative w-full max-w-xl overflow-hidden rounded-[8px] border border-slate-700 bg-slate-950 p-6 sm:p-8 text-white shadow-2xl animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
@@ -2897,7 +2895,7 @@ export function MasterclassesSection() {
 
   return (
     <section id="meditations-collection" className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28 border-b border-slate-200 text-slate-900">
-      
+
       {/* ── CSS Keyframes for the 3 staggered continuous infinite marquees ── */}
       <style jsx global>{`
         @keyframes pgMedMarqueeLeft {
@@ -3006,13 +3004,12 @@ export function MasterclassesSection() {
               {/* Centered Artistic Typography (Matching Mindvalley Album Cover Aesthetics) */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10">
                 <h3
-                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${
-                    item.fontStyle === 'script'
+                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${item.fontStyle === 'script'
                       ? 'font-serif italic text-lg sm:text-xl md:text-2xl font-bold tracking-normal'
                       : item.fontStyle === 'serif'
-                      ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
-                      : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
-                  }`}
+                        ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
+                        : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
+                    }`}
                 >
                   {item.title}
                 </h3>
@@ -3066,13 +3063,12 @@ export function MasterclassesSection() {
               {/* Centered Artistic Typography */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10">
                 <h3
-                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${
-                    item.fontStyle === 'script'
+                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${item.fontStyle === 'script'
                       ? 'font-serif italic text-lg sm:text-xl md:text-2xl font-bold tracking-normal'
                       : item.fontStyle === 'serif'
-                      ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
-                      : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
-                  }`}
+                        ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
+                        : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
+                    }`}
                 >
                   {item.title}
                 </h3>
@@ -3126,13 +3122,12 @@ export function MasterclassesSection() {
               {/* Centered Artistic Typography */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center z-10">
                 <h3
-                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${
-                    item.fontStyle === 'script'
+                  className={`text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] leading-tight px-1 transition-transform duration-300 group-hover:scale-105 ${item.fontStyle === 'script'
                       ? 'font-serif italic text-lg sm:text-xl md:text-2xl font-bold tracking-normal'
                       : item.fontStyle === 'serif'
-                      ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
-                      : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
-                  }`}
+                        ? 'font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight uppercase'
+                        : 'font-sans text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wide'
+                    }`}
                 >
                   {item.title}
                 </h3>
@@ -3239,9 +3234,8 @@ export function MasterclassesSection() {
                   <div
                     key={i}
                     style={{ height: `${isPlaying ? Math.max(15, (h * (0.6 + Math.random() * 0.4))) : h * 0.3}%` }}
-                    className={`flex-1 rounded-full transition-all duration-150 ${
-                      i < 12 ? 'bg-[#0078D4]' : 'bg-slate-300'
-                    }`}
+                    className={`flex-1 rounded-full transition-all duration-150 ${i < 12 ? 'bg-[#0078D4]' : 'bg-slate-300'
+                      }`}
                   />
                 ))}
               </div>
@@ -4278,10 +4272,10 @@ export function StoriesSection() {
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[700px] rounded-full bg-blue-500/[0.04] blur-[160px]" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* 3-Column Grid: Left Floating Cards | Center Metric & Info | Right Floating Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[520px]">
-          
+
           {/* Left Floating Cards Cluster (Continuous Float + Proximity 3D on Hover) */}
           <div className="hidden lg:grid lg:col-span-3 grid-cols-2 gap-4 items-center justify-items-end select-none">
             {leftMosaics.map((item) => (
@@ -4291,7 +4285,7 @@ export function StoriesSection() {
 
           {/* Center Column: Mindvalley Big Stat & Clean Microsoft Content */}
           <div className="lg:col-span-6 flex flex-col items-center text-center px-4 sm:px-8 z-20">
-            
+
             {/* Top Eyebrow Tag */}
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#0078D4] mb-3 block">
               VERIFIED IMPACT &amp; OUTCOMES
@@ -4389,7 +4383,7 @@ export function UniverseSection() {
     { title: 'Leadership', desc: 'A structure built and led by entrepreneurs', href: '/leadership', icon: Layers },
     { title: 'Recognition', desc: 'Contribution seen and celebrated', href: '/outcomes', icon: Award },
     { title: 'Unity App', desc: 'The digital ecosystem platform', href: '/unity', icon: Smartphone },
-    { title: 'Events', desc: 'Meetings, conclaves and the global summit', href: '/events', icon: CalendarDays },
+    // { title: 'Events', desc: 'Meetings, conclaves and the global summit', href: '/events', icon: CalendarDays },
     { title: 'Media', desc: 'Stories, podcasts and publications', href: '/stories', icon: Play },
     { title: 'Learning', desc: 'Masterclasses and actionable playbooks', href: '/lsr-framework', icon: BookOpen },
     { title: 'Opportunities', desc: 'Business, partnerships and markets', href: '/outcomes', icon: TrendingUp },
@@ -4850,7 +4844,7 @@ export function EventsSection() {
           {priority ? (
             <div className="flex flex-col gap-0">
               {/* Image card with overlay tags + nav arrows */}
-              <div 
+              <div
                 onClick={() => handleOpenDetail(priority)}
                 className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-lg group bg-slate-100 cursor-pointer"
               >
@@ -4909,7 +4903,7 @@ export function EventsSection() {
 
                   {/* Title + Description */}
                   <div className="flex flex-col gap-2 min-w-0">
-                    <h3 
+                    <h3
                       onClick={() => handleOpenDetail(priority)}
                       className="font-serif text-xl sm:text-2xl font-semibold text-slate-900 leading-tight hover:text-[#1E4ED8] cursor-pointer transition-colors"
                     >
@@ -4950,11 +4944,10 @@ export function EventsSection() {
                   <button
                     type="button"
                     onClick={() => toggleSaveEvent(priority.slug)}
-                    className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold shadow-xs transition-all duration-200 active:scale-[0.97] ${
-                      savedEvents[priority.slug]
+                    className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold shadow-xs transition-all duration-200 active:scale-[0.97] ${savedEvents[priority.slug]
                         ? 'border-blue-600 bg-blue-50 text-[#1E4ED8]'
                         : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-400'
-                    }`}
+                      }`}
                   >
                     <Bookmark className={`size-4 ${savedEvents[priority.slug] ? 'fill-blue-600 text-blue-600' : ''}`} />
                     <span>{savedEvents[priority.slug] ? 'Saved' : 'Save Event'}</span>
@@ -5174,7 +5167,7 @@ export function EventsSection() {
               ) : (
                 <form onSubmit={handleRegistrationSubmit} className="flex flex-col gap-4 pt-4 border-t border-slate-100">
                   <h4 className="text-sm font-bold text-slate-900">Guest Registration Form</h4>
-                  
+
                   {regStatus === 'success' ? (
                     <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex items-center gap-2">
                       <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />

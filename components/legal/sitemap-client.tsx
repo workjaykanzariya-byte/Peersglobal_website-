@@ -26,7 +26,7 @@ const SITEMAP_SECTIONS = [
       { name: 'The Idea & Philosophy', href: '/the-idea' },
       { name: 'The Founder', href: '/founder' },
       { name: '1 Million Mission', href: '/1-million-mission' },
-      { name: 'Social Impact & SDGs', href: '/social-impact' },
+      { name: 'Foundation & Social Impact', href: '/foundation-social-impact' },
       { name: 'Podcast & Media', href: '/media' },
       { name: 'Stories of Transformation', href: '/stories' },
     ],

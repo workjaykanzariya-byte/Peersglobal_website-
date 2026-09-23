@@ -58,7 +58,7 @@ export function HomeHero() {
 
   return (
     <section className="relative min-h-[92vh] sm:min-h-[95vh] flex items-center justify-start overflow-hidden bg-[#070D18] text-white border-b border-white/10">
-      
+
       {/* Full-Bleed Cinematic Background Video */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         {ytEmbedUrl ? (
@@ -92,7 +92,7 @@ export function HomeHero() {
       {/* Hero Content Stage (Mindvalley Clean Left-Aligned Structure) */}
       <div className="shell relative z-10 py-16 sm:py-24 lg:py-32 flex flex-col justify-center">
         <div className="max-w-3xl flex flex-col items-start text-left">
-          
+
           {/* Eyebrow */}
           <div className="flex items-center gap-2.5 mb-5">
             <span className="h-[2px] w-6 bg-[#0078D4] rounded-full" />

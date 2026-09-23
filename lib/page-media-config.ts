@@ -1062,7 +1062,7 @@ export const WEBSITE_PAGES: WebsitePageConfig[] = [
       {
         id: 'about-foundation',
         name: 'Foundation & Social Impact',
-        subRoute: '/foundation',
+        subRoute: '/foundation-social-impact',
         description: 'Section 8 foundation and evidenced social development goals.',
         defaultMediaUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         defaultSourceType: 'url',

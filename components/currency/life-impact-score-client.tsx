@@ -35,74 +35,142 @@ export function LifeImpactScoreClient() {
         </div>
       </div>
 
-      {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-[#F8FAFC]">
+      {/* ─── 1. HERO (Signature Master Card Architecture Matching Home Page) ─── */}
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-[#0062D2]/20 text-xs font-semibold text-[#0062D2]">
-                <Sparkles className="w-3.5 h-3.5" />
-                Verified Relational Currency
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
-                Life Impact Score
-              </h1>
-              <p className="text-xl sm:text-2xl font-serif text-slate-700 italic leading-relaxed">
-                The record of what you have given.
-              </p>
-              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-                Logged as it happens. Confirmed by the person you helped.
-              </p>
-
-              <div className="pt-2">
-                <Link
-                  href="/unity"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] p-6 sm:p-10 lg:p-14 flex items-center">
+            {/* Ambient Background Accents */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+            
+            {/* Subtle Geometric Orbital Line Art */}
+            <div className="absolute -right-20 -top-20 pointer-events-none w-[460px] h-[460px] opacity-[0.04] overflow-hidden">
+              <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-slate-900" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="300" cy="300" r="260" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" />
+                <circle cx="300" cy="300" r="180" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="300" cy="300" r="100" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+              </svg>
             </div>
 
-            {/* Right Phone Visual with 2,850 Life Impact Score */}
-            <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-72 sm:w-80 rounded-[40px] p-4 bg-slate-900 border-4 border-slate-700 shadow-2xl">
-                {/* Phone screen content */}
-                <div className="rounded-[32px] bg-[#0A1128] text-white p-6 space-y-6 overflow-hidden relative">
-                  <div className="flex justify-between items-center text-xs text-slate-400">
-                    <span>Peers Unity</span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  </div>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
+              {/* Left Content */}
+              <div className="lg:col-span-7 space-y-6 sm:space-y-7">
+                {/* Eyebrow Pill */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/70 text-xs font-bold uppercase tracking-wider text-[#0062D2] shadow-2xs">
+                  <Sparkles className="w-3.5 h-3.5 text-[#0062D2]" />
+                  <span>Verified Relational Currency</span>
+                </div>
 
-                  <div className="text-center py-4 space-y-1">
-                    <span className="text-[11px] uppercase tracking-widest font-mono text-blue-300">
-                      Life Impact Score
-                    </span>
-                    <div className="text-4xl sm:text-5xl font-mono font-bold text-white tracking-tight">
-                      2,850
-                    </div>
-                    <span className="text-xs text-emerald-400 font-medium">
-                      +150 this month • Top 5% Peer
-                    </span>
-                  </div>
+                {/* Main Heading */}
+                <div className="space-y-3">
+                  <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-slate-950 tracking-tight leading-[1.08]">
+                    Life Impact Score
+                  </h1>
+                  <p className="font-serif text-xl sm:text-2xl text-slate-700 italic leading-relaxed">
+                    The record of what you have given.
+                  </p>
+                </div>
 
-                  <div className="space-y-2 pt-2 border-t border-white/10 text-xs">
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center">
-                      <span>Recent Confirmation</span>
-                      <span className="font-mono text-blue-300 font-bold">+100 pts</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center">
-                      <span>Peer Standing</span>
-                      <span className="text-blue-300 font-semibold">Catalyst</span>
-                    </div>
+                {/* Subtitle / Description */}
+                <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
+                  Logged as it happens. Confirmed by the person you helped.
+                </p>
+
+                {/* Feature Chips / Pillar Mini Indicators */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                  <div className="px-3 py-2 rounded-xl bg-slate-50/90 border border-slate-200/70 text-[11px] font-semibold text-slate-700 flex items-center gap-1.5 shadow-2xs">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#0062D2] shrink-0" />
+                    <span className="truncate">Immutable</span>
+                  </div>
+                  <div className="px-3 py-2 rounded-xl bg-slate-50/90 border border-slate-200/70 text-[11px] font-semibold text-slate-700 flex items-center gap-1.5 shadow-2xs">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span className="truncate">Peer Confirmed</span>
+                  </div>
+                  <div className="px-3 py-2 rounded-xl bg-slate-50/90 border border-slate-200/70 text-[11px] font-semibold text-slate-700 flex items-center gap-1.5 shadow-2xs">
+                    <TrendingUp className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                    <span className="truncate">Live Score</span>
+                  </div>
+                  <div className="px-3 py-2 rounded-xl bg-slate-50/90 border border-slate-200/70 text-[11px] font-semibold text-slate-700 flex items-center gap-1.5 shadow-2xs">
+                    <Award className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span className="truncate">Coin Rewards</span>
                   </div>
                 </div>
 
-                {/* Calligraphy label */}
-                <div className="absolute -bottom-5 -right-6 font-serif italic text-[#0062D2] text-sm bg-white px-4 py-1.5 rounded-full border border-slate-200 shadow-md hidden sm:block">
-                  Give. Support. Create Impact.
+                {/* Action CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <Link
+                    href="/unity"
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-[#1E4ED8] hover:bg-blue-700 text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-[0_4px_14px_rgba(30,78,216,0.3)] transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
+                  >
+                    <span>Download Unity App</span>
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  <Link
+                    href="/how-to-earn-impact"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/90 hover:bg-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-slate-700 transition-all hover:border-slate-300 active:scale-[0.98] uppercase shadow-2xs"
+                  >
+                    <span>How to Earn Score</span>
+                    <ChevronRight className="size-4 text-slate-400" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Phone Visual with 2,850 Life Impact Score (Preserved & Elevated) */}
+              <div className="lg:col-span-5 relative flex justify-center items-center py-4">
+                {/* Outer Glow Halo */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-indigo-500/10 to-transparent rounded-[50px] blur-2xl pointer-events-none" />
+
+                {/* Phone Device Frame */}
+                <div className="relative w-72 sm:w-80 rounded-[44px] p-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border-[3px] border-slate-700/80 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.35)] ring-1 ring-white/10">
+                  {/* Speaker Notch */}
+                  <div className="absolute top-5 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-20 flex items-center justify-center">
+                    <div className="w-8 h-1 bg-slate-800 rounded-full" />
+                    <div className="w-2 h-2 rounded-full bg-slate-900 ml-2" />
+                  </div>
+
+                  {/* Phone screen content */}
+                  <div className="rounded-[34px] bg-[#060D1D] text-white p-6 pt-8 space-y-6 overflow-hidden relative border border-white/5">
+                    {/* Header bar */}
+                    <div className="flex justify-between items-center text-xs text-slate-400 pt-1">
+                      <span className="font-semibold tracking-wide text-slate-300">Peers Unity</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-[10px] text-emerald-400 uppercase tracking-widest font-mono">Live</span>
+                      </div>
+                    </div>
+
+                    {/* Central Score Display */}
+                    <div className="text-center py-4 space-y-1.5 rounded-2xl bg-gradient-to-b from-white/[0.04] to-transparent border border-white/[0.06] p-4">
+                      <span className="text-[11px] uppercase tracking-widest font-mono text-sky-300 font-semibold">
+                        Life Impact Score
+                      </span>
+                      <div className="text-4xl sm:text-5xl font-mono font-bold text-white tracking-tight drop-shadow-sm">
+                        2,850
+                      </div>
+                      <div className="inline-flex items-center gap-1 text-xs text-emerald-400 font-medium bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                        <span>+150 this month</span>
+                        <span>•</span>
+                        <span>Top 5% Peer</span>
+                      </div>
+                    </div>
+
+                    {/* Metric Cards */}
+                    <div className="space-y-2.5 pt-1 text-xs">
+                      <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex justify-between items-center transition-colors hover:bg-white/[0.07]">
+                        <span className="text-slate-300">Recent Confirmation</span>
+                        <span className="font-mono text-sky-300 font-bold bg-sky-950/50 px-2 py-0.5 rounded border border-sky-400/20">+100 pts</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex justify-between items-center transition-colors hover:bg-white/[0.07]">
+                        <span className="text-slate-300">Peer Standing</span>
+                        <span className="text-amber-300 font-semibold bg-amber-950/50 px-2.5 py-0.5 rounded border border-amber-400/20">Catalyst</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Calligraphy floating badge */}
+                  <div className="absolute -bottom-4 -right-4 sm:-right-6 font-serif italic text-[#1E4ED8] text-xs sm:text-sm bg-white px-4 py-2 rounded-full border border-slate-200/90 shadow-lg hidden sm:flex items-center gap-1.5 z-20">
+                    <span>Give. Support. Create Impact.</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -333,14 +401,14 @@ export function LifeImpactScoreClient() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
             Build Your Business. Build Your Relationships. Build Your Circle.
           </h2>
-          <p className="font-serif italic text-blue-200 text-base sm:text-lg">
+          <p className="font-serif italic text-sky-200 text-base sm:text-lg">
             People. Progress. Together.
           </p>
 
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-blue-50 text-[#0062D2] text-xs sm:text-sm font-bold shadow-lg transition-all uppercase tracking-wider hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#061836] text-xs sm:text-sm font-bold shadow-lg transition-all uppercase tracking-wider hover:scale-105 active:scale-95"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />

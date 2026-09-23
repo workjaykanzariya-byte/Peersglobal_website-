@@ -61,7 +61,6 @@ export function SiteFooter() {
         { label: 'Start a Circle', href: '/start-a-circle' },
         { label: 'Circle Map — Cities', href: '/map' },
         { label: 'Unity Overview', href: '/unity' },
-        { label: 'Peer Directory', href: '/unity/directory' },
         { label: 'Circle Magazines', href: '/circle-magazines' },
       ],
     },
@@ -95,7 +94,7 @@ export function SiteFooter() {
     {
       title: 'Community Life',
       links: [
-        { label: 'Events & Summits', href: '/events' },
+        // { label: 'Events & Summits', href: '/events' },
         { label: 'Speak at Peers Global', href: '/events/speak' },
         { label: 'Peer Stories & Wins', href: '/stories' },
         { label: 'Awards & Recognition', href: '/awards' },
@@ -112,8 +111,8 @@ export function SiteFooter() {
         { label: 'About Peers Global', href: '/about' },
         { label: 'Our Story', href: '/our-story' },
         { label: 'Dr. Pravin Parmar', href: '/founder' },
-        { label: 'The Foundation', href: '/foundation' },
-        { label: 'Social Impact', href: '/social-impact' },
+        { label: 'Careers', href: '/careers' },
+        { label: 'Foundation & Social Impact', href: '/foundation-social-impact' },
         { label: 'Newsroom & Media Kit', href: '/newsroom' },
         { label: 'Partner With Us', href: '/partner' },
         { label: 'Careers & Investors', href: '/careers' },

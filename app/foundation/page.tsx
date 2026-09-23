@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
-export default function SocialImpactRedirect() {
+export default function FoundationRedirect() {
   redirect('/foundation-social-impact')
 }

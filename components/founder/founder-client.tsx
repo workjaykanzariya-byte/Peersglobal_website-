@@ -553,7 +553,7 @@ export function FounderClient() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
               Build Your Business. Build Your Relationships. Build Your Circle.
             </h2>
-            <p className="text-base sm:text-lg text-white/90 font-normal max-w-xl mx-auto">
+            <p className="text-base sm:text-lg text-white/80 font-normal max-w-xl mx-auto">
               Join thousands of verified entrepreneurs building together on the Unity App.
             </p>
           </div>
@@ -561,7 +561,7 @@ export function FounderClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#061836] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] uppercase tracking-wider"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />
