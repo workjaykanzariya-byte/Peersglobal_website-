@@ -64,8 +64,31 @@ export function ChoosePathwaySection() {
   const [isVisible, setIsVisible] = useState(false)
   const [billing, setBilling] = useState<'yearly' | 'monthly'>('yearly')
   const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    const handleMotionChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
+    mediaQuery.addEventListener('change', handleMotionChange)
+
+    let animationFrameId: number
+
+    const handleScroll = () => {
+      if (!sectionRef.current) return
+      const rect = sectionRef.current.getBoundingClientRect()
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight
+      const totalDistance = windowHeight + rect.height
+      const currentPos = windowHeight - rect.top
+      const progress = Math.max(0, Math.min(1, currentPos / (totalDistance * 0.7)))
+      setScrollProgress(progress)
+    }
+
+    const onScroll = () => {
+      animationFrameId = requestAnimationFrame(handleScroll)
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting)
@@ -75,7 +98,16 @@ export function ChoosePathwaySection() {
     if (sectionRef.current) {
       observer.observe(sectionRef.current)
     }
-    return () => observer.disconnect()
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    handleScroll()
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(animationFrameId)
+      mediaQuery.removeEventListener('change', handleMotionChange)
+    }
   }, [])
 
   const toggleSelect = (id: string) => {
@@ -86,13 +118,24 @@ export function ChoosePathwaySection() {
 
   const isAllAccess = selectedIds.length >= 2
 
+  const contentTranslateY = prefersReducedMotion ? 0 : (1 - scrollProgress) * 32
+  const contentOpacity = prefersReducedMotion ? 1 : Math.max(0, Math.min(1, scrollProgress * 1.5))
+
   return (
     <section
       ref={sectionRef}
       className="w-full bg-[#061320] text-white py-24 px-6 md:px-12 relative overflow-hidden font-sans"
     >
       {/* Header */}
-      <div className="max-w-[800px] mx-auto text-center mb-12 flex flex-col items-center gap-3">
+      <div
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${contentTranslateY}px, 0)`,
+          opacity: contentOpacity,
+          transition: 'transform 0.12s ease-out, opacity 0.15s ease-out',
+          willChange: 'transform, opacity',
+        }}
+        className="max-w-[800px] mx-auto text-center mb-12 flex flex-col items-center gap-3"
+      >
         <p className="text-xs md:text-sm font-semibold tracking-widest text-[#E2CEA0] uppercase">
           CHOOSE YOUR PATHWAY
         </p>
@@ -113,7 +156,7 @@ export function ChoosePathwaySection() {
             onClick={() => setBilling('yearly')}
             className={`px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${
               billing === 'yearly'
-                ? 'bg-[#7A12D4] text-white shadow-md'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md'
                 : 'text-[#9CA3AF] hover:text-white'
             }`}
           >
@@ -124,7 +167,7 @@ export function ChoosePathwaySection() {
             onClick={() => setBilling('monthly')}
             className={`px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${
               billing === 'monthly'
-                ? 'bg-[#7A12D4] text-white shadow-md'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md'
                 : 'text-[#9CA3AF] hover:text-white'
             }`}
           >
@@ -134,7 +177,15 @@ export function ChoosePathwaySection() {
       </div>
 
       {/* Pathways List Cards */}
-      <div className="max-w-[1000px] mx-auto flex flex-col gap-4 mb-20">
+      <div
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${contentTranslateY * 0.7}px, 0)`,
+          opacity: contentOpacity,
+          transition: 'transform 0.12s ease-out, opacity 0.15s ease-out',
+          willChange: 'transform, opacity',
+        }}
+        className="max-w-[1000px] mx-auto flex flex-col gap-4 mb-20"
+      >
         {pathways.map((item) => {
           const isSelected = selectedIds.includes(item.id)
           const price = billing === 'yearly' ? item.yearlyPrice : item.monthlyPrice
@@ -146,7 +197,7 @@ export function ChoosePathwaySection() {
               onClick={() => toggleSelect(item.id)}
               className={`flex items-center justify-between p-4 md:p-6 rounded-2xl border transition-all cursor-pointer ${
                 isSelected
-                  ? 'bg-white/10 border-[#9B37F2] shadow-lg shadow-[#7A12D4]/20'
+                  ? 'bg-white/10 border-[#1D4ED8] shadow-lg shadow-[#1D4ED8]/20'
                   : 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.06]'
               }`}
             >
@@ -179,7 +230,7 @@ export function ChoosePathwaySection() {
                 <div
                   className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${
                     isSelected
-                      ? 'bg-[#7A12D4] border-[#7A12D4] text-white'
+                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-none text-white'
                       : 'border-white/30 bg-transparent'
                   }`}
                 >
@@ -222,7 +273,7 @@ export function ChoosePathwaySection() {
               href="https://www.mindvalley.com/membership"
               className={`px-7 py-2.5 rounded-full text-sm font-semibold transition-all ${
                 selectedIds.length > 0
-                  ? 'bg-[#7A12D4] hover:bg-[#9B37F2] text-white shadow-lg shadow-[#7A12D4]/30'
+                  ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-90 text-white shadow-lg shadow-[#1D4ED8]/30'
                   : 'bg-[#152438] hover:bg-[#1C2F49] text-[#8EA2B6]'
               }`}
             >

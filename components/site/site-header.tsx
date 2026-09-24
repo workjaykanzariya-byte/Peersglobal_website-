@@ -317,7 +317,12 @@ export function SiteHeader() {
               <Link
                 href="/apply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] py-2.5 text-xs font-semibold tracking-wide text-white transition-colors"
+                className={cn(
+                  "flex items-center justify-center gap-2 rounded-[4px] py-2.5 text-xs font-semibold tracking-wide text-white transition-all",
+                  pathname === '/'
+                    ? "bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-90"
+                    : "bg-[#0078D4] hover:bg-[#006cbd]"
+                )}
               >
                 <span>ENTER PEERS GLOBAL</span>
                 <ArrowRight className="size-4" />
