@@ -64,8 +64,31 @@ export function ChoosePathwaySection() {
   const [isVisible, setIsVisible] = useState(false)
   const [billing, setBilling] = useState<'yearly' | 'monthly'>('yearly')
   const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    const handleMotionChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
+    mediaQuery.addEventListener('change', handleMotionChange)
+
+    let animationFrameId: number
+
+    const handleScroll = () => {
+      if (!sectionRef.current) return
+      const rect = sectionRef.current.getBoundingClientRect()
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight
+      const totalDistance = windowHeight + rect.height
+      const currentPos = windowHeight - rect.top
+      const progress = Math.max(0, Math.min(1, currentPos / (totalDistance * 0.7)))
+      setScrollProgress(progress)
+    }
+
+    const onScroll = () => {
+      animationFrameId = requestAnimationFrame(handleScroll)
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting)
@@ -75,7 +98,16 @@ export function ChoosePathwaySection() {
     if (sectionRef.current) {
       observer.observe(sectionRef.current)
     }
-    return () => observer.disconnect()
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    handleScroll()
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(animationFrameId)
+      mediaQuery.removeEventListener('change', handleMotionChange)
+    }
   }, [])
 
   const toggleSelect = (id: string) => {
@@ -86,13 +118,24 @@ export function ChoosePathwaySection() {
 
   const isAllAccess = selectedIds.length >= 2
 
+  const contentTranslateY = prefersReducedMotion ? 0 : (1 - scrollProgress) * 32
+  const contentOpacity = prefersReducedMotion ? 1 : Math.max(0, Math.min(1, scrollProgress * 1.5))
+
   return (
     <section
       ref={sectionRef}
       className="w-full bg-[#061320] text-white py-24 px-6 md:px-12 relative overflow-hidden font-sans"
     >
       {/* Header */}
-      <div className="max-w-[800px] mx-auto text-center mb-12 flex flex-col items-center gap-3">
+      <div
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${contentTranslateY}px, 0)`,
+          opacity: contentOpacity,
+          transition: 'transform 0.12s ease-out, opacity 0.15s ease-out',
+          willChange: 'transform, opacity',
+        }}
+        className="max-w-[800px] mx-auto text-center mb-12 flex flex-col items-center gap-3"
+      >
         <p className="text-xs md:text-sm font-semibold tracking-widest text-[#E2CEA0] uppercase">
           CHOOSE YOUR PATHWAY
         </p>
@@ -111,22 +154,20 @@ export function ChoosePathwaySection() {
           <button
             type="button"
             onClick={() => setBilling('yearly')}
-            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${
-              billing === 'yearly'
+            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${billing === 'yearly'
                 ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/30'
                 : 'text-[#9CA3AF] hover:text-white'
-            }`}
+              }`}
           >
             Yearly (Save up to 58%)
           </button>
           <button
             type="button"
             onClick={() => setBilling('monthly')}
-            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${
-              billing === 'monthly'
+            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${billing === 'monthly'
                 ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/30'
                 : 'text-[#9CA3AF] hover:text-white'
-            }`}
+              }`}
           >
             Monthly
           </button>
@@ -134,7 +175,15 @@ export function ChoosePathwaySection() {
       </div>
 
       {/* Pathways List Cards */}
-      <div className="max-w-[1000px] mx-auto flex flex-col gap-4 mb-20">
+      <div
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${contentTranslateY * 0.7}px, 0)`,
+          opacity: contentOpacity,
+          transition: 'transform 0.12s ease-out, opacity 0.15s ease-out',
+          willChange: 'transform, opacity',
+        }}
+        className="max-w-[1000px] mx-auto flex flex-col gap-4 mb-20"
+      >
         {pathways.map((item) => {
           const isSelected = selectedIds.includes(item.id)
           const price = billing === 'yearly' ? item.yearlyPrice : item.monthlyPrice
@@ -144,11 +193,10 @@ export function ChoosePathwaySection() {
             <div
               key={item.id}
               onClick={() => toggleSelect(item.id)}
-              className={`flex items-center justify-between p-4 md:p-6 rounded-2xl border transition-all cursor-pointer ${
-                isSelected
+              className={`flex items-center justify-between p-4 md:p-6 rounded-2xl border transition-all cursor-pointer ${isSelected
                   ? 'bg-white/10 border-blue-500 shadow-lg shadow-blue-600/20'
                   : 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.06]'
-              }`}
+                }`}
             >
               <div className="flex items-center gap-4 md:gap-6 min-w-0">
                 <img
@@ -177,11 +225,10 @@ export function ChoosePathwaySection() {
                 </div>
 
                 <div
-                  className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${
-                    isSelected
+                  className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${isSelected
                       ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-none text-white shadow-sm'
                       : 'border-white/30 bg-transparent'
-                  }`}
+                    }`}
                 >
                   {isSelected && (
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -197,9 +244,8 @@ export function ChoosePathwaySection() {
 
       {/* Dynamic Sticky Bottom Bar - Appears smoothly when section is active */}
       <div
-        className={`fixed bottom-0 inset-x-0 z-50 bg-[#081827]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
-        }`}
+        className={`fixed bottom-0 inset-x-0 z-50 bg-[#081827]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
+          }`}
       >
         <div className="max-w-[1000px] mx-auto flex items-center justify-between gap-4">
           <div className="text-left">
@@ -207,8 +253,8 @@ export function ChoosePathwaySection() {
               {isAllAccess
                 ? 'Get All 6 Pathways with All Access Membership'
                 : selectedIds.length === 1
-                ? `1 Pathway Selected (${pathways.find((p) => p.id === selectedIds[0])?.title})`
-                : 'Select a Pathway To Begin'}
+                  ? `1 Pathway Selected (${pathways.find((p) => p.id === selectedIds[0])?.title})`
+                  : 'Select a Pathway To Begin'}
             </p>
             <p className="text-xs text-[#9CA3AF]">
               {isAllAccess
@@ -220,11 +266,10 @@ export function ChoosePathwaySection() {
           <div className="flex flex-col items-center">
             <a
               href="/apply"
-              className={`px-7 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                selectedIds.length > 0
+              className={`px-7 py-2.5 rounded-full text-sm font-semibold transition-all ${selectedIds.length > 0
                   ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white shadow-lg shadow-blue-600/35 hover:shadow-red-500/30 hover:scale-105'
                   : 'bg-[#152438] hover:bg-[#1C2F49] text-[#8EA2B6]'
-              }`}
+                }`}
             >
               Select Pathway
             </a>

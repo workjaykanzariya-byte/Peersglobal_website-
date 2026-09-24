@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { useRef, useEffect, useState } from 'react'
 import type * as React from 'react'
 import { ArrowRight, Download } from 'lucide-react'
 
@@ -33,6 +36,46 @@ export function ClosingCtaSection({
   buttons,
   className = '',
 }: ClosingCtaSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    // Check reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    const handleMotionChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
+    mediaQuery.addEventListener('change', handleMotionChange)
+
+    let animationFrameId: number
+
+    const handleScroll = () => {
+      if (!sectionRef.current) return
+      const rect = sectionRef.current.getBoundingClientRect()
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight
+      
+      // Calculate progress from 0 (section entering bottom of screen) to 1 (section fully centered/scrolled)
+      const totalDistance = windowHeight + rect.height
+      const currentPos = windowHeight - rect.top
+      const progress = Math.max(0, Math.min(1, currentPos / (totalDistance * 0.75)))
+      
+      setScrollProgress(progress)
+    }
+
+    const onScroll = () => {
+      animationFrameId = requestAnimationFrame(handleScroll)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    handleScroll()
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(animationFrameId)
+      mediaQuery.removeEventListener('change', handleMotionChange)
+    }
+  }, [])
+
   const defaultTitle = (
     <>
       A community you can belong to, contribute to, grow with, and build relationships{' '}
@@ -47,24 +90,55 @@ export function ClosingCtaSection({
 
   const isSecondaryExternal = secondaryButtonHref?.startsWith('http')
 
+  // Calculated scroll-driven animations
+  const contentTranslateY = prefersReducedMotion ? 0 : (1 - scrollProgress) * 36
+  const contentOpacity = prefersReducedMotion ? 1 : Math.max(0, Math.min(1, scrollProgress * 1.4))
+  const orbitTranslateY = prefersReducedMotion ? 0 : (1 - scrollProgress) * -24
+  const orbitRotate = prefersReducedMotion ? 0 : (scrollProgress - 0.5) * 6
+  const bgParallaxY = prefersReducedMotion ? 0 : (scrollProgress - 0.5) * 20
+
   return (
-    <section className={`relative isolate overflow-hidden bg-[#040F24] py-14 sm:py-18 lg:py-20 text-white ${className}`}>
+    <section
+      ref={sectionRef}
+      className={`relative isolate overflow-hidden bg-[#040F24] py-14 sm:py-18 lg:py-20 text-white ${className}`}
+    >
       {/* Deep celestial radial gradients & luminous aura */}
       <div
         aria-hidden="true"
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${bgParallaxY}px, 0)`,
+          transition: 'transform 0.1s linear',
+        }}
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+        style={{
+          transform: prefersReducedMotion ? 'translateY(-50%)' : `translate3d(0, calc(-50% + ${bgParallaxY * 0.8}px), 0)`,
+          transition: 'transform 0.1s linear',
+        }}
+        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 rounded-full bg-blue-600/20 blur-3xl"
       />
       <div
         aria-hidden="true"
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${bgParallaxY * -0.6}px, 0)`,
+          transition: 'transform 0.1s linear',
+        }}
         className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
       />
 
-      {/* Subtle geometric orbital line art */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+      {/* Subtle geometric orbital line art with Parallax */}
+      <div
+        aria-hidden="true"
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${orbitTranslateY}px, 0) rotate(${orbitRotate}deg)`,
+          opacity: 0.15 + scrollProgress * 0.25,
+          transition: 'transform 0.1s linear, opacity 0.15s ease-out',
+          willChange: 'transform, opacity',
+        }}
+        className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)]"
+      >
         <svg
           viewBox="0 0 760 520"
           fill="none"
@@ -96,7 +170,15 @@ export function ClosingCtaSection({
         </svg>
       </div>
 
-      <div className="shell relative z-10 flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
+      <div
+        style={{
+          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${contentTranslateY}px, 0)`,
+          opacity: contentOpacity,
+          transition: 'transform 0.12s ease-out, opacity 0.15s ease-out',
+          willChange: 'transform, opacity',
+        }}
+        className="shell relative z-10 flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between"
+      >
         <div className="flex max-w-3xl flex-col gap-3.5">
           {/* Eyebrow with horizontal dash */}
           {eyebrow && (
@@ -181,3 +263,4 @@ export function ClosingCtaSection({
     </section>
   )
 }
+
