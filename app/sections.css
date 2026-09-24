@@ -151,9 +151,9 @@ p.body,
 /* === EXTRACTED FROM scratch_style_11.css === */
 
 .fd-hero{
-  /* MV tokens actually used in this section */
-  --mv-brand: #7a12d4;
-  --mv-brand-bright: #9b37f2;
+  /* Peers Global Brand Tokens */
+  --mv-brand: #1D4ED8;
+  --mv-brand-bright: #E11D48;
   --mv-white: #ffffff;
   --mv-grey-300: #ced1d7;
   --mv-black: #0f131a;
@@ -311,12 +311,19 @@ p.body,
   transition: background-color .2s ease, background-image .2s ease, opacity .2s ease;
 }
 .fd-hero__btn--brand{
-  background-image: linear-gradient(180deg, var(--mv-brand-bright) 0%, var(--mv-brand) 100%);
+  background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  color: #ffffff !important;
+  font-weight: 600;
   letter-spacing: .25px;
+  box-shadow: 0 4px 20px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .fd-hero__btn--brand:hover,
 .fd-hero__btn--brand:focus-visible{
-  background-image: linear-gradient(180deg, var(--mv-brand) 0%, var(--mv-brand) 100%);
+  background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+  box-shadow: 0 8px 30px rgba(225, 29, 72, 0.45), 0 4px 16px rgba(29, 78, 216, 0.4);
+  transform: translateY(-2px);
+  color: #ffffff !important;
 }
 .fd-hero__btn--ghost{
   background-color: rgba(255,255,255,.18);
@@ -527,9 +534,9 @@ p.body,
   /* Figma fills these three numbers with a gradient, not a flat colour — clipped to the
      glyphs. The flat fallback colour is the ramp's midpoint for any engine that ignores
      background-clip:text. */
-  color: #1E6D92;
+  color: #1D4ED8;
   display: inline-block;
-  background-image: linear-gradient(180deg, #2F7EA8 0%, #0D5D7C 100%);
+  background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -973,14 +980,19 @@ p.body,
   }
 
   .fd-pathway-hero__btn--neutral {
-    background-color: var(--mv-white);
-    color: #000000;
+    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .fd-pathway-hero__btn--neutral:hover,
   .fd-pathway-hero__btn--neutral:focus-visible {
-    background-color: #ebedef;
-    color: #000000;
+    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff !important;
   }
 
   /* Tablet — self-derived (no tablet frame in Figma) */
@@ -1081,20 +1093,41 @@ p.body,
 .fd-pathway-cards__body{display:flex;flex-direction:column;align-items:flex-start;gap:20px;width:100%}
 .fd-pathway-cards__text{display:flex;flex-direction:column;gap:12px;width:100%}
 .fd-pathway-cards__head{display:flex;flex-direction:column;gap:8px;width:100%}
-.fd-pathway-cards__eyebrow{margin:0;font-size:16px;font-weight:600;line-height:20.032px;letter-spacing:.2px;color:var(--pw-eyebrow)}
-.fd-pathway-cards__title{margin:0;font-size:30px;font-weight:600;line-height:34px;letter-spacing:0;color:var(--mv-white)}
-.fd-pathway-cards__desc{margin:0;font-size:16px;font-weight:400;line-height:22px;letter-spacing:.4px;color:var(--mv-grey-300)}
-.fd-pathway-cards__list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;width:100%}
-.fd-pathway-cards__item{display:flex;align-items:center;gap:6px;min-height:24px;font-size:16px;font-weight:400;
-  line-height:22px;letter-spacing:.4px;color:var(--mv-grey-300)}
-.fd-pathway-cards__check{flex:0 0 24px;width:24px;height:24px;display:block}
+.fd-pathway-cards__eyebrow{margin:0;font-family:'Google Sans Flex',sans-serif;font-size:16px;font-weight:600;line-height:22px;letter-spacing:0.46px;text-transform:uppercase;color:var(--pw-eyebrow)}
+.fd-pathway-cards__title{margin:0;font-family:'Google Sans Flex',sans-serif;font-size:32px;font-weight:600;line-height:40px;letter-spacing:0.15px;text-wrap:balance;color:#ffffff}
+@media (max-width:640px){.fd-pathway-cards__title{font-size:26px;line-height:34px}}
+.fd-pathway-cards__desc{margin:0;font-family:'Google Sans Flex',sans-serif;font-size:16px;font-weight:400;line-height:25px;letter-spacing:0.26px;color:rgba(255,255,255,0.92)}
+.fd-pathway-cards__desc--lead{font-weight:500;color:#ffffff;font-size:16.5px;line-height:25px}
+.fd-pathway-cards__desc--sub{font-size:14.5px;line-height:23px;color:#cbd5e1}
+.fd-pathway-cards__subhead{margin:0;font-family:'Google Sans Flex',sans-serif;font-size:15px;font-weight:600;line-height:22px;letter-spacing:0.2px;color:#ffffff}
+.fd-pathway-cards__quote{margin:0;font-family:'Google Sans Flex',sans-serif;font-size:14.5px;font-weight:400;font-style:italic;line-height:22px;letter-spacing:0.2px;color:rgba(255,255,255,0.85)}
+.fd-pathway-cards__list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;width:100%}
+.fd-pathway-cards__item{display:flex;align-items:flex-start;gap:8px;font-family:'Google Sans Flex',sans-serif;font-size:14.5px;font-weight:400;line-height:22px;letter-spacing:0.2px;color:rgba(255,255,255,0.9)}
+.fd-pathway-cards__item strong{font-weight:600;color:#ffffff}
+.fd-pathway-cards__check{flex:0 0 20px;width:20px;height:20px;margin-top:1px;display:block}
 
-/* ---- CTA: MV Button replica (variant neutral / size medium) ---- */
-.fd-pathway-cards__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;
-  font-size:14px;font-weight:500;line-height:18px;letter-spacing:.2px;padding:11px 24px;border-radius:100px;
-  border:0;background:var(--mv-white);color:#000000;text-decoration:none;cursor:pointer;white-space:nowrap;
-  transition:background-color .2s ease,opacity .2s ease}
-.fd-pathway-cards__btn:hover{background:var(--mv-grey-300)}
+.fd-pathway-cards__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Google Sans Flex',sans-serif;
+  font-size:14.5px;font-weight:600;line-height:18px;letter-spacing:0.2px;padding:12px 28px;border-radius:100px;
+  border:0;background-image:linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;color:#ffffff !important;
+  text-decoration:none;cursor:pointer;white-space:nowrap;
+  box-shadow:0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3);
+  transition:all .25s cubic-bezier(0.16, 1, 0.3, 1)}
+.fd-pathway-cards__btn:hover{background-image:linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+  box-shadow:0 8px 24px rgba(225, 29, 72, 0.45), 0 4px 12px rgba(29, 78, 216, 0.4);
+  transform:translateY(-2px);color:#ffffff !important;}
+
+.fd-pathway-cards__btn--secondary {
+  background-image: none !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+.fd-pathway-cards__btn--secondary:hover {
+  background-image: none !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1) !important;
+}
 
 /* ---- right column: paginated 3x4 program grid ---- */
 .fd-pathway-cards__carousel{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;min-width:0}
@@ -1108,9 +1141,9 @@ p.body,
   aspect-ratio:206.3333 / 82.7725;margin-bottom:4px}
 .fd-pathway-cards__cover{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
 .fd-pathway-cards__face{width:100%;height:100%;object-fit:cover;border-radius:4px;display:block}
-.fd-pathway-cards__prog{margin:0;font-size:12px;font-weight:500;line-height:16px;letter-spacing:.2px;text-align:center;
+.fd-pathway-cards__prog{margin:0;font-family:'Google Sans Flex',sans-serif;font-size:12.5px;font-weight:600;line-height:17px;letter-spacing:0.15px;text-align:center;
   color:var(--mv-white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fd-pathway-cards__auth{margin:0;font-size:10px;font-weight:400;line-height:14px;letter-spacing:.4px;text-align:center;
+.fd-pathway-cards__auth{margin:0;font-family:'Google Sans Flex',sans-serif;font-size:11px;font-weight:400;line-height:15px;letter-spacing:0.2px;text-align:center;
   /* ARBITER override: Figma node says #595e67, the reference render is #ced1d7 */
   color:var(--mv-grey-300);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
@@ -1774,10 +1807,18 @@ p.body,
   transition:background-color .2s ease,opacity .2s ease;
 }
 .fd-case-studies__btn--neutral{
-  background:#000000;
-  color:var(--mv-white);
+  background-image:linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  color:#ffffff !important;
+  font-weight:600;
+  box-shadow:0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
+  transition:all .25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.fd-case-studies__btn--neutral:hover{background:var(--mv-grey-600)}
+.fd-case-studies__btn--neutral:hover{
+  background-image:linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+  box-shadow:0 8px 26px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
+  transform:translateY(-2px);
+  color:#ffffff !important;
+}
 
 /* ---- tablet: collage crops inward, centre gutter preserved (self-derived) ---- */
 @media (max-width:1024px){
@@ -1895,21 +1936,27 @@ p.body,
   padding:14px 24px;
   border:0;
   border-radius:100px;
-  background-color:#000000;
-  color:#ffffff;
+  background-image:linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  color:#ffffff !important;
   font-family:inherit;
   font-size:16px;
-  font-weight:500;
+  font-weight:600;
   line-height:20px;
   letter-spacing:.2px;
   text-align:center;
   text-decoration:none;
   white-space:nowrap;
   cursor:pointer;
-  transition:background-color .2s ease;
+  box-shadow:0 4px 18px rgba(29, 78, 216, 0.4), 0 2px 10px rgba(225, 29, 72, 0.3);
+  transition:all .25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.fd-med-menu__btn:hover{background-color:#1f2430}
-.fd-med-menu__btn:focus-visible{outline:2px solid #0F131A;outline-offset:2px}
+.fd-med-menu__btn:hover{
+  background-image:linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+  box-shadow:0 8px 26px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
+  transform:translateY(-2px);
+  color:#ffffff !important;
+}
+.fd-med-menu__btn:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
 
 /* ---------- full-bleed marquee ---------- */
 .fd-med-menu__rows{

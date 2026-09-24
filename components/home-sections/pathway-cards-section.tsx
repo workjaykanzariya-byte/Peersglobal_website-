@@ -14,1156 +14,1529 @@ export function PathwayCardsSection() {
     <section className="fd-pathway-cards">
 <div className="fd-pathway-cards__tint" aria-hidden="true"><div className="fd-pathway-cards__wash fd-pathway-cards__wash--1"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--2"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--3"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--4"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--5"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--6"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--out"></div></div>
   <svg className="fd-pathway-cards__defs" aria-hidden="true" focusable="false" width="0" height="0"><defs>
-    <linearGradient id="fdPwChkMind" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fb0fb"></stop><stop offset="1" stop-color="#92cdfe"></stop></linearGradient>
-    <linearGradient id="fdPwChkEnt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7979ff"></stop><stop offset="1" stop-color="#adbfff"></stop></linearGradient>
-    <linearGradient id="fdPwChkAuth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7ce18"></stop><stop offset="1" stop-color="#fbe149"></stop></linearGradient>
-    <linearGradient id="fdPwChkConn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e086af"></stop><stop offset="1" stop-color="#edb4cf"></stop></linearGradient>
-    <linearGradient id="fdPwChkBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#48bf8f"></stop><stop offset="1" stop-color="#7dd8b1"></stop></linearGradient>
-    <linearGradient id="fdPwChkMystic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c079ff"></stop><stop offset="1" stop-color="#d8adff"></stop></linearGradient>
+    <linearGradient id="fdPwChkMind" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+    <linearGradient id="fdPwChkEnt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+    <linearGradient id="fdPwChkAuth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+    <linearGradient id="fdPwChkConn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+    <linearGradient id="fdPwChkBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+    <linearGradient id="fdPwChkMystic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
   </defs></svg>
   <div className="fd-pathway-cards__inner">
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--mind">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--mind" id="our-philosophy">
       <div className="fd-pathway-cards__left">
-        <img className="fd-pathway-cards__hero" src="https://a.storyblok.com/f/312081/1920x1080/2540700ff4/pathway_theextraordinarymind-keyart.webp/m/830x0/filters:format(webp):quality(80)" alt="The Extraordinary Mind Pathway" width="461" height="259" loading="lazy" decoding="async" />
+        <img className="fd-pathway-cards__hero" src="/images/who-we-are-friends.jpg" alt="Peers are Partners in Business and Friends in Life" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow">THE EXTRAORDINARY MIND</p>
-            <h3 className="fd-pathway-cards__title">Mastering Your Mind</h3>
+            <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">— OUR PHILOSOPHY</p>
+            <h2 className="fd-pathway-cards__title">Peers are Partners in Business and Friends in Life.</h2>
           </div>
-          <p className="fd-pathway-cards__desc">Your mind shapes the life you create. Break free from limiting beliefs, build empowering habits, and unlock greater clarity and resilience.</p>
-          <ul className="fd-pathway-cards__list">
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Break free from overthinking and self-doubt</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Build habits that help you stay calm and focused</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Develop a mindset that supports your whole life</span></li>
-          </ul>
+          <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">This is the sentence the whole community runs on.</p>
+          <p className="fd-pathway-cards__desc fd-pathway-cards__desc--sub">A Peer gives an introduction without keeping score. Shares a hard-won lesson without charging for it. Celebrates another Peer&apos;s win as if it were their own. Over time, business partners become friends, and friends become the reason the business grows.</p>
+          
+          <div className="flex flex-col gap-2 mt-1">
+            <p className="fd-pathway-cards__subhead">How growth works here:</p>
+            <ul className="fd-pathway-cards__list">
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Business grows through relationships.</span></li>
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Relationships grow through trust.</span></li>
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Trust grows through contribution.</span></li>
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>And contribution creates impact.</span></li>
+            </ul>
+            <p className="fd-pathway-cards__quote pt-1">&ldquo;Give first. Everything else follows.&rdquo;</p>
           </div>
-          <a className="fd-pathway-cards__btn" href="https://www.mindvalley.com/pathways/extraordinary-mind" aria-label="Explore This Pathway: Extraordinary Mind">Explore This Pathway</a>
+          </div>
+          <div className="pt-2">
+            <a className="fd-pathway-cards__btn" href="/apply" aria-label="Become a Peer">Become a Peer</a>
+          </div>
         </div>
       </div>
       <div className="fd-pathway-cards__right">
         <div className="fd-pathway-cards__carousel">
-          <div className="fd-pathway-cards__track" tabIndex="0" role="group" aria-label="The Extraordinary Mind Pathway programs">
+          <div className="fd-pathway-cards__track" id="track-philosophy" tabIndex={0} role="group" aria-label="Peers Global Philosophy Pillars">
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/75022a748d/prog_be-extraordinary.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="Give First" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Be Extraordinary</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani</p>
+                <p className="fd-pathway-cards__prog">Give First</p>
+                <p className="fd-pathway-cards__auth">Without Keeping Score</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/a70ffe4913/prog_life-visioning-mastery.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7cd4b2411f/auth_michael-beckwith-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Friends in Life" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Life Visioning Mastery</p>
-                <p className="fd-pathway-cards__auth">Michael B. Beckwith</p>
+                <p className="fd-pathway-cards__prog">Friends in Life</p>
+                <p className="fd-pathway-cards__auth">Lifelong Bonds & Families</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/b667bd5325/prog_tapping-into-emotional-mastery.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/df93abda6e/auth_jennifer-partridge-2-3-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Partners in Business" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Tapping into Emotional Mastery</p>
-                <p className="fd-pathway-cards__auth">Jennifer Partridge</p>
+                <p className="fd-pathway-cards__prog">Partners in Business</p>
+                <p className="fd-pathway-cards__auth">Mutual Scale & Capex</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/12354b7643/prog_the-integral-life.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/bdf8bf79d5/auth_ken-wilber-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-impact.jpg" alt="Contribution & Trust" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Integral Life</p>
-                <p className="fd-pathway-cards__auth">Ken Wilber</p>
+                <p className="fd-pathway-cards__prog">Contribution & Trust</p>
+                <p className="fd-pathway-cards__auth">1 Action = 1 Life Impacted</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/88a47ad844/prog_the-silva-ultramind-system.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="The Conclave" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Silva Ultramind System</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani, Jose Silva</p>
+                <p className="fd-pathway-cards__prog">The Conclave</p>
+                <p className="fd-pathway-cards__auth">Confidential Forum</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f70297bb18/prog_everyday-bliss.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/5bd4e971f3/auth_paul-mckenna-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Category Exclusivity" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Everyday Bliss</p>
-                <p className="fd-pathway-cards__auth">Paul McKenna</p>
+                <p className="fd-pathway-cards__prog">Category Exclusivity</p>
+                <p className="fd-pathway-cards__auth">Zero Room Competition</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/74ea1c267a/prog_magical-living.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/75208e7e1d/auth_tim-storey-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Cross-City Access" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Magical Living</p>
-                <p className="fd-pathway-cards__auth">Tim Storey</p>
+                <p className="fd-pathway-cards__prog">Cross-City Access</p>
+                <p className="fd-pathway-cards__auth">Local-to-Global Reach</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/db919d3e2b/prog_rapid-transformation-hypnotheraphy-for-abundance.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/a7113b92cd/auth_marisa-peer-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Build Together" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Rapid Transformational Hypnotherapy for Abundance</p>
-                <p className="fd-pathway-cards__auth">Marisa Peer</p>
+                <p className="fd-pathway-cards__prog">Build Together</p>
+                <p className="fd-pathway-cards__auth">Never Build Alone</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/5a9be30bf6/prog_the-m-word.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/b89f7071a5/auth_emily-fletcher-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/lsr-city-sunrise.jpg" alt="LSR Growth Model" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The M Word</p>
-                <p className="fd-pathway-cards__auth">Emily Fletcher</p>
+                <p className="fd-pathway-cards__prog">LSR Growth Model</p>
+                <p className="fd-pathway-cards__auth">Learn, Sales, Resources</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/5f9b60c5c1/prog_creative-visualization.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Shared Wins" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Creative Visualization</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani, Lisa Nichols</p>
+                <p className="fd-pathway-cards__prog">Shared Wins</p>
+                <p className="fd-pathway-cards__auth">Celebrate as Your Own</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/51e47c3630/prog_from-awesome-to-flawsome.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/84cdc0b4ae/auth_kristina-ma-nd-lakhiani-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Trusted Circles" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">From Awesome to Flawesome</p>
-                <p className="fd-pathway-cards__auth">Kristina Mand-Lakhiani</p>
+                <p className="fd-pathway-cards__prog">Trusted Circles</p>
+                <p className="fd-pathway-cards__auth">Curated Inner Board</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/fc86176fc1/prog_be-extraordinary-for-teens.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/philosophy-conference-event.jpg" alt="Measure Impact" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Be Extraordinary for Teens</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani, Gahmya Drummond-Bey</p>
+                <p className="fd-pathway-cards__prog">Measure Impact</p>
+                <p className="fd-pathway-cards__auth">Lives Transformed</p>
               </div>
             </div>
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/b42b7669ca/prog_the-values-factor.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/0a6e25bdfd/auth_dr-john-demartini-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Cross-City Access" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Values Factor</p>
-                <p className="fd-pathway-cards__auth">Dr. John DeMartini</p>
+                <p className="fd-pathway-cards__prog">Cross-City Access</p>
+                <p className="fd-pathway-cards__auth">Local-to-Global Reach</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/44dd30090c/prog_live-by-your-own-rules.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/84cdc0b4ae/auth_kristina-ma-nd-lakhiani-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Build Together" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Live By Your Own Rules</p>
-                <p className="fd-pathway-cards__auth">Kristina Mand-Lakhiani</p>
+                <p className="fd-pathway-cards__prog">Build Together</p>
+                <p className="fd-pathway-cards__auth">Never Build Alone</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/eaa270c2c5/prog_forgiveness.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/56789e788b/auth_marie-diamond-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/lsr-city-sunrise.jpg" alt="LSR Growth Model" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Forgiveness</p>
-                <p className="fd-pathway-cards__auth">Marie Diamond</p>
+                <p className="fd-pathway-cards__prog">LSR Growth Model</p>
+                <p className="fd-pathway-cards__auth">Learn, Sales, Resources</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/27fc638a90/prog_the-5-elements-of-happiness.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/0613991817/auth_tal-ben-shahar-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Shared Wins" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The 5 Elements of Happiness</p>
-                <p className="fd-pathway-cards__auth">Dr. Tal Ben-Shahar</p>
+                <p className="fd-pathway-cards__prog">Shared Wins</p>
+                <p className="fd-pathway-cards__auth">Celebrate as Your Own</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/2e412763b1/prog_the-6-phase-meditation.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Trusted Circles" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The 6 Phase Meditation</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani</p>
+                <p className="fd-pathway-cards__prog">Trusted Circles</p>
+                <p className="fd-pathway-cards__auth">Curated Inner Board</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/eef2138fbd/prog_unshakeable.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/330c9e32a4/auth_shade-zahrai-faysal-sekkouah-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/philosophy-conference-event.jpg" alt="Measure Impact" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">UNSHAKEABLE</p>
-                <p className="fd-pathway-cards__auth">Dr. Shadé Zahrai, Fayçal Sekkouah</p>
+                <p className="fd-pathway-cards__prog">Measure Impact</p>
+                <p className="fd-pathway-cards__auth">Lives Transformed</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/1d42a7418e/prog_10-questions-for-self-love.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/84cdc0b4ae/auth_kristina-ma-nd-lakhiani-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Amit & Sandeep" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">10 Questions for Self-Love</p>
-                <p className="fd-pathway-cards__auth">Kristina Mand-Lakhiani</p>
+                <p className="fd-pathway-cards__prog">Joint Capex</p>
+                <p className="fd-pathway-cards__auth">Amit & Sandeep</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/552c1d5562/prog_uncompromised-life.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/a7113b92cd/auth_marisa-peer-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Jignesh & Rohit" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Uncompromised Life</p>
-                <p className="fd-pathway-cards__auth">Marisa Peer</p>
+                <p className="fd-pathway-cards__prog">Cross-Industry Ties</p>
+                <p className="fd-pathway-cards__auth">Jignesh & Rohit</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/844b0eb3fc/prog_becoming-more-loving.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/80bc4f3439/auth_gelong-thubten-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Neha & Simran" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Becoming More Loving</p>
-                <p className="fd-pathway-cards__auth">Gelong Thubten</p>
+                <p className="fd-pathway-cards__prog">Shared Logistics</p>
+                <p className="fd-pathway-cards__auth">Neha & Simran</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/0dbfac2eaf/prog_mastering-the-growth-mindset.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Priya & Karan" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Mastering the Growth Mindset</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani</p>
+                <p className="fd-pathway-cards__prog">Global Exports</p>
+                <p className="fd-pathway-cards__auth">Priya & Karan</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f265f2ec09/prog_calm-mind.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/f97d18fc92/auth_dr-caroline-leaf-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="Unity App" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Calm Mind</p>
-                <p className="fd-pathway-cards__auth">Dr. Caroline Leaf</p>
+                <p className="fd-pathway-cards__prog">Everyday Unity</p>
+                <p className="fd-pathway-cards__auth">Connect Anytime</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/c09cd7741d/prog_3-most-important-questions.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Family Meetups" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The 3 Most Important Questions</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani</p>
+                <p className="fd-pathway-cards__prog">Family Meetups</p>
+                <p className="fd-pathway-cards__auth">Friends in Life</p>
               </div>
             </div>
           </div>
           <div className="fd-pathway-cards__nav">
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="prev" aria-label="Previous programs in Mastering Your Mind"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="next" aria-label="More programs in Mastering Your Mind"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-philosophy', -1)} aria-label="Previous Philosophy Pillars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-philosophy', 1)} aria-label="More Philosophy Pillars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
           </div>
         </div>
       </div>
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--entrepreneur">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--entrepreneur" id="trusted-circles">
       <div className="fd-pathway-cards__left">
-        <img className="fd-pathway-cards__hero" src="https://a.storyblok.com/f/312081/1920x1080/0e361e220e/pathway_theexponentialentrepreneur-keyart.webp/m/830x0/filters:format(webp):quality(80)" alt="The Exponential Entrepreneur Pathway" width="461" height="259" loading="lazy" decoding="async" />
+        <img className="fd-pathway-cards__hero" src="/images/circle-meeting.png" alt="Every Peer belongs to a Circle" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow">THE EXPONENTIAL ENTREPRENEUR</p>
-            <h3 className="fd-pathway-cards__title">Scaling Your Business</h3>
+            <p className="fd-pathway-cards__eyebrow !text-[#38BDF8]">— TRUSTED CIRCLES</p>
+            <h2 className="fd-pathway-cards__title">Every Peer belongs to a Circle.</h2>
           </div>
-          <p className="fd-pathway-cards__desc">Build a business that grows beyond your time. Leverage AI, automation, and modern strategies to scale your impact, income, and freedom.</p>
-          <ul className="fd-pathway-cards__list">
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Build systems that scale with you</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Multiply your productivity with AI</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Scale your business with confidence</span></li>
-          </ul>
+          <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">A Circle brings together the right entrepreneurs around a common industry, interest, location or business opportunity. It is the heart of the community and the place where relationships are actually built.</p>
+          
+          <div className="flex flex-col gap-2 mt-1">
+            <p className="fd-pathway-cards__subhead">How a Circle works:</p>
+            <ul className="fd-pathway-cards__list">
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">The right people.</strong> Each Circle is composed of entrepreneurs from complementary businesses, chosen for fit and relevance.</span></li>
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">A fixed rhythm.</strong> The same Peers meet on a regular schedule, so trust has time to build.</span></li>
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">A structure for giving.</strong> Every meeting has a defined space for Peers to share what they can offer and what they need.</span></li>
+              <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">Continuity.</strong> The Circle carries on inside the Unity App between meetings.</span></li>
+            </ul>
+            <p className="fd-pathway-cards__quote pt-1">&ldquo;We put the right people in the room.&rdquo;</p>
           </div>
-          <a className="fd-pathway-cards__btn" href="https://www.mindvalley.com/pathways/exponential-entrepreneur" aria-label="Explore This Pathway: Exponential Entrepreneur">Explore This Pathway</a>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <a className="fd-pathway-cards__btn" href="/circles/find" aria-label="Find Your Circle">Find Your Circle</a>
+            <a className="fd-pathway-cards__btn fd-pathway-cards__btn--secondary" href="/start-a-circle" aria-label="Start a Circle">Start a Circle</a>
+          </div>
         </div>
       </div>
       <div className="fd-pathway-cards__right">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Filter Grid:</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All Circles</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Industry</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">City</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Purpose</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Open Seats Available
+          </span>
+        </div>
         <div className="fd-pathway-cards__carousel">
-          <div className="fd-pathway-cards__track" tabIndex="0" role="group" aria-label="The Exponential Entrepreneur Pathway programs">
+          <div className="fd-pathway-cards__track" id="track-circles" tabIndex={0} role="group" aria-label="Peers Global Trusted Circles">
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/a89d8008f6/prog_business-freedom-blueprint.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/825503285f/auth_eric-edmeades-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Manufacturing Circle" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Business Freedom Blueprint</p>
-                <p className="fd-pathway-cards__auth">Eric Edmeades</p>
+                <p className="fd-pathway-cards__prog">Manufacturing Circle</p>
+                <p className="fd-pathway-cards__auth">Mumbai · 24 Peers · 2 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/df4e6d5aae/prog_the-new-psychology-of-winning.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/77e2373985/auth_denis-waitley-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Fintech & BFSI Circle" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The New Psychology of Winning</p>
-                <p className="fd-pathway-cards__auth">Denis Waitley</p>
+                <p className="fd-pathway-cards__prog">Fintech &amp; BFSI Circle</p>
+                <p className="fd-pathway-cards__auth">Bengaluru · 28 Peers · 1 Open Seat</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/68f95d7d82/prog_zero-to-100-million.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/91564b8650/auth_miki-agrawal-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Health & Pharma Circle" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Zero to $100 Million</p>
-                <p className="fd-pathway-cards__auth">Miki Agrawal</p>
+                <p className="fd-pathway-cards__prog">Health &amp; Pharma Circle</p>
+                <p className="fd-pathway-cards__auth">Delhi NCR · 22 Peers · Next Tue</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/d07edb928c/prog_building-an-unstoppable-brand.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/5d8171a4a7/auth_jeffrey-perlman-1-1-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Cross-Border Exports" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Building an Unstoppable Brand</p>
-                <p className="fd-pathway-cards__auth">Jeffrey Perlman</p>
+                <p className="fd-pathway-cards__prog">Cross-Border Exports</p>
+                <p className="fd-pathway-cards__auth">Dubai · 30 Peers · 3 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/1ce1cd1417/prog_the-habit-of-ferocity.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/ce713fd300/auth_steven-kotler-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="D2C Brands Circle" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Habit of Ferocity</p>
-                <p className="fd-pathway-cards__auth">Steven Kotler</p>
+                <p className="fd-pathway-cards__prog">D2C Brands Circle</p>
+                <p className="fd-pathway-cards__auth">Ahmedabad · 25 Peers · Next Thu</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/a7a08cbb24/prog_the-quest-for-personal-mastery.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/fbb7513ea7/auth_srikumar-rao-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Tech Founders Circle" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Quest for Personal Mastery</p>
-                <p className="fd-pathway-cards__auth">Srikumar Rao</p>
+                <p className="fd-pathway-cards__prog">Tech Founders Circle</p>
+                <p className="fd-pathway-cards__auth">Pune · 26 Peers · 2 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/57783877d3/prog_ultimate-leadership.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/cebc5f82fe/auth_keith-ferrazzi-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="CleanTech & Energy" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Ultimate Leadership</p>
-                <p className="fd-pathway-cards__auth">Keith Ferrazzi</p>
+                <p className="fd-pathway-cards__prog">CleanTech &amp; Energy</p>
+                <p className="fd-pathway-cards__auth">Hyderabad · 24 Peers · 2 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/5231712343/prog_becoming-focused-indistractable.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/d539ca68ba/auth_nir-eyal-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Infra & Engineering" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Becoming Focused and Indistractable</p>
-                <p className="fd-pathway-cards__auth">Nir Eyal</p>
+                <p className="fd-pathway-cards__prog">Infra &amp; Engineering</p>
+                <p className="fd-pathway-cards__auth">Surat · 28 Peers · Next Wed</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/cd9439baa4/prog_amplify-with-ai.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Global Enterprise Circle" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Amplify with AI</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani, Manon Dave, Vykintas Glodenis</p>
+                <p className="fd-pathway-cards__prog">Global Enterprise Circle</p>
+                <p className="fd-pathway-cards__auth">London · 20 Peers · 1 Open Seat</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/63c030a6c8/prog_super-reading.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/3d465e5107/auth_jim-kwik-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Hospitality & Retail" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Super Reading</p>
-                <p className="fd-pathway-cards__auth">Jim Kwik</p>
+                <p className="fd-pathway-cards__prog">Hospitality &amp; Retail</p>
+                <p className="fd-pathway-cards__auth">Singapore · 22 Peers · Next Mon</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f1a2427527/prog_money-eq.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/0025a189b1/auth_ken-honda-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Agri & Supply Chain" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Money EQ</p>
-                <p className="fd-pathway-cards__auth">Ken Honda</p>
+                <p className="fd-pathway-cards__prog">Agri &amp; Supply Chain</p>
+                <p className="fd-pathway-cards__auth">Rajkot · 25 Peers · 2 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/8ef6dbb360/prog_scale-your-business-to-1m.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/a6614812cd/auth_verne-harnish-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Family Business Board" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Scale Your Business to $1 Million</p>
-                <p className="fd-pathway-cards__auth">Verne Harnish</p>
+                <p className="fd-pathway-cards__prog">Family Business Board</p>
+                <p className="fd-pathway-cards__auth">Chennai · 20 Peers · 1 Open Seat</p>
               </div>
             </div>
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/21d79c9462/prog_mastering-authentic-networking.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/cebc5f82fe/auth_keith-ferrazzi-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-director-speaker.jpg" alt="Specialty Chemicals" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Mastering Authentic Networking</p>
-                <p className="fd-pathway-cards__auth">Keith Ferrazzi</p>
+                <p className="fd-pathway-cards__prog">Specialty Chemicals</p>
+                <p className="fd-pathway-cards__auth">Vadodara · 21 Peers · 1 Open Seat</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/d13913c7fb/prog_superbrain.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/3d465e5107/auth_jim-kwik-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Logistics & Supply Chain" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Superbrain</p>
-                <p className="fd-pathway-cards__auth">Jim Kwik</p>
+                <p className="fd-pathway-cards__prog">Logistics &amp; Supply Chain</p>
+                <p className="fd-pathway-cards__auth">Kolkata · 26 Peers · 2 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f9b56ab1b5/prog_negotiate-with-confidence.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/1c4884ce97/auth_kwame-christian-2x3-2.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Women Entrepreneurs" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Negotiate with Confidence</p>
-                <p className="fd-pathway-cards__auth">Kwame Christian</p>
+                <p className="fd-pathway-cards__prog">Women Entrepreneurs</p>
+                <p className="fd-pathway-cards__auth">Bengaluru · 24 Peers · Next Thu</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/8d57b2b607/prog_smart-money.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/64eff58139/auth_jaspreet-singh-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/leadership-entrepreneurs-meeting.jpg" alt="AI & Enterprise SaaS" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Smart Money</p>
-                <p className="fd-pathway-cards__auth">Jaspreet Singh</p>
+                <p className="fd-pathway-cards__prog">AI &amp; Enterprise SaaS</p>
+                <p className="fd-pathway-cards__auth">Gurugram · 25 Peers · 2 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/ab1ad9bda3/prog_the-maestro-s-guide-to-leadership.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/1b953d8688/auth_itay-talgam-2x3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Private Equity & Angels" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Maestro's Guide to Leadership</p>
-                <p className="fd-pathway-cards__auth">Itay Talgam</p>
+                <p className="fd-pathway-cards__prog">Private Equity &amp; Angels</p>
+                <p className="fd-pathway-cards__auth">Mumbai · 18 Peers · Next Fri</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/4e14af10a5/prog_the-power-of-boldness.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/94b9e47b52/auth_naveen-jain-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/lexicon-team-understanding.jpg" alt="EdTech & Learning" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Power of Boldness</p>
-                <p className="fd-pathway-cards__auth">Naveen Jain</p>
+                <p className="fd-pathway-cards__prog">EdTech &amp; Learning</p>
+                <p className="fd-pathway-cards__auth">Pune · 20 Peers · 1 Open Seat</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/df45a03ecf/prog_the-transformational-leader.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/efaedb8d4e/auth_monty-moran-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Textiles & Apparel" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Transformational Leader</p>
-                <p className="fd-pathway-cards__auth">Monty Moran</p>
+                <p className="fd-pathway-cards__prog">Textiles &amp; Apparel</p>
+                <p className="fd-pathway-cards__auth">Surat · 27 Peers · Next Wed</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/5c5abb3c10/prog_vivid-vision.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/6f3aa06fd5/auth_cameron-herold-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="Heavy Engineering" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Vivid Vision</p>
-                <p className="fd-pathway-cards__auth">Cameron Herold</p>
+                <p className="fd-pathway-cards__prog">Heavy Engineering</p>
+                <p className="fd-pathway-cards__auth">Coimbatore · 22 Peers · 3 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/6b0de98ace/prog_bold-conversations.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/c8cf080946/auth_verna-myers-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Digital Media Agencies" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Bold Conversations</p>
-                <p className="fd-pathway-cards__auth">Verna Myers</p>
+                <p className="fd-pathway-cards__prog">Digital Media Agencies</p>
+                <p className="fd-pathway-cards__auth">Delhi NCR · 23 Peers · 1 Open Seat</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/ab44b5e168/prog_healing-burnout.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/a736cbe295/auth_dr-romie-mushtaq-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Auto Components & EV" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Healing Burnout</p>
-                <p className="fd-pathway-cards__auth">Dr. Romie Mushtaq</p>
+                <p className="fd-pathway-cards__prog">Auto Components &amp; EV</p>
+                <p className="fd-pathway-cards__auth">Chennai · 24 Peers · Next Mon</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/9f83d4cb0a/prog_maye-musk-s-5-rules-of-life.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/761aaf03d0/auth_maye-musk-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="FMCG & Packaged Goods" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Maye Musk's 5 Rules of Life</p>
-                <p className="fd-pathway-cards__auth">Maye Musk</p>
+                <p className="fd-pathway-cards__prog">FMCG &amp; Packaged Goods</p>
+                <p className="fd-pathway-cards__auth">Indore · 22 Peers · 2 Open Seats</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/eb84fdce0e/prog_super-productivity.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/membership-hero-peers.jpg" alt="Scaleup CXO Circle" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Super Productivity</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani</p>
-              </div>
-            </div>
-            <div className="fd-pathway-cards__page">
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/06d6f052ec/prog_5-days-to-a-powerful-memory.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/3d465e5107/auth_jim-kwik-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">5 Days To A Powerful Memory</p>
-                <p className="fd-pathway-cards__auth">Jim Kwik</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://assets.mindvalley.com/api/v1/assets/4c0f6ed8-6c37-40b1-8902-c1aa48cd2467.jpg" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">AI First Founder</p>
-                <p className="fd-pathway-cards__auth">Vishen</p>
+                <p className="fd-pathway-cards__prog">Scaleup CXO Circle</p>
+                <p className="fd-pathway-cards__auth">Global Virtual · 20 Peers · 1 Open Seat</p>
               </div>
             </div>
           </div>
           <div className="fd-pathway-cards__nav">
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="prev" aria-label="Previous programs in Scaling Your Business"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="next" aria-label="More programs in Scaling Your Business"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-circles', -1)} aria-label="Previous Circles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-circles', 1)} aria-label="More Circles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
           </div>
         </div>
       </div>
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--authority">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--authority" id="how-collaboration-works">
       <div className="fd-pathway-cards__left">
-        <img className="fd-pathway-cards__hero" src="https://a.storyblok.com/f/312081/1920x1080/7b71c2c41a/pathway_theexpertandauthority-keyart.webp/m/830x0/filters:format(webp):quality(80)" alt="The Expert & Authority Pathway" width="461" height="259" loading="lazy" decoding="async" />
+        <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Eleven ways a Peer creates value for another Peer" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow">THE EXPERT & AUTHORITY</p>
-            <h3 className="fd-pathway-cards__title">Establishing Your Expertise</h3>
+            <p className="fd-pathway-cards__eyebrow !text-[#F59E0B]">— HOW COLLABORATION WORKS</p>
+            <h2 className="fd-pathway-cards__title">Eleven ways a Peer creates value for another Peer.</h2>
           </div>
-          <p className="fd-pathway-cards__desc">Turn your knowledge into influence. Build your personal brand, share ideas that matter, and become the trusted voice people look to for guidance.</p>
-          <ul className="fd-pathway-cards__list">
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Build a personal brand with purpose</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Communicate with clarity and confidence</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Grow your influence and credibility</span></li>
+          <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Collaboration at Peers Global is a defined practice. These are the forms it takes.</p>
+          
+          <ul className="fd-pathway-cards__list my-1">
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span><strong className="text-white font-semibold">Introductions:</strong> People who can open a door</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span><strong className="text-white font-semibold">Referrals:</strong> Direct leads that become long-term clients</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span><strong className="text-white font-semibold">Partnerships:</strong> Between complementary businesses</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span><strong className="text-white font-semibold">Knowledge &amp; Mentorship:</strong> From lived experience &amp; seasoned leaders</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span><strong className="text-white font-semibold">Scale &amp; Resources:</strong> Capital, capacity, tools &amp; global market access</span>
+            </li>
           </ul>
+
+          <p className="fd-pathway-cards__quote pt-1">
+            &ldquo;A connection becomes valuable when it creates an opportunity, solves a problem or improves a life. Every one of these does exactly that.&rdquo;
+          </p>
           </div>
-          <a className="fd-pathway-cards__btn" href="https://www.mindvalley.com/pathways/expert-and-authority" aria-label="Explore This Pathway: Expert & Authority">Explore This Pathway</a>
+          <div className="pt-2">
+            <a className="fd-pathway-cards__btn" href="/10-forms-of-collaboration" aria-label="Explore Collaboration">Explore Collaboration</a>
+          </div>
         </div>
       </div>
       <div className="fd-pathway-cards__right">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Forms:</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All 11 Ways</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Access &amp; Referrals</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Knowledge &amp; Scale</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Global Reach</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Defined Practice
+          </span>
+        </div>
         <div className="fd-pathway-cards__carousel">
-          <div className="fd-pathway-cards__track" tabIndex="0" role="group" aria-label="The Expert & Authority Pathway programs">
+          <div className="fd-pathway-cards__track" id="track-collaboration" tabIndex={0} role="group" aria-label="Eleven ways a Peer creates value">
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/b5d8de0364/prog_course-pro.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7bf03257b2/auth_vishen-2-3-4.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Strategic Introductions" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Course Pro</p>
-                <p className="fd-pathway-cards__auth">Vishen Lakhiani, Jimmy Naraine</p>
+                <p className="fd-pathway-cards__prog">Strategic Introductions</p>
+                <p className="fd-pathway-cards__auth">To people who can open a door</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/a5a98051be/prog_speak-and-inspire.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/30c98a865b/auth_lisa-nichols-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Client Referrals" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Speak and Inspire</p>
-                <p className="fd-pathway-cards__auth">Lisa Nichols</p>
+                <p className="fd-pathway-cards__prog">Client Referrals</p>
+                <p className="fd-pathway-cards__auth">Referrals that become long-term clients</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/381d598bfd/prog_the-stage-effect.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/825503285f/auth_eric-edmeades-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Business Partnerships" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Stage Effect</p>
-                <p className="fd-pathway-cards__auth">Eric Edmeades</p>
+                <p className="fd-pathway-cards__prog">Business Partnerships</p>
+                <p className="fd-pathway-cards__auth">Between complementary businesses</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/5bb38c98d1/prog_the-queen-effect.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/929470f197/auth_rolene-strausss-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/lexicon-team-understanding.jpg" alt="Knowledge Sharing" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Queen Effect</p>
-                <p className="fd-pathway-cards__auth">Rolene Strauss</p>
+                <p className="fd-pathway-cards__prog">Knowledge Sharing</p>
+                <p className="fd-pathway-cards__auth">Hard-won lessons from lived experience</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/c56ec24bb9/prog_the-science-of-personal-branding.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7cfd12a6f5/auth_gerard-adams-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/executive-director-hero.jpg" alt="Peer Mentorship" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Science of Personal Branding</p>
-                <p className="fd-pathway-cards__auth">Gerard Adams</p>
+                <p className="fd-pathway-cards__prog">Peer Mentorship</p>
+                <p className="fd-pathway-cards__auth">From entrepreneurs further along</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/e7c66cec79/prog_build-your-dream-community.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/f0d3796f50/auth_radha-agrawal-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Customer Connections" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Build Your Dream Community</p>
-                <p className="fd-pathway-cards__auth">Radha Agrawal</p>
+                <p className="fd-pathway-cards__prog">Customer Connections</p>
+                <p className="fd-pathway-cards__auth">Customer leads in new market segments</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/730cc5cc5b/prog_magnetic-charisma.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/8eaa028609/auth_vanessa-van-edwards-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Investor Connections" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Magnetic Charisma</p>
-                <p className="fd-pathway-cards__auth">Vanessa Van Edwards</p>
+                <p className="fd-pathway-cards__prog">Investor Connections</p>
+                <p className="fd-pathway-cards__auth">Right capital at the right stage</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/3906b2a778/prog_mastering-body-language.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/f6e7eb4338/auth_barbara-allan-pease-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Shared Resources" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Mastering Body Language</p>
-                <p className="fd-pathway-cards__auth">Allan & Barbara Pease</p>
+                <p className="fd-pathway-cards__prog">Shared Resources</p>
+                <p className="fd-pathway-cards__auth">Teams, tools, capacity &amp; licences</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/584f48be4e/prog_reinventing-yourself.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/feab55268b/auth_dorie-clark-2x3-1.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Market Access" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Reinventing Yourself</p>
-                <p className="fd-pathway-cards__auth">Dorie Clark</p>
+                <p className="fd-pathway-cards__prog">Market Access</p>
+                <p className="fd-pathway-cards__auth">Access into a new city or country</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/e58f86e4d8/prog_the-7-figure-creator.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/46fb7178fb/auth_john-lee-1-1-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-director-speaker.jpg" alt="Industry Expertise" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The 7-Figure Creator</p>
-                <p className="fd-pathway-cards__auth">John Lee</p>
+                <p className="fd-pathway-cards__prog">Industry Expertise</p>
+                <p className="fd-pathway-cards__auth">Specialized advice without hiring for it</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/95031e277c/prog_the-champion-mindset.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/090ffde12f/auth_florencia-andre-s-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Local-to-Global" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Champion Mindset</p>
-                <p className="fd-pathway-cards__auth">Florencia Andrés</p>
+                <p className="fd-pathway-cards__prog">Local-to-Global</p>
+                <p className="fd-pathway-cards__auth">Borderless opportunities across community</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/3b870ddc9f/prog_total-self-confidence.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/5bd4e971f3/auth_paul-mckenna-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-impact.jpg" alt="Life Impact Outcomes" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Total Self-Confidence</p>
-                <p className="fd-pathway-cards__auth">Paul McKenna</p>
+                <p className="fd-pathway-cards__prog">Life Impact Outcomes</p>
+                <p className="fd-pathway-cards__auth">1 Action = 1 Life Impacted metric</p>
               </div>
             </div>
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/d6a188856c/prog_digital-body-language.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/748f36ddc3/auth_erica-dhawan-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Capex Co-Financing" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Digital Body Language</p>
-                <p className="fd-pathway-cards__auth">Erica Dhawan</p>
+                <p className="fd-pathway-cards__prog">Capex Co-Financing</p>
+                <p className="fd-pathway-cards__auth">Mehta Multispeciality · Healthcare</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/de17d0ba48/prog_picture-perfect.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/84532a8b0f/auth_paulius-staniunas-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Global Export Consortia" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Picture Perfect</p>
-                <p className="fd-pathway-cards__auth">Paulius Staniunas</p>
+                <p className="fd-pathway-cards__prog">Global Export Consortia</p>
+                <p className="fd-pathway-cards__auth">Solanki Ceramics · Morbi to Dubai</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Cross-Selling Network" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Cross-Selling Network</p>
+                <p className="fd-pathway-cards__auth">SaaS &amp; FinTech Integration</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Direct Agri Supply Link" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Direct Agri Supply</p>
+                <p className="fd-pathway-cards__auth">Farm to Processing Hub Direct</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="Manufacturing Automation" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Manufacturing Automation</p>
+                <p className="fd-pathway-cards__auth">Robotics Consortium Tooling</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="D2C Omnichannel Alliance" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">D2C Omnichannel Alliance</p>
+                <p className="fd-pathway-cards__auth">Retail Shelf Sharing Syndicate</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="Licence & Certification" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Licence &amp; Certification</p>
+                <p className="fd-pathway-cards__auth">Pharma Joint Compliance Hub</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Talent & Studio Exchange" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Talent Exchange Pool</p>
+                <p className="fd-pathway-cards__auth">Creative &amp; Tech Shared Benches</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Angel Syndicate Round" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Angel Syndicate Round</p>
+                <p className="fd-pathway-cards__auth">CleanTech Seed Round Bridge</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Cross-Border JV" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Cross-Border JV</p>
+                <p className="fd-pathway-cards__auth">Infrastructure UAE-India Corridor</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/membership-hero-peers.jpg" alt="Family Governance Council" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Family Governance Council</p>
+                <p className="fd-pathway-cards__auth">Second-Gen Transition Playbook</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="National Distribution Win" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">National Distribution Win</p>
+                <p className="fd-pathway-cards__auth">FMCG Modern Trade Rollout</p>
               </div>
             </div>
           </div>
           <div className="fd-pathway-cards__nav">
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="prev" aria-label="Previous programs in Establishing Your Expertise"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="next" aria-label="More programs in Establishing Your Expertise"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-collaboration', -1)} aria-label="Previous collaboration forms"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-collaboration', 1)} aria-label="More collaboration forms"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
           </div>
         </div>
       </div>
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--connection">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--connection" id="impact">
       <div className="fd-pathway-cards__left">
-        <img className="fd-pathway-cards__hero" src="https://a.storyblok.com/f/312081/1920x1080/270e676249/pathway_theartofconnection-keyart.webp/m/830x0/filters:format(webp):quality(80)" alt="The Art of Connection Pathway" width="461" height="259" loading="lazy" decoding="async" />
+        <img className="fd-pathway-cards__hero" src="/images/who-we-are-impact.jpg" alt="We count lives impacted" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow">THE ART OF CONNECTION</p>
-            <h3 className="fd-pathway-cards__title">Building Your Relationships</h3>
+            <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">— IMPACT</p>
+            <h2 className="fd-pathway-cards__title">We count lives impacted.</h2>
           </div>
-          <p className="fd-pathway-cards__desc">Strong relationships are the foundation of a fulfilling life. Deepen your connections, communicate with authenticity, and create lasting bonds with the people who matter most.</p>
-          <ul className="fd-pathway-cards__list">
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Communicate with empathy and confidence</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Build deeper, healthier relationships</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Strengthen trust and emotional connection</span></li>
+          <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Impact at Peers Global is practical. It is what happens when one entrepreneur helps another.</p>
+          
+          <ul className="fd-pathway-cards__list my-1">
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>An introduction that lands a first major client.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>A conversation that prevents a costly mistake.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>A partnership that opens a new market.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>A mentor who gives someone the confidence to keep going.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>A business that grows and hires twelve more people.</span>
+            </li>
           </ul>
+
+          <div className="flex flex-col gap-1.5 pt-1">
+            <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead !text-[15px]">
+              Every one of those is a life changed. Every one begins with a Peer choosing to contribute.
+            </p>
+            <p className="fd-pathway-cards__desc fd-pathway-cards__desc--sub">
+              Contribution is recognised across the community — in your Circle, in the Unity App, and in the recognition Peers receive from other Peers.
+            </p>
           </div>
-          <a className="fd-pathway-cards__btn" href="https://www.mindvalley.com/pathways/art-of-connection" aria-label="Explore This Pathway: Art of Connection">Explore This Pathway</a>
+          </div>
+          <div className="pt-2">
+            <a className="fd-pathway-cards__btn" href="/social-impact" aria-label="See Our Impact">See Our Impact</a>
+          </div>
         </div>
       </div>
       <div className="fd-pathway-cards__right">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Metrics:</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All Impact (24)</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Jobs &amp; Growth</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Capital &amp; Client</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Mentorship</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span> 1M+ by 2030
+          </span>
+        </div>
         <div className="fd-pathway-cards__carousel">
-          <div className="fd-pathway-cards__track" tabIndex="0" role="group" aria-label="The Art of Connection Pathway programs">
+          <div className="fd-pathway-cards__track" id="track-impact" tabIndex={0} role="group" aria-label="Peers Global Lives Impacted">
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/9f768db4de/prog_conscious-parenting-mastery.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/20f63d7c50/auth_shefali-tsabary-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Major Client Landing" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Conscious Parenting Mastery</p>
-                <p className="fd-pathway-cards__auth">Dr. Shefali</p>
+                <p className="fd-pathway-cards__prog">Major Client Landing</p>
+                <p className="fd-pathway-cards__auth">First 8-figure enterprise contract · Mumbai</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/037423f19f/prog_conscious-uncoupling.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/ded963fdef/auth_katherine-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Preventing Costly Mistake" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Conscious Uncoupling</p>
-                <p className="fd-pathway-cards__auth">Katherine Woodward Thomas</p>
+                <p className="fd-pathway-cards__prog">Preventing Costly Mistake</p>
+                <p className="fd-pathway-cards__auth">Governance advice saved ₹4.2 Cr · Delhi</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/04cab38d47/prog_the-energies-of-love.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/08a3a7ff05/auth_donna-eden-1-1.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Cross-Border Market Entry" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Energies of Love</p>
-                <p className="fd-pathway-cards__auth">Donna Eden & David Feinstein</p>
+                <p className="fd-pathway-cards__prog">Cross-Border Market Entry</p>
+                <p className="fd-pathway-cards__auth">Dubai distribution partnership · UAE</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/5eb3d3ba89/prog_becoming-irresistibly-sexy.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/6c9504dc2d/auth_sheila-kelley-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Founder Confidence & Grit" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Becoming Irresistibly Sexy</p>
-                <p className="fd-pathway-cards__auth">Sheila Kelley</p>
+                <p className="fd-pathway-cards__prog">Founder Confidence &amp; Grit</p>
+                <p className="fd-pathway-cards__auth">Mentorship through turnaround · Pune</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/0606db1b78/prog_neo-tantra.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/bf73e426b1/auth_layla-martin-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="12 Jobs Created" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Neo-Tantra</p>
-                <p className="fd-pathway-cards__auth">Layla Martin</p>
+                <p className="fd-pathway-cards__prog">12 Jobs Created</p>
+                <p className="fd-pathway-cards__auth">Manufacturing plant expansion · Surat</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/73ef994bff/prog_tantra-touch.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/82ca0e2b2a/auth_psalm-isadora-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Scaling Women Founders" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Tantra Touch</p>
-                <p className="fd-pathway-cards__auth">Psalm Isadora</p>
+                <p className="fd-pathway-cards__prog">Scaling Women Founders</p>
+                <p className="fd-pathway-cards__auth">Scaling D2C healthcare brand · Bengaluru</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/17fe722305/prog_calling-in-the-one.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/ded963fdef/auth_katherine-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="Clean Energy Microgrid" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Calling in “The One”</p>
-                <p className="fd-pathway-cards__auth">Katherine Woodward Thomas</p>
+                <p className="fd-pathway-cards__prog">Clean Energy Deployment</p>
+                <p className="fd-pathway-cards__auth">Collaborative rural solar · Hyderabad</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/0e7c723b65/prog_healing-from-heartbreak.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/af0c6cf0e7/auth_sheleana-aiyanah-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Direct Farm Sourcing" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Healing from Heartbreak</p>
-                <p className="fd-pathway-cards__auth">Sheleana Aiyana</p>
+                <p className="fd-pathway-cards__prog">Direct Farm Sourcing</p>
+                <p className="fd-pathway-cards__auth">Fair pricing for 800+ farmers · Rajkot</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/ee5ec355ac/prog_quantum-love.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/b6bae67338/auth_dr-laura-berman-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/put-collaboration-into-action.png" alt="Life Impact Score: 100+" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Quantum Love</p>
-                <p className="fd-pathway-cards__auth">Dr. Laura Berman</p>
+                <p className="fd-pathway-cards__prog">Life Impact Score: 100+</p>
+                <p className="fd-pathway-cards__auth">Measured on Unity App · Top Peer</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/623cb44f9c/prog_body-language-for-dating-attraction.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/7f38aaba16/auth_linda-clemons-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Emergency Capex Bridge" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Body Language for Dating & Attraction</p>
-                <p className="fd-pathway-cards__auth">Linda Clemons®</p>
+                <p className="fd-pathway-cards__prog">Emergency Capex Bridge</p>
+                <p className="fd-pathway-cards__auth">Peer equipment syndicate · Ahmedabad</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f3de647186/prog_creating-friendships-deep-connections.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/a57e8e28b0/auth_gahmya-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Global Tech Syndicate" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Creating Friendships and Deep Connections for Teens</p>
-                <p className="fd-pathway-cards__auth">Gahmya Drummond-Bey</p>
+                <p className="fd-pathway-cards__prog">Global Tech Syndicate</p>
+                <p className="fd-pathway-cards__auth">6 cross-city founders co-investing · London</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/bb86770df9/prog_wild-woman-sensuality.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/5a5efa41d4/auth_rachel-pringle-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/mission-2030.jpg" alt="The 1 Million Mission" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Wild Woman Sensuality</p>
-                <p className="fd-pathway-cards__auth">Rachel Pringle</p>
+                <p className="fd-pathway-cards__prog">The 1 Million Mission</p>
+                <p className="fd-pathway-cards__auth">Impacting 1M entrepreneurs by 2030</p>
               </div>
             </div>
             <div className="fd-pathway-cards__page">
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/bfbb9abe68/prog_the-science-of-great-sex.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/14b80d1cee/auth_amy-killen-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/circle-director-hero.jpg" alt="Circle Director Recognition" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Science of Great Sex</p>
-                <p className="fd-pathway-cards__auth">Dr. Amy Killen</p>
+                <p className="fd-pathway-cards__prog">Director Recognition</p>
+                <p className="fd-pathway-cards__auth">Honoring top contributors · Mumbai</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/4f6866ebf0/prog_waves-of-pleasure.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/bb5bd9b186/auth_bibi-brzozka-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="Unity App Impact Badge" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Waves of Pleasure</p>
-                <p className="fd-pathway-cards__auth">Bibi Brzozka</p>
+                <p className="fd-pathway-cards__prog">Unity Impact Badge</p>
+                <p className="fd-pathway-cards__auth">10 Collaborations Logged · Gold Tier</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/723550cce3/prog_zivakids-grow.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/b89f7071a5/auth_emily-fletcher-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Peer Appreciation" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">ZivaKids Grow</p>
-                <p className="fd-pathway-cards__auth">Emily Fletcher</p>
+                <p className="fd-pathway-cards__prog">Peer Appreciation</p>
+                <p className="fd-pathway-cards__auth">Unprompted peer testimonial · Delhi</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/328aa50d36/prog_zivakids-play.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/b89f7071a5/auth_emily-fletcher-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Supply Chain Contract" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">ZivaKids Play</p>
-                <p className="fd-pathway-cards__auth">Emily Fletcher</p>
+                <p className="fd-pathway-cards__prog">Supply Chain Deal</p>
+                <p className="fd-pathway-cards__auth">₹18 Cr long-term volume · Surat</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Cross-City Hub" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Cross-City Hub</p>
+                <p className="fd-pathway-cards__auth">New branch in Singapore · Chennai</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/executive-director-hero.jpg" alt="Mentorship Pay-It-Forward" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Mentorship Network</p>
+                <p className="fd-pathway-cards__auth">Founder guiding 4 scaleups · Pune</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Youth Founder Grant" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Youth Founder Grant</p>
+                <p className="fd-pathway-cards__auth">Seed pool for founders · Ahmedabad</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Healthcare Diagnostics Capex" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Healthcare Capex</p>
+                <p className="fd-pathway-cards__auth">3 clinics equipped · Vadodara</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="Export License Clearance" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Export Clearance</p>
+                <p className="fd-pathway-cards__auth">Solved in 48 hours · Dubai</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Circle Impact Roll" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Circle Impact Roll</p>
+                <p className="fd-pathway-cards__auth">Monthly giving tally · Kolkata</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/leadership-entrepreneurs-meeting.jpg" alt="Tech Stack Sharing" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Tech Stack Sharing</p>
+                <p className="fd-pathway-cards__auth">AI infrastructure sharing · Bengaluru</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Annual Impact Conclave" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Annual Impact Conclave</p>
+                <p className="fd-pathway-cards__auth">Celebrating 25,000+ lives · Global</p>
               </div>
             </div>
           </div>
           <div className="fd-pathway-cards__nav">
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="prev" aria-label="Previous programs in Building Your Relationships"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="next" aria-label="More programs in Building Your Relationships"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-impact', -1)} aria-label="Previous impact metrics"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-impact', 1)} aria-label="More impact metrics"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--body" id="the-1-million-mission">
+      <div className="fd-pathway-cards__left">
+        <img className="fd-pathway-cards__hero" src="/images/climbers-clean.jpg" alt="The 1 Million Mission" width="461" height="259" loading="lazy" decoding="async" />
+        <div className="fd-pathway-cards__body">
+          <div className="fd-pathway-cards__text">
+          <div className="fd-pathway-cards__head">
+            <p className="fd-pathway-cards__eyebrow !text-[#34D399]">— THE 1 MILLION MISSION</p>
+            <h2 className="fd-pathway-cards__title">One million lives impacted.</h2>
+          </div>
+          <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Our mission is to impact one million lives through entrepreneurship, collaboration and opportunity.</p>
+          
+          <ul className="fd-pathway-cards__list my-1">
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>Every referral that builds long-term clients.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>Every introduction to key decision-makers.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>Every hour of mentorship that prevents costly mistakes.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>Every partnership formed inside this community moves that number forward.</span>
+            </li>
+          </ul>
+
+          <div className="flex flex-col gap-1.5 pt-1">
+            <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead !text-[15px]">
+              When you become a Peer, your contribution becomes part of it.
+            </p>
+          </div>
+          </div>
+          <div className="pt-2">
+            <a className="fd-pathway-cards__btn" href="/1-million-mission" aria-label="Join the 1 Million Mission">Join the 1 Million Mission</a>
+          </div>
+        </div>
+      </div>
+      <div className="fd-pathway-cards__right">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Mission Levers:</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All Levers (24)</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Mentorship</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Global Trade</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Job Creation</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[11px] font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span> Target: 1,000,000 Lives
+          </span>
+        </div>
+        <div className="fd-pathway-cards__carousel">
+          <div className="fd-pathway-cards__track" id="track-mission" tabIndex={0} role="group" aria-label="Peers Global 1 Million Mission Initiatives">
+            <div className="fd-pathway-cards__page">
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="100,000 Mentorship Hours" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">100,000 Mentorship Hours</p>
+                <p className="fd-pathway-cards__auth">Master founders giving first · Worldwide</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Cross-Border Market Corridors" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Cross-Border Market Corridors</p>
+                <p className="fd-pathway-cards__auth">Bilateral founder trade routes · India &amp; UAE</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="250,000 Jobs Catalyzed" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">250,000 Jobs Catalyzed</p>
+                <p className="fd-pathway-cards__auth">Indirect employment through SME scaling · India</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Next-Gen Founder Incubator" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Next-Gen Founder Circles</p>
+                <p className="fd-pathway-cards__auth">Incubating college &amp; youth ventures · Multi-city</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Women Entrepreneurship Council" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Women Entrepreneurship Council</p>
+                <p className="fd-pathway-cards__auth">300+ female-led enterprises scaling · Bengaluru</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Emergency Capex Syndicate" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Emergency Capex Syndicate</p>
+                <p className="fd-pathway-cards__auth">Asset &amp; equipment sharing network · Ahmedabad</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Rural Supply Chain Integration" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Rural Supply Chain Integration</p>
+                <p className="fd-pathway-cards__auth">Connecting farm producers to D2C · Rajkot</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="CleanTech Alliances" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">CleanTech Alliances</p>
+                <p className="fd-pathway-cards__auth">Microgrids &amp; zero-waste manufacturing · Hyderabad</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Peer Seed & Angel Network" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Peer Seed &amp; Angel Network</p>
+                <p className="fd-pathway-cards__auth">Zero-brokerage capital introductions · Mumbai</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-impact.jpg" alt="Global Chapter Expansion" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Global Chapter Expansion</p>
+                <p className="fd-pathway-cards__auth">50+ hub cities across 14 nations · London &amp; Dubai</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/unity-app-phone.png" alt="AI & Tech Modernization" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">AI &amp; Tech Modernization</p>
+                <p className="fd-pathway-cards__auth">Practical AI adoption playbooks for SMEs · Pune</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/executive-director-conclave.jpg" alt="Leadership Conclave 2030" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Leadership Conclave 2030</p>
+                <p className="fd-pathway-cards__auth">Annual summit of 2,000+ Peers · New Delhi</p>
+              </div>
+            </div>
+            <div className="fd-pathway-cards__page">
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="₹5,000 Cr Collaborative Commerce" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">₹5,000 Cr Collaborative Commerce</p>
+                <p className="fd-pathway-cards__auth">Peer-to-peer ecosystem trade value · Global</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Deep-Tech Shared Labs & IP" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Deep-Tech Shared Labs &amp; IP</p>
+                <p className="fd-pathway-cards__auth">Shared testing equipment &amp; tech licenses · Bengaluru</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="First-Time Exporter Readiness" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">First-Time Exporter Readiness</p>
+                <p className="fd-pathway-cards__auth">Overcoming foreign customs &amp; compliance · Surat</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/culture-hero-desk.jpg" alt="Community Ethics & Governance" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Community Ethics &amp; Governance</p>
+                <p className="fd-pathway-cards__auth">Safe, high-trust circle accountability · All Hubs</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="The Unity App Platform" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">The Unity App Platform</p>
+                <p className="fd-pathway-cards__auth">Global opportunity exchange 24/7 · Digital</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/hot-seat.png" alt="Founder Health & Well-being" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Founder Health &amp; Well-being</p>
+                <p className="fd-pathway-cards__auth">Preventative health and founder longevity · Mumbai</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Lean Factory Benchmarking" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Lean Factory Benchmarking</p>
+                <p className="fd-pathway-cards__auth">Zero-defect manufacturing audits · Vadodara</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/put-collaboration-into-action.png" alt="Working Capital Liquidity" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Working Capital Liquidity</p>
+                <p className="fd-pathway-cards__auth">Receivables factoring between vendors · Chennai</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Family Business Succession" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Family Business Succession</p>
+                <p className="fd-pathway-cards__auth">Seamless Gen-2 founder transitions · Delhi</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Direct Bulk Sourcing Marketplace" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Direct Bulk Sourcing Marketplace</p>
+                <p className="fd-pathway-cards__auth">Removing brokers for industrial inputs · Pan-India</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Venture Resilience Hot Seats" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">Venture Resilience Hot Seats</p>
+                <p className="fd-pathway-cards__auth">Unfiltered peer counsel during crises · All Chapters</p>
+              </div>
+              <div className="fd-pathway-cards__card">
+                <div className="fd-pathway-cards__media">
+                  <img className="fd-pathway-cards__cover" src="/images/membership-mountain-closing.jpg" alt="1M Lives Milestone Summit" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                </div>
+                <p className="fd-pathway-cards__prog">1M Lives Milestone Summit</p>
+                <p className="fd-pathway-cards__auth">Global celebration of collective impact · 2030</p>
+              </div>
+            </div>
+          </div>
+          <div className="fd-pathway-cards__nav">
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-mission', -1)} aria-label="Previous mission initiatives"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-mission', 1)} aria-label="More mission initiatives"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
           </div>
         </div>
       </div>
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--body">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--mystic" id="real-collaborations">
       <div className="fd-pathway-cards__left">
-        <img className="fd-pathway-cards__hero" src="https://a.storyblok.com/f/312081/1920x1080/dd9d2a0b36/pathway_theagelessbody-keyart.webp/m/830x0/filters:format(webp):quality(80)" alt="The Ageless Body Pathway" width="461" height="259" loading="lazy" decoding="async" />
+        <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Real Collaborations at Peers Global" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow">THE AGELESS BODY</p>
-            <h3 className="fd-pathway-cards__title">Enhancing Your Longevity</h3>
+            <p className="fd-pathway-cards__eyebrow !text-[#C084FC]">— REAL COLLABORATIONS</p>
+            <h2 className="fd-pathway-cards__title">What this looks like in real life.</h2>
           </div>
-          <p className="fd-pathway-cards__desc">Build a body that supports a lifetime of energy and vitality. Strengthen your health, move with confidence, and create habits that help you thrive for years to come.</p>
-          <ul className="fd-pathway-cards__list">
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Increase your energy and resilience</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Build healthy habits that last</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Support long-term health and vitality</span></li>
+          <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Three real stories. Each: two named Peers, their businesses, their cities, what happened, what it produced. Photograph of the two of them together.</p>
+          
+          <ul className="fd-pathway-cards__list my-1">
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>Two named Peers in complementary industries.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>Cross-city partnerships without transactional friction.</span>
+            </li>
+            <li className="fd-pathway-cards__item">
+              <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+              <span>Every outcome backed by verified business numbers.</span>
+            </li>
           </ul>
-          </div>
-          <a className="fd-pathway-cards__btn" href="https://www.mindvalley.com/pathways/ageless-body" aria-label="Explore This Pathway: Ageless Body">Explore This Pathway</a>
-        </div>
-      </div>
-      <div className="fd-pathway-cards__right">
-        <div className="fd-pathway-cards__carousel">
-          <div className="fd-pathway-cards__track" tabIndex="0" role="group" aria-label="The Ageless Body Pathway programs">
-            <div className="fd-pathway-cards__page">
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/e50d4360e5/prog_10x-fitness.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/fd276fe2d6/auth_ronan-diego-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">10X Fitness</p>
-                <p className="fd-pathway-cards__auth">Ronan Diego, Lorenzo Delano</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/6093e03719/prog_the-longevity-blueprint.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/20243eb18c/auth_ben-greenfield-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Longevity Blueprint</p>
-                <p className="fd-pathway-cards__auth">Ben Greenfield, Ronan Diego</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/d21a3748e9/prog_the-mastery-of-sleep.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/cfeef8a9ce/auth_michael-breus-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Mastery of Sleep</p>
-                <p className="fd-pathway-cards__auth">Michael Breus</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/5b41d80377/prog_modern-qigong.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/5701b89875/auth_lee-holden-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Modern Qi Gong</p>
-                <p className="fd-pathway-cards__auth">Lee Holden</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/3fa084169e/prog_the-mindvalley-yoga-quest.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/637205644f/auth_cecilia-sardeo-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Mindvalley Yoga Quest</p>
-                <p className="fd-pathway-cards__auth">Cecilia Sardeo</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f8659d0456/prog_beyond-fasting.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/fd276fe2d6/auth_ronan-diego-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Beyond Fasting</p>
-                <p className="fd-pathway-cards__auth">Ronan Diego</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/fac6cff2ea/prog_the-immunity-blueprint.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/825503285f/auth_eric-edmeades-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Immunity Blueprint</p>
-                <p className="fd-pathway-cards__auth">Eric Edmeades</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/d168bd2a67/prog_body-first.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/4bed66170e/auth_lorenzo-delano-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Body First</p>
-                <p className="fd-pathway-cards__auth">Lorenzo Delano, Jelena Lakic</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/308bec57f8/prog_smarter-not-harder.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/beff8b8a7c/auth_dave-asprey-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Smarter Not Harder</p>
-                <p className="fd-pathway-cards__auth">Dave Asprey</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/293ad091ca/prog_the-ultimate-guide-to-supplements.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/9ba3d8933e/auth_shawn-wells-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Ultimate Guide to Supplements</p>
-                <p className="fd-pathway-cards__auth">Shawn Wells</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/67a0862293/prog_advanced-home-workouts.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/fd276fe2d6/auth_ronan-diego-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Advanced Home Workouts</p>
-                <p className="fd-pathway-cards__auth">Ronan Diego</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/91049f4827/prog_total-transformation-training.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/0893911a8a/auth_christine-bullock-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Total Transformation Training</p>
-                <p className="fd-pathway-cards__auth">Christine Bullock</p>
-              </div>
-            </div>
-            <div className="fd-pathway-cards__page">
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/36da5548b2/prog_7-days-to-breaking-up-with-sugar.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/825503285f/auth_eric-edmeades-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">7 Days To Breaking Up With Sugar</p>
-                <p className="fd-pathway-cards__auth">Eric Edmeades</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/7b5832cda1/prog_gut-health.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/94b9e47b52/auth_naveen-jain-2-3.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Gut Health for Better Mind, Body & Longevity</p>
-                <p className="fd-pathway-cards__auth">Naveen Jain</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/645e00068b/prog_the-way-of-the-kettlebell.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/f84cac19ec/auth_steve-cotter-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Way of the Kettlebell</p>
-                <p className="fd-pathway-cards__auth">Steve Cotter</p>
-              </div>
-            </div>
-          </div>
-          <div className="fd-pathway-cards__nav">
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="prev" aria-label="Previous programs in Enhancing Your Longevity"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="next" aria-label="More programs in Enhancing Your Longevity"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
-          </div>
-        </div>
-      </div>
-    </article>
 
-    
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--mystic">
-      <div className="fd-pathway-cards__left">
-        <img className="fd-pathway-cards__hero" src="https://a.storyblok.com/f/312081/1920x1080/9a8b8e653d/pathway_themodernmystic-keyart.webp/m/830x0/filters:format(webp):quality(80)" alt="The Modern Mystic Pathway" width="461" height="259" loading="lazy" decoding="async" />
-        <div className="fd-pathway-cards__body">
-          <div className="fd-pathway-cards__text">
-          <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow">THE MODERN MYSTIC</p>
-            <h3 className="fd-pathway-cards__title">Awakening Your Consciousness</h3>
+          <div className="flex flex-col gap-1.5 pt-1">
+            <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead !text-[15px]">
+              When business partners become friends, friends become the reason the business grows.
+            </p>
           </div>
-          <p className="fd-pathway-cards__desc">There is more to life than what your eyes can see. Awaken your intuition and discover a deeper connection to yourself, others, and reality.</p>
-          <ul className="fd-pathway-cards__list">
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Strengthen your intuition and inner guidance</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Experience greater presence, peace, and clarity</span></li>
-            <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Expand your consciousness and sense of purpose</span></li>
-          </ul>
           </div>
-          <a className="fd-pathway-cards__btn" href="https://www.mindvalley.com/pathways/modern-mystic" aria-label="Explore This Pathway: Modern Mystic">Explore This Pathway</a>
+          <div className="pt-2">
+            <a className="fd-pathway-cards__btn" href="/stories" aria-label="Read More Peer Stories">Read More Peer Stories</a>
+          </div>
         </div>
       </div>
       <div className="fd-pathway-cards__right">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Stories:</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">Featured Stories (6)</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Packaging &amp; Supply</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Global Exports</span>
+            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Capital Savings</span>
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Verified Outcomes
+          </span>
+        </div>
         <div className="fd-pathway-cards__carousel">
-          <div className="fd-pathway-cards__track" tabIndex="0" role="group" aria-label="The Modern Mystic Pathway programs">
-            <div className="fd-pathway-cards__page">
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/c94278670b/prog_duality.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/282d2deb4f/auth_jeffrey-allen-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+          <div className="fd-pathway-cards__track" id="track-stories" tabIndex={0} role="group" aria-label="Peers Global Real Collaborations">
+            <div className="fd-pathway-cards__page !grid-cols-1 md:!grid-cols-3 !gap-3.5">
+              {/* Card 1: Jignesh Shah & Rohit Mehta */}
+              <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                <div>
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
+                    <img src="/images/story-jignesh-rohit.jpg" alt="Jignesh Shah and Rohit Mehta" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-rose-300 border border-rose-500/30">
+                      PACKAGING &amp; AUTOMOTIVE
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 mb-2.5">
+                    <p className="text-white text-xs sm:text-[13px] font-semibold leading-snug">
+                      <span className="text-white font-bold">Jignesh Shah</span>, <span className="text-rose-300">Shah Packaging</span>, <span className="text-slate-300">Ahmedabad</span>
+                      <span className="text-white/60 mx-1">and</span>
+                      <span className="text-white font-bold">Rohit Mehta</span>, <span className="text-rose-300">Mehta Trading</span>, <span className="text-slate-300">Mumbai</span>
+                    </p>
+                    <p className="text-slate-300 text-[11.5px] leading-relaxed">
+                      <strong className="text-white/90 font-medium">What they built together:</strong> A cross-Circle continuous packaging supply partnership connecting idle high-precision plant capacity directly with regional tier-1 automotive client demand.
+                    </p>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">Duality</p>
-                <p className="fd-pathway-cards__auth">Jeffrey Allen</p>
+                <div className="pt-2.5 border-t border-white/10 mt-auto">
+                  <p className="text-[10px] uppercase tracking-wider text-white/50 font-medium mb-1">What it produced:</p>
+                  <div className="flex items-baseline justify-between bg-white/[0.04] rounded-lg px-2.5 py-1.5 border border-white/5">
+                    <span className="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">₹1.2 Crore</span>
+                    <span className="text-[10px] text-white/70">Recurring Annual Revenue</span>
+                  </div>
+                </div>
               </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/aade494ba0/prog_chakra-healing.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/33bebcc92b/auth_anodea-judith-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+
+              {/* Card 2: Priya Desai & Karan Malhotra */}
+              <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                <div>
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
+                    <img src="/images/story-priya-karan.jpg" alt="Priya Desai and Karan Malhotra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-blue-300 border border-blue-500/30">
+                      CROSS-BORDER EXPORTS
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 mb-2.5">
+                    <p className="text-white text-xs sm:text-[13px] font-semibold leading-snug">
+                      <span className="text-white font-bold">Priya Desai</span>, <span className="text-blue-300">Desai Global Exports</span>, <span className="text-slate-300">Surat</span>
+                      <span className="text-white/60 mx-1">and</span>
+                      <span className="text-white font-bold">Karan Malhotra</span>, <span className="text-blue-300">Malhotra Logistics</span>, <span className="text-slate-300">Mumbai</span>
+                    </p>
+                    <p className="text-slate-300 text-[11.5px] leading-relaxed">
+                      <strong className="text-white/90 font-medium">What they built together:</strong> A joint 50:50 multimodal export corridor combining organic textile manufacturing with bonded European customs clearing and warehousing.
+                    </p>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">Chakra Healing</p>
-                <p className="fd-pathway-cards__auth">Anodea Judith</p>
+                <div className="pt-2.5 border-t border-white/10 mt-auto">
+                  <p className="text-[10px] uppercase tracking-wider text-white/50 font-medium mb-1">What it produced:</p>
+                  <div className="flex items-baseline justify-between bg-white/[0.04] rounded-lg px-2.5 py-1.5 border border-white/5">
+                    <span className="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">3 Global Markets</span>
+                    <span className="text-[10px] text-white/70">₹8.5 Cr Top-Line Exports</span>
+                  </div>
+                </div>
               </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/6b3996a1d6/prog_experience-lucid-dreaming.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/514e27488d/auth_charley-morley-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+
+              {/* Card 3: Amit Trivedi & Sandeep Kulkarni */}
+              <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                <div>
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
+                    <img src="/images/story-amit-sandeep.jpg" alt="Amit Trivedi and Sandeep Kulkarni" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-amber-300 border border-amber-500/30">
+                      OPERATIONAL WISDOM
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 mb-2.5">
+                    <p className="text-white text-xs sm:text-[13px] font-semibold leading-snug">
+                      <span className="text-white font-bold">Amit Trivedi</span>, <span className="text-amber-300">Trivedi Chemicals</span>, <span className="text-slate-300">Vadodara</span>
+                      <span className="text-white/60 mx-1">and</span>
+                      <span className="text-white font-bold">Sandeep Kulkarni</span>, <span className="text-amber-300">Kulkarni Solutions</span>, <span className="text-slate-300">Pune</span>
+                    </p>
+                    <p className="text-slate-300 text-[11.5px] leading-relaxed">
+                      <strong className="text-white/90 font-medium">What they built together:</strong> A confidential 45-minute peer review avoiding an unviable imported recovery column, deploying a compliant modified catalytic system.
+                    </p>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">Experience Lucid Dreaming</p>
-                <p className="fd-pathway-cards__auth">Charlie Morley</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/420e623a37/prog_feng-shui-for-life.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/56789e788b/auth_marie-diamond-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                <div className="pt-2.5 border-t border-white/10 mt-auto">
+                  <p className="text-[10px] uppercase tracking-wider text-white/50 font-medium mb-1">What it produced:</p>
+                  <div className="flex items-baseline justify-between bg-white/[0.04] rounded-lg px-2.5 py-1.5 border border-white/5">
+                    <span className="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-300">₹38 Lakhs Saved</span>
+                    <span className="text-[10px] text-white/70">18 Months Time Saved</span>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">Feng Shui for Life</p>
-                <p className="fd-pathway-cards__auth">Marie Diamond</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/d3655e200a/prog_quantum-jumping.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/591619cd57/auth_burt-goldman-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Quantum Jumping</p>
-                <p className="fd-pathway-cards__auth">Burt Goldman</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/8fea331253/prog_the-art-of-astral-projection.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/422c7c72d2/auth_jade-shaw-2-3-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Art of Astral Projection</p>
-                <p className="fd-pathway-cards__auth">Jade Shaw</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/c1ff1ebd27/prog_the-art-of-manifesting.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/83fd9d2e9f/auth_regan-hillyer-2-3-2.webp/m/564x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Art of Manifesting</p>
-                <p className="fd-pathway-cards__auth">Regan Hillyer</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/ab87cbc128/prog_unlocking-transcendence.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/282d2deb4f/auth_jeffrey-allen-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Unlocking Transcendence</p>
-                <p className="fd-pathway-cards__auth">Jeffrey Allen</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/48b8944f7e/prog_energy-medicine.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/08a3a7ff05/auth_donna-eden-1-1.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Energy Medicine</p>
-                <p className="fd-pathway-cards__auth">Donna Eden</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/bcb565b404/prog_awaken-the-species.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/caa2aa979e/auth_neale-donald-walsch-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Awaken the Species</p>
-                <p className="fd-pathway-cards__auth">Neale Donald Walsch</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f84667ae9e/prog_mystic-brain.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/eea92fb1e0/auth_dawson-church-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Mystic Brain</p>
-                <p className="fd-pathway-cards__auth">Dawson Church</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/66ddfff5e3/prog_sixth-sense-superpower.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/f1d155f86a/auth_sonia-choquette-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Sixth Sense Superpower</p>
-                <p className="fd-pathway-cards__auth">Sonia Choquette</p>
               </div>
             </div>
-            <div className="fd-pathway-cards__page">
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/a1e193b89b/prog_unlimited-abundance.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/4e6af569d9/auth_christie-marie-sheldon-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+
+            <div className="fd-pathway-cards__page !grid-cols-1 md:!grid-cols-3 !gap-3.5">
+              {/* Card 4: Neha Patel & Simran Kaur */}
+              <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                <div>
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
+                    <img src="/images/story-neha-simran.jpg" alt="Neha Patel and Simran Kaur" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-emerald-300 border border-emerald-500/30">
+                      TECH &amp; TALENT
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 mb-2.5">
+                    <p className="text-white text-xs sm:text-[13px] font-semibold leading-snug">
+                      <span className="text-white font-bold">Neha Patel</span>, <span className="text-emerald-300">Patel Talent Labs</span>, <span className="text-slate-300">Bengaluru</span>
+                      <span className="text-white/60 mx-1">and</span>
+                      <span className="text-white font-bold">Simran Kaur</span>, <span className="text-emerald-300">Kaur Tech Systems</span>, <span className="text-slate-300">Hyderabad</span>
+                    </p>
+                    <p className="text-slate-300 text-[11.5px] leading-relaxed">
+                      <strong className="text-white/90 font-medium">What they built together:</strong> A cross-city tech engineering delivery pod pooling specialized cloud architects for rapid enterprise deployment.
+                    </p>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">Unlimited Abundance</p>
-                <p className="fd-pathway-cards__auth">Christie Marie Sheldon</p>
+                <div className="pt-2.5 border-t border-white/10 mt-auto">
+                  <p className="text-[10px] uppercase tracking-wider text-white/50 font-medium mb-1">What it produced:</p>
+                  <div className="flex items-baseline justify-between bg-white/[0.04] rounded-lg px-2.5 py-1.5 border border-white/5">
+                    <span className="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-300">60 Engineers</span>
+                    <span className="text-[10px] text-white/70">Multi-Year Enterprise Retainer</span>
+                  </div>
+                </div>
               </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/cedba66ef9/prog_a-journey-to-infinitheism.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/67384b9c5f/auth_mahatria-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+
+              {/* Card 5: Nayan Shah & Vikramaditya Solanki */}
+              <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                <div>
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
+                    <img src="/images/story-hero.jpg" alt="Nayan Shah and Vikramaditya Solanki" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-purple-300 border border-purple-500/30">
+                      BULK PROCUREMENT
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 mb-2.5">
+                    <p className="text-white text-xs sm:text-[13px] font-semibold leading-snug">
+                      <span className="text-white font-bold">Nayan Shah</span>, <span className="text-purple-300">Apex Electricals</span>, <span className="text-slate-300">Rajkot</span>
+                      <span className="text-white/60 mx-1">and</span>
+                      <span className="text-white font-bold">Vikramaditya Solanki</span>, <span className="text-purple-300">Solanki Ceramics</span>, <span className="text-slate-300">Morbi</span>
+                    </p>
+                    <p className="text-slate-300 text-[11.5px] leading-relaxed">
+                      <strong className="text-white/90 font-medium">What they built together:</strong> A joint raw material bulk-procurement syndicate for ceramic glazes and industrial components.
+                    </p>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">A Journey to Infinitheism</p>
-                <p className="fd-pathway-cards__auth">Mahatria</p>
+                <div className="pt-2.5 border-t border-white/10 mt-auto">
+                  <p className="text-[10px] uppercase tracking-wider text-white/50 font-medium mb-1">What it produced:</p>
+                  <div className="flex items-baseline justify-between bg-white/[0.04] rounded-lg px-2.5 py-1.5 border border-white/5">
+                    <span className="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">14% Cost Cut</span>
+                    <span className="text-[10px] text-white/70">₹2.4 Cr Pooled Buying</span>
+                  </div>
+                </div>
               </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/333fe01eb7/prog_a-yogi-s-guide-to-joy.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/09981ff70d/auth_sadhguru-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+
+              {/* Card 6: Pradeep Joshi & Fatima Khan */}
+              <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
+                <div>
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
+                    <img src="/images/who-we-are-friends.jpg" alt="Pradeep Joshi and Fatima Khan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-rose-300 border border-rose-500/30">
+                      AGRI-LOGISTICS
+                    </div>
+                  </div>
+                  <div className="space-y-1.5 mb-2.5">
+                    <p className="text-white text-xs sm:text-[13px] font-semibold leading-snug">
+                      <span className="text-white font-bold">Pradeep Joshi</span>, <span className="text-rose-300">Joshi Logistics</span>, <span className="text-slate-300">Surat</span>
+                      <span className="text-white/60 mx-1">and</span>
+                      <span className="text-white font-bold">Fatima Khan</span>, <span className="text-rose-300">Khan Agro Foods</span>, <span className="text-slate-300">Indore</span>
+                    </p>
+                    <p className="text-slate-300 text-[11.5px] leading-relaxed">
+                      <strong className="text-white/90 font-medium">What they built together:</strong> A refrigerated distribution network linking Central India food processing directly to Western ports.
+                    </p>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">A Yogi's Guide to Joy</p>
-                <p className="fd-pathway-cards__auth">Sadhguru</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/e3736d81e2/prog_breathwork-for-life.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/13c3c07f9c/auth_niraj-naik-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
+                <div className="pt-2.5 border-t border-white/10 mt-auto">
+                  <p className="text-[10px] uppercase tracking-wider text-white/50 font-medium mb-1">What it produced:</p>
+                  <div className="flex items-baseline justify-between bg-white/[0.04] rounded-lg px-2.5 py-1.5 border border-white/5">
+                    <span className="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-300">800+ Farmers</span>
+                    <span className="text-[10px] text-white/70">₹3.1 Cr Farm Produce Moved</span>
+                  </div>
                 </div>
-                <p className="fd-pathway-cards__prog">Breathwork for Life</p>
-                <p className="fd-pathway-cards__auth">Niraj Naik</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/74c15b6520/prog_higher-self-activation.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/ec00138ca2/auth_ariya-lorenz-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Higher Self Activation</p>
-                <p className="fd-pathway-cards__auth">Ariya Lorenz</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/f941d30371/prog_speakingwithspirit.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/3f480f655e/auth_agapi-stassinopoulos-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Speaking With Spirit</p>
-                <p className="fd-pathway-cards__auth">Agapi Stassinopoulos</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/34548ed708/prog_the-unbound-self.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/8accdc922c/auth_the-monroe-institute-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">The Unbound Self</p>
-                <p className="fd-pathway-cards__auth">Monroe Institute</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/d391831d8f/prog_evolutionary-woman.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/14a026a7a7/auth_barbara-marx-hubbard-2-3.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Evolutionary Woman</p>
-                <p className="fd-pathway-cards__auth">Barbara Marx Hubbard</p>
-              </div>
-              <div className="fd-pathway-cards__card">
-                <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="https://a.storyblok.com/f/312081/cc9db19566/prog_success-magic.webp/m/264x0/filters:format(webp):quality(80)" alt="" width="147" height="83" loading="lazy" decoding="async" />
-                  <img className="fd-pathway-cards__face" src="https://a.storyblok.com/f/312081/56789e788b/auth_marie-diamond-2-3-2.webp/m/100x0/filters:format(webp):quality(80)" alt="" width="55" height="83" loading="lazy" decoding="async" />
-                </div>
-                <p className="fd-pathway-cards__prog">Success Magic</p>
-                <p className="fd-pathway-cards__auth">Marie Diamond</p>
               </div>
             </div>
           </div>
           <div className="fd-pathway-cards__nav">
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="prev" aria-label="Previous programs in Awakening Your Consciousness"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
-            <button className="fd-pathway-cards__navbtn" type="button" data-nav="next" aria-label="More programs in Awakening Your Consciousness"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-stories', -1)} aria-label="Previous real collaboration stories"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.884 5.116a1.25 1.25 0 0 0-1.768 0l-6 6a1.25 1.25 0 0 0 0 1.768l6 6a1.25 1.25 0 0 0 1.768-1.768L10.768 12l5.116-5.116a1.25 1.25 0 0 0 0-1.768"></path></svg></button>
+            <button className="fd-pathway-cards__navbtn" type="button" onClick={() => scrollTrack('track-stories', 1)} aria-label="More real collaboration stories"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.884 5.116a1.25 1.25 0 1 0-1.768 1.768L13.232 12l-5.116 5.116a1.25 1.25 0 0 0 1.768 1.768l6-6a1.25 1.25 0 0 0 0-1.768z"></path></svg></button>
           </div>
         </div>
       </div>

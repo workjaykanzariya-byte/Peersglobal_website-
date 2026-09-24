@@ -22,7 +22,7 @@ export function PathwayHeroSection() {
     </div>
 
     <div className="fd-pathway-hero__cta">
-      <a className="fd-pathway-hero__btn fd-pathway-hero__btn--neutral" href="https://www.mindvalley.com/pathways/quiz">Find Your Pathway</a>
+      <a className="fd-pathway-hero__btn fd-pathway-hero__btn--neutral" href="/membership">Find Your Pathway</a>
     </div>
   </div>
 </section>

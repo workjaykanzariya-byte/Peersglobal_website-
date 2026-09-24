@@ -10,7 +10,7 @@ export function MeditationsSection() {
     <h2 className="fd-med-menu__headline" data-fd-rise="80">The Meditation Collection That Transforms Your Life</h2>
     <p className="fd-med-menu__body" data-fd-rise="160">Discover 1,000+ guided meditations designed to help you find calm, gain clarity, heal deeply, and become more of who you’re meant to be.</p>
     <div className="fd-med-menu__cta" data-fd-rise="240">
-      <a className="fd-med-menu__btn" href="https://www.mindvalley.com/meditations">Explore Meditations</a>
+      <a className="fd-med-menu__btn" href="/learning">Explore Learning &amp; Meditations</a>
     </div>
   </div>
 

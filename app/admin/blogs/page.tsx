@@ -16,9 +16,6 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
 } from 'lucide-react'
 
 interface BlogPostItem {
@@ -160,8 +157,7 @@ export default function AdminBlogsPage() {
   }
 
   const handleDelete = async (id: string) => {
-    const handleDelete = async (id: string) => {
-      if (confirm('Are you sure you want to delete this blog post?')) {
+    if (confirm('Are you sure you want to delete this blog post?')) {
         const updated = blogs.filter((b) => b.id !== id)
         setBlogs(updated)
         localStorage.setItem('peers_admin_blogs', JSON.stringify(updated))
@@ -307,8 +303,7 @@ export default function AdminBlogsPage() {
                   </tr>
                 ) : (
                   paginatedBlogs.map((post) => (
-                    paginatedBlogs.map((post) => (
-                      <tr key={post.id} className="hover:bg-[#0F172A]/60 transition">
+                    <tr key={post.id} className="hover:bg-[#0F172A]/60 transition">
                         <td className="p-4 max-w-sm">
                           <p className="font-semibold text-white truncate hover:text-blue-400 transition">{post.title}</p>
                         </td>

@@ -111,9 +111,9 @@ export function ChoosePathwaySection() {
           <button
             type="button"
             onClick={() => setBilling('yearly')}
-            className={`px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${
+            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${
               billing === 'yearly'
-                ? 'bg-[#7A12D4] text-white shadow-md'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/30'
                 : 'text-[#9CA3AF] hover:text-white'
             }`}
           >
@@ -122,9 +122,9 @@ export function ChoosePathwaySection() {
           <button
             type="button"
             onClick={() => setBilling('monthly')}
-            className={`px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${
+            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${
               billing === 'monthly'
-                ? 'bg-[#7A12D4] text-white shadow-md'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/30'
                 : 'text-[#9CA3AF] hover:text-white'
             }`}
           >
@@ -146,7 +146,7 @@ export function ChoosePathwaySection() {
               onClick={() => toggleSelect(item.id)}
               className={`flex items-center justify-between p-4 md:p-6 rounded-2xl border transition-all cursor-pointer ${
                 isSelected
-                  ? 'bg-white/10 border-[#9B37F2] shadow-lg shadow-[#7A12D4]/20'
+                  ? 'bg-white/10 border-blue-500 shadow-lg shadow-blue-600/20'
                   : 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.06]'
               }`}
             >
@@ -179,7 +179,7 @@ export function ChoosePathwaySection() {
                 <div
                   className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${
                     isSelected
-                      ? 'bg-[#7A12D4] border-[#7A12D4] text-white'
+                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-none text-white shadow-sm'
                       : 'border-white/30 bg-transparent'
                   }`}
                 >
@@ -219,10 +219,10 @@ export function ChoosePathwaySection() {
 
           <div className="flex flex-col items-center">
             <a
-              href="https://www.mindvalley.com/membership"
+              href="/apply"
               className={`px-7 py-2.5 rounded-full text-sm font-semibold transition-all ${
                 selectedIds.length > 0
-                  ? 'bg-[#7A12D4] hover:bg-[#9B37F2] text-white shadow-lg shadow-[#7A12D4]/30'
+                  ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white shadow-lg shadow-blue-600/35 hover:shadow-red-500/30 hover:scale-105'
                   : 'bg-[#152438] hover:bg-[#1C2F49] text-[#8EA2B6]'
               }`}
             >

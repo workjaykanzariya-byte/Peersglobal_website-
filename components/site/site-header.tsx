@@ -289,7 +289,7 @@ export function SiteHeader() {
             <Link
               href="/apply"
               onMouseEnter={() => setOpenMenu(null)}
-              className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors whitespace-nowrap shadow-none"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-5 py-2.5 text-xs font-semibold tracking-wide text-white transition-all shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-red-500/25 whitespace-nowrap hover:scale-[1.02] transform active:scale-[0.98]"
             >
               <span>ENTER PEERS GLOBAL</span>
               <ArrowRight className="size-3.5" />
@@ -317,7 +317,7 @@ export function SiteHeader() {
               <Link
                 href="/apply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] py-2.5 text-xs font-semibold tracking-wide text-white transition-colors"
+                className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] py-2.5 text-xs font-semibold tracking-wide text-white transition-all shadow-md shadow-blue-600/25"
               >
                 <span>ENTER PEERS GLOBAL</span>
                 <ArrowRight className="size-4" />

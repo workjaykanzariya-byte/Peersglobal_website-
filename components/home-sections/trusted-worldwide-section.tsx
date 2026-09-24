@@ -1,13 +1,17 @@
 'use client'
 
 import React, { useRef, useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
 
 export function TrustedWorldwideSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isMuted, setIsMuted] = useState(true)
   const [isPlaying, setIsPlaying] = useState(true)
 
-  const toggleMute = () => {
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation()
     if (!videoRef.current) return
     videoRef.current.muted = !videoRef.current.muted
     setIsMuted(videoRef.current.muted)
@@ -25,30 +29,58 @@ export function TrustedWorldwideSection() {
   }
 
   return (
-    <section className="w-full py-20 px-6 md:px-12 bg-white font-sans text-center">
-      <div className="max-w-[800px] mx-auto mb-10 flex flex-col items-center gap-4">
-        <p className="text-xs md:text-sm font-semibold tracking-widest text-[#6B7280] uppercase">
-          TRUSTED WORLDWIDE
-        </p>
-        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold text-[#0F131A] leading-tight tracking-tight">
-          Recognized worldwide as the gold standard in transformation
-        </h2>
-        <p className="text-base md:text-lg text-[#4B5563] leading-relaxed max-w-[720px]">
-          From leading media platforms like CNN, CBS to influential voices like Jay Shetty and
-          Impact Theory, Mindvalley is recognized worldwide for empowering people to transform their
-          mind, body, and soul—unlocking their fullest potential and leading extraordinary lives.
-        </p>
+    <section className="fd-what-is-mindvalley !bg-white !py-20 md:!py-24 !px-6 md:!px-12" id="who-we-are">
+      <div className="fd-what-is-mindvalley__inner !mb-12">
+        <div className="fd-what-is-mindvalley__intro !gap-8">
+          {/* Eyebrow & Titles matching standard Mindvalley typography */}
+          <div className="fd-what-is-mindvalley__titles !gap-6">
+            <p className="fd-what-is-mindvalley__eyebrow">
+              WHO WE ARE
+            </p>
+
+            <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5">
+              <h2 className="fd-what-is-mindvalley__headline">
+                <span>A global community of entrepreneurs</span>{' '}
+                <span>who choose to grow together.</span>
+              </h2>
+
+              <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed">
+                Peers Global brings together entrepreneurs and business leaders from across industries, cities and countries into one connected community.
+              </p>
+
+              <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed">
+                We call our members Peers. A Peer is an entrepreneur who believes in building trusted relationships, contributing to others, and growing together. Peers meet in Trusted Circles, collaborate through the Unity App, learn from one another, create opportunities for one another, and carry the community forward through leadership.
+              </p>
+
+              <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed font-semibold italic text-[#0F131A] pt-1">
+                &ldquo;Everything here is built on one belief: entrepreneurs should not have to build alone.&rdquo;
+              </p>
+
+              {/* CTA Button with signature brand gradient */}
+              <div className="pt-3">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-8 py-3.5 text-base font-semibold shadow-lg shadow-blue-600/25 hover:shadow-red-500/25 hover:scale-105 transition-all group"
+                >
+                  <span>Explore Peers Global</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
+      {/* Cinematic Media Showcase */}
       <div className="max-w-[1200px] mx-auto">
         <div
-          className="relative w-full aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black cursor-pointer group"
+          className="relative w-full aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black cursor-pointer group border border-slate-200/80"
           onClick={togglePlay}
         >
           <video
             ref={videoRef}
-            src="https://assets.mindvalley.com/api/v1/assets/e248f794-93c1-453e-b72f-b4e30006647d.mp4"
-            poster="https://a.storyblok.com/f/312081/10cb9e594e/s6_video_arena.jpg"
+            src="/videos/leadership-hero-bg.mp4"
+            poster="/images/who-we-are-boardroom.jpg"
             autoPlay
             muted
             loop
@@ -56,14 +88,31 @@ export function TrustedWorldwideSection() {
             className="w-full h-full object-cover"
           />
 
+          {/* Play/Pause Button Overlay on Hover */}
+          <div
+            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+              isPlaying ? 'opacity-0 group-hover:opacity-100 bg-black/20' : 'opacity-100 bg-black/35'
+            }`}
+          >
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 text-[#0f131a] flex items-center justify-center shadow-2xl backdrop-blur-md transform transition-transform group-hover:scale-105">
+              {isPlaying ? (
+                <svg className="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg>
+              ) : (
+                <svg className="w-7 h-7 md:w-9 md:h-9 fill-current ml-1" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              )}
+            </div>
+          </div>
+
           {/* Unmute / Mute Pill Button */}
           <button
             type="button"
-            onClick={(e) => {
-              e.stopPropagation()
-              toggleMute()
-            }}
-            className="absolute top-5 left-5 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-md text-white text-xs md:text-sm font-medium transition-colors"
+            onClick={toggleMute}
+            className="absolute top-5 left-5 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-xs md:text-sm font-medium transition-colors border border-white/10"
+            aria-label={isMuted ? 'Unmute' : 'Mute'}
           >
             {isMuted ? (
               <>
@@ -83,25 +132,29 @@ export function TrustedWorldwideSection() {
           </button>
 
           {/* Subtitle text in bottom-center */}
-          <div className="absolute inset-x-0 bottom-16 md:bottom-20 z-10 text-center pointer-events-none px-4">
-            <p className="text-white text-base md:text-xl font-semibold drop-shadow-lg tracking-wide">
-              in the fields of meditation,
+          <div className="absolute inset-x-0 bottom-6 md:bottom-8 z-10 text-center pointer-events-none px-4">
+            <p className="text-white text-sm sm:text-base md:text-lg font-medium drop-shadow-lg tracking-wide bg-black/40 backdrop-blur-sm inline-block px-5 py-2 rounded-full border border-white/10">
+              Partners in Business. Friends in Life.
             </p>
           </div>
 
-          {/* Floating Lower-Left Trainer Badge */}
-          <div className="absolute bottom-5 left-5 z-20 flex items-center gap-3.5 p-2 pr-5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-left shadow-xl">
-            <img
-              src="https://a.storyblok.com/f/312081/c1ff1ebd27/prog_the-art-of-manifesting.webp/m/264x0/filters:format(webp):quality(80)"
-              alt="The Art of Manifesting"
-              className="w-12 h-12 md:w-14 md:h-14 rounded-lg object-cover flex-shrink-0"
-            />
+          {/* Floating Lower-Left Badge */}
+          <div className="absolute bottom-5 left-5 z-20 flex items-center gap-3 p-2.5 pr-5 rounded-2xl bg-black/65 backdrop-blur-md border border-white/15 text-left shadow-xl">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 p-1 shrink-0">
+              <Image
+                src="/images/logo-icon-only.png"
+                alt="Peers Global Emblem"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
+            </div>
             <div>
               <p className="text-white text-xs md:text-sm font-semibold leading-tight">
-                Regan Hillyer
+                Peers Global Conclave
               </p>
               <p className="text-[#D1D5DB] text-[10px] md:text-xs leading-tight mt-0.5">
-                The Art of Manifesting
+                Where Founders Become Partners
               </p>
             </div>
           </div>
