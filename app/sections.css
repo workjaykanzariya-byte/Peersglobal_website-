@@ -1727,11 +1727,9 @@ p.body,
   display: flex;
   border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(12, 24, 60, 0.94) 0%, rgba(22, 12, 40, 0.94) 50%, rgba(42, 9, 26, 0.94) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45), 0 24px 64px rgba(0, 0, 0, 0.55), 0 0 40px rgba(29, 78, 216, 0.12);
+  background: var(--pw-from);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45), 0 24px 64px rgba(0, 0, 0, 0.55);
 }
 
 @media (min-width: 1025px) {
@@ -1797,7 +1795,7 @@ p.body,
   flex-direction: column;
   gap: 16px;
   padding: 36px 28px;
-  background: linear-gradient(165deg, rgba(29, 78, 216, 0.35) 0%, rgba(225, 29, 72, 0.20) 100%, #0a163a 100%);
+  background: transparent;
 }
 
 .fd-pathway-cards__right {
@@ -1808,43 +1806,43 @@ p.body,
   justify-content: center;
   align-items: center;
   padding: 32px 28px;
-  background: rgba(10, 18, 42, 0.94);
+  background: transparent;
 }
 
-/* ---- per-pathway palettes (unified with brand gradient #1D4ED8 -> #E11D48) ---- */
+/* ---- per-pathway palettes ---- */
 .fd-pathway-cards__block--mind {
-  --pw-from: #0a163a;
-  --pw-to: #2c081a;
+  --pw-from: #071739;
+  --pw-to: #071739;
   --pw-eyebrow: #92cdfe;
 }
 
 .fd-pathway-cards__block--entrepreneur {
-  --pw-from: #0a163a;
-  --pw-to: #2c081a;
+  --pw-from: #0f0131;
+  --pw-to: #0f0131;
   --pw-eyebrow: #adceff;
 }
 
 .fd-pathway-cards__block--authority {
-  --pw-from: #0a163a;
-  --pw-to: #2c081a;
+  --pw-from: #311905;
+  --pw-to: #311905;
   --pw-eyebrow: #fbe149;
 }
 
 .fd-pathway-cards__block--connection {
-  --pw-from: #0a163a;
-  --pw-to: #2c081a;
+  --pw-from: #300d18;
+  --pw-to: #300d18;
   --pw-eyebrow: #edb4cf;
 }
 
 .fd-pathway-cards__block--body {
-  --pw-from: #0a163a;
-  --pw-to: #2c081a;
+  --pw-from: #051f18;
+  --pw-to: #051f18;
   --pw-eyebrow: #7dd8b1;
 }
 
 .fd-pathway-cards__block--mystic {
-  --pw-from: #0a163a;
-  --pw-to: #2c081a;
+  --pw-from: #1c0131;
+  --pw-to: #1c0131;
   --pw-eyebrow: #d8adff;
 }
 
