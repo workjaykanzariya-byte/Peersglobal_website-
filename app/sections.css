@@ -3466,3 +3466,35 @@ p.body,
     border-radius: 12px
   }
 }
+
+/* ==========================================================================
+   PATHWAY CARDS SCROLL ANIMATION (STICKY DECK & SCROLL-LINKED SCALE/OPACITY)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .fd-pathway-cards__inner {
+    position: relative;
+  }
+
+  .fd-pathway-cards__block {
+    position: sticky;
+    top: 96px;
+    margin-bottom: 32px;
+    box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.3);
+    will-change: transform, opacity;
+  }
+
+  .fd-pathway-cards__block--mind { z-index: 10; }
+  .fd-pathway-cards__block--entrepreneur { z-index: 20; }
+  .fd-pathway-cards__block--authority { z-index: 30; }
+  .fd-pathway-cards__block--connection { z-index: 40; }
+  .fd-pathway-cards__block--body { z-index: 50; }
+  .fd-pathway-cards__block--mystic { z-index: 60; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fd-pathway-cards__block {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -1,8 +1,99 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 
 export function PathwayCardsSection() {
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
+
+    const pathwayCards = Array.from(document.querySelectorAll<HTMLElement>('.fd-pathway-cards__block'))
+    if (!pathwayCards.length) return
+
+    let rafId: number | null = null
+
+    const updateCardScrollAnimation = () => {
+      const windowHeight = window.innerHeight
+      const stickyTop = 96
+
+      pathwayCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect()
+        const nextCard = pathwayCards[index + 1]
+
+        // 1. Outgoing stacked card transition as next card overlaps it
+        if (nextCard) {
+          const nextRect = nextCard.getBoundingClientRect()
+
+          if (nextRect.top < windowHeight && nextRect.top > stickyTop) {
+            const overlapProgress = Math.max(0, Math.min(1, (windowHeight - nextRect.top) / (windowHeight - stickyTop)))
+            const scale = 1.0 - (0.05 * overlapProgress)
+            const opacity = 1.0 - (0.25 * overlapProgress)
+
+            card.style.transform = `translate3d(0, 0, 0) scale(${scale.toFixed(4)})`
+            card.style.opacity = `${opacity.toFixed(3)}`
+            return
+          } else if (nextRect.top <= stickyTop) {
+            card.style.transform = `translate3d(0, 0, 0) scale(0.95)`
+            card.style.opacity = `0.75`
+            return
+          }
+        }
+
+        // 2. Incoming card transition as it rises from screen bottom
+        if (rect.top > stickyTop) {
+          const totalDistance = windowHeight - stickyTop
+          const currentDistance = rect.top - stickyTop
+          const progress = Math.max(0, Math.min(1, 1 - currentDistance / totalDistance))
+
+          const scale = 0.96 + (0.04 * progress)
+          const opacity = 0.85 + (0.15 * progress)
+          const translateY = (1 - progress) * 24
+
+          card.style.transform = `translate3d(0, ${translateY.toFixed(1)}px, 0) scale(${scale.toFixed(4)})`
+          card.style.opacity = `${opacity.toFixed(3)}`
+        } else {
+          // 3. Active card pinned at sticky top
+          card.style.transform = `translate3d(0, 0, 0) scale(1)`
+          card.style.opacity = `1`
+        }
+      })
+    }
+
+    let isScrolling = false
+    let timeoutId: NodeJS.Timeout | null = null
+
+    const onScroll = () => {
+      updateCardScrollAnimation()
+      isScrolling = true
+      if (!rafId) {
+        rafId = requestAnimationFrame(function loop() {
+          updateCardScrollAnimation()
+          if (isScrolling) {
+            rafId = requestAnimationFrame(loop)
+          }
+        })
+      }
+      if (timeoutId) clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        isScrolling = false
+        if (rafId) {
+          cancelAnimationFrame(rafId)
+          rafId = null
+        }
+      }, 150)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    updateCardScrollAnimation()
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (timeoutId) clearTimeout(timeoutId)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [])
+
   const scrollTrack = (id: string, dir: number) => {
     const el = document.getElementById(id)
     if (el) {
