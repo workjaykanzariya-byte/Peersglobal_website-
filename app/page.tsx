@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/home-sections/hero-section'
 import { WhatIsSection } from '@/components/home-sections/what-is-section'
 import { LocalCirclesBanner } from '@/components/home-sections/local-circles-banner'
 import { HowItWorksSection } from '@/components/home-sections/how-it-works-section'
-import { PathwayHeroSection } from '@/components/home-sections/pathway-hero-section'
 import { PathwayCardsSection } from '@/components/home-sections/pathway-cards-section'
 import { QuestSection } from '@/components/home-sections/quest-section'
 import { MentorsSection } from '@/components/home-sections/mentors-section'
@@ -34,13 +33,10 @@ export default function HomePage() {
       {/* Who We Are Section */}
       <TrustedWorldwideSection />
 
-      {/* 3. How It Works Interactive Carousel */}
+      {/* 3. The Unity App Interactive Carousel */}
       <HowItWorksSection />
 
-      {/* 4. The 6 Pathways Video Banner */}
-      <PathwayHeroSection />
-
-      {/* 5. The 6 Pathways Interactive Sticky Deck & Program Marquees */}
+      {/* 4. The 6 Pathways Interactive Sticky Deck & Program Marquees */}
       <PathwayCardsSection />
 
       {/* 6. 110+ World-Class Quests Section (Every Mentor Designs a Quest) */}

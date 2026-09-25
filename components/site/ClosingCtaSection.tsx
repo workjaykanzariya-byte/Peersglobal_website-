@@ -22,7 +22,7 @@ export interface ClosingCtaSectionProps {
 }
 
 export function ClosingCtaSection({
-  eyebrow = 'Final Call',
+  eyebrow = 'FINAL CALL',
   title,
   subtitle = 'Build Your Business. Build Your Relationships. Build Your Circle.',
   description = "Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life.",

@@ -9,6 +9,8 @@ import {
   Mail,
   CheckCircle2,
   ChevronDown,
+  ArrowRight,
+  Download,
 } from 'lucide-react'
 import { SITE, ACTIVE_CITIES } from '@/lib/data/site'
 
@@ -134,64 +136,43 @@ export function SiteFooter() {
             <div className="flex items-center gap-2.5">
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1D4ED8]">
-                The Core Conviction
+                FINAL CALL
               </span>
             </div>
 
             {/* Heading with brand gradient punchline */}
-            <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-slate-900 tracking-tight leading-tight">
-              You were never meant to{' '}
+            <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2.25rem] font-bold text-slate-900 tracking-tight leading-snug">
+              A community you can belong to, contribute to, grow with, and build relationships{' '}
               <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                build alone.
+                for life.
               </span>
             </h2>
 
-            <p className="text-[15.5px] text-slate-600 leading-relaxed">
-              The right circle can change your life faster than the right idea.
+            <p className="text-[16px] font-semibold text-slate-800">
+              Build Your Business. Build Your Relationships. Build Your Circle.
             </p>
 
-            {/* App Store Badges + Divider + Unity Platform */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a
-                href={SITE.appStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="app-badge-btn"
-                aria-label="Download Peers Global on the Apple App Store"
+            {/* Dual CTAs: JOIN PEERS GLOBAL and DOWNLOAD UNITY APP */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-1.5">
+              <Link
+                href="/membership"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-7 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all uppercase"
+                aria-label="Join Peers Global"
               >
-                <Apple className="size-5.5 fill-white shrink-0" />
-                <div className="text-left">
-                  <span className="app-badge-sub">Download on the</span>
-                  <span className="app-badge-title">App Store</span>
-                </div>
-              </a>
+                <span>JOIN PEERS GLOBAL</span>
+                <ArrowRight className="size-4" />
+              </Link>
 
-              <a
-                href={SITE.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="app-badge-btn"
-                aria-label="Get Peers Global on Google Play"
+              <Link
+                href="/unity"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 px-6 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-sm hover:shadow transition-all uppercase"
+                aria-label="Download Unity App"
               >
-                <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                  <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
-                  <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
-                  <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
-                  <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
-                </svg>
-                <div className="text-left">
-                  <span className="app-badge-sub">GET IT ON</span>
-                  <span className="app-badge-title">Google Play</span>
-                </div>
-              </a>
-
-              {/* Vertical divider */}
-              <div className="hidden sm:block h-7 w-[1.5px] bg-slate-200 mx-1.5" />
-
-              <span className="text-[14.5px] text-slate-500 font-medium">
-                Unity Platform · iOS &amp; Android
-              </span>
+                <Download className="size-4 text-[#1D4ED8]" />
+                <span>DOWNLOAD UNITY APP</span>
+              </Link>
             </div>
+
           </div>
 
           {/* Right: Modern Newsletter Card */}

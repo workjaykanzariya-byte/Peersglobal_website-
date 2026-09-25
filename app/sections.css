@@ -1142,12 +1142,21 @@ p.body,
 }
 
 .fd-how-it-works__title {
-  margin: 20px 0 0;
-  font-size: clamp(26px, 2.51cqw, 36px);
-  line-height: 1.2222;
+  margin: 16px 0 0;
+  font-size: clamp(26px, 2.51cqw, 38px);
+  line-height: 1.2;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   color: #0F131A;
+}
+
+.fd-how-it-works__desc {
+  max-width: 740px;
+  margin: 14px auto 0;
+  font-size: clamp(15px, 1.25cqw, 17px);
+  line-height: 1.6;
+  color: #475569;
+  text-wrap: balance;
 }
 
 /* ---------- carousel ---------- */
@@ -1238,8 +1247,54 @@ p.body,
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-top: 40px;
-  padding-bottom: 128px;
+  margin-top: 36px;
+  padding-bottom: 0;
+}
+
+.fd-how-it-works__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.fd-how-it-works__bottom-text {
+  margin: 0;
+  font-size: clamp(15px, 1.25cqw, 17px);
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.fd-how-it-works__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.fd-how-it-works__store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  background: #0f131a;
+  color: #ffffff !important;
+  border-radius: 14px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s ease;
+}
+
+.fd-how-it-works__store-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  color: #ffffff !important;
 }
 
 .fd-how-it-works__arrow {
@@ -1634,10 +1689,8 @@ p.body,
   --mv-black: #0f131a;
   font-family: 'Google Sans Flex', sans-serif;
   -webkit-font-smoothing: antialiased;
-  /* Figma frame fill: linear #000000 -> #071e29 over the full 5296px frame.
-     This section is the 4219.875px slice above "Stories", so the stop sits at
-     5296/4219.875 = 125.5% to keep the ramp identical to the reference. */
-  background: linear-gradient(180deg, #000000 0%, #071e29 125.5%);
+  position: relative;
+  background: linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
   padding: 64px max(24px, calc((100% - 1200px) / 2)) 128px;
   container-type: inline-size;
 }
@@ -1662,17 +1715,62 @@ p.body,
 .fd-pathway-cards__inner {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-/* ---- block shell (Figma "Form": 1200x651.3125, r16, no visible border) ---- */
+/* ---- block shell with Mindvalley-style Stacking Cards Scroll Effect ---- */
 .fd-pathway-cards__block {
   display: flex;
-  border-radius: 16px;
-  overflow: hidden
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(12, 24, 60, 0.94) 0%, rgba(22, 12, 40, 0.94) 50%, rgba(42, 9, 26, 0.94) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.45), 0 24px 64px rgba(0, 0, 0, 0.55), 0 0 40px rgba(29, 78, 216, 0.12);
+}
+
+@media (min-width: 1025px) {
+  .fd-pathway-cards__inner {
+    gap: 0;
+    padding-bottom: 80px;
+  }
+
+  .fd-pathway-cards__block {
+    position: sticky;
+    top: calc(90px + var(--card-index, 0) * 20px);
+    margin-bottom: 96px;
+    z-index: calc(10 + var(--card-index, 0));
+    transform-origin: center top;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .fd-pathway-cards__block:last-child {
+    margin-bottom: 0;
+  }
+
+  .fd-pathway-cards__block:nth-of-type(1) { --card-index: 0; }
+  .fd-pathway-cards__block:nth-of-type(2) { --card-index: 1; }
+  .fd-pathway-cards__block:nth-of-type(3) { --card-index: 2; }
+  .fd-pathway-cards__block:nth-of-type(4) { --card-index: 3; }
+  .fd-pathway-cards__block:nth-of-type(5) { --card-index: 4; }
+  .fd-pathway-cards__block:nth-of-type(6) { --card-index: 5; }
+}
+
+@media (max-width: 1024px) {
+  .fd-pathway-cards__inner {
+    gap: 24px;
+    padding-bottom: 0;
+  }
+
+  .fd-pathway-cards__block {
+    position: static;
+    margin-bottom: 0;
+  }
 }
 
 .fd-pathway-cards__left {
@@ -1681,8 +1779,8 @@ p.body,
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 40px 24px;
-  background: linear-gradient(180deg, var(--pw-from) 0%, var(--pw-to) 100%)
+  padding: 36px 28px;
+  background: linear-gradient(165deg, rgba(29, 78, 216, 0.35) 0%, rgba(225, 29, 72, 0.20) 100%, #0a163a 100%);
 }
 
 .fd-pathway-cards__right {
@@ -1692,45 +1790,45 @@ p.body,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 24px;
-  background: var(--pw-from)
+  padding: 32px 28px;
+  background: rgba(10, 18, 42, 0.94);
 }
 
-/* ---- per-pathway palettes (Figma per-block gradient / eyebrow hexes) ---- */
+/* ---- per-pathway palettes (unified with brand gradient #1D4ED8 -> #E11D48) ---- */
 .fd-pathway-cards__block--mind {
-  --pw-from: #071739;
-  --pw-to: #1d4bb0;
-  --pw-eyebrow: #92cdfe
+  --pw-from: #0a163a;
+  --pw-to: #2c081a;
+  --pw-eyebrow: #92cdfe;
 }
 
 .fd-pathway-cards__block--entrepreneur {
-  --pw-from: #0f0131;
-  --pw-to: #3515b4;
-  --pw-eyebrow: #adceff
+  --pw-from: #0a163a;
+  --pw-to: #2c081a;
+  --pw-eyebrow: #adceff;
 }
 
 .fd-pathway-cards__block--authority {
-  --pw-from: #311905;
-  --pw-to: #834f10;
-  --pw-eyebrow: #fbe149
+  --pw-from: #0a163a;
+  --pw-to: #2c081a;
+  --pw-eyebrow: #fbe149;
 }
 
 .fd-pathway-cards__block--connection {
-  --pw-from: #300d18;
-  --pw-to: #882c4b;
-  --pw-eyebrow: #edb4cf
+  --pw-from: #0a163a;
+  --pw-to: #2c081a;
+  --pw-eyebrow: #edb4cf;
 }
 
 .fd-pathway-cards__block--body {
-  --pw-from: #051f18;
-  --pw-to: #11543e;
-  --pw-eyebrow: #7dd8b1
+  --pw-from: #0a163a;
+  --pw-to: #2c081a;
+  --pw-eyebrow: #7dd8b1;
 }
 
 .fd-pathway-cards__block--mystic {
-  --pw-from: #1c0131;
-  --pw-to: #6c15b4;
-  --pw-eyebrow: #d8adff
+  --pw-from: #0a163a;
+  --pw-to: #2c081a;
+  --pw-eyebrow: #d8adff;
 }
 
 /* ---- left column ---- */
@@ -1947,68 +2045,81 @@ p.body,
   min-width: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px 12px;
-  align-content: start;
-  scroll-snap-align: start
+  gap: 14px 12px;
+  align-content: center;
+  scroll-snap-align: start;
 }
 
 .fd-pathway-cards__card {
   display: flex;
   flex-direction: column;
-  min-width: 0
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+  gap: 3px;
 }
 
 .fd-pathway-cards__media {
   display: grid;
-  grid-template-columns: 1fr 0.375fr;
+  grid-template-columns: 1fr 0.38fr;
   gap: 4px;
-  aspect-ratio: 206.3333 / 82.7725;
-  margin-bottom: 4px
+  aspect-ratio: 2.2 / 1;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .fd-pathway-cards__cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  display: block
+  border-radius: 6px;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .fd-pathway-cards__face {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4px;
-  display: block
+  border-radius: 6px;
+  display: block;
+}
+
+.fd-pathway-cards__card:hover .fd-pathway-cards__cover {
+  transform: scale(1.04);
 }
 
 .fd-pathway-cards__prog {
   margin: 0;
   font-family: 'Google Sans Flex', sans-serif;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
-  line-height: 17px;
-  letter-spacing: 0.15px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
   text-align: center;
   color: var(--mv-white);
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .fd-pathway-cards__auth {
   margin: 0;
   font-family: 'Google Sans Flex', sans-serif;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 400;
-  line-height: 15px;
-  letter-spacing: 0.2px;
+  line-height: 14px;
+  letter-spacing: 0.15px;
   text-align: center;
-  /* ARBITER override: Figma node says #595e67, the reference render is #ced1d7 */
-  color: var(--mv-grey-300);
+  color: rgba(255, 255, 255, 0.65);
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 /* TODO placeholder — asset genuinely missing; identical box, clearly marked */
@@ -2024,40 +2135,48 @@ p.body,
   color: rgba(255, 255, 255, .55);
   background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .12) 0 5px, rgba(255, 255, 255, .04) 5px 10px);
   outline: 1px dashed rgba(255, 255, 255, .28);
-  outline-offset: -1px
+  outline-offset: -1px;
 }
 
-/* ---- carousel nav: replica of the MV Carousel Button ---- */
+/* ---- carousel nav: translucent rounded buttons matching Mindvalley ---- */
 .fd-pathway-cards__nav {
   display: flex;
   gap: 12px;
-  flex: 0 0 auto
+  flex: 0 0 auto;
+  margin-top: 14px;
 }
 
 .fd-pathway-cards__navbtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  padding: 8px;
-  border-radius: 48px;
-  background: var(--mv-white);
-  border: 1px solid #ebedef;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
-  color: var(--mv-black);
-  /* UA <button> reset — keeps the replica pixel-identical to the verified render */
-  font: inherit;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
   margin: 0;
   -webkit-appearance: none;
   appearance: none;
-  cursor: pointer
+}
+
+.fd-pathway-cards__navbtn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
 .fd-pathway-cards__navbtn svg {
-  width: 20px;
-  height: 20px;
-  display: block
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 /* end-stop state, applied by the carousel script only (no-JS render is unchanged) */
@@ -2338,29 +2457,40 @@ p.body,
 }
 
 .fd-pathway-cards__tint {
-  display: none
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 55% at 15% 30%, rgba(29, 78, 216, 0.42) 0%, transparent 68%),
+    radial-gradient(ellipse 65% 55% at 85% 70%, rgba(225, 29, 72, 0.38) 0%, transparent 68%),
+    linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
 }
 
-@media (min-width:1025px) and (min-height:780px) {
+@media (min-width:1025px) {
   .fd-pathway-cards {
     position: relative;
     timeline-scope: --pw1, --pw2, --pw3, --pw4, --pw5, --pw6;
     view-timeline-name: --pwsec;
   }
 
-  /* The tint container is ABSOLUTE so inset:0 resolves against the section's
-     PADDING box — i.e. the full viewport width — with no vw units at all. The
-     section pads to keep a 1200px content box (40px at 1280 up to 360px at 1920),
-     so a block child would only ever be 1200px wide and the wash would hide
-     entirely behind the cards. Avoiding vw also avoids the classic-scrollbar
-     overflow that 100vw causes on Windows. */
   .fd-pathway-cards__tint {
     display: block;
-    position: absolute;
-    inset: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: -100vh;
     overflow: clip;
     z-index: 0;
     pointer-events: none;
+    background:
+      radial-gradient(ellipse 65% 55% at 15% 30%, rgba(29, 78, 216, 0.42) 0%, transparent 68%),
+      radial-gradient(ellipse 65% 55% at 85% 70%, rgba(225, 29, 72, 0.38) 0%, transparent 68%),
+      linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%);
   }
 
   .fd-pathway-cards__inner {
@@ -2368,48 +2498,8 @@ p.body,
     z-index: 1;
   }
 
-  /* Each panel is sticky + 100vh + a cancelling negative margin, so all six
-     overlap at the container's top and each composited texture is ONE viewport
-     rather than the section's full 4220px (6 x 1440 x 4220 would be ~146MB of
-     GPU memory and would fall back to main-thread paint). */
   .fd-pathway-cards__wash {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    margin-bottom: -100vh;
-    opacity: 0;
-    /* wider than the box so the 120px gutters sit INSIDE the coloured region,
-       not out in its falloff — otherwise the blob hides entirely behind the cards */
-    background-repeat: no-repeat;
-  }
-
-  .fd-pathway-cards__wash--1 {
-    background-image: radial-gradient(125% 85% at 50% 42%, #071739 0%, #071739 34%, rgba(0, 0, 0, 0) 78%);
-  }
-
-  .fd-pathway-cards__wash--2 {
-    background-image: radial-gradient(125% 85% at 50% 42%, #0f0131 0%, #0f0131 34%, rgba(0, 0, 0, 0) 78%);
-  }
-
-  .fd-pathway-cards__wash--3 {
-    background-image: radial-gradient(125% 85% at 50% 42%, #311905 0%, #311905 34%, rgba(0, 0, 0, 0) 78%);
-  }
-
-  .fd-pathway-cards__wash--4 {
-    background-image: radial-gradient(125% 85% at 50% 42%, #300d18 0%, #300d18 34%, rgba(0, 0, 0, 0) 78%);
-  }
-
-  .fd-pathway-cards__wash--5 {
-    background-image: radial-gradient(125% 85% at 50% 42%, #051f18 0%, #051f18 34%, rgba(0, 0, 0, 0) 78%);
-  }
-
-  /* flat, not radial: it must fully neutralise the purple, not leave it at the edges */
-  .fd-pathway-cards__wash--out {
-    background-image: linear-gradient(#000000, #000000);
-  }
-
-  .fd-pathway-cards__wash--6 {
-    background-image: radial-gradient(125% 85% at 50% 42%, #1c0131 0%, #1c0131 34%, rgba(0, 0, 0, 0) 78%);
+    display: none !important;
   }
 
   .fd-pathway-cards__block--mind {
@@ -2703,37 +2793,38 @@ p.body,
 
 .fd-meet-your-mentors__eyebrow {
   margin: 0;
-  font-size: 20px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 25.04px;
-  /* Figma says .2px; its own render measures 218px wide for this string (mine 213 at
-     .2px) — the node carries a stale face. Screenshot wins (contract §0). */
-  letter-spacing: .5px;
-  color: var(--mv-grey-600);
+  line-height: 22px;
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+  color: #E11D48;
   text-align: center;
 }
 
 .fd-meet-your-mentors__headline {
   margin: 0;
-  max-width: 792px;
+  font-family: 'Google Sans Flex', sans-serif;
+  max-width: 880px;
   font-size: 36px;
   font-weight: 600;
   line-height: 44px;
-  /* Figma says 0; its render is 3-4px wider per line than 0 gives. Screenshot wins. */
-  letter-spacing: .2px;
-  color: var(--mv-black);
+  letter-spacing: 0.15px;
+  color: #0f131a;
   text-align: center;
+  text-wrap: balance;
 }
 
 .fd-meet-your-mentors__lede {
   margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
   max-width: 792px;
   font-size: 18px;
   font-weight: 400;
-  line-height: 24px;
-  /* Figma says .4px; that renders 34px wider per line than the reference. Screenshot wins. */
-  letter-spacing: 0;
-  color: var(--mv-grey-600);
+  line-height: 26px;
+  letter-spacing: 0.26px;
+  color: #4b5563;
   text-align: center;
 }
 
@@ -2772,13 +2863,13 @@ p.body,
 .fd-meet-your-mentors__track--1 {
   margin-left: -207px;
   animation-name: fd-mym-scroll-left;
-  animation-duration: 52.15s;
+  animation-duration: 44.7s;
 }
 
 .fd-meet-your-mentors__track--2 {
   margin-left: -127px;
   animation-name: fd-mym-scroll-right;
-  animation-duration: 52.15s;
+  animation-duration: 44.7s;
 }
 
 .fd-meet-your-mentors__row:hover .fd-meet-your-mentors__track,
@@ -2786,10 +2877,7 @@ p.body,
   animation-play-state: paused
 }
 
-/* Each track holds THREE identical sets of 7 unique mentors. The animation only ever
-   travels one set + gap (7 x 298 = 2086px per row, both at 40px/s => 52.15s), so two sets
-   already loop seamlessly; the third exists purely so a full-bleed row on a wide viewport
-   (3200+) never reaches the end of the track at any animation phase. */
+/* Each track holds THREE identical sets of 6 unique universe pillars. (6 x 298 = 1788px per row, both at 40px/s => 44.7s) */
 .fd-meet-your-mentors__set {
   display: flex;
   gap: var(--fd-mym-gap);
@@ -2801,18 +2889,53 @@ p.body,
   }
 
   to {
-    transform: translate3d(-2086px, 0, 0)
+    transform: translate3d(-1788px, 0, 0)
   }
 }
 
 @keyframes fd-mym-scroll-right {
   from {
-    transform: translate3d(-2086px, 0, 0)
+    transform: translate3d(-1788px, 0, 0)
   }
 
   to {
     transform: translate3d(0, 0, 0)
   }
+}
+
+.fd-meet-your-mentors__badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.fd-meet-your-mentors__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* ---------- card (Figma Assets/Trainer Card — 282x423, r16) ---------- */
@@ -2846,14 +2969,14 @@ p.body,
   object-fit: cover;
 }
 
-/* Figma "Dark Overlay": bottom 185px, transparent -> #0f131a */
+/* Gradient Overlay: bottom 230px with smooth transition for high text readability */
 .fd-meet-your-mentors__scrim {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 185px;
-  background: linear-gradient(180deg, rgba(15, 19, 26, 0) 0%, var(--mv-black) 100%);
+  height: 230px;
+  background: linear-gradient(180deg, rgba(15, 19, 26, 0) 0%, rgba(15, 19, 26, 0.6) 45%, rgba(15, 19, 26, 0.95) 100%);
 }
 
 .fd-meet-your-mentors__wm {
@@ -2942,13 +3065,65 @@ p.body,
   z-index: 1;
   width: 100%;
   margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  /* Figma says .35px (on a stale Sharp Grotesk face); its render is ~6px wider. */
-  letter-spacing: .5px;
-  color: var(--mv-white);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  color: rgba(255, 255, 255, 0.9);
   text-align: center;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- footer CTA ---------- */
+.fd-meet-your-mentors__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.fd-meet-your-mentors__tagline {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  color: #0f131a;
+  text-align: center;
+}
+
+.fd-meet-your-mentors__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  padding: 13px 32px;
+  border-radius: 100px;
+  border: 0;
+  background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  color: #ffffff !important;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3);
+  transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fd-meet-your-mentors__btn:hover {
+  background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%) !important;
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.45), 0 4px 12px rgba(29, 78, 216, 0.4);
+  transform: translateY(-2px);
+  color: #ffffff !important;
 }
 
 /* ---------- responsive (self-derived — no tablet/mobile Figma frame) ---------- */
@@ -3275,38 +3450,56 @@ p.body,
 
 .fd-med-menu__eyebrow {
   margin: 0;
-  color: #292D38;
-  font-size: 20px;
+  color: #E11D48;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 25px;
-  letter-spacing: .2px;
+  line-height: 22px;
+  letter-spacing: .46px;
+  text-transform: uppercase;
 }
 
 .fd-med-menu__headline {
-  max-width: 792px;
-  margin: 20px auto 0;
+  max-width: 820px;
+  margin: 16px auto 0;
   color: #0F131A;
+  font-family: 'Google Sans Flex', sans-serif;
   font-size: 36px;
   font-weight: 600;
   line-height: 44px;
-  letter-spacing: 0;
+  letter-spacing: .15px;
   text-wrap: balance;
 }
 
 .fd-med-menu__body {
-  max-width: 792px;
-  margin: 20px auto 0;
-  color: #000000;
+  max-width: 840px;
+  margin: 16px auto 0;
+  color: #4B5563;
+  font-family: 'Google Sans Flex', sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: .4px;
+  line-height: 26px;
+  letter-spacing: .2px;
+}
+
+.fd-med-menu__subbody {
+  max-width: 840px;
+  margin: 12px auto 0;
+  color: #0F131A;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: .15px;
 }
 
 .fd-med-menu__cta {
-  margin-top: 24px;
+  margin-top: 28px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 /* MV Button — variant: filled, color: neutral (black), size: large */
@@ -3315,13 +3508,13 @@ p.body,
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 14px 24px;
+  padding: 14px 28px;
   border: 0;
   border-radius: 100px;
   background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
   color: #ffffff !important;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: .2px;
@@ -3338,6 +3531,23 @@ p.body,
   box-shadow: 0 8px 26px rgba(225, 29, 72, 0.45), 0 4px 14px rgba(29, 78, 216, 0.4);
   transform: translateY(-2px);
   color: #ffffff !important;
+}
+
+.fd-med-menu__btn--secondary {
+  background-image: none !important;
+  background-color: rgba(29, 78, 216, 0.08) !important;
+  color: #1D4ED8 !important;
+  border: 1.5px solid rgba(29, 78, 216, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.fd-med-menu__btn--secondary:hover {
+  background-image: none !important;
+  background-color: rgba(29, 78, 216, 0.15) !important;
+  border-color: #1D4ED8 !important;
+  color: #1E40AF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.15) !important;
 }
 
 .fd-med-menu__btn:focus-visible {

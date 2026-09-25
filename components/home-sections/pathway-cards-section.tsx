@@ -1,8 +1,31 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export function PathwayCardsSection() {
+  const [activeCard, setActiveCard] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const blocks = document.querySelectorAll<HTMLElement>('.fd-pathway-cards__block')
+      if (!blocks.length) return
+
+      let current = 0
+      blocks.forEach((block, idx) => {
+        const rect = block.getBoundingClientRect()
+        // If the card has reached near its sticky top threshold (90px + offset)
+        if (rect.top <= 130 + idx * 20) {
+          current = idx
+        }
+      })
+      setActiveCard(current)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const scrollTrack = (id: string, dir: number) => {
     const el = document.getElementById(id)
     if (el) {
@@ -11,26 +34,33 @@ export function PathwayCardsSection() {
   }
 
   return (
-    <section className="fd-pathway-cards">
-<div className="fd-pathway-cards__tint" aria-hidden="true"><div className="fd-pathway-cards__wash fd-pathway-cards__wash--1"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--2"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--3"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--4"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--5"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--6"></div><div className="fd-pathway-cards__wash fd-pathway-cards__wash--out"></div></div>
-  <svg className="fd-pathway-cards__defs" aria-hidden="true" focusable="false" width="0" height="0"><defs>
-    <linearGradient id="fdPwChkMind" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-    <linearGradient id="fdPwChkEnt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-    <linearGradient id="fdPwChkAuth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-    <linearGradient id="fdPwChkConn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-    <linearGradient id="fdPwChkBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-    <linearGradient id="fdPwChkMystic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-  </defs></svg>
-  <div className="fd-pathway-cards__inner">
+    <section className="fd-pathway-cards" data-active-pathway={activeCard}>
+      <div className="fd-pathway-cards__tint" aria-hidden="true">
+        <div className={`fd-pathway-cards__wash fd-pathway-cards__wash--1 ${activeCard === 0 ? 'is-active' : ''}`}></div>
+        <div className={`fd-pathway-cards__wash fd-pathway-cards__wash--2 ${activeCard === 1 ? 'is-active' : ''}`}></div>
+        <div className={`fd-pathway-cards__wash fd-pathway-cards__wash--3 ${activeCard === 2 ? 'is-active' : ''}`}></div>
+        <div className={`fd-pathway-cards__wash fd-pathway-cards__wash--4 ${activeCard === 3 ? 'is-active' : ''}`}></div>
+        <div className={`fd-pathway-cards__wash fd-pathway-cards__wash--5 ${activeCard === 4 ? 'is-active' : ''}`}></div>
+        <div className={`fd-pathway-cards__wash fd-pathway-cards__wash--6 ${activeCard === 5 ? 'is-active' : ''}`}></div>
+        <div className="fd-pathway-cards__wash fd-pathway-cards__wash--out"></div>
+      </div>
+      <svg className="fd-pathway-cards__defs" aria-hidden="true" focusable="false" width="0" height="0"><defs>
+        <linearGradient id="fdPwChkMind" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkEnt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkAuth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkConn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkMystic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+      </defs></svg>
+      <div className="fd-pathway-cards__inner">
 
-    
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--mind" id="our-philosophy">
+        <article className="fd-pathway-cards__block fd-pathway-cards__block--mind" id="our-philosophy" style={{ '--card-index': 0 } as React.CSSProperties}>
       <div className="fd-pathway-cards__left">
         <img className="fd-pathway-cards__hero" src="/images/who-we-are-friends.jpg" alt="Peers are Partners in Business and Friends in Life" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">— OUR PHILOSOPHY</p>
+            <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">OUR PHILOSOPHY</p>
             <h2 className="fd-pathway-cards__title">Peers are Partners in Business and Friends in Life.</h2>
           </div>
           <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">This is the sentence the whole community runs on.</p>
@@ -261,13 +291,13 @@ export function PathwayCardsSection() {
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--entrepreneur" id="trusted-circles">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--entrepreneur" id="trusted-circles" style={{ '--card-index': 1 } as React.CSSProperties}>
       <div className="fd-pathway-cards__left">
         <img className="fd-pathway-cards__hero" src="/images/circle-meeting.png" alt="Every Peer belongs to a Circle" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow !text-[#38BDF8]">— TRUSTED CIRCLES</p>
+            <p className="fd-pathway-cards__eyebrow !text-[#38BDF8]">TRUSTED CIRCLES</p>
             <h2 className="fd-pathway-cards__title">Every Peer belongs to a Circle.</h2>
           </div>
           <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">A Circle brings together the right entrepreneurs around a common industry, interest, location or business opportunity. It is the heart of the community and the place where relationships are actually built.</p>
@@ -290,18 +320,6 @@ export function PathwayCardsSection() {
         </div>
       </div>
       <div className="fd-pathway-cards__right">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Filter Grid:</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All Circles</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Industry</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">City</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Purpose</span>
-          </div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Open Seats Available
-          </span>
-        </div>
         <div className="fd-pathway-cards__carousel">
           <div className="fd-pathway-cards__track" id="track-circles" tabIndex={0} role="group" aria-label="Peers Global Trusted Circles">
             <div className="fd-pathway-cards__page">
@@ -510,13 +528,13 @@ export function PathwayCardsSection() {
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--authority" id="how-collaboration-works">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--authority" id="how-collaboration-works" style={{ '--card-index': 2 } as React.CSSProperties}>
       <div className="fd-pathway-cards__left">
         <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Eleven ways a Peer creates value for another Peer" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow !text-[#F59E0B]">— HOW COLLABORATION WORKS</p>
+            <p className="fd-pathway-cards__eyebrow !text-[#F59E0B]">HOW COLLABORATION WORKS</p>
             <h2 className="fd-pathway-cards__title">Eleven ways a Peer creates value for another Peer.</h2>
           </div>
           <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Collaboration at Peers Global is a defined practice. These are the forms it takes.</p>
@@ -554,18 +572,6 @@ export function PathwayCardsSection() {
         </div>
       </div>
       <div className="fd-pathway-cards__right">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Forms:</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All 11 Ways</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Access &amp; Referrals</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Knowledge &amp; Scale</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Global Reach</span>
-          </div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Defined Practice
-          </span>
-        </div>
         <div className="fd-pathway-cards__carousel">
           <div className="fd-pathway-cards__track" id="track-collaboration" tabIndex={0} role="group" aria-label="Eleven ways a Peer creates value">
             <div className="fd-pathway-cards__page">
@@ -774,13 +780,13 @@ export function PathwayCardsSection() {
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--connection" id="impact">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--connection" id="impact" style={{ '--card-index': 3 } as React.CSSProperties}>
       <div className="fd-pathway-cards__left">
         <img className="fd-pathway-cards__hero" src="/images/who-we-are-impact.jpg" alt="We count lives impacted" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">— IMPACT</p>
+            <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">IMPACT</p>
             <h2 className="fd-pathway-cards__title">We count lives impacted.</h2>
           </div>
           <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Impact at Peers Global is practical. It is what happens when one entrepreneur helps another.</p>
@@ -823,18 +829,6 @@ export function PathwayCardsSection() {
         </div>
       </div>
       <div className="fd-pathway-cards__right">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Metrics:</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All Impact (24)</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Jobs &amp; Growth</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Capital &amp; Client</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Mentorship</span>
-          </div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-rose-400"></span> 1M+ by 2030
-          </span>
-        </div>
         <div className="fd-pathway-cards__carousel">
           <div className="fd-pathway-cards__track" id="track-impact" tabIndex={0} role="group" aria-label="Peers Global Lives Impacted">
             <div className="fd-pathway-cards__page">
@@ -1042,13 +1036,13 @@ export function PathwayCardsSection() {
       </div>
     </article>
 
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--body" id="the-1-million-mission">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--body" id="the-1-million-mission" style={{ '--card-index': 4 } as React.CSSProperties}>
       <div className="fd-pathway-cards__left">
         <img className="fd-pathway-cards__hero" src="/images/climbers-clean.jpg" alt="The 1 Million Mission" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow !text-[#34D399]">— THE 1 MILLION MISSION</p>
+            <p className="fd-pathway-cards__eyebrow !text-[#34D399]">THE 1 MILLION MISSION</p>
             <h2 className="fd-pathway-cards__title">One million lives impacted.</h2>
           </div>
           <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Our mission is to impact one million lives through entrepreneurship, collaboration and opportunity.</p>
@@ -1084,18 +1078,6 @@ export function PathwayCardsSection() {
         </div>
       </div>
       <div className="fd-pathway-cards__right">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Mission Levers:</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">All Levers (24)</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Mentorship</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Global Trade</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Job Creation</span>
-          </div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[11px] font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span> Target: 1,000,000 Lives
-          </span>
-        </div>
         <div className="fd-pathway-cards__carousel">
           <div className="fd-pathway-cards__track" id="track-mission" tabIndex={0} role="group" aria-label="Peers Global 1 Million Mission Initiatives">
             <div className="fd-pathway-cards__page">
@@ -1104,96 +1086,96 @@ export function PathwayCardsSection() {
                   <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="100,000 Mentorship Hours" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">100,000 Mentorship Hours</p>
-                <p className="fd-pathway-cards__auth">Master founders giving first · Worldwide</p>
+                <p className="fd-pathway-cards__prog">Mentorship Hours</p>
+                <p className="fd-pathway-cards__auth">100,000+ Hours · Global</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Cross-Border Market Corridors" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Cross-Border Market Corridors</p>
-                <p className="fd-pathway-cards__auth">Bilateral founder trade routes · India &amp; UAE</p>
+                <p className="fd-pathway-cards__prog">Market Corridors</p>
+                <p className="fd-pathway-cards__auth">India &amp; UAE Routes</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="250,000 Jobs Catalyzed" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">250,000 Jobs Catalyzed</p>
-                <p className="fd-pathway-cards__auth">Indirect employment through SME scaling · India</p>
+                <p className="fd-pathway-cards__prog">Jobs Catalyzed</p>
+                <p className="fd-pathway-cards__auth">250,000+ SMEs · India</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Next-Gen Founder Incubator" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Next-Gen Founder Circles</p>
-                <p className="fd-pathway-cards__auth">Incubating college &amp; youth ventures · Multi-city</p>
+                <p className="fd-pathway-cards__prog">Next-Gen Circles</p>
+                <p className="fd-pathway-cards__auth">Youth Ventures · Multi-city</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Women Entrepreneurship Council" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Women Entrepreneurship Council</p>
-                <p className="fd-pathway-cards__auth">300+ female-led enterprises scaling · Bengaluru</p>
+                <p className="fd-pathway-cards__prog">Women Founders</p>
+                <p className="fd-pathway-cards__auth">300+ Enterprises · Bengaluru</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Emergency Capex Syndicate" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Emergency Capex Syndicate</p>
-                <p className="fd-pathway-cards__auth">Asset &amp; equipment sharing network · Ahmedabad</p>
+                <p className="fd-pathway-cards__prog">Capex Syndicate</p>
+                <p className="fd-pathway-cards__auth">Shared Asset Network</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Rural Supply Chain Integration" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Rural Supply Chain Integration</p>
-                <p className="fd-pathway-cards__auth">Connecting farm producers to D2C · Rajkot</p>
+                <p className="fd-pathway-cards__prog">Supply Chain Hub</p>
+                <p className="fd-pathway-cards__auth">Farm to D2C · Rajkot</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="CleanTech Alliances" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">CleanTech Alliances</p>
-                <p className="fd-pathway-cards__auth">Microgrids &amp; zero-waste manufacturing · Hyderabad</p>
+                <p className="fd-pathway-cards__prog">CleanTech Alliance</p>
+                <p className="fd-pathway-cards__auth">Zero-Waste Tech · Hyderabad</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Peer Seed & Angel Network" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Peer Seed &amp; Angel Network</p>
-                <p className="fd-pathway-cards__auth">Zero-brokerage capital introductions · Mumbai</p>
+                <p className="fd-pathway-cards__prog">Peer Angel Network</p>
+                <p className="fd-pathway-cards__auth">Growth Capital · Mumbai</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/who-we-are-impact.jpg" alt="Global Chapter Expansion" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Global Chapter Expansion</p>
-                <p className="fd-pathway-cards__auth">50+ hub cities across 14 nations · London &amp; Dubai</p>
+                <p className="fd-pathway-cards__prog">Global Chapters</p>
+                <p className="fd-pathway-cards__auth">50+ Hub Cities · Worldwide</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
-                  <img className="fd-pathway-cards__cover" src="/images/unity-app-phone.png" alt="AI & Tech Modernization" width="147" height="83" loading="lazy" decoding="async" />
+                  <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="AI & Tech Playbooks" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">AI &amp; Tech Modernization</p>
-                <p className="fd-pathway-cards__auth">Practical AI adoption playbooks for SMEs · Pune</p>
+                <p className="fd-pathway-cards__prog">AI Tech Playbooks</p>
+                <p className="fd-pathway-cards__auth">SME Modernization · Pune</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/executive-director-conclave.jpg" alt="Leadership Conclave 2030" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Leadership Conclave 2030</p>
-                <p className="fd-pathway-cards__auth">Annual summit of 2,000+ Peers · New Delhi</p>
+                <p className="fd-pathway-cards__prog">Leadership Summit</p>
+                <p className="fd-pathway-cards__auth">2,000+ Peers · New Delhi</p>
               </div>
             </div>
             <div className="fd-pathway-cards__page">
@@ -1202,96 +1184,96 @@ export function PathwayCardsSection() {
                   <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="₹5,000 Cr Collaborative Commerce" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">₹5,000 Cr Collaborative Commerce</p>
-                <p className="fd-pathway-cards__auth">Peer-to-peer ecosystem trade value · Global</p>
+                <p className="fd-pathway-cards__prog">Collaborative Trade</p>
+                <p className="fd-pathway-cards__auth">₹5,000 Cr Commerce · Global</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Deep-Tech Shared Labs & IP" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Deep-Tech Shared Labs &amp; IP</p>
-                <p className="fd-pathway-cards__auth">Shared testing equipment &amp; tech licenses · Bengaluru</p>
+                <p className="fd-pathway-cards__prog">Deep-Tech Labs</p>
+                <p className="fd-pathway-cards__auth">Shared Testing &amp; IP · Bengaluru</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="First-Time Exporter Readiness" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">First-Time Exporter Readiness</p>
-                <p className="fd-pathway-cards__auth">Overcoming foreign customs &amp; compliance · Surat</p>
+                <p className="fd-pathway-cards__prog">Exporter Readiness</p>
+                <p className="fd-pathway-cards__auth">Global Compliance · Surat</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/culture-hero-desk.jpg" alt="Community Ethics & Governance" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Community Ethics &amp; Governance</p>
-                <p className="fd-pathway-cards__auth">Safe, high-trust circle accountability · All Hubs</p>
+                <p className="fd-pathway-cards__prog">Circle Governance</p>
+                <p className="fd-pathway-cards__auth">High-Trust Hubs · All Cities</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="The Unity App Platform" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">The Unity App Platform</p>
-                <p className="fd-pathway-cards__auth">Global opportunity exchange 24/7 · Digital</p>
+                <p className="fd-pathway-cards__prog">The Unity App</p>
+                <p className="fd-pathway-cards__auth">24/7 Digital Exchange</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/hot-seat.png" alt="Founder Health & Well-being" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Founder Health &amp; Well-being</p>
-                <p className="fd-pathway-cards__auth">Preventative health and founder longevity · Mumbai</p>
+                <p className="fd-pathway-cards__prog">Founder Longevity</p>
+                <p className="fd-pathway-cards__auth">Health &amp; Wellness · Mumbai</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Lean Factory Benchmarking" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Lean Factory Benchmarking</p>
-                <p className="fd-pathway-cards__auth">Zero-defect manufacturing audits · Vadodara</p>
+                <p className="fd-pathway-cards__prog">Lean Factory Audits</p>
+                <p className="fd-pathway-cards__auth">Zero-Defect Hubs · Vadodara</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/put-collaboration-into-action.png" alt="Working Capital Liquidity" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Working Capital Liquidity</p>
-                <p className="fd-pathway-cards__auth">Receivables factoring between vendors · Chennai</p>
+                <p className="fd-pathway-cards__prog">Working Capital</p>
+                <p className="fd-pathway-cards__auth">Receivables Liquidity · Chennai</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Family Business Succession" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Family Business Succession</p>
-                <p className="fd-pathway-cards__auth">Seamless Gen-2 founder transitions · Delhi</p>
+                <p className="fd-pathway-cards__prog">Family Succession</p>
+                <p className="fd-pathway-cards__auth">Gen-2 Founder Shifts · Delhi</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Direct Bulk Sourcing Marketplace" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Direct Bulk Sourcing Marketplace</p>
-                <p className="fd-pathway-cards__auth">Removing brokers for industrial inputs · Pan-India</p>
+                <p className="fd-pathway-cards__prog">Direct Bulk Sourcing</p>
+                <p className="fd-pathway-cards__auth">Zero-Broker Sourcing · Pan-India</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Venture Resilience Hot Seats" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">Venture Resilience Hot Seats</p>
-                <p className="fd-pathway-cards__auth">Unfiltered peer counsel during crises · All Chapters</p>
+                <p className="fd-pathway-cards__prog">Crisis Hot Seats</p>
+                <p className="fd-pathway-cards__auth">Peer Counsel · All Hubs</p>
               </div>
               <div className="fd-pathway-cards__card">
                 <div className="fd-pathway-cards__media">
                   <img className="fd-pathway-cards__cover" src="/images/membership-mountain-closing.jpg" alt="1M Lives Milestone Summit" width="147" height="83" loading="lazy" decoding="async" />
                   <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                 </div>
-                <p className="fd-pathway-cards__prog">1M Lives Milestone Summit</p>
-                <p className="fd-pathway-cards__auth">Global celebration of collective impact · 2030</p>
+                <p className="fd-pathway-cards__prog">Milestone Summit</p>
+                <p className="fd-pathway-cards__auth">Global Impact · 2030</p>
               </div>
             </div>
           </div>
@@ -1304,13 +1286,13 @@ export function PathwayCardsSection() {
     </article>
 
     
-    <article className="fd-pathway-cards__block fd-pathway-cards__block--mystic" id="real-collaborations">
+    <article className="fd-pathway-cards__block fd-pathway-cards__block--mystic" id="real-collaborations" style={{ '--card-index': 5 } as React.CSSProperties}>
       <div className="fd-pathway-cards__left">
         <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Real Collaborations at Peers Global" width="461" height="259" loading="lazy" decoding="async" />
         <div className="fd-pathway-cards__body">
           <div className="fd-pathway-cards__text">
           <div className="fd-pathway-cards__head">
-            <p className="fd-pathway-cards__eyebrow !text-[#C084FC]">— REAL COLLABORATIONS</p>
+            <p className="fd-pathway-cards__eyebrow !text-[#C084FC]">REAL COLLABORATIONS</p>
             <h2 className="fd-pathway-cards__title">What this looks like in real life.</h2>
           </div>
           <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Three real stories. Each: two named Peers, their businesses, their cities, what happened, what it produced. Photograph of the two of them together.</p>
@@ -1342,18 +1324,6 @@ export function PathwayCardsSection() {
         </div>
       </div>
       <div className="fd-pathway-cards__right">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5 px-1 text-xs">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-white/60 font-medium mr-1 text-[11px] uppercase tracking-wider">Stories:</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium cursor-pointer border border-white/25">Featured Stories (6)</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Packaging &amp; Supply</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Global Exports</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 cursor-pointer border border-white/10 transition-colors">Capital Savings</span>
-          </div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Verified Outcomes
-          </span>
-        </div>
         <div className="fd-pathway-cards__carousel">
           <div className="fd-pathway-cards__track" id="track-stories" tabIndex={0} role="group" aria-label="Peers Global Real Collaborations">
             <div className="fd-pathway-cards__page !grid-cols-1 md:!grid-cols-3 !gap-3.5">

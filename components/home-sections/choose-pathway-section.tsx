@@ -1,292 +1,250 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
 
-const pathways = [
+interface JourneyStep {
+  step: string
+  title: string
+  description: string
+  image: string
+  link: string
+}
+
+const JOURNEY_STEPS: JourneyStep[] = [
   {
-    id: 'mind',
-    title: 'The Extraordinary Mind',
-    subtitle: 'Rewrite the beliefs you never chose',
-    meta: '24 Programs · 19 Teachers',
-    image: 'https://a.storyblok.com/f/312081/1920x1080/2540700ff4/pathway_theextraordinarymind-keyart.webp/m/830x0/filters:format(webp):quality(80)',
-    yearlyPrice: '$299',
-    monthlyPrice: '$49',
+    step: '01',
+    title: 'Download Unity',
+    description: 'See the community from the inside.',
+    image: '/images/unity-hero-phones.jpg',
+    link: '/unity',
   },
   {
-    id: 'business',
-    title: 'The Exponential Entrepreneur',
-    subtitle: 'Build with AI as your workforce',
-    meta: '26 Programs · 23 Teachers',
-    image: 'https://a.storyblok.com/f/312081/1920x1080/1655b376ee/pathway_theexponentialentrepreneur-keyart.webp/m/830x0/filters:format(webp):quality(80)',
-    yearlyPrice: '$299',
-    monthlyPrice: '$49',
+    step: '02',
+    title: 'Visit a Circle',
+    description: 'Come as a guest. Meet the room.',
+    image: '/images/circle-meeting.png',
+    link: '/circles/find',
   },
   {
-    id: 'influence',
-    title: 'The Expert & Authority',
-    subtitle: 'Lead with influence',
-    meta: '14 Programs · 15 Teachers',
-    image: 'https://a.storyblok.com/f/312081/1920x1080/e542ef843a/pathway_theexpertandauthority-keyart.webp/m/830x0/filters:format(webp):quality(80)',
-    yearlyPrice: '$299',
-    monthlyPrice: '$49',
+    step: '03',
+    title: 'Become a Peer',
+    description: 'Take your seat in the community.',
+    image: '/images/who-we-are-friends.jpg',
+    link: '/apply',
   },
   {
-    id: 'relationships',
-    title: 'The Art of Connection',
-    subtitle: 'Build deep, authentic relationships',
-    meta: '16 Programs · 12 Teachers',
-    image: 'https://a.storyblok.com/f/312081/1920x1080/1908aa3420/pathway_theartofconnection-keyart.webp/m/830x0/filters:format(webp):quality(80)',
-    yearlyPrice: '$299',
-    monthlyPrice: '$49',
+    step: '04',
+    title: 'Contribute',
+    description: 'Give first. Make the introduction. Share what you know.',
+    image: '/images/who-we-are-impact.jpg',
+    link: '/give-first',
   },
   {
-    id: 'body',
-    title: 'The Ageless Body',
-    subtitle: 'Optimize your energy and longevity',
-    meta: '18 Programs · 14 Teachers',
-    image: 'https://a.storyblok.com/f/312081/1920x1080/a9b8ff5e91/pathway_theagelessbody-keyart.webp/m/830x0/filters:format(webp):quality(80)',
-    yearlyPrice: '$299',
-    monthlyPrice: '$49',
-  },
-  {
-    id: 'spirit',
-    title: 'The Modern Mystic',
-    subtitle: 'Expand your consciousness and intuition',
-    meta: '20 Programs · 16 Teachers',
-    image: 'https://a.storyblok.com/f/312081/1920x1080/be11cb5561/pathway_themodernmystic-keyart.webp/m/830x0/filters:format(webp):quality(80)',
-    yearlyPrice: '$299',
-    monthlyPrice: '$49',
+    step: '05',
+    title: 'Lead',
+    description: 'Start a Circle. Hold an industry. Build a city.',
+    image: '/images/leadership-climbers-hero.jpg',
+    link: '/leadership',
   },
 ]
 
 export function ChoosePathwaySection() {
-  const sectionRef = React.useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [billing, setBilling] = useState<'yearly' | 'monthly'>('yearly')
-  const [selectedIds, setSelectedIds] = useState<string[]>([])
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [activeStep, setActiveStep] = useState<number>(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(mediaQuery.matches)
     const handleMotionChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
     mediaQuery.addEventListener('change', handleMotionChange)
 
-    let animationFrameId: number
-
-    const handleScroll = () => {
-      if (!sectionRef.current) return
-      const rect = sectionRef.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight
-      const totalDistance = windowHeight + rect.height
-      const currentPos = windowHeight - rect.top
-      const progress = Math.max(0, Math.min(1, currentPos / (totalDistance * 0.7)))
-      setScrollProgress(progress)
-    }
-
-    const onScroll = () => {
-      animationFrameId = requestAnimationFrame(handleScroll)
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting)
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     )
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current)
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true })
-    handleScroll()
-
     return () => {
       observer.disconnect()
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(animationFrameId)
       mediaQuery.removeEventListener('change', handleMotionChange)
     }
   }, [])
 
-  const toggleSelect = (id: string) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    )
-  }
-
-  const isAllAccess = selectedIds.length >= 2
-
-  const contentTranslateY = prefersReducedMotion ? 0 : (1 - scrollProgress) * 32
-  const contentOpacity = prefersReducedMotion ? 1 : Math.max(0, Math.min(1, scrollProgress * 1.5))
-
   return (
     <section
       ref={sectionRef}
+      id="the-journey"
       className="w-full bg-[#061320] text-white py-24 px-6 md:px-12 relative overflow-hidden font-sans"
+      style={{ fontFamily: "'Google Sans Flex', sans-serif" }}
+      aria-label="The Journey"
     >
-      {/* Header */}
+      {/* Background ambient lighting */}
       <div
-        style={{
-          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${contentTranslateY}px, 0)`,
-          opacity: contentOpacity,
-          transition: 'transform 0.12s ease-out, opacity 0.15s ease-out',
-          willChange: 'transform, opacity',
-        }}
-        className="max-w-[800px] mx-auto text-center mb-12 flex flex-col items-center gap-3"
-      >
-        <p className="text-xs md:text-sm font-semibold tracking-widest text-[#E2CEA0] uppercase">
-          CHOOSE YOUR PATHWAY
-        </p>
-        <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">
-          Pick a Pathway or Take All Six
-        </h2>
-        <p className="text-base md:text-lg text-[#9CA3AF] max-w-[620px]">
-          Choose the one area you most want to grow in, or take all six and go all-in.
-        </p>
-        <p className="text-sm text-[#9CA3AF]">
-          Yearly or monthly. <span className="font-semibold text-white">Cancel anytime.</span>
-        </p>
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-blue-600/10 to-rose-600/10 blur-[120px] rounded-full pointer-events-none"
+        aria-hidden="true"
+      />
 
-        {/* Toggle Yearly / Monthly */}
-        <div className="inline-flex items-center p-1 rounded-full bg-white/10 border border-white/10 mt-4 backdrop-blur-md">
-          <button
-            type="button"
-            onClick={() => setBilling('yearly')}
-            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${billing === 'yearly'
-                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/30'
-                : 'text-[#9CA3AF] hover:text-white'
-              }`}
-          >
-            Yearly (Save up to 58%)
-          </button>
-          <button
-            type="button"
-            onClick={() => setBilling('monthly')}
-            className={`px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all ${billing === 'monthly'
-                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/30'
-                : 'text-[#9CA3AF] hover:text-white'
-              }`}
-          >
-            Monthly
-          </button>
-        </div>
+      {/* Header */}
+      <div className="max-w-[840px] mx-auto text-center mb-16 flex flex-col items-center gap-3 relative z-10">
+        <p
+          className="text-sm md:text-base font-semibold tracking-wider text-[#38BDF8] uppercase"
+          style={{ letterSpacing: '0.46px' }}
+        >
+          THE JOURNEY
+        </p>
+        <h2
+          className="text-3xl md:text-5xl font-semibold text-white tracking-tight leading-tight"
+          style={{ letterSpacing: '0.15px' }}
+        >
+          Every Peer starts the same way.
+        </h2>
       </div>
 
-      {/* Pathways List Cards */}
-      <div
-        style={{
-          transform: prefersReducedMotion ? 'none' : `translate3d(0, ${contentTranslateY * 0.7}px, 0)`,
-          opacity: contentOpacity,
-          transition: 'transform 0.12s ease-out, opacity 0.15s ease-out',
-          willChange: 'transform, opacity',
-        }}
-        className="max-w-[1000px] mx-auto flex flex-col gap-4 mb-20"
-      >
-        {pathways.map((item) => {
-          const isSelected = selectedIds.includes(item.id)
-          const price = billing === 'yearly' ? item.yearlyPrice : item.monthlyPrice
-          const period = billing === 'yearly' ? '/year' : '/month'
+      {/* 5 Journey Steps List */}
+      <div className="max-w-[920px] mx-auto flex flex-col gap-4 mb-16 relative z-10">
+        {JOURNEY_STEPS.map((item, index) => {
+          const isActive = activeStep === index
 
           return (
-            <div
-              key={item.id}
-              onClick={() => toggleSelect(item.id)}
-              className={`flex items-center justify-between p-4 md:p-6 rounded-2xl border transition-all cursor-pointer ${isSelected
-                  ? 'bg-white/10 border-blue-500 shadow-lg shadow-blue-600/20'
-                  : 'bg-white/[0.04] border-white/10 hover:border-white/20 hover:bg-white/[0.06]'
-                }`}
+            <Link
+              key={item.step}
+              href={item.link}
+              onMouseEnter={() => setActiveStep(index)}
+              className={`group flex items-center justify-between p-4 md:p-5 rounded-2xl border transition-all duration-300 text-decoration-none ${
+                isActive
+                  ? 'bg-white/[0.08] border-blue-500/60 shadow-lg shadow-blue-900/25 scale-[1.01]'
+                  : 'bg-white/[0.03] border-white/10 hover:border-white/20 hover:bg-white/[0.06]'
+              }`}
             >
               <div className="flex items-center gap-4 md:gap-6 min-w-0">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-16 h-12 md:w-24 md:h-16 rounded-xl object-cover flex-shrink-0"
-                />
+                {/* Step badge */}
+                <div
+                  className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-sm md:text-base shrink-0 transition-all ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/40'
+                      : 'bg-white/10 text-white/80 group-hover:bg-white/15'
+                  }`}
+                >
+                  {item.step}
+                </div>
+
+                {/* Thumbnail */}
+                <div className="w-16 h-12 md:w-24 md:h-16 rounded-xl overflow-hidden shrink-0 relative border border-white/10">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-black/20" />
+                </div>
+
+                {/* Content */}
                 <div className="min-w-0">
-                  <h3 className="text-base md:text-lg font-semibold text-white truncate">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs uppercase font-medium tracking-wider text-[#38BDF8]">
+                      Step {index + 1}
+                    </span>
+                  </div>
+                  <h3 className="text-base md:text-xl font-semibold text-white tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-[#9CA3AF] truncate">{item.subtitle}</p>
-                  <p className="text-[11px] md:text-xs text-[#6B7280] mt-1">{item.meta}</p>
+                  <p className="text-xs md:text-sm text-[#9CA3AF] mt-0.5 group-hover:text-white/80 transition-colors">
+                    {item.description}
+                  </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 md:gap-6 flex-shrink-0">
-                <div className="text-right">
-                  <p className="text-base md:text-xl font-bold text-white">
-                    {price}
-                    <span className="text-xs md:text-sm font-normal text-[#9CA3AF]">{period}</span>
-                  </p>
-                  <p className="text-[10px] md:text-xs text-[#6B7280]">
-                    {billing === 'yearly' ? 'Annual Subscription' : 'Monthly Subscription'}
-                  </p>
-                </div>
-
+              {/* Action indicator */}
+              <div className="flex items-center gap-3 shrink-0 ml-4">
                 <div
-                  className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${isSelected
-                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-none text-white shadow-sm'
-                      : 'border-white/30 bg-transparent'
-                    }`}
+                  className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-transparent text-white shadow-md'
+                      : 'border-white/20 text-white/50 group-hover:border-white/40 group-hover:text-white'
+                  }`}
                 >
-                  {isSelected && (
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                      <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
-                    </svg>
-                  )}
+                  <svg
+                    className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
-            </div>
+            </Link>
           )
         })}
       </div>
 
+      {/* Bottom CTA Block */}
+      <div className="max-w-[720px] mx-auto text-center flex flex-col items-center gap-6 relative z-10">
+        <p className="text-base md:text-xl font-medium text-white/90 italic tracking-wide">
+          &ldquo;Most Peers arrive for the business. They stay for the relationships.&rdquo;
+        </p>
+
+        <Link
+          href="/apply"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm md:text-base font-semibold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
+          style={{
+            backgroundImage: 'linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%)',
+            boxShadow: '0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3)',
+          }}
+          aria-label="Start Your Journey"
+        >
+          <span>Start Your Journey</span>
+          <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path
+              fillRule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </Link>
+      </div>
+
       {/* Dynamic Sticky Bottom Bar - Appears smoothly when section is active */}
       <div
-        className={`fixed bottom-0 inset-x-0 z-50 bg-[#081827]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
-          }`}
+        className={`fixed bottom-0 inset-x-0 z-50 bg-[#081827]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
+        }`}
       >
         <div className="max-w-[1000px] mx-auto flex items-center justify-between gap-4">
           <div className="text-left">
             <p className="text-sm md:text-base font-semibold text-white">
-              {isAllAccess
-                ? 'Get All 6 Pathways with All Access Membership'
-                : selectedIds.length === 1
-                  ? `1 Pathway Selected (${pathways.find((p) => p.id === selectedIds[0])?.title})`
-                  : 'Select a Pathway To Begin'}
+              Every Peer starts the same way.
             </p>
             <p className="text-xs text-[#9CA3AF]">
-              {isAllAccess
-                ? 'Unlimited access to all 110+ programs, teachers & community'
-                : 'Or take all six together for $399'}
+              Most Peers arrive for the business. They stay for the relationships.
             </p>
           </div>
 
-          <div className="flex flex-col items-center">
-            <a
+          <div className="flex items-center gap-3">
+            <Link
               href="/apply"
-              className={`px-7 py-2.5 rounded-full text-sm font-semibold transition-all ${selectedIds.length > 0
-                  ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white shadow-lg shadow-blue-600/35 hover:shadow-red-500/30 hover:scale-105'
-                  : 'bg-[#152438] hover:bg-[#1C2F49] text-[#8EA2B6]'
-                }`}
+              className="px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold text-white transition-all shadow-md hover:scale-105 shrink-0"
+              style={{
+                backgroundImage: 'linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%)',
+                boxShadow: '0 4px 14px rgba(29, 78, 216, 0.35)',
+              }}
+              aria-label="Start Your Journey"
             >
-              Select Pathway
-            </a>
-            <div className="flex items-center gap-1.5 text-[11px] text-[#8EA2B6] mt-1.5">
-              <svg
-                className="w-3.5 h-3.5 stroke-current fill-none"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-              <span>15 day money back guarantee</span>
-            </div>
+              Start Your Journey
+            </Link>
           </div>
         </div>
       </div>
