@@ -34,7 +34,7 @@ export function TrustedWorldwideSection() {
         <div className="fd-what-is-mindvalley__intro !gap-8">
           {/* Eyebrow & Titles matching standard Mindvalley typography */}
           <div className="fd-what-is-mindvalley__titles !gap-6">
-            <p className="fd-what-is-mindvalley__eyebrow">
+            <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text">
               WHO WE ARE
             </p>
 

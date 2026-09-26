@@ -335,7 +335,7 @@ export function SiteHeader() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="py-3 text-[14px] font-semibold text-slate-800 hover:text-[#0062D2] flex items-center justify-between"
+                      className="py-3 text-[14px] font-semibold text-slate-800 hover:text-[#1D4ED8] flex items-center justify-between"
                     >
                       <span>{item.label}</span>
                       <ArrowRight className="size-3.5 text-slate-400" />
@@ -354,7 +354,7 @@ export function SiteHeader() {
                       <ChevronDown
                         className={cn(
                           'size-4 text-slate-400 transition-transform duration-200',
-                          isAccordionOpen && 'rotate-180 text-[#0062D2]'
+                          isAccordionOpen && 'rotate-180 text-[#1D4ED8]'
                         )}
                       />
                     </button>
@@ -366,7 +366,7 @@ export function SiteHeader() {
                             <Link
                               href={child.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block py-1 text-[13px] text-slate-600 hover:text-[#0062D2]"
+                              className="block py-1 text-[13px] text-slate-600 hover:text-[#1D4ED8]"
                             >
                               <span>{child.label}</span>
                               {child.phase === 2 ? (

@@ -131,7 +131,7 @@ export function FounderClient() {
                 <p className="text-base sm:text-lg font-serif italic text-[#061836] leading-relaxed pr-6">
                   &ldquo;I come from a very poor farmer family. But I do not come from a weak mindset. That difference has shaped everything.&rdquo;
                 </p>
-                <p className="mt-2.5 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+                <p className="mt-2.5 text-xs uppercase tracking-widest brand-gradient-text font-bold">
                   — Dr. Pravin Parmar
                 </p>
               </div>
@@ -140,7 +140,7 @@ export function FounderClient() {
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
                   href="/unity"
-                  className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_22px_rgba(0,98,210,0.35)] transition-all active:scale-[0.98] overflow-hidden"
+                  className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_22px_rgba(0,98,210,0.35)] transition-all active:scale-[0.98] overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     Download Unity App
@@ -194,7 +194,7 @@ export function FounderClient() {
       {/* ─── Chapter 1: Botad (The Roots) ─── */}
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             Chapter 01 &mdash; The Roots
           </div>
@@ -227,7 +227,7 @@ export function FounderClient() {
       {/* ─── Chapter 2: The Decision That Set The Direction ─── */}
       <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             Chapter 02 &mdash; Self-Determination
           </div>
@@ -263,7 +263,7 @@ export function FounderClient() {
       {/* ─── Chapter 3: Building, and Stopping ─── */}
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             Chapter 03 &mdash; Hard Truths
           </div>
@@ -315,7 +315,7 @@ export function FounderClient() {
       {/* ─── Chapter 4: The Hospital Corridor ─── */}
       <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             Chapter 04 &mdash; The Awakening
           </div>
@@ -355,7 +355,7 @@ export function FounderClient() {
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Chapter 05 &mdash; The Ecosystem
             </div>
@@ -452,7 +452,7 @@ export function FounderClient() {
       {/* ─── Chapter 6: What He Is Trying To Leave Behind (The Legacy) ─── */}
       <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             Chapter 06 &mdash; The Legacy
           </div>
@@ -495,7 +495,7 @@ export function FounderClient() {
             <Mic2 className="w-6 h-6" />
           </div>
           <div className="space-y-2">
-            <div className="text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <div className="text-xs uppercase tracking-widest brand-gradient-text font-bold">
               Chapter 07 &mdash; Public Forum
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836]">

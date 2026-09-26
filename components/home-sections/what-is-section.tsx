@@ -31,7 +31,7 @@ export function WhatIsSection() {
         <div className="fd-what-is-mindvalley__intro">
           {/* Eyebrow & Titles */}
           <div className="fd-what-is-mindvalley__titles">
-            <p className="fd-what-is-mindvalley__eyebrow" data-fd-rise="0">
+            <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text" data-fd-rise="0">
               WHAT PEERS GLOBAL IS
             </p>
 

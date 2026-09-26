@@ -71,19 +71,19 @@ export function PeerStandingClient() {
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-white">
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-gradient-to-br from-blue-50/40 via-white to-rose-50/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 border border-[#1D4ED8]/20 text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">
                 <Award className="w-3.5 h-3.5" />
                 Community Recognition
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
                 Peer Standing
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#0062D2] italic leading-relaxed font-normal">
+              <p className="text-xl sm:text-2xl font-serif brand-gradient-text italic leading-relaxed font-normal">
                 What the community recognises you for.
               </p>
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
@@ -93,7 +93,7 @@ export function PeerStandingClient() {
               <div className="pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#0052B4] transition-all shadow-md shadow-blue-500/20"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:opacity-95 transition-all shadow-md uppercase tracking-wider"
                 >
                   Download Unity App
                   <ArrowRight className="w-4 h-4" />
@@ -103,7 +103,7 @@ export function PeerStandingClient() {
 
             {/* Right Golden Star Trophy Visual */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-slate-950">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
                 <Image
                   src="/images/culture-hero-desk.jpg"
                   alt="Golden award star on wooden boardroom desk"
@@ -117,7 +117,7 @@ export function PeerStandingClient() {
                   Respect Earned.<br />Not Given.
                 </div>
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-sky-200 border border-white/30">
+                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-white border border-white/30 font-bold">
                     Social Equity Hierarchy
                   </span>
                 </div>
@@ -130,8 +130,8 @@ export function PeerStandingClient() {
       {/* ─── The Closest Thing to Wealth ─── */}
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
+            <span className="w-6 h-[1.5px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             The True Measure
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
@@ -155,7 +155,7 @@ export function PeerStandingClient() {
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#F8FAFC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — ADVANCEMENT TIERS —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
@@ -282,47 +282,16 @@ export function PeerStandingClient() {
       </section>
 
       {/* ─── Closing Banner ─── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-24 md:py-32">
-        {/* Deep celestial radial gradients & luminous aura */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
-        />
-
-        {/* Subtle Geometric Orbital Line Art */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg
-            viewBox="0 0 760 520"
-            fill="none"
-            className="h-full w-full"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white py-24 md:py-32">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
             The most valuable thing you can build here is a reputation for giving.
           </h2>
 
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-blue-50 text-[#0062D2] text-sm font-bold shadow-lg hover:shadow-xl transition-all uppercase tracking-wider hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#1D4ED8] text-sm font-bold shadow-lg hover:shadow-xl hover:bg-slate-100 transition-all uppercase tracking-wider hover:scale-105 active:scale-95"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />

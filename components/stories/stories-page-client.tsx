@@ -289,14 +289,14 @@ export function StoriesPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/stories" className="flex items-center gap-2">
             <span className="font-sans text-lg sm:text-xl font-bold tracking-tight text-slate-900">
-              Peers Global <span className="text-[#0078D4]">Stories</span>
+              Peers Global <span className="brand-gradient-text">Stories</span>
             </span>
           </Link>
 
           <div className="flex items-center gap-3">
             <Link
               href="/contact?intent=share-story"
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-[#0078D4] hover:bg-[#006cbd] px-4 py-2 text-xs font-semibold text-white transition-all shadow-xs"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-4 py-2 text-xs font-semibold text-white transition-all shadow-xs"
             >
               <span>Tell your story</span>
             </Link>
@@ -316,7 +316,7 @@ export function StoriesPageClient() {
           <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-950 tracking-tight leading-[1.12]">
             A living library of <br />
             entrepreneur{' '}
-            <span className="bg-gradient-to-r from-[#0078D4] via-[#6366F1] to-[#8B5CF6] bg-clip-text text-transparent">
+            <span className="brand-gradient-text">
               collaboration.
             </span>
           </h1>

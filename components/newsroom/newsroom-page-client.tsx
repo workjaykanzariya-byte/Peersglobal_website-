@@ -195,8 +195,8 @@ export function NewsroomPageClient() {
       {/* ─── Hero Section ─── */}
       <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2] mx-auto">
-            <Megaphone className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-wider brand-gradient-text mx-auto shadow-2xs">
+            <Megaphone className="w-3.5 h-3.5 text-[#1D4ED8]" />
             Official Press &amp; Media Hub
           </div>
 
@@ -215,7 +215,7 @@ export function NewsroomPageClient() {
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact?topic=media"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all"
             >
               Media Enquiries
               <ArrowRight className="w-4 h-4" />

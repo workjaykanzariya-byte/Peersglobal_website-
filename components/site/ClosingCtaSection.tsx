@@ -100,7 +100,7 @@ export function ClosingCtaSection({
   return (
     <section
       ref={sectionRef}
-      className={`relative isolate overflow-hidden bg-[#040F24] py-14 sm:py-18 lg:py-20 text-white ${className}`}
+      className={`relative isolate overflow-hidden bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] py-14 sm:py-18 lg:py-20 text-white ${className}`}
     >
       {/* Deep celestial radial gradients & luminous aura */}
       <div

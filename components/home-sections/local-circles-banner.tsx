@@ -52,57 +52,77 @@ const BRANDS_ROW_2 = [
 
 export function LocalCirclesBanner() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#030914] text-white border-y border-white/10 py-8 sm:py-10 select-none">
-      {/* Background Ambient Glows */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-gradient-to-r from-blue-600/15 via-indigo-600/10 to-transparent blur-[120px] rounded-full" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-gradient-to-l from-rose-600/15 via-pink-600/10 to-transparent blur-[120px] rounded-full" />
-      </div>
+    <section className="relative w-full overflow-hidden bg-white text-slate-900 border-y border-slate-200 select-none py-12 sm:py-16">
+      {/* Subtle brand gradient ambient glow */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-blue-50/50 via-white to-rose-50/50" />
 
-      {/* Continuous Marquee Slider Wrapper */}
-      <div className="relative w-full overflow-hidden flex flex-col gap-4 sm:gap-5">
-        {/* Left & Right Gradient Fade Masks */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-20 sm:w-44 bg-gradient-to-r from-[#030914] via-[#030914]/80 to-transparent z-20" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-20 sm:w-44 bg-gradient-to-l from-[#030914] via-[#030914]/80 to-transparent z-20" />
-
-        {/* Marquee Row 1 (Moving Right to Left) */}
-        <div className="flex w-max animate-brands-marquee">
-          {[...BRANDS_ROW_1, ...BRANDS_ROW_1].map((brand, idx) => (
-            <div
-              key={`row1-${brand.name}-${idx}`}
-              className="mx-2 sm:mx-3 shrink-0 h-16 sm:h-20 px-6 sm:px-8 rounded-2xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 backdrop-blur-md flex items-center justify-center transition-all duration-300 group shadow-sm hover:shadow-[0_8px_24px_rgba(29,78,216,0.15)]"
-            >
-              <div className="relative h-9 sm:h-11 w-32 sm:w-40 flex items-center justify-center">
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  fill
-                  sizes="(max-width: 768px) 130px, 160px"
-                  className="object-contain filter drop-shadow-[0_2px_8px_rgba(29,78,216,0.35)] group-hover:scale-105 group-hover:brightness-110 transition-all duration-300"
-                />
-              </div>
-            </div>
-          ))}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+        {/* Pill tab switcher */}
+        <div className="inline-flex items-center gap-1.5 p-1 rounded-full bg-slate-100 border border-slate-200 mb-6 shadow-inner">
+          <button
+            onClick={() => setActiveTab('india')}
+            className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              activeTab === 'india'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md scale-105'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            India Hubs
+          </button>
+          <button
+            onClick={() => setActiveTab('international')}
+            className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              activeTab === 'international'
+                ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md scale-105'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            Global &amp; U.S. Locations
+          </button>
         </div>
 
-        {/* Marquee Row 2 (Moving Right to Left, slight offset speed for organic multi-tier look) */}
-        <div className="flex w-max animate-brands-marquee-slow">
-          {[...BRANDS_ROW_2, ...BRANDS_ROW_2].map((brand, idx) => (
-            <div
-              key={`row2-${brand.name}-${idx}`}
-              className="mx-2 sm:mx-3 shrink-0 h-16 sm:h-20 px-6 sm:px-8 rounded-2xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 backdrop-blur-md flex items-center justify-center transition-all duration-300 group shadow-sm hover:shadow-[0_8px_24px_rgba(225,29,72,0.15)]"
-            >
-              <div className="relative h-9 sm:h-11 w-32 sm:w-40 flex items-center justify-center">
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  fill
-                  sizes="(max-width: 768px) 130px, 160px"
-                  className="object-contain filter drop-shadow-[0_2px_8px_rgba(225,29,72,0.35)] group-hover:scale-105 group-hover:brightness-110 transition-all duration-300"
-                />
-              </div>
-            </div>
-          ))}
+        {/* Headline */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold tracking-tight text-slate-900 mb-6">
+          Local CEO Groups in Every Major Location
+        </h2>
+
+        {/* Cities Row with vertical dividers "|" */}
+        <div className="w-full flex items-center justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-y-2.5 text-sm sm:text-base font-medium tracking-wide text-slate-700">
+            {cities.map((city, index) => (
+              <React.Fragment key={city.name}>
+                <span className="text-slate-300 px-2.5 sm:px-3 font-light select-none">
+                  |
+                </span>
+                <Link
+                  href={city.href}
+                  className="group inline-flex items-center gap-1 text-slate-800 hover:text-[#1D4ED8] transition-all duration-200 hover:scale-105 transform origin-center py-0.5"
+                >
+                  <span className="transition-all group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] font-semibold">
+                    {city.name}
+                  </span>
+                </Link>
+                {index === cities.length - 1 && (
+                  <span className="text-slate-300 px-2.5 sm:px-3 font-light select-none">
+                    |
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer link to view all cities */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-500">
+          <span>Expanding to 60+ cities by 2030</span>
+          <span className="text-slate-300">•</span>
+          <Link
+            href="/cities"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold transition-all shadow-md hover:shadow-lg hover:opacity-95 group uppercase tracking-wider text-xs"
+          >
+            <span>Explore All Circles Directory</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

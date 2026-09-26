@@ -248,8 +248,8 @@ export function CriteriaClient() {
 
                 {/* Eyebrow */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     MEMBERSHIP
                   </span>
                 </div>
@@ -271,7 +271,7 @@ export function CriteriaClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -329,8 +329,8 @@ export function CriteriaClient() {
             {/* Left Narrative (6 cols) */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   HOW JOINING WORKS
                 </span>
               </div>
@@ -399,8 +399,8 @@ export function CriteriaClient() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   PART ONE
                 </span>
               </div>
@@ -744,11 +744,11 @@ export function CriteriaClient() {
 
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 COMMON QUESTIONS
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-tight mb-2">
               Frequently asked questions

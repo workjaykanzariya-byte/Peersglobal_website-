@@ -95,17 +95,17 @@ export function LearningPillarClient() {
             {/* Left Content */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase brand-gradient-text mb-3">
+                  <span className="w-5 h-px bg-blue-600" />
                   GROWTH &amp; LEARNING
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                  <span className="w-5 h-px bg-rose-600" />
                 </div>
 
                 <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
                   Learning
                 </h1>
 
-                <p className="text-xl sm:text-2xl font-serif text-[#0062D2] italic font-medium leading-snug mb-3">
+                <p className="text-xl sm:text-2xl font-serif brand-gradient-text italic font-medium leading-snug mb-3">
                   From people who built the thing they are teaching.
                 </p>
 
@@ -116,7 +116,7 @@ export function LearningPillarClient() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href="/apply"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase tracking-wider"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md transition-all hover:scale-105 inline-flex items-center gap-2 uppercase tracking-wider"
                   >
                     <span>Join Peers Global</span>
                     <ArrowRight className="size-4" />
@@ -192,7 +192,7 @@ export function LearningPillarClient() {
               <blockquote className="font-serif text-xl sm:text-2xl text-slate-950 font-bold italic leading-snug -mt-4 mb-3">
                 “Learn from experience, not theory.”
               </blockquote>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <p className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — Peers Global
               </p>
             </div>
@@ -608,7 +608,7 @@ export function LearningPillarClient() {
               <blockquote className="font-serif text-xl sm:text-2xl text-slate-950 font-bold italic leading-snug -mt-4 mb-3">
                 “A rising tide lifts every entrepreneur.”
               </blockquote>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <p className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — Peers Global
               </p>
             </div>

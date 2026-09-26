@@ -136,7 +136,7 @@ export function CircleMapClient() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/circles"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#1a42c0] transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
                 >
                   Find Your Circle
                   <ArrowRight className="w-4 h-4" />
@@ -506,8 +506,8 @@ export function CircleMapClient() {
         </div>
       </section>
 
-      {/* ─── Royal Blue Closing Banner ─── */}
-      <section className="relative py-20 bg-[#0062D2] text-white overflow-hidden">
+      {/* ─── Brand Gradient Closing Banner ─── */}
+      <section className="relative py-20 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white overflow-hidden">
         {/* SVG Orbital Geometric Lines Background */}
         <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
           <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">

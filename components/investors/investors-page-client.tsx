@@ -200,8 +200,8 @@ export function InvestorsPageClient() {
             {/* Left Hero Content */}
             <div className="relative z-10 w-full lg:w-[58%] p-6 sm:p-10 lg:p-14 space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 text-[11px] font-bold uppercase tracking-[0.22em] text-[#0062D2] shadow-xs">
-                <TrendingUp className="w-3.5 h-3.5 text-[#0062D2]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[11px] font-bold uppercase tracking-[0.22em] brand-gradient-text shadow-xs">
+                <TrendingUp className="w-3.5 h-3.5 text-[#1D4ED8]" />
                 Institutional Overview &amp; Thesis
               </div>
 
@@ -209,7 +209,7 @@ export function InvestorsPageClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-serif font-bold text-[#061836] tracking-tight leading-[1.08]">
                   Building the Infrastructure of{' '}
-                  <span className="italic text-[#1E4ED8]">Collaborative Capital</span>
+                  <span className="brand-gradient-text italic">Collaborative Capital</span>
                 </h1>
                 <p className="text-lg sm:text-xl font-serif text-slate-800 italic leading-relaxed font-normal">
                   Transforming informal relational goodwill into measurable, scalable collaborative capital across India’s multi-trillion dollar MSME economy.
@@ -224,13 +224,12 @@ export function InvestorsPageClient() {
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <a
                   href="#investor-form"
-                  className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_22px_rgba(0,98,210,0.35)] transition-all active:scale-[0.98] overflow-hidden"
+                  className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md transition-all active:scale-[0.98] overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     Request Data Room Brief
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
                 </a>
 
                 <a
@@ -278,7 +277,7 @@ export function InvestorsPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left 5 Cols: Highlight & Authority Card */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
                 <span className="w-6 h-[1.5px] bg-[#0062D2]" />
                 Macro Thesis
               </div>
@@ -374,7 +373,7 @@ export function InvestorsPageClient() {
       <section id="the-model" className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Unit Economics &amp; Scale
             </div>
@@ -495,7 +494,7 @@ export function InvestorsPageClient() {
             {/* Left 5 Columns: Authority & Governance Desk Card */}
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
                   <span className="w-6 h-[1.5px] bg-[#0062D2]" />
                   Institutional Desk
                 </div>

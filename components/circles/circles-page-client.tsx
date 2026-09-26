@@ -405,10 +405,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
                 
-                {/* Eyebrow with blue bar */}
+                {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     CIRCLES
                   </span>
                 </div>
@@ -432,7 +432,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 <div className="flex flex-wrap items-center gap-4 mb-10">
                   <button
                     onClick={() => scrollToExplore()}
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2 cursor-pointer"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Find a Circle Near You</span>
                     <ArrowRight className="size-4" />

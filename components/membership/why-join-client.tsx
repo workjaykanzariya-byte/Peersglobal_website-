@@ -277,8 +277,8 @@ export function WhyJoinClient() {
 
                 {/* Eyebrow */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     MORE THAN A MEMBERSHIP
                   </span>
                 </div>
@@ -301,7 +301,7 @@ export function WhyJoinClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -369,8 +369,8 @@ export function WhyJoinClient() {
             {/* Left Column: Narrative */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHAT YOU ARE JOINING
                 </span>
               </div>
@@ -513,11 +513,11 @@ export function WhyJoinClient() {
 
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE VALUE SYSTEM
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               Beliefs that guide a stronger community
@@ -560,7 +560,7 @@ export function WhyJoinClient() {
           <div className="text-center">
             <Link
               href="/culture-and-code"
-              className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-bold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-bold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
             >
               <span>Read the Peers Code</span>
               <ArrowRight className="size-4" />
@@ -580,8 +580,8 @@ export function WhyJoinClient() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   EIGHT REASONS
                 </span>
               </div>

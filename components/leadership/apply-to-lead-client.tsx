@@ -417,7 +417,7 @@ export function ApplyToLeadClient() {
       <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-[#FBFCFE] border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — BEFORE YOU APPLY —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
@@ -482,7 +482,7 @@ export function ApplyToLeadClient() {
       <section className="py-16 sm:py-20 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — WHICH ROLE —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
@@ -536,7 +536,7 @@ export function ApplyToLeadClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — EXPRESS INTEREST —
               </span>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
@@ -983,7 +983,7 @@ export function ApplyToLeadClient() {
       <section className="py-16 sm:py-20 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — WHAT HAPPENS NEXT —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
@@ -1021,7 +1021,7 @@ export function ApplyToLeadClient() {
             {/* Left Column: What We Look For */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHAT WE LOOK FOR —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
@@ -1059,7 +1059,7 @@ export function ApplyToLeadClient() {
             {/* Right Column: Frequently Asked Questions */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — COMMON QUESTIONS —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">

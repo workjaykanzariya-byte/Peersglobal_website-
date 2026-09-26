@@ -8,15 +8,15 @@ type CtaVariant = 'primary' | 'brand-gradient' | 'brand-outline' | 'gold' | 'red
 type CtaSize = 'sm' | 'md' | 'lg'
 
 const ctaBase =
-  'inline-flex items-center justify-center gap-2 font-semibold text-sm transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0078D4] disabled:opacity-50 active:scale-[0.98] select-none whitespace-nowrap rounded-[4px] cursor-pointer'
+  'inline-flex items-center justify-center gap-2 font-semibold text-sm transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D4ED8] disabled:opacity-50 active:scale-[0.98] select-none whitespace-nowrap rounded-full cursor-pointer'
 
 const ctaVariants: Record<CtaVariant, string> = {
   'brand-gradient':
-    'bg-[#0078D4] hover:bg-[#006cbd] text-white shadow-none',
+    'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm hover:shadow-md hover:opacity-95',
   'brand-outline':
-    'border border-slate-300 hover:border-slate-400 bg-white text-slate-900 shadow-none hover:bg-slate-50',
+    'border border-slate-300 hover:border-[#1D4ED8] bg-white text-slate-900 shadow-none hover:bg-slate-50 hover:text-[#1D4ED8]',
   primary:
-    'bg-[#0078D4] hover:bg-[#006cbd] text-white shadow-none',
+    'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm hover:shadow-md hover:opacity-95',
   gold:
     'bg-[#D4AF37] text-[#1a1405] shadow-none hover:bg-[#c9a42f]',
   red:
@@ -64,8 +64,6 @@ export function ctaClass(variant: CtaVariant = 'primary', size: CtaSize = 'md', 
   return cn(ctaBase, ctaVariants[variant], ctaSizes[size], className)
 }
 
-/* -------------------------------------------------------------- Eyebrow */
-
 export function Eyebrow({
   children,
   className,
@@ -76,17 +74,17 @@ export function Eyebrow({
   tone?: 'primary' | 'blue' | 'red' | 'gold' | 'muted' | 'neutral' | 'onDark' | 'gradient'
 }) {
   const tones = {
-    primary: 'text-slate-700',
+    primary: 'brand-gradient-text font-bold',
     blue: 'text-[#0078D4]',
     red: 'text-[#E11D48]',
     gold: 'text-gold',
     muted: 'text-slate-500',
-    neutral: 'text-slate-600',
-    onDark: 'text-slate-300',
-    gradient: 'text-slate-700',
+    neutral: 'brand-gradient-text font-bold',
+    onDark: 'text-slate-300 font-bold',
+    gradient: 'brand-gradient-text font-bold',
   }
   return (
-    <p className={cn('eyebrow flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em]', tones[tone], className)}>
+    <p className={cn('eyebrow flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em]', tones[tone], className)}>
       {children}
     </p>
   )

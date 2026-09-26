@@ -89,7 +89,7 @@ export function InternationalExpansionClient() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Link
                   href="/start-a-circle"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-all shadow-md uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
                 >
                   Start a Circle
                   <ArrowRight className="w-4 h-4" />

@@ -46,7 +46,7 @@ export function MeditationsSection() {
   return (
     <section className="fd-med-menu" id="fd-med-menu" aria-label="Built and led by entrepreneurs">
       <div className="fd-med-menu__inner">
-        <p className="fd-med-menu__eyebrow" data-fd-rise="0">
+        <p className="fd-med-menu__eyebrow brand-gradient-text" data-fd-rise="0">
           LEADERSHIP
         </p>
         <h2 className="fd-med-menu__headline" data-fd-rise="80">

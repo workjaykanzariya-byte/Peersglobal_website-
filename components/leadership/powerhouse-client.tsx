@@ -286,10 +286,10 @@ export function PowerhouseClient() {
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
                 {/* Eyebrow */}
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                  <span className="w-5 h-px bg-[#0062D2]" />
-                  LEADERSHIP
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="brand-gradient-text">LEADERSHIP</span>
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 </div>
 
                 {/* Main Heading */}
@@ -313,7 +313,7 @@ export function PowerhouseClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -364,9 +364,9 @@ export function PowerhouseClient() {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Narrative */}
             <div className="lg:col-span-6 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                <span className="w-5 h-px bg-[#0062D2]" />
-                STAGE 02 OF THE PATHWAY
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">STAGE 02 OF THE PATHWAY</span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-5">
@@ -431,10 +431,10 @@ export function PowerhouseClient() {
       <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              THE THREE COMMITTEES
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THE THREE COMMITTEES</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
               Fourteen roles in every Circle.
@@ -638,10 +638,10 @@ export function PowerhouseClient() {
       <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              THE PROCESS
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THE PROCESS</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
               How to join the Powerhouse
@@ -675,7 +675,7 @@ export function PowerhouseClient() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact?intent=leadership"
-              className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
             >
               <span>Apply to Lead</span>
               <ArrowRight className="size-4" />

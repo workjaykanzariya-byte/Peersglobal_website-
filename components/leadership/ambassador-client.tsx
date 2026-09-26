@@ -360,7 +360,7 @@ export function AmbassadorClient() {
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — THE BIGGER PICTURE —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
@@ -402,7 +402,7 @@ export function AmbassadorClient() {
                       “A stronger community begins with a conversation.”
                     </p>
                   </div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#0062D2] mt-4">
+                  <p className="text-xs font-bold uppercase tracking-widest brand-gradient-text mt-4">
                     PEERS GLOBAL
                   </p>
                 </div>
@@ -457,7 +457,7 @@ export function AmbassadorClient() {
       <section className="py-16 sm:py-24 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — WHAT THE ROLE CARRIES —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
@@ -501,7 +501,7 @@ export function AmbassadorClient() {
             {/* Left Column: Who You Become */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHO YOU BECOME —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
@@ -558,7 +558,7 @@ export function AmbassadorClient() {
             {/* Right Column: What an Ambassador Does */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHAT AN AMBASSADOR DOES —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
@@ -734,7 +734,7 @@ export function AmbassadorClient() {
       <section className="py-16 sm:py-24 bg-[#FBFCFE] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — COMMON QUESTIONS —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">

@@ -126,184 +126,106 @@ export function TheIdeaClient() {
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       
       {/* =========================================================================
-          1. HERO SECTION (MICROSOFT AZURE ENTERPRISE SPECIFICATION)
+          1. HERO SECTION (HOMEPAGE-STYLE MASTER HERO BANNER CARD)
           ========================================================================= */}
-      <section id="the-idea" className="relative overflow-hidden border-b border-slate-200/90 bg-gradient-to-b from-[#F8FAFC] to-[#FFFFFF] pt-10 sm:pt-14 pb-12 sm:pb-16">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section id="the-idea" className="relative overflow-hidden border-b border-slate-200/90 bg-[#FAFBFD] pt-6 sm:pt-8 pb-10 sm:pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Main 2-Column Balanced Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Master Hero Banner Card */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
             
-            {/* ──────── LEFT SIDE: TYPOGRAPHY & ACTIONS (lg:col-span-7) ──────── */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left max-w-2xl">
-              
-              {/* Eyebrow - Microsoft Azure Clean Monospace/Uppercase Style */}
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs sm:text-[13px] font-semibold uppercase tracking-[0.08em] text-slate-700">
-                  PEERS GLOBAL · WORLD&apos;S FIRST COMMUNITY OF COLLABORATION
-                </span>
+            {/* Right Media Background Layer (Fading into white on the left) */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+              }}
+            >
+              <video
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/who-we-are-boardroom.jpg"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="size-full object-cover object-center"
+              />
+
+              {/* Seamless gradient overlays for the signature misty fade */}
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+
+              {/* Top-Right Script Typography */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
+                  People, Ideas, Partnerships
+                </p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  A Stronger Tomorrow
+                </p>
               </div>
 
-              {/* H1 Heading - Microsoft Azure Segoe UI Semibold */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-semibold tracking-tight text-slate-900 mb-4 leading-[1.14]">
-                The Idea: Entrepreneurs should not have to build alone
-              </h1>
-
-              {/* Supporting Body Description */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-8 max-w-xl">
-                Everything Peers Global is today comes from that one foundational sentence. We connect visionary entrepreneurs, industry leaders, and creators for structured peer circles, mutual growth, and lifelong collaboration.
-              </p>
-
-              {/* Action Buttons - Microsoft Fluent 4px Rounded */}
-              <div className="flex flex-wrap gap-3.5 items-center">
-                <Link
-                  href="/membership"
-                  className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-5 py-2.5 text-sm font-semibold transition-colors shadow-none"
-                >
-                  <span>Join Peers Global</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-
-                <Link
-                  href="/circles"
-                  className="inline-flex items-center justify-center gap-2 rounded-[4px] border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-900 px-5 py-2.5 text-sm font-semibold transition-colors shadow-none"
-                >
-                  <span>Find Your Circle</span>
-                </Link>
+              {/* Bottom-Right Frosted Glass Pill */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
+                    OUR WORLD · THE IDEA
+                  </p>
+                  <p className="text-xs font-bold tracking-wider text-white">
+                    BUILDING TOGETHER
+                  </p>
+                </div>
               </div>
-
             </div>
 
-            {/* ──────── RIGHT SIDE: 4-PART ENTERPRISE MEDIA GRID (lg:col-span-5) ──────── */}
-            <div className="lg:col-span-5 flex flex-col items-center lg:items-end relative">
-              
-              {/* Clean Enterprise 2x2 Media Showcase */}
-              <div className="grid grid-cols-2 gap-3 w-full max-w-[460px]">
+            {/* Left Content Area */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
                 
-                {/* Tile 1: Boardroom */}
-                <div
-                  onClick={() => setActiveModalMedia(heroShape1Media)}
-                  className="group relative aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 bg-slate-900 cursor-pointer shadow-xs hover:border-[#0078D4] transition-all"
-                  title={heroShape1Media.title}
-                >
-                  {heroShape1Media.isYouTube && heroShape1Media.embedUrl ? (
-                    <iframe
-                      src={`${heroShape1Media.embedUrl}&mute=1&loop=1`}
-                      title={heroShape1Media.title}
-                      className="w-full h-full border-0 object-cover pointer-events-none"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    />
-                  ) : (
-                    <video
-                      key={heroShape1Media.mediaUrl}
-                      src={heroShape1Media.mediaUrl || '/videos/leadership-hero-bg.mp4'}
-                      poster="/images/who-we-are-boardroom.jpg"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-white">Boardroom Circle</span>
+                {/* Eyebrow */}
+                <div className="flex items-center gap-2.5 mb-4">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    PEERS GLOBAL · WORLD&apos;S FIRST COMMUNITY OF COLLABORATION
+                  </span>
                 </div>
 
-                {/* Tile 2: Conclave */}
-                <div
-                  onClick={() => setActiveModalMedia(heroShape2Media)}
-                  className="group relative aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 bg-slate-900 cursor-pointer shadow-xs hover:border-[#0078D4] transition-all"
-                  title={heroShape2Media.title}
-                >
-                  {heroShape2Media.isYouTube && heroShape2Media.embedUrl ? (
-                    <iframe
-                      src={`${heroShape2Media.embedUrl}&mute=1&loop=1`}
-                      title={heroShape2Media.title}
-                      className="w-full h-full border-0 object-cover pointer-events-none"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    />
-                  ) : (
-                    <video
-                      key={heroShape2Media.mediaUrl}
-                      src={heroShape2Media.mediaUrl || '/videos/hero-background.mp4'}
-                      poster="/images/conclave.png"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-white">Grand Conclave</span>
-                </div>
+                {/* Main Heading */}
+                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-950 tracking-tight leading-[1.08] mb-4">
+                  The Idea
+                </h1>
 
-                {/* Tile 3: Earth / Partners */}
-                <div
-                  onClick={() => setActiveModalMedia(heroShape3Media)}
-                  className="group relative aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 bg-slate-900 cursor-pointer shadow-xs hover:border-[#0078D4] transition-all"
-                  title={heroShape3Media.title}
-                >
-                  {heroShape3Media.isYouTube && heroShape3Media.embedUrl ? (
-                    <iframe
-                      src={`${heroShape3Media.embedUrl}&mute=1&loop=1`}
-                      title={heroShape3Media.title}
-                      className="w-full h-full border-0 object-cover pointer-events-none"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    />
-                  ) : (
-                    <video
-                      key={heroShape3Media.mediaUrl}
-                      src={heroShape3Media.mediaUrl || '/videos/peers-global-earth-loop.mp4'}
-                      poster="/images/who-we-are-friends.jpg"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-white">Global Ecosystem</span>
-                </div>
+                {/* Subline */}
+                <p className="text-xl sm:text-2xl text-slate-800 font-semibold leading-snug mb-3">
+                  Entrepreneurs should not have to build alone.
+                </p>
 
-                {/* Tile 4: Peer Circles */}
-                <div
-                  onClick={() => setActiveModalMedia(heroShape4Media)}
-                  className="group relative aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 bg-slate-900 cursor-pointer shadow-xs hover:border-[#0078D4] transition-all"
-                  title={heroShape4Media.title}
-                >
-                  {heroShape4Media.isYouTube && heroShape4Media.embedUrl ? (
-                    <iframe
-                      src={`${heroShape4Media.embedUrl}&mute=1&loop=1`}
-                      title={heroShape4Media.title}
-                      className="w-full h-full border-0 object-cover pointer-events-none"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    />
-                  ) : (
-                    <video
-                      key={heroShape4Media.mediaUrl}
-                      src={heroShape4Media.mediaUrl || '/videos/stories-hero-bg.mp4'}
-                      poster="/images/circles-hero-new.jpg"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute bottom-2 left-2 text-[11px] font-semibold text-white">Collaborative Circles</span>
+                {/* Description */}
+                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8 max-w-lg">
+                  Everything Peers Global is today comes from that one foundational sentence. We connect visionary entrepreneurs, industry leaders, and creators for structured peer circles, mutual growth, and lifelong collaboration.
+                </p>
+
+                {/* CTAs */}
+                <div className="flex flex-wrap items-center gap-4 mb-2">
+                  <Link
+                    href="/membership"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  >
+                    <span>Join Peers Global</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+
+                  <Link
+                    href="/circles"
+                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 backdrop-blur-sm text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs"
+                  >
+                    Find Your Circle
+                  </Link>
                 </div>
 
               </div>
-
-              {/* Caption */}
-              <div className="flex items-center justify-between w-full max-w-[460px] mt-2 px-1 text-xs text-slate-500 font-normal">
-                <span>Enterprise media gallery</span>
-                <span className="text-[#0078D4] font-medium hover:underline cursor-pointer">Click any video to play</span>
-              </div>
-
             </div>
 
           </div>
@@ -408,9 +330,10 @@ export function TheIdeaClient() {
             {/* ──────── COLUMN 2: Narrative Storyline (lg:col-span-4) ──────── */}
             <div className="lg:col-span-4 flex flex-col gap-3">
               {/* Eyebrow */}
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0078D4]">
-                  The Silent Reality
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  THE SILENT REALITY
                 </span>
               </div>
 
@@ -1591,7 +1514,7 @@ export function TheIdeaClient() {
           <div className="flex justify-center mb-8">
             <Link
               href="/membership"
-              className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-6 py-2.5 text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3 text-sm font-semibold transition-all shadow-md"
             >
               <span>Join the 1 Million Mission</span>
               <ArrowRight className="size-4" />

@@ -82,10 +82,10 @@ export function MembershipPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              {/* Eyebrow with gold dash */}
+              {/* Eyebrow with brand gradient */}
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-6 bg-[#D97706]" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#D97706]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   MEMBERSHIP
                 </span>
               </div>

@@ -363,10 +363,10 @@ export function LeadershipLadderClient() {
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
                 {/* Eyebrow */}
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                  <span className="w-5 h-px bg-[#0062D2]" />
-                  THE LEADERSHIP LADDER
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="brand-gradient-text">THE LEADERSHIP LADDER</span>
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 </div>
 
                 {/* Main Heading */}
@@ -390,7 +390,7 @@ export function LeadershipLadderClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -441,9 +441,9 @@ export function LeadershipLadderClient() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Narrative */}
             <div className="lg:col-span-6 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                <span className="w-5 h-px bg-[#0062D2]" />
-                WHY ENTREPRENEURS TAKE THESE ROLES
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">WHY ENTREPRENEURS TAKE THESE ROLES</span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-5">
@@ -477,7 +477,7 @@ export function LeadershipLadderClient() {
                   <blockquote className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 leading-snug tracking-tight mb-4">
                     “True leadership is not a position. It is a contribution.”
                   </blockquote>
-                  <div className="text-xs font-bold tracking-widest text-[#0062D2] uppercase">
+                  <div className="text-xs font-bold tracking-widest brand-gradient-text uppercase">
                     PEERS GLOBAL —
                   </div>
                 </div>
@@ -594,9 +594,9 @@ export function LeadershipLadderClient() {
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Left Narrative */}
             <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                <span className="w-5 h-px bg-[#0062D2]" />
-                LEADERSHIP FOLLOWS CONTRIBUTION
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">LEADERSHIP FOLLOWS CONTRIBUTION</span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-4">
@@ -630,10 +630,10 @@ export function LeadershipLadderClient() {
       <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              THE LEADERSHIP ROLES
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THE LEADERSHIP ROLES</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
               Held by working business owners.
@@ -833,10 +833,10 @@ export function LeadershipLadderClient() {
       <section className="py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              HONEST REALITY
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">HONEST REALITY</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
               What it will cost you
@@ -874,10 +874,10 @@ export function LeadershipLadderClient() {
       {/* ─── 8. THE INFLUENCE YOU BUILD HERE (DEEP REFLECTIVE BLOCK) ─────── */}
       <section className="py-20 bg-gradient-to-b from-white to-[#F6F9FD] border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-4">
-            <span className="w-5 h-px bg-[#0062D2]" />
-            THE ENDURING RETURN
-            <span className="w-5 h-px bg-[#0062D2]" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-4">
+            <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+            <span className="brand-gradient-text">THE ENDURING RETURN</span>
+            <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-6">
@@ -905,10 +905,10 @@ export function LeadershipLadderClient() {
       <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              THE SEQUENCE
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THE SEQUENCE</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
               How to begin
@@ -942,7 +942,7 @@ export function LeadershipLadderClient() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact?intent=leadership"
-              className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
             >
               <span>Apply to Lead</span>
               <ArrowRight className="size-4" />
@@ -1072,7 +1072,7 @@ export function LeadershipLadderClient() {
               <X className="size-5" />
             </button>
 
-            <div className="text-xs font-bold uppercase tracking-widest text-[#0062D2] mb-2">
+            <div className="text-xs font-bold uppercase tracking-widest brand-gradient-text mb-2">
               WHY ENTREPRENEURS TAKE THESE ROLES
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 mb-4">
