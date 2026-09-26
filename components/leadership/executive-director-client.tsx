@@ -348,7 +348,7 @@ export function ExecutiveDirectorClient() {
             {/* Left Content Column: Title + 4 Cards */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — FOUR LEVELS. ONE RESPONSIBILITY. —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
@@ -397,7 +397,7 @@ export function ExecutiveDirectorClient() {
                 <p className="text-base sm:text-lg font-serif italic text-slate-900 leading-relaxed">
                   “Communities don’t just grow. They are built by someone.”
                 </p>
-                <p className="text-xs font-bold uppercase tracking-widest text-[#0062D2] mt-4">
+                <p className="text-xs font-bold uppercase tracking-widest brand-gradient-text mt-4">
                   PEERS GLOBAL
                 </p>
               </div>
@@ -436,7 +436,7 @@ export function ExecutiveDirectorClient() {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHERE THE COMMUNITY ACTUALLY GROWS —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
@@ -488,7 +488,7 @@ export function ExecutiveDirectorClient() {
       <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — WHAT THE ROLE CARRIES —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
@@ -532,7 +532,7 @@ export function ExecutiveDirectorClient() {
             {/* Left Column: Who You Become */}
             <div className="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/90 shadow-lg shadow-slate-200/40 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHO YOU BECOME —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2 mb-4">
@@ -594,7 +594,7 @@ export function ExecutiveDirectorClient() {
             <div className="lg:col-span-6 flex flex-col gap-6">
               {/* Top Card: Who this is for */}
               <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-md flex-1">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHO THIS IS FOR —
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mt-2 mb-5">
@@ -674,7 +674,7 @@ export function ExecutiveDirectorClient() {
       <section className="py-16 sm:py-24 bg-[#FBFCFE] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — COMMON QUESTIONS —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">

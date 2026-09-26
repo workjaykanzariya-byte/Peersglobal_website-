@@ -240,8 +240,8 @@ export function StartCircleClient() {
               <div className="max-w-xl flex flex-col items-start">
 
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">CREATE IMPACT IN YOUR CITY</span>
+                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">CREATE IMPACT IN YOUR CITY</span>
                 </div>
 
                 <h1 className="font-serif text-4xl sm:text-6xl lg:text-[68px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
@@ -257,7 +257,7 @@ export function StartCircleClient() {
                 <div className="flex flex-wrap items-center gap-4 mb-10">
                   <Link
                     href="/circles/find"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     Apply to Found a Circle
                     <ArrowRight className="size-4" />

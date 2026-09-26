@@ -95,7 +95,7 @@ export function ChoosePathwaySection() {
       {/* Header */}
       <div className="max-w-[840px] mx-auto text-center mb-16 flex flex-col items-center gap-3 relative z-10">
         <p
-          className="text-sm md:text-base font-semibold tracking-wider text-[#38BDF8] uppercase"
+          className="text-sm md:text-base font-semibold tracking-wider uppercase brand-gradient-text"
           style={{ letterSpacing: '0.46px' }}
         >
           THE JOURNEY

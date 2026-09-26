@@ -132,9 +132,11 @@ export function OurStoryClient() {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-6 z-10">
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2] bg-white/90 px-3.5 py-1.5 rounded-full border border-blue-200 shadow-2xs">
-                  — ABOUT PEERS GLOBAL —
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  ABOUT PEERS GLOBAL
                 </span>
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-serif font-bold text-[#061836] tracking-tight leading-[1.08]">
@@ -154,7 +156,7 @@ export function OurStoryClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] text-white font-bold text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all duration-200 group active:scale-[0.98]"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -220,9 +222,12 @@ export function OurStoryClient() {
       {/* ─── SECTION 2: BEFORE THERE WAS A COMMUNITY ─────────────────────── */}
       <section className="py-20 sm:py-24 bg-white border-y border-slate-200/80 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-            — THE ORIGINS —
-          </span>
+          <div className="inline-flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              THE ORIGINS
+            </span>
+          </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight leading-tight">
             Before there was a community
           </h2>
@@ -310,9 +315,12 @@ export function OurStoryClient() {
       {/* ─── SECTION 4: WHY A COMMUNITY, NOT SOMETHING EASIER ────────────── */}
       <section className="py-20 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-            — THE STRATEGIC DECISION —
-          </span>
+          <div className="inline-flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              THE STRATEGIC DECISION
+            </span>
+          </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight leading-tight">
             Why a community, and not something easier
           </h2>
@@ -346,9 +354,12 @@ export function OurStoryClient() {
       <section className="py-20 sm:py-28 bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-              — THE ARCHITECTURE —
-            </span>
+            <div className="inline-flex items-center gap-2">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE ARCHITECTURE
+              </span>
+            </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight mt-2">
               What we built
             </h2>
@@ -399,9 +410,12 @@ export function OurStoryClient() {
       <section className="py-20 sm:py-28 bg-white border-y border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-              — OUR JOURNEY —
-            </span>
+            <div className="inline-flex items-center gap-2">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                OUR JOURNEY
+              </span>
+            </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight mt-2">
               How the community evolved
             </h2>
@@ -481,9 +495,12 @@ export function OurStoryClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Building Toward */}
           <div className="space-y-4">
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-              — THE MISSION —
-            </span>
+            <div className="inline-flex items-center gap-2">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE MISSION
+              </span>
+            </div>
             <h2 className="text-3xl font-serif font-bold text-[#061836]">
               What we are building toward
             </h2>
@@ -506,9 +523,12 @@ export function OurStoryClient() {
 
           {/* What Has Not Changed */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-blue-100 shadow-md space-y-4 border-l-4 border-l-[#0062D2]">
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-              — UNCOMPROMISING CORE —
-            </span>
+            <div className="inline-flex items-center gap-2">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                UNCOMPROMISING CORE
+              </span>
+            </div>
             <h3 className="text-2xl font-serif font-bold text-[#061836]">
               What has not changed
             </h3>

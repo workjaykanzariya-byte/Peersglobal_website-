@@ -935,7 +935,7 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Narrative */}
             <div className="lg:col-span-5 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — PROFILE BLUEPRINT —
               </span>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">

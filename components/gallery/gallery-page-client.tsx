@@ -405,9 +405,11 @@ export function GalleryPageClient() {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-6 z-10">
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
-                  — COMMUNITY LIFE —
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+                  COMMUNITY LIFE
                 </span>
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
@@ -423,7 +425,7 @@ export function GalleryPageClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-medium text-sm shadow-md hover:shadow-lg transition-all duration-200 group"
                 >
                   <Smartphone className="w-4 h-4" />
                   <span>Download Unity App</span>
@@ -518,9 +520,13 @@ export function GalleryPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-                — BROWSE OUR GALLERY —
-              </span>
+              <div className="inline-flex items-center gap-2">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+                  BROWSE OUR GALLERY
+                </span>
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              </div>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
                 Moments that make a stronger tomorrow.
               </h2>
@@ -778,9 +784,13 @@ export function GalleryPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4 mb-10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-                — EXPLORE BY COLLECTION —
-              </span>
+              <div className="inline-flex items-center gap-2">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+                  EXPLORE BY COLLECTION
+                </span>
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              </div>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
                 Moments from across our community.
               </h2>

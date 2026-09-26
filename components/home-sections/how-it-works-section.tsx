@@ -17,7 +17,7 @@ export function HowItWorksSection() {
   return (
     <section className="fd-how-it-works" id="unity-app" style={{ ['--fd-i' as any]: index }}>
       <div className="fd-how-it-works__head" data-fd-rise="0">
-        <p className="fd-how-it-works__eyebrow">THE UNITY APP</p>
+        <p className="fd-how-it-works__eyebrow brand-gradient-text">THE UNITY APP</p>
         <h2 className="fd-how-it-works__title">The community works every day, not just on meeting day.</h2>
         <p className="fd-how-it-works__desc">
           The Peers Global Unity App is the digital home of the community. It is how Peers find each other, stay connected, and keep collaborating between meetings.

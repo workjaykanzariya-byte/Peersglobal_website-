@@ -247,8 +247,8 @@ export function WhoBelongsClient() {
 
                 {/* Eyebrow */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     MEMBERSHIP
                   </span>
                 </div>
@@ -270,7 +270,7 @@ export function WhoBelongsClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -338,8 +338,8 @@ export function WhoBelongsClient() {
             {/* Left Column: Narrative */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHAT WE ACTUALLY LOOK FOR
                 </span>
               </div>
@@ -402,11 +402,11 @@ export function WhoBelongsClient() {
 
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 YOU BELONG HERE IF
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               Six qualities we look for
@@ -608,8 +608,8 @@ export function WhoBelongsClient() {
             {/* Left Column: THE HONEST TEST ACCORDION (7 Cols) */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE HONEST TEST
                 </span>
               </div>
@@ -662,7 +662,7 @@ export function WhoBelongsClient() {
 
               {/* Honest Test Insight Callout */}
               <div className="mt-8 rounded-2xl bg-blue-50/70 border border-blue-100 p-5 w-full">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-[#0062D2] mb-1">
+                <h4 className="text-xs font-bold uppercase tracking-widest brand-gradient-text mb-1">
                   The Honest Reaction Test
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -677,7 +677,7 @@ export function WhoBelongsClient() {
               {/* Member Testimonial Card */}
               <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest brand-gradient-text">
                     <Sparkles className="size-3.5 text-[#0062D2]" />
                     <span>REAL PEOPLE. REAL ANSWERS</span>
                   </div>
@@ -764,7 +764,7 @@ export function WhoBelongsClient() {
 
               {/* Ready to find your people? Card */}
               <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0062D2] mb-2">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest brand-gradient-text mb-2">
                   <span>READY TO FIND YOUR PEOPLE?</span>
                 </div>
 

@@ -486,10 +486,14 @@ html, body {
     background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%) !important;
   }
 
-  .text-brand-gradient {
-    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  .text-brand-gradient,
+  .brand-gradient-text {
+    background: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    display: inline-block;
   }
 
   .border-brand-gradient {
@@ -584,6 +588,50 @@ html, body {
     background: linear-gradient(135deg, rgba(29, 78, 216, 0.08) 0%, rgba(225, 29, 72, 0.08) 100%);
     border: 1px solid rgba(29, 78, 216, 0.2);
     color: #1D4ED8;
+  }
+
+  /* Universal Brand Color Mapping for All Sub-Pages */
+  .text-\[\#0062D2\],
+  .text-\[\#0062d2\],
+  .text-\[\#0078D4\],
+  .text-\[\#0078d4\] {
+    color: #1D4ED8 !important;
+  }
+
+  .bg-\[\#0062D2\],
+  .bg-\[\#0062d2\],
+  .bg-\[\#0078D4\],
+  .bg-\[\#0078d4\] {
+    background-color: #1D4ED8 !important;
+  }
+
+  .border-\[\#0062D2\],
+  .border-\[\#0062d2\],
+  .border-\[\#0078D4\],
+  .border-\[\#0078d4\] {
+    border-color: #1D4ED8 !important;
+  }
+
+  .hover\:bg-\[\#0052B4\]:hover,
+  .hover\:bg-\[\#0052b4\]:hover,
+  .hover\:bg-\[\#006cbd\]:hover {
+    background-color: #1E40AF !important;
+  }
+
+  .hover\:text-\[\#0052B4\]:hover,
+  .hover\:text-\[\#0052b4\]:hover,
+  .hover\:text-\[\#0062D2\]:hover,
+  .hover\:text-\[\#0062d2\]:hover,
+  .hover\:text-\[\#0078D4\]:hover,
+  .hover\:text-\[\#0078d4\]:hover {
+    color: #1D4ED8 !important;
+  }
+
+  .hover\:border-\[\#0078D4\]:hover,
+  .hover\:border-\[\#0078d4\]:hover,
+  .hover\:border-\[\#0062D2\]:hover,
+  .hover\:border-\[\#0062d2\]:hover {
+    border-color: #1D4ED8 !important;
   }
 }
 

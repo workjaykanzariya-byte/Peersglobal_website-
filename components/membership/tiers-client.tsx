@@ -162,8 +162,8 @@ export function TiersClient() {
 
                 {/* Eyebrow */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     MEMBERSHIP & INVESTMENT
                   </span>
                 </div>
@@ -185,7 +185,7 @@ export function TiersClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -243,8 +243,8 @@ export function TiersClient() {
             {/* Left Narrative (5 cols) */}
             <div className="lg:col-span-5 flex flex-col items-start">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   HOW MEMBERSHIP WORKS
                 </span>
               </div>
@@ -351,11 +351,11 @@ export function TiersClient() {
 
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 MEMBERSHIP OPTIONS
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               Two memberships. One community.
@@ -540,8 +540,8 @@ export function TiersClient() {
             {/* Left Table: WHAT YOU INVEST (6 Cols) */}
             <div className="lg:col-span-6 flex flex-col">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHAT YOU INVEST
                 </span>
               </div>
@@ -581,8 +581,8 @@ export function TiersClient() {
             {/* Right Table: WHAT YOU RECEIVE (6 Cols) */}
             <div className="lg:col-span-6 flex flex-col">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHAT YOU RECEIVE
                 </span>
               </div>
@@ -696,8 +696,8 @@ export function TiersClient() {
             {/* Right Box: Fees and terms */}
             <div className="rounded-3xl bg-white border border-slate-200/90 p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   TERMS & CONDITIONS
                 </span>
               </div>
@@ -764,8 +764,8 @@ export function TiersClient() {
             {/* Left: The LSR Growth Model (7 cols) */}
             <div className="lg:col-span-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-8 sm:p-10">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE LSR GROWTH MODEL
                 </span>
               </div>

@@ -276,7 +276,7 @@ export function IndustryDirectorClient() {
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start space-y-6">
                 <div className="inline-flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
+                  <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
                     — LEADERSHIP —
                   </span>
                 </div>
@@ -358,7 +358,7 @@ export function IndustryDirectorClient() {
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — THE BIGGER PICTURE —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
@@ -392,7 +392,7 @@ export function IndustryDirectorClient() {
                   “A stronger industry creates stronger businesses, and
                   stronger businesses create a stronger world.”
                 </p>
-                <p className="text-xs font-bold uppercase tracking-widest text-[#0062D2] mt-4">
+                <p className="text-xs font-bold uppercase tracking-widest brand-gradient-text mt-4">
                   PEERS GLOBAL
                 </p>
               </div>
@@ -580,7 +580,7 @@ export function IndustryDirectorClient() {
             {/* Left Column: Who You Become */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHO YOU BECOME —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
@@ -630,7 +630,7 @@ export function IndustryDirectorClient() {
             {/* Right Column: Seven Things One Stronger Industry */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — WHAT AN INDUSTRY DIRECTOR DOES —
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">

@@ -55,9 +55,9 @@ const AGENDA_ITEMS = [
 
 export function PeerToPeerClient() {
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-slate-900">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm">
+      <div className="border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
           <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
@@ -70,19 +70,19 @@ export function PeerToPeerClient() {
       </div>
 
       {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F5FD] via-[#FBFCFE] to-white">
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200 bg-gradient-to-br from-blue-50/40 via-white to-rose-50/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100/80 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 border border-[#1D4ED8]/20 text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">
                 <Coffee className="w-3.5 h-3.5" />
                 One-to-One Collaboration Engine
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
                 Peer-to-Peer
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#1e3a8a] italic leading-relaxed font-normal">
+              <p className="text-xl sm:text-2xl font-serif brand-gradient-text italic leading-relaxed font-semibold">
                 The Circle meeting introduces you. This is where the relationship is built.
               </p>
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
@@ -92,7 +92,7 @@ export function PeerToPeerClient() {
               <div className="pt-2 flex flex-wrap gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all uppercase tracking-wider"
                 >
                   Join Peers Global
                   <ArrowRight className="w-4 h-4" />
@@ -135,7 +135,7 @@ export function PeerToPeerClient() {
       {/* ─── Where Collaboration Actually Begins ─── */}
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             The Mechanism of Trust
           </div>
@@ -163,7 +163,7 @@ export function PeerToPeerClient() {
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               The Framework
             </div>
@@ -212,7 +212,7 @@ export function PeerToPeerClient() {
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FAF7F0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Strategic Advantage
             </div>
@@ -260,7 +260,7 @@ export function PeerToPeerClient() {
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Step-by-Step Flow
             </div>

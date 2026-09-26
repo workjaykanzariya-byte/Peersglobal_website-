@@ -150,7 +150,7 @@ export function CircleMagazinesClient() {
               <div className="pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-all shadow-md hover:shadow-lg uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
                 >
                   Download Unity App
                   <ArrowRight className="w-4 h-4" />

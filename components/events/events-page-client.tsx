@@ -281,7 +281,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
               <button
                 type="button"
                 onClick={() => setSelectedCity('All Events')}
-                className="text-xs font-bold text-[#0062D2] hover:underline"
+                className="text-xs font-bold text-[#1D4ED8] hover:underline"
               >
                 See all
               </button>
@@ -454,7 +454,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
       <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — EVERYTHING RUNS THROUGH THE APP —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-1">
@@ -472,7 +472,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
             {/* Left Box */}
             <div className="lg:col-span-5 bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-xs">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center border border-blue-100 shadow-xs">
                   <Smartphone className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-slate-950">
@@ -489,7 +489,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] text-white font-medium text-xs shadow-md hover:bg-[#0052B4] transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-semibold text-xs shadow-md hover:opacity-95 transition-all"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -516,7 +516,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
                       key={badge.label}
                       className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-blue-300 transition-all shadow-xs"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
+                      <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0 border border-blue-100">
                         <Icon className="w-4 h-4" />
                       </div>
                       <span className="text-xs font-semibold text-slate-800">
@@ -535,7 +535,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
       <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — WHAT WE RUN —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
@@ -571,7 +571,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
                       {ev.desc}
                     </p>
                     {ev.subnote && (
-                      <p className="text-[11px] font-medium text-[#0062D2] italic pt-1">
+                      <p className="text-[11px] font-medium text-[#1D4ED8] italic pt-1">
                         {ev.subnote}
                       </p>
                     )}
@@ -582,7 +582,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
                   <div className="p-4 pt-0">
                     <Link
                       href={ev.linkHref}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#1D4ED8] hover:text-[#E11D48] transition-colors"
                     >
                       <span>{ev.linkText}</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -602,7 +602,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
             {/* Column 1: How Events Work */}
             <div className="lg:col-span-4 bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — HOW EVENTS WORK —
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-slate-950 leading-tight">
@@ -640,7 +640,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
               <div className="pt-6">
                 <a
                   href="#events-grid"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0062D2] font-semibold text-xs border border-blue-300 shadow-xs hover:bg-blue-50 transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#1D4ED8] font-semibold text-xs border border-blue-300 shadow-xs hover:bg-blue-50 transition-all"
                 >
                   <span>See the Full Calendar</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -651,7 +651,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
             {/* Column 2: Bringing Your Team */}
             <div className="lg:col-span-4 bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
               <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — BRINGING YOUR TEAM —
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-slate-950 leading-tight">
@@ -695,7 +695,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
 
             {/* Column 3: FAQs */}
             <div className="lg:col-span-4 bg-[#F8FAFC] rounded-3xl p-7 border border-slate-200/90 shadow-sm">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — COMMON QUESTIONS —
               </span>
               <h3 className="text-2xl font-serif font-bold text-slate-950 mt-1 mb-4">
@@ -736,8 +736,8 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
         </div>
       </section>
 
-      {/* ─── SECTION 5: ROYAL BLUE CLOSING BANNER ────────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+      {/* ─── SECTION 5: BRAND GRADIENT CLOSING BANNER ────────────────────────── */}
+      <section className="relative py-20 sm:py-28 bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white leading-tight max-w-2xl mx-auto">
             Experience the Room in Person.
@@ -751,7 +751,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
               href="https://unity.peersglobal.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] font-bold text-sm shadow-xl hover:bg-blue-50 transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#1D4ED8] font-bold text-sm shadow-xl hover:bg-blue-50 transition-all hover:scale-105 active:scale-95"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />

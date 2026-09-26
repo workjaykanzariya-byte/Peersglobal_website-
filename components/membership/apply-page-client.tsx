@@ -244,8 +244,8 @@ export function ApplyPageClient() {
               {/* Branding & Heading */}
               <div className="space-y-5 max-w-xl">
                 <div className="flex items-center gap-2.5">
-                  <span className="w-6 h-0.5 bg-[#0062D2] rounded-full" />
-                  <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <span className="w-6 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-extrabold uppercase tracking-[0.22em] brand-gradient-text">
                     BECOME A PEER
                   </span>
                 </div>

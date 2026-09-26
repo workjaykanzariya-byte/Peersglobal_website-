@@ -264,7 +264,7 @@ export function PodcastMediaClient() {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-6 z-10">
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
                   — COMMUNITY LIFE —
                 </span>
               </div>
@@ -396,7 +396,7 @@ export function PodcastMediaClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Narrative */}
             <div className="lg:col-span-6 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — WHY WE BUILT A MEDIA PLATFORM —
               </span>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
@@ -471,7 +471,7 @@ export function PodcastMediaClient() {
       <section className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
               — WHAT WE PUBLISH —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight mt-1">
@@ -554,7 +554,7 @@ export function PodcastMediaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4 mb-10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — LISTEN AND WATCH —
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mt-1">
@@ -658,7 +658,7 @@ export function PodcastMediaClient() {
             {/* Left Card: Media Enquiries */}
             <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                   — MEDIA ENQUIRIES —
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-slate-950">
@@ -896,7 +896,7 @@ export function PodcastMediaClient() {
             </button>
 
             <div className="mb-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
                 — NOMINATE AN ENTREPRENEUR —
               </span>
               <h3 className="text-2xl font-serif font-bold text-slate-950 mt-1">

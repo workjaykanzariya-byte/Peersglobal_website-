@@ -112,7 +112,7 @@ export function MentorsSection() {
   return (
     <section className="fd-meet-your-mentors" id="universe" aria-label="The Peers Global Universe">
       <div className="fd-meet-your-mentors__head">
-        <p className="fd-meet-your-mentors__eyebrow" data-fd-rise="0">
+        <p className="fd-meet-your-mentors__eyebrow brand-gradient-text" data-fd-rise="0">
           THE PEERS GLOBAL UNIVERSE
         </p>
         <h2 className="fd-meet-your-mentors__headline" data-fd-rise="80">

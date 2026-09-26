@@ -181,7 +181,7 @@ export function LifeImpactScoreClient() {
       {/* ─── What It Is ─── */}
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             The Foundation
           </div>
@@ -364,51 +364,20 @@ export function LifeImpactScoreClient() {
         </div>
       </section>
 
-      {/* ─── Closing Banner ─── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 md:py-28">
-        {/* Deep celestial radial gradients & luminous aura */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
-        />
-
-        {/* Subtle Geometric Orbital Line Art */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg
-            viewBox="0 0 760 520"
-            fill="none"
-            className="h-full w-full"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
+      {/* ─── Closing Brand Gradient Banner ─── */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white py-20 md:py-28">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
             Build Your Business. Build Your Relationships. Build Your Circle.
           </h2>
-          <p className="font-serif italic text-sky-200 text-base sm:text-lg">
+          <p className="font-serif italic text-white/90 text-base sm:text-lg">
             People. Progress. Together.
           </p>
 
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#061836] text-xs sm:text-sm font-bold shadow-lg transition-all uppercase tracking-wider hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#1D4ED8] text-xs sm:text-sm font-bold shadow-lg transition-all uppercase tracking-wider hover:bg-slate-100 hover:scale-105 active:scale-95"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />

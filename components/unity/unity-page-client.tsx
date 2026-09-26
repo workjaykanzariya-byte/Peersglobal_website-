@@ -233,9 +233,11 @@ export function UnityPageClient() {
             <div className="lg:col-span-6 space-y-6 z-10">
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2] bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
-                  UNITY APP —
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+                  THE UNITY APP
                 </span>
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               </div>
 
               {/* Main Heading */}
@@ -367,9 +369,13 @@ export function UnityPageClient() {
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-                  — A COMMUNITY, NOT A PLATFORM FULL OF STRANGERS —
-                </span>
+                <div className="inline-flex items-center gap-2 mb-1">
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+                    A COMMUNITY, NOT A PLATFORM FULL OF STRANGERS
+                  </span>
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                </div>
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
                   Built for entrepreneurs.
                   <br />
@@ -443,9 +449,13 @@ export function UnityPageClient() {
       <section className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
-              — WHAT UNITY DOES —
-            </span>
+            <div className="inline-flex items-center gap-2 mb-1">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+                WHAT UNITY DOES
+              </span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+            </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
               Everything built for real collaboration.
             </h2>
@@ -587,7 +597,7 @@ export function UnityPageClient() {
                     key={s.step}
                     className="p-2 rounded-xl bg-white border border-slate-200/80 shadow-xs"
                   >
-                    <span className="w-6 h-6 rounded-full bg-[#0062D2] text-white font-bold text-[11px] flex items-center justify-center mx-auto mb-1">
+                    <span className="w-6 h-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-[11px] flex items-center justify-center mx-auto mb-1">
                       {s.step}
                     </span>
                     <span className="text-[11px] font-bold text-slate-900 block leading-tight">

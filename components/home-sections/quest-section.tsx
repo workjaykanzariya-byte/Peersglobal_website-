@@ -33,7 +33,7 @@ export function QuestSection() {
         <div className="fd-what-is-mindvalley__intro !gap-8">
           {/* Eyebrow & Titles following the exact 'What Peers Global Is' font styling */}
           <div className="fd-what-is-mindvalley__titles !gap-5">
-            <p className="fd-what-is-mindvalley__eyebrow" data-fd-rise="0">
+            <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text" data-fd-rise="0">
               LEARN, SALES, RESOURCES
             </p>
 

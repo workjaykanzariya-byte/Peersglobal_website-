@@ -167,9 +167,9 @@ export function WatchlistClient() {
   })
 
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-[#1A1A1A] font-sans selection:bg-[#E8DDD0] selection:text-[#1A1A1A]">
+    <div className="min-h-screen bg-white text-[#1A1A1A] font-sans selection:bg-blue-100 selection:text-slate-900">
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-[#EADFC7]/50 bg-[#FBFCFE]">
+      <div className="border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
           <Link href="/" className="hover:text-neutral-900 transition-colors">
             Home
@@ -182,15 +182,15 @@ export function WatchlistClient() {
       </div>
 
       {/* ─── Hero Section with Visual Overlay ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-[#EADFC7]/60">
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200 bg-gradient-to-br from-blue-50/40 via-white to-rose-50/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08] font-bold">
                 The Watchlist
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#5B4834] italic leading-relaxed">
+              <p className="text-xl sm:text-2xl font-serif text-[#1D4ED8] italic leading-relaxed">
                 A working library for practitioners.
               </p>
               <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
@@ -200,14 +200,14 @@ export function WatchlistClient() {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0D6EFD] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-md"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:opacity-95 transition-all shadow-md uppercase tracking-wider"
                 >
                   Download Unity App
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="#recommend"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-neutral-800 text-sm font-semibold border border-[#DACFBA] hover:bg-[#FAF5EB] transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-neutral-800 text-sm font-semibold border border-slate-200 hover:bg-slate-50 transition-all shadow-sm uppercase tracking-wider"
                 >
                   Recommend a Tool
                 </Link>
@@ -216,7 +216,7 @@ export function WatchlistClient() {
 
             {/* Right Desk & Laptop Visual Frame */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#D8C7A5] shadow-2xl bg-[#E8DDD0]">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-2xl bg-white">
                 <Image
                   src="/images/lexicon-hero-desk.jpg"
                   alt="Workdesk with laptop, coffee mug and business resources"
@@ -233,7 +233,7 @@ export function WatchlistClient() {
                   </span>
                 </div>
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <p className="text-xs uppercase tracking-widest font-mono text-amber-200">
+                  <p className="text-xs uppercase tracking-widest font-mono text-rose-300 font-bold">
                     Community Curated
                   </p>
                   <p className="text-base font-serif font-medium">
@@ -247,11 +247,11 @@ export function WatchlistClient() {
       </section>
 
       {/* ─── One Rule Banner ─── */}
-      <section className="py-8 bg-[#F5F8FF] border-b border-[#D4E2FF]">
+      <section className="py-8 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#CDE0FF] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-4 max-w-3xl">
-              <div className="w-12 h-12 rounded-2xl bg-[#0D6EFD]/10 border border-[#0D6EFD]/20 flex items-center justify-center text-[#0D6EFD] shrink-0 mt-1">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 border border-[#1D4ED8]/20 flex items-center justify-center text-[#1D4ED8] shrink-0 mt-1">
                 <ShieldCheck className="w-7 h-7" />
               </div>
               <div className="space-y-2">
@@ -605,29 +605,18 @@ export function WatchlistClient() {
         </div>
       </section>
 
-      {/* ─── Dark Mountain Closing Banner ─── */}
-      <section className="relative bg-[#0D1117] text-white py-24 md:py-32 overflow-hidden border-t border-neutral-800">
-        <div className="absolute inset-0 z-0 opacity-25">
-          <Image
-            src="/images/who-we-are-mountain.jpg"
-            alt="Mountain ridge horizon"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-[#0D1117]/80 to-transparent" />
-        </div>
-
+      {/* ─── Closing Brand Gradient Banner ─── */}
+      <section className="relative bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white py-24 md:py-32 overflow-hidden border-t border-slate-200">
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <p className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-amber-200/90 leading-snug max-w-3xl mx-auto">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-white/95 leading-snug max-w-3xl mx-auto">
             &ldquo;Ten years of hard-won judgement, from people with no reason to sell you anything.&rdquo;
           </p>
 
           <div className="space-y-2">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
               Build Your Business. Build Your Relationships. Build Your Circle.
             </h2>
-            <p className="text-base sm:text-lg text-neutral-400 font-light max-w-xl mx-auto">
+            <p className="text-base sm:text-lg text-white/80 font-light max-w-xl mx-auto">
               Real People. Real Growth. A Stronger Tomorrow.
             </p>
           </div>
@@ -635,14 +624,14 @@ export function WatchlistClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#1D4ED8] text-sm font-bold hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
             >
               Download Unity App
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="#recommend"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/15 transition-all uppercase tracking-wider"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all uppercase tracking-wider"
             >
               Recommend a Tool
             </Link>

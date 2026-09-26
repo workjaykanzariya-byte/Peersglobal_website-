@@ -229,8 +229,8 @@ export function InitiativesPageClient() {
                 
                 {/* Eyebrow */}
                 <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     ECOSYSTEM PLATFORMS &amp; ARMS
                   </span>
                 </div>
@@ -256,7 +256,7 @@ export function InitiativesPageClient() {
                     
                     <Link
                       href="/unity"
-                      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#1E4ED8] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+                      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
                     >
                       <span>Download Unity App</span>
                       <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -343,8 +343,8 @@ export function InitiativesPageClient() {
             <div className="lg:col-span-6 flex flex-col gap-6">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     PURPOSEFUL DIVISION
                   </span>
                 </div>
@@ -444,8 +444,8 @@ export function InitiativesPageClient() {
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE UNIFIED PORTFOLIO
               </span>
             </div>

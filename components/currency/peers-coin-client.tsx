@@ -43,8 +43,8 @@ export function PeersCoinClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-[#0062D2]/20 text-xs font-semibold text-[#0062D2]">
-                <Coins className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-xs font-bold uppercase tracking-wider brand-gradient-text">
+                <Coins className="w-3.5 h-3.5 text-[#1D4ED8]" />
                 Community Token of Generosity
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
@@ -60,7 +60,7 @@ export function PeersCoinClient() {
               <div className="pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold shadow-md hover:opacity-95 transition-all active:scale-95"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
@@ -115,7 +115,7 @@ export function PeersCoinClient() {
                   <p>• A masterclass taught to the community</p>
                   <p>• An hour given to a Peer who needed advice</p>
                 </div>
-                <p className="text-xs font-semibold text-[#0062D2] p-3 rounded-xl bg-[#EFF6FF] border border-[#0062D2]/20">
+                <p className="text-xs font-semibold text-[#1D4ED8] p-3 rounded-xl bg-blue-50/60 border border-blue-200/60">
                   The more you give, the more you earn. There is no other route.
                 </p>
               </div>
@@ -123,7 +123,7 @@ export function PeersCoinClient() {
               <div className="pt-2">
                 <Link
                   href="/how-to-earn-impact"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#0052B4]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1D4ED8] hover:text-[#E11D48] transition-colors"
                 >
                   See How to Earn Impact <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
@@ -307,7 +307,7 @@ export function PeersCoinClient() {
           <div className="pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-blue-50 text-[#0062D2] text-xs sm:text-sm font-bold shadow-lg transition-all uppercase tracking-wider hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs sm:text-sm font-bold shadow-lg transition-all uppercase tracking-wider hover:scale-105 active:scale-95"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />
