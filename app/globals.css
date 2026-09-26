@@ -654,6 +654,16 @@ html, body {
   animation: marquee 35s linear infinite;
 }
 
+.animate-brands-marquee {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-brands-marquee-slow {
+  animation: marquee 46s linear infinite;
+  will-change: transform;
+}
+
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

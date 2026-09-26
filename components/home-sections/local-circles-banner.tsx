@@ -1,46 +1,56 @@
 'use client'
 
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React from 'react'
 import Image from 'next/image'
-import { MapPin, ArrowRight, Globe, Building } from 'lucide-react'
 
-interface CityLocation {
-  name: string
-  href: string
-  badge?: string
-}
+// All 40 extracted brand partners with gradient treatment
+const BRANDS_ROW_1 = [
+  { name: 'IDBI Bank', src: '/images/brands/idbi_bank.png' },
+  { name: 'DevX', src: '/images/brands/devx.png' },
+  { name: 'Shivalik Real Estate Fund', src: '/images/brands/shivalik_fund.png' },
+  { name: 'Navitas Solar', src: '/images/brands/navitas_solar.png' },
+  { name: 'Waacab Cables', src: '/images/brands/waacab.png' },
+  { name: 'RupeeBoss', src: '/images/brands/rupeeboss.png' },
+  { name: 'Luxury Wellness', src: '/images/brands/luxury_wellness.png' },
+  { name: 'Zybra Cloud Accounting', src: '/images/brands/zybra.png' },
+  { name: 'Savvy Civic Aarya', src: '/images/brands/savvy_civic_aarya.png' },
+  { name: 'Campus Jobs', src: '/images/brands/campus_jobs.png' },
+  { name: 'Body Tales', src: '/images/brands/body_tales.png' },
+  { name: 'Wide Reach Media', src: '/images/brands/wide_reach.png' },
+  { name: 'Nature Coat', src: '/images/brands/nature_coat.png' },
+  { name: 'Agrotis Technologies', src: '/images/brands/agrotis_tech.png' },
+  { name: 'All About Architecture', src: '/images/brands/all_about_architecture.png' },
+  { name: 'Inside Building Solutions', src: '/images/brands/inside_building_solutions.png' },
+  { name: 'Concepts Green', src: '/images/brands/concepts_green.png' },
+  { name: 'We Protect Environment', src: '/images/brands/we_protect_environment.png' },
+  { name: '3R Zero Waste', src: '/images/brands/zero_waste_3r.png' },
+  { name: 'Medercial Healthcare', src: '/images/brands/medercial_one.png' },
+]
 
-const REGIONAL_HUBS: Record<'india' | 'international', CityLocation[]> = {
-  india: [
-    { name: 'Mumbai', href: '/cities?city=mumbai' },
-    { name: 'Bengaluru', href: '/cities?city=bengaluru' },
-    { name: 'Delhi NCR', href: '/cities?city=delhi' },
-    { name: 'Ahmedabad', href: '/cities?city=ahmedabad' },
-    { name: 'Surat', href: '/cities?city=surat' },
-    { name: 'Pune', href: '/cities?city=pune' },
-    { name: 'Hyderabad', href: '/cities?city=hyderabad' },
-    { name: 'Chennai', href: '/cities?city=chennai' },
-    { name: 'Vadodara', href: '/cities?city=vadodara' },
-    { name: 'Rajkot', href: '/cities?city=rajkot' },
-  ],
-  international: [
-    { name: 'Dubai', href: '/cities?region=international' },
-    { name: 'London', href: '/cities?region=international' },
-    { name: 'Singapore', href: '/cities?region=international' },
-    { name: 'New York', href: '/cities?region=international' },
-    { name: 'Los Angeles', href: '/cities?region=international' },
-    { name: 'Chicago', href: '/cities?region=international' },
-    { name: 'Dallas', href: '/cities?region=international' },
-    { name: 'Atlanta', href: '/cities?region=international' },
-    { name: 'Washington D.C.', href: '/cities?region=international' },
-  ],
-}
+const BRANDS_ROW_2 = [
+  { name: 'Alpha Star Capital', src: '/images/brands/alpha_star.png' },
+  { name: 'Apex Ventures', src: '/images/brands/apex_venture.png' },
+  { name: 'Beacon Media', src: '/images/brands/beacon_media.png' },
+  { name: 'Crest Holdings', src: '/images/brands/crest_holdings.png' },
+  { name: 'Dynamo Link', src: '/images/brands/dynamo_link.png' },
+  { name: 'Emblem Group', src: '/images/brands/emblem_group.png' },
+  { name: 'Glam Greens', src: '/images/brands/glam_greens.png' },
+  { name: 'Horizon Link', src: '/images/brands/horizon_link.png' },
+  { name: 'Matrix Global', src: '/images/brands/matrix_global.png' },
+  { name: 'Nova Tech Systems', src: '/images/brands/nova_tech.png' },
+  { name: 'Omni Corridor', src: '/images/brands/omni_corridor.png' },
+  { name: 'Phoenix Circle', src: '/images/brands/phoenix_circle.png' },
+  { name: 'Prime Corridor', src: '/images/brands/prime_corridor.png' },
+  { name: 'Pulse Ventures', src: '/images/brands/pulse_ventures.png' },
+  { name: 'Shield Capital', src: '/images/brands/shield_capital.png' },
+  { name: 'Sol Energy', src: '/images/brands/sol_energy.png' },
+  { name: 'Strata Global', src: '/images/brands/strata_global.png' },
+  { name: 'Summit Partners', src: '/images/brands/summit_partners.png' },
+  { name: 'Vanguard Hub', src: '/images/brands/vanguard_hub.png' },
+  { name: 'Zenith Capital', src: '/images/brands/zenith_capital.png' },
+]
 
 export function LocalCirclesBanner() {
-  const [activeTab, setActiveTab] = useState<'india' | 'international'>('india')
-  const cities = REGIONAL_HUBS[activeTab]
-
   return (
     <section className="relative w-full overflow-hidden bg-white text-slate-900 border-y border-slate-200 select-none py-12 sm:py-16">
       {/* Subtle brand gradient ambient glow */}
