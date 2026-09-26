@@ -25,29 +25,29 @@ import {
 // ─── Timeline Milestones ───────────────────────────────────────────────────
 const TIMELINE = [
   {
-    year: '2022',
-    title: 'The Hospital Corridor & The Founding Decision',
-    desc: 'During a severe family crisis in an Ahmedabad hospital, Dr. Pravin Parmar realized that skills, intelligence, and hard work mean very little without the right circle to call. Peers Global Business Media was incorporated with one singular conviction: entrepreneurs must never build alone.',
+    year: '2011',
+    title: 'Learning to Build',
+    desc: 'Dr. Pravin started his own venture in information technology and entered the startup ecosystem with a first-generation entrepreneur’s mix of ambition, uncertainty and learning.',
   },
   {
-    year: '2023',
-    title: 'The First Circle & Codification of the 10 Ways',
-    desc: 'The inaugural flagship Circle launched in Ahmedabad with 22 curated manufacturing and MSME promoters. The 10 Ways of Collaboration and the Give-First principle were codified to replace transactional networking with governed peer accountability.',
+    year: '2012',
+    title: 'The Product, The Struggle, The Exit',
+    desc: 'A cloud-based HRMS product was built at a time when cloud technology itself still created questions and concerns. There were lessons, struggles, and eventually a decision to move on.',
   },
   {
-    year: '2024',
-    title: 'Crossing 100 Peers & Multi-City Expansion',
-    desc: 'First cross-city expansion beyond Ahmedabad into Surat, Vadodara, and Mumbai. The hot-seat and boardroom collaboration rituals saved member firms over ₹12 Crore in capex and compliance missteps.',
+    year: 'Post-Exit',
+    title: 'What Next?',
+    desc: 'The turnaround question became clear: what next? And in that moment, the founder began to see that recognition, stories and visibility were not enough without community.',
   },
   {
-    year: '2025',
-    title: 'Launch of the Unity App & Relational Currency',
-    desc: 'The proprietary Unity App was deployed to log every collaboration with bilateral confirmation. The Life Impact Score and Peer Standing replaced subjective appreciation with verified relational equity.',
+    year: 'Research Phase',
+    title: 'The Question Changed',
+    desc: 'The real question became: how do we help entrepreneurs grow through one another? That led to a deeper study of communities, collaboration models and the missing layers between networking and meaningful growth.',
   },
   {
-    year: '2026 & Beyond',
-    title: '19 Circles Across Bharat & The 1 Million Mission',
-    desc: 'Operating 19 industry and purpose-led Circles across major business territories in India, marching toward the institutional goal of impacting one million lives through entrepreneurship by 2030.',
+    year: 'Now',
+    title: 'The Community Architecture',
+    desc: 'PEERS GLOBAL evolved into a leadership organisation built around Circles, LSR, Inner Boards, collaboration, recognition, impact, leadership and Unity.',
   },
 ]
 
@@ -148,7 +148,7 @@ export function OurStoryClient() {
               </p>
 
               <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl">
-                Entrepreneurs do not fail only because of business problems. They fail because they fight alone.
+                Every organisation has a beginning. Some begin with a business plan. Some begin with an opportunity. Some begin with a problem someone believes can be solved. PEERS GLOBAL began with something more human: an observation about what entrepreneurs go through when they are building their lives and businesses.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
@@ -234,32 +234,32 @@ export function OurStoryClient() {
 
           <div className="prose prose-slate max-w-none text-base sm:text-lg text-slate-700 leading-relaxed space-y-5">
             <p>
-              Dr. Pravin Parmar grew up in a farmer family in Botad.
+              Dr. Pravin Parmar describes himself as a first-generation entrepreneur, coming from a farmer family.
             </p>
             <p>
-              Not a wealthy one. Uncertainty, hard work, seasons deciding whether there would be income that year, and dignity without money. No formal education in the family, but profound values in it.
+              His journey began in a very different environment from the one in which PEERS GLOBAL operates today — government-school education, a decision to pursue English for higher studies, MCA, a professional beginning with Microsoft and ERP implementation, then entrepreneurship, then startups, then the experience of building, struggling, learning, changing direction and starting again.
             </p>
             <p>
-              He also saw something in that village that took thirty years to fully understand: when a season failed, nobody faced it alone. People carried each other. In Botad that was ordinary. Everywhere else, it turned out to be rare.
+              The journey was never a straight line. And that became important. Because entrepreneurship itself is rarely a straight line.
             </p>
             <p>
-              He could not speak English, and when he decided to learn, the school told him no. He stood up anyway — not really about English, but about deciding that his background would not decide his ceiling.
+              In 2011, Dr. Pravin started his own venture in information technology. By 2012, he had entered the startup ecosystem more deeply. For a first-generation entrepreneur, many things were new — the compliances, the ecosystem, the structures, and even the meaning of the word startup.
             </p>
             <p>
-              He paid his own fees by teaching other students while he was still studying. He built a company, was right about the product and early to the market, and eventually admitted to himself that it could run his present but not build his future. He closed it.
+              There was learning everywhere. And there was uncertainty everywhere. He built a cloud-based, mobile-based HRMS product at a time when cloud technology itself was still creating questions and concerns. The product was even designed with Africa in mind. There were struggles. There were lessons. And eventually, there was a decision to move on. The startup was sold. He took an exit.
             </p>
-            
+
             <div className="bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-transparent p-6 sm:p-7 rounded-2xl border-l-4 border-[#0062D2] shadow-2xs my-6">
               <p className="font-serif text-xl sm:text-2xl text-[#061836] font-semibold italic leading-snug">
-                Then a family crisis put him in a hospital, and hospitals strip every illusion a person carries.
+                For many entrepreneurs, an exit can look like an ending. For Dr. Pravin, it became another beginning.
               </p>
             </div>
 
             <p>
-              Standing there he understood something uncomfortable: skills mean very little without the right people around you. So does intelligence. So does hard work. What matters in those moments is who you can call.
+              After leaving the venture, there was another thought: what next? As a first-generation entrepreneur, he wanted his story to be heard. He approached media platforms and shared his story, but the story was not published. That experience created another realization: perhaps the problem was not that entrepreneurs lacked stories — perhaps the problem was that many stories simply did not have a platform.
             </p>
             <p>
-              He had spent years building capability. He had never built a circle. And almost none of the entrepreneurs he knew had one either.
+              And that thought eventually became bigger. Because if every entrepreneur has a story, then every entrepreneur deserves the possibility of being seen, heard and recognised.
             </p>
           </div>
 
@@ -290,23 +290,22 @@ export function OurStoryClient() {
 
           <div className="text-base sm:text-lg text-slate-300 leading-relaxed space-y-5">
             <p>
-              There was a second moment.
+              There was another realization.
             </p>
             <p>
-              When he tried to get his own business story published, the media was not interested. Not out of rudeness — simply because business media covers startups, funding and unicorns, while MSMEs stay invisible.
+              Recognition was important. Stories were important. But entrepreneurs did not only need visibility. They needed one another. They needed learning. They needed experience. They needed trusted relationships. They needed collaboration. And they needed a community where those things could happen consistently.
             </p>
             <p>
-              And MSMEs are the businesses that build families, cities and employment across this country.
+              So the question changed from: “How do we connect entrepreneurs?” to: “How do we help entrepreneurs grow through one another?” That was a much bigger question, and it required much deeper research.
             </p>
-            
             <div className="bg-white/10 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/15 shadow-xl border-l-4 border-l-sky-400 text-slate-100">
               <p className="font-medium text-base sm:text-lg leading-relaxed">
-                That rejection produced a belief that still governs everything here: <strong className="text-white">every honest business story deserves respect and visibility. Even if a business shuts down, its story should never die.</strong>
+                The research led to a conviction: there was room for a community built around collaboration — not as a replacement for existing communities, but as a different universe built around a different idea.
               </p>
             </div>
 
             <p>
-              It also produced <strong className="text-sky-300">VyapaarJagat.com</strong>, a media platform for the businesses nobody else was covering.
+              Before creating PEERS GLOBAL, Dr. Pravin studied and experienced different entrepreneurial and professional communities, including TiE, BNI, Rotary, Lions, EO, YPO, Vistage and Round Tables. The purpose was not simply to copy what already existed. It was to understand what worked, what entrepreneurs valued, where the gaps were, and what happened after people exchanged contacts.
             </p>
           </div>
         </div>
@@ -327,24 +326,21 @@ export function OurStoryClient() {
 
           <div className="text-base sm:text-lg text-slate-700 leading-relaxed space-y-5">
             <p>
-              Events would have been simpler. Media was already built.
+              Networking connects people. But connection alone does not necessarily create value. The deeper opportunity is what happens after the introduction — a conversation, a shared experience, a referral, a solution, a partnership, a mentor, a trusted relationship, a person who remembers your problem because they have faced something similar.
             </p>
             <p className="font-serif text-2xl sm:text-3xl font-bold text-[#0062D2]">
-              Events end. Media informs. Only community transforms.
+              That is collaboration.
             </p>
             <p>
-              Entrepreneurs did not need more speakers. They needed a place where they could be real without being judged — where the room understood the weight they carried because everyone in it carried something similar.
-            </p>
-            <p>
-              So the decision was made to build rooms rather than audiences.
+              The organisation began to move beyond the question of “Who do you know?” towards “How can the right people help one another grow?” And the research led to a simple framework: entrepreneurs need to keep growing in three dimensions — Learning, Sharing and Relationships.
             </p>
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
               <p className="text-xl font-serif font-bold text-[#061836]">
-                Circles, not crowds. Trust, not transactions. Peers, not gurus.
+                LSR — Learning. Sharing. Relationships.
               </p>
             </div>
             <p>
-              That was the beginning of Peers Global.
+              That was the beginning of PEERS GLOBAL. A community designed so that entrepreneurs could move through connection, trust, relationship, collaboration and impact — not just meet once, but grow together over time.
             </p>
           </div>
         </div>
@@ -454,10 +450,10 @@ export function OurStoryClient() {
               — WHERE WE ARE NOW —
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight mt-2">
-              Designed in Bharat. Built for the world.
+              PEERS GLOBAL has evolved into a leadership organisation built around entrepreneurs and their relationships with one another.
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-2">
-              Nineteen Circles across industries and ambitions. A community that began in Ahmedabad and now operates across cities — with a platform built from the start for entrepreneurs anywhere in the world.
+              The architecture now includes Circles, LSR, Inner Boards, collaboration, recognition, impact, leadership and Unity — but the real measure is not the structure. It is what happens between people: the conversation that changes a decision, the introduction that creates an opportunity, the relationship that continues beyond business.
             </p>
           </div>
 
@@ -505,10 +501,10 @@ export function OurStoryClient() {
               What we are building toward
             </h2>
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-              One million lives impacted through entrepreneurship, collaboration and opportunity. Not one million members. One million lives.
+              The PEERS GLOBAL mission is to impact 1M+ entrepreneurs by 2030. The number represents more than scale. It represents the possibility of multiplying the effect of collaboration: one entrepreneur helps another; that entrepreneur helps someone else; experience moves; relationships expand; opportunities multiply.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              Built one relationship at a time — one introduction, one conversation that saves someone eighteen months, one partnership that opens a market, one entrepreneur who stops carrying it alone.
+              The ambition is not simply to create a large community. It is to create a community capable of creating large human impact through collaboration.
             </p>
             <div className="pt-2">
               <Link
@@ -565,11 +561,11 @@ export function OurStoryClient() {
               </p>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white leading-tight">
-                “The right circle can change your life faster than the right idea.”
+                “It began with one observation. It became an idea. The idea became a community. And the community carries an ambition: to impact 1M+ entrepreneurs by 2030.”
               </h2>
 
               <p className="text-base sm:text-lg text-white/90 font-normal">
-                Build Your Business. Build Your Relationships. Build Your Circle.
+                Continue the journey. Discover Dr. Pravin Parmar. Peers are Partners in Business and Friends in Life.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">

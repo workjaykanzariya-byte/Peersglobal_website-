@@ -347,7 +347,7 @@ export default function TenWaysOfCollaborationPage() {
               {/* Eyebrow */}
               <div className="flex items-center gap-2.5 mb-4">
                 <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   The Language
                 </span>
               </div>
@@ -355,13 +355,13 @@ export default function TenWaysOfCollaborationPage() {
               {/* H1 with radiant blue gradient on "Collaboration" */}
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-[54px] font-semibold text-slate-950 tracking-tight leading-[1.12]">
                 The 10 Ways of <br />
-                <span className="bg-gradient-to-r from-[#0062D2] via-blue-600 to-[#38BDF8] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   Collaboration
                 </span>
               </h1>
 
               {/* Subline */}
-              <p className="text-base sm:text-lg text-slate-800 font-semibold mt-5 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-slate-800 font-semibold mt-5 l  eading-relaxed max-w-xl">
                 10 powerful forms of collaboration available inside every Peers Global Circle.
               </p>
 
@@ -513,7 +513,7 @@ export default function TenWaysOfCollaborationPage() {
             <div className="lg:col-span-7 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-3">
                 <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Our Belief
                 </span>
               </div>
@@ -632,16 +632,16 @@ export default function TenWaysOfCollaborationPage() {
           {/* Centered Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14">
             {/* Eyebrow with horizontal line dashes */}
-            <div className="inline-flex items-center justify-center gap-3 text-[#0062D2] text-xs sm:text-[13px] font-bold tracking-[0.22em] uppercase mb-3">
+            <div className="inline-flex items-center justify-center gap-3 text-xs sm:text-[13px] font-bold tracking-[0.22em] uppercase mb-3">
               <span className="w-7 h-[1.5px] bg-[#0062D2]/80" />
-              <span>10 WAYS TO COLLABORATE</span>
+              <span className="brand-gradient-text">10 WAYS TO COLLABORATE</span>
               <span className="w-7 h-[1.5px] bg-[#0062D2]/80" />
             </div>
 
             {/* Main Title: Stronger Together with curved blue swoosh */}
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-[52px] font-bold text-[#0D1E3A] tracking-tight leading-[1.15] mb-4">
               Stronger{' '}
-              <span className="relative inline-block text-[#0062D2]">
+              <span className="relative inline-block brand-gradient-text">
                 Together
                 <svg
                   className="absolute -bottom-2 sm:-bottom-2.5 left-0 w-full overflow-visible"
@@ -805,7 +805,7 @@ export default function TenWaysOfCollaborationPage() {
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 mb-3">
                 <span className="h-[1.5px] w-5 bg-sky-400" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-sky-400">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   A Stronger Tomorrow
                 </span>
               </div>
@@ -868,7 +868,7 @@ export default function TenWaysOfCollaborationPage() {
               {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-3">
                 <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Built for Real Entrepreneurs
                 </span>
               </div>
@@ -877,7 +877,7 @@ export default function TenWaysOfCollaborationPage() {
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1A38] tracking-tight leading-[1.15] mb-5">
                 Put collaboration <br />
                 into{' '}
-                <span className="relative inline-block text-[#0062D2]">
+                <span className="relative inline-block brand-gradient-text">
                   action
                   <svg
                     className="absolute -bottom-2 left-0 w-full overflow-visible"
@@ -1071,7 +1071,10 @@ export default function TenWaysOfCollaborationPage() {
       {/* =====================================================================
           6. CLOSING BANNER (Vibrant Royal Blue Color Theme)
           ===================================================================== */}
-      <section className="relative overflow-hidden bg-[#0062D2] text-white py-20 sm:py-24">
+      <section
+        className="relative overflow-hidden text-white py-20 sm:py-24"
+        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+      >
         {/* Soft Background Concentric Arcs matching the design */}
         <div className="absolute top-1/2 -left-20 -translate-y-1/2 size-[520px] rounded-full border border-white/10 pointer-events-none" />
         <div className="absolute top-1/2 -left-36 -translate-y-1/2 size-[700px] rounded-full border border-white/[0.06] pointer-events-none" />
@@ -1082,7 +1085,7 @@ export default function TenWaysOfCollaborationPage() {
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="h-[1.5px] w-5 bg-white/70" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
               The Next Step
             </span>
             <span className="h-[1.5px] w-5 bg-white/70" />
@@ -1100,7 +1103,7 @@ export default function TenWaysOfCollaborationPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/30 hover:border-white hover:bg-white/20 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all"
             >
               Find Your Circle
               <ArrowRight className="size-4" />

@@ -194,7 +194,7 @@ export default function TheTerritoryPage() {
               {/* H1 */}
               <h1 className="font-serif text-4xl sm:text-6xl lg:text-[66px] font-bold tracking-tight text-[#0B1A38] leading-[1.08] mb-4">
                 Local to{' '}
-                <span className="relative inline-block text-[#0062D2]">
+                <span className="relative inline-block brand-gradient-text">
                   Global
                   <svg
                     className="absolute -bottom-2 sm:-bottom-3 left-0 w-full overflow-visible"
@@ -205,7 +205,7 @@ export default function TheTerritoryPage() {
                   >
                     <path
                       d="M3 8.5C45 2.5 115 2.5 157 8.5"
-                      stroke="#0062D2"
+                      stroke="#1D4ED8"
                       strokeWidth="3.5"
                       strokeLinecap="round"
                     />
@@ -251,7 +251,7 @@ export default function TheTerritoryPage() {
               <div className="flex flex-wrap items-center gap-3 mb-9">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-5 sm:px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-5 sm:px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
                 >
                   <Smartphone className="size-4" />
                   <span>Download Unity App</span>
@@ -481,8 +481,8 @@ export default function TheTerritoryPage() {
             <div className="lg:col-span-6 flex flex-col justify-center">
               {/* Eyebrow with Dash */}
               <div className="flex items-center gap-2.5 mb-3">
-                <span className="h-[2px] w-8 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Why Structure Matters
                 </span>
               </div>
@@ -493,7 +493,7 @@ export default function TheTerritoryPage() {
               </h2>
               
               {/* Short Blue Accent Underline */}
-              <div className="w-12 h-1 bg-[#0062D2] rounded-full mb-6" />
+              <div className="w-12 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full mb-6" />
 
               <div className="space-y-4 text-slate-600 font-normal text-sm sm:text-base leading-relaxed mb-8">
                 <p>
@@ -555,10 +555,10 @@ export default function TheTerritoryPage() {
               <div className="flex items-center justify-between pt-2">
                 <Link
                   href="/why-peers-global"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-[#0062D2] hover:text-[#0052B4] transition-colors group"
+                  className="inline-flex items-center gap-2 text-sm font-bold transition-colors group"
                 >
-                  <span>Learn More About Our Structure</span>
-                  <div className="size-7 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  <span className="brand-gradient-text">Learn More About Our Structure</span>
+                  <div className="size-7 rounded-full bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 text-[#1D4ED8] flex items-center justify-center group-hover:translate-x-1 transition-transform">
                     <ArrowRight className="size-3.5" />
                   </div>
                 </Link>
@@ -587,7 +587,10 @@ export default function TheTerritoryPage() {
       {/* =========================================================================
           3. 01 THE CIRCLE (Your Home in the Community) - Midnight Premium Theme
           ========================================================================= */}
-      <section className="py-20 sm:py-28 bg-[#061224] text-white border-b border-white/10 relative overflow-hidden">
+      <section
+        className="py-20 sm:py-28 text-white border-b border-white/10 relative overflow-hidden"
+        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+      >
         {/* Deep ambient glow effects */}
         <div className="absolute top-1/4 left-1/4 size-[650px] rounded-full bg-gradient-to-tr from-[#0062D2]/25 via-sky-500/10 to-transparent blur-3xl pointer-events-none -z-10" />
         <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-gradient-to-tr from-blue-600/15 via-transparent to-transparent blur-3xl pointer-events-none -z-10" />
@@ -609,7 +612,7 @@ export default function TheTerritoryPage() {
               {/* H2 Title with Neon Blue Gradient Accent */}
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white leading-[1.12] mb-5">
                 Your home in the{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2987F8] via-[#4CA5FD] to-[#38BDF8]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#1D4ED8] to-[#E11D48]">
                   community
                 </span>
               </h2>
@@ -622,7 +625,7 @@ export default function TheTerritoryPage() {
               <div className="flex flex-wrap items-center gap-3.5 mb-8">
                 <Link
                   href="/circles"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
                 >
                   <span>Explore All Circles</span>
                   <ArrowRight className="size-4" />
@@ -979,7 +982,7 @@ export default function TheTerritoryPage() {
             {/* Headline with Blue Gradient Accent on 'network.' */}
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-[56px] font-bold text-[#0B1A38] tracking-tight leading-[1.1] mb-5">
               Where your Circle becomes a{' '}
-              <span className="text-[#0062D2]">
+              <span className="brand-gradient-text">
                 network.
               </span>
             </h2>
@@ -1262,7 +1265,10 @@ export default function TheTerritoryPage() {
       {/* =========================================================================
           6. 06 GLOBAL (Local roots. Global reach.) - Deep Cosmic Theme
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#020B1C] text-white py-20 sm:py-28 border-b border-white/10">
+      <section
+        className="relative overflow-hidden text-white py-20 sm:py-28 border-b border-white/10"
+        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+      >
         
         {/* Deep ambient galaxy radial light */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[900px] rounded-full bg-gradient-to-tr from-[#0062D2]/20 via-[#0B7DFE]/10 to-transparent blur-3xl pointer-events-none -z-10" />
@@ -1330,7 +1336,7 @@ export default function TheTerritoryPage() {
             {/* Headline with Blue Gradient Accent on 'Global' */}
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-[58px] font-bold text-white tracking-tight leading-[1.08] mb-5">
               Local roots.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2987F8] via-[#4CA5FD] to-[#38BDF8]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#1D4ED8] to-[#E11D48]">
                 Global
               </span>{' '}
               reach.
@@ -1446,7 +1452,7 @@ export default function TheTerritoryPage() {
             <div className="flex items-center gap-4 flex-wrap mb-10">
               <Link
                 href="/circles"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
               >
                 <span>Explore Global Community</span>
                 <ArrowRight className="size-4" />
@@ -1502,8 +1508,8 @@ export default function TheTerritoryPage() {
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2.5 mb-3.5">
-                    <span className="h-[2px] w-7 bg-[#0062D2]" />
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    <span className="h-[2px] w-7 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                       Growing the Territory
                     </span>
                   </div>
@@ -1511,9 +1517,9 @@ export default function TheTerritoryPage() {
                   <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1A38] tracking-tight leading-[1.12] mb-5">
                     Be the reason<br />
                     your city is{' '}
-                    <span className="relative inline-block text-[#0062D2] italic font-normal">
+                    <span className="relative inline-block brand-gradient-text italic font-normal">
                       next.
-                      <svg className="absolute -bottom-1.5 left-0 w-full h-3 text-[#0062D2] overflow-visible" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="absolute -bottom-1.5 left-0 w-full h-3 text-[#1D4ED8] overflow-visible" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 8C30 3 70 3 98 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                       </svg>
                     </span>
@@ -1531,7 +1537,7 @@ export default function TheTerritoryPage() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href="/membership"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
                   >
                     <span>Start a Circle</span>
                     <ArrowRight className="size-4" />

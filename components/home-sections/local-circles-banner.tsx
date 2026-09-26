@@ -1,6 +1,8 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 // All 40 extracted brand partners with gradient treatment
@@ -50,7 +52,28 @@ const BRANDS_ROW_2 = [
   { name: 'Zenith Capital', src: '/images/brands/zenith_capital.png' },
 ]
 
+const CITIES_BY_TAB = {
+  india: [
+    'Ahmedabad',
+    'Mumbai',
+    'Bengaluru',
+    'Delhi NCR',
+    'Surat',
+    'Pune',
+    'Vadodara',
+    'Rajkot',
+    'Indore',
+    'Morbi',
+    'Mundra',
+    'Hyderabad',
+  ],
+  international: ['Dubai', 'London', 'Singapore'],
+} as const
+
 export function LocalCirclesBanner() {
+  const [activeTab, setActiveTab] = useState<keyof typeof CITIES_BY_TAB>('india')
+  const cities = CITIES_BY_TAB[activeTab]
+
   return (
     <section className="relative w-full overflow-hidden bg-white text-slate-900 border-y border-slate-200 select-none py-12 sm:py-16">
       {/* Subtle brand gradient ambient glow */}
@@ -90,16 +113,16 @@ export function LocalCirclesBanner() {
         <div className="w-full flex items-center justify-center">
           <div className="flex flex-wrap items-center justify-center gap-y-2.5 text-sm sm:text-base font-medium tracking-wide text-slate-700">
             {cities.map((city, index) => (
-              <React.Fragment key={city.name}>
+              <React.Fragment key={city}>
                 <span className="text-slate-300 px-2.5 sm:px-3 font-light select-none">
                   |
                 </span>
                 <Link
-                  href={city.href}
+                  href="/cities"
                   className="group inline-flex items-center gap-1 text-slate-800 hover:text-[#1D4ED8] transition-all duration-200 hover:scale-105 transform origin-center py-0.5"
                 >
                   <span className="transition-all group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] font-semibold">
-                    {city.name}
+                    {city}
                   </span>
                 </Link>
                 {index === cities.length - 1 && (

@@ -184,7 +184,7 @@ export function ClosingCtaSection({
           {eyebrow && (
             <div className="flex items-center gap-2.5">
               <span className="h-[1.5px] w-6 bg-white/70" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 {eyebrow}
               </span>
             </div>

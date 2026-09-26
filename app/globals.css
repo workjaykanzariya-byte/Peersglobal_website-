@@ -515,6 +515,21 @@ html, body {
     transform: translateY(-2px);
   }
 
+  button.bg-primary,
+  a.bg-primary,
+  button[class~="bg-[#0078D4]"],
+  a[class~="bg-[#0078D4]"],
+  button[class~="bg-[#0062D2]"],
+  a[class~="bg-[#0062D2]"],
+  button[class~="bg-[#1D4ED8]"],
+  a[class~="bg-[#1D4ED8]"],
+  button[class~="bg-blue-600"],
+  a[class~="bg-blue-600"],
+  button[class~="bg-blue-700"],
+  a[class~="bg-blue-700"] {
+    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
+  }
+
   /* Brand gradient primary CTA button with shimmer & hover lift */
   .btn-brand-gradient {
     position: relative;
@@ -526,7 +541,7 @@ html, body {
     font-size: 0.875rem;
     font-weight: 600;
     color: #ffffff !important;
-    background-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%);
+    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
     border-radius: 9999px;
     box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
     overflow: hidden;
@@ -538,7 +553,7 @@ html, body {
   }
 
   .btn-brand-gradient:hover {
-    background-image: linear-gradient(135deg, #1E40AF 0%, #BE123C 100%);
+    background-image: linear-gradient(90deg, #1E40AF 0%, #BE123C 100%);
     box-shadow: 0 8px 25px rgba(225, 29, 72, 0.35), 0 4px 12px rgba(29, 78, 216, 0.3);
     transform: translateY(-2px);
   }

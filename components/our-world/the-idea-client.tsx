@@ -124,16 +124,16 @@ export function TheIdeaClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      
+
       {/* =========================================================================
           1. HERO SECTION (HOMEPAGE-STYLE MASTER HERO BANNER CARD)
           ========================================================================= */}
       <section id="the-idea" className="relative overflow-hidden border-b border-slate-200/90 bg-[#FAFBFD] pt-6 sm:pt-8 pb-10 sm:pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Master Hero Banner Card */}
           <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
-            
+
             {/* Right Media Background Layer (Fading into white on the left) */}
             <div
               className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
@@ -183,7 +183,7 @@ export function TheIdeaClient() {
             {/* Left Content Area */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
-                
+
                 {/* Eyebrow */}
                 <div className="flex items-center gap-2.5 mb-4">
                   <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
@@ -204,7 +204,7 @@ export function TheIdeaClient() {
 
                 {/* Description */}
                 <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8 max-w-lg">
-                  Everything Peers Global is today comes from that one foundational sentence. We connect visionary entrepreneurs, industry leaders, and creators for structured peer circles, mutual growth, and lifelong collaboration.
+                  There is a side of entrepreneurship that rarely appears in photographs. The meetings are visible. The launches are visible. The growth is visible. But much of the journey happens quietly. This is the idea behind Peers Global.
                 </p>
 
                 {/* CTAs */}
@@ -238,7 +238,7 @@ export function TheIdeaClient() {
           ========================================================================= */}
       <nav aria-label="Page navigation" className="sticky top-20 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-2xs">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-13 overflow-x-auto no-scrollbar">
-          
+
           <div className="flex items-center gap-6 sm:gap-8 whitespace-nowrap text-[13.5px] font-semibold text-slate-700 py-1">
             <a href="#the-idea" className="text-[#0078D4] border-b-2 border-[#0078D4] pb-3 pt-3 hover:text-[#006cbd] transition-colors">
               The Idea
@@ -263,7 +263,7 @@ export function TheIdeaClient() {
           <div className="hidden md:flex items-center shrink-0 pl-4">
             <Link
               href="/membership"
-              className="inline-flex items-center justify-center rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-4 py-1.5 text-xs font-semibold transition-colors"
+              className="inline-flex items-center justify-center rounded-[4px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-4 py-1.5 text-xs font-semibold transition-opacity"
             >
               Get started
             </Link>
@@ -278,7 +278,7 @@ export function TheIdeaClient() {
       <section id="silent-reality" className="section py-12 sm:py-16 border-b border-slate-200/80 bg-white relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            
+
             {/* ──────── COLUMN 1: Visual Showcase (lg:col-span-4) ──────── */}
             <div className="lg:col-span-4 flex justify-center lg:justify-start pt-2">
               <div className="relative w-full max-w-[320px]">
@@ -374,7 +374,7 @@ export function TheIdeaClient() {
 
             {/* ──────── COLUMN 3: Dark Reflection Card + Light CTA Banner (lg:col-span-4) ──────── */}
             <div className="lg:col-span-4 flex flex-col gap-4">
-              
+
               {/* Executive Card: A Founder's Reflection */}
               <div className="rounded-lg border border-slate-800 bg-[#0F172A] p-6 text-white shadow-sm flex flex-col justify-between">
                 <div>
@@ -394,7 +394,7 @@ export function TheIdeaClient() {
                     Entrepreneurs are surrounded by people, but rarely understood.
                   </p>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed font-normal">
-                    They do not need more motivation. They need belonging, trust, and peers who understand the weight they are carrying.
+                    A trusted group of fellow entrepreneurs can become a sounding board, a source of experience, a source of perspective, a place to ask, and a place to contribute. That is the idea behind the Circle.
                   </p>
                 </div>
               </div>
@@ -434,15 +434,15 @@ export function TheIdeaClient() {
           ========================================================================= */}
       <section id="origin-story" className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#F8FAFC] to-[#FFFFFF] py-12 sm:py-16">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* ──────── COLUMN 1: LEFT CONTENT (lg:col-span-5) ──────── */}
             <div className="lg:col-span-5 flex flex-col justify-center">
-              
+
               {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0078D4]">
+                <span className="text-xs font-semibold uppercase tracking-[0.08em] brand-gradient-text">
                   Origin Story
                 </span>
               </div>
@@ -457,7 +457,11 @@ export function TheIdeaClient() {
               </p>
 
               <p className="text-sm text-slate-600 font-normal mt-3 leading-relaxed max-w-lg">
-                Peers Global was born from real experiences, real people and real challenges. A small village in Botad to mentoring 10,000+ MSME promoters across India, this journey has always been about people, possibilities and a stronger tomorrow — together.
+                A founder&apos;s journey can change the way he sees other founders. Dr. Pravin Parmar&apos;s journey began in Botad, coming from a farmer family. His early education was in a government school, and he eventually completed his studies in English medium and pursued MCA. After building a technology venture and taking an exit, he reached another important moment in the journey: what next?
+              </p>
+
+              <p className="text-sm text-slate-600 font-normal mt-3 leading-relaxed max-w-lg">
+                The answer could not always be another service. Sometimes, the answer is community. A community where entrepreneurs can learn from one another, where experience can travel from person to person, and where a relationship can become more valuable than a contact. That thinking became part of the foundation for Peers Global.
               </p>
 
               {/* Dynamic Watch Founder's Message Button */}
@@ -466,7 +470,7 @@ export function TheIdeaClient() {
                   type="button"
                   onClick={() => setActiveModalMedia(originStoryMedia)}
                   aria-label="Watch the Founder's Message"
-                  className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-5 py-2.5 text-sm font-semibold transition-colors cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-5 py-2.5 text-sm font-semibold transition-opacity cursor-pointer"
                 >
                   <Play className="size-4 fill-white ml-0.5" />
                   <span>Watch Founder&apos;s Message</span>
@@ -475,96 +479,96 @@ export function TheIdeaClient() {
 
             </div>
 
-              {/* ──────── COLUMN 2: RIGHT UNIFIED HERO VISUAL FRAME (lg:col-span-7) ──────── */}
-              <div className="lg:col-span-7 relative">
-                
-                {/* Outer decorative ambient rings */}
-                <div className="absolute -top-8 -right-8 size-[480px] rounded-full border border-blue-300/40 pointer-events-none hidden xl:block" />
-                <div className="absolute top-10 -right-4 size-[360px] rounded-full border border-sky-400/30 pointer-events-none hidden xl:block" />
+            {/* ──────── COLUMN 2: RIGHT UNIFIED HERO VISUAL FRAME (lg:col-span-7) ──────── */}
+            <div className="lg:col-span-7 relative">
 
-                {/* Framed Container: Video Background + Play Button + Cutout Founder Photo + Quote Card */}
-                <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-blue-900/15 bg-[#040e24] shadow-[0_25px_70px_rgba(4,14,36,0.3)] min-h-[400px] sm:min-h-[440px] lg:min-h-[460px] w-full">
-                  
-                  {/* 1. Background Video Layer with Office Background Poster */}
-                  <div className="absolute inset-0 size-full overflow-hidden select-none">
-                    {originStoryMedia.isYouTube && originStoryMedia.embedUrl ? (
-                      <iframe
-                        src={`${originStoryMedia.embedUrl}&mute=1&loop=1`}
-                        title={originStoryMedia.title}
-                        className="size-full border-0 pointer-events-none scale-125 object-cover"
-                        allow="autoplay; encrypted-media"
-                      />
-                    ) : (
-                      <video
-                        key={originStoryMedia.mediaUrl}
-                        src={originStoryMedia.mediaUrl}
-                        poster="/images/origin-story-office-bg.jpg"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                        className="size-full object-cover object-center scale-[1.03]"
-                      >
-                        <source src={originStoryMedia.mediaUrl} type="video/mp4" />
-                      </video>
-                    )}
+              {/* Outer decorative ambient rings */}
+              <div className="absolute -top-8 -right-8 size-[480px] rounded-full border border-blue-300/40 pointer-events-none hidden xl:block" />
+              <div className="absolute top-10 -right-4 size-[360px] rounded-full border border-sky-400/30 pointer-events-none hidden xl:block" />
 
-                    {/* Gradient overlays to ensure seamless composition and contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#040e24]/85 via-[#040e24]/20 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#040e24]/40 via-transparent to-[#040e24]/30" />
-                  </div>
+              {/* Framed Container: Video Background + Play Button + Cutout Founder Photo + Quote Card */}
+              <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-blue-900/15 bg-[#040e24] shadow-[0_25px_70px_rgba(4,14,36,0.3)] min-h-[400px] sm:min-h-[440px] lg:min-h-[460px] w-full">
 
-                  {/* 2. Quote Card (Bottom-Left Overlay) */}
-                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 max-w-[250px] sm:max-w-[290px] rounded-2xl bg-white/95 backdrop-blur-md border border-white p-4 sm:p-5 shadow-2xl text-slate-900">
-                    <span className="text-2xl sm:text-3xl font-black text-[#041E42] leading-none select-none block mb-1">
-                      “
+                {/* 1. Background Video Layer with Office Background Poster */}
+                <div className="absolute inset-0 size-full overflow-hidden select-none">
+                  {originStoryMedia.isYouTube && originStoryMedia.embedUrl ? (
+                    <iframe
+                      src={`${originStoryMedia.embedUrl}&mute=1&loop=1`}
+                      title={originStoryMedia.title}
+                      className="size-full border-0 pointer-events-none scale-125 object-cover"
+                      allow="autoplay; encrypted-media"
+                    />
+                  ) : (
+                    <video
+                      key={originStoryMedia.mediaUrl}
+                      src={originStoryMedia.mediaUrl}
+                      poster="/images/origin-story-office-bg.jpg"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      className="size-full object-cover object-center scale-[1.03]"
+                    >
+                      <source src={originStoryMedia.mediaUrl} type="video/mp4" />
+                    </video>
+                  )}
+
+                  {/* Gradient overlays to ensure seamless composition and contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#040e24]/85 via-[#040e24]/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#040e24]/40 via-transparent to-[#040e24]/30" />
+                </div>
+
+                {/* 2. Quote Card (Bottom-Left Overlay) */}
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 max-w-[250px] sm:max-w-[290px] rounded-2xl bg-white/95 backdrop-blur-md border border-white p-4 sm:p-5 shadow-2xl text-slate-900">
+                  <span className="text-2xl sm:text-3xl font-black text-[#041E42] leading-none select-none block mb-1">
+                    “
+                  </span>
+                  <p className="text-xs sm:text-[13px] font-semibold text-slate-800 leading-relaxed">
+                    Real progress happens when people come together with purpose.
+                  </p>
+                  <div className="mt-2.5 flex items-center gap-2">
+                    <span className="h-[1px] w-4 bg-slate-400" />
+                    <span className="text-[11px] font-bold text-slate-900 tracking-tight">
+                      Dr. Pravin Parmar
                     </span>
-                    <p className="text-xs sm:text-[13px] font-semibold text-slate-800 leading-relaxed">
-                      Real progress happens when people come together with purpose.
+                  </div>
+                </div>
+
+                {/* 3. Founder Photo Cutout (Right Side, Layered in Foreground) */}
+                <div className="absolute bottom-0 right-0 sm:right-2 lg:right-4 h-[90%] sm:h-[95%] lg:h-[98%] w-[270px] sm:w-[330px] lg:w-[380px] z-10 flex items-end justify-center pointer-events-none">
+                  <div className="relative size-full">
+                    <Image
+                      src="/images/dr-pravin-cutout.png"
+                      alt="Dr. Pravin Parmar — Founder, Peers Global"
+                      fill
+                      sizes="(max-width: 768px) 300px, (max-width: 1024px) 360px, 420px"
+                      className="object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.7)]"
+                      priority
+                    />
+                  </div>
+                </div>
+
+                {/* 4. Executive Tag Badge */}
+                <div className="absolute top-4 sm:top-5 right-4 sm:right-6 lg:right-7 z-20 select-none pointer-events-none">
+                  <div className="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-right">
+                    <p className="text-[11px] font-bold text-white tracking-widest uppercase">
+                      People · Ideas · Growth
                     </p>
-                    <div className="mt-2.5 flex items-center gap-2">
-                      <span className="h-[1px] w-4 bg-slate-400" />
-                      <span className="text-[11px] font-bold text-slate-900 tracking-tight">
-                        Dr. Pravin Parmar
-                      </span>
-                    </div>
                   </div>
-
-                  {/* 3. Founder Photo Cutout (Right Side, Layered in Foreground) */}
-                  <div className="absolute bottom-0 right-0 sm:right-2 lg:right-4 h-[90%] sm:h-[95%] lg:h-[98%] w-[270px] sm:w-[330px] lg:w-[380px] z-10 flex items-end justify-center pointer-events-none">
-                    <div className="relative size-full">
-                      <Image
-                        src="/images/dr-pravin-cutout.png"
-                        alt="Dr. Pravin Parmar — Founder, Peers Global"
-                        fill
-                        sizes="(max-width: 768px) 300px, (max-width: 1024px) 360px, 420px"
-                        className="object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.7)]"
-                        priority
-                      />
-                    </div>
-                  </div>
-
-                  {/* 4. Executive Tag Badge */}
-                  <div className="absolute top-4 sm:top-5 right-4 sm:right-6 lg:right-7 z-20 select-none pointer-events-none">
-                    <div className="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-right">
-                      <p className="text-[11px] font-bold text-white tracking-widest uppercase">
-                        People · Ideas · Growth
-                      </p>
-                    </div>
-                  </div>
-
                 </div>
 
               </div>
 
             </div>
+
           </div>
+        </div>
 
         {/* ──────── BOTTOM SECTION: DEEP NAVY BLUE CANVAS WITH 6 WHITE CARDS ──────── */}
         <div className="relative bg-[#061836] text-white pt-6 pb-6 sm:pb-8">
           <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
+
             {/* 6 Clean White Floating Cards (Grid) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5">
               <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
@@ -714,7 +718,7 @@ export function TheIdeaClient() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0078D4]">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] brand-gradient-text">
                 The Core Philosophy
               </span>
             </div>
@@ -722,9 +726,9 @@ export function TheIdeaClient() {
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-900 tracking-tight leading-tight">
               What we believe
             </h2>
-            
+
             <p className="text-base text-slate-600 mt-3 font-normal">
-              Peers Global rests on four simple, powerful sentences that guide everything we do.
+              We believe entrepreneurship is a journey — not a destination. We believe experience becomes more valuable when it is shared. We believe relationships become stronger when trust is built before transactions. And we believe the growth of one entrepreneur can become the beginning of growth for another.
             </p>
           </div>
         </div>
@@ -778,7 +782,7 @@ export function TheIdeaClient() {
                         Relationships grow through trust.
                       </h3>
                       <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
-                        Consistent presence, honest conversations, and shared values.
+                        Trust is built before transactions and before referrals. It is what makes a relationship resilient and useful over time.
                       </p>
                     </div>
                   </div>
@@ -802,7 +806,7 @@ export function TheIdeaClient() {
                         Trust grows through giving first.
                       </h3>
                       <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
-                        Helping without keeping score. Supporting before asking.
+                        Contribution comes before any ask. A peer gives because they know it builds the deeper foundation on which good businesses are built.
                       </p>
                     </div>
                   </div>
@@ -826,7 +830,7 @@ export function TheIdeaClient() {
                         Giving starts with showing up.
                       </h3>
                       <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
-                        Being in the room, fully present, ready to contribute.
+                        Being in the room, fully present, and ready to contribute is the first step toward a stronger entrepreneurial community.
                       </p>
                     </div>
                   </div>
@@ -859,7 +863,7 @@ export function TheIdeaClient() {
                   className="size-full object-cover object-center scale-[1.03] group-hover:scale-105 transition-transform duration-700"
                 />
               )}
-              
+
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-black/15 to-transparent pointer-events-none" />
               <div className="absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-black/35 to-transparent pointer-events-none" />
 
@@ -911,7 +915,7 @@ export function TheIdeaClient() {
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-black/20 to-transparent pointer-events-none" />
-            
+
             <div className="absolute top-6 right-6 z-10 text-right select-none pointer-events-none">
               <div className="px-3.5 py-1.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/20">
                 <p className="text-xs font-bold text-white tracking-wider uppercase">People · Ideas · Growth</p>
@@ -939,14 +943,14 @@ export function TheIdeaClient() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-sky-300 mb-3">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] brand-gradient-text mb-3">
                 Read Them From The Bottom Up
               </span>
               <h3 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-white tracking-tight leading-snug">
                 Give first. Build trust. Deepen the relationship. Grow the business.
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 font-normal mt-3.5 max-w-xl leading-relaxed">
-                Everything in this community exists to make that sequence happen reliably, for thousands of entrepreneurs, again and again.
+                Everything in this community exists to make that sequence happen reliably, for entrepreneurs who want connection, confidence, and an opportunity to grow with the right people around them.
               </p>
             </div>
           </div>
@@ -960,7 +964,7 @@ export function TheIdeaClient() {
       <section className="py-10 sm:py-12 lg:py-14 border-b border-slate-200/80 bg-[#FBFDFF] relative overflow-hidden">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
-            
+
             {/* ──────── LEFT COLUMN: HERO DYNAMIC VIDEO CARD & 3 STAT COUNTERS ──────── */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <div className="relative">
@@ -1094,7 +1098,7 @@ export function TheIdeaClient() {
             <div className="lg:col-span-7 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-3">
                 <span className="h-[1.5px] w-6 bg-[#1D4ED8]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1D4ED8]">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   The Relationship
                 </span>
               </div>
@@ -1120,7 +1124,7 @@ export function TheIdeaClient() {
                         Six months later
                       </h4>
                       <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mt-1">
-                        It means the Peer who introduces you to a client also asks how it went six months later.
+                        It means the Peer who introduces you to a client also asks how it went six months later. That is what trust looks like in a real community.
                       </p>
                     </div>
                   </div>
@@ -1140,7 +1144,7 @@ export function TheIdeaClient() {
                         At the daughter&apos;s wedding
                       </h4>
                       <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mt-1">
-                        It means the person who helped you enter a new market is the one who shows up at your daughter&apos;s wedding.
+                        It means the person who helped you enter a new market is the one who shows up at your daughter&apos;s wedding. Life and business are not separate for the entrepreneur; they belong to the same story.
                       </p>
                     </div>
                   </div>
@@ -1160,7 +1164,7 @@ export function TheIdeaClient() {
                         United growth
                       </h4>
                       <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mt-1">
-                        It means the business relationship and the human relationship grow together, because for entrepreneurs they were never really separate.
+                        It means the business relationship and the human relationship grow together, because for entrepreneurs they were never really separate. That is why Peers Global is built around a broader idea of relationship.
                       </p>
                     </div>
                   </div>
@@ -1209,7 +1213,7 @@ export function TheIdeaClient() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0078D4]">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] brand-gradient-text">
                 Our Architecture
               </span>
             </div>
@@ -1217,13 +1221,13 @@ export function TheIdeaClient() {
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-900 tracking-tight leading-tight">
               What we are building
             </h2>
-            
+
             <p className="text-lg sm:text-xl text-[#0078D4] mt-2.5 font-semibold tracking-tight">
               Not a networking group. A leadership organisation.
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed font-normal max-w-2xl mx-auto">
-              Peers Global is the World&apos;s First Community of Collaboration, built on the LSR Growth Model — Learning, Sales and Resources — with a mission to enhance the lives of one million entrepreneurs.
+              The original question was simple: how can entrepreneurs help one another grow? The answer could have been another networking platform. Instead, Peers Global chose to build something broader — a leadership organisation where growth is understood through learning, sharing and relationships.
             </p>
           </div>
 
@@ -1243,7 +1247,7 @@ export function TheIdeaClient() {
                   Your Inner Board
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  Eighteen industry and goal-specific Circles. A peer board of 30 to 50 vetted entrepreneurs who challenge your blind spots and celebrate your milestones.
+                  The Circle is not simply a gathering of entrepreneurs. It is an environment where relationships can become a source of strength. A place where experience moves from one entrepreneur to another, and where helping someone else becomes part of your own growth.
                 </p>
               </div>
               <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
@@ -1271,7 +1275,7 @@ export function TheIdeaClient() {
                   10 Forms of Collaboration
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  From Strategic Co-Selling and JV Ventures to Knowledge Circles and Resource Pooling. Clear frameworks that turn intent into tangible, measurable outcomes.
+                  Different ways in which one entrepreneur can create value for another. Whether through referrals, mentoring, market access, introductions or practical support, the point is to move from contact to contribution.
                 </p>
               </div>
               <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
@@ -1299,7 +1303,7 @@ export function TheIdeaClient() {
                   One Action = One Life
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  A transparent recognition system where one action equals one life impacted. Celebrating contribution, active participation, and real MSME empowerment.
+                  The ambition is simple: one entrepreneur helped, one relationship strengthened, one opportunity created, one life changed. When one action becomes part of something larger, impact multiplies.
                 </p>
               </div>
               <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
@@ -1327,7 +1331,7 @@ export function TheIdeaClient() {
                   Leadership Pathway
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  From member to ecosystem owner: Leadership Team (LT), Circle Director (CD), Circle Founder (CF), Industry Director (ID), and Regional Executive Director (RED).
+                  Nobody arrives here as a Director. Every leadership role is held by someone who first sat in a Circle as a Peer, contributed consistently, and earned the trust of the people around them.
                 </p>
               </div>
               <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
@@ -1355,7 +1359,7 @@ export function TheIdeaClient() {
                   LSR Growth Model
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  Learning from real operators, Sales through high-trust relationships, and Resources pooled together for collective scale and bargaining power.
+                  Learning. Sharing. Relationships. These three dimensions of entrepreneurial growth become stronger when developed together, allowing one entrepreneur to help another rise.
                 </p>
               </div>
               <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
@@ -1383,7 +1387,7 @@ export function TheIdeaClient() {
                   Unity App Platform
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  The Unity App running every day in between meetings — digital referrals, verified member directory, 1-to-1 matchmaking, and meeting registrations.
+                  The Unity App is the everyday operating layer — a place where members stay connected, access the right people, and keep the community active between meetings.
                 </p>
               </div>
               <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
@@ -1400,7 +1404,7 @@ export function TheIdeaClient() {
           <div className="flex justify-center mt-8 sm:mt-10 relative z-10">
             <Link
               href="/circles"
-              className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-6 py-2.5 text-sm font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-6 py-2.5 text-sm font-semibold transition-opacity"
             >
               <span>Explore Our World</span>
               <ArrowRight className="size-4" />
@@ -1413,11 +1417,15 @@ export function TheIdeaClient() {
       {/* =========================================================================
           7. THE 1 MILLION MISSION
           ========================================================================= */}
-      <section id="one-million-mission" className="relative overflow-hidden bg-[#0A1128] py-14 sm:py-18 text-white border-b border-slate-800">
+      <section
+        id="one-million-mission"
+        className="relative overflow-hidden py-14 sm:py-18 text-white border-b border-slate-800"
+        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+      >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-2xl text-left mb-10 sm:mb-12">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#38BDF8]">
+          <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-12">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
                 Mission 2030
               </span>
             </div>
@@ -1427,16 +1435,16 @@ export function TheIdeaClient() {
             </h2>
 
             <p className="font-semibold text-lg sm:text-xl text-[#38BDF8] mb-3 tracking-tight">
-              1M+ entrepreneurs impacted by 2030.
+              1M+ entrepreneurs to impact by 2030.
             </p>
 
-            <p className="text-base text-slate-300 font-normal leading-relaxed max-w-xl">
-              We are building the world&apos;s most purposeful community of entrepreneurs — where collaboration creates confidence, visibility and growth for a better tomorrow.
+            <p className="text-base text-slate-200 font-normal leading-relaxed max-w-xl mx-auto">
+              The number is not intended to represent a crowd. It represents a possibility: one entrepreneur helped, one relationship strengthened, one experience shared, one opportunity created, one life changed. And then another.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative mb-8">
-            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex items-start gap-4">
+            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex flex-col items-center text-center gap-4">
               <div className="size-11 rounded-[4px] bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30">
                 <User className="size-5.5" />
               </div>
@@ -1453,7 +1461,7 @@ export function TheIdeaClient() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex items-start gap-4">
+            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex flex-col items-center text-center gap-4">
               <div className="size-11 rounded-[4px] bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30">
                 <BarChart3 className="size-5.5" />
               </div>
@@ -1470,7 +1478,7 @@ export function TheIdeaClient() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex items-start gap-4">
+            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex flex-col items-center text-center gap-4">
               <div className="size-11 rounded-[4px] bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30">
                 <Users2 className="size-5.5" />
               </div>
@@ -1489,8 +1497,8 @@ export function TheIdeaClient() {
           </div>
 
           {/* Founder Quote in Dark Box */}
-          <div className="max-w-4xl mx-auto rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 sm:p-7 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
-            <div className="flex items-center gap-5 sm:gap-6 flex-1">
+          <div className="max-w-4xl mx-auto rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 sm:p-7 shadow-sm flex flex-col items-center text-center gap-6 mb-8">
+            <div className="flex flex-col items-center gap-5 sm:gap-6">
               <div className="size-18 rounded-full overflow-hidden shrink-0 border-2 border-sky-400/50 shadow-sm relative bg-blue-900">
                 <Image
                   src="/images/dr-parmar-avatar.jpg"
@@ -1527,7 +1535,21 @@ export function TheIdeaClient() {
       {/* =========================================================================
           8. CLOSING SECTION
           ========================================================================= */}
-      <ClosingCtaSection />
+      <ClosingCtaSection
+        eyebrow="THE IDEA"
+        title={
+          <>
+            Entrepreneurs should not have to build alone.
+            <span className="block sm:inline"> They should have people around them who understand the journey.</span>
+          </>
+        }
+        subtitle="Peers are Partners in Business and Friends in Life."
+        description="Circles, not crowds. Trust, not transactions. Peers, not gurus. Download the Unity App and begin with the people."
+        primaryButtonText="DOWNLOAD THE UNITY APP"
+        primaryButtonHref="/unity"
+        secondaryButtonText="START A CIRCLE"
+        secondaryButtonHref="/membership"
+      />
 
       {/* =========================================================================
           9. INTERACTIVE VIDEO PLAYER MODAL

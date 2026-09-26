@@ -233,13 +233,7 @@ export default function CultureAndCodePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* =========================================================================
-          SECTION 1: HERO ("OUR CULTURE & CODE")
-          Dark Executive Cinematic Banner matching reference design
-          ========================================================================= */}
       <section className="relative overflow-hidden bg-[#050C1A] text-white pt-8 pb-16 sm:pb-24 border-b border-slate-800">
-        
-        {/* Subtle Ambient Radial Glows */}
         <div
           aria-hidden
           className="pointer-events-none absolute -top-24 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[140px]"
@@ -250,8 +244,6 @@ export default function CultureAndCodePage() {
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Top Breadcrumb */}
           <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-medium tracking-wide mb-8 sm:mb-12">
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -263,33 +255,25 @@ export default function CultureAndCodePage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            
-            {/* Left Content (6 cols) */}
             <div className="lg:col-span-6 flex flex-col items-start">
-              
-              {/* Eyebrow */}
               <div className="inline-flex items-center gap-2.5 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
                 <span className="w-6 h-[1.5px] bg-sky-400" />
                 <span>THE PEERS CODE</span>
                 <span className="w-6 h-[1.5px] bg-sky-400" />
               </div>
 
-              {/* Title */}
               <h1 className="font-serif text-4xl sm:text-6xl lg:text-[62px] font-normal text-white tracking-tight leading-[1.08] mb-5">
                 Our Culture & Code
               </h1>
 
-              {/* Subline */}
               <p className="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed mb-3 max-w-xl">
                 Culture is what a community does, repeatedly, until it becomes who they are.
               </p>
 
-              {/* Supporting Line */}
               <p className="text-sm sm:text-base text-slate-400 font-light leading-relaxed mb-8 max-w-xl">
                 Six commitments. One standard. Every Circle, every city, every country.
               </p>
 
-              {/* CTA Buttons */}
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/membership"
@@ -306,14 +290,10 @@ export default function CultureAndCodePage() {
                   Visit a Circle
                 </Link>
               </div>
-
             </div>
 
-            {/* Right Media (6 cols): Executive Desk Scene with Journal */}
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] aspect-[16/11] sm:aspect-[16/10] group">
-                
-                {/* Desk Photograph */}
                 <Image
                   src="/images/culture-hero-desk.jpg"
                   alt="The Peers Code journal on executive desk"
@@ -321,11 +301,8 @@ export default function CultureAndCodePage() {
                   priority
                   className="object-cover object-center brightness-[0.92] contrast-[1.08] transition-transform duration-700 group-hover:scale-105"
                 />
-
-                {/* Subtle vignette gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/20 pointer-events-none" />
 
-                {/* Script Typography Overlaid on the Open Journal */}
                 <div className="absolute top-[38%] left-[28%] sm:left-[32%] -translate-y-1/2 pointer-events-none select-none text-left">
                   <div
                     className="text-slate-800 text-lg sm:text-2xl font-bold leading-tight drop-shadow-xs"
@@ -337,7 +314,6 @@ export default function CultureAndCodePage() {
                   </div>
                 </div>
 
-                {/* Script Typography on bottom right */}
                 <div className="absolute bottom-5 right-6 sm:bottom-7 sm:right-7 pointer-events-none select-none text-right">
                   <div
                     className="text-white/95 text-lg sm:text-xl font-normal leading-tight drop-shadow-lg"
@@ -348,23 +324,13 @@ export default function CultureAndCodePage() {
                     <span className="text-amber-300">Across every room.</span>
                   </div>
                 </div>
-
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
-
-      {/* =========================================================================
-          SECTION 2: "WHY A COMMUNITY NEEDS A WRITTEN CODE"
-          Pure White Section with Quote Card
-          ========================================================================= */}
       <section className="relative py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200/80">
-        
-        {/* Subtle Watermark World Map Graphics in Background */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-[0.035] pointer-events-none overflow-hidden select-none">
           <svg viewBox="0 0 1000 600" fill="currentColor" className="w-full h-full text-slate-900">
             <circle cx="200" cy="200" r="140" />
@@ -373,98 +339,45 @@ export default function CultureAndCodePage() {
           </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left 7 cols: Content */}
-            <div className="lg:col-span-7 flex flex-col items-start">
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-                <span>OUR COMMON GROUND</span>
-              </div>
-
-              {/* Headline */}
-              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-6">
-                Why a community needs a written code
-              </h2>
-
-              {/* Narrative Paragraphs */}
-              <div className="space-y-4 text-slate-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl">
-                <p className="text-base sm:text-lg text-slate-700 font-normal">
-                  In one room, culture takes care of itself. Everyone can see everyone. What is expected is obvious.
-                </p>
-                <p>
-                  Across many Circles in many cities, it cannot work that way. A Peer in one city has never met a Peer in another, yet both need to know exactly what is expected of them and exactly what they can expect in return.
-                </p>
-                <p className="text-slate-900 font-medium">
-                  That is what the Peers Code does.
-                </p>
-                <p>
-                  It is the agreement that makes a Circle in any city recognisable to a Peer from any other. It travels with the community as it grows, and it is the reason trust here does not weaken with distance.
-                </p>
-                <p>
-                  Three things carry it. <strong className="text-slate-900 font-semibold">The Code</strong> is what we commit to. <strong className="text-slate-900 font-semibold">The Conduct</strong> is how it looks in daily practice. <strong className="text-slate-900 font-semibold">The Rituals</strong> are what we repeat until it becomes natural.
-                </p>
-              </div>
-
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+              <span>WHY A WRITTEN CODE?</span>
             </div>
 
-            {/* Right 5 cols: Quote Card */}
-            <div className="lg:col-span-5 flex lg:justify-end">
-              <div className="bg-[#FAFBFD] rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.03)] max-w-md w-full relative">
-                
-                {/* Large Blue Quote Mark */}
-                <Quote className="size-9 text-[#0062D2] mb-5 opacity-80" />
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+              A community can have a powerful idea. It can have a beautiful vision. But culture is created by what people do when nobody is watching.
+            </h2>
 
-                {/* Quote Text */}
-                <p className="font-serif italic text-2xl sm:text-[26px] text-slate-800 font-normal leading-snug mb-6">
-                  &ldquo;The Code is what we commit to. <br />
-                  The Conduct is how it looks in practice. <br />
-                  <span className="text-[#0062D2] font-normal">The Rituals are what we repeat</span> <br />
-                  until it becomes natural.&rdquo;
-                </p>
-
-                {/* Attribution */}
-                <div className="pt-5 border-t border-slate-200/70 text-xs font-bold tracking-[0.25em] text-slate-400 uppercase">
-                  PEERS GLOBAL
-                </div>
-
-              </div>
+            <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed">
+              <p>
+                Good intentions are not enough. A community becomes complex as it grows. Different businesses. Different personalities. Different expectations. Different experiences. What feels obvious to one person may not be obvious to another.
+              </p>
+              <p>
+                A written Code creates a shared understanding. It tells every Peer: this is how we treat one another here. Not because people need to be controlled, but because people deserve to know the standard of the community they have chosen to enter.
+              </p>
+              <p>
+                The Code protects the quality of the environment. It protects trust. It protects relationships. And ultimately, it protects the person who walks into a Circle expecting to be treated with dignity.
+              </p>
             </div>
-
           </div>
 
+          <div className="rounded-3xl border border-slate-200 bg-[#FAFBFD] p-8 sm:p-10 shadow-[0_10px_35px_rgba(0,0,0,0.03)]">
+            <Quote className="size-9 text-[#0062D2] mb-5 opacity-80" />
+            <p className="font-serif italic text-2xl sm:text-[28px] text-slate-800 leading-snug">
+              &ldquo;A written Code is not a document for formality. It is a standard for trust.&rdquo;
+            </p>
+          </div>
         </div>
       </section>
 
-
-      {/* =========================================================================
-          SECTION 3: THE PEERS CODE — SIX COMMITMENTS EVERY PEER MAKES
-          Large Numbered Navy & Gold Cards (The Visual Centre)
-          ========================================================================= */}
       <section id="the-code" className="relative py-20 sm:py-28 bg-[#FAFBFD] text-slate-900 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16 relative">
-            
-            {/* Cursive Accent */}
-            <div className="hidden md:block absolute -right-32 -top-5 pointer-events-none select-none text-right">
-              <p
-                className="text-[#0062D2] text-2xl font-bold leading-tight drop-shadow-xs -rotate-3"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Six Commitments. <br />
-                Every Circle.
-              </p>
-            </div>
-
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              <span>THE FOUNDATIONAL PLEDGE</span>
+              <span>THE SIX COMMITMENTS</span>
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             </div>
 
@@ -473,11 +386,10 @@ export default function CultureAndCodePage() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
-              Six commitments every Peer makes. Set in stone. Agreed to before joining. Lived out in every room.
+              The exact six commitments from the approved Peers Code are reproduced below without editorial alteration.
             </p>
           </div>
 
-          {/* 6 Commitments Grid (2 columns on desktop for generous spacing) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {PEERS_CODE_COMMITMENTS.map((item) => {
               const IconComp = item.icon
@@ -488,7 +400,6 @@ export default function CultureAndCodePage() {
                   className="relative bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-[0_6px_25px_rgba(0,0,0,0.03)] hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group scroll-mt-28"
                 >
                   <div>
-                    {/* Top Row: Numeral in Luxury Amber & Icon */}
                     <div className="flex items-center justify-between mb-6">
                       <span className="font-serif text-4xl sm:text-5xl font-bold text-amber-500 tracking-tight">
                         {item.num}.
@@ -498,147 +409,66 @@ export default function CultureAndCodePage() {
                       </div>
                     </div>
 
-                    {/* Commitment Title */}
                     <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-slate-900 mb-3 tracking-tight">
                       {item.title}
                     </h3>
 
-                    {/* Essence Subline */}
                     <p className="text-sm font-semibold text-[#0062D2] mb-4">
                       {item.essence}
                     </p>
 
-                    {/* Detailed Paragraph */}
                     <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
                       {item.description}
                     </p>
                   </div>
-
-                  {/* Bottom Anchor / Link identifier */}
-                  <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-mono">
-                    <span># {item.id}</span>
-                    <a
-                      href={`#${item.id}`}
-                      className="text-slate-400 hover:text-[#0062D2] transition-colors"
-                      title="Direct link to this commitment"
-                    >
-                      Anchor Link
-                    </a>
-                  </div>
                 </div>
               )
             })}
           </div>
-
         </div>
       </section>
 
-
-      {/* =========================================================================
-          SECTION 4: THE CONDUCT EXPECTED OF EVERY PEER
-          3 Columns for Inside Circle, When Collaborating, Across Community
-          ========================================================================= */}
       <section className="relative py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              <span>PRACTICE IN ACTION</span>
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+              <span>WHAT THE CODE ASKS OF US</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-4">
-              The conduct expected of every Peer
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+              Be the kind of Peer you would want beside you.
             </h2>
 
-            <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
-              The Code is what we commit to. This is what it looks like in practice.
-            </p>
+            <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed">
+              <p>
+                The Code becomes meaningful through everyday behaviour. That means remembering that the person across the table is not a lead. Not a prospect. Not a source of business. Not a number.
+              </p>
+              <p>
+                They are a person who has chosen to spend part of their entrepreneurial journey in this community. So we listen. We respect. We contribute. We keep our word. We honour confidentiality. We disagree without diminishing the person. We celebrate contribution without making recognition a competition. And when someone needs help, we remember that asking for help is not weakness. It is part of being human.
+              </p>
+            </div>
           </div>
-
-          {/* 3 Columns Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14">
-            {CONDUCT_PILLARS.map((col, idx) => {
-              const PillarIcon = col.icon
-              return (
-                <div
-                  key={idx}
-                  className="bg-[#FAFBFD] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between hover:border-slate-300 transition-all group"
-                >
-                  <div>
-                    {/* Header */}
-                    <div className="flex items-center gap-3.5 mb-5 pb-5 border-b border-slate-200/80">
-                      <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        <PillarIcon className="size-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-serif text-xl font-bold text-slate-900 leading-snug">
-                          {col.pillar}
-                        </h3>
-                        <p className="text-xs text-slate-500 font-light">
-                          {col.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Clean Bulleted List */}
-                    <ul className="space-y-3.5">
-                      {col.rules.map((rule, rIdx) => (
-                        <li key={rIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 font-light leading-relaxed">
-                          <CheckCircle2 className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                          <span>{rule}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Guidelines CTA */}
-          <div className="text-center">
-            <Link
-              href="/legal/community-guidelines"
-              className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 items-center gap-2"
-            >
-              <span>Read the Full Community Guidelines</span>
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-
         </div>
       </section>
 
-
-      {/* =========================================================================
-          SECTION 5: CONFIDENTIALITY IS THE FOUNDATION
-          Full-width, Dignified Editorial Treatment with Larger Type
-          ========================================================================= */}
       <section className="relative py-24 sm:py-32 bg-[#0A1324] text-white overflow-hidden border-b border-slate-800">
-        
-        {/* Ambient Subtle Radial Glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/10 blur-[150px]"
         />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          
-          {/* Eyebrow */}
           <div className="inline-flex items-center gap-2.5 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-6">
             <Lock className="size-3.5 text-sky-400" />
-            <span>CONFIDENTIALITY IS ABSOLUTE</span>
+            <span>CONFIDENTIALITY IS THE FOUNDATION</span>
             <Lock className="size-3.5 text-sky-400" />
           </div>
 
-          {/* Headline */}
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.15] mb-8">
-            Confidentiality is the foundation
+            Trust cannot exist where people are afraid to speak.
           </h2>
 
-          {/* Standout Bold Callout */}
           <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-10 mb-8 backdrop-blur-sm shadow-2xl">
             <p
               className="text-2xl sm:text-3xl lg:text-4xl text-sky-300 font-normal leading-snug drop-shadow-sm"
@@ -648,93 +478,60 @@ export default function CultureAndCodePage() {
             </p>
           </div>
 
-          {/* Core Paragraphs */}
           <div className="space-y-6 text-slate-300 font-light text-base sm:text-xl leading-relaxed text-left sm:text-center max-w-3xl mx-auto">
             <p>
-              Of the six commitments, one carries more weight than the rest.
+              Entrepreneurs sometimes carry questions they cannot discuss openly elsewhere. A difficult business decision. A partnership concern. A people issue. A financial challenge. A leadership dilemma. A personal situation affecting the business.
             </p>
             <p className="text-white font-normal text-lg sm:text-2xl">
-              An entrepreneur will only speak about a difficult quarter, a partner who has become a problem, or a decision they are afraid of, if they are certain it goes no further.
+              The value of a trusted community is that people can sometimes say “I don’t know,” or “I made a mistake,” or simply “I need help.”
             </p>
             <p className="text-slate-400 text-sm sm:text-base">
-              Remove that certainty and the conversation immediately becomes a performance — polite, professional and useless.
-            </p>
-            <p className="pt-4 border-t border-white/10 text-sky-400 font-medium text-base sm:text-lg">
-              So confidentiality here is absolute. Not a preference, not a courtesy. The condition on which everything else in this community depends.
+              That possibility exists only when people believe their words will be respected. Confidentiality is therefore not a courtesy. It is foundational to trust.
             </p>
           </div>
-
         </div>
       </section>
 
-
-      {/* =========================================================================
-          SECTION 6: HOW STANDARDS ARE UPHELD
-          Visually Quieter, Stated as Fact (Governance & Accountability)
-          ========================================================================= */}
-      <section className="relative py-20 sm:py-24 bg-[#F8FAFC] text-slate-900 border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-[0_4px_25px_rgba(0,0,0,0.02)]">
-            
-            {/* Header */}
-            <div className="flex items-center gap-3 text-slate-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-              <Scale className="size-4 text-slate-500" />
-              <span>STANDARDS & GOVERNANCE</span>
-            </div>
-
-            <h2 className="font-serif text-2xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-snug mb-3">
-              How standards are upheld
-            </h2>
-
-            <p className="text-base sm:text-lg text-[#0062D2] font-serif italic mb-6">
-              A standard nobody upholds is only a suggestion.
-            </p>
-
-            {/* Explanatory Narrative */}
-            <div className="space-y-4 text-slate-600 font-light text-sm sm:text-base leading-relaxed">
-              <p>
-                Certain behaviours end a Peer&apos;s place in this community. Using the room to sell rather than to give. Breaking the confidence of a Circle. Misrepresenting Peers Global for personal gain. Treating any Peer with disrespect. Sustained absence without commitment.
-              </p>
-              <p>
-                These situations are uncommon, and they are handled quietly, fairly and directly by Circle Directors — first through a conversation, and only afterwards through any further step.
-              </p>
-              <p className="pt-3 border-t border-slate-100 text-slate-800 font-medium">
-                We publish this openly because an entrepreneur deciding whether to join deserves to know both sides of the agreement: what is asked of them, and what every Peer around them has already agreed to.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* =========================================================================
-          SECTION 7: THE RITUALS THAT BUILD TRUST
-          Photography-backed Cards for the 5 Rituals
-          ========================================================================= */}
       <section className="relative py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            <span>RESPECT IS NOT OPTIONAL</span>
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+            Every Peer deserves to feel respected and honoured.
+          </h2>
+
+          <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed">
+            <p>
+              A community can be selective without becoming elitist. It can have standards without making people feel small. It can disagree without becoming disrespectful. And it can recognise achievement without creating hierarchy between human beings.
+            </p>
+            <p>
+              At PEERS GLOBAL, the standard should be simple: People should feel respected and honoured. That includes the entrepreneur who has built a large organisation and the entrepreneur who is still building the first one. The experienced founder. The first-generation entrepreneur. The person asking for help. The person offering it. The person leading the room. And the person quietly listening from the corner.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20 sm:py-28 bg-[#EEF5FC] text-slate-900 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              <span>THE FIVE SHARED PRACTICES</span>
+              <span>THE RITUALS</span>
               <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-4">
-              The rituals that build trust
+              Culture becomes real through repeated moments.
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
-              Rituals are how a culture passes from one Peer to the next without being explained. These five repeat across every Circle in the community.
+              The PEERS GLOBAL rituals give the community recurring opportunities to practise its values.
             </p>
           </div>
 
-          {/* 5 Rituals Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-14">
             {RITUALS_DATA.map((ritual, idx) => {
               const RitualIcon = ritual.icon
@@ -743,7 +540,6 @@ export default function CultureAndCodePage() {
                   key={idx}
                   className="bg-[#FAFBFD] rounded-3xl overflow-hidden border border-slate-200/90 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-slate-300 transition-all flex flex-col group"
                 >
-                  {/* Photo Container */}
                   <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                     <Image
                       src={ritual.image}
@@ -752,19 +548,16 @@ export default function CultureAndCodePage() {
                       className="object-cover object-center filter brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                    
-                    {/* Badge top-left */}
+
                     <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-xs font-mono font-bold px-3 py-1 rounded-full border border-white/20">
                       RITUAL {ritual.num}
                     </div>
 
-                    {/* Icon bottom-right */}
                     <div className="absolute bottom-4 right-4 size-9 rounded-xl bg-white/90 text-[#0062D2] flex items-center justify-center shadow-md">
                       <RitualIcon className="size-4.5" />
                     </div>
                   </div>
 
-                  {/* Body Content */}
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                     <div>
                       <h3 className="font-serif text-xl font-bold text-slate-900 mb-2 leading-snug">
@@ -779,64 +572,108 @@ export default function CultureAndCodePage() {
               )
             })}
           </div>
-
-          {/* Circle Meeting Experience CTA */}
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-sm text-slate-500 font-light mb-6">
-              For the full meeting structure and timings, see the Circle Meeting Experience.
-            </p>
-            <Link
-              href="/circle-meeting-experience"
-              className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 items-center gap-2"
-            >
-              <span>See a Circle Meeting</span>
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-
         </div>
       </section>
 
+      <section className="relative py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            <span>HOW STANDARDS ARE UPHELD</span>
+          </div>
 
-      {/* =========================================================================
-          SECTION 8: WHAT THIS CULTURE PROTECTS
-          Emotional & Purpose-Driven Alignment
-          ========================================================================= */}
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+            A Code has meaning only when it is respected.
+          </h2>
+
+          <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed">
+            <p>
+              A written Code is not useful if it exists only as a page on a website. PEERS GLOBAL therefore treats standards as part of the community experience. Concerns about conduct should be taken seriously. People should have a clear understanding of what behaviour is expected. And where behaviour falls outside the community&apos;s standards, it should be addressed through the appropriate organisational process.
+            </p>
+            <p>
+              The purpose is not punishment for its own sake. The purpose is protection. Protection of trust. Protection of people. Protection of the Circle. Protection of the culture that every Peer has entered in good faith.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="relative py-20 sm:py-28 bg-[#EEF5FC] text-slate-900 border-b border-slate-200/80">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          
           <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            <span>THE WHOLE PRODUCT</span>
+            <span>WHAT THIS CULTURE PROTECTS</span>
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-6">
-            What this culture protects
+            Trust. Confidentiality. Respect. Contribution. Belonging. Collaboration.
           </h2>
 
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-[0_6px_30px_rgba(0,0,0,0.03)] space-y-6 text-left sm:text-center max-w-3xl mx-auto">
             <p className="text-xl sm:text-2xl font-serif text-slate-900 font-normal leading-relaxed">
-              Every commitment on this page exists to protect one thing. <br className="hidden sm:inline" />
-              <span className="text-[#0062D2]">A room where an entrepreneur can be completely honest.</span>
+              Culture is often described by what it creates. But strong culture is also defined by what it refuses to allow to disappear.
             </p>
-
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-              A place where a Peer can say this quarter is difficult, or I do not know what to do about this partner, or I am tired — and be met with understanding, then with help.
-            </p>
-
-            <p className="text-sm sm:text-base font-semibold text-slate-900 pt-4 border-t border-slate-100">
-              That room is the entire product. The Code, the conduct and the rituals exist for no other reason than to keep it intact as this community grows from one Circle to a thousand.
+              We protect trust because meaningful relationships cannot be built without it. We protect confidentiality because entrepreneurs need places where they can speak honestly. We protect respect because no achievement gives one person permission to diminish another. We protect contribution because communities become stronger when people give, not only take.
             </p>
           </div>
-
         </div>
       </section>
 
+      <section className="relative py-20 sm:py-28 bg-white text-slate-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+              <span>CULTURE IS EVERYDAY</span>
+            </div>
 
-      {/* =========================================================================
-          SECTION 9: CLOSING BANNER
-          ========================================================================= */}
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+              Culture is not created at an annual summit. It is created in the small moments.
+            </h2>
+
+            <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed">
+              <p>
+                When someone makes an introduction. When someone shares a difficult lesson. When someone listens without interrupting. When a new Peer is welcomed. When confidential information remains confidential. When someone says, “I can help,” and when someone else feels safe enough to say, “I need help.”
+              </p>
+              <p>
+                That is culture. Repeated. Practised. Experienced. Remembered. And eventually, owned by the people inside the community.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-[#061836] p-8 sm:p-10 text-white shadow-xl">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-sky-300 mb-3">THE CULTURE TEST</p>
+            <h3 className="font-serif text-3xl sm:text-4xl leading-tight">
+              Before asking what PEERS GLOBAL can do for us, perhaps we should ask: what kind of person am I becoming inside this community?
+            </h3>
+          </div>
+
+          <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm">
+            <h3 className="font-serif text-3xl text-slate-900">Come experience the culture</h3>
+            <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+              You can read about a community. You can understand its structure. You can learn its language. But culture is ultimately experienced through people. Meet the people. Enter the Circle. Listen to the conversations. Experience the relationships. And decide what this environment could mean for your own entrepreneurial journey.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/membership"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0062D2] px-7 py-3.5 text-sm font-semibold text-white hover:bg-[#0052B4] transition-all"
+              >
+                <span>Download the Unity App</span>
+                <ArrowRight className="size-4" />
+              </Link>
+              <Link
+                href="/circles"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-900 hover:border-slate-400 transition-all"
+              >
+                <span>Find a Circle</span>
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ClosingCtaSection
         eyebrow="THE PEERS CODE BUILDS THE FUTURE"
         title={
@@ -852,7 +689,6 @@ export default function CultureAndCodePage() {
         secondaryButtonText="VISIT A CIRCLE"
         secondaryButtonHref="/circles"
       />
-
     </div>
   )
 }

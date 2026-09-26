@@ -191,7 +191,7 @@ export function FounderClient() {
         </div>
       </section>
 
-      {/* ─── Chapter 1: Botad (The Roots) ─── */}
+      {/* ─── Chapter 1: From Farmer to Founder ─── */}
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
@@ -199,32 +199,26 @@ export function FounderClient() {
             Chapter 01 &mdash; The Roots
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
-            Botad
+            From Farmer to Founder
           </h2>
           <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
             <p className="text-lg sm:text-xl font-serif text-[#061836] font-medium leading-relaxed">
-              He grew up in a farmer family in Botad, watching life closely — hard work, uncertainty, seasons deciding whether there would be income that year, and dignity without money.
+              Dr. Pravin Parmar&apos;s journey belongs to the second kind. He comes from a farmer family. He grew up with the experience of a farming life, studied in a government school, moved towards higher education, entered technology, became an entrepreneur—and eventually began building something that went beyond his own businesses.
             </p>
             <p>
-              When you grow up like that, you do not dream of shortcuts. You dream of stability, respect, and building something that lasts. There was no formal higher education in the household, but there was an unshakeable bedrock of moral character and perseverance.
+              Today, he is the Founder of PEERS GLOBAL. But that title tells only one part of his story. To understand what he is building, it helps to understand the journey that brought him here.
             </p>
             <p>
-              He also watched a village carry its own people through a failed season. When the monsoon faltered or drought threatened the harvest, nobody faced catastrophe alone. Neighbors divided grain, elders shared wells, and people carried each other through the winter. In Botad that was ordinary. It took him thirty years to see how rare it was elsewhere.
+              Even today, Dr. Pravin describes himself as a farmer. It is not simply a description of where he came from. It is part of how he sees life. A farmer understands that what you invest today may not produce its result immediately. You prepare. You learn. You work. You wait. You adapt. And you continue.
             </p>
-          </div>
-        </div>
-
-        {/* Full-width editorial quote card */}
-        <div className="mt-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-white border-l-4 border-[#0062D2] border border-blue-100/80 shadow-2xs">
-            <p className="text-xl sm:text-2xl md:text-3xl font-serif italic text-[#061836] leading-snug">
-              &ldquo;When a season failed in Botad, nobody faced it alone. People carried each other. In that village it was ordinary. In the business world, it turned out to be almost non-existent.&rdquo;
+            <p>
+              That way of thinking has remained with him through every stage of his entrepreneurial journey. He has also described himself as a lifelong student. Because for him, learning does not stop when education ends. It continues through experience. Through people. Through mistakes. Through markets. Through challenges. And through the process of building something that has never existed before.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Chapter 2: The Decision That Set The Direction ─── */}
+      {/* ─── Chapter 2: The Decision That Set the Direction ─── */}
       <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
@@ -235,284 +229,207 @@ export function FounderClient() {
             The decision that set the direction
           </h2>
           <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
-            <p className="text-lg sm:text-xl font-serif text-[#061836] font-medium leading-relaxed">
-              He could not speak English. Government school background. When he decided he needed to learn, the teachers and the principal said no.
-            </p>
-            <p className="text-xl font-semibold text-[#061836]">
-              He stood up anyway.
+            <p>
+              One of the earliest turning points came during his school years. He was studying in a government school where English was not compulsory in the way he believed it would need to be for his higher studies. He had a choice. Stay with what was familiar. Or prepare himself for what he wanted to pursue later.
             </p>
             <p>
-              It was never really about English. It was about deciding that his background would not determine his ceiling. Authority may control the rules, but he controls his direction.
+              He chose the second. He spoke with the principal and others, accepted the additional effort required, completed his 10th examination in English and subsequently moved into English-medium education for the next stage. He performed strongly. But the marks were not the most important part of that story. The important part was the decision.
             </p>
             <p>
-              He paid his own fees by teaching other students while still studying. The day you earn for yourself, life becomes very real. When you pay your own fees, excuses die quietly. That discipline forged an instinct that never left him: if a door does not open, you do not beg outside it; you build a room of your own.
-            </p>
-          </div>
-        </div>
-
-        {/* Full-width editorial quote */}
-        <div className="mt-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/80 border-l-4 border-l-[#0062D2] shadow-sm">
-            <p className="text-xl sm:text-2xl md:text-3xl font-serif italic text-[#061836] leading-snug">
-              &ldquo;Authority may control the rules, but you control your direction. When you pay your own fees, excuses die quietly.&rdquo;
+              He had identified a future he wanted to prepare for—and changed his present accordingly. That became one of the early mindset shifts in his life.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Chapter 3: Building, and Stopping ─── */}
+      {/* ─── Chapter 3: From Education to Technology ─── */}
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            Chapter 03 &mdash; Hard Truths
+            Chapter 03 &mdash; Building the Future
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
-            Building, and stopping
+            From education to technology
           </h2>
           <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
-            <p className="text-lg sm:text-xl font-serif text-[#061836] font-medium leading-relaxed">
-              He built his own company. He was right about the product and early to the market. Payments did not come, growth stayed limited.
+            <p>
+              His academic journey took him from his early schooling to higher education in Ahmedabad and then to an MCA. His professional career began in the technology ecosystem. He worked with Microsoft as an education evangelist and technofunctional consultant with a Microsoft Gold Partner company.
             </p>
             <p>
-              One day he admitted something honest to himself: this business can run my present, but it cannot build my future.
+              Later came ERP implementation and a deeper understanding of enterprises and how businesses operate. Technology taught him systems. Business taught him complexity. Experience taught him that knowing something and building something are two very different things. Eventually, he wanted to build for himself.
             </p>
-            <p>
-              Stopping was painful. It was also clear.
-            </p>
-            <p className="text-xl font-serif font-semibold text-[#061836]">
-              Failure is not when a business ends. Failure is dragging something that no longer belongs in your future because your ego will not let it go.
-            </p>
-            <p>
-              He closed it cleanly, honored his obligations, and took with him the unvarnished education of what commercial struggle in India really looks like.
-            </p>
-          </div>
-        </div>
-
-        {/* Section image showcase: Conclave / Stage */}
-        <div className="mt-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-[#040E24]">
-            <Image
-              src="/images/executive-director-conclave.jpg"
-              alt="Dr. Pravin Parmar addressing entrepreneurs at Peers Global Conclave"
-              fill
-              sizes="(max-width: 1200px) 100vw, 1100px"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#040e24]/85 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <p className="text-sm font-bold text-sky-400 uppercase tracking-wider">
-                The Real Education
-              </p>
-              <p className="text-lg sm:text-xl font-serif mt-1">
-                &ldquo;Every honest business struggle carries a lesson that no textbook can teach.&rdquo;
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Chapter 4: The Hospital Corridor ─── */}
+      {/* ─── Chapter 4: Building, Struggling, Learning ─── */}
       <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            Chapter 04 &mdash; The Awakening
+            Chapter 04 &mdash; Hard Truths
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
-            The hospital
+            Building, struggling, learning
           </h2>
           <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
-            <p className="text-lg sm:text-xl font-serif text-[#061836] font-medium leading-relaxed">
-              A family crisis, a hospital corridor, and every illusion stripped away.
+            <p>
+              Around 2011, Dr. Pravin started his own venture in information technology. It was the beginning of a new chapter. And, as he later reflected, the entrepreneurial ecosystem was very different at that time. For a first-generation entrepreneur, many things were unfamiliar. Compliance. Processes. Structures. The startup ecosystem itself. He entered anyway. Because sometimes entrepreneurship begins before you have all the answers.
             </p>
             <p>
-              Standing there, looking through the glass, he understood that skills mean very little without the right people around you. So does intelligence. So does hard work.
-            </p>
-            <p className="text-xl font-serif font-bold text-[#061836]">
-              What matters in those moments is who you can call.
+              One of the ventures he built involved a cloud-based, mobile-based HRMS product. It was an early period for cloud technology, and there were uncertainties around the model and the technology. There were struggles. There were experiments. There were lessons. The product was also designed with Africa in mind. Eventually, Dr. Pravin came to another decision. The venture was sold to another company. He took an exit.
             </p>
             <p>
-              He had built capability for years. He had never built a circle. And looking around at the entrepreneurs he knew — the factory owners, the traders, the agency founders — almost none of them had one either. They were fighting brutal battles in isolation, carrying payroll, bad debts, and operational burnout completely on their own shoulders.
+              That could have been the point at which the story ended. Instead, it created the next question: What next?
             </p>
-            <p className="text-xl font-serif font-bold text-[#0062D2]">
-              That was the moment Peers Global became inevitable.
+            <p>
+              After the exit, he wanted to share his story as a first-generation entrepreneur. He approached media platforms, including Times of India and Inc42. He sent his story. But it was not published. That experience stayed with him. Because he began to look at the situation differently. Perhaps the problem was not a shortage of entrepreneurial stories. Perhaps there were simply many stories that were never being heard.
             </p>
-          </div>
-        </div>
-
-        {/* Full-width editorial quote */}
-        <div className="mt-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/80 border-l-4 border-l-[#0062D2] shadow-sm">
-            <p className="text-xl sm:text-2xl md:text-3xl font-serif italic text-[#061836] leading-snug">
-              &ldquo;Skills mean very little without the right people around you. So does intelligence. So does hard work. What matters in those moments is who you can call.&rdquo;
+            <p>
+              And that led to a larger belief: Every story is important. Every story is unique. Every story matters. That belief became part of the foundation for his work in entrepreneurial recognition and later contributed to the thinking behind PEERS GLOBAL.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Chapter 5: What He Built (The Ecosystem) ─── */}
+      {/* ─── Chapter 5: Recognition & Learning ─── */}
       <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              Chapter 05 &mdash; The Ecosystem
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
-              What he built
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Each of them began with the same observation: entrepreneurs should not have to build alone.
-            </p>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            Chapter 05 &mdash; The Founder&apos;s Belief
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Card 1: Peers Global */}
-            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2] transition-transform duration-300 group-hover:scale-110">
-                <Users className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-serif font-bold text-[#061836] group-hover:text-[#0062D2] transition-colors">
-                Peers Global
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                The world&apos;s first community of collaboration, and the community this website belongs to. Curated Circles of entrepreneurs across industries, cities and countries, built on trust and mutual contribution.
-              </p>
-              <Link
-                href="/our-story"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0062D2] hover:text-[#0052B4] pt-2 transition-colors"
-              >
-                Read community story <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Card 2: VyapaarJagat.com */}
-            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
-              <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 transition-transform duration-300 group-hover:scale-110">
-                <Globe2 className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-serif font-bold text-[#061836] group-hover:text-[#0062D2] transition-colors">
-                VyapaarJagat.com
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                A dedicated business media platform for the MSMEs mainstream media ignores. Founded on the conviction that every honest business story deserves respect, dignity and visibility. Even if a business shuts down, its story should never die.
-              </p>
-              <a
-                href="https://vyapaarjagat.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0062D2] hover:text-[#0052B4] pt-2 transition-colors"
-              >
-                Visit VyapaarJagat.com <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-
-            {/* Card 3: 1 Million Forum */}
-            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 transition-transform duration-300 group-hover:scale-110">
-                <Award className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-serif font-bold text-[#061836] group-hover:text-[#0062D2] transition-colors">
-                1 Million Entrepreneurs Forum
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                A Section 8 not-for-profit working toward one million lives impacted through entrepreneurship, collaboration and opportunity. Extending mentorship and support to entrepreneurs who cannot yet afford a commercial seat.
-              </p>
-              <Link
-                href="/1-million-mission"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0062D2] hover:text-[#0052B4] pt-2 transition-colors"
-              >
-                See the mission <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Card 4: Fempreneur & Greenpreneur */}
-            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-4 group">
-              <div className="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 transition-transform duration-300 group-hover:scale-110">
-                <HeartHandshake className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-serif font-bold text-[#061836] group-hover:text-[#0062D2] transition-colors">
-                Fempreneur &amp; Greenpreneur
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                Dedicated national communities for women-led enterprise and sustainability-focused businesses. Creating spaces where unique regulatory, market, and social hurdles are solved collectively.
-              </p>
-              <Link
-                href="/initiatives"
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0062D2] hover:text-[#0052B4] pt-2 transition-colors"
-              >
-                Explore initiatives <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
+            Recognition, learning and the deeper question
+          </h2>
+          <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
+            <p>
+              For Dr. Pravin, recognition is not merely a ceremony. It is about what recognition can do to a person. He recalls a moment from a VyapaarJagat Growth Show in Ahmedabad in 2020. A participant named Krina received recognition on stage. The recognition had an effect beyond the event. It changed how she was perceived within her family and social environment. She cried on the stage.
+            </p>
+            <p>
+              For Dr. Pravin, moments like that demonstrated something important: People want to know that their journey matters. Not everyone needs publicity. But everyone can value being seen. And that distinction became increasingly important in his thinking.
+            </p>
+            <p>
+              There is another characteristic Dr. Pravin repeatedly returns to: learning. He does not present entrepreneurship as a state in which someone eventually becomes complete. Instead, he describes entrepreneurship as a continuing process. The market changes. People change. Businesses change. Technology changes. And the entrepreneur has to keep learning.
+            </p>
+            <p>
+              He has spoken about the need for regular homework, planning and study—even after achieving milestones. Success does not remove the need to learn. It increases the responsibility to keep learning.
+            </p>
+            <p>
+              One of the ideas that emerges strongly from his journey is that people reconstruct themselves continuously. The person who starts something is not necessarily the same person who understands it five years later. Experience changes perspective. Markets change understanding. Challenges change priorities. People change. And therefore, the entrepreneur changes. For Dr. Pravin, this is not a weakness in the journey. It is part of the journey. You learn. You understand. You adapt. You reconstruct. You continue.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Chapter 6: What He Is Trying To Leave Behind (The Legacy) ─── */}
+      {/* ─── Chapter 6: From Entrepreneurship to Community ─── */}
       <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            Chapter 06 &mdash; The Legacy
+            Chapter 06 &mdash; The Community Question
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
-            What he is trying to leave behind
+            From entrepreneurship to community
           </h2>
           <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
-            <p className="text-2xl sm:text-3xl font-serif font-bold text-[#061836]">
-              Not a company.
-            </p>
-            <p className="text-lg sm:text-xl font-serif text-[#061836] font-medium leading-relaxed">
-              A community that keeps working after him — where an entrepreneur in a city he has never visited walks into a room, finds people who understand them, and stops carrying their business alone.
+            <p>
+              The next stage of the journey required a different kind of learning. Before creating PEERS GLOBAL, Dr. Pravin studied and experienced different communities and models, including TiE, BNI, Rotary, Lions, EO, YPO, Vistage and Round Tables. The objective was to understand what already existed—and where something was still missing.
             </p>
             <p>
-              Impact is not money. Impact is confidence, visibility and support.
+              The conclusion was not that existing communities were wrong. It was that there was an opportunity to build something with a different centre of gravity. Not simply networking. Collaboration. Not merely connecting people. Building trusted relationships. Not only business growth. Learning, Sharing and Relationships. That became LSR. And LSR became one of the foundations of PEERS GLOBAL.
             </p>
             <p>
-              If one entrepreneur feels less alone. If one business finds clarity. If one founder finds the right peer. Impact has begun.
+              The organisation that emerged from this thinking was not intended to be simply another networking platform. It was designed as a community of collaboration. A place where entrepreneurs could meet people from relevant industries and purposes. A place where experience could be shared. A place where relationships could deepen. A place where collaboration could become a natural outcome of trust. And a place where an entrepreneur could gradually become more than a participant. A Peer.
             </p>
-            <p className="text-xl font-serif font-bold text-[#0062D2]">
-              Numbers are milestones. Lives are the real metric.
-            </p>
-          </div>
-        </div>
-
-        {/* Full-width editorial quote */}
-        <div className="mt-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/80 border-l-4 border-l-[#0062D2] shadow-sm">
-            <p className="text-xl sm:text-2xl md:text-3xl font-serif italic text-[#061836] leading-snug">
-              &ldquo;If one entrepreneur feels less alone. If one business finds clarity. If one founder finds the right peer. Impact has begun.&rdquo;
+            <p>
+              This is why the founder&apos;s own journey matters to the organisation. PEERS GLOBAL did not emerge from a theoretical model alone. It emerged from years of experiencing entrepreneurship from the inside.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Chapter 7: Speaking & Media Engagements ─── */}
-      <section className="py-20 md:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 text-[#0062D2] mx-auto shadow-2xs">
-            <Mic2 className="w-6 h-6" />
+      {/* ─── Chapter 7: Why PEERS GLOBAL ─── */}
+      <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            Chapter 07 &mdash; Why PEERS GLOBAL
           </div>
-          <div className="space-y-2">
-            <div className="text-xs uppercase tracking-widest brand-gradient-text font-bold">
-              Chapter 07 &mdash; Public Forum
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836]">
-              Speaking &amp; Media
-            </h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
+            Why PEERS GLOBAL
+          </h2>
+          <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
+            <p>
+              At the centre of Dr. Pravin&apos;s philosophy is a simple understanding of entrepreneurship: An entrepreneur is not simply someone who owns a business. Entrepreneurship is a mindset. It is about identifying a problem, developing a solution and creating value for people and society.
+            </p>
+            <p>
+              That belief changes the meaning of community. Because if entrepreneurship is about creating value, then an entrepreneurial community should also create value for its people. The ambition today is much larger than one organisation. PEERS GLOBAL has a stated mission to impact 1M+ entrepreneurs by 2030.
+            </p>
+            <p>
+              But the purpose behind the number is more important than the number itself. The intention is to create a platform through which learning can move. Experience can move. Relationships can grow. Collaboration can happen. And one entrepreneur&apos;s progress can contribute to another entrepreneur&apos;s progress. That is the compounding effect Dr. Pravin wants to build.
+            </p>
+            <p>
+              When Dr. Pravin speaks about entrepreneurship, his message is not that every person should have an easy journey. His own journey does not support that idea. Instead, his message is about accepting the reality of the journey and continuing to grow. He often brings this back to three simple principles: Never complain. Never make excuses. Never criticise. For him, these are not merely motivational statements. They reflect a mindset of accepting responsibility for one&apos;s own growth.
+            </p>
           </div>
-          <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-            Dr. Parmar speaks on entrepreneurship, community building, collaboration, and the MSME ecosystem at business summits, university forums, and corporate leadership offsites.
-          </p>
-          <div className="pt-4">
-            <Link
-              href="/contact?topic=media"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-sm font-bold shadow-[0_4px_16px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all active:scale-[0.98] uppercase tracking-wider"
-            >
-              Media &amp; Speaking Enquiries
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+        </div>
+      </section>
+
+      {/* ─── Chapter 8: The Person Behind the Founder ─── */}
+      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            Chapter 08 &mdash; The Person
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
+            The person behind the founder
+          </h2>
+          <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
+            <p>
+              Beyond the title, there is a person who still identifies with the values that shaped his beginning. A farmer. A learner. An entrepreneur. A student of experience. A believer in recognition. A builder of communities. And someone who continues to learn.
+            </p>
+            <p>
+              Perhaps that is why the story is more useful than the title. Because the title tells you what he is. The journey tells you why he is building what he is building.
+            </p>
+            <p>
+              The question eventually becomes bigger than: “What business did I build?” It becomes: “What became possible for other people because I built it?” That is the direction in which Dr. Pravin&apos;s journey has evolved. From building technology. To building entrepreneurial platforms. From telling stories. To creating recognition. From connecting entrepreneurs. To creating collaboration. From creating a community. To creating an ecosystem designed around learning, sharing and relationships.
+            </p>
+            <p>
+              The ambition is no longer only personal. It is collective. There is no claim here that the journey is finished. Quite the opposite. The founder continues to describe himself as a learner. And perhaps that is one of the most important things to understand about PEERS GLOBAL. It is being built by someone who does not believe the entrepreneur ever stops becoming.
+            </p>
+            <p>
+              There is always something more to learn. Someone else to understand. A problem to solve. A relationship to build. A person to help. A better version of the idea to discover. FARMER. LEARNER. ENTREPRENEUR. FOUNDER. The journey from farmer to founder was not a journey away from where Dr. Pravin began. It was a journey that carried those beginnings forward. The patience of a farmer. The curiosity of a learner. The courage to experiment. The resilience to continue. The humility to learn again. And the belief that growth becomes more meaningful when it helps others grow too.
+            </p>
+            <p>
+              That is the person behind PEERS GLOBAL. And that is the journey behind the founder.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Chapter 9: The Language ─── */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
+            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+            Chapter 09 &mdash; The Language
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
+            The language
+          </h2>
+          <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
+            <p>
+              Every community that lasts builds a language of its own. A community becomes more than a collection of people when its members begin to share something deeper than a place or a purpose. They share a way of seeing. A way of speaking. A way of recognising one another. And, over time, a language of their own.
+            </p>
+            <p>
+              At PEERS GLOBAL, our language is not created to make us sound different. It exists to help us express something different. Because when we use the word Peer, we mean more than a member. When we say Circle, we mean more than a meeting. When we say Give-First, we mean more than generosity. And when we say Life Impactor, we mean more than someone who has achieved something for themselves.
+            </p>
+            <p>
+              These words describe the culture we are trying to build together.
+            </p>
           </div>
         </div>
       </section>

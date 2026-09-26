@@ -420,12 +420,12 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
                 {/* Subline */}
                 <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
-                  The room where your business finds the right people.
+                  Your Circle. Your Inner Board.
                 </p>
 
                 {/* Supporting Line */}
                 <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8 max-w-lg">
-                  Every Peer belongs to a Circle. It is where relationships begin and where collaboration actually happens.
+                  A structured Circle of 20–40 curated entrepreneurs. 18 Industry & Goal Circles. A room where introductions become conversations, and conversations become collaboration.
                 </p>
 
                 {/* CTAs */}
@@ -516,29 +516,26 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            {/* Left Narrative */}
             <div className="lg:col-span-7">
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
-                What a Circle is
+                Where your PEERS GLOBAL journey becomes personal
               </h2>
 
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-4">
-                A Circle brings together the right entrepreneurs around a common industry, goal, territory or business need.
+                A community can be large. A Circle should feel different. It is the place where a broad community becomes a group of people you begin to know.
               </p>
 
               <p className="text-base sm:text-lg text-slate-800 font-semibold leading-relaxed mb-4">
-                20 to 40 curated entrepreneurs, growing toward a stable 40–50. <span className="font-normal text-slate-600">Large enough that every business category is represented and every meeting has real substance. Small enough that the room genuinely knows your business.</span>
+                Where introductions become conversations. Where conversations become relationships. Where relationships can become collaboration.
               </p>
 
               <p className="text-base text-slate-600 leading-relaxed">
-                It is the basic unit of Peers Global and the place where every Peer belongs.
+                And where, over time, a group of fellow entrepreneurs can become something more: your Inner Board.
               </p>
             </div>
 
-            {/* Right Quote Box with decorative subtle lines */}
             <div className="lg:col-span-5">
               <div className="relative p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] text-slate-900 shadow-sm overflow-hidden">
-                {/* Decorative dots / circle */}
                 <div className="absolute top-1/2 -right-12 -translate-y-1/2 w-36 h-36 rounded-full border border-dashed border-[#0062D2]/30 pointer-events-none" />
                 <div className="absolute top-6 right-6 size-2.5 rounded-full bg-[#0062D2]/40 pointer-events-none" />
                 <div className="absolute bottom-6 left-6 size-2 rounded-full bg-[#0062D2]/40 pointer-events-none" />
@@ -548,7 +545,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                     “
                   </span>
                   <p className="font-serif text-xl sm:text-2xl text-[#0F172A] font-bold leading-snug mb-6">
-                    A Circle turns individual success into collective opportunity.
+                    A Circle is not simply a room you attend. It is a room where people begin to understand your business, your ambitions, your challenges and the person behind them.
                   </p>
                   <Link
                     href="/the-idea"
@@ -579,55 +576,51 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-2">
-            Category exclusivity
+            Why category exclusivity matters
           </h2>
 
           <p className="text-lg font-bold text-[#0062D2] mb-3">
-            No competition inside your Circle.
+            A Circle is designed around meaningful participation.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed mb-10">
-            Each business category is held by one member. If you hold the seat for industrial packaging, you are the only industrial packaging business in that room.
+            When your category is represented by one entrepreneur, three things become possible: you can speak openly, your expertise has a clear place and collaboration becomes more intentional.
           </p>
 
-          {/* Three Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {/* Card 1 */}
             <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
               <div className="size-11 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center mb-5">
                 <MessageSquare className="size-5" />
               </div>
               <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                You can speak openly.
+                1. You can speak openly.
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Nobody is studying your pricing or waiting for you to name a client.
+                You are not entering every conversation wondering whether the room contains a direct competitor. You can explain your challenges, ambitions and opportunities with greater confidence.
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
               <div className="size-11 rounded-full bg-[#ECFDF5] text-emerald-600 flex items-center justify-center mb-5">
                 <Users className="size-5" />
               </div>
               <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                You get the full flow.
+                2. Your expertise has a clear place.
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Every requirement in your category comes to you, because there is no one else to send it to.
+                When someone in the Circle needs your category, they know whom to approach. Your presence becomes easier to understand. Your experience becomes easier to remember.
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
               <div className="size-11 rounded-full bg-[#FDF2F8] text-pink-600 flex items-center justify-center mb-5">
                 <Heart className="size-5" />
               </div>
               <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                Giving costs you nothing.
+                3. Collaboration becomes more intentional.
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                With no competitor in the room, helping another Peer is straightforward.
+                Instead of competing for the same space inside the room, entrepreneurs can explore how different capabilities can work together.
               </p>
             </div>
           </div>
@@ -653,18 +646,16 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              {/* Eyebrow: — FIND THE RIGHT FIT — */}
               <div className="text-left mb-2">
                 <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
                   — FIND THE RIGHT FIT —
                 </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-                Two kinds of Circle
+                Two ways to find your Circle
               </h2>
             </div>
 
-            {/* Handwritten Script Top Right */}
             <div className="text-right">
               <div
                 className="text-[#0062D2] text-2xl sm:text-3xl font-normal leading-tight select-none pointer-events-none"
@@ -677,7 +668,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            {/* Left Card: Industry Circles */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all">
               <div>
                 <div className="size-12 rounded-full bg-white text-[#0062D2] flex items-center justify-center shadow-2xs mb-6">
@@ -689,11 +679,11 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </h3>
 
                 <p className="text-sm font-bold text-[#0062D2] mb-4">
-                  Built around a shared sector.
+                  A room where nobody needs your business explained to them.
                 </p>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-8">
-                  Manufacturing, real estate, healthcare, technology, professional services and more. Best for depth. In an Industry Circle, the people around you understand your market, your margins, your regulatory pressure and your customer without needing it explained.
+                  Industry Circles bring entrepreneurs together around shared sector understanding. The current structure includes Manufacturing & Engineering, Real Estate, Technology, Healthcare, Education, Events, CSR, Franchise and Sustainable & ESG Business.
                 </p>
               </div>
 
@@ -706,7 +696,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               </button>
             </div>
 
-            {/* Right Card: Purpose Circles */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all">
               <div>
                 <div className="size-12 rounded-full bg-white text-emerald-600 flex items-center justify-center shadow-2xs mb-6">
@@ -714,15 +703,15 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
-                  Purpose Circles
+                  Purpose & Goal Circles
                 </h3>
 
                 <p className="text-sm font-bold text-[#0F172A] mb-4">
-                  Built around a shared goal or stage of business.
+                  A room connected by ambition rather than industry.
                 </p>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-8">
-                  Scaling, exporting, succession, first-generation entrepreneurship, women-led business and more. Best for breadth. In a Purpose Circle, the people around you are solving the same problem from twelve different industries, which produces solutions you would never have reached inside your own sector.
+                  Purpose & Goal Circles bring together entrepreneurs who may come from different sectors but share a meaningful ambition. The structure includes Global Trade, Startup Founders, SME IPO, Investors, Global Expansion, MSME, Family Business, Young Entrepreneurs, Leadership & Transformation and Sustainable & ESG Goal.
                 </p>
               </div>
 
@@ -763,61 +752,57 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </div>
 
                 <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-8">
-                  Consistent. Structured. High Value.
+                  The rhythm of a Circle
                 </h2>
 
                 <div className="space-y-6 mb-8">
-                  {/* Item 1 */}
                   <div className="flex items-start gap-4">
                     <div className="size-10 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
                       <Calendar className="size-5" />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-[#0F172A]">
-                        12 monthly meetings a year.
+                        12 Circle Meetings
                       </h4>
                       <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                        The same Peers, a fixed schedule, the same four-part agenda.
+                        A regular opportunity to reconnect, learn, share and contribute.
                       </p>
                     </div>
                   </div>
 
-                  {/* Item 2 */}
                   <div className="flex items-start gap-4">
                     <div className="size-10 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
                       <Users className="size-5" />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-[#0F172A]">
-                        60+ Collaboration Roundtables
+                        60+ Roundtables
                       </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">across the year.</p>
+                      <p className="text-xs text-slate-500 mt-0.5">Repeated conversations create familiarity, familiarity creates trust.</p>
                     </div>
                   </div>
 
-                  {/* Item 3 */}
                   <div className="flex items-start gap-4">
                     <div className="size-10 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
                       <Sparkles className="size-5" />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-[#0F172A]">
-                        150+ new introductions
+                        150+ Introductions
                       </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">in a typical year.</p>
+                      <p className="text-xs text-slate-500 mt-0.5">Every meaningful introduction can open a door that one entrepreneur could not have opened alone.</p>
                     </div>
                   </div>
 
-                  {/* Item 4 */}
                   <div className="flex items-start gap-4">
                     <div className="size-10 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
                       <Repeat className="size-5" />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-[#0F172A]">
-                        Unlimited collaboration
+                        The relationship is the experience
                       </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">through the Unity App between meetings.</p>
+                      <p className="text-xs text-slate-500 mt-0.5">The meeting is the event. The relationship is the experience.</p>
                     </div>
                   </div>
                 </div>
@@ -885,19 +870,19 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
-                  Connected across the world
+                  Local to global
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                   <div className="md:col-span-7">
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-                      Your Circle connects to your city, your district, your state, your country and the wider community.
+                      Your Circle may begin locally. Your relationships do not have to remain local. A Circle connects into a wider PEERS GLOBAL structure: Circle → City → District → State → Country → Global.
                     </p>
                     <p className="text-xs sm:text-sm text-[#0F172A] font-bold leading-relaxed mb-3">
-                      Engage with city, state, national and international Circles across countries through the Unity App.
+                      A relationship that begins in one Circle can eventually connect you to entrepreneurs in another city, another industry, another country or another part of the ecosystem.
                     </p>
                     <p className="text-xs text-slate-500 italic mb-6">
-                      A relationship built in one room can open a door two thousand kilometres away.
+                      The value of having both a room you know and a world you can reach.
                     </p>
 
                     <Link

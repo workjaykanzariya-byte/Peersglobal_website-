@@ -200,7 +200,7 @@ export default function TheCitizensPage() {
             {/* Left Column: Headlines & Call to Actions */}
             <div className="lg:col-span-8 flex flex-col items-start text-left">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-5">
+              <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                 <span className="w-6 h-[1.5px] bg-sky-400" />
                 <span>THE PEOPLE WHO BUILD PEERS GLOBAL</span>
               </div>
@@ -275,7 +275,7 @@ export default function TheCitizensPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent text-xs font-bold tracking-[0.25em] uppercase mb-4">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             <span>BUILT BY ENTREPRENEURS, FOR ENTREPRENEURS</span>
           </div>
@@ -671,7 +671,7 @@ export default function TheCitizensPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 text-[#0066FF] text-xs font-bold tracking-[0.25em] uppercase mb-4">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent text-xs font-bold tracking-[0.25em] uppercase mb-4">
             <span className="w-6 h-[1.5px] bg-[#0066FF]" />
             <span>FROM CONTRIBUTION TO LEADERSHIP</span>
             <span className="w-6 h-[1.5px] bg-[#0066FF]" />
@@ -773,7 +773,7 @@ export default function TheCitizensPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent text-xs font-bold tracking-[0.25em] uppercase mb-4">
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             <span>OUR SHARED STANDARD</span>
             <span className="w-6 h-[1.5px] bg-[#0062D2]" />
@@ -784,7 +784,7 @@ export default function TheCitizensPage() {
             What every citizen shares
           </h2>
 
-          <div className="text-sm font-bold text-[#0062D2] uppercase tracking-wider mb-3">
+          <div className="text-sm font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent uppercase tracking-wider mb-3">
             Different roles. One standard.
           </div>
 
