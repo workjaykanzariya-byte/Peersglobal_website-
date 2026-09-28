@@ -718,43 +718,97 @@ export function OurStoryClient() {
           8. FROM ONE OBSERVATION TO ONE MILLION POSSIBILITIES & YOUR CHAPTER
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
-          {/* From One Observation to One Million Possibilities */}
-          <div className="space-y-4">
-            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2] block">
-              FROM ONE OBSERVATION TO ONE MILLION POSSIBILITIES
-            </span>
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-tight">
-              From One Observation to One Million Possibilities
-            </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
-            <div className="space-y-3 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium">
-              <p>It began with one observation.</p>
-              <p>It became an idea.</p>
-              <p>The idea became a community.</p>
-              <p>And the community now carries an ambition:</p>
-              <p className="text-xl sm:text-2xl text-[#0062D2] font-serif font-bold">
-                To impact 1M+ entrepreneurs by 2030.
-              </p>
+            {/* Left Column — Narrative Progression */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="flex items-center gap-2">
+                <span className="h-0.5 w-6 bg-[#0062D2]" />
+                <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2]">
+                  FROM ONE OBSERVATION TO ONE MILLION POSSIBILITIES
+                </span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal text-slate-900 tracking-tight leading-tight">
+                From One Observation to One Million Possibilities
+              </h2>
+
+              {/* Stepping progression with visual connector */}
+              <div className="space-y-0 pl-1">
+                {[
+                  { text: 'It began with one observation.', dot: 'bg-slate-400' },
+                  { text: 'It became an idea.', dot: 'bg-slate-500' },
+                  { text: 'The idea became a community.', dot: 'bg-[#0062D2]' },
+                  { text: 'And the community now carries an ambition:', dot: 'bg-[#0062D2]' },
+                ].map((step, i) => (
+                  <div key={i} className="flex items-start gap-4 relative">
+                    <div className="flex flex-col items-center shrink-0">
+                      <div className={`size-2.5 rounded-full ${step.dot} mt-2`} />
+                      {i < 3 && <div className="w-px h-6 bg-slate-200" />}
+                    </div>
+                    <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed pb-1">
+                      {step.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pl-7">
+                <p className="font-serif text-xl sm:text-2xl text-[#0062D2] font-bold leading-snug">
+                  To impact 1M+ entrepreneurs by 2030.
+                </p>
+              </div>
+
+              <div className="pt-2 space-y-2">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                  But the journey is not really about a number.
+                </p>
+                <p className="text-sm sm:text-base text-slate-900 font-bold leading-relaxed">
+                  It is about the people behind the number.
+                </p>
+              </div>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed pt-2">
-              But the journey is not really about a number. <br />
-              <strong className="text-slate-900">It is about the people behind the number:</strong>
-            </p>
+            {/* Right Column — Dark Card with Entrepreneur Types */}
+            <div className="lg:col-span-6">
+              <div className="relative p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#061836] to-[#0F2550] text-white shadow-xl overflow-hidden h-full flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-amber-400/[0.08] rounded-full blur-2xl pointer-events-none" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-w-3xl mx-auto text-xs sm:text-sm font-semibold text-slate-800 pt-2 text-left">
-              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who learns.</div>
-              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who shares.</div>
-              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who helps.</div>
-              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who collaborates.</div>
-              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who becomes a Peer.</div>
-              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who becomes the person someone else can depend on.</div>
-            </div>
+                <div className="relative z-10 space-y-5">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-amber-300 block">
+                    THE PEOPLE BEHIND THE NUMBER
+                  </span>
 
-            <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200 text-blue-950 text-sm sm:text-base font-serif font-semibold max-w-xl mx-auto">
-              “That is our story. And it is still being written.”
+                  <div className="space-y-2.5">
+                    {[
+                      'The entrepreneur who learns.',
+                      'The entrepreneur who shares.',
+                      'The entrepreneur who helps.',
+                      'The entrepreneur who collaborates.',
+                      'The entrepreneur who becomes a Peer.',
+                      'The entrepreneur who, one day, becomes the person someone else can depend on.',
+                    ].map((line, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <span className="text-xs font-mono font-bold text-sky-400 mt-0.5 shrink-0 w-5 text-right">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <p className={`text-xs sm:text-sm leading-relaxed ${i === 5 ? 'text-white font-semibold' : 'text-slate-300'}`}>
+                          {line}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="relative z-10 pt-6 mt-6 border-t border-white/10">
+                  <p className="font-serif text-base sm:text-lg text-sky-200 font-semibold leading-snug italic">
+                    &ldquo;That is our story. And it is still being written.&rdquo;
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
