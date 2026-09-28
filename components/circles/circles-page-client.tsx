@@ -1064,45 +1064,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
         </div>
       </section>
-                      <svg viewBox="0 0 300 150" className="w-full h-full text-slate-300 fill-current">
-                        <circle cx="40" cy="40" r="2" />
-                        <circle cx="60" cy="40" r="2" />
-                        <circle cx="80" cy="45" r="2" />
-                        <circle cx="50" cy="60" r="2" />
-                        <circle cx="70" cy="60" r="2" />
-                        <circle cx="90" cy="70" r="2" />
-                        <circle cx="150" cy="35" r="2" />
-                        <circle cx="170" cy="35" r="2" />
-                        <circle cx="190" cy="40" r="2" />
-                        <circle cx="160" cy="55" r="2" />
-                        <circle cx="180" cy="55" r="2" />
-                        <circle cx="210" cy="65" r="2" />
-                        <circle cx="230" cy="75" r="2" />
-                        <circle cx="250" cy="85" r="2" />
-                      </svg>
-                      {/* Interactive Location Pins */}
-                      <div className="absolute top-8 left-12">
-                        <MapPin className="size-5 text-[#0062D2] drop-shadow-md animate-bounce" />
-                      </div>
-                      <div className="absolute top-12 left-36">
-                        <MapPin className="size-4 text-[#0062D2] drop-shadow-md" />
-                      </div>
-                      <div className="absolute bottom-6 right-16">
-                        <MapPin className="size-5 text-[#0062D2] drop-shadow-md" />
-                      </div>
-                      <div className="absolute top-4 right-8">
-                        <MapPin className="size-4 text-[#0062D2] drop-shadow-md" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* =========================================================================
           SECTION 6: THE 18 CIRCLES (18 Main Categories Matching Images 2 & 3)
