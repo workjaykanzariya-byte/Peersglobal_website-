@@ -679,76 +679,84 @@ export function TheIdeaClient() {
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight">
-                Business relationships often begin with a reason.
+                Peers are Partners in Business and Friends in Life
               </h2>
 
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
+                Business relationships often begin with a reason.
+              </p>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs sm:text-sm font-semibold text-slate-800">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">A referral.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">A meeting.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">A question.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">An introduction.</div>
+              </div>
+
               <p className="text-base text-slate-700 leading-relaxed">
-                A referral. A meeting. A question. An introduction. But the most meaningful relationships do not always remain transactional.
+                But the most meaningful relationships do not always remain transactional.
               </p>
 
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-sm text-slate-700 leading-relaxed">
-                <p>Over time, people begin to know <strong>the person behind the business</strong>.</p>
-                <p>The challenges behind the ambition. The family behind the entrepreneur. The journey behind the achievement.</p>
+              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 space-y-2 text-sm text-slate-700 leading-relaxed">
+                <p className="font-semibold text-slate-900">Over time, people begin to know:</p>
+                <div className="grid sm:grid-cols-2 gap-2 pt-1 text-slate-800">
+                  <div>• The person behind the business.</div>
+                  <div>• The challenges behind the ambition.</div>
+                  <div>• The family behind the entrepreneur.</div>
+                  <div>• The journey behind the achievement.</div>
+                </div>
               </div>
 
-              <p className="text-base text-slate-800 font-semibold leading-relaxed">
-                That is why PEERS GLOBAL is built around a broader idea of relationship.
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                It means there should be room here not only for business conversations, but also for human conversations:
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
-                <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-100 text-blue-900">Room to celebrate</div>
-                <div className="p-2.5 rounded-xl bg-violet-50 border border-violet-100 text-violet-900">Room to learn</div>
-                <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-100 text-amber-900">Room to ask for help</div>
-                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-900">Room to give help</div>
-                <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-100 text-rose-900">Room for family</div>
-                <div className="p-2.5 rounded-xl bg-sky-50 border border-sky-100 text-sky-900">Room for humanity</div>
+              <div className="space-y-3 pt-2">
+                <p className="text-base text-slate-900 font-bold leading-relaxed">
+                  That is why PEERS GLOBAL is built around a broader idea of relationship.
+                </p>
+                <p className="font-serif text-xl sm:text-2xl text-[#0062D2] font-semibold">
+                  Peers are Partners in Business and Friends in Life.
+                </p>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                  It means there should be room here not only for business conversations, but also for human conversations.
+                </p>
               </div>
 
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed italic pt-2">
-                “That is why the experience extends beyond business meetings into community experiences such as Family Meetups and the Confidential Forum. Because an entrepreneur does not leave their human life outside the business. They bring it with them.”
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs sm:text-sm font-semibold text-slate-800 pt-1">
+                <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-100 text-blue-900">Room to celebrate.</div>
+                <div className="p-2.5 rounded-xl bg-violet-50 border border-violet-100 text-violet-900">Room to learn.</div>
+                <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-100 text-amber-900">Room to ask for help.</div>
+                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-900">Room to give help.</div>
+                <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-100 text-rose-900">Room for family.</div>
+                <div className="p-2.5 rounded-xl bg-sky-50 border border-sky-100 text-sky-900">Room for humanity.</div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-2">
+                That is why the experience extends beyond business meetings into community experiences such as <strong>Family Meetups</strong> and the <strong>Confidential Forum</strong>.
               </p>
+
+              <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-amber-950 text-xs sm:text-sm leading-relaxed">
+                Because an entrepreneur does not leave their human life outside the business. They bring it with them. And when people are respected as whole human beings, relationships have the opportunity to become deeper and more meaningful.
+              </div>
             </div>
 
-            {/* Right Column: 3 Pillars Card */}
+            {/* Right Column: Visual Callout Box */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                    01
+              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-[#061836] to-[#0B254E] text-white shadow-xl overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="relative z-10 space-y-5">
+                  <span className="text-[10px] uppercase tracking-widest text-amber-300 font-bold block">
+                    THE HUMAN FOUNDATION
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-normal leading-snug">
+                    Beyond Transactions. Into Life.
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    A community where you are welcomed not only for what you produce or achieve, but for the person you are becoming along the journey.
+                  </p>
+                  <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md">
+                    <p className="text-xs sm:text-sm text-slate-200 italic leading-relaxed">
+                      “The person who helped you enter a new market is the one who shows up for your family&apos;s milestones.”
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900">Six Months Later</h4>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  The Peer who introduces you to a client also asks how it went six months later. That is what trust looks like in a real community.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="size-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs">
-                    02
-                  </div>
-                  <h4 className="text-base font-bold text-slate-900">At the Daughter&apos;s Wedding</h4>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  The person who helped you enter a new market is the one who shows up for your family&apos;s milestones. Life and business belong to the same human story.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="size-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">
-                    03
-                  </div>
-                  <h4 className="text-base font-bold text-slate-900">United Growth</h4>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  When people are respected as whole human beings, relationships have the opportunity to become deeper, more meaningful, and resilient over decades.
-                </p>
               </div>
             </div>
 

@@ -715,19 +715,58 @@ export function OurStoryClient() {
       </section>
 
       {/* =========================================================================
-          8. THE STORY IS STILL BEING WRITTEN & YOUR CHAPTER
+          8. FROM ONE OBSERVATION TO ONE MILLION POSSIBILITIES & YOUR CHAPTER
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
 
-          <div>
-            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2] block mb-3">
+          {/* From One Observation to One Million Possibilities */}
+          <div className="space-y-4">
+            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2] block">
+              FROM ONE OBSERVATION TO ONE MILLION POSSIBILITIES
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-tight">
+              From One Observation to One Million Possibilities
+            </h2>
+
+            <div className="space-y-3 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium">
+              <p>It began with one observation.</p>
+              <p>It became an idea.</p>
+              <p>The idea became a community.</p>
+              <p>And the community now carries an ambition:</p>
+              <p className="text-xl sm:text-2xl text-[#0062D2] font-serif font-bold">
+                To impact 1M+ entrepreneurs by 2030.
+              </p>
+            </div>
+
+            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed pt-2">
+              But the journey is not really about a number. <br />
+              <strong className="text-slate-900">It is about the people behind the number:</strong>
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-w-3xl mx-auto text-xs sm:text-sm font-semibold text-slate-800 pt-2 text-left">
+              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who learns.</div>
+              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who shares.</div>
+              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who helps.</div>
+              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who collaborates.</div>
+              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who becomes a Peer.</div>
+              <div className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">The entrepreneur who becomes the person someone else can depend on.</div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200 text-blue-950 text-sm sm:text-base font-serif font-semibold max-w-xl mx-auto">
+              “That is our story. And it is still being written.”
+            </div>
+          </div>
+
+          {/* The Story Belongs To Everyone Who Contributed */}
+          <div className="pt-8 border-t border-slate-100 space-y-4">
+            <span className="text-xs font-bold tracking-[0.25em] uppercase text-slate-500 block">
               THE STORY IS STILL BEING WRITTEN
             </span>
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
+            <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 font-normal">
               It belongs to everyone who has contributed.
-            </h2>
-            <div className="space-y-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+            </h3>
+            <div className="space-y-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
               <p>Every entrepreneur who shared an experience. Every Peer who made an introduction.</p>
               <p>Every person who helped another person. Every relationship that became stronger.</p>
               <p>Every collaboration that created something new.</p>
