@@ -35,22 +35,18 @@ export function HowItWorksSection() {
           {/* Card 1: Discover Peers */}
           <li className="fd-how-it-works__card">
             <img
-              src="/images/unity-creatives/post 1.png"
+              src="/images/unity-creatives/1.png"
               width="768"
               height="1152"
               alt="Discover Peers by industry, city and expertise"
               loading="lazy"
             />
-            <div className="fd-how-it-works__copy">
-              <p className="fd-how-it-works__kicker">Smart Directory</p>
-              <p className="fd-how-it-works__label">Discover Peers by Industry, City &amp; Expertise</p>
-            </div>
           </li>
 
           {/* Card 2: Book 1-to-1 conversations */}
           <li className="fd-how-it-works__card">
             <img
-              src="/images/who-we-are-friends.jpg"
+              src="/images/exclusive_lounge.jpg"
               width="768"
               height="1152"
               alt="Book one-to-one conversations"
@@ -65,22 +61,18 @@ export function HowItWorksSection() {
           {/* Card 3: Log referrals */}
           <li className="fd-how-it-works__card fd-how-it-works__card--ink">
             <img
-              src="/images/unity-creatives/Post 2.png"
+              src="/images/unity-creatives/2.png"
               width="768"
               height="1152"
               alt="Log referrals given and received"
               loading="lazy"
             />
-            <div className="fd-how-it-works__copy fd-how-it-works__copy--wide">
-              <p className="fd-how-it-works__kicker">Collaboration Ledger</p>
-              <p className="fd-how-it-works__label">Log Referrals Given &amp; Received</p>
-            </div>
           </li>
 
           {/* Card 4: Participate in Circle */}
           <li className="fd-how-it-works__card">
             <img
-              src="/images/circle-meeting.png"
+              src="/images/circle-roundtable-topdown.jpg"
               width="768"
               height="1152"
               alt="Participate in their Circle"
@@ -95,22 +87,18 @@ export function HowItWorksSection() {
           {/* Card 5: Find & create opportunities */}
           <li className="fd-how-it-works__card fd-how-it-works__card--ink">
             <img
-              src="/images/unity-creatives/Post 3.png"
+              src="/images/unity-creatives/3.jpeg"
               width="768"
               height="1152"
               alt="Find and create opportunities"
               loading="lazy"
             />
-            <div className="fd-how-it-works__copy fd-how-it-works__copy--wide">
-              <p className="fd-how-it-works__kicker">Opportunity Exchange</p>
-              <p className="fd-how-it-works__label">Find &amp; Create Opportunities</p>
-            </div>
           </li>
 
           {/* Card 6: Share their story */}
           <li className="fd-how-it-works__card">
             <img
-              src="/images/story-jignesh-rohit.jpg"
+              src="/images/peer-stories-hero.jpg"
               width="768"
               height="1152"
               alt="Share their story"
@@ -125,22 +113,18 @@ export function HowItWorksSection() {
           {/* Card 7: See contribution recognised */}
           <li className="fd-how-it-works__card">
             <img
-              src="/images/unity-creatives/8.png"
+              src="/images/unity-creatives/4.jpeg"
               width="768"
               height="1152"
               alt="See their contribution recognised"
               loading="lazy"
             />
-            <div className="fd-how-it-works__copy">
-              <p className="fd-how-it-works__kicker">Recognition System</p>
-              <p className="fd-how-it-works__label">See Your Contribution Recognised</p>
-            </div>
           </li>
 
           {/* Card 8: Stay connected globally */}
           <li className="fd-how-it-works__card">
             <img
-              src="/images/unity-hero-phones.jpg"
+              src="/images/unity-creatives/5.jpeg"
               width="768"
               height="1152"
               alt="Stay connected to the community from anywhere in the world"

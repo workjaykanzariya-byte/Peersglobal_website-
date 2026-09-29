@@ -6,6 +6,7 @@ export function WhatIsSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
+  const [useFallback, setUseFallback] = useState(false)
 
   const togglePlay = () => {
     if (!videoRef.current) return
@@ -84,24 +85,38 @@ export function WhatIsSection() {
       {/* Cinematic Showcase Video Player matching Mindvalley design */}
       <div style={{ position: 'relative', width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
         <div
-          className="relative aspect-[16/9] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black border border-slate-200/80 cursor-pointer group"
+          className="relative aspect-[16/9] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black border border-slate-200/80 cursor-pointer group select-none"
           onClick={togglePlay}
         >
-          <video
-            ref={videoRef}
-            src="/videos/peers-global-earth-loop.mp4"
-            poster="/images/conclave.png"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover block"
-          />
+          {!useFallback ? (
+            <video
+              ref={videoRef}
+              src="/videos/peers-global-video.mp4"
+              poster="/images/conclave.png"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onError={() => setUseFallback(true)}
+              className="w-full h-full object-cover block"
+            />
+          ) : (
+            <div className="relative w-full h-full overflow-hidden bg-black">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/sbbkYV3CzN4?enablejsapi=1&autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=sbbkYV3CzN4&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&disablekb=1&playsinline=1`}
+                title="Peers Global Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                className="w-full h-[120%] -top-[10%] absolute inset-0 border-0 pointer-events-none scale-105"
+              />
+              {/* Invisible Shield prevents YouTube redirects & watermark click navigation */}
+              <div className="absolute inset-0 z-10 cursor-pointer" />
+            </div>
+          )}
 
           {/* Play/Pause Button Overlay on Hover */}
           <div
-            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+            className={`absolute inset-0 z-20 flex items-center justify-center transition-opacity duration-300 pointer-events-none ${
               isPlaying ? 'opacity-0 group-hover:opacity-100 bg-black/20' : 'opacity-100 bg-black/35'
             }`}
           >
@@ -122,7 +137,7 @@ export function WhatIsSection() {
           <button
             type="button"
             onClick={toggleMute}
-            className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-20 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-xs md:text-sm font-medium transition-colors border border-white/10"
+            className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-30 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md text-white text-xs md:text-sm font-medium transition-colors border border-white/15 shadow-lg"
             aria-label={isMuted ? 'Unmute' : 'Mute'}
           >
             {isMuted ? (

@@ -3,7 +3,15 @@
 import React, { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import {
+  ArrowRight,
+  Users,
+  Sparkles,
+  HeartHandshake,
+  ShieldCheck,
+  Building2,
+  Globe2,
+} from 'lucide-react'
 
 export function TrustedWorldwideSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -29,44 +37,78 @@ export function TrustedWorldwideSection() {
   }
 
   return (
-    <section className="fd-what-is-mindvalley !bg-white !py-20 md:!py-24 !px-6 md:!px-12" id="who-we-are">
-      <div className="fd-what-is-mindvalley__inner !mb-12">
-        <div className="fd-what-is-mindvalley__intro !gap-8">
-          {/* Eyebrow & Titles matching standard Mindvalley typography */}
-          <div className="fd-what-is-mindvalley__titles !gap-6">
-            <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text">
+    <section className="relative bg-gradient-to-b from-white via-[#FAFBFD] to-white py-20 md:py-28 px-4 sm:px-6 lg:px-8 border-b border-cool-grey-250/80" id="who-we-are">
+      <div className="max-w-6xl mx-auto mb-16 md:mb-20">
+        <div className="flex flex-col items-center text-center space-y-6">
+          {/* Eyebrow with Signature Gradient Lines */}
+          <div className="flex items-center gap-2.5">
+            <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
               WHO WE ARE
-            </p>
+            </span>
+            <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          </div>
 
-            <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5">
-              <h2 className="fd-what-is-mindvalley__headline">
-                <span>A global community of entrepreneurs</span>{' '}
-                <span>who choose to grow together.</span>
-              </h2>
+          {/* Headline */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight text-[#0f131a] leading-[1.12] max-w-4xl">
+            <span>A global community of entrepreneurs</span>{' '}
+            <span className="brand-gradient-text block sm:inline">who choose to grow together.</span>
+          </h2>
 
-              <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed">
-                Peers Global brings together entrepreneurs and business leaders from across industries, cities and countries into one connected community.
-              </p>
+          {/* Subheading / Copy */}
+          <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal">
+            Peers Global brings together founders and business leaders from across industries, cities, and countries into one connected, high-trust ecosystem.
+          </p>
 
-              <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed">
-                We call our members Peers. A Peer is an entrepreneur who believes in building trusted relationships, contributing to others, and growing together. Peers meet in Trusted Circles, collaborate through the Unity App, learn from one another, create opportunities for one another, and carry the community forward through leadership.
-              </p>
-
-              <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed font-semibold italic text-[#0F131A] pt-1">
-                &ldquo;Everything here is built on one belief: entrepreneurs should not have to build alone.&rdquo;
-              </p>
-
-              {/* CTA Button with signature brand gradient */}
-              <div className="pt-3">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-8 py-3.5 text-base font-semibold shadow-lg shadow-blue-600/25 hover:shadow-red-500/25 hover:scale-105 transition-all group"
-                >
-                  <span>Explore Peers Global</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+          {/* 3 Core Highlight Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl pt-4 text-left">
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md transition-all space-y-3">
+              <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1D4ED8]">
+                <Users className="w-5 h-5" />
               </div>
+              <h3 className="text-lg font-bold text-[#0f131a] tracking-tight">The Inner Board</h3>
+              <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                Curated Circle tables with category exclusivity, providing confidential peer advisory without competition.
+              </p>
             </div>
+
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md transition-all space-y-3">
+              <div className="w-11 h-11 rounded-xl bg-rose-50 border border-rose-100 text-[#E11D48] flex items-center justify-center">
+                <HeartHandshake className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold text-[#0f131a] tracking-tight">Give First Principle</h3>
+              <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                Growth driven by authentic contribution, verified introductions, and collaborative joint outcomes.
+              </p>
+            </div>
+
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md transition-all space-y-3">
+              <div className="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center">
+                <Globe2 className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold text-[#0f131a] tracking-tight">Connected Ecosystem</h3>
+              <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                Continuous engagement via the Unity App, regional retreats, conclaves, and lifelong friendships.
+              </p>
+            </div>
+          </div>
+
+          {/* Inspirational Philosophy Quote */}
+          <div className="pt-2">
+            <p className="text-base sm:text-lg italic font-medium text-slate-800 bg-blue-50/60 border border-blue-100/80 px-6 py-3 rounded-full inline-block">
+              &ldquo;Everything here is built on one belief: entrepreneurs should not have to build alone.&rdquo;
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <div className="pt-2">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-9 py-4 text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group"
+            >
+              <span>Explore Peers Global</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </div>
@@ -74,7 +116,7 @@ export function TrustedWorldwideSection() {
       {/* Cinematic Media Showcase */}
       <div className="max-w-[1200px] mx-auto">
         <div
-          className="relative w-full aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black cursor-pointer group border border-slate-200/80"
+          className="relative w-full aspect-[16/9] rounded-2xl md:rounded-[32px] overflow-hidden shadow-2xl bg-black cursor-pointer group border border-slate-200/80"
           onClick={togglePlay}
         >
           <video
