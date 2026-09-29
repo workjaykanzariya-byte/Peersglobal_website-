@@ -123,62 +123,66 @@ const SITEMAP_SECTIONS = [
 
 export function SitemapClient() {
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-[#1A1A1A] antialiased">
+    <div className="homepage-sections-root min-h-screen bg-white text-[#0f131a] antialiased">
       {/* Breadcrumb */}
-      <div className="border-b border-[#EADFC7]/60 bg-[#FAF6EE]/90 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-neutral-600">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/90 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Sitemap</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Sitemap</span>
         </div>
       </div>
 
       {/* Hero */}
-      <section className="relative pt-12 pb-14 border-b border-[#EADFC7]/60 overflow-hidden bg-[#FAF7F0]/40">
+      <section className="relative pt-16 pb-16 md:pt-20 md:pb-20 border-b border-slate-200/80 overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF4E8] border border-[#E8DFC9] text-xs font-bold uppercase tracking-wider text-[#8C6422]">
-            <Map className="w-3.5 h-3.5 text-[#8C6422]" />
-            DIRECTORY &amp; INDEX
+          <div className="flex items-center gap-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              COMPLETE DIRECTORY &amp; ECOSYSTEM MAP
+            </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#162039] tracking-tight leading-tight font-bold">
-            Sitemap
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0f131a] leading-tight">
+            <span>Peers Global</span> <span className="brand-gradient-text">Sitemap</span>
           </h1>
 
-          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
             A comprehensive index of all portals, pillars, governance frameworks, and resources across Peers Global.
           </p>
         </div>
       </section>
 
       {/* Sitemap Sections Grid */}
-      <section className="py-14 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {SITEMAP_SECTIONS.map((section, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white border border-[#E8DFC9] shadow-2xs space-y-4 flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-4 flex flex-col justify-between hover:shadow-md transition-all"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2.5 pb-2 border-b border-[#E8DFC9]">
-                    <section.icon className="w-5 h-5 text-[#0D6EFD]" />
-                    <h2 className="text-base font-serif font-bold text-[#142038]">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 pb-3 border-b border-slate-200/80">
+                    <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1D4ED8]">
+                      <section.icon className="w-4 h-4" />
+                    </div>
+                    <h2 className="text-base font-bold text-[#0f131a] tracking-tight">
                       {section.title}
                     </h2>
                   </div>
 
-                  <ul className="space-y-2 text-xs">
+                  <ul className="space-y-2.5 text-xs sm:text-sm">
                     {section.links.map((link, lIdx) => (
                       <li key={lIdx}>
                         <Link
                           href={link.href}
-                          className="text-neutral-700 hover:text-[#0D6EFD] hover:underline transition-colors flex items-center justify-between"
+                          className="text-slate-600 hover:text-[#1D4ED8] hover:translate-x-0.5 transition-all flex items-center justify-between group font-medium"
                         >
                           <span>{link.name}</span>
-                          <ChevronRight className="w-3 h-3 text-neutral-300 shrink-0" />
+                          <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#1D4ED8] transition-colors shrink-0" />
                         </Link>
                       </li>
                     ))}

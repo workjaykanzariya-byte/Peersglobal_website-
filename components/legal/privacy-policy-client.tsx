@@ -10,6 +10,7 @@ import {
   Database,
   UserCheck,
   FileText,
+  ArrowRight,
 } from 'lucide-react'
 
 const PRIVACY_SECTIONS = [
@@ -52,60 +53,81 @@ const PRIVACY_SECTIONS = [
 
 export function PrivacyPolicyClient() {
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-[#1A1A1A] antialiased">
+    <div className="homepage-sections-root min-h-screen bg-white text-[#0f131a] antialiased">
       {/* Breadcrumb */}
-      <div className="border-b border-[#EADFC7]/60 bg-[#FAF6EE]/90 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-neutral-600">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/90 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">Privacy Policy</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Privacy Policy</span>
         </div>
       </div>
 
       {/* Hero */}
-      <section className="relative pt-12 pb-14 border-b border-[#EADFC7]/60 overflow-hidden bg-[#FAF7F0]/40">
+      <section className="relative pt-16 pb-16 md:pt-20 md:pb-20 border-b border-slate-200/80 overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF4E8] border border-[#E8DFC9] text-xs font-bold uppercase tracking-wider text-[#8C6422]">
-            <Lock className="w-3.5 h-3.5 text-[#8C6422]" />
-            DATA PROTECTION
+          <div className="flex items-center gap-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              DATA PROTECTION &amp; PRIVACY
+            </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#162039] tracking-tight leading-tight font-bold">
-            Privacy Policy
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0f131a] leading-tight">
+            <span>Privacy</span> <span className="brand-gradient-text">Policy</span>
           </h1>
 
-          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
             How Peers Global collects, safeguards, and respects member personal and commercial data in full compliance with Indian privacy laws.
           </p>
 
-          <div className="text-xs font-mono text-neutral-500 pt-1">
-            Last Revised: September 2026 · Compliant with DPDP Act, 2023
+          <div className="text-xs font-mono text-slate-500 pt-2 flex items-center gap-2">
+            <span className="px-3 py-1 rounded-full bg-white border border-slate-200/90 font-semibold text-slate-700 shadow-2xs">
+              Compliant with DPDP Act, 2023
+            </span>
+            <span>Last Revised: September 2026</span>
           </div>
         </div>
       </section>
 
       {/* Sections */}
-      <section className="py-14 border-b border-[#EADFC7]/60">
+      <section className="py-16 md:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           {PRIVACY_SECTIONS.map((sec) => (
             <div
               key={sec.heading}
-              className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E8DFC9] shadow-2xs space-y-3"
+              className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-4 hover:shadow-md transition-all"
             >
-              <h2 className="text-lg sm:text-xl font-serif font-bold text-[#142038]">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#0f131a] tracking-tight">
                 {sec.heading}
               </h2>
-              <div className="space-y-2 text-xs sm:text-sm text-neutral-700 leading-relaxed whitespace-pre-line">
+              <div className="space-y-3 text-sm text-slate-600 leading-relaxed whitespace-pre-line font-normal">
                 {sec.body.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
               </div>
             </div>
           ))}
+
+          {/* Quick Support Banner */}
+          <div className="p-7 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="text-base font-bold text-[#0f131a]">Need clarification on your data?</h3>
+              <p className="text-xs text-slate-600 mt-0.5">Reach out directly to our Data Protection &amp; Compliance desk.</p>
+            </div>
+            <Link
+              href="mailto:privacy@peersglobal.com"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-all shadow-md shrink-0"
+            >
+              Contact DPO
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>
   )
 }
+
