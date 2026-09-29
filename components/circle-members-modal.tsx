@@ -14,25 +14,55 @@ interface CircleMembersModalProps {
   peerMembers?: any[]
 }
 
-function isMatchingCircle(memberCircleStr: string | null | undefined, targetCircleName: string): boolean {
-  if (!memberCircleStr) return false
-  const m = memberCircleStr.toLowerCase().trim()
-  const t = targetCircleName.toLowerCase().trim()
-
-  if (!m || !t) return false
-
-  if (m === t || m.includes(t) || t.includes(m)) return true
-
-  const stopWords = new Set(['circle', 'circles', 'group', 'chapter', 'the', 'and', 'for', 'ltd', 'pvt', 'inc', 'one'])
-  const mTokens = m.split(/[^a-z0-9]+/).filter((w) => w.length >= 3 && !stopWords.has(w))
-  const tTokens = t.split(/[^a-z0-9]+/).filter((w) => w.length >= 3 && !stopWords.has(w))
-
-  if (mTokens.length === 0 || tTokens.length === 0) return false
-
-  return mTokens.some((tok) => tTokens.includes(tok))
+function normalizeCircle(str: string): string {
+  if (!str) return ''
+  return str
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
 }
 
-export function CircleMembersModal({ circleName, cityName }: CircleMembersModalProps) {
+function isMatchingCircle(memberCircleStr: string | null | undefined, targetCircleName: string): boolean {
+  if (!memberCircleStr || !targetCircleName) return false
+  const m = normalizeCircle(memberCircleStr)
+  const t = normalizeCircle(targetCircleName)
+
+  if (!m || !t) return false
+  if (m === t) return true
+
+  // Compare without city prefix (e.g. 'ahmedabad real estate...' vs 'real estate...')
+  const CITIES = ['ahmedabad', 'surat', 'vadodara', 'rajkot', 'mumbai', 'delhi', 'bengaluru', 'pune', 'hyderabad', 'chennai', 'kolkata', 'jaipur', 'indore']
+  let mNoCity = m
+  let tNoCity = t
+  CITIES.forEach((c) => {
+    mNoCity = mNoCity.replace(new RegExp('\\b' + c + '\\b', 'g'), '').replace(/\s+/g, ' ').trim()
+    tNoCity = tNoCity.replace(new RegExp('\\b' + c + '\\b', 'g'), '').replace(/\s+/g, ' ').trim()
+  })
+
+  if (mNoCity && tNoCity && mNoCity === tNoCity) return true
+
+  // Protect distinct branded circles from false-positive partial matches
+  if ((m.includes('realty one') || m === 'realty 1') && (t.includes('realty one') || t === 'realty 1')) return true
+  if (m.includes('realty') && !t.includes('realty')) return false
+  if (t.includes('realty') && !m.includes('realty')) return false
+
+  if (m.includes('msme') && t.includes('msme')) return true
+  if (m.includes('msme') && !t.includes('msme')) return false
+  if (t.includes('msme') && !m.includes('msme')) return false
+
+  if (m.includes('healthcare') && t.includes('healthcare')) return true
+  if (m.includes('healthcare') && !t.includes('healthcare')) return false
+  if (t.includes('healthcare') && !m.includes('healthcare')) return false
+
+  if (m.includes(t) || t.includes(m)) {
+    return true
+  }
+
+  return false
+}
+
+export function CircleMembersModal({ circleName, cityName, peerMembers = [] }: CircleMembersModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [dynamicMembers, setDynamicMembers] = useState<PeerMemberProfile[]>([])
   const [loading, setLoading] = useState(true)
@@ -43,29 +73,50 @@ export function CircleMembersModal({ circleName, cityName }: CircleMembersModalP
     async function loadCircleMembers() {
       try {
         const all = await getAllMembers()
-        const targetCity = (cityName || 'Ahmedabad').toLowerCase().trim()
         
-        // 1. Filter strictly by City + Circle
-        let matched = all.filter((m) => {
-          const memberCity = (m.city || m.city_name || 'Ahmedabad').toLowerCase().trim()
-          if (targetCity && memberCity !== targetCity) return false
-
+        // Filter strictly by this circle from the Unity App PostgreSQL database
+        const matched = all.filter((m) => {
           if (isMatchingCircle(m.active_circle_name, circleName)) return true
           if (isMatchingCircle(m.active_circle?.name, circleName)) return true
           if (m.circles && m.circles.some((c) => isMatchingCircle(c.circle_name, circleName))) return true
           return false
         })
 
-        // 2. If no direct circle match found, fallback strictly to members in that specific city
-        if (matched.length === 0 && all.length > 0) {
-          matched = all.filter((m) => {
-            const memberCity = (m.city || m.city_name || 'Ahmedabad').toLowerCase().trim()
-            return memberCity === targetCity
-          })
-        }
-
         if (isMounted) {
-          setDynamicMembers(matched)
+          if (matched.length > 0) {
+            setDynamicMembers(matched)
+          } else if (peerMembers && peerMembers.length > 0) {
+            // Fallback to configured peerMembers if Unity DB has no records for this circle yet
+            const staticMapped: PeerMemberProfile[] = peerMembers.map((pm: any) => ({
+              id: pm.id || pm.name,
+              name: pm.name,
+              first_name: null,
+              last_name: null,
+              public_profile_slug: pm.id || null,
+              company: pm.company || null,
+              company_name: pm.company || null,
+              designation: pm.role || null,
+              email: pm.email || null,
+              mobile: null,
+              city: pm.city || cityName || null,
+              photo: pm.photo || null,
+              profile_image_url: pm.photo || null,
+              cover_photo_url: null,
+              membership_status: 'Active',
+              membership_status_label: 'Category Seat Verified',
+              active_circle_name: circleName,
+              industry_tags: [],
+              skills: [],
+              bio: null,
+              business_description: null,
+              experience_years: null,
+              business_type: null,
+              website: null,
+            }))
+            setDynamicMembers(staticMapped)
+          } else {
+            setDynamicMembers([])
+          }
         }
       } catch (err) {
         console.error('Failed to load circle roster:', err)
@@ -81,7 +132,7 @@ export function CircleMembersModal({ circleName, cityName }: CircleMembersModalP
     return () => {
       isMounted = false
     }
-  }, [circleName, cityName])
+  }, [circleName, cityName, peerMembers])
 
   return (
     <>

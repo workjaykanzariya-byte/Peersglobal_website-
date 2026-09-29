@@ -12,6 +12,12 @@ export const SITE = {
   memberLoginUrl: 'https://unity.peersglobal.com',
   appStoreUrl: 'https://apps.apple.com/app/peers-global/id6475800000',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.peersglobal.unity',
+  socials: {
+    facebook: 'https://www.facebook.com/PeersGlobalCommunity/',
+    youtube: 'https://www.youtube.com/@PeersGlobalTV',
+    instagram: 'https://www.instagram.com/peersglobal/?hl=en',
+    linkedin: 'https://www.linkedin.com/company/peersglobal/posts/?feedView=all',
+  },
   statsAsOf: 'Figures verified against Unity platform records.',
 }
 
@@ -69,7 +75,7 @@ export const HEADER_NAV: NavItem[] = [
     },
     children: [
       { label: 'The Idea', href: '/the-idea', desc: 'The founding manifesto & core belief', phase: 1 },
-      { label: '10 Forms of Collaboration', href: '/10-forms-of-collaboration', desc: '10 structured forms of peer support', phase: 1 },
+      { label: '10 Ways of Collaboration', href: '/10-ways-of-collaboration', desc: '10 powerful forms of peer collaboration', phase: 1 },
       { label: 'The Territory', href: '/the-territory', desc: 'Local to global: Circle to the world', phase: 1 },
       { label: 'The Citizens', href: '/the-citizens', desc: 'The entrepreneurs who build this community', phase: 1 },
       { label: 'The Currency', href: '/the-currency', desc: 'The Impact System: 1 Action = 1 Life Impacted', phase: 1 },
@@ -92,12 +98,12 @@ export const HEADER_NAV: NavItem[] = [
     },
     children: [
       { label: 'All Circles', href: '/circles', desc: '18 industry and goal-specific Circles', phase: 1 },
+      { label: '10 Ways of Collaboration', href: '/10-ways-of-collaboration', desc: '10 powerful forms of peer collaboration', phase: 1 },
       { label: 'Browse by Industry', href: '/circles/industry', desc: '9 sector-locked industry Circles', phase: 1 },
       { label: 'Browse by Purpose', href: '/circles/purpose', desc: '10 shared-ambition goal Circles', phase: 1 },
       { label: 'Find Your Circle', href: '/circles/find', desc: 'Match with your ideal Circle and Inner Board', phase: 1 },
       { label: 'The Circle Meeting Experience', href: '/circle-meeting-experience', desc: '4-part monthly meeting structure', phase: 1 },
       { label: 'Start a Circle', href: '/start-a-circle', desc: 'Circle starts from Day 1 — first member', phase: 1 },
-      { label: 'Circle Map — Cities & Countries', href: '/map', desc: 'Live locations and active chapters', phase: 2 },
     ],
   },
   {
@@ -115,7 +121,6 @@ export const HEADER_NAV: NavItem[] = [
     children: [
       { label: 'Why Join', href: '/membership', desc: "Why your next breakthrough won't come alone", phase: 1 },
       { label: 'Who Belongs Here', href: '/who-belongs-here', desc: 'The fifteen names test & candidate fit', phase: 1 },
-      { label: 'Membership vs Peer Standing', href: '/membership-vs-peer-standing', desc: 'Status word vs relational standing', phase: 1 },
       { label: 'Compare Tiers', href: '/membership/tiers', desc: 'Full fee transparency & ₹2L+ value breakdown', phase: 1 },
       { label: 'Criteria & Process', href: '/membership/criteria', desc: '2-step application and Circle approval', phase: 1 },
       { label: 'What You Get', href: '/membership/benefits', desc: 'Complete annual calendar and inclusions', phase: 1 },
@@ -141,20 +146,34 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Circle Director', href: '/leadership/circle-director', desc: 'Runs the Circle month on month', phase: 1 },
       { label: 'Industry Director', href: '/leadership/industry-director', desc: 'Sector ecosystem owner for the city', phase: 1 },
       { label: 'Executive Director', href: '/leadership/executive-director', desc: 'Area / District / State / Country leadership', phase: 1 },
-      { label: 'Global Advisory Board', href: '/leadership/global-advisors', desc: 'Senior entrepreneurs guiding the movement', phase: 2 },
-      { label: 'Impact Income', href: '/leadership/impact-income', desc: 'Earn while contributing to ecosystem growth', phase: 1 },
+      { label: 'Ambassador', href: '/leadership/ambassadors', desc: 'Carrying the name into rooms where it is not yet known', phase: 1 },
       { label: 'Apply to Lead', href: '/leadership/apply', desc: 'Submit expression of interest for leadership', phase: 1 },
     ],
   },
   {
     label: 'Unity',
     href: '/unity',
-    type: 'direct',
+    type: 'mega',
     phase: 1,
+    ctaCard: {
+      eyebrow: 'Platform of Record',
+      title: 'Peers Unity App',
+      desc: 'The operating system for collaboration, logging contributions, and peer connections.',
+      ctaText: 'Explore Unity Platform →',
+      ctaHref: '/unity',
+    },
+    children: [
+      { label: 'Unity Overview', href: '/unity', desc: 'The unified platform & operating system', phase: 1 },
+      { label: 'Peer Standing', href: '/peer-standing', desc: 'Relational standing & community access', phase: 1 },
+      { label: 'Life Impact Score', href: '/life-impact-score', desc: '1 Action = 1 Life Impacted tracking', phase: 1 },
+      { label: 'Peers Coin', href: '/peers-coin', desc: 'Earned by helping peers, redeem in marketplace', phase: 1 },
+      { label: 'Impact Confirmation', href: '/impact-confirmation', desc: 'Bilateral verification of contributions', phase: 1 },
+      { label: 'Member Login', href: 'https://unity.peersglobal.com', desc: 'Launch the Unity Web App', phase: 1, external: true },
+    ],
   },
   {
     label: 'Community Life',
-    href: '/events',
+    href: '/stories',
     type: 'mega',
     phase: 1,
     ctaCard: {
@@ -165,9 +184,8 @@ export const HEADER_NAV: NavItem[] = [
       ctaHref: '/stories',
     },
     children: [
-      { label: 'Events & Summits', href: '/events', desc: 'Monthly meetings, conclaves & retreats', phase: 1 },
+      // { label: 'Events & Summits', href: '/events', desc: 'Monthly meetings, conclaves & retreats', phase: 1 },
       { label: 'Peer Stories', href: '/stories', desc: 'Named Peers, verified numbers, real outcomes', phase: 1 },
-      { label: 'Collaboration Wins', href: '/stories/wins', desc: 'Live feed of confirmed peer actions', phase: 1 },
       { label: 'Blog & Insights', href: '/insights', desc: 'Written by entrepreneurs who built the thing', phase: 1 },
       { label: 'Awards & Recognition', href: '/awards', desc: 'Recognising public contribution and impact', phase: 2 },
       { label: 'Gallery', href: '/gallery', desc: 'Moments from conclaves and Circle meetings', phase: 2 },
@@ -191,7 +209,7 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Dr. Pravin Parmar', href: '/founder', desc: 'Founder, Peers Global', phase: 1 },
       { label: 'Contact', href: '/contact', desc: 'Direct routing & corporate headquarters', phase: 1 },
       { label: 'Our Initiatives', href: '/initiatives', desc: 'VyapaarJagat, Fempreneur & Greenpreneur', phase: 2 },
-      { label: 'Foundation & Social Impact', href: '/social-impact', desc: 'Section 8 foundation & evidenced SDGs', phase: 2 },
+      { label: 'Foundation & Social Impact', href: '/foundation-social-impact', desc: 'Section 8 foundation & evidenced SDGs', phase: 2 },
       { label: 'Newsroom', href: '/newsroom', desc: 'Press releases, coverage & media kit', phase: 2 },
       { label: 'Partner With Us', href: '/partner', desc: 'Institutional partnerships and alliances', phase: 2 },
       { label: 'Investors', href: '/investors', desc: 'Pre-Series A institutional overview', phase: 2 },
@@ -300,7 +318,6 @@ export const FOOTER_BANDS: FooterBand[] = [
         title: 'Unity App',
         links: [
           { label: 'Unity Overview', href: '/unity', phase: 'P1', headerShared: true },
-          { label: 'Peer Directory', href: '/unity/directory', phase: 'P2' },
           { label: 'Connections', href: '/unity/connections', phase: 'P2' },
           { label: 'One-to-One Booking', href: '/unity/one-to-one', phase: 'P2' },
           { label: 'Contribution Logging', href: '/unity/contributions', phase: 'P2' },
@@ -382,7 +399,7 @@ export const FOOTER_BANDS: FooterBand[] = [
         title: 'Stories',
         links: [
           { label: 'Peer Stories', href: '/stories', phase: 'P1', headerShared: true },
-          { label: 'Collaboration Wins', href: '/stories/wins', phase: 'P1', headerShared: true },
+
           { label: 'Stories by City', href: '/stories/city', phase: 'P2' },
           { label: 'Stories by Circle', href: '/stories/circle', phase: 'P2' },
           { label: 'Video Testimonials', href: '/testimonials', phase: 'P2' },
@@ -407,7 +424,7 @@ export const FOOTER_BANDS: FooterBand[] = [
         links: [
           { label: 'Newsroom', href: '/newsroom', phase: 'P2', headerShared: true },
           { label: 'Podcast & Media', href: '/media', phase: 'P2', headerShared: true },
-          { label: 'Vyapaar Jagat TV', href: '/media/vyapaar-jagat-tv', phase: 'P2' },
+          { label: 'Vyapaar Jagat TV', href: 'https://www.youtube.com/@VyapaarJagatTV', phase: 'P2', external: true },
           { label: 'VyapaarJagat.com', href: 'https://vyapaarjagat.com', phase: 'P2', external: true },
           { label: 'Gallery', href: '/gallery', phase: 'P2', headerShared: true },
           { label: 'Press Coverage', href: '/newsroom/coverage', phase: 'P2' },
@@ -436,8 +453,7 @@ export const FOOTER_BANDS: FooterBand[] = [
         groupNumber: 15,
         title: 'Social Impact',
         links: [
-          { label: 'Social Impact', href: '/social-impact', phase: 'P2', headerShared: true },
-          { label: 'The Foundation', href: '/foundation', phase: 'P2' },
+          { label: 'Foundation & Social Impact', href: '/foundation-social-impact', phase: 'P2', headerShared: true },
           { label: 'SDGs We Impact', href: '/sdgs', phase: 'P2' },
           { label: 'Mentor & Train', href: '/social-impact/mentor', phase: 'P2' },
           { label: 'Volunteer', href: '/social-impact/volunteer', phase: 'P2' },

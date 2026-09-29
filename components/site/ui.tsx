@@ -4,31 +4,35 @@ import { cn } from '@/lib/utils'
 
 /* ------------------------------------------------------------------ CTA */
 
-type CtaVariant = 'primary' | 'gold' | 'red' | 'outline' | 'onDark' | 'quiet'
+type CtaVariant = 'primary' | 'brand-gradient' | 'brand-outline' | 'gold' | 'red' | 'outline' | 'onDark' | 'quiet'
 type CtaSize = 'sm' | 'md' | 'lg'
 
 const ctaBase =
-  'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)] disabled:opacity-50 active:scale-[0.97] select-none whitespace-nowrap rounded-lg'
+  'inline-flex items-center justify-center gap-2 font-semibold text-sm transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D4ED8] disabled:opacity-50 active:scale-[0.98] select-none whitespace-nowrap rounded-full cursor-pointer'
 
 const ctaVariants: Record<CtaVariant, string> = {
+  'brand-gradient':
+    'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm hover:shadow-md hover:opacity-95',
+  'brand-outline':
+    'border border-slate-300 hover:border-[#1D4ED8] bg-white text-slate-900 shadow-none hover:bg-slate-50 hover:text-[#1D4ED8]',
   primary:
-    'bg-[#1E4ED8] text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)]',
+    'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm hover:shadow-md hover:opacity-95',
   gold:
-    'bg-[#D4AF37] text-[#1a1405] shadow-[0_4px_14px_rgba(212,175,55,0.35)] hover:bg-[#e0bc3e] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(212,175,55,0.45)]',
+    'bg-[#D4AF37] text-[#1a1405] shadow-none hover:bg-[#c9a42f]',
   red:
-    'bg-[#d83b01] text-white shadow-[0_4px_14px_rgba(216,59,1,0.30)] hover:bg-[#c43400] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(216,59,1,0.40)]',
+    'bg-[#E11D48] text-white shadow-none hover:bg-[#be123c]',
   outline:
-    'border border-[var(--border)] bg-transparent text-foreground hover:bg-[#1E4ED8] hover:text-white hover:border-[#1E4ED8] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(30,78,216,0.25)]',
+    'border border-slate-300 bg-transparent text-slate-900 hover:bg-slate-100 hover:border-slate-400 shadow-none',
   onDark:
-    'border border-white/25 bg-white/[0.07] text-white backdrop-blur-sm hover:bg-white/[0.15] hover:border-white/50 hover:-translate-y-[2px]',
+    'border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:border-white/50',
   quiet:
-    'bg-muted text-foreground hover:bg-[#1E4ED8] hover:text-white hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(30,78,216,0.25)]',
+    'bg-slate-100 text-slate-800 hover:bg-slate-200 shadow-none',
 }
 
 const ctaSizes: Record<CtaSize, string> = {
   sm: 'h-8 px-3.5 text-xs',
-  md: 'h-11 px-5 text-sm',
-  lg: 'h-13 px-7 text-[0.95rem]',
+  md: 'h-10 px-5 text-sm',
+  lg: 'h-11 px-6 text-sm sm:text-base',
 }
 
 export function Cta({
@@ -60,8 +64,6 @@ export function ctaClass(variant: CtaVariant = 'primary', size: CtaSize = 'md', 
   return cn(ctaBase, ctaVariants[variant], ctaSizes[size], className)
 }
 
-/* -------------------------------------------------------------- Eyebrow */
-
 export function Eyebrow({
   children,
   className,
@@ -69,20 +71,20 @@ export function Eyebrow({
 }: {
   children: React.ReactNode
   className?: string
-  tone?: 'primary' | 'blue' | 'red' | 'gold' | 'muted' | 'neutral' | 'onDark'
+  tone?: 'primary' | 'blue' | 'red' | 'gold' | 'muted' | 'neutral' | 'onDark' | 'gradient'
 }) {
   const tones = {
-    primary: 'text-primary',
-    blue: 'text-primary',
-    red: 'text-brand-red',
+    primary: 'brand-gradient-text font-bold',
+    blue: 'text-[#0078D4]',
+    red: 'text-[#E11D48]',
     gold: 'text-gold',
-    muted: 'text-muted-foreground',
-    neutral: 'text-muted-foreground',
-    onDark: 'text-white/60',
+    muted: 'text-slate-500',
+    neutral: 'brand-gradient-text font-bold',
+    onDark: 'text-slate-300 font-bold',
+    gradient: 'brand-gradient-text font-bold',
   }
   return (
-    <p className={cn('eyebrow flex items-center gap-2.5', tones[tone], className)}>
-      <span aria-hidden className="rule inline-block h-px w-6 opacity-70" />
+    <p className={cn('eyebrow flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em]', tones[tone], className)}>
       {children}
     </p>
   )
@@ -108,16 +110,16 @@ export function SectionHead({
   return (
     <div
       className={cn(
-        'flex flex-col gap-4',
+        'flex flex-col gap-2.5',
         align === 'center' ? 'items-center text-center' : 'items-start',
         className,
       )}
     >
-      {eyebrow ? <Eyebrow tone={tone === 'onDark' ? 'gold' : 'primary'}>{eyebrow}</Eyebrow> : null}
+      {eyebrow ? <Eyebrow tone={tone === 'onDark' ? 'onDark' : 'neutral'}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
-          'font-serif text-pretty text-2xl sm:text-3xl lg:text-[2.5rem] font-normal tracking-tight leading-[1.18]',
-          tone === 'onDark' ? 'text-white' : 'text-[var(--ink)]',
+          'font-sans text-pretty text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold tracking-tight leading-[1.18]',
+          tone === 'onDark' ? 'text-white' : 'text-slate-900',
         )}
       >
         {title}
@@ -125,8 +127,8 @@ export function SectionHead({
       {lede ? (
         <p
           className={cn(
-            'max-w-2xl text-pretty leading-relaxed',
-            tone === 'onDark' ? 'text-white/70' : 'text-muted-foreground',
+            'max-w-2xl text-pretty leading-relaxed text-base sm:text-lg font-normal',
+            tone === 'onDark' ? 'text-slate-300' : 'text-slate-600',
           )}
         >
           {lede}
@@ -152,21 +154,15 @@ export function PageHero({
   meta?: React.ReactNode
 }) {
   return (
-    <header className="border-b border-[var(--hero-border)] bg-hero text-hero-foreground">
-      <div className="shell section-sm">
-        <div className="flex max-w-3xl flex-col gap-5">
-          <Eyebrow tone="gold" className="text-[color:var(--rule-color)]">
-            {eyebrow}
-          </Eyebrow>
-          <h1 className="display text-balance text-4xl md:text-5xl lg:text-[3.5rem]">{title}</h1>
-          {lede ? (
-            <p className="max-w-2xl text-pretty text-lg leading-relaxed text-[color:var(--hero-muted)]">
-              {lede}
-            </p>
-          ) : null}
-          {children ? <div className="mt-2 flex flex-wrap gap-3">{children}</div> : null}
-        </div>
-        {meta ? <div className="mt-10">{meta}</div> : null}
+    <header className="border-b border-slate-200 bg-white text-slate-900 py-12 sm:py-16">
+      <div className="shell flex flex-col items-start gap-4 max-w-4xl mx-auto px-4 sm:px-6">
+        <Eyebrow tone="neutral">{eyebrow}</Eyebrow>
+        <h1 className="font-sans text-pretty text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 leading-[1.14]">
+          {title}
+        </h1>
+        {lede ? <p className="max-w-2xl text-base sm:text-lg text-slate-600 font-normal leading-relaxed">{lede}</p> : null}
+        {children ? <div className="mt-2 flex flex-wrap gap-3">{children}</div> : null}
+        {meta ? <div className="mt-4 border-t border-slate-200 pt-4 text-xs text-slate-500 font-medium">{meta}</div> : null}
       </div>
     </header>
   )
@@ -298,3 +294,5 @@ export function Prose({
     </div>
   )
 }
+
+export { ClosingCtaSection } from './ClosingCtaSection'

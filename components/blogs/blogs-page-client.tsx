@@ -208,17 +208,11 @@ export function BlogsPageClient() {
             <div className="flex flex-col items-center justify-center text-center py-20 border border-dashed border-[var(--border)] rounded-3xl bg-card p-8 space-y-4">
               <BookOpen className="size-12 text-muted-foreground" />
               <div className="space-y-1">
-                <h3 className="display text-xl font-bold text-foreground">No custom blogs uploaded yet</h3>
+                <h3 className="display text-xl font-bold text-foreground">No articles published yet</h3>
                 <p className="text-xs text-muted-foreground max-w-md">
-                  Upload your articles through the Peers Global Admin Panel (`/admin/blogs`) to publish them here.
+                  Check back soon for the latest articles and insights from Peers Global.
                 </p>
               </div>
-              <Link
-                href="/admin/blogs"
-                className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition shadow-md"
-              >
-                Go to Admin Blog Manager
-              </Link>
             </div>
           ) : (
             <div className="flex flex-col gap-10">

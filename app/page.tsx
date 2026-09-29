@@ -1,21 +1,16 @@
 import type { Metadata } from 'next'
-import { HomeHero } from '@/components/home/hero'
-import {
-  CirclesSection,
-  ClosingSection,
-  CollaborationSection,
-  EventsSection,
-  JourneySection,
-  LeadershipSection,
-  LsrSection,
-  MissionSection,
-  OutcomesSection,
-  PhilosophySection,
-  StoriesSection,
-  UnitySection,
-  UniverseSection,
-  WhoWeAreSection,
-} from '@/components/home/sections'
+import '@/app/sections.css'
+import { HeroSection } from '@/components/home-sections/hero-section'
+import { WhatIsSection } from '@/components/home-sections/what-is-section'
+import { LocalCirclesBanner } from '@/components/home-sections/local-circles-banner'
+import { HowItWorksSection } from '@/components/home-sections/how-it-works-section'
+import { PathwayCardsSection } from '@/components/home-sections/pathway-cards-section'
+import { QuestSection } from '@/components/home-sections/quest-section'
+import { MentorsSection } from '@/components/home-sections/mentors-section'
+import { TrustedWorldwideSection } from '@/components/home-sections/trusted-worldwide-section'
+import { CaseStudiesSection } from '@/components/home-sections/case-studies-section'
+import { ChoosePathwaySection } from '@/components/home-sections/choose-pathway-section'
+import { MeditationsSection } from '@/components/home-sections/meditations-section'
 
 export const metadata: Metadata = {
   title: "Peers Global | World's First Community of Collaboration",
@@ -25,51 +20,39 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
-      {/* Section 1 — Hero */}
-      <HomeHero />
+    <div className="homepage-sections-root w-full bg-white text-[#0f131a]">
+      {/* 1. Hero Section & Background Video */}
+      <HeroSection />
 
-      {/* Our Philosophy */}
-      <PhilosophySection />
+      {/* 2. What is Section & Live Stats Counter */}
+      <WhatIsSection />
 
-      {/* Who We Are & What Peers Global Is */}
-      <WhoWeAreSection />
+      {/* 2b. Local CEO Groups / Circles Banner (Vistage-style) */}
+      <LocalCirclesBanner />
 
-      {/* Section 4 — Trusted Circles */}
-      <CirclesSection />
+      {/* Who We Are Section */}
+      <TrustedWorldwideSection />
 
-      {/* Section 5 — How Collaboration Works (11 Forms) */}
-      <CollaborationSection />
+      {/* 3. The Unity App Interactive Carousel */}
+      <HowItWorksSection />
 
-      {/* Section 6 — Learn, Sales, Resources (LSR) */}
-      <LsrSection />
+      {/* 4. The 6 Pathways Interactive Sticky Deck & Program Marquees */}
+      <PathwayCardsSection />
 
-      {/* Section 7 — The Unity App */}
-      <UnitySection />
+      {/* 6. 110+ World-Class Quests Section (Every Mentor Designs a Quest) */}
+      <QuestSection />
 
-      {/* Section 8 — Impact */}
-      <OutcomesSection />
+      {/* 7. Meet Your Mentors Section (100+ Teachers Marquee) */}
+      <MentorsSection />
 
-      {/* Section 9 — The 1 Million Mission */}
-      <MissionSection />
+      {/* 9. Case Studies of Success (25,959 Stories Collage) */}
+      <CaseStudiesSection />
 
-      {/* Section 10 — Real Collaborations */}
-      <StoriesSection />
+      {/* 10. Choose Your Pathway (Pick a Pathway or Take All Six Pricing Table) */}
+      <ChoosePathwaySection />
 
-      {/* Section 11 — The Peers Global Universe */}
-      <UniverseSection />
-
-      {/* Section 12 — The Journey */}
-      <JourneySection />
-
-      {/* Section 13 — Leadership */}
-      <LeadershipSection />
-
-      {/* Events Calendar */}
-      <EventsSection />
-
-      {/* Section 14 — Final Call */}
-      <ClosingSection />
-    </>
+      {/* 11. Meditation Collection (3-Row Infinite Marquee) */}
+      <MeditationsSection />
+    </div>
   )
 }

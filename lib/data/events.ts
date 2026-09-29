@@ -18,6 +18,7 @@ export type EventRecord = {
   speakers: { name: string; role: string; company: string; city: string }[]
   circles: string[]
   faqs: { q: string; a: string }[]
+  image_url?: string | null
 }
 
 export const EVENTS: EventRecord[] = [

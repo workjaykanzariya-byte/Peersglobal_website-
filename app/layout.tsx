@@ -1,31 +1,20 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Montserrat, Poppins, Dancing_Script } from 'next/font/google'
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import { DesignProvider, DesignScript } from '@/components/design/design-provider'
 import { DesignSwitcher } from '@/components/design/design-switcher'
-import { SiteFooter } from '@/components/site/site-footer'
-import { SiteHeader } from '@/components/site/site-header'
-import { GlobalFloatingTrigger } from '@/components/site/global-floating-trigger'
+import { SiteShell } from '@/components/site/site-shell'
 import './globals.css'
 
-const poppins = Poppins({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
+  variable: '--font-sans-modern',
   display: 'swap',
 })
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
-  variable: '--font-montserrat',
-  display: 'swap',
-})
-
-const dancingScript = Dancing_Script({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-script',
+  variable: '--font-sans-inter',
   display: 'swap',
 })
 
@@ -66,7 +55,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-design="d1"
-      className={`bg-background ${poppins.variable} ${montserrat.variable} ${dancingScript.variable}`}
+      className={`bg-background ${plusJakarta.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -80,10 +69,7 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <SiteHeader />
-          <main id="main">{children}</main>
-          <SiteFooter />
-          <GlobalFloatingTrigger />
+          <SiteShell>{children}</SiteShell>
         </DesignProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

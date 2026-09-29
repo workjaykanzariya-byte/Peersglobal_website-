@@ -23,7 +23,7 @@ export function CirclesSection() {
           <div className="shrink-0 self-start md:self-auto">
             <Link
               href="/circles"
-              className="inline-flex items-center gap-2 rounded-lg px-6 py-3.5 font-semibold text-white bg-[#1E4ED8] shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-semibold text-white bg-[#1E4ED8] shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:bg-[#1a42c0] hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
             >
               <Sparkles className="size-4 text-white" />
               Browse all 19 Circles
@@ -41,7 +41,7 @@ export function CirclesSection() {
             <Link
               key={`${c.slug}-${i}`}
               href={`/circles/${c.slug}`}
-              className="group relative flex w-80 shrink-0 flex-col gap-3 rounded-2xl border border-[var(--border)] bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40"
+              className="group relative flex w-80 shrink-0 flex-col gap-3 rounded-full border border-[var(--border)] bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40"
             >
               <div className="flex items-center justify-between">
                 <Tag tone="blue" className="px-2.5 py-1 text-[11px] font-semibold">
@@ -85,7 +85,7 @@ export function CirclesSection() {
             <Link
               key={`${c.slug}-${i}`}
               href={`/circles/${c.slug}`}
-              className="group relative flex w-80 shrink-0 flex-col gap-3 rounded-2xl border border-[var(--border)] bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-gold/50"
+              className="group relative flex w-80 shrink-0 flex-col gap-3 rounded-full border border-[var(--border)] bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-gold/50"
             >
               <div className="flex items-center justify-between">
                 <Tag tone="gold" className="px-2.5 py-1 text-[11px] font-semibold">

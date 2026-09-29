@@ -1,11 +1,178 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { CalendarDays, MapPin, Users } from 'lucide-react'
-import { Card, Cta, Eyebrow, SectionHead, Tag } from '@/components/site/ui'
-import { EVENTS, getEvent } from '@/lib/data/events'
+import { EventDetailClient, EventDetailData } from '@/components/events/event-detail-client'
+import { getEvent } from '@/lib/data/events'
 
-export async function generateStaticParams() {
-  return EVENTS.map((e) => ({ slug: e.slug }))
+export const dynamic = 'force-dynamic'
+
+async function fetchEventDetails(slug: string): Promise<EventDetailData | null> {
+  const decodedSlug = decodeURIComponent(slug).trim().toLowerCase()
+
+  // 1. Fetch live from Unity backend API
+  try {
+    const res = await fetch(`https://peersunity.com/api/v1/events/all?status=all`, {
+      headers: { Accept: 'application/json' },
+      cache: 'no-store',
+    })
+
+    if (res.ok) {
+      const json = await res.json()
+      const dataObj = json.data || json
+      const list = [
+        ...(dataObj.upcoming_events || []),
+        ...(dataObj.live_events || []),
+        ...(dataObj.today_events || []),
+        ...(dataObj.events || []),
+      ]
+
+      const matched = list.find((item: any) => {
+        const itemTitleSlug = (item.title || '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '')
+        const itemId = (item.event_id || item.id || '').toLowerCase()
+        const itemOccId = (item.occurrence_id || '').toLowerCase()
+
+        return (
+          itemId === decodedSlug ||
+          itemOccId === decodedSlug ||
+          itemTitleSlug === decodedSlug ||
+          decodedSlug.includes(itemId) ||
+          itemId.includes(decodedSlug) ||
+          itemTitleSlug.includes(decodedSlug)
+        )
+      })
+
+      if (matched) {
+        const title = matched.title || 'Peers Global Event'
+        const rawDate = matched.start_at || matched.formatted_start_at
+        const dateObj = rawDate ? new Date(rawDate) : new Date()
+        const formattedDate = !isNaN(dateObj.getTime())
+          ? dateObj.toLocaleDateString('en-US', {
+              weekday: 'short',
+              month: 'short',
+              day: 'numeric',
+            })
+          : 'Upcoming'
+        const fullDate = !isNaN(dateObj.getTime())
+          ? dateObj.toLocaleDateString('en-US', {
+              weekday: 'long',
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+            })
+          : 'Upcoming'
+
+        const time = matched.formatted_start_at
+          ? matched.formatted_start_at.split(' ').slice(3).join(' ') || '08:00 AM – 11:30 AM IST'
+          : '08:00 AM – 11:30 AM IST'
+        const venue = matched.location ? matched.location.split(',')[0]?.trim() : 'Fortune Select SG Highway'
+        const fullAddress = matched.location || 'Fortune Select SG Highway, Ahmedabad, Gujarat, India'
+        const city = fullAddress.split(',').slice(-2, -1)[0]?.trim() || 'Ahmedabad'
+        const circleName = matched.circle?.name || 'MSME ONE Ahmedabad'
+        const circleSlug = matched.circle?.slug || 'msme-one-ahmedabad'
+        const imageUrl = matched.image_url || '/images/executive-director-conclave.jpg'
+        const summary =
+          matched.description ||
+          `Join validated business promoters, founders, and leaders for ${title} with ${circleName}. This circle meeting brings together entrepreneurs to build partnerships, discuss growth opportunities, and strengthen the business ecosystem.`
+
+        return {
+          slug: decodedSlug,
+          event_id: matched.event_id || matched.id || decodedSlug,
+          occurrence_id: matched.occurrence_id || null,
+          title,
+          subtitle: 'Connect. Collaborate. Create Opportunities.',
+          kind: matched.event_type || 'Circle Meeting',
+          date: formattedDate,
+          fullDate,
+          isoDate: !isNaN(dateObj.getTime()) ? dateObj.toISOString().split('T')[0] : '',
+          time,
+          formatted_start_at: `${fullDate} · ${time}`,
+          city,
+          venue,
+          fullAddress,
+          status: matched.status || 'upcoming',
+          attending: matched.registered_count || 42,
+          capacity: 120,
+          price: matched.event_type?.toLowerCase().includes('conclave') ? '₹1,500' : 'Free for Members',
+          summary,
+          body: [
+            `Join validated business promoters, founders, and leaders for ${title} with ${circleName}.`,
+            `This circle meeting brings together business promoters, founders, and CXOs to build strategic partnerships, referral mandates, and peer-to-peer collaboration.`,
+            `Attendance is strictly reserved for verified members and registered guests.`,
+          ],
+          agenda: [
+            { time: '08:00 AM', title: 'Registration & Welcome Coffee', detail: 'Check-in and open networking' },
+            { time: '08:30 AM', title: 'Structured Peer Collaboration & Circle Introduction', detail: 'Focus on strategic partnerships and synergies' },
+            { time: '09:30 AM', title: 'Business Updates & Referral Mandates', detail: 'Actionable opportunities logged to Unity' },
+            { time: '10:30 AM', title: 'Open Networking & 1-on-1 Meetings', detail: 'Pre-scheduled and on-spot meetings' },
+            { time: '11:30 AM', title: 'Closing & Next Steps', detail: 'Direct 1-on-1 interaction' },
+          ],
+          speakers: [
+            { name: 'Dr. Pravin Parmar', role: 'Founder & Convener', company: 'Peers Global', city: 'Ahmedabad' },
+          ],
+          hostName: 'Dr. Pravin Parmar',
+          hostRole: 'Super Organizer',
+          circleName,
+          circleSlug,
+          circleMembersCount: 120,
+          rating: 4.8,
+          reviewsCount: 814,
+          image_url: imageUrl,
+          sponsors: [
+            { name: 'Peers Global Network', desc: 'Community of Collaboration & Enterprise Growth' },
+          ],
+          faqs: [
+            { q: 'Can non-members attend as guests?', a: 'Yes, guest passes are permitted upon registration and organizer review.' },
+            { q: 'What is the dress code?', a: 'Business formal / sharp business casual.' },
+            { q: 'How do I submit referral mandates?', a: 'Referral mandates can be logged live through the Unity App during the session.' },
+          ],
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('[events] fetchEventDetails error:', err)
+  }
+
+  // 2. Check catalog fallback
+  const staticEv = getEvent(decodedSlug)
+  if (staticEv) {
+    return {
+      slug: staticEv.slug,
+      event_id: staticEv.slug,
+      title: staticEv.title,
+      kind: staticEv.kind,
+      date: staticEv.date,
+      isoDate: staticEv.isoDate,
+      time: staticEv.time,
+      formatted_start_at: `${staticEv.date} · ${staticEv.time}`,
+      city: staticEv.city,
+      venue: staticEv.venue,
+      fullAddress: `${staticEv.venue}, ${staticEv.city}, Gujarat, India`,
+      status: staticEv.status,
+      attending: staticEv.attending,
+      capacity: staticEv.capacity,
+      price: staticEv.price,
+      summary: staticEv.summary,
+      body: staticEv.body,
+      agenda: staticEv.agenda,
+      speakers: staticEv.speakers,
+      hostName: staticEv.speakers[0]?.name || 'Dr. Pravin Parmar',
+      hostRole: staticEv.speakers[0]?.role || 'Circle Director',
+      circleName: 'Peers Global Circle',
+      circleSlug: 'peers-circle',
+      circleMembersCount: 120,
+      rating: 4.8,
+      reviewsCount: 814,
+      image_url: staticEv.image_url || '/images/executive-director-conclave.jpg',
+      sponsors: [
+        { name: 'Peers Global Network', desc: 'Community of Collaboration & Enterprise Growth' },
+      ],
+      faqs: staticEv.faqs,
+    }
+  }
+
+  return null
 }
 
 export async function generateMetadata({
@@ -14,11 +181,17 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const e = getEvent(slug)
-  if (!e) return {}
+  const event = await fetchEventDetails(slug)
+  if (!event) return { title: 'Event Not Found | Peers Global' }
+
   return {
-    title: e.title,
-    description: e.summary,
+    title: `${event.title} | Peers Global Events`,
+    description: event.summary,
+    openGraph: {
+      title: `${event.title} | Peers Global Events`,
+      description: event.summary,
+      images: [event.image_url],
+    },
   }
 }
 
@@ -28,172 +201,9 @@ export default async function EventDetailPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const e = getEvent(slug)
-  if (!e) return notFound()
+  const event = await fetchEventDetails(slug)
 
-  const pct = Math.round((e.attending / e.capacity) * 100)
+  if (!event) return notFound()
 
-  return (
-    <div className="flex flex-col">
-      {/* Hero */}
-      <section className="section bg-muted border-b border-[var(--border)]">
-        <div className="shell grid gap-10 lg:grid-cols-[1fr_0.5fr]">
-          <div className="flex flex-col gap-5">
-            <div className="flex flex-wrap items-center gap-2">
-              <Tag tone={e.status === 'upcoming' ? 'blue' : 'neutral'}>{e.kind}</Tag>
-              {e.priority && <Tag tone="red">Priority event</Tag>}
-              <Tag tone="neutral">{e.status === 'upcoming' ? 'Upcoming' : 'Past'}</Tag>
-            </div>
-            <h1 className="display text-4xl sm:text-5xl">{e.title}</h1>
-            <p className="text-lg leading-relaxed text-muted-foreground">{e.summary}</p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-1.5">
-                <CalendarDays aria-hidden className="size-4" />
-                {e.date} · {e.time}
-              </li>
-              <li className="flex items-center gap-1.5">
-                <MapPin aria-hidden className="size-4" />
-                {e.venue}, {e.city}
-              </li>
-              <li className="flex items-center gap-1.5">
-                <Users aria-hidden className="size-4" />
-                <strong className="text-foreground">{e.attending}</strong> of {e.capacity} confirmed
-              </li>
-            </ul>
-            <p className="text-sm text-muted-foreground">{e.price}</p>
-
-            {/* Capacity bar */}
-            <div className="flex flex-col gap-1.5">
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>{pct}% capacity filled</span>
-                <span>{e.capacity - e.attending} seats remaining</span>
-              </div>
-              <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
-                <div
-                  className="h-full bg-primary transition-all"
-                  style={{ width: `${pct}%`, borderRadius: 'inherit' }}
-                  role="progressbar"
-                  aria-valuenow={pct}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                />
-              </div>
-            </div>
-
-            {e.status === 'upcoming' && (
-              <div className="flex flex-wrap gap-3 pt-1">
-                <Cta href="/contact?intent=explorer">Register as an Explorer</Cta>
-                <Cta href="/membership" variant="outline">Members attend free</Cta>
-              </div>
-            )}
-          </div>
-
-          {/* Quick stats sidebar */}
-          <div className="flex flex-col gap-4">
-            <Card className="p-5">
-              <p className="eyebrow mb-3 text-primary">Event snapshot</p>
-              <dl className="flex flex-col gap-2">
-                {[
-                  { label: 'Type', value: e.kind },
-                  { label: 'Date', value: e.date },
-                  { label: 'Time', value: e.time },
-                  { label: 'City', value: e.city },
-                  { label: 'Venue', value: e.venue },
-                  { label: 'Capacity', value: `${e.capacity} total` },
-                  { label: 'Price', value: e.price },
-                ].map((row) => (
-                  <div key={row.label} className="flex gap-2">
-                    <dt className="w-20 shrink-0 text-xs text-muted-foreground">{row.label}</dt>
-                    <dd className="text-xs text-foreground">{row.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Body */}
-      <section className="section border-b border-[var(--border)]">
-        <div className="shell grid gap-12 lg:grid-cols-[1fr_1fr]">
-          <div className="flex flex-col gap-6">
-            <h2 className="display text-2xl">About this event</h2>
-            {e.body.map((para, i) => (
-              <p key={i} className="leading-relaxed text-muted-foreground">{para}</p>
-            ))}
-          </div>
-          {e.speakers.length > 0 && (
-            <div className="flex flex-col gap-5">
-              <h3 className="display text-2xl">Speakers</h3>
-              <ul className="flex flex-col gap-4">
-                {e.speakers.map((s) => (
-                  <li key={s.name} className="surface flex flex-col gap-0.5 p-4">
-                    <p className="font-semibold text-foreground">{s.name}</p>
-                    <p className="text-sm text-muted-foreground">{s.role}</p>
-                    <p className="text-xs text-muted-foreground">{s.company} · {s.city}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Agenda */}
-      {e.agenda.length > 0 && (
-        <section className="section border-b border-[var(--border)] bg-muted">
-          <div className="shell flex flex-col gap-8">
-            <SectionHead eyebrow="Agenda" title={`${e.date} schedule`} />
-            <ol className="relative flex flex-col gap-0 border-l-2 border-[var(--border)] pl-8">
-              {e.agenda.map((item) => (
-                <li key={item.time} className="relative pb-6 last:pb-0">
-                  <span className="absolute -left-[2.35rem] flex size-6 items-center justify-center rounded-full bg-background border-2 border-primary" aria-hidden />
-                  <p className="eyebrow mb-0.5 text-primary">{item.time}</p>
-                  <h3 className="font-semibold text-foreground">{item.title}</h3>
-                  {item.detail && (
-                    <p className="mt-0.5 text-sm text-muted-foreground">{item.detail}</p>
-                  )}
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      )}
-
-      {/* FAQs */}
-      {e.faqs.length > 0 && (
-        <section className="section border-b border-[var(--border)]">
-          <div className="shell flex flex-col gap-8">
-            <SectionHead eyebrow="Questions" title="Event FAQ" />
-            <ul className="mx-auto w-full max-w-3xl divide-y divide-[var(--border)]">
-              {e.faqs.map((f) => (
-                <li key={f.q} className="py-5">
-                  <p className="font-medium text-foreground mb-2">{f.q}</p>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{f.a}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {/* CTA */}
-      {e.status === 'upcoming' && (
-        <section className="section-sm bg-primary text-primary-foreground">
-          <div className="shell flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="eyebrow text-white/70">Saath Chalein.</p>
-              <h2 className="display mt-1 text-2xl md:text-3xl">
-                {e.capacity - e.attending} seats remaining at {e.title}.
-              </h2>
-            </div>
-            <div className="flex shrink-0 flex-wrap gap-3">
-              <Cta href="/contact?intent=explorer" variant="gold" size="lg">Register now</Cta>
-              <Cta href="/events" variant="onDark" size="lg">All events →</Cta>
-            </div>
-          </div>
-        </section>
-      )}
-    </div>
-  )
+  return <EventDetailClient event={event} />
 }

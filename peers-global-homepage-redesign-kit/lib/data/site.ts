@@ -97,7 +97,6 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Find Your Circle', href: '/circles/find', desc: 'Match with your ideal Circle and Inner Board', phase: 1 },
       { label: 'The Circle Meeting Experience', href: '/circle-meeting-experience', desc: '4-part monthly meeting structure', phase: 1 },
       { label: 'Start a Circle', href: '/start-a-circle', desc: 'Circle starts from Day 1 — first member', phase: 1 },
-      { label: 'Circle Map — Cities & Countries', href: '/map', desc: 'Live locations and active chapters', phase: 2 },
     ],
   },
   {
@@ -115,7 +114,6 @@ export const HEADER_NAV: NavItem[] = [
     children: [
       { label: 'Why Join', href: '/membership', desc: "Why your next breakthrough won't come alone", phase: 1 },
       { label: 'Who Belongs Here', href: '/who-belongs-here', desc: 'The fifteen names test & candidate fit', phase: 1 },
-      { label: 'Membership vs Peer Standing', href: '/membership-vs-peer-standing', desc: 'Status word vs relational standing', phase: 1 },
       { label: 'Compare Tiers', href: '/membership/tiers', desc: 'Full fee transparency & ₹2L+ value breakdown', phase: 1 },
       { label: 'Criteria & Process', href: '/membership/criteria', desc: '2-step application and Circle approval', phase: 1 },
       { label: 'What You Get', href: '/membership/benefits', desc: 'Complete annual calendar and inclusions', phase: 1 },
@@ -142,7 +140,6 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Industry Director', href: '/leadership/industry-director', desc: 'Sector ecosystem owner for the city', phase: 1 },
       { label: 'Executive Director', href: '/leadership/executive-director', desc: 'Area / District / State / Country leadership', phase: 1 },
       { label: 'Global Advisory Board', href: '/leadership/global-advisors', desc: 'Senior entrepreneurs guiding the movement', phase: 2 },
-      { label: 'Impact Income', href: '/leadership/impact-income', desc: 'Earn while contributing to ecosystem growth', phase: 1 },
       { label: 'Apply to Lead', href: '/leadership/apply', desc: 'Submit expression of interest for leadership', phase: 1 },
     ],
   },
@@ -407,7 +404,7 @@ export const FOOTER_BANDS: FooterBand[] = [
         links: [
           { label: 'Newsroom', href: '/newsroom', phase: 'P2', headerShared: true },
           { label: 'Podcast & Media', href: '/media', phase: 'P2', headerShared: true },
-          { label: 'Vyapaar Jagat TV', href: '/media/vyapaar-jagat-tv', phase: 'P2' },
+          { label: 'Vyapaar Jagat TV', href: 'https://www.youtube.com/@VyapaarJagatTV', phase: 'P2', external: true },
           { label: 'VyapaarJagat.com', href: 'https://vyapaarjagat.com', phase: 'P2', external: true },
           { label: 'Gallery', href: '/gallery', phase: 'P2', headerShared: true },
           { label: 'Press Coverage', href: '/newsroom/coverage', phase: 'P2' },
