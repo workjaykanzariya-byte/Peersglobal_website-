@@ -251,8 +251,8 @@ export default function TheCurrencyPage() {
                 
                 {/* Eyebrow */}
                 <div className="flex items-center gap-3 mb-5">
-                  <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE CURRENCY
                   </span>
                 </div>
@@ -260,7 +260,7 @@ export default function TheCurrencyPage() {
                 {/* Title */}
                 <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-5">
                   The Impact System: where entrepreneurs choose to{' '}
-                  <span className="font-serif italic text-[#1E4ED8]">grow together.</span>
+                  <span className="font-serif italic brand-gradient-text">grow together.</span>
                 </h1>
 
                 {/* Subtitle / Narrative */}
@@ -272,7 +272,7 @@ export default function TheCurrencyPage() {
                 <div className="flex flex-wrap items-center gap-4 mb-10">
                   <Link
                     href="/unity"
-                    className="rounded-full bg-[#1E4ED8] hover:bg-[#1b44be] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -325,9 +325,9 @@ export default function TheCurrencyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            <span>OUR BELIEF</span>
+          <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="brand-gradient-text">OUR BELIEF</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mt-2">
@@ -381,15 +381,15 @@ export default function TheCurrencyPage() {
             <div className="lg:col-span-6 flex flex-col items-start">
               
               {/* Eyebrow */}
-              <div className="flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase mb-4">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-                <span>SIMPLE. FAIR. MEANINGFUL.</span>
+              <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-4">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="brand-gradient-text">SIMPLE. FAIR. MEANINGFUL.</span>
               </div>
 
               {/* Title: One action, one life. */}
               <h2 className="font-serif text-4xl sm:text-5xl lg:text-[56px] font-bold text-slate-900 tracking-tight leading-[1.08] mb-6">
                 One action, <br />
-                <span className="font-serif italic font-bold text-[#0062D2]">one life.</span>
+                <span className="font-serif italic font-bold brand-gradient-text">one life.</span>
               </h2>
 
               {/* Body Paragraphs */}
@@ -515,9 +515,9 @@ export default function TheCurrencyPage() {
                 </div>
 
                 {/* Eyebrow */}
-                <div className="flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase mb-2">
-                  <span>FOUR SIMPLE STEPS</span>
-                  <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+                <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                  <span className="brand-gradient-text">FOUR SIMPLE STEPS</span>
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 </div>
 
                 {/* Headline */}
@@ -598,8 +598,9 @@ export default function TheCurrencyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Eyebrow */}
-          <div className="text-xs font-bold tracking-[0.2em] text-[#0062D2] uppercase mb-3">
-            VISIBLE. RECOGNISED. REAL.
+          <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-3">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="brand-gradient-text">VISIBLE. RECOGNISED. REAL.</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-12">
@@ -668,10 +669,10 @@ export default function TheCurrencyPage() {
       <section className="relative py-20 sm:py-28 bg-[#F8FAFC] text-slate-900 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
-          <div className="inline-flex items-center gap-3 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            <span>MORE THAN A NUMBER</span>
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+          <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="brand-gradient-text">MORE THAN A NUMBER</span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-14">
@@ -716,8 +717,9 @@ export default function TheCurrencyPage() {
             {/* Left Column: PEER STANDING (6 cols) */}
             <div className="lg:col-span-6 flex flex-col justify-between h-full">
               <div>
-                <div className="text-xs font-bold tracking-[0.2em] text-[#0062D2] uppercase mb-2">
-                  PEER STANDING
+                <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="brand-gradient-text">PEER STANDING</span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
                   What the community recognises you for
@@ -762,8 +764,9 @@ export default function TheCurrencyPage() {
 
             {/* Right Column: PEERS COIN (6 cols) */}
             <div className="lg:col-span-6 bg-[#F8FAFC] rounded-2xl p-7 sm:p-9 border border-slate-200/80 shadow-xs">
-              <div className="text-xs font-bold tracking-[0.2em] text-[#0062D2] uppercase mb-2">
-                PEERS COIN —
+              <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="brand-gradient-text">PEERS COIN</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
                 The community gives back to those who give

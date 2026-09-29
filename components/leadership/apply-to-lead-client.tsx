@@ -352,14 +352,13 @@ export function ApplyToLeadClient() {
             {/* Left Content (Z-10) */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                  <span className="w-5 h-px bg-[#0062D2]" />
-                  LEADERSHIP
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">LEADERSHIP</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
-                  Apply to Lead
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-4">
+                  <span className="brand-gradient-text">Apply to Lead</span>
                 </h1>
 
                 <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
@@ -417,11 +416,14 @@ export function ApplyToLeadClient() {
       <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-[#FBFCFE] border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-              — BEFORE YOU APPLY —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-              A few things to know
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                BEFORE YOU APPLY
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-1">
+              <span className="brand-gradient-text">A few things to know</span>
             </h2>
           </div>
 
@@ -482,11 +484,15 @@ export function ApplyToLeadClient() {
       <section className="py-16 sm:py-20 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-              — WHICH ROLE —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-              Explore the leadership roles
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                WHICH ROLE
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-1">
+              <span className="brand-gradient-text">Explore the leadership roles</span>
             </h2>
           </div>
 
@@ -536,11 +542,14 @@ export function ApplyToLeadClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                — EXPRESS INTEREST —
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-                Tell us about yourself
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  EXPRESS INTEREST
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-1">
+                <span className="brand-gradient-text">Tell us about yourself</span>
               </h2>
             </div>
 
@@ -961,7 +970,7 @@ export function ApplyToLeadClient() {
 
                       <button
                         type="submit"
-                        className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#0062D2] text-white text-sm font-semibold hover:bg-[#0052B4] shadow-md hover:shadow-lg transition-all cursor-pointer"
+                        className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-semibold shadow-md hover:shadow-lg transition-all cursor-pointer"
                       >
                         <span>Submit Expression of Interest</span>
                         <Send className="w-4 h-4" />
@@ -983,11 +992,15 @@ export function ApplyToLeadClient() {
       <section className="py-16 sm:py-20 bg-[#FBFCFE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-              — WHAT HAPPENS NEXT —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-              From interest to impact
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                WHAT HAPPENS NEXT
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-1">
+              <span className="brand-gradient-text">From interest to impact</span>
             </h2>
           </div>
 
@@ -1021,11 +1034,14 @@ export function ApplyToLeadClient() {
             {/* Left Column: What We Look For */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — WHAT WE LOOK FOR —
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-                  The qualities that matter
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    WHAT WE LOOK FOR
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-1">
+                  <span className="brand-gradient-text">The qualities that matter</span>
                 </h2>
               </div>
 
@@ -1059,11 +1075,14 @@ export function ApplyToLeadClient() {
             {/* Right Column: Frequently Asked Questions */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — COMMON QUESTIONS —
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-                  Frequently asked questions
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    COMMON QUESTIONS
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-1">
+                  <span className="brand-gradient-text">Frequently asked questions</span>
                 </h2>
               </div>
 

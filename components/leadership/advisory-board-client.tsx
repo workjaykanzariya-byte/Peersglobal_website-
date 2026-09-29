@@ -106,14 +106,13 @@ export function AdvisoryBoardClient() {
             {/* Left Content */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                  <span className="w-5 h-px bg-[#0062D2]" />
-                  INSTITUTIONAL GOVERNANCE
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">INSTITUTIONAL GOVERNANCE</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
-                  The Peers Board of Advisory
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-4">
+                  <span className="brand-gradient-text">The Peers Board of Advisory</span>
                 </h1>
 
                 <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
@@ -127,7 +126,7 @@ export function AdvisoryBoardClient() {
                 <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="#advisors-list"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Meet The Advisors</span>
                     <ArrowRight className="size-4" />
@@ -177,13 +176,13 @@ export function AdvisoryBoardClient() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
-              <span className="w-5 h-px bg-cyan-400" />
-              FIDUCIARY RESPONSIBILITY
-              <span className="w-5 h-px bg-cyan-400" />
+            <div className="flex items-center justify-center gap-2 mb-3.5">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIDUCIARY RESPONSIBILITY</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              What Advisors do
+              <span className="brand-gradient-text">What Advisors do</span>
             </h2>
             <p className="text-base sm:text-lg text-slate-300 mt-3 font-light">
               Five critical mandates that steer the health and trajectory of Peers Global.
@@ -247,13 +246,13 @@ export function AdvisoryBoardClient() {
       <section id="advisors-list" className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              THE COUNCIL
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE COUNCIL</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight">
-              Who they are
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+              <span className="brand-gradient-text">Who they are</span>
             </h2>
             <p className="text-base sm:text-lg text-slate-600 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
               Senior founders who have built through multiple market cycles over decades.

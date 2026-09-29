@@ -352,8 +352,9 @@ export function FindPageClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— TWO WAYS TO BEGIN —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">TWO WAYS TO BEGIN</span>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -470,8 +471,9 @@ export function FindPageClient() {
       <section id="find-form" className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— SIX QUICK QUESTIONS —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SIX QUICK QUESTIONS</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
@@ -816,8 +818,9 @@ export function FindPageClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHAT HAPPENS NEXT —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS NEXT</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
             A simple process. A real conversation.
@@ -859,8 +862,9 @@ export function FindPageClient() {
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— START WITH THE APP —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">START WITH THE APP</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -948,8 +952,9 @@ export function FindPageClient() {
 
             {/* Left */}
             <div className="lg:col-span-5">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— COMMON QUESTIONS —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
                 Frequently asked questions

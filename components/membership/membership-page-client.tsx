@@ -92,8 +92,7 @@ export function MembershipPageClient() {
 
               {/* Main Heading */}
               <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-serif font-bold text-[#0B192C] tracking-tight leading-[1.12]">
-                Everything that comes with being part of this{' '}
-                <span className="text-[#D97706]">community.</span>
+                <span className="brand-gradient-text">Everything that comes with being part of this community.</span>
               </h1>
 
               {/* Subtitle / Description */}
@@ -179,12 +178,14 @@ export function MembershipPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3.5">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A] text-xs font-bold uppercase tracking-wider shadow-2xs">
-              THE 3-STEP GOVERNANCE PROCESS
-            </span>
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE 3-STEP GOVERNANCE PROCESS</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0B192C] tracking-tight">
-              How We Screen Every Application
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight">
+              <span className="brand-gradient-text">How We Screen Every Application</span>
             </h2>
 
             <p className="text-[15px] sm:text-base text-slate-600 leading-relaxed">
@@ -321,7 +322,7 @@ export function MembershipPageClient() {
 
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052CC] text-white text-[15px] font-bold shadow-md hover:shadow-lg transition-all active:scale-98 shrink-0"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-[15px] font-bold shadow-md hover:shadow-lg transition-all active:scale-98 shrink-0"
             >
               <span>Apply for Seat Review</span>
               <ArrowRight className="w-4 h-4" />
@@ -337,14 +338,14 @@ export function MembershipPageClient() {
             {/* Left Narrative Column */}
             <div className="lg:col-span-5 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-[#D97706]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D97706] block">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text block">
                   QUESTIONS
                 </span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0B192C] tracking-tight leading-tight">
-                Membership FAQ
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight leading-tight">
+                <span className="brand-gradient-text">Membership FAQ</span>
               </h2>
 
               <p className="text-[15px] sm:text-base text-slate-600 leading-relaxed">
@@ -430,7 +431,7 @@ export function MembershipPageClient() {
 
           <Link
             href="/apply"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052CC] text-white font-bold text-[15px] shadow-lg hover:shadow-xl transition-all active:scale-98 shrink-0"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-[15px] shadow-lg hover:shadow-xl transition-all active:scale-98 shrink-0"
           >
             <span>Start Your Membership Journey</span>
             <ArrowRight className="w-4 h-4" />

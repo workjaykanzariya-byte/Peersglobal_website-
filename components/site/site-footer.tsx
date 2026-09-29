@@ -135,7 +135,7 @@ export function SiteFooter() {
             {/* Eyebrow with gradient bar */}
             <div className="flex items-center gap-2.5">
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1D4ED8]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 FINAL CALL
               </span>
             </div>

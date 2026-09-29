@@ -496,6 +496,18 @@ html, body {
     display: inline-block;
   }
 
+  /* Universal section eyebrow accent line */
+  .brand-line,
+  span[class*="bg-[#0062D2]"][class*="w-6"],
+  span[class*="bg-[#1D4ED8]"][class*="w-6"],
+  span[class*="bg-sky-400"][class*="w-6"],
+  span[class*="bg-[#0062D2]"][class*="w-8"],
+  span[class*="bg-[#1D4ED8]"][class*="w-8"] {
+    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%) !important;
+    border-radius: 9999px !important;
+    height: 2px !important;
+  }
+
   .border-brand-gradient {
     border-image: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) 1 !important;
   }

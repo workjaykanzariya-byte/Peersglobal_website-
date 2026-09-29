@@ -306,8 +306,9 @@ export function StartCircleClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— THE OPPORTUNITY —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE OPPORTUNITY</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -362,8 +363,9 @@ export function StartCircleClient() {
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHAT A CIRCLE FOUNDER ACTUALLY DOES —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT A CIRCLE FOUNDER ACTUALLY DOES</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-12">
             From vision to a thriving Circle
@@ -411,8 +413,9 @@ export function StartCircleClient() {
 
             {/* We provide */}
             <div>
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHAT WE PROVIDE —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT WE PROVIDE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
                 You don't build this alone.
@@ -440,8 +443,9 @@ export function StartCircleClient() {
 
             {/* You provide */}
             <div>
-              <div className="text-left mb-2">
-                <span className="text-amber-600 text-xs font-bold tracking-[0.25em] uppercase">— WHAT YOU PROVIDE —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT YOU PROVIDE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
                 It takes commitment.
@@ -480,8 +484,9 @@ export function StartCircleClient() {
 
             {/* Who it suits */}
             <div>
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHO SHOULD START A CIRCLE —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHO SHOULD START A CIRCLE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
                 This suits you if:
@@ -514,8 +519,9 @@ export function StartCircleClient() {
 
             {/* Quick apply + testimonial */}
             <div>
-              <div className="text-left mb-2">
-                <span className="text-emerald-600 text-xs font-bold tracking-[0.25em] uppercase">— READY TO CREATE A CIRCLE? —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">READY TO CREATE A CIRCLE?</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
                 Start the conversation
@@ -526,7 +532,7 @@ export function StartCircleClient() {
 
               <Link
                 href="/circles/find"
-                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 mb-8"
+                className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 mb-8"
               >
                 Apply to Found a Circle
                 <ArrowRight className="size-4" />
@@ -575,8 +581,9 @@ export function StartCircleClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHY ENTREPRENEURS CHOOSE TO FOUND —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHY ENTREPRENEURS CHOOSE TO FOUND</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight max-w-2xl">
@@ -615,8 +622,9 @@ export function StartCircleClient() {
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— THE PROCESS —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE PROCESS</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-12">
             How it works
@@ -641,7 +649,7 @@ export function StartCircleClient() {
 
           <Link
             href="/circles/find"
-            className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+            className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
           >
             Apply to Found a Circle
             <ArrowRight className="size-4" />
@@ -658,8 +666,9 @@ export function StartCircleClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
             <div className="lg:col-span-4">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— COMMON QUESTIONS —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
                 Frequently asked questions

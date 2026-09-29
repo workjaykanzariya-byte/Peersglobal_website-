@@ -212,8 +212,8 @@ export function MeetingExperienceClient() {
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">THE CIRCLE MEETING EXPERIENCE</span>
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">THE CIRCLE MEETING EXPERIENCE</span>
                 </div>
 
                 <h1 className="font-serif text-4xl sm:text-5xl lg:text-[64px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
@@ -230,7 +230,7 @@ export function MeetingExperienceClient() {
                   <a
                     href="https://unity.peersglobal.com"
                     target="_blank" rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <Smartphone className="size-4" />
                     Download Unity App
@@ -271,8 +271,9 @@ export function MeetingExperienceClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— BUILT FOR OUTCOMES —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">BUILT FOR OUTCOMES</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -326,8 +327,9 @@ export function MeetingExperienceClient() {
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— THE FOUR-PART AGENDA —</span>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE FOUR-PART AGENDA</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-12">
             A meeting designed for real value
@@ -462,8 +464,9 @@ export function MeetingExperienceClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
             <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— SAME STRUCTURE, BIGGER POSSIBILITIES —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SAME STRUCTURE, BIGGER POSSIBILITIES</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
                 What you walk away with
@@ -490,8 +493,9 @@ export function MeetingExperienceClient() {
 
             {/* Right: Between meetings */}
             <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-emerald-600 text-xs font-bold tracking-[0.25em] uppercase">— BETWEEN MEETINGS —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">BETWEEN MEETINGS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
                 The Circle works all month.
@@ -595,8 +599,9 @@ export function MeetingExperienceClient() {
 
             {/* Guests */}
             <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— FOR FIRST-TIME VISITORS —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FOR FIRST-TIME VISITORS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
                 What guests experience
@@ -638,8 +643,9 @@ export function MeetingExperienceClient() {
 
             {/* Rules */}
             <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-rose-600 text-xs font-bold tracking-[0.25em] uppercase">— THE CODE OF THE ROOM —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE CODE OF THE ROOM</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
                 What is not allowed
@@ -688,8 +694,9 @@ export function MeetingExperienceClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
             <div className="lg:col-span-4">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— COMMON QUESTIONS —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
                 Frequently asked questions

@@ -248,9 +248,9 @@ export function OurStoryClient() {
 
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BEFORE THERE WAS A COMMUNITY
                 </span>
               </div>
@@ -350,12 +350,12 @@ export function OurStoryClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 DEEP RESEARCH &amp; EVOLUTION
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               The question changed.
@@ -383,7 +383,7 @@ export function OurStoryClient() {
 
           {/* Looking at the World of Communities */}
           <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-sm max-w-5xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2] block mb-3 text-center sm:text-left">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text block mb-3 text-center sm:text-left">
               LOOKING AT THE WORLD OF COMMUNITIES
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 font-normal leading-tight mb-4 text-center sm:text-left">
@@ -430,9 +430,9 @@ export function OurStoryClient() {
 
             {/* Left Narrative */}
             <div className="lg:col-span-6 space-y-5">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BEYOND NETWORKING
                 </span>
               </div>
@@ -491,9 +491,13 @@ export function OurStoryClient() {
 
           {/* 3 Things: LSR Framework */}
           <div className="max-w-5xl mx-auto text-center space-y-4 mb-10">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0062D2] block">
-              THE THREE THINGS AN ENTREPRENEUR MUST KEEP GROWING
-            </span>
+            <div className="inline-flex items-center gap-2.5 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE THREE THINGS AN ENTREPRENEUR MUST KEEP GROWING
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
             <h3 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900">
               LSR — Learning. Sharing. Relationships.
             </h3>
@@ -535,12 +539,12 @@ export function OurStoryClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 WHAT WE BUILT
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               The idea gradually became an architecture.
@@ -569,7 +573,7 @@ export function OurStoryClient() {
 
           {/* Progression Ladder */}
           <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 text-center shadow-sm">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-[#0062D2] block mb-2">
+            <span className="text-[10px] uppercase font-bold tracking-widest brand-gradient-text block mb-2">
               FROM CONNECTION TO COLLABORATION
             </span>
             <h4 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-4">
@@ -584,7 +588,7 @@ export function OurStoryClient() {
               <ArrowRight className="size-4 text-slate-400" />
               <span className="px-4 py-2 rounded-full bg-emerald-50 text-emerald-800">Collaboration</span>
               <ArrowRight className="size-4 text-slate-400" />
-              <span className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm">Impact</span>
+              <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm">Impact</span>
             </div>
           </div>
 
@@ -598,12 +602,12 @@ export function OurStoryClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 MILESTONES OF OUR JOURNEY
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-tight">
               How the community evolved
@@ -639,9 +643,9 @@ export function OurStoryClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16">
 
             <div className="lg:col-span-6 space-y-5">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHERE WE ARE NOW
                 </span>
               </div>
@@ -724,9 +728,9 @@ export function OurStoryClient() {
 
             {/* Left Column — Narrative Progression */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2]">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   FROM ONE OBSERVATION TO ONE MILLION POSSIBILITIES
                 </span>
               </div>

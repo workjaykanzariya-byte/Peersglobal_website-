@@ -238,10 +238,11 @@ export function NewsroomPageClient() {
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 FRESH DISPATCHES
               </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#061836] tracking-tight leading-[1.15]">
@@ -304,8 +305,8 @@ export function NewsroomPageClient() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   OFFICIAL RECORD
                 </span>
               </div>
@@ -325,7 +326,7 @@ export function NewsroomPageClient() {
                   onClick={() => setSelectedYear(yr)}
                   className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                     selectedYear === yr
-                      ? 'bg-[#1E4ED8] text-white shadow-sm'
+                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm'
                       : 'bg-white text-slate-700 border border-slate-300/80 hover:bg-slate-100'
                   }`}
                 >
@@ -371,10 +372,11 @@ export function NewsroomPageClient() {
           
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 EXTERNAL JOURNALISM
               </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#061836] tracking-tight leading-[1.18]">
               In The Media
@@ -421,10 +423,11 @@ export function NewsroomPageClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-2">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 ACCREDITED PRESS ASSETS
               </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-[#061836] tracking-tight leading-[1.15]">
               Official Media Kit

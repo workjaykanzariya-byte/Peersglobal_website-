@@ -250,9 +250,8 @@ export function ApplyPageClient() {
                   </span>
                 </div>
 
-                <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-serif font-bold text-[#0D1F47] tracking-tight leading-[1.04]">
-                  Join <br />
-                  <span className="text-[#0062D2]">Peers Global</span>
+                <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-serif font-bold tracking-tight leading-[1.04]">
+                  <span className="brand-gradient-text">Join Peers Global</span>
                 </h1>
 
                 <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-lg">
@@ -315,7 +314,7 @@ export function ApplyPageClient() {
               <div className="pt-1">
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold text-sm shadow-lg shadow-blue-600/20 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-sm shadow-lg shadow-blue-600/20 transition-all active:scale-[0.98]"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="size-4" />
@@ -666,7 +665,7 @@ export function ApplyPageClient() {
                           {/* Submit Button Step 1 */}
                           <button
                             type="submit"
-                            className="w-full py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold text-sm shadow-md shadow-blue-600/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
+                            className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-sm shadow-md shadow-blue-600/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
                           >
                             <span>Continue to Business Details</span>
                             <ArrowRight className="size-4" />
@@ -825,7 +824,7 @@ export function ApplyPageClient() {
                             </button>
                             <button
                               type="submit"
-                              className="py-3 px-6 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5"
+                              className="py-3 px-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5"
                             >
                               <span>Continue to Verification</span>
                               <ArrowRight className="size-4" />
@@ -901,7 +900,7 @@ export function ApplyPageClient() {
                             <button
                               type="submit"
                               disabled={isSubmitting}
-                              className="py-3 px-6 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5 disabled:opacity-50"
+                              className="py-3 px-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-1.5 disabled:opacity-50"
                             >
                               {isSubmitting ? (
                                 <span>Locking Nomination...</span>
@@ -983,14 +982,14 @@ export function ApplyPageClient() {
               {/* Header: Tag & Heading */}
               <div className="relative z-10 space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-5 h-0.5 bg-[#0062D2] rounded-full" />
-                  <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#0062D2]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] brand-gradient-text">
                     APPLY FOR MEMBERSHIP
                   </span>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-bold text-[#0D1F47] tracking-tight leading-tight">
-                  What happens <span className="text-[#0062D2]">next?</span>
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-bold tracking-tight leading-tight">
+                  <span className="brand-gradient-text">What happens next?</span>
                 </h2>
 
                 <p className="text-sm sm:text-base text-slate-600 mt-1 max-w-xl">
@@ -1158,8 +1157,8 @@ export function ApplyPageClient() {
           
           {/* Section Heading */}
           <div className="mb-6 pl-1 sm:pl-2">
-            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-serif font-bold text-[#0D1F47] tracking-tight">
-              Trusted by entrepreneurs across industries
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-serif font-bold tracking-tight">
+              <span className="brand-gradient-text">Trusted by entrepreneurs across industries</span>
             </h2>
           </div>
 

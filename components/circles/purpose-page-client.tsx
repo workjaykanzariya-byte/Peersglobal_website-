@@ -466,8 +466,8 @@ export function PurposePageClient() {
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PERSPECTIVE BEYOND YOUR SECTOR
                 </span>
               </div>
@@ -578,11 +578,11 @@ export function PurposePageClient() {
 
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
-                TEN PURPOSE & GOAL CIRCLES
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                TEN PURPOSE &amp; GOAL CIRCLES
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
               The common thread is not the industry. It is the journey.
@@ -997,8 +997,8 @@ export function PurposePageClient() {
             {/* Left: Who Belongs In A Purpose Circle? */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   WHO BELONGS IN A PURPOSE CIRCLE?
                 </span>
               </div>
@@ -1030,8 +1030,8 @@ export function PurposePageClient() {
             {/* Right: Purpose Creates New Conversations */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PURPOSE CREATES NEW CONVERSATIONS
                 </span>
               </div>
@@ -1099,11 +1099,11 @@ export function PurposePageClient() {
 
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight">
               Common questions about Purpose Circles
@@ -1150,9 +1150,13 @@ export function PurposePageClient() {
       <section className="py-16 sm:py-20 bg-white border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-          <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2] block mb-3">
-            THE QUESTION THAT MATTERS
-          </span>
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+              THE QUESTION THAT MATTERS
+            </span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
             You know what you do. <br className="hidden sm:block" />

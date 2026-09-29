@@ -90,13 +90,13 @@ export function CareersClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                <Briefcase className="w-3.5 h-3.5 text-[#0062D2]" />
-                JOIN THE MISSION
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">JOIN THE MISSION</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-slate-950 tracking-tight leading-[1.08] font-bold">
-                Careers
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif tracking-tight leading-[1.08] font-bold">
+                <span className="brand-gradient-text">Careers</span>
               </h1>
 
               <p className="text-xl sm:text-2xl font-serif text-slate-800 font-medium leading-snug">
@@ -110,7 +110,7 @@ export function CareersClient() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
                   href="#open-roles"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#1a42c0] transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-bold transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
                 >
                   View Open Roles
                   <ArrowRight className="w-4 h-4" />
@@ -199,11 +199,12 @@ export function CareersClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2 max-w-xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-                Current Openings
-              </span>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">CURRENT OPENINGS</span>
+              </div>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
-                Open Roles
+                <span className="brand-gradient-text">Open Roles</span>
               </h2>
               <p className="text-sm text-slate-300">
                 Join our full-time core team at our Ahmedabad headquarters.
@@ -364,7 +365,7 @@ export function CareersClient() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-all uppercase tracking-wider shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs sm:text-sm font-bold transition-all uppercase tracking-wider shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
                   >
                     Submit Application
                     <Send className="w-4 h-4" />

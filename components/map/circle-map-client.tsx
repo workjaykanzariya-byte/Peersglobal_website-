@@ -116,8 +116,8 @@ export function CircleMapClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                <span className="w-2 h-2 rounded-full bg-[#0062D2] animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50/80 border border-blue-100 text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text shadow-2xs">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 OUR WORLD
               </div>
 
@@ -385,6 +385,12 @@ export function CircleMapClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  PRESENCE &amp; GEOGRAPHY
+                </span>
+              </div>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">
                 Explore our presence
               </h2>

@@ -355,14 +355,15 @@ export function IndustryPageClient() {
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-left mb-3">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHY SECTOR MATTERS —</span>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHY SECTOR MATTERS</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-                Why sector matters
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
+                <span className="brand-gradient-text">Why sector matters</span>
               </h2>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                 Every entrepreneur is different. But entrepreneurs working within the same sector often understand something immediately: <strong className="text-slate-900">the context behind the problem</strong>.
@@ -410,11 +411,12 @@ export function IndustryPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— NINE INDUSTRY CIRCLES —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">NINE INDUSTRY CIRCLES</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-                PEERS GLOBAL brings entrepreneurs together through nine Industry Circles.
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
+                <span className="brand-gradient-text">PEERS GLOBAL brings entrepreneurs together through nine Industry Circles.</span>
               </h2>
               <p className="text-slate-600 text-sm sm:text-base mt-2">
                 Each Circle creates an environment where sector understanding becomes the starting point for deeper relationships, meaningful conversations and potential collaboration.
@@ -484,9 +486,12 @@ export function IndustryPageClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-left space-y-3">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHAT AN INDUSTRY CIRCLE GIVES YOU —</span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-              An Industry Circle is not simply a list of entrepreneurs from the same sector. It is a relationship environment built around shared context.
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT AN INDUSTRY CIRCLE GIVES YOU</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
+              <span className="brand-gradient-text">An Industry Circle is not simply a list of entrepreneurs from the same sector.</span> It is a relationship environment built around shared context.
             </h2>
           </div>
 
@@ -515,11 +520,12 @@ export function IndustryPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7 space-y-5">
-              <div className="text-left">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— ONE SEAT PER CATEGORY —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">ONE SEAT PER CATEGORY</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-                One seat per category
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
+                <span className="brand-gradient-text">One seat per category</span>
               </h2>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
                 A Circle becomes more useful when every entrepreneur has room to contribute. That is why PEERS GLOBAL follows a one-seat-per-category approach within the Circle.
@@ -552,9 +558,12 @@ export function IndustryPageClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-left space-y-3">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— THE INDUSTRY CIRCLE GRID —</span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-              Find the environment closest to the business you are building.
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE INDUSTRY CIRCLE GRID</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
+              <span className="brand-gradient-text">Find the environment closest to the business you are building.</span>
             </h2>
           </div>
 
@@ -596,9 +605,12 @@ export function IndustryPageClient() {
           {/* Who Joins */}
           <div className="space-y-8">
             <div className="text-left space-y-3">
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHO JOINS AN INDUSTRY CIRCLE —</span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#0F172A]">
-                Who joins an Industry Circle?
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHO JOINS AN INDUSTRY CIRCLE</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl">
+                <span className="brand-gradient-text">Who joins an Industry Circle?</span>
               </h2>
               <p className="text-slate-600 text-sm sm:text-base">
                 Industry Circles are for entrepreneurs who want more than simply being in a room with people. They want to know the people in that room.
@@ -622,9 +634,12 @@ export function IndustryPageClient() {
           {/* What happens inside */}
           <div className="space-y-8 pt-8 border-t border-slate-200">
             <div className="text-left space-y-3">
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— WHAT HAPPENS INSIDE —</span>
-              <h3 className="font-serif text-2xl sm:text-3xl text-slate-900">
-                Your industry is only the starting point.
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS INSIDE</span>
+              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl">
+                <span className="brand-gradient-text">Your industry is only the starting point.</span>
               </h3>
               <p className="text-slate-700 text-sm sm:text-base">
                 Once relationships develop, conversations move naturally into the wider PEERS GLOBAL experience:
@@ -713,9 +728,12 @@ export function IndustryPageClient() {
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-left space-y-3">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— FREQUENTLY ASKED QUESTIONS —</span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-              Frequently Asked Questions
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FREQUENTLY ASKED QUESTIONS</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
+              <span className="brand-gradient-text">Frequently Asked Questions</span>
             </h2>
           </div>
 
@@ -735,9 +753,13 @@ export function IndustryPageClient() {
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">THE REAL VALUE</span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-slate-900">
-            The most important thing an Industry Circle gives you may not be a referral.
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE REAL VALUE</span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl">
+            <span className="brand-gradient-text">The most important thing an Industry Circle gives you</span> may not be a referral.
           </h2>
           <div className="grid sm:grid-cols-2 gap-3 text-slate-800 text-sm font-semibold pt-2">
             <div className="p-4 rounded-2xl bg-white border border-slate-200">“I understand.”</div>

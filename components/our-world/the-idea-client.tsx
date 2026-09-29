@@ -264,9 +264,9 @@ export function TheIdeaClient() {
 
             {/* Left Column: 4 Realities */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE QUIET SIDE OF BUILDING
                 </span>
               </div>
@@ -363,12 +363,12 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE PROBLEM NOBODY TALKS ABOUT
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               Entrepreneurship can be deeply rewarding. It can also be deeply isolating.
@@ -452,9 +452,9 @@ export function TheIdeaClient() {
 
             {/* Left Narrative */}
             <div className="lg:col-span-6 space-y-5">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHERE THE IDEA CAME FROM
                 </span>
               </div>
@@ -575,12 +575,12 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE CORE PHILOSOPHY
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               What we believe
@@ -671,9 +671,9 @@ export function TheIdeaClient() {
 
             {/* Left Column Narrative */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE
                 </span>
               </div>
@@ -772,12 +772,12 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 FROM A NETWORK TO A LEADERSHIP ORGANISATION
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               How can entrepreneurs help one another grow?
@@ -834,9 +834,12 @@ export function TheIdeaClient() {
             {/* Left: Your Inner Board */}
             <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-[#0062D2] block mb-2">
-                  YOUR INNER BOARD
-                </span>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    YOUR INNER BOARD
+                  </span>
+                </div>
                 <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 font-normal leading-snug mb-4">
                   You should not always have to face decisions alone.
                 </h3>
@@ -911,9 +914,13 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
-            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2] block">
-              WHY COLLABORATION MATTERS
-            </span>
+            <div className="inline-flex items-center gap-2.5 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                WHY COLLABORATION MATTERS
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight">
               A business can grow through capital, technology, systems and talent.
             </h2>
@@ -1031,9 +1038,13 @@ export function TheIdeaClient() {
 
           {/* The Idea In One Sentence */}
           <div>
-            <span className="text-xs font-bold tracking-[0.25em] uppercase text-[#0062D2] block mb-3">
-              THE IDEA IN ONE SENTENCE
-            </span>
+            <div className="inline-flex items-center gap-2.5 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE IDEA IN ONE SENTENCE
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               Entrepreneurs should not have to build alone.
             </h2>
@@ -1050,9 +1061,12 @@ export function TheIdeaClient() {
 
           {/* If This Idea Speaks To You */}
           <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200 text-left space-y-4">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-[#0062D2] block">
-              IF THIS IDEA SPEAKS TO YOU
-            </span>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                IF THIS IDEA SPEAKS TO YOU
+              </span>
+            </div>
             <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 font-normal leading-snug">
               You do not have to arrive with everything figured out.
             </h3>
@@ -1073,7 +1087,7 @@ export function TheIdeaClient() {
                 href="https://unity.peersglobal.com"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-sm inline-flex items-center gap-2 transition-all"
+                className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-sm inline-flex items-center gap-2 transition-all"
               >
                 <span>Download the Unity App</span>
                 <ArrowRight className="size-4" />

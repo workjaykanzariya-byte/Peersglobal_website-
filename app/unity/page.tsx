@@ -137,8 +137,8 @@ export default function UnityPage() {
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
                 {/* Eyebrow with blue bar */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE PLATFORM OF RECORD
                   </span>
                 </div>
@@ -150,7 +150,7 @@ export default function UnityPage() {
 
                 {/* Subline */}
                 <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
-                  Your circle meets once a month. <span className="italic text-[#1E4ED8]">Unity keeps it working every day.</span>
+                  Your circle meets once a month. <span className="italic brand-gradient-text">Unity keeps it working every day.</span>
                 </p>
 
                 {/* Supporting Line */}
@@ -162,7 +162,7 @@ export default function UnityPage() {
                 <div className="flex flex-wrap items-center gap-4 mb-8">
                   <Link
                     href="/membership"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2 cursor-pointer"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2 cursor-pointer"
                   >
                     <span>Apply for Membership</span>
                     <ArrowRight className="size-4" />
@@ -335,8 +335,8 @@ export default function UnityPage() {
               {/* Section Header */}
               <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
                 <div className="flex flex-col gap-3 max-w-2xl">
-                  <span className="inline-flex items-center gap-1.5 self-start rounded-full border border-blue-200/80 bg-blue-50/90 px-4 py-1 text-xs font-mono font-bold text-[#0062D2] tracking-widest">
-                    <Smartphone className="size-3" />
+                  <span className="inline-flex items-center gap-1.5 self-start rounded-full border border-slate-200/80 bg-blue-50/90 px-4 py-1 text-xs font-mono font-bold brand-gradient-text tracking-widest">
+                    <Smartphone className="size-3 text-[#1D4ED8]" />
                     SIX CORE MODULES
                   </span>
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#061836] tracking-tight leading-snug">
@@ -352,7 +352,7 @@ export default function UnityPage() {
                 <div className="shrink-0">
                   <Link
                     href="/membership"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all"
                   >
                     Apply for Membership
                     <ChevronRight className="size-4" />
@@ -405,7 +405,7 @@ export default function UnityPage() {
           <section className="py-20 border-b border-slate-200/80 bg-[#FAFBFD]">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
               <div className="flex flex-col gap-3 max-w-xl">
-                <span className="inline-flex items-center gap-1.5 self-start rounded-full border border-blue-200/80 bg-blue-50/90 px-4 py-1 text-xs font-mono font-bold text-[#0062D2] tracking-widest">
+                <span className="inline-flex items-center gap-1.5 self-start rounded-full border border-slate-200/80 bg-blue-50/90 px-4 py-1 text-xs font-mono font-bold brand-gradient-text tracking-widest">
                   ACCESS MATRIX
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#061836] tracking-tight leading-snug">

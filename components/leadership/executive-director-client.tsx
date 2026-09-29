@@ -266,14 +266,13 @@ export function ExecutiveDirectorClient() {
             {/* Left Content (Z-10) */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                  <span className="w-5 h-px bg-[#0062D2]" />
-                  LEADERSHIP
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">LEADERSHIP</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
-                  Executive Director
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-4">
+                  <span className="brand-gradient-text">Executive Director</span>
                 </h1>
 
                 <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
@@ -348,11 +347,14 @@ export function ExecutiveDirectorClient() {
             {/* Left Content Column: Title + 4 Cards */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — FOUR LEVELS. ONE RESPONSIBILITY. —
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
-                  You build entire regions of opportunity.
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    FOUR LEVELS. ONE RESPONSIBILITY.
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight leading-tight mt-2">
+                  <span className="brand-gradient-text">You build entire regions of opportunity.</span>
                 </h2>
                 <p className="text-base text-slate-600 leading-relaxed mt-2 max-w-2xl">
                   An Executive Director carries a territory and everything Peers
@@ -436,11 +438,14 @@ export function ExecutiveDirectorClient() {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — WHERE THE COMMUNITY ACTUALLY GROWS —
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
-                  An Executive Director is where the map moves.
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    WHERE THE COMMUNITY ACTUALLY GROWS
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight leading-tight mt-2">
+                  <span className="brand-gradient-text">An Executive Director is where the map moves.</span>
                 </h2>
               </div>
 
@@ -488,11 +493,15 @@ export function ExecutiveDirectorClient() {
       <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-              — WHAT THE ROLE CARRIES —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
-              Six responsibilities. A larger impact.
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                WHAT THE ROLE CARRIES
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-2">
+              <span className="brand-gradient-text">Six responsibilities. A larger impact.</span>
             </h2>
           </div>
 
@@ -532,11 +541,14 @@ export function ExecutiveDirectorClient() {
             {/* Left Column: Who You Become */}
             <div className="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/90 shadow-lg shadow-slate-200/40 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — WHO YOU BECOME —
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2 mb-4">
-                  A bigger perspective. A stronger you.
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    WHO YOU BECOME
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-2 mb-4">
+                  <span className="brand-gradient-text">A bigger perspective. A stronger you.</span>
                 </h2>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
                   You stop measuring a good month by your own business. You
@@ -594,11 +606,14 @@ export function ExecutiveDirectorClient() {
             <div className="lg:col-span-6 flex flex-col gap-6">
               {/* Top Card: Who this is for */}
               <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-md flex-1">
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — WHO THIS IS FOR —
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mt-2 mb-5">
-                  You might be the right fit if you are
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    WHO THIS IS FOR
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold mt-2 mb-5">
+                  <span className="brand-gradient-text">You might be the right fit if you are</span>
                 </h2>
 
                 <div className="space-y-3.5 text-xs sm:text-sm border-t border-slate-100 pt-4">
@@ -674,11 +689,14 @@ export function ExecutiveDirectorClient() {
       <section className="py-16 sm:py-24 bg-[#FBFCFE] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-              — COMMON QUESTIONS —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
-              Frequently asked questions
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                COMMON QUESTIONS
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-2">
+              <span className="brand-gradient-text">Frequently asked questions</span>
             </h2>
           </div>
 

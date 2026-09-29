@@ -57,13 +57,13 @@ export function SpeakClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                <Mic className="w-3.5 h-3.5 text-[#0062D2]" />
-                STAGE &amp; MASTERCLASSES
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">STAGE &amp; MASTERCLASSES</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-slate-950 tracking-tight leading-[1.08] font-bold">
-                Speak at Peers Global
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif tracking-tight leading-[1.08] font-bold">
+                <span className="brand-gradient-text">Speak at Peers Global</span>
               </h1>
 
               <p className="text-xl sm:text-2xl font-serif text-slate-800 font-medium leading-snug">
@@ -77,7 +77,7 @@ export function SpeakClient() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
                   href="#external-speaker-form"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0062D2] text-white text-sm font-bold hover:bg-[#1a42c0] transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-bold transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
                 >
                   Speaking Enquiry
                   <ArrowRight className="w-4 h-4" />
@@ -113,8 +113,13 @@ export function SpeakClient() {
       <section className="py-14 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-              Our Editorial Standard
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">EDITORIAL STANDARDS</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold">
+              <span className="brand-gradient-text">Our Editorial Standard</span>
             </h2>
             <p className="text-sm text-slate-600">
               Clear rules protect the time and respect of every business owner in the audience.
@@ -195,11 +200,12 @@ export function SpeakClient() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
           <div className="max-w-2xl space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-              Community Stages
-            </span>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">COMMUNITY STAGES</span>
+            </div>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
-              Where you would speak
+              <span className="brand-gradient-text">Where you would speak</span>
             </h2>
             <p className="text-sm text-slate-300">
               Multiple formats built for depth, practical takeaways, and peer interaction.
@@ -388,7 +394,7 @@ export function SpeakClient() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-[#0062D2] text-white text-xs sm:text-sm font-bold hover:bg-[#1a42c0] transition-all uppercase tracking-wider shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs sm:text-sm font-bold transition-all uppercase tracking-wider shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
                   >
                     Submit Speaking Enquiry
                     <Send className="w-4 h-4" />

@@ -275,9 +275,12 @@ export function CircleMagazinesClient() {
             {/* Left: What is inside */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                  Contents & Architecture
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    Contents &amp; Architecture
+                  </span>
+                </div>
                 <h2 className="text-2xl sm:text-3xl font-serif text-slate-950">
                   What is inside
                 </h2>
@@ -349,9 +352,12 @@ export function CircleMagazinesClient() {
             {/* Right: What it does for a Peer */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                  Member Benefit
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    Member Benefit
+                  </span>
+                </div>
                 <h2 className="text-2xl sm:text-3xl font-serif text-slate-950">
                   What it does for a Peer
                 </h2>
@@ -421,9 +427,12 @@ export function CircleMagazinesClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                Archive
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  Archive
+                </span>
+              </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-slate-950">
                 Read the magazines
               </h2>
@@ -527,8 +536,8 @@ export function CircleMagazinesClient() {
           {/* Who produces them card */}
           <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-left">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                <Users className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 Editorial Ownership
               </div>
               <h3 className="text-xl sm:text-2xl font-serif text-slate-950">

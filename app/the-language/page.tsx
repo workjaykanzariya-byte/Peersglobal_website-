@@ -220,10 +220,10 @@ export default function TheLanguagePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Left Content (6 cols) */}
             <div className="lg:col-span-6 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2.5 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="w-6 h-[1.5px] bg-sky-400" />
-                <span>THE LEXICON &amp; CULTURE</span>
-                <span className="w-6 h-[1.5px] bg-sky-400" />
+              <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-4">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="brand-gradient-text">THE LEXICON &amp; CULTURE</span>
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
               </div>
 
               <h1 className="font-serif text-4xl sm:text-6xl lg:text-[64px] font-normal text-white tracking-tight leading-[1.08] mb-5">
@@ -241,7 +241,7 @@ export default function TheLanguagePage() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/membership"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
                 >
                   <span>Become a Peer</span>
                   <ArrowRight className="size-4" />
@@ -302,9 +302,9 @@ export default function TheLanguagePage() {
           ========================================================================= */}
       <section className="relative py-16 sm:py-24 bg-white text-slate-900 border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            <span>MORE THAN VOCABULARY</span>
+          <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="brand-gradient-text">MORE THAN VOCABULARY</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
@@ -338,10 +338,10 @@ export default function TheLanguagePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
-              <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-              <span>THE 10 DEFINING CONCEPTS</span>
-              <span className="w-5 h-[1.5px] bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="brand-gradient-text">THE 10 DEFINING CONCEPTS</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-slate-900">
               The Ten Words of PEERS GLOBAL
@@ -357,9 +357,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-2">
-                    <Users className="size-4 text-[#0062D2]" />
-                    <span>01 — PEER</span>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                    <Users className="size-4 text-[#1D4ED8]" />
+                    <span className="brand-gradient-text">01 — PEER</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     A Peer is not simply someone who belongs.
@@ -416,9 +416,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-teal-600 text-xs font-bold tracking-[0.25em] uppercase mb-2">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                     <Compass className="size-4 text-teal-600" />
-                    <span>02 — CIRCLE</span>
+                    <span className="brand-gradient-text">02 — CIRCLE</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     Your Circle. Your Inner Board.
@@ -456,9 +456,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-indigo-600 text-xs font-bold tracking-[0.25em] uppercase mb-2">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                     <Zap className="size-4 text-indigo-600" />
-                    <span>03 — POWERHOUSE</span>
+                    <span className="brand-gradient-text">03 — POWERHOUSE</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     Contribution needs people who are willing to step forward.
@@ -489,9 +489,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-amber-600 text-xs font-bold tracking-[0.25em] uppercase mb-2">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                     <HeartHandshake className="size-4 text-amber-600" />
-                    <span>04 — GIVE-FIRST</span>
+                    <span className="brand-gradient-text">04 — GIVE-FIRST</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     Before asking what the community can do for you, ask what you can do for someone in it.
@@ -528,9 +528,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-emerald-600 text-xs font-bold tracking-[0.25em] uppercase mb-2">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                     <Sparkles className="size-4 text-emerald-600" />
-                    <span>05 — LIFE IMPACTOR</span>
+                    <span className="brand-gradient-text">05 — LIFE IMPACTOR</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     Success becomes more meaningful when it changes something for someone else.
@@ -561,9 +561,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-2">
-                    <BookOpen className="size-4 text-[#0062D2]" />
-                    <span>06 — LSR</span>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                    <BookOpen className="size-4 text-[#1D4ED8]" />
+                    <span className="brand-gradient-text">06 — LSR</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     Learning. Sharing. Relationships.
@@ -603,9 +603,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-sky-600 text-xs font-bold tracking-[0.25em] uppercase mb-2">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                     <Smartphone className="size-4 text-sky-600" />
-                    <span>07 — UNITY</span>
+                    <span className="brand-gradient-text">07 — UNITY</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     The community does not disappear when the meeting ends.
@@ -638,9 +638,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-purple-600 text-xs font-bold tracking-[0.25em] uppercase mb-2">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                     <Share2 className="size-4 text-purple-600" />
-                    <span>08 — MINDMELD</span>
+                    <span className="brand-gradient-text">08 — MINDMELD</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     When different entrepreneurs sit together, new possibilities emerge.
@@ -668,9 +668,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-rose-600 text-xs font-bold tracking-[0.25em] uppercase mb-2">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                     <Lock className="size-4 text-rose-600" />
-                    <span>09 — CONFIDENTIAL FORUM</span>
+                    <span className="brand-gradient-text">09 — CONFIDENTIAL FORUM</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     Some conversations need trust before they need answers.
@@ -698,9 +698,9 @@ export default function TheLanguagePage() {
             <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-2">
-                    <Layers className="size-4 text-[#0062D2]" />
-                    <span>10 — THE 10 FORMS OF COLLABORATION</span>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                    <Layers className="size-4 text-[#1D4ED8]" />
+                    <span className="brand-gradient-text">10 — THE 10 FORMS OF COLLABORATION</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 leading-tight">
                     Collaboration can take many forms.
@@ -767,10 +767,10 @@ export default function TheLanguagePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
-              <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-              <span>QUICK LEXICON GUIDE</span>
-              <span className="w-5 h-[1.5px] bg-[#0062D2]" />
+            <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="brand-gradient-text">QUICK LEXICON GUIDE</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-slate-900">
               The PEERS GLOBAL Reference Table
@@ -813,9 +813,9 @@ export default function TheLanguagePage() {
           
           {/* Why Words Matter */}
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
-              <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-              <span>THE POWER OF LANGUAGE</span>
+            <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="brand-gradient-text">THE POWER OF LANGUAGE</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-slate-900">
               Why Words Matter
@@ -842,9 +842,9 @@ export default function TheLanguagePage() {
 
           {/* A Language Becomes Culture When People Live It */}
           <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm space-y-6">
-            <div className="inline-flex items-center gap-2 text-teal-600 text-xs font-bold tracking-[0.25em] uppercase">
-              <span className="w-5 h-[1.5px] bg-teal-600" />
-              <span>LIVING THE WORDS</span>
+            <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="brand-gradient-text">LIVING THE WORDS</span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl text-slate-900">
               A Language Becomes Culture When People Live It
@@ -891,7 +891,7 @@ export default function TheLanguagePage() {
           <div className="rounded-3xl border border-slate-800 bg-[#050C1A] p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
             <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full bg-[#0062D2]/20 blur-[90px]" />
             <div className="relative z-10 space-y-4">
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-sky-400">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-amber-300">
                 THE PEERS GLOBAL LANGUAGE IN ONE LINE
               </p>
               <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl leading-tight text-white">
@@ -905,6 +905,10 @@ export default function TheLanguagePage() {
 
           {/* Your Next Word Could Be Peer */}
           <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-sm space-y-6">
+            <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="brand-gradient-text">THE NEXT STEP</span>
+            </div>
             <h3 className="font-serif text-3xl sm:text-4xl text-slate-900">
               Your Next Word Could Be Peer
             </h3>
@@ -930,7 +934,7 @@ export default function TheLanguagePage() {
             <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-100">
               <Link
                 href="/membership"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0062D2] px-7 py-3.5 text-sm font-semibold text-white hover:bg-[#0052B4] shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
               >
                 <span>Discover PEERS GLOBAL</span>
                 <ArrowRight className="size-4" />

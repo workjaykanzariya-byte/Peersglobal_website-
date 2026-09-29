@@ -73,13 +73,13 @@ export function MembershipTermsClient() {
       {/* Hero */}
       <section className="relative pt-12 pb-14 border-b border-[#EADFC7]/60 overflow-hidden bg-[#FAF7F0]/40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FAF4E8] border border-[#E8DFC9] text-xs font-bold uppercase tracking-wider text-[#8C6422]">
-            <FileCheck className="w-3.5 h-3.5 text-[#8C6422]" />
-            MEMBER COVENANT
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">MEMBER COVENANT</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#162039] tracking-tight leading-tight font-bold">
-            Membership Terms
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif tracking-tight leading-tight font-bold">
+            <span className="brand-gradient-text">Membership Terms</span>
           </h1>
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-2xl">

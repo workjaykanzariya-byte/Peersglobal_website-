@@ -237,14 +237,13 @@ export function CircleFounderClient() {
             {/* Left Content (Z-10) */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-                  <span className="w-5 h-px bg-[#0062D2]" />
-                  FLAGSHIP ROLE
-                  <span className="w-5 h-px bg-[#0062D2]" />
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FLAGSHIP ROLE</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
-                  Circle Founder
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-4">
+                  <span className="brand-gradient-text">Circle Founder</span>
                 </h1>
 
                 <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
@@ -260,7 +259,7 @@ export function CircleFounderClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
                     <ArrowRight className="size-4" />
@@ -308,14 +307,14 @@ export function CircleFounderClient() {
       {/* ─── 2. THE MOST SIGNIFICANT ROLE ──────────────────────────────── */}
       <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left sm:text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-            <span className="w-5 h-px bg-[#0062D2]" />
-            CONVENE, DO NOT JOIN
-            <span className="w-5 h-px bg-[#0062D2]" />
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">CONVENE, DO NOT JOIN</span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-6">
-            The most significant role in this community
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">
+            <span className="brand-gradient-text">The most significant role in this community</span>
           </h2>
 
           <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-light text-left">
@@ -388,13 +387,13 @@ export function CircleFounderClient() {
       <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              THE GROWTH SEQUENCE
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE GROWTH SEQUENCE</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
-              Six stages from first member to launch.
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+              <span className="brand-gradient-text">Six stages from first member to launch.</span>
             </h2>
             <p className="text-base sm:text-lg text-slate-600 mt-3 font-light">
               Structure begins immediately. Official launch happens at 40+ as a celebration of the community already built.
@@ -465,13 +464,13 @@ export function CircleFounderClient() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
-              <span className="w-5 h-px bg-cyan-400" />
-              AUTHORITY & REACH
-              <span className="w-5 h-px bg-cyan-400" />
+            <div className="flex items-center justify-center gap-2 mb-3.5">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">AUTHORITY & REACH</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              What the role carries
+              <span className="brand-gradient-text">What the role carries</span>
             </h2>
             <p className="text-base sm:text-lg text-slate-300 mt-3 font-light">
               Not through advertising, but as the convenor of something that matters in your market.
@@ -513,12 +512,12 @@ export function CircleFounderClient() {
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left: What a Circle Founder does */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-1">
-                <span className="w-5 h-px bg-[#0062D2]" />
-                OPERATIONAL EXECUTION
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">OPERATIONAL EXECUTION</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
-                What a Circle Founder does
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight">
+                <span className="brand-gradient-text">What a Circle Founder does</span>
               </h2>
 
               <div className="space-y-4 pt-2">
@@ -626,13 +625,13 @@ export function CircleFounderClient() {
       <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              THE PIPELINE
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE PIPELINE</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
-              How to become a Circle Founder
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+              <span className="brand-gradient-text">How to become a Circle Founder</span>
             </h2>
             <p className="text-base sm:text-lg text-slate-600 mt-3 font-light">
               From application to your first meeting, supported by experienced Founders and regional Executive Directors.
@@ -663,7 +662,7 @@ export function CircleFounderClient() {
           <div className="mt-10 text-center">
             <Link
               href="/start-a-circle"
-              className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
             >
               <span>Apply to Found a Circle</span>
               <ArrowRight className="size-4" />
@@ -676,13 +675,13 @@ export function CircleFounderClient() {
       <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#0062D2] mb-3">
-              <span className="w-5 h-px bg-[#0062D2]" />
-              FAQ
-              <span className="w-5 h-px bg-[#0062D2]" />
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FAQ</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
-              Common questions
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight">
+              <span className="brand-gradient-text">Common questions</span>
             </h2>
           </div>
 
