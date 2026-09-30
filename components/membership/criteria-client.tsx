@@ -2,176 +2,107 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   ChevronRight,
   Smartphone,
-  Users,
-  Building2,
-  Globe2,
-  Target,
+  Check,
   ShieldCheck,
-  Heart,
-  FileText,
   UserCheck,
   Calendar,
-  CheckCircle2,
-  Check,
   Clock,
+  Sparkles,
+  Lock,
+  Layers,
+  Heart,
+  Users2,
+  HelpCircle,
   Plus,
   Minus,
-  Sparkles,
-  Award,
-  Lock,
-  Compass,
-  Layers,
-  HelpCircle,
+  CheckCircle2,
+  FileText,
 } from 'lucide-react'
 
-// ─── Stats Bar ────────────────────────────────────────────────────────────
-const STATS = [
-  {
-    icon: Users,
-    value: '10,000+',
-    label: 'Entrepreneurs',
-  },
-  {
-    icon: Building2,
-    value: '45+',
-    label: 'Cities',
-  },
-  {
-    icon: Globe2,
-    value: '25+',
-    label: 'Countries',
-  },
-  {
-    icon: Target,
-    value: '1M',
-    label: 'Lives to Impact',
-  },
-]
-
-// ─── Part One Criteria (5 traits) ─────────────────────────────────────────
-const CRITERIA_FIVE = [
+// ─── Part One: The Five Criteria ──────────────────────────────────────────
+const FIVE_CRITERIA = [
   {
     num: '01',
-    icon: UserCheck,
-    color: '#10B981',
-    bg: '#ECFDF5',
-    border: '#A7F3D0',
-    title: 'You own or lead a real business',
-    desc: 'Founder, co-founder, partner, director or CEO. You make decisions that carry consequences. No minimum revenue. No minimum age of business.',
+    title: 'You Own or Lead an Active Business',
+    desc: 'You are a founder, co-founder, partner, director, or managing head who carries operational responsibility and decision-making weight.',
   },
   {
     num: '02',
-    icon: Heart,
-    color: '#0284C7',
-    bg: '#F0F9FF',
-    border: '#BAE6FD',
-    title: 'You are here to contribute',
-    desc: 'What you intend to give matters more than what you hope to receive. This is the criterion that shapes everything else in our community.',
+    title: 'A Demonstrated Give-First Mindset',
+    desc: 'You believe in contributing knowledge, perspective, and support before asking or calculating immediate transactional benefit.',
   },
   {
     num: '03',
-    icon: FileText,
-    color: '#8B5CF6',
-    bg: '#F5F3FF',
-    border: '#DDD6FE',
-    title: 'You accept the Peers Code',
-    desc: 'Give first. Show up. Tell the truth. Protect the room. Respect every Peer. Carry the culture across every interaction.',
+    title: 'Commitment to the Peers Code & Culture',
+    desc: 'You respect confidentiality, arrive present, listen with intent, and uphold the dignity and mutual respect of fellow Peers.',
   },
   {
     num: '04',
-    icon: ShieldCheck,
-    color: '#F59E0B',
-    bg: '#FFFBEB',
-    border: '#FDE68A',
-    title: 'You represent your business honestly',
-    desc: 'What you tell the community about your business, your role and your work must be true. Integrity precedes collaboration.',
+    title: 'Honest Representation of Your Business',
+    desc: 'You represent your capabilities, stage, and offerings with complete truthfulness and ethical transparency.',
   },
   {
     num: '05',
-    icon: Users,
-    color: '#E11D48',
-    bg: '#FFF1F2',
-    border: '#FECDD3',
-    title: 'You conduct yourself professionally',
-    desc: 'Inside the app, in meetings, and anywhere you represent Peers Global. High emotional intelligence and mutual dignity.',
+    title: 'Active Participation in the Community',
+    desc: 'You commit to being an active, engaged participant who shows up for your Peers rather than remaining a passive consumer.',
   },
 ]
 
-// ─── Part Two: 4-Step Approval Process ────────────────────────────────────
-const APPROVAL_STEPS = [
+// ─── Part Two: How Circle Approval Works (6 Steps) ────────────────────────
+const CIRCLE_STEPS = [
   {
-    num: '1',
-    icon: FileText,
-    color: '#10B981',
-    bg: '#ECFDF5',
-    title: 'You raise a request',
-    desc: 'From inside the app or on the website, you request to join a specific Circle. You state your business, your category and why that Circle.',
-    timeline: 'Timeline: a few minutes',
+    num: '01',
+    title: 'REQUEST',
+    desc: 'You identify the Circle you would like to explore based on your industry or your purpose.',
   },
   {
-    num: '2',
-    icon: Users,
-    color: '#0062D2',
-    bg: '#EFF6FF',
-    title: 'Your request is reviewed',
-    desc: 'The Circle Director, the Circle Chairs and the Membership Committee review category availability, alignment, and contribution potential.',
-    timeline: 'Timeline: usually within 7 days',
+    num: '02',
+    title: 'REVIEW',
+    desc: 'Your request is reviewed by the Circle Director and the Membership Experience Committee to evaluate mutual fit.',
   },
   {
-    num: '3',
-    icon: Calendar,
-    color: '#F59E0B',
-    bg: '#FFFBEB',
-    title: 'You visit the Circle',
-    desc: 'Where possible, you attend a meeting as a guest before the seat is confirmed. You see the room, and the room sees you.',
-    timeline: "Timeline: the Circle's next meeting date",
+    num: '03',
+    title: 'VISIT',
+    desc: 'You experience the Circle as a guest to sense the culture, conversations, and meeting rhythm firsthand.',
   },
   {
-    num: '4',
-    icon: CheckCircle2,
-    color: '#8B5CF6',
-    bg: '#F5F3FF',
-    title: 'Your request is approved',
-    desc: "You are informed directly, either way. If approved, you pay the Circle's Experience Fee and your category is locked in that room.",
-    timeline: 'Timeline: immediately after approval',
+    num: '04',
+    title: 'APPROVAL',
+    desc: 'If the Circle confirms appropriate fit, your Circle membership is approved—marking the start of a deep relationship.',
+  },
+  {
+    num: '05',
+    title: 'EXPERIENCE FEE',
+    desc: 'Once approved, the applicable Circle Experience Fee is completed (separate from platform membership).',
+  },
+  {
+    num: '06',
+    title: 'CATEGORY LOCKED',
+    desc: 'Your business category is locked exclusively in that Circle, protecting room clarity and quality.',
   },
 ]
 
-// ─── FAQs ─────────────────────────────────────────────────────────────────
+// ─── FAQ Questions ────────────────────────────────────────────────────────
 const FAQS = [
   {
-    q: 'Can I join Peers Global without joining a Circle?',
-    a: 'Yes. Your subscription gives you the platform, the app, the directory and the global community. A Circle is an additional step you take when the right room is available.',
-  },
-  {
-    q: 'Is the Circle Experience Fee separate from my subscription?',
-    a: "Yes. Your subscription is for Peers Global platform access. The Circle Experience Fee covers the hospitality, venue and experience of that specific Circle's twelve meetings.",
-  },
-  {
-    q: 'What if my Circle request is declined?',
-    a: 'You are told why directly and shown the alternatives (such as adjacent Circles or the waitlist). Your platform subscription remains unaffected.',
-  },
-  {
-    q: 'Can I request a specific Circle?',
-    a: 'Yes. You can name the exact Industry or Purpose Circle and city when you raise your request in the Unity App.',
-  },
-  {
-    q: 'What if I am not sure which Circle suits me?',
-    a: 'Raise it with a Circle Director or during onboarding. That consultation is exactly what our leadership team is here for.',
-  },
-  {
     q: 'How long does Circle approval take?',
-    a: 'Usually within 7 days. The Director and Chairs evaluate category exclusivity and schedule your guest visit for the upcoming monthly date.',
+    a: 'The Circle approval process is usually completed within a week. The exact timing depends on the Circle review schedule and your guest visit. We would rather take the time to establish the right fit than place someone into a Circle simply to complete a transaction.',
   },
   {
-    q: 'Do I pay the Circle Experience Fee before or after approval?',
-    a: 'After. You are never asked to pay for a Circle seat until your application is formally approved and your category is ready to be locked.',
+    q: 'Can you join more than one Circle?',
+    a: 'Yes. PEERS GLOBAL allows participation in more than one Circle, subject to the applicable Circle structure and approval process. This is valuable when your entrepreneurial journey crosses multiple industries, purposes or areas of ambition.',
+  },
+  {
+    q: 'What if your category is already taken?',
+    a: 'If your preferred category is already occupied, the next conversation is not "Can we make an exception?" but "Where can you contribute most meaningfully within the community?" You may be guided toward another appropriate Circle or another pathway within PEERS GLOBAL.',
+  },
+  {
+    q: 'Why are there two distinct steps?',
+    a: 'Because PEERS GLOBAL is bigger than any one Circle. PEERS GLOBAL is the community (giving you wide access across cities and countries), while your Circle is your Inner Board (giving you an intimate, focused environment for deep trust).',
   },
 ]
 
@@ -183,578 +114,306 @@ export function CriteriaClient() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
+    <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
 
-      {/* =================================================================
-          SECTION 1: HERO — Executive Split with Fade Mask & Script
-          ================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-16 lg:pb-24 border-b border-slate-200/80">
+      {/* ─── Breadcrumb ────────────────────────────────────────────────── */}
+      <div className="bg-white border-b border-slate-100 sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
+            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <Link href="/membership" className="hover:text-[#0062D2] transition-colors">
+              Membership
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-slate-900 font-semibold">Criteria &amp; Process</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          SECTION 1: HERO — CRITERIA & PROCESS (TWO STEPS)
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAFCFF] via-[#FFFFFF] to-[#F8FAFC] border-b border-slate-200/80 pt-10 sm:pt-14 pb-16 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Hero Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  CRITERIA &amp; PROCESS
+                </span>
+              </div>
 
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/membership" className="hover:text-slate-900 transition-colors">Membership</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">Criteria & Process</span>
-          </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.35rem] font-serif font-bold text-[#0B192C] tracking-tight leading-[1.12]">
+                <span className="brand-gradient-text">Two steps. Joining PEERS GLOBAL, and joining a Circle.</span>
+              </h1>
 
-          {/* Hero Banner Box */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
-
-            {/* Fade Visual (Right 60%) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-              }}
-            >
-              <Image
-                src="/images/membership-hero-peers.jpg"
-                alt="Peers Global Executive Board Meeting"
-                fill
-                priority
-                className="object-cover object-center scale-105"
-              />
-              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-
-              {/* Cursive Script Overlay - Top Right */}
-              <div className="absolute top-6 sm:top-10 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                  Better People
+              <div className="space-y-3 text-[15px] sm:text-base text-slate-600 leading-relaxed">
+                <p>
+                  Joining PEERS GLOBAL and finding your Circle are related—but they are not the same decision.
                 </p>
-                <p className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Bigger Opportunities.
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-slate-800 font-semibold text-sm">
+                  <div className="p-3 rounded-xl bg-white border border-slate-200">
+                    <span className="text-[#0062D2] font-bold block mb-0.5">Step 1 · The Community</span>
+                    Become part of the wider PEERS GLOBAL ecosystem.
+                  </div>
+                  <div className="p-3 rounded-xl bg-white border border-slate-200">
+                    <span className="text-[#0062D2] font-bold block mb-0.5">Step 2 · Your Inner Board</span>
+                    Find the Circle where your industry and contribution fit.
+                  </div>
+                </div>
+                <p className="font-semibold text-slate-900 pt-1">
+                  This separation matters: <span className="text-[#0062D2]">Membership gives you access to the community. Your Circle gives you a place within it.</span>
                 </p>
               </div>
 
-              {/* Cursive Script Overlay - Bottom Right */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                  Right People. Real Growth.
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  A Brighter Tomorrow.
-                </p>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
+                >
+                  <span>Explore Circles</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
+                >
+                  <Smartphone className="size-4 text-[#0062D2]" />
+                  <span>Download Unity App</span>
+                </a>
               </div>
             </div>
 
-            {/* Left Content (Z-10) */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
+            {/* Right Card: The Philosophy of Fit */}
+            <div className="lg:col-span-5">
+              <div className="relative p-8 sm:p-10 rounded-3xl bg-[#040F24] text-white shadow-2xl overflow-hidden space-y-6">
+                <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
 
-                {/* Eyebrow */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    MEMBERSHIP
+                <div className="relative z-10 space-y-5">
+                  <span className="text-xs uppercase font-bold tracking-widest text-sky-300">
+                    THE RIGHT FIT MATTERS
                   </span>
+
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                    Why Two Steps?
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    We are not trying to put every entrepreneur into the same Circle. We are trying to create the right environment for people to know one another, learn from one another and contribute to one another.
+                  </p>
+
+                  <div className="space-y-2 pt-2 text-xs sm:text-sm text-slate-200">
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                      • <strong>Membership</strong> opens the door.
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                      • <strong>The right Circle</strong> helps you find your place.
+                    </div>
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                      • <strong>Your contribution</strong> makes that place meaningful.
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-white/10 text-center">
+                    <p className="font-serif italic text-base text-amber-300">
+                      &ldquo;PEERS GLOBAL is the community. Your Circle is your Inner Board.&rdquo;
+                    </p>
+                  </div>
                 </div>
-
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
-                  Criteria & Process
-                </h1>
-
-                <p className="text-xl sm:text-2xl text-slate-800 font-medium leading-snug mb-3 font-serif italic">
-                  Two steps. Joining Peers Global, and joining a Circle.
-                </p>
-
-                <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mb-8">
-                  The first is open to every entrepreneur who meets the criteria. <span className="font-semibold text-slate-900">The second is by approval.</span>
-                </p>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
-                  <Link
-                    href="/apply"
-                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-7 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
-                  >
-                    <span>Apply for Membership</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
-
               </div>
             </div>
 
           </div>
-
-          {/* Floating Stats Bar */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
-            {STATS.map((stat, i) => {
-              const Icon = stat.icon
-              return (
-                <div
-                  key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="size-11 sm:size-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                    <Icon className="size-5 sm:size-6 text-[#0062D2]" />
-                  </div>
-                  <div>
-                    <div className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-slate-500 font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
         </div>
       </section>
 
-      {/* =================================================================
-          SECTION 2: HOW JOINING WORKS — A simple, two-step journey
-          ================================================================= */}
-      <section className="py-20 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-            {/* Left Narrative (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  HOW JOINING WORKS
-                </span>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
-                A simple, two-step journey.
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                Your Peers Global subscription gives you the platform. When you are ready, you request a Circle and go through a separate approval process. Both steps matter, and they work differently on purpose.
-              </p>
+      {/* =========================================================================
+          SECTION 2: PART ONE — JOINING PEERS GLOBAL (THE FIVE CRITERIA)
+          ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-left max-w-3xl space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                PART ONE · COMMUNITY ACCESS
+              </span>
             </div>
-
-            {/* Right Visual Steps (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-
-              {/* Step 1 */}
-              <div className="flex-1 w-full rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-5 sm:p-6 flex items-center gap-4 shadow-2xs">
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center font-bold text-lg shrink-0">
-                  1
-                </div>
-                <div>
-                  <div className="text-base font-bold text-slate-900 leading-snug">
-                    Join Peers Global
-                  </div>
-                  <div className="text-xs text-slate-500 mt-1">
-                    Open to every entrepreneur who meets the criteria.
-                  </div>
-                </div>
-              </div>
-
-              {/* Arrow */}
-              <div className="hidden sm:flex items-center justify-center text-slate-400">
-                <ArrowRight className="size-6" />
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex-1 w-full rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-5 sm:p-6 flex items-center gap-4 shadow-2xs">
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center font-bold text-lg shrink-0">
-                  2
-                </div>
-                <div>
-                  <div className="text-base font-bold text-slate-900 leading-snug">
-                    Join a Circle
-                  </div>
-                  <div className="text-xs text-slate-500 mt-1">
-                    By request and approval.
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-slate-900">
+              <span className="brand-gradient-text">The Five Criteria for Joining PEERS GLOBAL</span>
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              The first step is becoming part of the community. PEERS GLOBAL is built around relationships, contribution and participation—so joining is not designed simply as a transaction.
+            </p>
           </div>
 
-        </div>
-      </section>
-
-      {/* =================================================================
-          SECTION 3: PART ONE — Joining Peers Global
-          ================================================================= */}
-      <section className="py-20 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Section Header with Button on Right */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  PART ONE
-                </span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-2">
-                Joining Peers Global
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600">
-                <strong className="text-slate-900">The criteria:</strong> Open to any entrepreneur who meets these five.
-              </p>
-            </div>
-
-            <div>
-              <Link
-                href="/culture-and-code"
-                className="rounded-full bg-white hover:bg-slate-50 border border-slate-300 hover:border-[#0062D2] text-slate-800 hover:text-[#0062D2] px-6 py-3 text-xs sm:text-sm font-bold transition-all shadow-sm inline-flex items-center gap-2"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {FIVE_CRITERIA.map((crit) => (
+              <div
+                key={crit.num}
+                className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-[#0062D2]/40 transition-all flex flex-col justify-between"
               >
-                <span>Read the Peers Code</span>
-                <ArrowRight className="size-4" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 5 Criteria Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
-            {CRITERIA_FIVE.map((c, idx) => {
-              const Icon = c.icon
-              return (
-                <div
-                  key={idx}
-                  className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between shadow-2xs hover:shadow-md transition-shadow group"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg border"
-                        style={{ backgroundColor: c.bg, borderColor: c.border, color: c.color }}
-                      >
-                        {c.num}
-                      </span>
-                      <div
-                        className="size-9 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"
-                        style={{ backgroundColor: c.bg, border: `1px solid ${c.border}` }}
-                      >
-                        <Icon className="size-4" style={{ color: c.color }} />
-                      </div>
-                    </div>
-
-                    <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug">
-                      {c.title}
-                    </h3>
-                  </div>
-
-                  <p className="text-xs text-slate-600 leading-relaxed pt-3 border-t border-slate-100">
-                    {c.desc}
+                <div>
+                  <span className="size-9 rounded-full bg-[#EFF6FF] text-[#0062D2] font-bold text-xs flex items-center justify-center mb-4">
+                    {crit.num}
+                  </span>
+                  <h3 className="font-serif text-lg font-bold text-slate-900 mb-2 leading-snug">
+                    {crit.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {crit.desc}
                   </p>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            ))}
 
-          {/* What We Do Not Require + The Process */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-
-            {/* Left: What we do not require (5 cols) */}
-            <div className="lg:col-span-5 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-2xs">
+            {/* 6th Card: What We Do Not Require */}
+            <div className="p-7 rounded-3xl bg-emerald-50/60 border border-emerald-200/80 shadow-2xs flex flex-col justify-between space-y-4">
               <div>
-                <h4 className="font-serif text-xl font-bold text-slate-900 mb-4">
-                  What we do not require
-                </h4>
-
-                <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
-                  <li className="flex items-center gap-2.5">
-                    <Check className="size-4 text-[#0062D2] shrink-0" />
-                    <span>A minimum turnover</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="size-4 text-[#0062D2] shrink-0" />
-                    <span>A particular industry</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="size-4 text-[#0062D2] shrink-0" />
-                    <span>An existing network</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="size-4 text-[#0062D2] shrink-0" />
-                    <span>A degree or title</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="size-4 text-[#0062D2] shrink-0" />
-                    <span>English fluency (multilingual community)</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check className="size-4 text-[#0062D2] shrink-0" />
-                    <span>An invitation</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 mt-4">
-                <p className="text-[11px] text-slate-500 italic">
-                  Contribution is not a function of revenue or credentials.
-                </p>
-              </div>
-            </div>
-
-            {/* Right: The Process (7 cols) */}
-            <div className="lg:col-span-7 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-2xs">
-              <div>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                  <h4 className="font-serif text-xl font-bold text-slate-900">
-                    The process
-                  </h4>
-                  <Link
-                    href="/membership/tiers"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-5 py-2.5 text-xs font-bold transition-all inline-flex items-center gap-2 self-start"
-                  >
-                    <span>See Membership Options</span>
-                    <ArrowRight className="size-3.5" />
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <div className="size-8 rounded-full bg-blue-100 text-[#0062D2] font-bold text-xs flex items-center justify-center mb-2">
-                      1
-                    </div>
-                    <div className="text-sm font-bold text-slate-900 mb-1">Explore</div>
-                    <p className="text-xs text-slate-600 leading-snug">
-                      Download the Unity App and see the community from the inside.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <div className="size-8 rounded-full bg-blue-100 text-[#0062D2] font-bold text-xs flex items-center justify-center mb-2">
-                      2
-                    </div>
-                    <div className="text-sm font-bold text-slate-900 mb-1">Subscribe</div>
-                    <p className="text-xs text-slate-600 leading-snug">
-                      Choose your membership tier and complete your subscription.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <div className="size-8 rounded-full bg-blue-100 text-[#0062D2] font-bold text-xs flex items-center justify-center mb-2">
-                      3
-                    </div>
-                    <div className="text-sm font-bold text-slate-900 mb-1">You are a Peer</div>
-                    <p className="text-xs text-slate-600 leading-snug">
-                      Full access to the platform, community and Unity App.
-                    </p>
-                    <span className="text-[10px] font-bold text-[#0062D2] block mt-2">
-                      Timeline: same day
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 mt-4">
-                <p className="text-[11px] text-slate-500">
-                  Immediate activation on payment through the Unity Platform.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =================================================================
-          SECTION 4: PART TWO — Joining a Circle (Tinted / Distinct Container)
-          ================================================================= */}
-      <section className="py-20 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="rounded-3xl bg-[#FFF9F9] border border-rose-100 p-8 sm:p-12 shadow-sm">
-
-            {/* Part Two Header with Button on Right */}
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 mb-10 pb-8 border-b border-rose-200/60">
-              <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="h-0.5 w-6 bg-rose-500" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-rose-600">
-                    PART TWO
-                  </span>
-                </div>
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
-                  Joining a Circle
-                </h2>
-                <h3 className="text-base font-bold text-slate-900 mb-2">
-                  Why this step is separate
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
+                  ALIGNMENT OVER PERFECTION
+                </span>
+                <h3 className="font-serif text-lg font-bold text-slate-900 mt-2 mb-2">
+                  What We Do Not Require
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  A Circle holds one business per category. When you take a seat, that category closes to everyone else in that room. That is why every Circle request is reviewed rather than accepted automatically — the entrepreneurs already in that room are trusting the process to protect what they have built.
+                  You do not need to arrive as a perfect entrepreneur. You do not need to have achieved everything already, and you do not need to know exactly where your journey will lead.
+                </p>
+              </div>
+              <div className="pt-3 border-t border-emerald-200/80 text-xs font-bold text-emerald-900">
+                Fit is about alignment—not perfection.
+              </div>
+            </div>
+          </div>
+
+          {/* Joining Process 3 Steps */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6">
+            <h3 className="font-serif text-2xl font-bold text-slate-900">
+              The Joining Process
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Once you decide to explore membership, the process is intentionally straightforward:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 space-y-2">
+                <div className="text-xs font-bold text-[#0062D2] uppercase">STEP 01</div>
+                <h4 className="font-serif font-bold text-slate-900">Begin in Unity</h4>
+                <p className="text-xs text-slate-600">
+                  Start through the Unity App and provide the information required for your membership journey.
                 </p>
               </div>
 
-              <div>
-                <Link
-                  href="/circle-meeting-experience"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3 text-xs sm:text-sm font-bold transition-all shadow-md inline-flex items-center gap-2 shrink-0"
-                >
-                  <span>See What Happens in a Meeting</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* The Approval Process (4 Step Cards) */}
-            <div>
-              <h4 className="font-serif text-xl font-bold text-slate-900 mb-6">
-                The approval process
-              </h4>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                {APPROVAL_STEPS.map((step, idx) => {
-                  const Icon = step.icon
-                  return (
-                    <div
-                      key={idx}
-                      className="rounded-2xl bg-white border border-rose-100 p-5 flex flex-col justify-between shadow-2xs hover:shadow-md transition-shadow"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-4">
-                          <span className="size-7 rounded-full bg-slate-100 text-slate-800 font-mono text-xs font-bold flex items-center justify-center">
-                            {step.num}
-                          </span>
-                          <div
-                            className="size-8 rounded-lg flex items-center justify-center"
-                            style={{ backgroundColor: step.bg }}
-                          >
-                            <Icon className="size-4" style={{ color: step.color }} />
-                          </div>
-                        </div>
-
-                        <h5 className="font-serif text-base font-bold text-slate-900 mb-2 leading-snug">
-                          {step.title}
-                        </h5>
-
-                        <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                          {step.desc}
-                        </p>
-                      </div>
-
-                      <div className="pt-3 border-t border-slate-100">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#0062D2]">
-                          {step.timeline}
-                        </span>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* If Category is Taken */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div>
-                <h5 className="text-base font-bold text-slate-900 mb-1">
-                  What if your category is already taken?
-                </h5>
-                <p className="text-xs sm:text-sm text-slate-600">
-                  We will tell you immediately. You can join another adjacent Circle, enter the waitlist, or found a new Circle in your city.
+              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 space-y-2">
+                <div className="text-xs font-bold text-[#0062D2] uppercase">STEP 02</div>
+                <h4 className="font-serif font-bold text-slate-900">Complete the Process</h4>
+                <p className="text-xs text-slate-600">
+                  Your information is reviewed as part of the PEERS GLOBAL membership process for basic alignment.
                 </p>
               </div>
 
-              <Link
-                href="/start-a-circle"
-                className="rounded-full border border-slate-300 hover:border-[#0062D2] text-slate-800 hover:text-[#0062D2] bg-white px-5 py-2.5 text-xs font-bold transition-all shrink-0 inline-flex items-center gap-2"
+              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 space-y-2">
+                <div className="text-xs font-bold text-[#0062D2] uppercase">STEP 03</div>
+                <h4 className="font-serif font-bold text-slate-900">Become a Member</h4>
+                <p className="text-xs text-slate-600">
+                  Once completed, you become part of the wider PEERS GLOBAL community (designed to happen same day).
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 3: PART TWO — JOINING A CIRCLE (HOW CIRCLE APPROVAL WORKS)
+          ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-left max-w-3xl space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                PART TWO · INNER BOARD
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-slate-900">
+              <span className="brand-gradient-text">How Circle Approval Works</span>
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Membership and Circle belonging are separate. A Circle is a more specific relationship environment with its own category structure, people, and rhythm:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {CIRCLE_STEPS.map((step) => (
+              <div
+                key={step.num}
+                className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
               >
-                <span>Start a Circle</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-            </div>
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="size-8 rounded-full bg-blue-50 text-[#0062D2] font-mono font-bold text-xs flex items-center justify-center">
+                      {step.num}
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      STEP {step.num}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-lg font-bold text-slate-900 mb-2 leading-snug">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
 
+          <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-200 text-center space-y-1.5 max-w-3xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+              ESTABLISHING THE RIGHT FIT
+            </p>
+            <p className="text-sm font-semibold text-slate-900">
+              The right Circle is not the Circle you can enter fastest. It is the Circle where you can belong and contribute meaningfully.
+            </p>
           </div>
 
         </div>
       </section>
 
-      {/* =================================================================
-          SECTION 5: THREE TRUST & REASSURANCE BADGES
-          ================================================================= */}
-      <section className="py-14 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            <div className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-5 flex items-center gap-4 shadow-2xs">
-              <div className="size-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                <Target className="size-6" />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-slate-900">
-                  The right fit matters
-                </div>
-                <div className="text-xs text-slate-500 mt-0.5">
-                  It is better to have three empty seats than one wrong person in the room.
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-5 flex items-center gap-4 shadow-2xs">
-              <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
-                <ShieldCheck className="size-6" />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-slate-900">
-                  A fair process
-                </div>
-                <div className="text-xs text-slate-500 mt-0.5">
-                  Every request is reviewed by people who know the Circle.
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-5 flex items-center gap-4 shadow-2xs">
-              <div className="size-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                <Users className="size-6" />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-slate-900">
-                  A stronger community
-                </div>
-                <div className="text-xs text-slate-500 mt-0.5">
-                  The result is a room where everyone can give, grow and build together.
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =================================================================
-          SECTION 6: COMMON QUESTIONS (FAQ ACCORDION)
-          ================================================================= */}
-      <section className="py-20 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+      {/* =========================================================================
+          SECTION 4: FAQS & CLARITY (ACCORDION)
+          ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 COMMON QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-tight mb-2">
-              Frequently asked questions
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-slate-900">
+              <span className="brand-gradient-text">A Process Built Around Fit</span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600">
-              Clear answers about joining Peers Global and requesting your Circle seat.
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+              We want the process to answer two questions honestly: Does PEERS GLOBAL feel right for you? And is this Circle the right environment for you to contribute and grow?
             </p>
           </div>
 
@@ -770,7 +429,7 @@ export function CriteriaClient() {
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-4 sm:p-5 flex items-center justify-between text-left gap-4"
+                    className="w-full p-5 flex items-center justify-between text-left gap-4"
                     aria-expanded={isOpen}
                   >
                     <span className="text-sm sm:text-base font-semibold text-slate-900">
@@ -786,7 +445,7 @@ export function CriteriaClient() {
                   </button>
 
                   {isOpen && (
-                    <div className="px-4 pb-5 sm:px-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                    <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
                       {faq.a}
                     </div>
                   )}
@@ -798,20 +457,68 @@ export function CriteriaClient() {
         </div>
       </section>
 
-      {/* =================================================================
-          SECTION 7: CLOSING CTA SECTION
-          ================================================================= */}
-      <ClosingCtaSection
-        eyebrow="YOUR NEXT STEP"
-        title="Great entrepreneurs belong here."
-        subtitle="Download the Unity App or apply for membership and take your next step."
-        description=""
-        primaryButtonText="Download Unity App"
-        primaryButtonHref="https://unity.peersglobal.com"
-        secondaryButtonText="Apply for Membership"
-        secondaryButtonHref="/apply"
-        secondaryButtonIcon={<UserCheck className="size-4" />}
-      />
+      {/* =========================================================================
+          SECTION 5: CLOSING MANIFESTO BANNER
+          ========================================================================= */}
+      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  YOUR NEXT STEP
+                </span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white">
+                <span className="brand-gradient-text">Begin with understanding. Find your Circle with intention. Build your relationships with trust.</span>
+              </h2>
+
+              <p className="text-base sm:text-lg font-medium text-slate-200 max-w-2xl">
+                You do not need to understand everything before you begin. Start with Unity, explore PEERS GLOBAL, understand the community, and discover where you belong.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link
+                  href="/circles/find"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                >
+                  <span>Find Your Circle</span>
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                >
+                  <span>Download Unity App</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 text-right flex justify-end">
+              <div
+                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
+                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
+              >
+                Intention &amp; <br />
+                Lasting <br />
+                <span className="text-[#7DD3FC]">Trust</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
     </div>
   )

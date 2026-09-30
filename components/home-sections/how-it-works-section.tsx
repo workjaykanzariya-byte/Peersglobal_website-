@@ -72,7 +72,7 @@ export function HowItWorksSection() {
           {/* Card 4: Participate in Circle */}
           <li className="fd-how-it-works__card">
             <img
-              src="/images/circle-roundtable-topdown.jpg"
+              src="/images/section_image/circle-roundtable-topdown.jpg"
               width="768"
               height="1152"
               alt="Participate in their Circle"

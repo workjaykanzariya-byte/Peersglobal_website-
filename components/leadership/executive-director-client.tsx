@@ -3,16 +3,12 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePageMedia } from '@/lib/hooks/use-page-media'
 import {
   ArrowRight,
   ChevronRight,
   Users,
   Building2,
   Globe2,
-  TrendingUp,
-  MapPin,
-  Landmark,
   Target,
   Sparkles,
   Quote,
@@ -21,154 +17,181 @@ import {
   ShieldCheck,
   Calendar,
   Award,
+  BookOpen,
+  Heart,
+  TrendingUp,
+  Briefcase,
+  Layers,
   Megaphone,
-  Handshake,
-  Network,
-  Crown,
+  Clock,
+  Compass,
+  UserCheck,
+  Eye,
+  Flag,
   Share2,
+  MapPin,
+  Landmark,
+  Network,
+  Handshake,
 } from 'lucide-react'
+import { usePageMedia } from '@/lib/hooks/use-page-media'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
-  {
-    icon: Users,
-    value: '10,000+',
-    label: 'Entrepreneurs',
-  },
-  {
-    icon: Building2,
-    value: '250+',
-    label: 'Cities',
-  },
-  {
-    icon: Globe2,
-    value: '10+',
-    label: 'Countries',
-  },
-  {
-    icon: TrendingUp,
-    value: '1M+',
-    label: 'Lives to Impact',
-  },
+  { icon: Users, value: '10,000+', label: 'Entrepreneurs' },
+  { icon: Building2, value: '250+', label: 'Cities' },
+  { icon: Globe2, value: '10+', label: 'Countries' },
+  { icon: Target, value: '1M', label: 'Lives to Impact' },
 ]
 
-// ─── Four Territory Levels ────────────────────────────────────────────────
-const TERRITORY_LEVELS = [
+// ─── The Four Levels ──────────────────────────────────────────────────────
+const FOUR_LEVELS = [
   {
+    number: '01',
+    level: 'AREA ED',
+    geography: 'Within a district',
+    desc: 'The Area Executive Director helps nurture the community within a defined area and supports its continued development.',
     icon: MapPin,
-    title: 'Area Executive Director',
-    description: 'A defined area within a city, and the Circles inside it.',
-    color: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   },
   {
+    number: '02',
+    level: 'DISTRICT ED',
+    geography: 'Multiple Area EDs beneath',
+    desc: 'The District Executive Director works across multiple areas, helping create continuity and connection across the district.',
     icon: Building2,
-    title: 'District Executive Director',
-    description:
-      'A full city or district, its Circles, and the community across them.',
-    color: 'bg-blue-50 text-blue-700 border-blue-200',
   },
   {
+    number: '03',
+    level: 'STATE ED',
+    geography: 'State-level ecosystem',
+    desc: 'The State Executive Director carries the wider state-level perspective, connecting the development of communities across the state.',
     icon: Landmark,
-    title: 'State Executive Director',
-    description:
-      'A state, its districts and cities, and the leaders who hold them.',
-    color: 'bg-purple-50 text-purple-700 border-purple-200',
   },
   {
+    number: '04',
+    level: 'COUNTRY ED',
+    geography: 'Country-level ecosystem',
+    desc: 'The Country Executive Director holds the broadest geographic responsibility within the country structure, helping connect the national community with the wider PEERS GLOBAL ecosystem.',
     icon: Globe2,
-    title: 'Country Executive Director',
-    description: 'A nation, and the entire Peers Global ecosystem within it.',
-    color: 'bg-amber-50 text-amber-700 border-amber-200',
   },
 ]
 
-// ─── Six Responsibilities ─────────────────────────────────────────────────
-const SIX_RESPONSIBILITIES = [
+// ─── What The Role Carries (7 Touchpoints) ────────────────────────────────
+const ROLE_CARRIES_POINTS = [
   {
+    title: 'Where the community is already strong',
+    desc: 'Nurturing existing high-performing Circles and deepening leadership continuity.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Where new relationships can be created',
+    desc: 'Opening doors between isolated business hubs and cross-pollinating ideas.',
     icon: Network,
-    title: 'You build the ecosystem',
-    description:
-      'Every Circle, every Founder, every Director and every Peer in your territory.',
-    color: 'bg-blue-50 text-blue-700 border-blue-200',
   },
   {
+    title: 'Where Circles can develop',
+    desc: 'Identifying new territories, cities, and industries ready for their first room.',
+    icon: Compass,
+  },
+  {
+    title: 'Where leaders need support',
+    desc: 'Mentoring Area EDs, Circle Directors, and Founders through inflection moments.',
     icon: Users,
-    title: 'You develop the leaders who lead',
-    description:
-      'Identify, appoint, mentor and support Circle Founders and Directors across your territory.',
-    color: 'bg-purple-50 text-purple-700 border-purple-200',
   },
   {
-    icon: Megaphone,
-    title: 'You represent Peers Global',
-    description:
-      'To the business community, institutions, industry bodies, government and media.',
-    color: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    title: 'Where parts of the ecosystem can connect',
+    desc: 'Aligning sector directors, committee chairs, and geographical hubs.',
+    icon: Layers,
   },
   {
-    icon: Handshake,
-    title: 'You engage at the highest level',
-    description:
-      'Senior business figures, associations, chambers and public officials.',
-    color: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+    title: 'Where experience can be shared',
+    desc: 'Facilitating cross-city learning, masterclasses, and best practices.',
+    icon: BookOpen,
   },
   {
-    icon: Award,
-    title: 'You carry visibility across the territory',
-    description:
-      'Regional and national events, media coverage and platforms across the community.',
-    color: 'bg-rose-50 text-rose-700 border-rose-200',
-  },
-  {
-    icon: Calendar,
-    title: "You host the territory's events",
-    description:
-      'Conclaves, regional gatherings, summits and celebrations.',
-    color: 'bg-teal-50 text-teal-700 border-teal-200',
+    title: 'Where the wider community creates new possibilities',
+    desc: 'Unlocking regional-scale ventures, joint initiatives, and policy dialogue.',
+    icon: Sparkles,
   },
 ]
 
-// ─── FAQs ─────────────────────────────────────────────────────────────────
-const FAQS = [
+// ─── What an ED Does (6 Core Pillars) ─────────────────────────────────────
+const SIX_ED_PILLARS = [
   {
-    question: 'Do I need to be a Peer already?',
-    answer:
-      'Yes. Peers Global membership is required. Executive Directors lead the ecosystem from within, with a deep understanding of our core culture, values and the Peers Code.',
+    title: 'CONNECT COMMUNITIES',
+    headline: 'Bridge Ecosystem Components',
+    desc: 'Help different parts of the PEERS GLOBAL ecosystem discover and connect with one another.',
+    icon: Network,
   },
   {
-    question: 'Do I need to have led a Circle first?',
-    answer:
-      'It is the usual path and the best preparation. Founding or directing a Circle teaches you what you will later be asking others to do and gives you first-hand credibility.',
+    title: 'SUPPORT LEADERS',
+    headline: 'Empower Circle & Industry Leaders',
+    desc: 'Create an environment in which Circle and Industry leaders can continue to contribute and develop.',
+    icon: Users,
   },
   {
-    question: 'Which level would I start at?',
-    answer:
-      'Most Executive Directors begin at Area or District level and grow with the territory they build. State and Country appointments come from proven territory leadership.',
+    title: 'ENCOURAGE GROWTH',
+    headline: 'Expand Into New Territories',
+    desc: 'Help identify opportunities for the community to expand into new areas and create new relationships.',
+    icon: TrendingUp,
   },
   {
-    question: 'How is a territory defined?',
-    answer:
-      'Territories are agreed clearly with the global leadership, defined by business geography and commercial catchment areas rather than purely administrative boundaries.',
+    title: 'BUILD CONTINUITY',
+    headline: 'Preserve Common Culture',
+    desc: 'Ensure that growth does not become disconnected activity. A larger community still needs a common culture.',
+    icon: ShieldCheck,
   },
   {
-    question: 'Can I hold a territory while running my business?',
-    answer:
-      'Yes. Every Executive Director is an active business owner. The role is built around leadership at one remove — empowering Founders and Directors rather than managing daily details yourself.',
+    title: 'SHARE EXPERIENCE',
+    headline: 'Facilitate Cross-Regional Learning',
+    desc: 'Encourage learning across Circles, industries and territories so that useful experience does not remain isolated.',
+    icon: BookOpen,
   },
   {
-    question: 'How much time does it take?',
-    answer:
-      'More at the beginning when initial Circles are being founded, and progressively less as leaders mature under you. The commitment is discussed transparently before any appointment.',
+    title: 'STRENGTHEN THE ECOSYSTEM',
+    headline: 'Unified Territory Stewardship',
+    desc: 'Look at the territory as a connected community rather than a collection of separate units.',
+    icon: Globe2,
+  },
+]
+
+// ─── Who This Is For ──────────────────────────────────────────────────────
+const WHO_THIS_IS_FOR = [
+  'Thinks beyond individual relationships',
+  'Has demonstrated a willingness to contribute',
+  'Enjoys connecting people and communities',
+  'Can work across different industries and perspectives',
+  'Understands that leadership requires consistency',
+  'Is willing to support other leaders',
+  'Values the long-term development of community',
+  'Wants to help build something larger than an individual Circle',
+]
+
+// ─── Frequently Asked Questions ──────────────────────────────────────────
+const FAQ = [
+  {
+    q: 'What is an Executive Director responsible for?',
+    a: 'An Executive Director carries responsibility for developing and connecting the PEERS GLOBAL ecosystem across an assigned geographic level.',
   },
   {
-    question: 'Can I be an Executive Director and a Circle Director?',
-    answer:
-      'Generally, no. An Executive Director oversees multiple Circles across cities. Directing one individual room creates potential conflicts of focus and time.',
+    q: 'What are the four levels?',
+    a: 'The structure comprises: Area ED → District ED → State ED → Country ED. Each level represents a wider geographic responsibility.',
   },
   {
-    question: 'What if there are no Circles in my territory yet?',
-    answer:
-      'Then you are building from the ground up. That is the most demanding version of this role and the one that leaves the deepest mark — every Circle in that territory will exist because you started it.',
+    q: 'Does an Executive Director lead Circles directly?',
+    a: 'The role operates at an ecosystem level rather than being limited to the day-to-day leadership of one Circle.',
+  },
+  {
+    q: 'Is this only about expansion?',
+    a: 'No. Growth is meaningful only when relationships, culture and community remain strong as the ecosystem develops.',
+  },
+  {
+    q: 'Can an entrepreneur move through the leadership pathway?',
+    a: 'The PEERS GLOBAL leadership architecture provides a progression from contribution and Circle leadership toward broader ecosystem responsibility.',
+  },
+  {
+    q: 'What is the heart of the role?',
+    a: 'To help people, leaders, Circles, industries and territories become more connected—while protecting the culture and values of the community.',
   },
 ]
 
@@ -185,12 +208,8 @@ export function ExecutiveDirectorClient() {
     fallbackTitle: 'Executive Director Regional Leadership',
   })
 
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index)
-  }
-
   return (
-    <div className="flex flex-col min-h-screen bg-[#FBFCFE] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+    <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900">
       {/* ─── 1. HERO SECTION ────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-5 sm:pt-6 pb-3 sm:pb-4 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -207,15 +226,16 @@ export function ExecutiveDirectorClient() {
             <span className="text-slate-800 font-semibold">Executive Director</span>
           </nav>
 
-          {/* Hero Banner Box (Unified rounded card matching Why Join / Leadership layout) */}
+          {/* Hero Banner Box */}
           <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
-
             {/* Fade Video Visual (Right 60%) */}
             <div
               className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
               style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+                maskImage:
+                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+                WebkitMaskImage:
+                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
               }}
             >
               {heroMedia.isYouTube && heroMedia.embedUrl ? (
@@ -246,41 +266,42 @@ export function ExecutiveDirectorClient() {
                   className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
                   style={{ fontFamily: 'var(--font-script)' }}
                 >
-                  Stronger Regions.
+                  Build Relationships.
                 </p>
                 <p
                   className="text-2xl sm:text-3xl text-white/95 leading-tight mt-0.5 font-medium"
                   style={{ fontFamily: 'var(--font-script)' }}
                 >
-                  Stronger Entrepreneurs.
+                  Strengthen Community.
                 </p>
                 <p
                   className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5"
                   style={{ fontFamily: 'var(--font-script)' }}
                 >
-                  A Brighter Tomorrow.
+                  Create Possibility.
                 </p>
               </div>
             </div>
 
-            {/* Left Content (Z-10) */}
+            {/* Left Content */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">LEADERSHIP</span>
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="brand-gradient-text">EXECUTIVE DIRECTOR</span>
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-4">
-                  <span className="brand-gradient-text">Executive Director</span>
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
+                  Executive Director
                 </h1>
 
                 <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
-                  You carry territory.
+                  Regional ecosystem builder.
                 </p>
 
                 <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-light">
-                  Area. District. State. Country. Wherever you hold, the entrepreneurial ecosystem inside it becomes your responsibility.
+                  A Circle brings people together. An Industry Director connects a sector. An Executive Director helps an entire territory become more connected. This is leadership at the ecosystem level. The responsibility is no longer limited to one Circle or one industry — it is about helping the PEERS GLOBAL community grow across a defined geography while keeping the culture, relationships and purpose intact.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
@@ -288,244 +309,42 @@ export function ExecutiveDirectorClient() {
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
                   >
                     <span>Download Unity App</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="size-4" />
                   </a>
-
                   <Link
                     href="/contact?intent=leadership"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
+                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-8 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
                   >
                     <span>Apply to Lead</span>
-                    <ArrowRight className="w-4 h-4 text-slate-400" />
+                    <ArrowRight className="size-4" />
                   </Link>
                 </div>
               </div>
             </div>
-
           </div>
 
-          {/* Floating Metric Stats Bar */}
-          <div className="mt-4 sm:mt-5 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-sm">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="text-2xl sm:text-3xl font-bold font-serif text-slate-950 tracking-tight">
-                          {stat.value}
-                        </div>
-                        <div className="text-xs sm:text-sm text-slate-600 font-medium">
-                          {stat.label}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 2: FOUR LEVELS. ONE RESPONSIBILITY. ─────────────────── */}
-      <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-[#FBFCFE] border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            {/* Left Content Column: Title + 4 Cards */}
-            <div className="lg:col-span-7 space-y-6">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    FOUR LEVELS. ONE RESPONSIBILITY.
-                  </span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight leading-tight mt-2">
-                  <span className="brand-gradient-text">You build entire regions of opportunity.</span>
-                </h2>
-                <p className="text-base text-slate-600 leading-relaxed mt-2 max-w-2xl">
-                  An Executive Director carries a territory and everything Peers
-                  Global becomes inside it. The scope changes at each level. The
-                  responsibility does not.
-                </p>
-              </div>
-
-              {/* 4 Cards Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {TERRITORY_LEVELS.map((level) => {
-                  const Icon = level.icon
-                  return (
-                    <div
-                      key={level.title}
-                      className="p-5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-blue-300 hover:bg-white transition-all shadow-sm flex flex-col justify-between group"
-                    >
-                      <div>
-                        <div
-                          className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 border ${level.color}`}
-                        >
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <h3 className="font-serif font-bold text-slate-900 text-base leading-snug mb-1.5">
-                          {level.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                          {level.description}
-                        </p>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Right Column: Frosted Quote Card + Leaders Photo */}
-            <div className="lg:col-span-5 space-y-4">
-              {/* Quote Card */}
-              <div className="bg-gradient-to-br from-blue-50/90 to-sky-50/40 rounded-2xl p-6 sm:p-7 border border-blue-100 shadow-sm relative">
-                <Quote className="w-8 h-8 text-[#0062D2] mb-3 opacity-80" />
-                <p className="text-base sm:text-lg font-serif italic text-slate-900 leading-relaxed">
-                  “Communities don’t just grow. They are built by someone.”
-                </p>
-                <p className="text-xs font-bold uppercase tracking-widest brand-gradient-text mt-4">
-                  PEERS GLOBAL
-                </p>
-              </div>
-
-              {/* Stacked Photo with Cursive Overlay */}
-              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[220px] sm:h-[240px] group">
-                <Image
-                  src="/images/who-we-are-friends.jpg"
-                  alt="Executive leaders discussing regional expansion"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
-                <div className="absolute bottom-4 right-4 text-right text-white z-10">
-                  <p
-                    className="text-lg sm:text-xl font-light italic leading-tight text-white drop-shadow-md"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    More Cities.
-                    <br />
-                    More Circles.
-                    <br />
-                    More Impact.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 3: WHERE THE COMMUNITY ACTUALLY GROWS ───────────────── */}
-      <section className="py-16 sm:py-20 bg-[#FBFCFE] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-5">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    WHERE THE COMMUNITY ACTUALLY GROWS
-                  </span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight leading-tight mt-2">
-                  <span className="brand-gradient-text">An Executive Director is where the map moves.</span>
-                </h2>
-              </div>
-
-              <p className="text-base text-slate-600 leading-relaxed">
-                Circles do not appear on their own. Cities do not build
-                themselves. You identify the opportunity, find the right
-                Founder, support them through the launch, and hold the standard
-                afterwards.
-              </p>
-
-              <p className="text-base sm:text-lg font-serif italic text-slate-900 leading-relaxed border-l-2 border-[#0062D2] pl-4">
-                You take Peers Global into a city where nobody has heard of it,
-                and eighteen months later there is a thriving community of
-                entrepreneurs. That did not happen without you.
-              </p>
-            </div>
-
-            {/* Right Conclave Image with Wall Badge */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 h-[280px] sm:h-[340px] group">
-                <Image
-                  src="/images/executive-director-conclave.jpg"
-                  alt="Executive Director addressing regional leadership summit in auditorium"
-                  fill
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-
-                {/* Stage Screen Banner Overlay */}
-                <div className="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 text-right z-10 max-w-[240px]">
-                  <p className="text-xs font-bold text-white leading-tight">
-                    Entrepreneurial Ecosystems
-                  </p>
-                  <p className="text-[11px] font-semibold text-sky-400 leading-tight mt-0.5">
-                    Stronger Together.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 4: WHAT THE ROLE CARRIES (SIX RESPONSIBILITIES) ─────── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                WHAT THE ROLE CARRIES
-              </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-2">
-              <span className="brand-gradient-text">Six responsibilities. A larger impact.</span>
-            </h2>
-          </div>
-
-          {/* 6 Cards Responsive Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
-            {SIX_RESPONSIBILITIES.map((item) => {
-              const Icon = item.icon
+          {/* Floating Stats Bar */}
+          <div className="mt-4 sm:mt-5 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+            {STATS.map((stat, i) => {
+              const Icon = stat.icon
               return (
                 <div
-                  key={item.title}
-                  className="bg-slate-50/80 hover:bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
+                  key={i}
+                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
                 >
+                  <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                    <Icon className="size-6" />
+                  </div>
                   <div>
-                    <div
-                      className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 border transition-transform duration-300 group-hover:scale-110 ${item.color}`}
-                    >
-                      <Icon className="w-5 h-5" />
+                    <div className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 leading-none">
+                      {stat.value}
                     </div>
-                    <h3 className="font-serif font-bold text-slate-900 text-sm leading-snug mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {item.description}
-                    </p>
+                    <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                      {stat.label}
+                    </div>
                   </div>
                 </div>
               )
@@ -534,148 +353,354 @@ export function ExecutiveDirectorClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 5: TWO-COLUMN SECTION (WHO YOU BECOME & WHO THIS IS FOR) ── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE]">
+      {/* ─── 2. THE FOUR LEVELS ─────────────────────────────────────────── */}
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
-            {/* Left Column: Who You Become */}
-            <div className="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/90 shadow-lg shadow-slate-200/40 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    WHO YOU BECOME
-                  </span>
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THE FOUR LEVELS</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
+              One philosophy. Different geography.
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 mt-3 font-light">
+              The Executive Director structure grows with the geography of the community. The level changes. The responsibility expands. The principle remains the same.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FOUR_LEVELS.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.number}
+                  className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm hover:border-[#0062D2]/40 hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                        {item.number}
+                      </span>
+                      <div className="size-10 rounded-xl bg-white border border-slate-200 text-[#0062D2] flex items-center justify-center">
+                        <Icon className="size-5" />
+                      </div>
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-slate-950 mb-1">
+                      {item.level}
+                    </h3>
+                    <p className="text-xs text-[#0062D2] font-semibold mb-3">
+                      {item.geography}
+                    </p>
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-2 mb-4">
-                  <span className="brand-gradient-text">A bigger perspective. A stronger you.</span>
-                </h2>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
-                  You stop measuring a good month by your own business. You
-                  start measuring it by how many entrepreneurs across your
-                  territory had a better one. That shift is permanent, and it
-                  changes how you see everything afterwards — including your own
-                  company.
+              )
+            })}
+          </div>
+
+          <div className="mt-8 p-5 rounded-2xl bg-blue-50/70 border border-blue-100 text-center max-w-3xl mx-auto">
+            <p className="text-sm font-serif font-bold text-slate-900">
+              Build relationships. Strengthen community. Create possibility.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 3. WHERE THE COMMUNITY ACTUALLY GROWS ───────────────────────── */}
+      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">GROWTH & CONNECTION</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-5">
+                Where the community actually grows
+              </h2>
+              <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed mb-4">
+                A community does not grow because a map becomes larger. It grows because people become connected.
+              </p>
+              <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed mb-6">
+                A new Circle creates a room. A growing industry creates an ecosystem. A developing region creates a network of ecosystems. And when those ecosystems remain connected, the community begins to develop a life of its own.
+              </p>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <p className="text-base font-serif font-bold text-slate-950 mb-1">
+                  That is where the Executive Director becomes important.
                 </p>
+                <p className="text-xs sm:text-sm text-slate-600 font-light mt-1">
+                  Not as someone who simply oversees geography, but as someone who helps people across that geography discover one another.
+                </p>
+              </div>
+            </div>
 
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">
-                  What the role develops:
-                </h3>
+            {/* Right Visual Image */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/60 aspect-[4/3]">
+                <Image
+                  src="/images/executive-director-conclave.jpg"
+                  alt="Executive Director leading regional ecosystem"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute top-4 right-4 text-right select-none pointer-events-none drop-shadow-md">
+                  <p className="text-xs text-white/90 font-medium tracking-wider uppercase">
+                    Ecosystem Leadership
+                  </p>
+                  <p
+                    className="text-lg text-amber-300 font-bold leading-tight"
+                    style={{ fontFamily: 'var(--font-script)' }}
+                  >
+                    Regional Movement
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="space-y-3.5 border-t border-slate-100 pt-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-800">
-                      <strong>Ecosystem thinking</strong> – seeing a whole
-                      market as a system of relationships
-                    </span>
+      {/* ─── 4. WHAT THE ROLE CARRIES ───────────────────────────────────── */}
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">TERRITORY RESPONSIBILITY</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-4">
+              What the role carries
+            </h2>
+            <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed">
+              The Executive Director carries responsibility for helping the community develop across the territory assigned to the role. That means looking beyond individual meetings and individual relationships.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ROLE_CARRIES_POINTS.map((item, idx) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={idx}
+                  className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
+                      <Icon className="size-5" />
+                    </div>
+                    <h3 className="font-serif text-lg font-bold text-slate-950 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-800">
-                      <strong>Leading through leaders</strong> – multiplying
-                      your impact
-                    </span>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="mt-8 p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center max-w-3xl mx-auto">
+            <p className="text-sm font-serif font-bold text-slate-900">
+              Help the community grow without losing the culture that made it meaningful.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. WHAT AN ED DOES (6 PILLARS - DARK CONSTELLATION THEME) ────── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80">
+        <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
+        <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
+        <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
+
+        <svg viewBox="0 0 1400 600" className="absolute inset-0 size-full pointer-events-none opacity-20" preserveAspectRatio="none">
+          <g fill="#38BDF8">
+            <circle cx="80" cy="60" r="1.5" /><circle cx="200" cy="130" r="1" /><circle cx="340" cy="45" r="2" />
+            <circle cx="500" cy="100" r="1.2" /><circle cx="680" cy="35" r="1.5" /><circle cx="850" cy="110" r="1" />
+            <circle cx="1020" cy="60" r="2" /><circle cx="1180" cy="160" r="1.2" /><circle cx="1340" cy="80" r="1.5" />
+            <circle cx="150" cy="500" r="1.2" /><circle cx="400" cy="540" r="1.8" /><circle cx="640" cy="560" r="1" />
+            <circle cx="900" cy="520" r="1.5" /><circle cx="1100" cy="550" r="1" /><circle cx="70" cy="320" r="1" />
+            <circle cx="310" cy="270" r="1.8" /><circle cx="760" cy="300" r="1.2" /><circle cx="1260" cy="360" r="1" />
+          </g>
+          <g stroke="#38BDF8" strokeWidth="0.5" opacity="0.35" fill="none">
+            <line x1="80" y1="60" x2="200" y2="130" /><line x1="200" y1="130" x2="340" y2="45" />
+            <line x1="500" y1="100" x2="680" y2="35" /><line x1="850" y1="110" x2="1020" y2="60" />
+            <line x1="1020" y1="60" x2="1180" y2="160" />
+          </g>
+        </svg>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
+              <span className="w-5 h-px bg-cyan-400" />
+              OPERATIONAL SCOPE
+              <span className="w-5 h-px bg-cyan-400" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+              What an ED does
+            </h2>
+            <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+              An Executive Director works across people, Circles, industries and geography. The role is fundamentally about connection, continuity and community development.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SIX_ED_PILLARS.map((pillar, idx) => {
+              const Icon = pillar.icon
+              return (
+                <div
+                  key={idx}
+                  className="p-7 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                >
+                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-xs font-bold text-cyan-400 border border-cyan-500/30 px-2.5 py-1 rounded-full bg-cyan-500/10">
+                        {pillar.title}
+                      </span>
+                      <div className="size-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
+                        <Icon className="size-5" />
+                      </div>
+                    </div>
+                    <h3 className="font-serif text-lg font-bold text-white mb-2 tracking-wide">
+                      {pillar.headline}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                      {pillar.desc}
+                    </p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-800">
-                      <strong>Strategic judgement</strong> – where to focus,
-                      whom to back, what will work
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-800">
-                      <strong>Influence at scale</strong> – with entrepreneurs,
-                      institutions and markets
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-800">
-                      <strong>A legacy</strong> – a stronger region, long after
-                      you step back
-                    </span>
-                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="mt-10 p-5 rounded-2xl bg-cyan-950/40 border border-cyan-500/30 text-center max-w-3xl mx-auto">
+            <p className="text-sm font-serif font-bold text-cyan-200">
+              The role is not simply to make the community bigger. It is to help make the community stronger as it grows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. WHO YOU BECOME & LEADERSHIP AT SCALE ─────────────────────── */}
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left: Progression */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-1">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">REGIONAL TRANSFORMATION</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
+                Who you become
+              </h2>
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-light">
+                Regional leadership changes the way you see a community. You begin to look beyond the people immediately around you. You begin to notice patterns. You see where one entrepreneur&apos;s experience could help another. You recognise where two communities could benefit from knowing each other. You begin thinking about continuity—not only activity.
+              </p>
+
+              {/* 3-Step Progression */}
+              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100">
+                <span className="text-[11px] uppercase tracking-wider font-bold text-[#0062D2] block mb-2">
+                  THE DEEPER JOURNEY OF AN EXECUTIVE DIRECTOR
+                </span>
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-serif font-bold text-slate-900">
+                  <span className="px-3 py-1.5 rounded-lg bg-white border border-blue-200">Leading people</span>
+                  <span>→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white border border-blue-200">Connecting communities</span>
+                  <span>→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-[#0062D2] text-white">Building ecosystems</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Who This Is For & Role of Trust */}
-            <div className="lg:col-span-6 flex flex-col gap-6">
-              {/* Top Card: Who this is for */}
-              <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-md flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    WHO THIS IS FOR
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold mt-2 mb-5">
-                  <span className="brand-gradient-text">You might be the right fit if you are</span>
-                </h2>
-
-                <div className="space-y-3.5 text-xs sm:text-sm border-t border-slate-100 pt-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700">
-                      An experienced entrepreneur with a proven track record
-                    </span>
+            {/* Right: Leadership at scale card */}
+            <div className="lg:col-span-5">
+              <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-5">
+                    <Quote className="size-6" />
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700">
-                      Well connected in your city, state or country
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700">
-                      Known for integrity, collaboration and community
-                      contribution
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700">
-                      Willing to invest time in building others, not just your
-                      own business
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700">
-                      Committed to growing an entrepreneurial ecosystem
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <span className="text-slate-700">
-                      Ready to represent Peers Global on larger platforms
-                    </span>
-                  </div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
+                    LEADERSHIP AT A LARGER SCALE
+                  </h3>
+                  <blockquote className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug tracking-tight mb-4">
+                    “Scale should never make a community less human.”
+                  </blockquote>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    At Circle level, you know people personally. At Industry level, you begin to see a sector. At regional level, you begin to see an ecosystem. Every entrepreneur remains a person first. Every relationship deserves respect.
+                  </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Bottom Alert Card: A role of trust */}
-              <div className="bg-amber-50/70 rounded-3xl p-6 border border-amber-200/90 shadow-sm">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 border border-amber-300">
-                    <Crown className="w-5 h-5" />
+      {/* ─── 7. WHO THIS IS FOR & PROGRESSION (LOCAL TO REGIONAL) ───────── */}
+      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            {/* Left: Who this is for */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-1">
+                  CANDIDACY FIT
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-slate-950 mb-3">
+                  Who this is for
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
+                  The Executive Director pathway may be meaningful for an entrepreneur who:
+                </p>
+
+                <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
+                  {WHO_THIS_IS_FOR.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 pt-5 border-t border-slate-200">
+                  <p className="text-xs text-slate-600 font-medium">
+                    You do not take on regional responsibility because you have finished learning. You take it on because you are willing to keep learning while helping others move forward.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: From Local to Regional & Responsibility of Scale */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-1">
+                    NATURAL PROGRESSION
                   </div>
-                  <div>
-                    <h3 className="font-serif font-bold text-base text-amber-950 leading-tight">
-                      A role of trust
-                    </h3>
-                    <p className="text-xs font-semibold text-amber-900/90 mt-0.5 mb-1.5">
-                      An Executive Director who serves themselves is visible
-                      immediately.
-                    </p>
+                  <h3 className="font-serif text-2xl font-bold text-slate-950 mb-3">
+                    From Local to Regional
+                  </h3>
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 mb-4 flex flex-wrap items-center gap-1.5">
+                    <span>Circle</span> → <span>City</span> → <span>District</span> → <span>State</span> → <span>Country</span> → <span className="text-[#0062D2]">Global</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
+                    Each step creates a wider field of relationships. The purpose is not simply geographic expansion. The purpose is to create more opportunities for: <strong>Learning, Sharing, Relationships, Collaboration, Contribution, and Impact.</strong>
+                  </p>
+
+                  <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80">
+                    <h4 className="font-serif text-sm font-bold text-amber-950 mb-1">The Responsibility of Scale</h4>
                     <p className="text-xs text-amber-900/80 leading-relaxed">
-                      This role exists to strengthen an entire territory. It is
-                      not a channel for personal business development, and it
-                      cannot be used to favour your own company.
+                      More people mean more relationships to care for. More Circles mean more leaders to support. That is why Executive Director leadership is fundamentally a service role. The community is bigger than the leader.
                     </p>
                   </div>
                 </div>
@@ -685,52 +710,42 @@ export function ExecutiveDirectorClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 6: COMMON QUESTIONS (FAQ ACCORDION) ────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-t border-slate-200">
+      {/* ─── 8. FREQUENTLY ASKED QUESTIONS ──────────────────────────────── */}
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                COMMON QUESTIONS
-              </span>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">FREQUENTLY ASKED QUESTIONS</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold mt-2">
-              <span className="brand-gradient-text">Frequently asked questions</span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
+              Frequently asked questions
             </h2>
           </div>
 
-          <div className="divide-y divide-slate-200 border-y border-slate-200">
-            {FAQS.map((faq, index) => {
-              const isOpen = openFaq === index
+          <div className="space-y-4">
+            {FAQ.map((item, idx) => {
+              const isOpen = openFaq === idx
               return (
-                <div key={faq.question} className="py-5">
+                <div
+                  key={idx}
+                  className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-sm transition-colors"
+                >
                   <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between gap-4 text-left group focus:outline-none"
-                    aria-expanded={isOpen}
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-serif text-base sm:text-lg font-bold text-slate-950 hover:text-[#0062D2] transition-colors"
                   >
-                    <span className="text-base sm:text-lg font-serif font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {faq.question}
-                    </span>
-                    <span
-                      className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                        isOpen
-                          ? 'bg-blue-50 text-blue-600'
-                          : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600'
+                    <span>{item.q}</span>
+                    <ChevronDown
+                      className={`size-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180 text-[#0062D2]' : ''
                       }`}
-                    >
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          isOpen ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </span>
+                    />
                   </button>
-
                   {isOpen && (
-                    <div className="pt-3 pb-2 text-sm sm:text-base text-slate-600 leading-relaxed pr-8">
-                      {faq.answer}
+                    <div className="px-6 pb-6 pt-1 text-sm text-slate-600 leading-relaxed font-light border-t border-slate-200/80">
+                      {item.a}
                     </div>
                   )}
                 </div>
@@ -740,76 +755,102 @@ export function ExecutiveDirectorClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 7: CLOSING HERO BANNER — Royal Blue Theme (Preserving Exact Structure) ─── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* Subtle Geometric Orbital Line Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+      {/* ─── 9. BUILD WHERE PEOPLE CAN BELONG (CLOSING HERO BANNER) ──────── */}
+      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 lg:py-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+        />
+
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
           <svg
-            viewBox="0 0 600 600"
+            viewBox="0 0 760 520"
             fill="none"
-            className="w-full h-full text-white/30"
+            className="h-full w-full"
+            preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
           </svg>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — LEAD TOMORROW —
-              </span>
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 flex flex-col items-start">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-sky-200 mb-3">
+                <span className="w-5 h-px bg-sky-200" />
+                BUILD WHERE PEOPLE CAN BELONG
+                <span className="w-5 h-px bg-sky-200" />
+              </div>
 
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                Create Stronger Regions.
-                <br />
-                Build a Brighter Tomorrow.
+              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
+                Build the ecosystem. Strengthen the relationships.
               </h2>
 
-              <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
-                Download the Unity App or apply to lead and take the next step.
+              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light mb-3 max-w-2xl">
+                A Circle can change the experience of one entrepreneur. An industry ecosystem can connect many. A regional ecosystem can create relationships across communities. And when those communities remain connected, possibility begins to travel.
               </p>
 
-              {/* Action Buttons */}
-              <div className="pt-3 flex flex-wrap items-center gap-4">
+              <p className="text-base sm:text-lg text-amber-300 font-medium leading-relaxed mb-8 max-w-2xl">
+                The geography may expand. The responsibility expands with it. The human principle remains the same.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/contact?intent=leadership"
+                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
+                >
+                  <span>Apply to Lead</span>
+                  <ArrowRight className="size-4" />
+                </Link>
                 <a
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
                 >
                   <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="size-4" />
                 </a>
-
-                <Link
-                  href="/contact?intent=leadership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
-                >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </Link>
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                className="text-2xl sm:text-3xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                Entrepreneurs
-                <br />
-                Stronger Regions
-                <br />
-                A Brighter Tomorrow.
+                From Circle to City.
+              </p>
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium mt-1"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                From District to State.
+              </p>
+              <p
+                className="text-2xl sm:text-3xl text-white leading-tight font-medium mt-1"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                From Country
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-1"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                To Global Impact.
               </p>
             </div>
           </div>

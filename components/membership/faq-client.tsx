@@ -2,8 +2,6 @@
 
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { usePageMedia } from '@/lib/hooks/use-page-media'
-import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
   ChevronRight,
@@ -27,45 +25,27 @@ import {
   CheckCircle2,
   XCircle,
   HelpCircle,
+  Clock,
+  Coins,
+  Compass,
 } from 'lucide-react'
-
-// ─── Stats Bar ────────────────────────────────────────────────────────────
-const STATS = [
-  {
-    icon: Users,
-    value: '10,000+',
-    label: 'Entrepreneurs',
-  },
-  {
-    icon: Building2,
-    value: '45+',
-    label: 'Cities',
-  },
-  {
-    icon: Globe2,
-    value: '25+',
-    label: 'Countries',
-  },
-  {
-    icon: Target,
-    value: '1M',
-    label: 'Lives to Impact',
-  },
-]
 
 // ─── Topic Filters ────────────────────────────────────────────────────────
 const TOPICS = [
   'All',
-  'Joining',
-  'Membership',
+  'Before You Join',
+  'Ownership',
+  'Subscription & Payment',
+  'Subscription Dates',
   'Circles',
-  'Payments',
-  'App & Platform',
+  'Time & Commitment',
+  'The Unity App',
+  'Impact & Coins',
   'Leadership',
-  'General',
+  'Leaving & Returning',
 ]
 
-// ─── FAQ Data Categorized ──────────────────────────────────────────────────
+// ─── 10 Structured FAQ Categories ─────────────────────────────────────────
 interface FaqItem {
   q: string
   a: string
@@ -73,8 +53,8 @@ interface FaqItem {
 
 interface FaqCategory {
   id: string
-  title: string
   num: string
+  title: string
   topic: string
   icon: React.ElementType
   color: string
@@ -86,115 +66,111 @@ interface FaqCategory {
 const FAQ_CATEGORIES: FaqCategory[] = [
   {
     id: 'before-you-join',
-    num: '1',
-    title: 'Before you join',
-    topic: 'Joining',
+    num: '01',
+    title: 'Before You Join',
+    topic: 'Before You Join',
     icon: Users,
     color: '#0062D2',
     bg: '#EFF6FF',
     border: '#BFDBFE',
     items: [
       {
-        q: 'Can I try Peers Global before subscribing?',
-        a: 'Download the Unity App and look around. You can see the community, understand how collaboration works here and get a real sense of the culture before committing to anything.',
+        q: 'Is PEERS GLOBAL only for entrepreneurs in India?',
+        a: 'No. PEERS GLOBAL is designed as a global community of entrepreneurs. The community may begin with your local Circle, but the relationships, learning, collaboration and reach can extend beyond your city and country.',
       },
       {
-        q: 'Do I need an invitation?',
-        a: 'No. You can subscribe directly if you meet the criteria.',
+        q: 'Do I need to know which Circle I want to join before becoming a member?',
+        a: 'Not necessarily. Membership in PEERS GLOBAL and joining a Circle are two separate steps. The purpose is to help you understand where you may belong rather than asking you to make every decision before you have experienced the community.',
       },
       {
-        q: 'Do I need a business of a certain size?',
-        a: 'No. There is no minimum revenue and no minimum age of business. What matters is that you own or lead a real business and that you intend to contribute.',
-      },
-      {
-        q: 'Is Peers Global only for entrepreneurs in India?',
-        a: 'No. Peers Global is a global community. It was founded in India, and India remains its largest base, but the platform, the Circles and the collaboration model were built from the start for entrepreneurs anywhere in the world. Designed in Bharat. Built for the world.',
-      },
-      {
-        q: 'Can I join from outside India?',
-        a: 'Yes. Your subscription gives you the platform, the Unity App and the full community wherever you are based.',
-      },
-      {
-        q: 'Are there Circles in my country?',
-        a: 'The community is expanding country by country. If there is no Circle where you are yet, your subscription still gives you full platform access — and founding the first Circle in a new country is one of the most significant contributions anyone can make here.',
-      },
-      {
-        q: 'How is this different from what I already do?',
-        a: 'You will know within one Circle meeting. Attend as a guest and decide from what you see in the room.',
+        q: 'Is this only about business networking?',
+        a: 'No. Business relationships are an important part of the experience, but PEERS GLOBAL is built around Learning, Sharing and Relationships — LSR. The intention is to create relationships in which entrepreneurs can learn from experience, share what they know, and help one another grow.',
       },
     ],
   },
   {
     id: 'who-membership-belongs-to',
-    num: '2',
-    title: 'Who the membership belongs to',
-    topic: 'Membership',
+    num: '02',
+    title: 'Who Does the Membership Belong To?',
+    topic: 'Ownership',
     icon: UserCheck,
     color: '#10B981',
     bg: '#ECFDF5',
     border: '#A7F3D0',
     items: [
       {
-        q: 'Is this a business membership or an individual membership?',
-        a: 'Individual. Always. Your membership belongs to you, not to your company. It follows the person, not the letterhead. Peers Global exists to grow entrepreneurs, not to list companies. A business does not learn, contribute or lead. A person does.',
+        q: 'Is membership for my company or for me personally?',
+        a: 'Membership belongs to the individual entrepreneur, not to the company. A company does not become a member in place of its founder, promoter or entrepreneur. The relationship is personal.',
       },
       {
-        q: 'Can two partners from the same business join?',
-        a: 'Yes. Both are welcome, and both join in their own right. Each partner holds their own membership, builds their own relationships, earns their own Life Impact Score and develops as their own kind of leader.',
-      },
-      {
-        q: 'Can my membership be transferred to someone else?',
-        a: 'No. Membership is individual and cannot be transferred to another person, including a business partner, a family member or a successor. It also cannot be sold with a business.',
+        q: 'Can two partners from the same business become members?',
+        a: 'Yes. Two partners can join individually. They may also hold seats in the same Circle, subject to the applicable Circle structure and category requirements. The principle remains simple: People join. Companies do not.',
       },
     ],
   },
   {
     id: 'subscription-and-payment',
-    num: '3',
-    title: 'Subscription and payment',
-    topic: 'Payments',
+    num: '03',
+    title: 'Subscription & Payment',
+    topic: 'Subscription & Payment',
     icon: CreditCard,
     color: '#F59E0B',
     bg: '#FFFBEB',
     border: '#FDE68A',
     items: [
       {
-        q: 'Is the Unity App free?',
-        a: 'Yes. The app is free to download and use. A subscription unlocks the full community, the premium features and everything the platform is built to give you.',
+        q: 'What is the PEERS GLOBAL platform subscription?',
+        a: 'The platform subscription is ₹18,000 / year. This is separate from the Circle fee.',
       },
       {
-        q: 'What does my subscription include?',
-        a: 'Your subscription makes you part of Peers Global — the platform, the Unity App, the community and the recognition system. Joining a Circle is a separate step with its own approval and its own subscription fee.',
+        q: 'Is there a separate Circle fee?',
+        a: 'Yes. The Circle fee is separate from the PEERS GLOBAL platform subscription and depends on the specific Circle (typically ₹15,000–₹22,000 / year).',
       },
       {
         q: 'Is there a joining fee?',
-        a: 'No. There is no joining or admission fee. You pay your annual Peers Global subscription, and a Circle Experience Fee if and when you join a Circle.',
+        a: 'There is no separate joining fee.',
       },
       {
         q: 'Can I pay in instalments?',
-        a: 'In some countries, yes — where our payment gateway supports it. Options vary by country and are shown at checkout for your location.',
+        a: 'Instalment arrangements may differ by country. The applicable payment arrangement will be communicated as part of the joining process.',
       },
       {
-        q: 'Is GST included in the price?',
-        a: 'No. Prices are exclusive of tax. GST applies in India, and equivalent taxes apply in other countries according to local law. The final amount including tax is shown before you pay.',
+        q: 'Is GST included?',
+        a: 'GST is extra, wherever applicable.',
       },
       {
-        q: 'Can I move from Peer to Charter Peer?',
-        a: 'Charter is an upgrade, not a transfer. You subscribe to Charter Peer alongside your existing Peer subscription. The Charter subscription is charged in full, with no deduction against your existing subscription.',
+        q: 'Can I get a refund if I change my mind?',
+        a: 'Membership subscriptions are non-refundable. Please understand the membership terms before subscribing.',
+      },
+    ],
+  },
+  {
+    id: 'subscription-dates-and-renewal',
+    num: '04',
+    title: 'Subscription Dates & Renewal',
+    topic: 'Subscription Dates',
+    icon: Clock,
+    color: '#6366F1',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    items: [
+      {
+        q: 'Do my PEERS GLOBAL subscription and Circle subscription have the same renewal date?',
+        a: 'Not necessarily. The two subscriptions have independent dates. Your platform subscription and your Circle subscription should therefore be understood separately.',
       },
       {
-        q: 'What is your refund policy?',
-        a: 'There are no refunds. Membership here is access to a high-trust community. Value arrives differently for every Peer. Because value cannot be measured by time elapsed, it cannot be refunded by time remaining. Decide before you pay.',
+        q: 'Why does the platform need to remain active?',
+        a: 'The PEERS GLOBAL platform is the wider community layer through which members remain connected beyond their Circle. Your Circle is one part of the experience. The platform keeps your access to the wider community active.',
       },
       {
-        q: 'Is my payment information secure?',
-        a: 'Yes. All payments are processed through enterprise PCI-DSS compliant payment gateways with bank-grade encryption.',
+        q: 'Can you give me an example?',
+        a: 'Suppose your PEERS GLOBAL platform subscription begins on one date and your Circle subscription begins later. Those dates remain independent. Renewal therefore follows the respective subscription dates rather than automatically treating both as one subscription.',
       },
     ],
   },
   {
     id: 'circles',
-    num: '4',
+    num: '05',
     title: 'Circles',
     topic: 'Circles',
     icon: Layers,
@@ -203,75 +179,95 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     border: '#DDD6FE',
     items: [
       {
-        q: 'Is a Circle included in my membership?',
-        a: 'No. Your ₹18,000 subscription is for the global platform. A Circle is a separate step with category exclusivity, its own approval, and its own Circle Experience Fee covering venue and hospitality.',
+        q: 'Which Circle do I join first?',
+        a: 'Your primary Circle must be an Industry Circle. Your industry provides the principal context for your Circle relationship.',
       },
       {
-        q: 'How do I join a Circle?',
-        a: 'From inside the Unity App or website, raise a request for your preferred Industry or Purpose Circle. The Circle Director reviews category availability and schedules your guest visit.',
-      },
-      {
-        q: 'How are Circle members selected?',
-        a: 'Selection is guided by category availability, business legitimacy, alignment with our Give-First code, and room synergy. The Director and Membership Committee make the decision.',
-      },
-      {
-        q: 'How long does the approval process take?',
-        a: 'Usually within 7 days. You will be told directly whether your seat is approved, waitlisted, or if an adjacent Circle is recommended.',
-      },
-      {
-        q: 'Can I attend a Circle meeting as a guest?',
-        a: 'Yes. Where possible, you attend a meeting as an invited guest before the seat is confirmed. You will not be asked to pitch or present.',
-      },
-      {
-        q: 'What if my business category is not available?',
-        a: 'You will be notified immediately. You can join an adjacent Circle, join the verified waitlist, or apply to found a new Circle in your city.',
+        q: 'Can I change my primary Industry Circle later?',
+        a: 'No. Your primary Industry Circle cannot be changed. This protects the structure and continuity of Circle relationships.',
       },
       {
         q: 'Can I join more than one Circle?',
-        a: 'Yes. Typically one Industry Circle (your primary home) and one Purpose Circle. Beyond those two, additional Circles can be requested with Director approval.',
+        a: 'Yes. Two Circles are the standard arrangement. Your additional Circle can create another layer of relationships around a shared purpose or goal.',
       },
       {
-        q: 'What is the Circle Experience Fee?',
-        a: 'A separate fee (typically ₹15,000–₹22,000/yr depending on city) covering the hospitality, dining, and venue arrangements for the twelve monthly in-person meetings.',
+        q: 'Do Circles close when they become full?',
+        a: 'No. Circles do not close. The community continues to grow while maintaining the structure of the Circle and its category relationships.',
+      },
+      {
+        q: 'What happens if the category I want is already occupied?',
+        a: 'The Circle structure is designed around category clarity and exclusivity. If your preferred category is already occupied, the joining process will help determine the appropriate alternative or Circle arrangement.',
       },
     ],
   },
   {
-    id: 'unity-app-and-platform',
-    num: '5',
-    title: 'Unity App and platform',
-    topic: 'App & Platform',
-    icon: Smartphone,
-    color: '#E11D48',
-    bg: '#FFF1F2',
-    border: '#FECDD3',
+    id: 'time-and-commitment',
+    num: '06',
+    title: 'Time & Commitment',
+    topic: 'Time & Commitment',
+    icon: Clock,
+    color: '#EC4899',
+    bg: '#FDF2F8',
+    border: '#FBCFE8',
     items: [
       {
-        q: 'What can I do in the Unity App?',
-        a: 'Discover Peers by industry and city, send connection requests, book 1-on-1s, log contributions, track Life Impact, register for events, and access the Marketplace.',
+        q: 'How much time should I expect to give to PEERS GLOBAL?',
+        a: 'The expected commitment is approximately 5–10 hours per month. That time is not simply meeting time: it can include Circle participation, relationships, conversations, collaboration and contribution.',
       },
       {
-        q: 'Can I connect with any member?',
-        a: 'Yes. You can discover any Peer in the global directory and send a connection request. Full contact details are shared upon mutual connection.',
+        q: 'What if I cannot attend a particular Circle meeting?',
+        a: 'Substitution is allowed in accordance with the applicable Circle process. The intention is to preserve continuity without making participation unnecessarily difficult when genuine circumstances arise.',
       },
       {
-        q: 'Is the directory visible to all members?',
-        a: 'Yes. The directory is accessible to all subscribed Peers, enabling bilateral collaboration across sectors and geographies.',
-      },
-      {
-        q: 'Is the App available outside India?',
-        a: 'Yes. The Unity App is available globally on the Apple App Store and Google Play Store for international entrepreneurs.',
-      },
-      {
-        q: 'Do you offer web access as well?',
-        a: 'Yes. Key directory features, event listings, and profile settings are accessible via our secure web portal at unity.peersglobal.com.',
+        q: 'Can I invite visitors to a Circle?',
+        a: 'Yes. Visitors can attend subject to the applicable visitor fee. A visitor is given an opportunity to experience the Circle before making a decision about membership.',
       },
     ],
   },
   {
-    id: 'leadership-and-recognition',
-    num: '6',
-    title: 'Leadership and recognition',
+    id: 'the-unity-app',
+    num: '07',
+    title: 'The Unity App',
+    topic: 'The Unity App',
+    icon: Smartphone,
+    color: '#0284C7',
+    bg: '#F0F9FF',
+    border: '#BAE6FD',
+    items: [
+      {
+        q: 'Why is the Unity App important?',
+        a: 'Unity is the digital home of the PEERS GLOBAL community. The Circle meeting may happen at a particular time and place, but the relationship continues beyond that meeting. Unity provides the digital environment through which the community remains connected.',
+      },
+      {
+        q: 'Is my profile visible to everyone?',
+        a: 'The Unity App is private by default. Your participation is therefore designed around a trusted community environment rather than an open public directory.',
+      },
+    ],
+  },
+  {
+    id: 'impact-standing-coins',
+    num: '08',
+    title: 'Impact, Standing & Peers Coin',
+    topic: 'Impact & Coins',
+    icon: Coins,
+    color: '#D97706',
+    bg: '#FFFBEB',
+    border: '#FDE68A',
+    items: [
+      {
+        q: 'What happens to my Impact and Standing if I leave?',
+        a: 'Your Impact and Standing are connected to your membership. They expire when you leave.',
+      },
+      {
+        q: 'What happens to my Peers Coin?',
+        a: 'Peers Coin also expires when you leave. Peers Coin is part of the community’s contribution and recognition system rather than something that continues independently after membership ends.',
+      },
+    ],
+  },
+  {
+    id: 'leadership',
+    num: '09',
+    title: 'Leadership',
     topic: 'Leadership',
     icon: Award,
     color: '#0D9488',
@@ -279,76 +275,40 @@ const FAQ_CATEGORIES: FaqCategory[] = [
     border: '#99F6E4',
     items: [
       {
-        q: 'How do I earn Peers Coins?',
-        a: 'Every contribution you make across the 10 Ways of Collaboration is logged and confirmed by the Peer who received it. Confirmed impact earns Peers Coin.',
+        q: 'Can every Peer take a leadership role?',
+        a: 'Leadership opportunities are open to all members. Leadership is approached as responsibility and contribution — not simply as a title.',
       },
       {
-        q: 'How does the Life Impact System work?',
-        a: 'Every helpful action — a referral, an introduction, mentorship or advice — is counted as one life impacted, updating your real-time score.',
+        q: 'Does becoming a Charter Peer guarantee a leadership position?',
+        a: 'No. Charter Peers receive the first approach for leadership opportunities, but this does not constitute a guarantee of appointment. Leadership remains connected to the needs of the community and the responsibility associated with the role.',
       },
       {
-        q: 'Can I take on a leadership role?',
-        a: 'Yes. Roles like Circle Founder, Circle Director, Industry Director, and Regional Executive Director are open to every active Peer who demonstrates commitment.',
-      },
-      {
-        q: 'Is leadership by nomination or application?',
-        a: 'Both. Founders and Directors can apply or be nominated based on their standing, contribution track record, and city-building vision.',
-      },
-      {
-        q: 'Are there awards and recognitions?',
-        a: 'Yes. Annual Awards ceremonies, regional pinning ceremonies, and featured profiles on VyapaarJagat.com celebrate outstanding contributors.',
+        q: 'Do I need to be a senior entrepreneur to lead?',
+        a: 'Leadership is not reserved only for the most established entrepreneur. What matters is the willingness to contribute, take responsibility and help the community move forward.',
       },
     ],
   },
   {
-    id: 'leaving-and-rejoining',
-    num: '7',
-    title: 'Leaving and rejoining',
-    topic: 'Membership',
+    id: 'leaving-and-returning',
+    num: '10',
+    title: 'Leaving & Returning',
+    topic: 'Leaving & Returning',
     icon: RefreshCw,
-    color: '#D97706',
-    bg: '#FEF3C7',
-    border: '#FDE68A',
+    color: '#E11D48',
+    bg: '#FFF1F2',
+    border: '#FECDD3',
     items: [
       {
-        q: 'Can I cancel my membership?',
-        a: 'Yes, at any time. Your subscription will simply not renew at the end of its 12-month period, or can be deactivated upon request without refund.',
+        q: 'Can I leave PEERS GLOBAL whenever I want?',
+        a: 'Yes. A member may leave at any time.',
       },
       {
-        q: 'Can I rejoin after cancelling?',
-        a: 'Yes. You apply as a new member. Your record starts fresh, and your Circle seat request is subject to current category availability.',
+        q: 'What happens to my subscription if I leave?',
+        a: 'Leaving does not create a refund entitlement. The applicable subscription remains subject to the membership terms.',
       },
       {
-        q: 'What happens to my data if I leave?',
-        a: 'Your public directory profile is archived. Your historic impact and connection logs are securely stored in accordance with privacy laws.',
-      },
-    ],
-  },
-  {
-    id: 'general',
-    num: '8',
-    title: 'General',
-    topic: 'General',
-    icon: MessageSquare,
-    color: '#4F46E5',
-    bg: '#EEF2FF',
-    border: '#C7D2FE',
-    items: [
-      {
-        q: 'What is the Peers Code?',
-        a: 'Our 6 core commitments: Give first. Show up. Tell the truth. Protect the room. Respect every Peer. Carry the culture.',
-      },
-      {
-        q: 'What languages does the community support?',
-        a: 'Peers Global operates across English, Hindi, Gujarati, Marathi, and regional languages depending on local chapter meetings.',
-      },
-      {
-        q: 'Who can I contact for support?',
-        a: 'You can email support@peersglobal.com or message directly through the in-app support desk in the Unity App.',
-      },
-      {
-        q: 'Where can I read the full terms and conditions?',
-        a: 'You can review our complete Membership Terms, Privacy Policy, and Code of Conduct at peersglobal.com/terms.',
+        q: 'Can I come back later?',
+        a: 'Yes. You may return to PEERS GLOBAL in the future. However, when you return, you rejoin as a new member. Your previous membership does not automatically continue.',
       },
     ],
   },
@@ -361,16 +321,6 @@ export function MemberFaqClient() {
     'before-you-join-0': true,
   })
 
-  const { getMedia } = usePageMedia('membership')
-  const heroMedia = getMedia({
-    sectionName: 'Member FAQ',
-    subModuleName: 'MEMBER FAQ HERO',
-    subModuleId: 'sub-membership-faq',
-    fallbackUrl: '/videos/stories-hero-bg.mp4',
-    fallbackSourceType: 'localhost',
-    fallbackTitle: 'Frequently Asked Questions by Prospective Members',
-  })
-
   const toggleItem = (key: string) => {
     setOpenItems((prev) => ({ ...prev, [key]: !prev[key] }))
   }
@@ -378,19 +328,13 @@ export function MemberFaqClient() {
   // Filter categories and questions
   const filteredCategories = useMemo(() => {
     return FAQ_CATEGORIES.map((cat) => {
-      // Check topic filter
       const matchesTopic =
-        selectedTopic === 'All' ||
-        cat.topic.toLowerCase() === selectedTopic.toLowerCase() ||
-        (selectedTopic === 'Joining' && cat.id === 'before-you-join') ||
-        (selectedTopic === 'Payments' && cat.id === 'subscription-and-payment') ||
-        (selectedTopic === 'App & Platform' && cat.id === 'unity-app-and-platform')
+        selectedTopic === 'All' || cat.topic.toLowerCase() === selectedTopic.toLowerCase()
 
       if (!matchesTopic && selectedTopic !== 'All') {
         return null
       }
 
-      // Check search filter
       if (!searchQuery.trim()) {
         return cat
       }
@@ -412,169 +356,127 @@ export function MemberFaqClient() {
   }, [searchQuery, selectedTopic])
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
+    <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
 
-      {/* =================================================================
-          SECTION 1: HERO — Executive Split with Fade Mask & Script
-          ================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-16 lg:pb-24 border-b border-slate-200/80">
+      {/* ─── Breadcrumb ────────────────────────────────────────────────── */}
+      <div className="bg-white border-b border-slate-100 sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
+            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <Link href="/membership" className="hover:text-[#0062D2] transition-colors">
+              Membership
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-slate-900 font-semibold">Member FAQ</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          SECTION 1: HERO — MEMBER FAQ
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAFCFF] via-[#FFFFFF] to-[#F8FAFC] border-b border-slate-200/80 pt-10 sm:pt-14 pb-16 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Hero Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  MEMBER FAQ
+                </span>
+              </div>
 
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/membership" className="hover:text-slate-900 transition-colors">Membership</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">Member FAQ</span>
-          </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.35rem] font-serif font-bold text-[#0B192C] tracking-tight leading-[1.12]">
+                <span className="brand-gradient-text">The questions people naturally ask before becoming a Peer.</span>
+              </h1>
 
-          {/* Hero Banner Box */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
-
-            {/* Fade Visual (Right 60%) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-              }}
-            >
-              {heroMedia.isYouTube && heroMedia.embedUrl ? (
-                <iframe
-                  src={`${heroMedia.embedUrl}&mute=1&loop=1`}
-                  title={heroMedia.title}
-                  className="w-full h-full border-0 object-cover pointer-events-none scale-125"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
-              ) : (
-                <video
-                  key={heroMedia.mediaUrl}
-                  src={heroMedia.mediaUrl || '/videos/stories-hero-bg.mp4'}
-                  poster="/images/member-faq-hero.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover object-center scale-105"
-                />
-              )}
-              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-
-              {/* Cursive Script Overlay - Top Right */}
-              <div className="absolute top-6 sm:top-10 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                  Better People
+              <div className="space-y-3 text-[15px] sm:text-base text-slate-600 leading-relaxed">
+                <p>
+                  Joining a community is not a small decision. You may want to understand how membership works, what it means to belong to a Circle, what your commitment looks like, and what happens if your circumstances change.
                 </p>
-                <p className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Bigger Opportunities.
+                <p className="font-semibold text-slate-900 text-lg">
+                  You should have clear answers before you decide. This FAQ is here for exactly that.
                 </p>
               </div>
 
-              {/* Cursive Script Overlay - Bottom Right */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                  Real Questions. Real Answers.
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  A Stronger Tomorrow.
-                </p>
-              </div>
-            </div>
-
-            {/* Left Content (Z-10) */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
-
-                {/* Eyebrow */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    MEMBERSHIP
-                  </span>
-                </div>
-
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
-                  Member FAQ
-                </h1>
-
-                <p className="text-xl sm:text-2xl text-slate-800 font-medium leading-snug mb-8 font-serif italic max-w-md">
-                  Straight answers, including to the questions most communities avoid.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
-                  <Link
-                    href="/membership/criteria"
-                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-7 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
-                  >
-                    <span>Apply for Membership</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          {/* Floating Stats Bar */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
-            {STATS.map((stat, i) => {
-              const Icon = stat.icon
-              return (
-                <div
-                  key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
                 >
-                  <div className="size-11 sm:size-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                    <Icon className="size-5 sm:size-6 text-[#0062D2]" />
+                  <Smartphone className="size-4" />
+                  <span>Download Unity App</span>
+                </a>
+
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
+                >
+                  <span>Explore Circles</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Card: The Simplest Way to Think About It */}
+            <div className="lg:col-span-5">
+              <div className="relative p-8 sm:p-10 rounded-3xl bg-[#040F24] text-white shadow-2xl overflow-hidden space-y-6">
+                <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
+
+                <div className="relative z-10 space-y-5">
+                  <span className="text-xs uppercase font-bold tracking-widest text-sky-300">
+                    THE CLARITY MATRIX
+                  </span>
+
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                    The Simplest Way to Think About It
+                  </h3>
+
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-200">
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>PEERS GLOBAL</strong> is the community.</div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>Your Circle</strong> is your Inner Board.</div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>Unity</strong> keeps the relationship alive beyond the meeting.</div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>Your contribution</strong> gives your membership meaning.</div>
                   </div>
-                  <div>
-                    <div className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-slate-500 font-medium">
-                      {stat.label}
-                    </div>
+
+                  <div className="pt-3 border-t border-white/10 text-center">
+                    <p className="font-serif italic text-base text-amber-300">
+                      &ldquo;You should know what you are joining, what is expected of you, and what you can contribute.&rdquo;
+                    </p>
                   </div>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            </div>
 
+          </div>
         </div>
       </section>
 
-      {/* =================================================================
-          SECTION 2: QUESTIONS & ANSWERS (Search + Filters + Bento Grid)
-          ================================================================= */}
-      <section className="py-20 bg-white border-b border-slate-200/80">
+      {/* =========================================================================
+          SECTION 2: QUESTIONS & ANSWERS (Search + Filters + 10 Categories)
+          ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
+          
           {/* Header */}
-          <div className="max-w-3xl mb-10">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+          <div className="max-w-3xl mb-10 space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                QUESTIONS & ANSWERS
+                COMPLETE DIRECTORY
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-3">
-              Find your answers
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-900">
+              <span className="brand-gradient-text">Straight answers to every question</span>
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
-              Everything you need to know about Peers Global membership, Circles, the Unity App, payments, leadership and more.
-            </p>
           </div>
 
           {/* Search Bar */}
@@ -586,23 +488,23 @@ export function MemberFaqClient() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search your question..."
-              className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-slate-200/90 focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100 bg-[#FAFBFD] text-sm text-slate-800 placeholder-slate-400 transition-all outline-none"
+              placeholder="Search by keyword or question..."
+              className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-slate-200 bg-[#FAFBFD] text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100 transition-all"
             />
           </div>
 
           {/* Topic Filter Pills */}
           <div className="flex flex-wrap items-center gap-2 mb-12">
-            <span className="text-xs font-semibold text-slate-500 mr-2">Or browse by topic:</span>
+            <span className="text-xs font-semibold text-slate-500 mr-2">Filter by section:</span>
             {TOPICS.map((topic) => {
               const active = selectedTopic === topic
               return (
                 <button
                   key={topic}
                   onClick={() => setSelectedTopic(topic)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                     active
-                      ? 'bg-[#0062D2] text-white shadow-sm'
+                      ? 'bg-[#0062D2] text-white shadow-xs'
                       : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
                   }`}
                 >
@@ -612,17 +514,16 @@ export function MemberFaqClient() {
             })}
           </div>
 
-          {/* Bento Grid (3 Columns) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          {/* FAQ 10 Categories Grid (2 Columns) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
             {filteredCategories.map((cat) => {
               const Icon = cat.icon
               return (
                 <div
                   key={cat.id}
-                  className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-2xs hover:shadow-sm transition-shadow flex flex-col"
+                  className="rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-6 sm:p-7 shadow-2xs space-y-4"
                 >
-                  {/* Category Card Header */}
-                  <div className="flex items-center gap-3.5 mb-5 pb-4 border-b border-slate-100">
+                  <div className="flex items-center gap-3.5 pb-4 border-b border-slate-200">
                     <div
                       className="size-11 rounded-2xl flex items-center justify-center shrink-0"
                       style={{ backgroundColor: cat.bg, border: `1px solid ${cat.border}` }}
@@ -630,28 +531,27 @@ export function MemberFaqClient() {
                       <Icon className="size-5" style={{ color: cat.color }} />
                     </div>
                     <div>
-                      <h3 className="font-serif text-lg font-bold text-slate-900 leading-snug">
-                        {cat.num}. {cat.title}
-                      </h3>
-                      <span className="text-xs text-slate-400 font-medium">
-                        {cat.items.length} questions
+                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                        SECTION {cat.num}
                       </span>
+                      <h3 className="font-serif text-lg font-bold text-slate-900 leading-snug">
+                        {cat.title}
+                      </h3>
                     </div>
                   </div>
 
-                  {/* Accordion Questions */}
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     {cat.items.map((item, idx) => {
                       const itemKey = `${cat.id}-${idx}`
                       const isOpen = !!openItems[itemKey]
                       return (
                         <div
                           key={idx}
-                          className="rounded-xl border border-slate-100 bg-[#FAFBFD] overflow-hidden"
+                          className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-2xs"
                         >
                           <button
                             onClick={() => toggleItem(itemKey)}
-                            className="w-full px-3.5 py-3 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-slate-800 hover:text-[#0062D2] transition-colors"
+                            className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-slate-800 hover:text-[#0062D2] transition-colors"
                             aria-expanded={isOpen}
                           >
                             <span>{item.q}</span>
@@ -665,7 +565,7 @@ export function MemberFaqClient() {
                           </button>
 
                           {isOpen && (
-                            <div className="px-3.5 pb-3.5 pt-1 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                            <div className="px-4 pb-4 pt-1 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-[#FAFBFD]">
                               {item.a}
                             </div>
                           )}
@@ -676,130 +576,110 @@ export function MemberFaqClient() {
                 </div>
               )
             })}
-
-            {/* Final Help Card: Still have a question? */}
-            <div className="rounded-3xl bg-[#FAFBFD] border border-blue-100 p-6 sm:p-7 shadow-2xs flex flex-col justify-between h-full">
-              <div>
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-200 text-[#0062D2] flex items-center justify-center mb-5">
-                  <Headphones className="size-6" />
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2">
-                  Still have a question?
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                  We are here to help. Reach out to our team and we will get back to you.
-                </p>
-              </div>
-
-              <div>
-                <Link
-                  href="/contact"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-5 py-3 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/20 transition-all text-center inline-flex items-center justify-center gap-2 mb-3"
-                >
-                  <span>Contact Us</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-
-                <div className="flex items-center justify-center gap-2 text-xs text-slate-500">
-                  <Mail className="size-3.5 text-[#0062D2]" />
-                  <a href="mailto:support@peersglobal.com" className="hover:text-slate-800 underline">
-                    support@peersglobal.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
           </div>
 
         </div>
       </section>
 
-      {/* =================================================================
-          SECTION 3: CLOSING HERO BANNER
-          ================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 sm:py-28">
-        {/* Deep celestial radial gradients & luminous aura */}
+      {/* =========================================================================
+          SECTION 3: STILL HAVE A QUESTION? (SUPPORT & CONVERSATION)
+          ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-sm text-center space-y-6">
+            <div className="size-14 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mx-auto">
+              <Headphones className="size-7" />
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-serif text-3xl font-bold text-slate-900">
+                Still Have a Question?
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+                Some questions are answered best by a conversation. If you are already a Peer, ask inside Unity. If you are considering membership, begin with the Unity App and explore the community before making your decision.
+              </p>
+            </div>
+
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md hover:opacity-95"
+              >
+                <span>Download Unity App</span>
+              </a>
+
+              <Link
+                href="/contact"
+                className="px-8 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-2xs"
+              >
+                <span>Contact Desk</span>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 4: CLOSING MANIFESTO BANNER
+          ========================================================================= */}
+      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
         />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
-        />
 
-        {/* Subtle Geometric Orbital Line Art */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg
-            viewBox="0 0 760 520"
-            fill="none"
-            className="h-full w-full"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-            {/* Left Copy */}
-            <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-3 text-sky-200 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="h-0.5 w-6 bg-sky-200" />
-                <span>YOUR NEXT CHAPTER</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  YOUR INFORMED DECISION
+                </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight mb-4">
-                Build Your Business. <br className="hidden sm:inline" />
-                Build Your Relationships. <br className="hidden sm:inline" />
-                Build Your Circle.
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white">
+                <span className="brand-gradient-text">You simply need enough information to make a decision with confidence.</span>
               </h2>
 
-              <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed mb-8">
-                Join a global community of entrepreneurs who give, grow and build together.
+              <p className="text-base sm:text-lg font-medium text-slate-200 max-w-2xl">
+                PEERS GLOBAL is the community. Your Circle is your Inner Board. Unity keeps the relationship alive beyond the meeting. When you are ready, begin with Unity.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   href="https://unity.peersglobal.com"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-white hover:bg-blue-50 text-[#0062D2] px-8 py-4 text-sm font-bold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
                 >
+                  <Smartphone className="size-4" />
                   <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
                 </a>
+
                 <Link
-                  href="/membership/criteria"
-                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 text-sm font-semibold transition-all inline-flex items-center gap-2"
+                  href="/circles/find"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
                 >
-                  <UserCheck className="size-4" />
-                  <span>Apply for Membership</span>
+                  <span>Explore Circles</span>
+                  <ArrowRight className="size-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Right Cursive Script Callout */}
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
-              <div className="text-left lg:text-right select-none pointer-events-none" style={{ fontFamily: 'var(--font-script)' }}>
-                <p className="text-3xl sm:text-4xl text-white/60 leading-tight">People,</p>
-                <p className="text-3xl sm:text-4xl text-white/80 leading-tight">Partnerships,</p>
-                <p className="text-3xl sm:text-4xl text-white leading-tight">Possibilities.</p>
-                <p className="text-4xl sm:text-5xl text-amber-300 font-medium leading-tight mt-1">
-                  A Brighter Tomorrow.
-                </p>
+            <div className="lg:col-span-4 text-right flex justify-end">
+              <div
+                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
+                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
+              >
+                Informed <br />
+                Decisions &amp; <br />
+                <span className="text-[#7DD3FC]">Confidence</span>
               </div>
             </div>
 

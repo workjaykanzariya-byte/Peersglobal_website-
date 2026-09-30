@@ -9,402 +9,756 @@ import {
   ArrowRight,
   CheckCircle2,
   XCircle,
-  Presentation,
-  Building2,
-  Users,
-  Calendar,
   Sparkles,
   Send,
   ShieldCheck,
+  Quote,
+  MessageSquare,
+  Building2,
+  Users,
+  Compass,
+  Check,
+  HelpCircle,
+  AlertTriangle,
+  Lightbulb,
 } from 'lucide-react'
+
+// ─── 6 What We Value Pillars ──────────────────────────────────────────────────
+const WHAT_WE_VALUE = [
+  {
+    title: 'REAL EXPERIENCE',
+    desc: 'Tell us what actually happened — not what sounds impressive.',
+    color: 'border-blue-200 bg-blue-50/70 text-[#0062D2]',
+  },
+  {
+    title: 'PRACTICAL LEARNING',
+    desc: 'Give people something they can think about, apply or explore.',
+    color: 'border-purple-200 bg-purple-50/70 text-purple-700',
+  },
+  {
+    title: 'HONESTY',
+    desc: 'Share the difficult parts as well as the successes.',
+    color: 'border-emerald-200 bg-emerald-50/70 text-emerald-700',
+  },
+  {
+    title: 'GENEROSITY',
+    desc: 'A PEERS GLOBAL stage is a place to contribute experience, not simply display achievement.',
+    color: 'border-amber-200 bg-amber-50/70 text-amber-700',
+  },
+  {
+    title: 'RELEVANCE',
+    desc: 'The best sessions begin with a real question entrepreneurs are facing.',
+    color: 'border-rose-200 bg-rose-50/70 text-rose-700',
+  },
+  {
+    title: 'CONVERSATION',
+    desc: 'We value thoughtful interaction over a performance from the stage.',
+    color: 'border-cyan-200 bg-cyan-50/70 text-cyan-700',
+  },
+]
+
+// ─── What We Do Not Book (Selective Standard) ─────────────────────────────────
+const WHAT_WE_DO_NOT_BOOK = [
+  {
+    title: 'Motivational speakers',
+    desc: 'If the primary purpose is motivation without meaningful entrepreneurial experience behind it, this is not the right platform.',
+    badge: 'No Motivational Hype',
+  },
+  {
+    title: 'Sales disguised as learning',
+    desc: 'If a session is primarily a route to selling a product, service or opportunity, it does not belong on the PEERS GLOBAL stage.',
+    badge: 'Zero Pitches',
+  },
+  {
+    title: 'Expertise without experience',
+    desc: 'We value people who have done the thing they are teaching. Studying a subject can create knowledge. Building something creates experience. Our community is particularly interested in the latter.',
+    badge: 'Practitioners Only',
+  },
+]
+
+// ─── What Could You Share (Prompts) ──────────────────────────────────────────
+const STORY_STARTERS = [
+  '“We tried this, and it did not work.”',
+  '“This was the decision that changed our business.”',
+  '“Nobody told us this before we entered the market.”',
+  '“Here is what we learned after making this mistake.”',
+  '“This is what we have discovered by doing the work.”',
+]
+
+// ─── Before You Apply Checklist ───────────────────────────────────────────────
+const BEFORE_YOU_APPLY_QUESTIONS = [
+  'Have I actually done what I want to speak about?',
+  'What did the experience teach me?',
+  'What would another entrepreneur genuinely gain from hearing it?',
+  'Can I share the difficult parts as honestly as the successful ones?',
+  'Am I coming to contribute — or to sell?',
+]
 
 export function SpeakClient() {
   const [formData, setFormData] = useState({
-    name: '',
-    organisation: '',
-    subject: '',
+    fullName: '',
+    businessName: '',
+    email: '',
+    phone: '',
     whatYouBuilt: '',
-    experience: '',
-    message: '',
+    whatYouLearned: '',
+    whatChanged: '',
+    keyTakeaway: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setSubmitted(true)
+      const formTop = document.getElementById('proposal-form')
+      if (formTop) {
+        formTop.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 800)
+  }
+
+  const handleScrollToForm = () => {
+    const el = document.getElementById('proposal-form')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
-      {/* ─── Breadcrumb ─── */}
-      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-slate-600">
-          <Link href="/" className="hover:text-slate-900 transition-colors">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      
+      {/* ─── Breadcrumbs ─── */}
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-[#0062D2] transition-colors">
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link href="/events" className="hover:text-slate-900 transition-colors">
+          <Link href="/events" className="hover:text-[#0062D2] transition-colors">
             Events
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-slate-900 font-semibold">Speak at Peers Global</span>
+          <span className="text-slate-900 font-bold">Speak</span>
         </div>
       </div>
 
-      {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-20 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB] overflow-hidden">
+      {/* ─── SECTION 1: HERO (SPEAK AT PEERS GLOBAL) ─────────────────────────── */}
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2">
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">STAGE &amp; MASTERCLASSES</span>
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                  CONTRIBUTING FROM THE STAGE
+                </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif tracking-tight leading-[1.08] font-bold">
-                <span className="brand-gradient-text">Speak at Peers Global</span>
+              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
+                <span className="brand-gradient-text block">SPEAK AT PEERS GLOBAL</span>
+                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
+                  Bring us something you have lived.
+                </span>
               </h1>
 
-              <p className="text-xl sm:text-2xl font-serif text-slate-800 font-medium leading-snug">
-                Rooms of entrepreneurs who came to learn something usable.
-              </p>
-
-              <p className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed">
-                We do not host generic motivational talks. Every session is led by someone who actually built the solution they are sharing.
-              </p>
+              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
+                <p>
+                  <strong>PEERS GLOBAL</strong> is a community of entrepreneurs.
+                  That means our most valuable conversations come from people who have actually built something, faced something, learned something and can share what the experience taught them.
+                </p>
+                <p className="text-slate-900 font-medium border-l-2 border-[#0062D2] pl-3 italic">
+                  We are interested in experience before performance. If you have built the thing you are speaking about, we want to hear from you.
+                </p>
+              </div>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="#external-speaker-form"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-bold transition-all shadow-md shadow-blue-500/20 uppercase tracking-wider"
+                <button
+                  onClick={handleScrollToForm}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200 cursor-pointer group"
                 >
-                  Speaking Enquiry
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Apply to Speak</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </button>
+
+                <a
+                  href="#what-we-value"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
+                >
+                  <span>Our Editorial Standards ↓</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Visual: Podium / Keynote Speaker */}
+            {/* Right Hero Image Card */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group h-72 sm:h-80">
-                <Image
-                  src="/images/industry-director-speaker.jpg"
-                  alt="Speaker on stage at Peers Global Conclave"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <span className="text-xs font-mono uppercase text-amber-300 font-semibold tracking-wider block mb-1">
-                    Practitioners First
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
+                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/industry-director-speaker.jpg"
+                    alt="Speaker delivering practitioner keynote at Peers Global summit"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                  
+                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
+                      Practitioners First
+                    </span>
+                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
+                      "Publishing what we decline is what makes the platform worth standing on."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 2: WE ARE LOOKING FOR PEOPLE WHO HAVE DONE THE THING ─── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    THE PRACTITIONER STANDARD
                   </span>
-                  <p className="font-serif italic text-lg text-white/95 leading-snug">
-                    “Publishing what we decline is what makes the platform worth standing on.”
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  WE ARE LOOKING FOR PEOPLE WHO HAVE DONE THE THING
+                </h2>
+              </div>
+
+              <div className="space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                <p>• You do not need to call yourself a speaker.</p>
+                <p>• You do not need a stage persona.</p>
+                <p>• You do not need a collection of motivational stories.</p>
+                <p className="font-medium text-slate-900 pt-1">
+                  What matters is that you have experience worth sharing.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-200 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-900 block">
+                  EXPERIENCE BEFORE PERFORMANCE
+                </span>
+                <p className="text-xs sm:text-sm text-blue-950/80 leading-relaxed">
+                  A PEERS GLOBAL session should leave entrepreneurs with something they can take back into their own world: <strong>A decision to consider. A mistake to avoid. A question to ask. A possibility to explore. A lesson earned through experience.</strong>
+                </p>
+                <p className="text-xs text-blue-900 font-semibold italic pt-1">
+                  We therefore look for people who can speak from what they have actually built, experienced or learned through doing. The story behind the lesson matters.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: 6 Lived Experiences */}
+            <div className="lg:col-span-6 space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                Perhaps you have:
+              </span>
+              {[
+                'Built a business from zero through scale',
+                'Entered a market nobody around you understood',
+                'Made a decision that changed the direction of your company',
+                'Experienced a failure — and had to rebuild',
+                'Solved a problem that others are still facing',
+                'Discovered something through years of doing the work',
+              ].map((item, idx) => (
+                <div
+                  key={item}
+                  className="p-4 rounded-2xl bg-[#FBFCFE] border border-slate-200/90 shadow-2xs flex items-center gap-3 hover:border-blue-300 transition-colors"
+                >
+                  <span className="w-7 h-7 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center text-xs font-bold shrink-0 border border-blue-100">
+                    {`0${idx + 1}`}
+                  </span>
+                  <p className="text-xs sm:text-sm font-medium text-slate-800">
+                    {item}
+                  </p>
+                </div>
+              ))}
+              <p className="text-xs text-slate-500 italic pt-1 text-right">
+                That experience can become learning for another entrepreneur.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 3: WHAT WE VALUE (6 PILLARS) ──────────────────────────── */}
+      <section id="what-we-value" className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-12">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                EDITORIAL CRITERIA
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              WHAT WE VALUE
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+              Clear principles guide every session and keynote hosted across PEERS GLOBAL.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {WHAT_WE_VALUE.map((item) => (
+              <div
+                key={item.title}
+                className={`p-8 rounded-3xl border bg-white shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4 ${item.color}`}
+              >
+                <div>
+                  <h3 className="text-xl font-serif font-bold text-slate-950 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
+                    {item.desc}
                   </p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
+
         </div>
       </section>
 
-      {/* ─── Who We Book vs Who We Do Not Book ─── */}
-      <section className="py-14 border-b border-slate-200/80 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">EDITORIAL STANDARDS</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold">
-              <span className="brand-gradient-text">Our Editorial Standard</span>
-            </h2>
-            <p className="text-sm text-slate-600">
-              Clear rules protect the time and respect of every business owner in the audience.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Who we book */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-emerald-200/80 shadow-sm space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
-                  <CheckCircle2 className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  Who we book
-                </h3>
-              </div>
-
-              <p className="text-base font-serif italic text-slate-800 font-medium">
-                People who have done the thing.
-              </p>
-
-              <ul className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                  <span>A Peer who solved a specific problem in their own business.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                  <span>An industry leader who has navigated the transition everyone else in the room is facing.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                  <span>Someone with specific, practical knowledge worth twenty minutes of an entrepreneur&apos;s full attention.</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Who we do not book */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-rose-200/80 shadow-sm space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center border border-rose-100">
-                  <XCircle className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  Who we do not book
-                </h3>
-              </div>
-
-              <p className="text-base font-serif italic text-rose-900 font-medium">
-                Zero tolerance for sales pitches.
-              </p>
-
-              <ul className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 shrink-0" />
-                  <span>Motivational speakers who rely on emotional hype without tactical business application.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 shrink-0" />
-                  <span>Anyone whose session is disguised marketing or a subtle route to selling from the stage.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 shrink-0" />
-                  <span>Anyone speaking about something they have studied academically rather than built in the real market.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Where You Would Speak (Dark Constellation Theme) ─── */}
-      <section className="relative py-20 md:py-24 border-b border-slate-800 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] text-white overflow-hidden">
-        {/* Constellation visual elements */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
-          <div className="max-w-2xl space-y-2">
+      {/* ─── SECTION 4: WHAT WE DO NOT BOOK ────────────────────────────────── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-12">
             <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">COMMUNITY STAGES</span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-rose-600">
+                DELIBERATE SELECTIVITY
+              </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
-              <span className="brand-gradient-text">Where you would speak</span>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              WHAT WE DO NOT BOOK
             </h2>
-            <p className="text-sm text-slate-300">
-              Multiple formats built for depth, practical takeaways, and peer interaction.
+            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+              We are deliberately selective about the kind of speaking experience we create.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                title: 'Impact Mentor Masterclasses',
-                desc: 'Twenty minutes, one single subject, inside a monthly Circle meeting.',
-                icon: Presentation,
-              },
-              {
-                title: 'MindMeld & City Gatherings',
-                desc: 'Cross-Circle rooms bringing 150+ diverse sector founders together.',
-                icon: Users,
-              },
-              {
-                title: 'Regional Conclaves',
-                desc: 'A full state or territory convened in one hall for policy & scale panels.',
-                icon: Building2,
-              },
-              {
-                title: 'The Annual Summit',
-                desc: 'The entire national community assembled under one roof once a year.',
-                icon: Calendar,
-              },
-              {
-                title: 'Peers Candid Talks',
-                desc: "The community's own filmed broadcast platform on Vyapaar Jagat TV.",
-                icon: Mic,
-              },
-            ].map((stage, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {WHAT_WE_DO_NOT_BOOK.map((item) => (
               <div
-                key={idx}
-                className="p-6 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] backdrop-blur-sm shadow-xl space-y-3 hover:border-cyan-500/40 transition-colors"
+                key={item.title}
+                className="p-8 rounded-3xl bg-rose-50/50 border border-rose-200/80 shadow-sm flex flex-col justify-between space-y-6"
               >
-                <div className="w-10 h-10 rounded-2xl bg-cyan-950/80 text-cyan-300 flex items-center justify-center border border-cyan-800/80 shadow-inner">
-                  <stage.icon className="w-5 h-5" />
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold text-rose-700 px-3 py-1 rounded-full bg-rose-100/80 border border-rose-200">
+                      {item.badge}
+                    </span>
+                    <XCircle className="w-5 h-5 text-rose-500" />
+                  </div>
+
+                  <h3 className="text-xl font-serif font-bold text-slate-950">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="text-base font-serif font-bold text-white leading-snug">
-                  {stage.title}
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {stage.desc}
-                </p>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ─── For Peers Section ─── */}
-      <section className="py-12 border-b border-slate-200/80 bg-[#FAFBFD]">
+      {/* ─── SECTION 5: WHAT COULD YOU SHARE? & THE STAGE ─────────────────── */}
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                Internal Members
-              </span>
-              <h2 className="text-2xl font-serif font-bold text-slate-950">
-                For Existing Peers
-              </h2>
-              <p className="text-sm text-slate-700 leading-relaxed">
-                Teaching is one of the ten Forms of Collaboration. It counts as one life impacted on your verified community record.
-              </p>
-              <p className="text-xs text-slate-500">
-                To propose a session, speak to your Circle&apos;s Skill Development Leader or your Circle Director.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left: What Could You Share? */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    BEYOND CONVENTIONAL SLIDES
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
+                  WHAT COULD YOU SHARE?
+                </h2>
+                <p className="text-sm sm:text-base text-slate-600 mt-2 font-light">
+                  Think beyond a conventional presentation. Perhaps your story begins with:
+                </p>
+              </div>
+
+              <div className="space-y-2.5">
+                {STORY_STARTERS.map((starter) => (
+                  <div
+                    key={starter}
+                    className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs text-xs sm:text-sm font-medium text-slate-800 italic"
+                  >
+                    {starter}
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light pt-1">
+                Your experience does not need to be perfect to be valuable. Sometimes the most useful lessons come from the parts of the journey that did not go according to plan.
               </p>
             </div>
 
-            <Link
-              href="/culture-and-code"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 border border-blue-100 text-xs sm:text-sm font-bold text-[#0062D2] hover:bg-blue-100 transition-all uppercase tracking-wider shrink-0"
-            >
-              The 10 Forms of Collaboration
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {/* Right: THE PEERS GLOBAL STAGE */}
+            <div className="lg:col-span-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#040E24] via-[#061836] to-[#0A2558] text-white shadow-xl space-y-6">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
+                  <Mic className="w-6 h-6" />
+                </div>
+
+                <h3 className="text-2xl font-serif font-bold text-white leading-snug">
+                  THE PEERS GLOBAL STAGE
+                </h3>
+
+                <p className="text-sm text-slate-200 font-medium">
+                  The stage is not the destination. The conversation is.
+                </p>
+
+                <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-light border-l-2 border-sky-400 pl-3.5">
+                  <p>• A good session does not end when the microphone is switched off.</p>
+                  <p>• It continues when entrepreneurs discuss what they heard.</p>
+                  <p>• It continues when someone asks a question afterwards.</p>
+                  <p>• It continues when an introduction is made.</p>
+                  <p>• It continues when an experience shared by one Peer helps another Peer make a better decision.</p>
+                </div>
+
+                <p className="text-xs text-sky-200 italic pt-2">
+                  That is the kind of speaking experience we want to create.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── For External Speakers Form ─── */}
-      <section id="external-speaker-form" className="py-16 border-b border-slate-200/80 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-              Direct Application
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-              For External Speakers
-            </h2>
-            <p className="text-sm text-slate-600">
-              Submit your topic, operational background, and actionable takeaways below. Our Events &amp; Impact committee reviews submissions weekly.
+      {/* ─── SECTION 6: PROPOSAL APPLICATION FORM (TELL US YOUR STORY) ────── */}
+      <section id="proposal-form" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Before You Apply Card */}
+          <div className="bg-[#FBFCFE] rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm mb-10 space-y-6">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-[#0062D2]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                BEFORE YOU APPLY
+              </span>
+            </div>
+
+            <h3 className="text-2xl font-serif font-bold text-slate-950">
+              Ask yourself:
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {BEFORE_YOU_APPLY_QUESTIONS.map((q, idx) => (
+                <div
+                  key={q}
+                  className={`p-3.5 rounded-xl border border-slate-200 bg-white flex items-start gap-3 shadow-2xs ${
+                    idx === 4 ? 'sm:col-span-2 border-blue-200 bg-blue-50/50' : ''
+                  }`}
+                >
+                  <span className="text-xs font-bold text-[#0062D2]">{`0${idx + 1}`}</span>
+                  <p className="text-xs sm:text-sm font-medium text-slate-800">
+                    {q}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xs text-slate-600 font-medium pt-2">
+              If your answers are clear, we would like to hear from you.
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm">
+          {/* Proposal Form */}
+          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-lg shadow-slate-200/50">
+            <div className="mb-8">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                SUBMIT YOUR PROPOSAL
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mt-1">
+                TELL US YOUR STORY
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2 font-light">
+                You do not have to arrive with a finished presentation. Start with the experience. The PEERS GLOBAL team can understand the context from there.
+              </p>
+            </div>
+
             {submitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
-                  <CheckCircle2 className="w-6 h-6" />
+              <div className="py-12 text-center space-y-4 max-w-md mx-auto">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto shadow-sm">
+                  <Check className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-slate-900">
-                  Enquiry Received
+                  Speaking Proposal Received
                 </h3>
-                <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Thank you. Our curation committee will review your background and get in touch within five working days.
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Thank you, <strong>{formData.fullName}</strong>. Our editorial curation committee will review your proposal and get in touch within 3 to 5 business days.
                 </p>
+                <div className="pt-4">
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="px-6 py-2.5 rounded-full bg-white text-slate-800 text-xs font-semibold border border-slate-300 hover:bg-slate-50 cursor-pointer"
+                  >
+                    Submit another topic
+                  </button>
+                </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700">Your Full Name *</label>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Full Name <span className="text-rose-500">*</span>
+                    </label>
                     <input
                       type="text"
+                      name="fullName"
                       required
-                      placeholder="e.g. Ramesh Patel"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2]"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Vikram Malhotra"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
                     />
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700">Organisation / Business *</label>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Company / Business Name <span className="text-rose-500">*</span>
+                    </label>
                     <input
                       type="text"
+                      name="businessName"
                       required
-                      placeholder="e.g. Apex Industrial Systems"
-                      value={formData.organisation}
-                      onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2]"
+                      value={formData.businessName}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Acme Industries"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Contact Email <span className="text-rose-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="vikram@company.com"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Contact Phone <span className="text-rose-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="+91 98765 43210"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-700">Subject / Topic *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Navigating Working Capital Cycles During 3x Growth"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2]"
-                  />
+                <div className="space-y-4 pt-2 border-t border-slate-100">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      1. Tell us what you built <span className="text-rose-500">*</span>
+                    </label>
+                    <textarea
+                      name="whatYouBuilt"
+                      required
+                      rows={3}
+                      value={formData.whatYouBuilt}
+                      onChange={handleInputChange}
+                      placeholder="What company, product, transition, or operational breakthrough did you build?"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      2. Tell us what you learned <span className="text-rose-500">*</span>
+                    </label>
+                    <textarea
+                      name="whatYouLearned"
+                      required
+                      rows={3}
+                      value={formData.whatYouLearned}
+                      onChange={handleInputChange}
+                      placeholder="What was the critical insight, hard lesson, or operational realization?"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      3. Tell us what changed <span className="text-rose-500">*</span>
+                    </label>
+                    <textarea
+                      name="whatChanged"
+                      required
+                      rows={2}
+                      value={formData.whatChanged}
+                      onChange={handleInputChange}
+                      placeholder="How did this decision, failure or discovery alter your company's trajectory?"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      4. Tell us what another entrepreneur might take away from it <span className="text-rose-500">*</span>
+                    </label>
+                    <textarea
+                      name="keyTakeaway"
+                      required
+                      rows={3}
+                      value={formData.keyTakeaway}
+                      onChange={handleInputChange}
+                      placeholder="What specific, actionable takeaway can founders implement immediately?"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-700">What have you personally built? *</label>
-                  <textarea
-                    rows={3}
-                    required
-                    placeholder="Briefly describe your company, scale, operational milestones, and real-world results."
-                    value={formData.whatYouBuilt}
-                    onChange={(e) => setFormData({ ...formData, whatYouBuilt: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2]"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-700">Relevant Experience *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. 15 years manufacturing exporter, raised Series A, exited JV"
-                    value={formData.experience}
-                    onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2]"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-700">Message / Key Takeaways for the Room</label>
-                  <textarea
-                    rows={3}
-                    placeholder="What specific 2-3 lessons can the entrepreneurs apply to their business immediately?"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2]"
-                  />
-                </div>
-
-                <div className="pt-2">
+                <div className="pt-4 flex justify-end">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs sm:text-sm font-bold transition-all uppercase tracking-wider shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50"
                   >
-                    Submit Speaking Enquiry
+                    <span>{isSubmitting ? 'Submitting...' : 'Share Your Speaking Proposal →'}</span>
                     <Send className="w-4 h-4" />
                   </button>
                 </div>
               </form>
             )}
           </div>
+
         </div>
       </section>
+
+      {/* ─── SECTION 7: ONE FINAL THOUGHT & CLOSING HERO ───────────────────── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* Geometric Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Manifesto */}
+            <div className="lg:col-span-8 space-y-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
+                — ONE FINAL THOUGHT —
+              </span>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+                Bring us something you have lived.
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+                <p>
+                  The most valuable speaker in the room is not necessarily the person with the biggest stage presence.
+                </p>
+                <p className="text-sky-100 font-medium">
+                  It may be the entrepreneur sitting quietly with ten years of experience, one difficult lesson and a story that could save someone else five years of mistakes.
+                </p>
+                <p>
+                  Experience is meant to be shared. And when one entrepreneur shares what they have learned, another entrepreneur gets a little further.
+                </p>
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-4">
+                <button
+                  onClick={handleScrollToForm}
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105 cursor-pointer"
+                >
+                  <span>Apply to Speak →</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </div>
+
+            {/* Right Cursive Script */}
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
+              <p
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Experience.
+                <br />
+                Honesty.
+                <br />
+                Generosity.
+                <br />
+                Shared Wisdom.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }

@@ -2,23 +2,24 @@ import { Metadata } from 'next'
 import { PeersCoinClient } from '@/components/currency/peers-coin-client'
 
 export const metadata: Metadata = {
-  title: 'Peers Coin | Peers Global',
+  title: 'Peers Coin — Token of Recognition | Peers Global',
   description:
-    'Peers Coin is earned by helping other entrepreneurs and redeemed in the Peers Global Marketplace. It cannot be purchased.',
+    'Peers Coin is one way Peers Global recognises the spirit of contribution. Earned through verified peer collaboration, never purchased.',
   keywords: [
     'peers coin',
     'community rewards entrepreneurs',
-    'business community rewards programme',
+    'give first recognition',
     'earn peers coin',
     'Peers Global marketplace currency',
+    'non-financial token of appreciation',
   ],
   alternates: {
     canonical: 'https://peersglobal.com/peers-coin',
   },
   openGraph: {
-    title: 'Peers Coin | Peers Global',
+    title: 'Peers Coin — Token of Recognition | Peers Global',
     description:
-      'Peers Coin is earned by helping other entrepreneurs and redeemed in the Peers Global Marketplace. It cannot be purchased.',
+      'Peers Coin is one way Peers Global recognises the spirit of contribution. Earned through verified peer collaboration, never purchased.',
     url: 'https://peersglobal.com/peers-coin',
     siteName: 'Peers Global',
     type: 'article',

@@ -16,14 +16,14 @@ const JOURNEY_STEPS: JourneyStep[] = [
     step: '01',
     title: 'Download Unity',
     description: 'See the community from the inside.',
-    image: '/images/unity-hero-phones.jpg',
+    image: '/images/unity-creatives/Post 2.png',
     link: '/unity',
   },
   {
     step: '02',
     title: 'Visit a Circle',
     description: 'Come as a guest. Meet the room.',
-    image: '/images/circle-meeting.png',
+    image: '/images/section_image/circle-meeting.png',
     link: '/circles/find',
   },
   {

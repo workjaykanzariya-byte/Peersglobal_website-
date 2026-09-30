@@ -58,71 +58,88 @@ const ROLE_OPTIONS = [
 ]
 
 const LOOKING_FOR_OPTIONS = [
-  'New business and referrals',
-  'Entering new markets or cities',
-  'Mentorship and guidance',
-  'Access to funding or investors',
-  'Finding reliable vendors and partners',
-  'Visibility for my business',
-  'Learning from other entrepreneurs',
-  'Support from people who understand what I am going through',
+  'Business relationships',
+  'Collaboration opportunities',
+  'Learning & masterclasses',
+  'Mentorship & guidance',
+  'Introductions to decision-makers',
+  'New markets & cities',
+  'Strategic connections',
+  'Support with a business challenge',
+  'A community of like-minded entrepreneurs',
+  'Something I may not yet know how to define',
 ]
 
 const CIRCLE_PREFERENCE_OPTIONS = [
-  { label: 'Industry Circles — the room where people understand your sector', value: 'industry' },
-  { label: 'Purpose Circles — the room where people share your ambition', value: 'purpose' },
+  { label: 'Industry Circle — where people understand your sector', value: 'industry' },
+  { label: 'Purpose & Goal Circle — where people share your ambition', value: 'purpose' },
   { label: 'Import, Export & Global Trade', value: 'trade' },
-  { label: 'Startup Founders', value: 'startup' },
-  { label: 'SME IPO Goal', value: 'ipo' },
-  { label: 'Investors', value: 'investors' },
-  { label: 'Global Expansion (Cross-Border)', value: 'expansion' },
-  { label: 'MSME Entrepreneurs', value: 'msme' },
-  { label: 'Family Business', value: 'family' },
+  { label: 'Startup Founders & Scaleups', value: 'startup' },
+  { label: 'SME IPO & Capital Goal', value: 'ipo' },
+  { label: 'Family Business & Succession', value: 'family' },
   { label: 'Young Entrepreneurs (Below 35)', value: 'young' },
   { label: 'Leadership & Transformation', value: 'leadership' },
-  { label: 'Not sure — help me decide', value: 'unsure' },
+  { label: 'Not sure — help me decide based on my business & ambition', value: 'unsure' },
 ]
 
 const VISIT_OPTIONS = [
-  'Yes, as soon as possible',
+  'Yes, I would like to experience the room as soon as possible',
   'Yes, in the next few weeks',
-  'Not yet — I would like to know more first',
+  'Not yet — I would like to have a conversation first',
 ]
 
 const WHAT_HAPPENS = [
   {
     step: '1',
     icon: CheckCircle2,
-    title: 'We review your enquiry.',
-    desc: 'A Circle Director looks at your business, your city and what you are looking for.',
+    title: 'We understand your journey.',
+    desc: 'The enquiry is intentionally simple. We look at the person behind the business — not just another profile.',
   },
   {
     step: '2',
     icon: Phone,
-    title: 'You receive a call.',
-    desc: 'A real conversation with a real entrepreneur. Not a sales call — a conversation about your business and whether this community fits.',
+    title: 'A real conversation begins.',
+    desc: 'You speak with a Circle Director. Not a sales pitch — an authentic conversation about your ambition and where you want to go.',
   },
   {
     step: '3',
     icon: Target,
-    title: 'We recommend the right Circle.',
-    desc: 'Based on your industry, your ambition and where you are in your journey.',
+    title: 'Finding where you belong.',
+    desc: 'The objective is not to place you anywhere, but where your presence can truly contribute and thrive.',
   },
   {
     step: '4',
     icon: Users,
-    title: 'You visit as a guest.',
-    desc: 'Attend a meeting, see how it runs, and meet the entrepreneurs who would be around you. No pressure, no pitch, no decision required.',
+    title: 'Experience the room.',
+    desc: 'Visit a meeting, experience the trust and energy in person, and meet the room before deciding.',
   },
 ]
 
 const FAQS = [
-  { q: 'Do I need an invitation?', a: 'No. Submit the form above or download the app and start there.' },
-  { q: 'Is there any cost to enquire or to visit?', a: 'No. Both are free with no obligation.' },
-  { q: 'How quickly will I hear back?', a: 'Within 48 hours, from a Circle Director.' },
-  { q: 'What if there is no Circle in my city yet?', a: 'We will tell you honestly, and we will talk to you about what is possible — including starting a Circle where you are.' },
-  { q: 'What if I am not sure which Circle suits me?', a: 'Select "help me decide" on the form. That conversation is exactly what a Circle Director is for.' },
-  { q: 'Can I explore before committing to anything?', a: 'Yes. Download the Unity App and take as long as you need.' },
+  {
+    q: 'Do I need to know which Circle I want before enquiring?',
+    a: 'No. You can tell us about your business, your interests and what you are looking for. The purpose of the enquiry is to help understand where you may fit.',
+  },
+  {
+    q: 'Can I choose between an Industry Circle and a Purpose & Goal Circle?',
+    a: 'Yes. PEERS GLOBAL provides both pathways because entrepreneurs can be connected by what they do as well as what they are trying to achieve.',
+  },
+  {
+    q: 'What if I am interested in more than one Circle?',
+    a: 'That possibility exists within the PEERS GLOBAL structure. Your circumstances and the relevant Circle context will determine the appropriate pathway.',
+  },
+  {
+    q: 'Can I experience a Circle before deciding?',
+    a: 'Yes. The enquiry form provides an option to indicate your interest in visiting a Circle. Sometimes the best way to understand a Circle is not to read about it, but to experience the room.',
+  },
+  {
+    q: 'What if I am still unsure?',
+    a: 'Start with the conversation. You do not need to have the perfect answer before reaching out.',
+  },
+  {
+    q: 'Is the Unity App the only way to begin?',
+    a: 'No. You can begin through the Unity App or submit an enquiry to speak with us directly.',
+  },
 ]
 
 // ─── Pill select button ────────────────────────────────────────────────────
@@ -283,21 +300,25 @@ export function FindPageClient() {
 
             {/* Left Content */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
+              <div className="max-w-2xl flex flex-col items-start">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">FIND YOUR CIRCLE</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-[68px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-[64px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
                   Find Your Circle
                 </h1>
-                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
+                <p className="text-xl sm:text-2xl text-slate-900 font-bold leading-snug mb-4">
                   Every entrepreneur belongs somewhere. Let us help you find where.
                 </p>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-lg">
-                  Tell us about your business and what you are looking for. A Circle Director will personally get in touch.
-                </p>
+                <div className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 space-y-2 max-w-xl">
+                  <p>You have explored the idea. You have understood the difference between an Industry Circle and a Purpose & Goal Circle.</p>
+                  <p>You may already know exactly where you belong. Or perhaps you are still asking: <em className="text-slate-900 font-medium">Which Circle would be right for me?</em></p>
+                  <p className="text-slate-900 font-medium">
+                    That is where we begin. Finding your Circle should not feel like filling out an application to a system — it should feel like beginning a conversation with a community that wants to understand who you are, what you are building, and where you want to go.
+                  </p>
+                </div>
 
                 <div className="flex flex-wrap items-center gap-4 mb-10">
                   <a
@@ -313,7 +334,7 @@ export function FindPageClient() {
                     href="#find-form"
                     className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs inline-flex items-center gap-2"
                   >
-                    Start the Form
+                    Submit Your Enquiry
                     <ChevronDown className="size-4" />
                   </a>
                 </div>
@@ -359,7 +380,7 @@ export function FindPageClient() {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-              Your journey. Your way.
+              Two Ways to Begin
             </h2>
             <div className="text-right shrink-0">
               <div
@@ -371,26 +392,22 @@ export function FindPageClient() {
             </div>
           </div>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">
-            Explore the community first, or tell us about yourself. Both lead to the same place — the right Circle for you.
-          </p>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-            {/* App Card */}
+            {/* 01 Start With Unity */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#0F172A] text-white flex flex-col">
               <div className="flex items-center gap-3 mb-2">
                 <span className="h-0.5 w-5 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">EXPLORE FIRST</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">01 — START WITH UNITY</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
-                Explore first —<br />inside the app
+                Start With Unity
               </h3>
-              <p className="text-sm text-white/70 leading-relaxed mb-4">
-                The Unity App is where the community actually lives. See Circles, discover Peers across industries and cities, follow what the community is doing, and understand how collaboration works here before you commit to anything.
+              <p className="text-sm text-white/80 leading-relaxed mb-4">
+                The simplest way to explore PEERS GLOBAL is through the Unity App. Unity is your digital home inside the community.
               </p>
-              <p className="text-sm font-semibold text-white/90 leading-relaxed mb-8">
-                Most entrepreneurs start here. It costs nothing, and you learn more in ten minutes than any page can tell you.
+              <p className="text-sm text-white/70 leading-relaxed mb-8">
+                It gives you a way to understand the PEERS GLOBAL ecosystem, discover the community, explore relevant opportunities and begin building relationships.
               </p>
               <div className="flex flex-wrap gap-3 mt-auto">
                 <a
@@ -427,36 +444,27 @@ export function FindPageClient() {
               </div>
             </div>
 
-            {/* Form Card */}
+            {/* 02 Tell Us About Yourself */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col">
               <div className="flex items-center gap-3 mb-2">
                 <span className="h-0.5 w-5 bg-emerald-500" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">OR TELL US ABOUT YOURSELF</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">02 — TELL US ABOUT YOURSELF</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A] mb-4 leading-snug">
-                Or tell us about yourself
+                Tell Us About Yourself
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-8 flex-1">
-                Complete the form below and a Circle Director will contact you personally to understand your business and recommend the right Circle.
+              <p className="text-sm text-slate-700 leading-relaxed mb-4">
+                If you would prefer to speak with us first, share a few details about yourself and your entrepreneurial journey.
               </p>
-
-              {/* Mini step indicators */}
-              <div className="space-y-2 mb-8">
-                {STEP_LABELS.map((label, i) => (
-                  <div key={label} className="flex items-center gap-3 text-xs">
-                    <div className={`size-5 rounded-full flex items-center justify-center shrink-0 font-bold ${i === 0 ? 'bg-[#0062D2] text-white' : 'bg-white border border-slate-200 text-slate-400'}`}>
-                      {i + 1}
-                    </div>
-                    <span className={i === 0 ? 'text-[#0F172A] font-semibold' : 'text-slate-400'}>{label}</span>
-                  </div>
-                ))}
-              </div>
+              <p className="text-sm text-slate-600 leading-relaxed mb-8 flex-1">
+                You do not need to have everything figured out. You simply need to tell us enough for us to understand what you are looking for.
+              </p>
 
               <a
                 href="#find-form"
-                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2 w-fit"
+                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 w-fit shadow-md shadow-blue-600/20"
               >
-                Start the Form
+                Submit Your Enquiry
                 <ArrowRight className="size-4" />
               </a>
             </div>
@@ -823,11 +831,17 @@ export function FindPageClient() {
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS NEXT</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
-            A simple process. A real conversation.
+            What Happens Next?
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed mb-12 max-w-2xl">
-            Every step is handled by a Circle Director — an entrepreneur, not a salesperson.
-          </p>
+          <div className="text-base text-slate-600 leading-relaxed mb-12 max-w-3xl space-y-2">
+            <p>Once we understand your enquiry, the conversation can move forward from there.</p>
+            <p className="font-medium text-slate-900">
+              The objective is not simply to place you somewhere. It is to understand where you could belong — and where your presence could contribute.
+            </p>
+            <p className="text-sm text-slate-500">
+              Your industry may suggest one direction. Your purpose may suggest another. Your experience, ambition and relationships may reveal something else. The right Circle should make sense not only for what you do, but also for what you are trying to build.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {WHAT_HAPPENS.map((item, i) => {
@@ -857,14 +871,61 @@ export function FindPageClient() {
       </section>
 
       {/* =================================================================
+          SECTION 4.5: YOU DON'T HAVE TO KNOW THE ANSWER YET
+          ================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">NO PRESSURE</span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
+            You Don&apos;t Have to Know the Answer Yet
+          </h2>
+
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-sm max-w-3xl mx-auto mt-6 text-left">
+            <p className="text-lg text-[#0062D2] font-serif italic mb-4">
+              &ldquo;I am interested, but I don&apos;t know which Circle is right for me.&rdquo;
+            </p>
+            <p className="text-base text-slate-700 font-semibold mb-4">
+              That&apos;s okay. You are not expected to understand the entire PEERS GLOBAL ecosystem before taking the first step.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600 mb-6">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <span>Start with your business.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <span>Start with your ambition.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <span>Start with what you need.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <span>Start with what you can contribute.</span>
+              </div>
+            </div>
+            <p className="text-sm font-semibold text-slate-900">
+              We can begin from there.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* =================================================================
           SECTION 5: START WITH THE APP
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
             <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">START WITH THE APP</span>
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">START WITH UNITY</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -872,13 +933,13 @@ export function FindPageClient() {
             {/* Left */}
             <div className="lg:col-span-5">
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
-                Discover. Connect. Collaborate.
+                Explore. Understand. Connect. Then decide.
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
-                You do not have to wait for a call to begin. The Unity App is the digital home of Peers Global. Explore Circles, connect with entrepreneurs, and take your first step whenever you are ready.
+                If you prefer to explore independently, begin with the Unity App. Your digital journey can help you understand the community before you decide how deeply you want to participate.
               </p>
-              <p className="text-sm text-slate-700 font-semibold mb-6">
-                Download it, look around, and decide in your own time.
+              <p className="text-sm text-slate-800 font-semibold mb-6">
+                Explore. Understand. Connect. Then decide.
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -928,7 +989,7 @@ export function FindPageClient() {
                 ].map((item) => {
                   const Icon = item.icon
                   return (
-                    <div key={item.text} className="flex items-start gap-3.5 p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#0062D2]/30 hover:shadow-md transition-all">
+                    <div key={item.text} className="flex items-start gap-3.5 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200 hover:border-[#0062D2]/30 hover:shadow-md transition-all">
                       <div className="size-9 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
                         <Icon className="size-4" />
                       </div>
@@ -939,6 +1000,40 @@ export function FindPageClient() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* =================================================================
+          SECTION 5.5: A CIRCLE IS MORE THAN A CATEGORY
+          ================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#0F172A] text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-[2px] w-6 bg-[#60A5FA]" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#60A5FA]">THE PHILOSOPHY</span>
+            <span className="h-[2px] w-6 bg-[#60A5FA]" />
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight mb-6">
+            A Circle is More Than a Category
+          </h2>
+
+          <div className="space-y-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            <p>You may enter a Circle because it matches your industry.</p>
+            <p>You may discover another because it matches your ambition.</p>
+            <p className="text-white font-semibold text-lg sm:text-xl py-2">
+              But belonging is created by something deeper.
+            </p>
+            <p>It is created when people begin to understand one another.</p>
+            <p className="text-emerald-400 font-medium">When experience is shared.</p>
+            <p className="text-blue-400 font-medium">When introductions become relationships.</p>
+            <p className="text-purple-400 font-medium">When relationships become collaboration.</p>
+            <p className="text-amber-400 font-medium">When collaboration creates contribution.</p>
+            <p className="text-rose-400 font-semibold text-lg">And when contribution creates impact.</p>
+            <p className="pt-4 text-sm uppercase tracking-widest text-slate-400 font-bold">
+              That is why finding your Circle is only the beginning.
+            </p>
           </div>
         </div>
       </section>
@@ -1006,19 +1101,95 @@ export function FindPageClient() {
       </section>
 
       {/* =================================================================
-          SECTION 7: CLOSING CTA SECTION
+          SECTION 7: FIND WHERE YOU BELONG - CLOSING HERO
           ================================================================= */}
-      <ClosingCtaSection
-        eyebrow="YOUR NEXT OPPORTUNITY"
-        title="The answer that changes your business may come from a room where nobody does what you do."
-        subtitle="Every Peer in this community started with one conversation."
-        description="Build Your Business. Build Your Relationships. Build Your Circle."
-        primaryButtonText="Download Unity App"
-        primaryButtonHref="https://unity.peersglobal.com"
-        secondaryButtonText="Submit Enquiry"
-        secondaryButtonHref="#find-form"
-        secondaryButtonIcon={<ChevronRight className="size-4" />}
-      />
+      <section className="relative overflow-hidden py-20 sm:py-28 bg-[#061320] text-white">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-600/15 via-rose-600/10 to-blue-600/15 blur-[140px] rounded-full pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND WHERE YOU BELONG</span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight mb-8">
+            There is no single definition of the entrepreneur.
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto text-left mb-10">
+            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+              <span>Some are building companies.</span>
+            </div>
+            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
+              <span>Some are expanding across markets.</span>
+            </div>
+            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+              <span>Some are preparing for their next stage.</span>
+            </div>
+            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+              <span>Some are rebuilding.</span>
+            </div>
+            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+              <span>Some are learning.</span>
+            </div>
+            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
+              <span>Some are looking for people who understand.</span>
+            </div>
+          </div>
+
+          <p className="text-lg sm:text-xl font-medium text-white mb-8">
+            And some have reached a point where they are ready to help someone else move forward.
+          </p>
+
+          <p className="font-serif text-2xl sm:text-3xl text-amber-300 italic mb-10">
+            &ldquo;Your Circle should have room for your journey.&rdquo;
+          </p>
+
+          {/* Action CTAs */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
+            <a
+              href="https://unity.peersglobal.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-8 py-4 text-base font-semibold shadow-xl shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2.5"
+            >
+              <Smartphone className="size-5" />
+              <span>Download Unity App</span>
+            </a>
+            <a
+              href="#find-form"
+              className="rounded-full bg-white hover:bg-slate-100 text-[#0F172A] px-8 py-4 text-base font-semibold transition-all hover:scale-105 shadow-lg inline-flex items-center gap-2"
+            >
+              <span>Submit Your Enquiry</span>
+              <ArrowRight className="size-4" />
+            </a>
+          </div>
+
+          {/* Final Brand manifesto footer */}
+          <div className="pt-10 border-t border-white/10 max-w-2xl mx-auto text-center space-y-3">
+            <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">PEERS GLOBAL</p>
+            <p className="text-lg sm:text-xl font-serif text-white font-semibold italic">
+              &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              You bring your experience. You bring your ambition. You bring your willingness to contribute. We help you find the room where those things can become meaningful relationships.
+            </p>
+            <p className="text-sm text-slate-300 font-medium pt-2">
+              Because every entrepreneur belongs somewhere. And sometimes, finding the right Circle changes what becomes possible.
+            </p>
+          </div>
+        </div>
+      </section>
 
     </div>
   )

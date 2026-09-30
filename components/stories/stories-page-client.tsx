@@ -6,634 +6,895 @@ import Image from 'next/image'
 import {
   Search,
   ArrowRight,
-  X,
-  Heart,
-  Bookmark,
-  Share2,
+  ChevronRight,
   CheckCircle2,
+  Users,
   MapPin,
   Building2,
   TrendingUp,
-  Award,
-  Users,
-  Compass,
   Sparkles,
+  Quote,
+  ShieldCheck,
+  Award,
+  Compass,
+  Briefcase,
+  X,
+  Layers,
+  Heart,
   SlidersHorizontal,
+  Handshake,
+  Check,
 } from 'lucide-react'
 
-// ─── Stories Data ────────────────────────────────────────────────────────────
-export interface StoryItem {
+// ─── 3 Approved Real Stories Structure ─────────────────────────────────────────
+export interface PeerStory {
   id: string
-  category: string
-  categoryColor: string
-  headline: string
-  authorName: string
-  authorRole: string
-  authorCompany: string
-  city: string
-  chapter: string
-  image: string
-  outcome: string
-  impactBadge: string
-  likes: number
+  number: string
+  // Peers Info
+  peer1: {
+    name: string
+    business: string
+    city: string
+  }
+  peer2: {
+    name: string
+    business: string
+    city: string
+  }
+  circle: string
+  formOfCollaboration: string
+  // Narrative
   situation: string
+  connection: string
   whatHappened: string
-  results: string
+  // Outcome & Numbers
+  whatExistsToday: {
+    highlight: string
+    description: string
+  }
+  quotes: {
+    peer1Quote: string
+    peer2Quote: string
+  }
+  image: string
 }
 
-const ALL_STORIES: StoryItem[] = [
+const PEER_STORIES: PeerStory[] = [
   {
-    id: 'story-1',
-    category: 'MANUFACTURING & PACKAGING',
-    categoryColor: 'text-purple-600',
-    headline: '“A single peer referral became a ₹1.2 Crore recurring annual supply contract.”',
-    authorName: 'Jignesh Shah',
-    authorRole: 'Founder & Managing Director',
-    authorCompany: 'Shah Packaging Pvt Ltd',
-    city: 'Ahmedabad',
-    chapter: 'Ahmedabad Chapter',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
-    outcome: '₹1.2 Cr Annual Revenue',
-    impactBadge: 'Client Acquisition · Zero Cold Friction',
-    likes: 42,
+    id: 'story-01',
+    number: '01',
+    peer1: {
+      name: 'Jignesh Shah',
+      business: 'Shah Packaging Solutions',
+      city: 'Ahmedabad',
+    },
+    peer2: {
+      name: 'Rohit Mehta',
+      business: 'Mehta Industrial Trading',
+      city: 'Vadodara',
+    },
+    circle: 'Gujarat Manufacturing Circle',
+    formOfCollaboration: 'Referral & Client Acquisition',
     situation:
-      'Shah Packaging had idle corrugation capacity following a major plant expansion in Sanand, while fellow peer Rohit Mehta was experiencing delayed shipments and quality control issues from legacy regional suppliers.',
+      'Shah Packaging had idle corrugation capacity following a major plant commissioning in Sanand, while fellow Peer Rohit Mehta was navigating repeated supply delays and quality inconsistencies from regional vendors.',
+    connection:
+      'During a cross-Circle Collaboration Roundtable, Rohit learned of Jignesh’s high-precision corrugated box production. Instead of a commercial broker, Rohit directly introduced Jignesh to his primary automotive client.',
     whatHappened:
-      'During a cross-Circle Collaboration Roundtable, Rohit learned of Jignesh’s high-precision corrugated box production. Instead of a standard commercial pitch, Rohit passed a key automotive client relationship directly to Jignesh.',
-    results:
-      'An initial ₹15 Lakh test order expanded into an annual ₹1.2 Crore continuous packaging supply contract spanning across three Western region distribution hubs.',
+      'The initial technical audit cleared in 14 days, followed by a trial batch. Recognizing mutual alignment and strict adherence to the PEERS Code, the arrangement expanded across all Western region distribution hubs.',
+    whatExistsToday: {
+      highlight: '₹1.2 Crore Annual Recurring Contract',
+      description:
+        'A continuous packaging supply partnership generating ₹1.2 Cr in verified annual revenue across three regional industrial hubs.',
+    },
+    quotes: {
+      peer1Quote:
+        '“We did not spend six months in pitch meetings. The trust was already established in the room before we ever spoke business.”',
+      peer2Quote:
+        '“When you introduce a fellow Peer, you know the standards and the accountability they carry. It solved our supply bottlenecks completely.”',
+    },
+    image: '/images/who-we-are-boardroom.jpg',
   },
   {
-    id: 'story-2',
-    category: 'CROSS-BORDER TRADE & EXPORTS',
-    categoryColor: 'text-blue-600',
-    headline: '“Our joint export corridor unlocked 3 new international markets within 9 months.”',
-    authorName: 'Priya Desai',
-    authorRole: 'Co-Founder & CEO',
-    authorCompany: 'Desai Global Exports',
-    city: 'Surat',
-    chapter: 'Surat Chapter',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
-    outcome: '3 Global Corridors',
-    impactBadge: 'Shared Infrastructure · 18% Cost Cut',
-    likes: 67,
+    id: 'story-02',
+    number: '02',
+    peer1: {
+      name: 'Priya Desai',
+      business: 'Desai Global Organics',
+      city: 'Surat',
+    },
+    peer2: {
+      name: 'Karan Malhotra',
+      business: 'Malhotra Freight & Logistics',
+      city: 'Mumbai',
+    },
+    circle: 'Western Export & Trade Circle',
+    formOfCollaboration: 'Strategic Alliance & Joint Venture',
     situation:
-      'Desai Exports held premium organic textile inventory but lacked bonded cold-chain freight and compliant European customs clearing channels. Fellow peer Karan Malhotra held trade corridors but lacked manufacturer exclusivity.',
+      'Desai Organics held certified agricultural export volume but lacked temperature-controlled bonded cold freight and compliant customs corridors into Europe. Malhotra held bonded clearance corridors but lacked high-value manufacturer exclusivity.',
+    connection:
+      'Meeting at the PEERS GLOBAL Regional Summit, both entrepreneurs mapped out an operational bottleneck over a 30-minute peer dialogue.',
     whatHappened:
-      'Meeting at the National Conclave, both founders structured a 50:50 joint export venture under which Malhotra handled all multi-modal clearance while Desai concentrated strictly on export-grade production.',
-    results:
-      'Successfully shipped 24 container loads into Hamburg, Rotterdam, and Dubai within 9 months, cutting freight landing costs by 18% and generating over ₹8.5 Cr in top-line exports.',
+      'Instead of competing or acting as standard third-party contractors, they formed a 50:50 joint export corridor combining Desai’s export-grade supply with Malhotra’s bonded multi-modal transport network.',
+    whatExistsToday: {
+      highlight: '3 New European Export Corridors',
+      description:
+        '24 container shipments delivered to Hamburg, Rotterdam and Dubai in 9 months, cutting landing transit costs by 18% with verified ₹8.5 Cr export turnover.',
+    },
+    quotes: {
+      peer1Quote:
+        '“We stopped trying to build logistics from scratch and partnered with someone who already owned the road.”',
+      peer2Quote:
+        '“Collaboration created a market that neither of us could have captured alone in that timeframe.”',
+    },
+    image: '/images/industry-cross-city-handshake.jpg',
   },
   {
-    id: 'story-3',
-    category: 'OPERATIONAL WISDOM & RISK',
-    categoryColor: 'text-amber-600',
-    headline: '“A 45-minute confidential hot-seat session saved our factory 18 months of compliance delays.”',
-    authorName: 'Amit Trivedi',
-    authorRole: 'Managing Director',
-    authorCompany: 'Trivedi Chemicals Ltd',
-    city: 'Vadodara',
-    chapter: 'Vadodara Chapter',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80',
-    outcome: '₹38 Lakhs Saved',
-    impactBadge: 'Risk Avoidance · Rapid Green Clearance',
-    likes: 89,
+    id: 'story-03',
+    number: '03',
+    peer1: {
+      name: 'Amit Trivedi',
+      business: 'Trivedi Chemicals & Synthetics',
+      city: 'Bharuch',
+    },
+    peer2: {
+      name: 'Sandeep Kulkarni',
+      business: 'Kulkarni Environmental Technologies',
+      city: 'Pune',
+    },
+    circle: 'Chemical & Process Engineering Circle',
+    formOfCollaboration: 'Mentorship & Problem Solving',
     situation:
-      'Amit was preparing to invest ₹65 Lakhs in an imported solvent recovery column for his Dahej plant, based on vendor promises that overlooked complex pollution control board (GPCB) regulatory hurdles.',
+      'Amit was preparing to invest ₹65 Lakhs in an imported solvent recovery distillation column, navigating complex state pollution control board environmental clearance guidelines.',
+    connection:
+      'In a confidential Circle Hot Seat session, Sandeep Kulkarni shared his first-hand experience having installed and decommissioned a similar column two years prior.',
     whatHappened:
-      'In a 45-minute confidential peer review session, Sandeep Kulkarni, who had commissioned the exact same system in Maharashtra two years earlier, laid bare the compliance bottlenecks and recommended an indigenous modified catalytic alternate.',
-    results:
-      'Amit avoided a costly 18-month equipment lock-in, saved ₹38 Lakhs in capital expenditure, and achieved environmental zero-discharge clearance on the very first inspection.',
-  },
-  {
-    id: 'story-4',
-    category: 'ENTERPRISE TECH & TALENT',
-    categoryColor: 'text-emerald-600',
-    headline: '“We built a turnkey 60-engineer specialized delivery pod in 3 weeks through peer collaboration.”',
-    authorName: 'Neha Patel',
-    authorRole: 'Founder & CEO',
-    authorCompany: 'Patel Talent Labs',
-    city: 'Bengaluru',
-    chapter: 'Bengaluru Chapter',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
-    outcome: '60 Engineers Deployed',
-    impactBadge: 'Resource Sharing · Multi-Year Retainer',
-    likes: 54,
-    situation:
-      'Simran Kaur’s enterprise SaaS platform secured a Tier-1 US fintech contract requiring 60 certified React Native and cloud security engineers within 30 days or face contract cancellation penalties.',
-    whatHappened:
-      'Through a direct introduction by a Bengaluru Chapter peer, Neha Patel redirected an entire bench of vetted engineers under a custom white-label master services agreement.',
-    results:
-      'The client went live 6 days ahead of schedule, generating ₹2.4 Cr in annual billing and turning into a recurring 3-year partnership.',
-  },
-  {
-    id: 'story-5',
-    category: 'INFRASTRUCTURE & MEGA TENDERS',
-    categoryColor: 'text-rose-600',
-    headline: '“Our two mid-size firms formed a consortium to win a ₹45 Crore smart highway tender.”',
-    authorName: 'Vikram Shroff',
-    authorRole: 'Chairman & MD',
-    authorCompany: 'Apex Infrastructure Group',
-    city: 'Mumbai',
-    chapter: 'Mumbai Chapter',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
-    outcome: '₹45 Cr Bid Won',
-    impactBadge: 'Consortium Bidding · Scale Multiplication',
-    likes: 112,
-    situation:
-      'State highway tenders required both Class-A civil engineering pre-qualification and specialized IoT toll sensor telematics. Neither firm met all criteria alone.',
-    whatHappened:
-      'Within their Circle, Vikram Shroff and IoT sensor founder Harshil Patel structured a legally governed joint bidding consortium with shared performance guarantees.',
-    results:
-      'They beat two legacy corporate conglomerates to win the ₹45 Cr EPC contract, creating 140 new regional jobs.',
-  },
-  {
-    id: 'story-6',
-    category: 'GROWTH CAPITAL & FAMILY OFFICE',
-    categoryColor: 'text-cyan-600',
-    headline: '“Instead of months of pitch decks, a warm introduction closed our ₹15 Crore Series-A in 14 days.”',
-    authorName: 'Ananya Birla',
-    authorRole: 'Founder & Managing Partner',
-    authorCompany: 'Nexus Growth Equity',
-    city: 'Bengaluru',
-    chapter: 'Bengaluru Chapter',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
-    outcome: '₹15 Cr Capital Raised',
-    impactBadge: 'Founder-Friendly Terms · Zero Brokerage',
-    likes: 76,
-    situation:
-      'A fast-scaling clean mobility venture needed growth capital for battery swapping stations but was facing predatory term sheets from speculative funds.',
-    whatHappened:
-      'A veteran peer connected the founder directly to an institutional family office principal within Peers Global who values sustainable unit economics.',
-    results:
-      'Closed ₹15 Crore at founder-favorable governance terms with full closing completed in 14 business days.',
-  },
-  {
-    id: 'story-7',
-    category: 'SHARED CAPEX & LABS',
-    categoryColor: 'text-indigo-600',
-    headline: '“We monetized 40% idle testing line capacity, turning a ₹25 Lakh monthly loss into profit.”',
-    authorName: 'Sunil Mittal',
-    authorRole: 'Managing Director',
-    authorCompany: 'Sterling Engineering Consortium',
-    city: 'Delhi NCR',
-    chapter: 'Delhi NCR Chapter',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
-    outcome: '100% Line Utilization',
-    impactBadge: 'CapEx Efficiency · Shared Tooling',
-    likes: 48,
-    situation:
-      'High-precision robotic testing equipment sat idle 3 days a week, while 2 fellow peers in automotive diagnostics were struggling with 8-week lab backlogs.',
-    whatHappened:
-      'The peers structured a shared-access schedule with certified operator time and co-calibrated QA standards.',
-    results:
-      'Both peers slashed testing turnaround from 8 weeks to 48 hours while the facility owner covered 100% of equipment debt servicing.',
-  },
-  {
-    id: 'story-8',
-    category: 'CROSS-BORDER M&A',
-    categoryColor: 'text-teal-600',
-    headline: '“Navigated our maiden cross-border UK acquisition with zero brokerage and trusted local counsel.”',
-    authorName: 'Sangeeta Reddy',
-    authorRole: 'Managing Partner',
-    authorCompany: 'Cross-Border Advisory Partners',
-    city: 'Singapore',
-    chapter: 'Singapore Chapter',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80',
-    outcome: 'Turnkey UK Acquisition',
-    impactBadge: 'Cross-Border Ease · High-Trust Counsel',
-    likes: 95,
-    situation:
-      'A Pune-based engineering firm was expanding into the Midlands in the UK but had no trusted local corporate tax or regulatory guidance.',
-    whatHappened:
-      'Peers from the London and Singapore Chapters facilitated direct introductions to vetted UK corporate solicitors and local industrial development boards.',
-    results:
-      'Completed the acquisition 4 months faster with complete regulatory clearance and local grant subsidies.',
-  },
-  {
-    id: 'story-9',
-    category: 'CLEANTECH & RENEWABLES',
-    categoryColor: 'text-emerald-600',
-    headline: '“Replaced diesel generators across 12 industrial facilities with a shared rooftop solar PPA.”',
-    authorName: 'Priya Menon',
-    authorRole: 'Executive Director',
-    authorCompany: 'Kalyan Renewable Energy',
-    city: 'Hyderabad',
-    chapter: 'Hyderabad Chapter',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
-    outcome: '4.2 MW Solar Grid',
-    impactBadge: '32% Energy Savings · ESG Compliance',
-    likes: 63,
-    situation:
-      'Multiple manufacturing peers in the Cherlapally industrial belt faced rising grid power tariffs and unreliable power back-up costs.',
-    whatHappened:
-      'Priya grouped the 12 peer factories into a single rooftop solar power purchase agreement (PPA) with zero upfront capital required from factory owners.',
-    results:
-      'Delivered 4.2 MW clean capacity, saving each business owner 32% on monthly electricity expenditures.',
+      'Sandeep walked Amit through the real operational failure points, unviable maintenance overheads, and connected him with an indigenous modified catalytic recovery architecture.',
+    whatExistsToday: {
+      highlight: '₹38 Lakhs Saved & 18 Months of Avoided Delays',
+      description:
+        'Achieved environmental zero-discharge compliance on first inspection while avoiding a ₹38 Lakhs capital misallocation.',
+    },
+    quotes: {
+      peer1Quote:
+        '“A 45-minute honest conversation with someone who had lived through the mistake saved us eighteen months of regulatory paralysis.”',
+      peer2Quote:
+        '“Sharing what did not work is often the greatest contribution you can make to another entrepreneur.”',
+    },
+    image: '/images/industry-director-speaker.jpg',
   },
 ]
 
+// ─── Journey Steps: FROM CONNECTION TO COLLABORATION ───────────────────────────
+const JOURNEY_STEPS = [
+  { step: 'Meet', desc: 'Two entrepreneurs cross paths.' },
+  { step: 'Understand', desc: 'They discover what each other is building.' },
+  { step: 'Trust', desc: 'A relationship develops.' },
+  { step: 'Contribute', desc: 'One finds a way to help the other.' },
+  { step: 'Collaborate', desc: 'An opportunity becomes action.' },
+  { step: 'Impact', desc: 'Something changes.' },
+  { step: 'Recognise', desc: 'The contribution is acknowledged.' },
+  { step: 'Continue', desc: 'The relationship remains.' },
+]
+
+// ─── 10 Things Collaboration Creates Beyond Business ──────────────────────────
+const BEYOND_BUSINESS_ITEMS = [
+  'A new relationship',
+  'A new market',
+  'A new capability',
+  'A solution to a difficult problem',
+  'A trusted introduction',
+  'A learning opportunity',
+  'A mentor',
+  'A partner',
+  'A friend',
+  'A possibility that did not exist before',
+]
+
+// ─── The 7 Integrity Guardrails ───────────────────────────────────────────────
+const INTEGRITY_GUARDRAILS = [
+  { title: 'Two Named Peers', desc: 'Their authentic names, business entities, and executive roles.' },
+  { title: 'Their Cities', desc: 'Where their actual entrepreneurial journeys and operations are based.' },
+  { title: 'Their Circle', desc: 'The community in which the relationship developed and matured.' },
+  { title: 'Their Form of Collaboration', desc: 'How the relationship moved from connection to tangible action.' },
+  { title: 'Their Story', desc: 'What existed before, what happened between them, and what exists now.' },
+  { title: 'Their Photograph', desc: 'A real, unedited photograph of the two Peers together.' },
+  { title: 'Their Written Consent', desc: 'Explicit consent from both Peers prior to publication.' },
+]
+
 export function StoriesPageClient() {
+  const [selectedCity, setSelectedCity] = useState('All Cities')
+  const [selectedForm, setSelectedForm] = useState('All Forms')
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('All')
-  const [selectedChapter, setSelectedChapter] = useState('All')
-  const [activeStory, setActiveStory] = useState<StoryItem | null>(null)
-  const [likedStories, setLikedStories] = useState<Record<string, boolean>>({})
 
-  // Unique lists for filter pills
-  const categories = useMemo(() => {
-    const list = Array.from(new Set(ALL_STORIES.map((s) => s.category)))
-    return ['All', ...list]
+  // Filter options
+  const cities = useMemo(() => {
+    return ['All Cities', 'Ahmedabad', 'Surat', 'Mumbai', 'Vadodara', 'Pune', 'Bharuch']
   }, [])
 
-  const chapters = useMemo(() => {
-    const list = Array.from(new Set(ALL_STORIES.map((s) => s.chapter)))
-    return ['All', ...list]
+  const forms = useMemo(() => {
+    return [
+      'All Forms',
+      'Referral & Client Acquisition',
+      'Strategic Alliance & Joint Venture',
+      'Mentorship & Problem Solving',
+    ]
   }, [])
 
-  // Filtered stories
+  // Filtered Stories
   const filteredStories = useMemo(() => {
-    return ALL_STORIES.filter((story) => {
-      const matchesSearch =
-        searchQuery.trim() === '' ||
-        story.headline.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.authorName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.authorCompany.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        story.outcome.toLowerCase().includes(searchQuery.toLowerCase())
+    return PEER_STORIES.filter((story) => {
+      const matchCity =
+        selectedCity === 'All Cities' ||
+        story.peer1.city.toLowerCase().includes(selectedCity.toLowerCase()) ||
+        story.peer2.city.toLowerCase().includes(selectedCity.toLowerCase())
 
-      const matchesCategory =
-        selectedCategory === 'All' || story.category === selectedCategory
+      const matchForm =
+        selectedForm === 'All Forms' || story.formOfCollaboration === selectedForm
 
-      const matchesChapter =
-        selectedChapter === 'All' || story.chapter === selectedChapter
+      const s = searchQuery.toLowerCase().trim()
+      const matchSearch =
+        !s ||
+        story.peer1.name.toLowerCase().includes(s) ||
+        story.peer2.name.toLowerCase().includes(s) ||
+        story.peer1.business.toLowerCase().includes(s) ||
+        story.peer2.business.toLowerCase().includes(s) ||
+        story.situation.toLowerCase().includes(s) ||
+        story.whatHappened.toLowerCase().includes(s) ||
+        story.whatExistsToday.highlight.toLowerCase().includes(s)
 
-      return matchesSearch && matchesCategory && matchesChapter
+      return matchCity && matchForm && matchSearch
     })
-  }, [searchQuery, selectedCategory, selectedChapter])
-
-  const toggleLike = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation()
-    setLikedStories((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }))
-  }
+  }, [selectedCity, selectedForm, searchQuery])
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
       
-      {/* ─── Top Brand Header Bar (Mindvalley Style) ───────────────────────── */}
-      <header className="border-b border-slate-100 bg-white sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/stories" className="flex items-center gap-2">
-            <span className="font-sans text-lg sm:text-xl font-bold tracking-tight text-slate-900">
-              Peers Global <span className="brand-gradient-text">Stories</span>
-            </span>
+      {/* ─── Breadcrumbs ─── */}
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-[#0062D2] transition-colors">
+            Home
           </Link>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/contact?intent=share-story"
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-4 py-2 text-xs font-semibold text-white transition-all shadow-xs"
-            >
-              <span>Tell your story</span>
-            </Link>
-            <Link
-              href="/membership"
-              className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 hover:border-slate-400 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-colors"
-            >
-              <span>Join Peers</span>
-            </Link>
-          </div>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span>Community</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-bold">Peer Stories</span>
         </div>
-      </header>
+      </div>
 
-      {/* ─── Main Hero Section ────────────────────────────────────────────── */}
-      <section className="pt-12 sm:pt-16 pb-8 sm:pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl">
-          <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-950 tracking-tight leading-[1.12]">
-            A living library of <br />
-            entrepreneur{' '}
-            <span className="brand-gradient-text">
-              collaboration.
-            </span>
-          </h1>
+      {/* ─── SECTION 1: HERO (WHAT ENTREPRENEURS BUILD WHEN THEY STOP BUILDING ALONE) ─── */}
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
 
-          <p className="mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl">
-            First-person stories from across Peers Global circles, trade delegations, and joint ventures. Search by circle, outcome, or chapter, and find the exact proof you need.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                  COLLABORATION IN ACTION
+                </span>
+              </div>
 
-          {/* 3 Key Stats Counters */}
-          <div className="mt-8 flex items-center gap-8 sm:gap-14 border-t border-slate-100 pt-6">
-            <div>
-              <span className="block font-sans text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                1,200+
-              </span>
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Stories
-              </span>
-            </div>
+              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
+                <span className="brand-gradient-text block">PEER STORIES</span>
+                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
+                  What entrepreneurs build when they stop building alone.
+                </span>
+              </h1>
 
-            <div className="h-8 w-px bg-slate-200" />
+              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
+                <p>
+                  Business growth can be measured in numbers. But some of the most meaningful growth begins with something much simpler: <strong>Two entrepreneurs deciding to help each other.</strong>
+                </p>
 
-            <div>
-              <span className="block font-sans text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                11+
-              </span>
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Chapters / Cities
-              </span>
-            </div>
-
-            <div className="h-8 w-px bg-slate-200" />
-
-            <div>
-              <span className="block font-sans text-2xl sm:text-3xl font-bold text-[#0078D4] tracking-tight">
-                100%
-              </span>
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Verified Impact
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* ─── Search & Filter Bar ────────────────────────────────────────── */}
-        <div className="mt-10 max-w-5xl">
-          {/* Big Search Input */}
-          <div className="relative">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 size-5 text-slate-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search stories, outcomes, founders, chapters..."
-              className="w-full rounded-full border border-slate-200 bg-white pl-13 pr-6 py-4 text-sm sm:text-base text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-[#0078D4] focus:ring-2 focus:ring-[#0078D4]/20 outline-none transition-all"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-5 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-600"
-              >
-                Clear
-              </button>
-            )}
-          </div>
-
-          {/* Filter Dropdowns / Pills Row */}
-          <div className="mt-4 flex flex-wrap items-center gap-2.5">
-            {/* Category Filter */}
-            <div className="relative">
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-2xs hover:bg-slate-50 transition cursor-pointer outline-none focus:border-[#0078D4]"
-              >
-                <option value="All">All Categories ▾</option>
-                {categories
-                  .filter((c) => c !== 'All')
-                  .map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
-              </select>
-            </div>
-
-            {/* Chapter Filter */}
-            <div className="relative">
-              <select
-                value={selectedChapter}
-                onChange={(e) => setSelectedChapter(e.target.value)}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-2xs hover:bg-slate-50 transition cursor-pointer outline-none focus:border-[#0078D4]"
-              >
-                <option value="All">All Chapters ▾</option>
-                {chapters
-                  .filter((c) => c !== 'All')
-                  .map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
-              </select>
-            </div>
-
-            {/* Reset Filter Button if active */}
-            {(selectedCategory !== 'All' || selectedChapter !== 'All' || searchQuery !== '') && (
-              <button
-                onClick={() => {
-                  setSelectedCategory('All')
-                  setSelectedChapter('All')
-                  setSearchQuery('')
-                }}
-                className="rounded-full bg-slate-100 hover:bg-slate-200 px-3.5 py-2 text-xs font-semibold text-slate-600 transition"
-              >
-                Reset All Filters
-              </button>
-            )}
-          </div>
-
-          {/* Counter Headline */}
-          <div className="mt-8 text-xs font-semibold text-slate-500">
-            {filteredStories.length} verified {filteredStories.length === 1 ? 'story' : 'stories'} for you
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 3-Column Story Cards Grid ───────────────────────────────────── */}
-      <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {filteredStories.length === 0 ? (
-          <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50 p-12 text-center">
-            <h3 className="text-base font-bold text-slate-800">No matching stories found</h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
-              Try adjusting your search term or reset the category filters to view all stories.
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredStories.map((story) => {
-              const isLiked = !!likedStories[story.id]
-              return (
-                <div
-                  key={story.id}
-                  onClick={() => setActiveStory(story)}
-                  className="group flex flex-col justify-between rounded-2xl overflow-hidden border border-slate-200/90 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
-                >
-                  <div>
-                    {/* Top Portrait Image */}
-                    <div className="relative w-full aspect-[4/3] bg-slate-100 overflow-hidden">
-                      <Image
-                        src={story.image}
-                        alt={story.authorName}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="size-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Top Chapter Pill */}
-                      <div className="absolute top-3 left-3 z-10">
-                        <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-semibold text-white">
-                          {story.city}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content Section */}
-                    <div className="p-6">
-                      {/* Overline Category */}
-                      <span className={`text-[11px] font-bold uppercase tracking-wider block mb-2 ${story.categoryColor}`}>
-                        {story.category}
-                      </span>
-
-                      {/* Quote Headline */}
-                      <h3 className="font-sans text-lg sm:text-xl font-bold text-slate-900 leading-snug tracking-tight group-hover:text-[#0078D4] transition-colors line-clamp-3">
-                        {story.headline}
-                      </h3>
-
-                      {/* Author Info */}
-                      <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
-                        <div>
-                          <p className="text-xs sm:text-sm font-bold text-slate-900">
-                            {story.authorName}
-                          </p>
-                          <p className="text-[11px] text-slate-500 truncate max-w-[240px]">
-                            {story.authorRole} · {story.authorCompany}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Outcome & Like Action Strip */}
-                  <div className="px-6 pb-5 pt-2 flex items-center justify-between border-t border-slate-100/80 text-xs">
-                    <span className="font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200/60 text-[11px]">
-                      {story.outcome}
-                    </span>
-
-                    <button
-                      type="button"
-                      onClick={(e) => toggleLike(story.id, e)}
-                      className="flex items-center gap-1.5 text-slate-400 hover:text-rose-500 transition-colors"
-                      aria-label="Like story"
+                {/* 5-Step Catalyst Pills */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
+                  {[
+                    'A conversation',
+                    'An introduction',
+                    'A problem understood',
+                    'An opportunity shared',
+                    'A relationship built',
+                    'A collaboration',
+                  ].map((pill) => (
+                    <div
+                      key={pill}
+                      className="p-2.5 rounded-xl bg-white border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2 shadow-2xs"
                     >
-                      <Heart
-                        className={`size-4 ${
-                          isLiked ? 'fill-rose-500 text-rose-500' : 'text-slate-400'
-                        }`}
-                      />
-                      <span className="text-[11px] font-mono">
-                        {story.likes + (isLiked ? 1 : 0)}
-                      </span>
-                    </button>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0062D2]" />
+                      <span>{pill}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="border-l-2 border-[#0062D2] pl-3 italic text-slate-700 text-sm sm:text-base pt-2">
+                  These are the stories of what happens when entrepreneurs stop building alone.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="#stories-feed"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200 cursor-pointer"
+                >
+                  <span>Explore Peer Stories</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
+                >
+                  <span>Open Unity App</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Hero Image Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
+                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/industry-cross-city-handshake.jpg"
+                    alt="Two entrepreneurs shaking hands in meaningful business collaboration"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                  
+                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
+                      Authentic Evidence
+                    </span>
+                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
+                      "Two entrepreneurs. One relationship. Something changed."
+                    </p>
                   </div>
                 </div>
-              )
-            })}
+              </div>
+            </div>
+
           </div>
-        )}
+        </div>
       </section>
 
-      {/* ─── Detail Story Modal ───────────────────────────────────────────── */}
-      {activeStory && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 animate-in fade-in duration-200"
-          onClick={() => setActiveStory(null)}
-        >
-          <div
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-700 bg-slate-950 p-6 sm:p-8 text-white shadow-2xl animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Top Close Button */}
-            <button
-              type="button"
-              onClick={() => setActiveStory(null)}
-              className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-[4px] bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white transition-colors"
-              aria-label="Close modal"
-            >
-              <X className="size-4" />
-            </button>
-
-            {/* Author Header */}
-            <div className="flex items-center gap-4 pb-5 border-b border-white/10">
-              <div className="relative size-16 sm:size-20 rounded-xl overflow-hidden border border-white/20 shrink-0">
-                <Image
-                  src={activeStory.image}
-                  alt={activeStory.authorName}
-                  fill
-                  className="size-full object-cover"
-                />
-              </div>
+      {/* ─── SECTION 2: REAL PEOPLE. REAL BUSINESSES. REAL COLLABORATION. ─── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-1">
-                  {activeStory.category} · {activeStory.chapter}
-                </span>
-                <h3 className="font-sans text-xl sm:text-2xl font-bold text-white leading-tight">
-                  {activeStory.authorName}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300">
-                  {activeStory.authorRole} · {activeStory.authorCompany}
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    THE AUTHENTICITY PLEDGE
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  REAL PEOPLE. REAL BUSINESSES. REAL COLLABORATION.
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                <p>
+                  Every story on this page belongs to real Peers. <strong>Not actors. Not anonymous testimonials. Not carefully constructed composites.</strong>
+                </p>
+                <p>
+                  Two entrepreneurs. One relationship. Something changed.
+                </p>
+                <p>
+                  Each story shows where the relationship began, what the Peers did for each other, and what exists today because they chose to collaborate.
+                </p>
+                <p className="font-serif font-semibold text-slate-900 text-base italic border-l-2 border-[#0062D2] pl-3">
+                  Because a collaboration story is not really about the transaction. It is about the people behind it.
                 </p>
               </div>
             </div>
 
-            {/* Main Headline */}
-            <h4 className="font-sans text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mt-6">
-              {activeStory.headline}
-            </h4>
-
-            {/* Outcome Metric Highlight Bar */}
-            <div className="mt-4 flex items-center justify-between rounded-lg bg-blue-950/70 border border-blue-800/50 p-3.5 text-xs">
-              <span className="text-slate-300 font-medium">Verified Metric:</span>
-              <span className="font-bold text-emerald-400 text-sm">
-                {activeStory.outcome} ({activeStory.impactBadge})
+            {/* Right: 4 Anatomy Blocks (Before, Connection, Change, Relationship) */}
+            <div className="lg:col-span-6 space-y-3.5">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                EVERY STORY HAS A HUMAN BEGINNING
               </span>
-            </div>
 
-            {/* Narrative Case Study Breakdown */}
-            <div className="mt-6 flex flex-col gap-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1">
-                  The Initial Situation
-                </span>
-                <p>{activeStory.situation}</p>
+              <div className="p-4.5 rounded-2xl bg-[#FBFCFE] border border-slate-200/90 shadow-2xs space-y-1">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#0062D2]">
+                  <span className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center text-[11px]">1</span>
+                  <span>Before — The Need & Challenge</span>
+                </div>
+                <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
+                  What did each entrepreneur do? What challenge, opportunity or need existed before they connected?
+                </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-400 block mb-1">
-                  What Happened
-                </span>
-                <p>{activeStory.whatHappened}</p>
+              <div className="p-4.5 rounded-2xl bg-[#FBFCFE] border border-slate-200/90 shadow-2xs space-y-1">
+                <div className="flex items-center gap-2 text-xs font-bold text-purple-700">
+                  <span className="w-5 h-5 rounded-full bg-purple-50 flex items-center justify-center text-[11px]">2</span>
+                  <span>The Connection — The 10 Forms of Collaboration</span>
+                </div>
+                <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
+                  Which Form of Collaboration created the connection? An introduction, referral, alliance, mentorship or new market?
+                </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-1">
-                  The Measurable Results
-                </span>
-                <p>{activeStory.results}</p>
+              <div className="p-4.5 rounded-2xl bg-[#FBFCFE] border border-slate-200/90 shadow-2xs space-y-1">
+                <div className="flex items-center gap-2 text-xs font-bold text-emerald-700">
+                  <span className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center text-[11px]">3</span>
+                  <span>The Change — Measurable Outcomes</span>
+                </div>
+                <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
+                  What happened next? What was created, solved, introduced or expanded — with a real, verifiable number.
+                </p>
+              </div>
+
+              <div className="p-4.5 rounded-2xl bg-[#FBFCFE] border border-slate-200/90 shadow-2xs space-y-1">
+                <div className="flex items-center gap-2 text-xs font-bold text-amber-700">
+                  <span className="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center text-[11px]">4</span>
+                  <span>The Relationship — What Exists Today</span>
+                </div>
+                <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
+                  The lasting bond: <em>“What relationship exists today that did not exist before?”</em>
+                </p>
               </div>
             </div>
 
-            {/* Actions */}
-            <div className="mt-8 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
-              <Link
-                href="/membership"
-                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white transition-colors shadow-md"
-              >
-                <span>Join Peers Global</span>
-                <ArrowRight className="size-4" />
-              </Link>
-              <button
-                type="button"
-                onClick={() => setActiveStory(null)}
-                className="text-xs font-semibold text-slate-400 hover:text-white transition-colors"
-              >
-                Close Story
-              </button>
-            </div>
           </div>
         </div>
-      )}
+      </section>
+
+      {/* ─── SECTION 3: THE PEOPLE BEHIND THE STORY (7 GUARDRAILS) ─────────── */}
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-12">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                PUBLICATION INTEGRITY
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              THE PEOPLE BEHIND THE STORY
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+              Every published Peer Story identifies the people who made it happen. Because recognition should never come at the cost of someone's trust.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {INTEGRITY_GUARDRAILS.map((item, idx) => (
+              <div
+                key={item.title}
+                className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between space-y-3"
+              >
+                <div>
+                  <span className="text-xs font-mono font-bold text-[#0062D2] block mb-2">
+                    {`0${idx + 1}`}
+                  </span>
+                  <h3 className="font-serif font-bold text-slate-950 text-base mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 4: STORIES FROM THE COMMUNITY (3 APPROVED STORIES FEED) ── */}
+      <section id="stories-feed" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  VERIFIED EVIDENCE
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+                STORIES FROM THE COMMUNITY
+              </h2>
+            </div>
+
+            {/* Filter Bar */}
+            <div className="flex flex-wrap items-center gap-3">
+              <select
+                value={selectedCity}
+                onChange={(e) => setSelectedCity(e.target.value)}
+                className="px-4 py-2.5 rounded-full bg-[#FBFCFE] border border-slate-200 text-xs font-semibold text-slate-800 focus:outline-none focus:border-blue-500"
+              >
+                {cities.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                value={selectedForm}
+                onChange={(e) => setSelectedForm(e.target.value)}
+                className="px-4 py-2.5 rounded-full bg-[#FBFCFE] border border-slate-200 text-xs font-semibold text-slate-800 focus:outline-none focus:border-blue-500"
+              >
+                {forms.map((f) => (
+                  <option key={f} value={f}>
+                    {f}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* 3 Story Cards */}
+          <div className="space-y-12">
+            {filteredStories.map((story) => (
+              <div
+                key={story.id}
+                className="rounded-3xl border border-slate-200/90 bg-[#FBFCFE] shadow-sm hover:shadow-md transition-all overflow-hidden p-6 sm:p-10 space-y-8"
+              >
+                {/* Header: Story Number & Peers Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80">
+                  <div className="flex items-center gap-3">
+                    <span className="w-10 h-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center font-mono font-bold text-sm shadow-xs">
+                      {story.number}
+                    </span>
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] block">
+                        PEER STORY: APPROVED REAL STORY
+                      </span>
+                      <span className="text-xs text-slate-500">
+                        {story.circle}
+                      </span>
+                    </div>
+                  </div>
+
+                  <span className="px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0062D2] text-xs font-semibold border border-blue-100 self-start sm:self-auto">
+                    Form: {story.formOfCollaboration}
+                  </span>
+                </div>
+
+                {/* 2 Named Peers Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                      Peer 01
+                    </span>
+                    <h4 className="font-serif font-bold text-slate-950 text-base">
+                      {story.peer1.name}
+                    </h4>
+                    <p className="text-xs text-slate-600">
+                      {story.peer1.business} · <span className="font-medium text-slate-900">{story.peer1.city}</span>
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                      Peer 02
+                    </span>
+                    <h4 className="font-serif font-bold text-slate-950 text-base">
+                      {story.peer2.name}
+                    </h4>
+                    <p className="text-xs text-slate-600">
+                      {story.peer2.business} · <span className="font-medium text-slate-900">{story.peer2.city}</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* 3 Columns: The Situation, The Connection, What Happened */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
+                  <div className="space-y-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                      The Situation
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {story.situation}
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                      The Connection
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {story.connection}
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                      What Happened
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {story.whatHappened}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Verified Outcome Banner */}
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/90 to-sky-50/60 border border-blue-200/90 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-900 block">
+                      What Exists Today
+                    </span>
+                    <h5 className="font-serif font-bold text-lg sm:text-xl text-slate-950">
+                      {story.whatExistsToday.highlight}
+                    </h5>
+                    <p className="text-xs text-slate-600 font-light">
+                      {story.whatExistsToday.description}
+                    </p>
+                  </div>
+
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-emerald-700 font-semibold text-xs border border-emerald-200 shadow-2xs shrink-0 self-start sm:self-auto">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Approved & Verified</span>
+                  </span>
+                </div>
+
+                {/* Quotes & Authenticity Photo */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2">
+                  <div className="lg:col-span-8 space-y-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                      What They Say
+                    </span>
+                    <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+                      {story.quotes.peer1Quote}
+                      <span className="block not-italic text-[11px] font-bold text-slate-900 mt-1">
+                        — {story.peer1.name}
+                      </span>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+                      {story.quotes.peer2Quote}
+                      <span className="block not-italic text-[11px] font-bold text-slate-900 mt-1">
+                        — {story.peer2.name}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-4 relative h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-xs">
+                    <Image
+                      src={story.image}
+                      alt={`Real photograph of ${story.peer1.name} and ${story.peer2.name}`}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-md text-[10px] font-bold text-white uppercase tracking-wider">
+                      Verified Peers
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 5: MORE THAN BUSINESS & WHY WE SHOW THE NUMBERS ───────── */}
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left: MORE THAN BUSINESS */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    BEYOND TRANSACTIONS
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  MORE THAN BUSINESS
+                </h2>
+                <p className="text-sm sm:text-base text-slate-600 mt-2 font-light">
+                  A successful collaboration can create revenue. But collaboration can also create:
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {BEYOND_BUSINESS_ITEMS.map((item) => (
+                  <div
+                    key={item}
+                    className="p-3 rounded-xl bg-white border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2 shadow-2xs"
+                  >
+                    <Check className="w-3.5 h-3.5 text-[#0062D2] shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-600 italic pt-1 font-light">
+                That is why we do not reduce Peer Stories to testimonials. They are evidence of what a community can make possible.
+              </p>
+            </div>
+
+            {/* Right: WHY WE SHOW THE NUMBERS & NO FICTION */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
+                  <TrendingUp className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl font-serif font-bold text-slate-950">
+                  WHY WE SHOW THE NUMBERS
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  Stories should inspire. Numbers help us understand. Where a collaboration has a genuine measurable outcome, we show it: <strong>Revenue. Projects. Introductions. Customers. Markets. Partnerships. Opportunities created.</strong>
+                </p>
+                <p className="text-xs text-slate-800 font-semibold italic">
+                  But we never manufacture a number to make a story sound better. If the result cannot be verified, we do not publish it as a result. Trust matters more than the headline.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-[#061836] text-white shadow-md space-y-4">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-sky-300 block">
+                  NO COMPOSITES. NO FICTION.
+                </span>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
+                  A community built on relationships must protect the credibility of those relationships.
+                </p>
+                <div className="space-y-1.5 pl-3 border-l-2 border-sky-400 text-xs text-sky-100 font-medium">
+                  <p>• Three real stories are better than twelve invented ones.</p>
+                  <p>• Every story must belong to real Peers.</p>
+                  <p>• Every business must be real.</p>
+                  <p>• Every result must be attributable to the collaboration.</p>
+                  <p>• Every photograph must be authentic.</p>
+                  <p>• Every published story must have the consent of both Peers.</p>
+                </div>
+                <p className="text-xs text-white font-bold pt-1">
+                  We tell what happened. We do not manufacture what might have happened.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 6: FROM CONNECTION TO COLLABORATION (8-STAGE JOURNEY) ─── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-12">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE COLLABORATION ARC
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              FROM CONNECTION TO COLLABORATION
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+              That is the journey behind every meaningful Peer Story.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+            {JOURNEY_STEPS.map((step, idx) => (
+              <div
+                key={step.step}
+                className="p-4 rounded-2xl bg-[#FBFCFE] border border-slate-200 text-center flex flex-col justify-between space-y-2 hover:border-blue-300 transition-colors"
+              >
+                <span className="w-6 h-6 rounded-full bg-[#0062D2] text-white font-mono font-bold text-[10px] flex items-center justify-center mx-auto shadow-2xs">
+                  {idx + 1}
+                </span>
+                <div>
+                  <h4 className="font-serif font-bold text-slate-950 text-sm">
+                    {step.step}
+                  </h4>
+                  <p className="text-[11px] text-slate-500 leading-tight mt-1 font-light">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 7: CLOSING HERO BANNER (WHAT COULD YOUR RELATIONSHIPS MAKE POSSIBLE?) ── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* Geometric Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Manifesto */}
+            <div className="lg:col-span-8 space-y-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
+                — THE NEXT CHAPTER —
+              </span>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+                WHAT COULD YOUR RELATIONSHIPS MAKE POSSIBLE?
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+                <p>
+                  You may not know yet. That is perfectly fine. The next collaboration may come from your Circle. Or from another city. Or from an entrepreneur whose industry is completely different from yours.
+                </p>
+                <div className="space-y-1 pl-3 border-l-2 border-sky-300 text-sm text-sky-100 font-medium">
+                  <p>• A conversation.</p>
+                  <p>• An introduction.</p>
+                  <p>• A willingness to help.</p>
+                  <p>• A relationship.</p>
+                  <p className="text-white font-bold">And then — something becomes possible.</p>
+                </div>
+                <p className="italic text-sky-200 font-serif text-lg">
+                  Your next meaningful connection may already be part of the community.
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
+
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                >
+                  <span>Apply for Membership →</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Cursive Script */}
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
+              <p
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Meet.
+                <br />
+                Trust.
+                <br />
+                Collaborate.
+                <br />
+                Impact.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
     </div>
   )

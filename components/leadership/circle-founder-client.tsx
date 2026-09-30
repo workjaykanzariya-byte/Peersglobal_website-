@@ -11,24 +11,30 @@ import {
   Globe2,
   Target,
   Sparkles,
+  Quote,
   CheckCircle2,
-  XCircle,
-  HelpCircle,
   ChevronDown,
-  BookOpen,
-  Award,
-  Layers,
+  ShieldCheck,
   Calendar,
-  Compass,
-  Briefcase,
-  Share2,
-  Mic,
-  Newspaper,
-  Shield,
+  Award,
+  BookOpen,
+  Heart,
   TrendingUp,
+  Briefcase,
+  Layers,
+  Megaphone,
+  Clock,
+  Compass,
+  UserCheck,
+  Eye,
+  Flag,
+  Share2,
+  MessageSquare,
+  Search,
 } from 'lucide-react'
 import { usePageMedia } from '@/lib/hooks/use-page-media'
 
+// ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
   { icon: Users, value: '10,000+', label: 'Entrepreneurs' },
   { icon: Building2, value: '45+', label: 'Cities' },
@@ -36,114 +42,170 @@ const STATS = [
   { icon: Target, value: '1M', label: 'Lives to Impact' },
 ]
 
-const STAGES = [
-  { stage: '1', members: '1–5', title: 'Foundation', desc: 'Structure starts from Day 1. Run the LSR four-part format with your first members.' },
-  { stage: '2', members: '6–15', title: 'Early Momentum', desc: 'Visitors, referral velocity, and the first verified collaboration success stories.' },
-  { stage: '3', members: '16–25', title: 'Leadership Team Formed', desc: 'The Powerhouse forms. Three committees take ownership of growth, experience, and impact.' },
-  { stage: '4', members: '26–40', title: 'Pre-Launch Phase', desc: 'Mini-conference meeting format, regional visibility, and preparation for official launch.' },
-  { stage: '5', members: '40+', title: 'Official Launch', desc: 'Celebration milestone. Major event, media coverage through VyapaarJagat, and awards.' },
-  { stage: '6', members: '40–50', title: 'Stabilisation', desc: 'Category depth, retention, Director handover, and enduring community culture.' },
+// ─── Six Stages of Building a Circle ──────────────────────────────────────
+const SIX_STAGES = [
+  {
+    stage: '01',
+    title: 'The Beginning',
+    desc: 'One entrepreneur decides to bring people together.',
+  },
+  {
+    stage: '02',
+    title: 'The First Conversations',
+    desc: 'The Founder begins conversations with entrepreneurs who may belong.',
+  },
+  {
+    stage: '03',
+    title: 'The First Circle',
+    desc: 'The first group comes together and experiences the Circle.',
+  },
+  {
+    stage: '04',
+    title: 'Building the Rhythm',
+    desc: 'Meetings, relationships and contribution begin becoming consistent.',
+  },
+  {
+    stage: '05',
+    title: 'Growing the Circle',
+    desc: 'More relevant entrepreneurs are brought into the community.',
+  },
+  {
+    stage: '06',
+    title: 'Becoming a Community',
+    desc: 'The Circle develops its own rhythm, relationships and culture.',
+  },
 ]
 
+// ─── What The Role Carries (5 Dimensions) ─────────────────────────────────
 const ROLE_CARRIES = [
   {
+    number: '01',
+    title: 'CONVENE THE INDUSTRY',
+    headline: 'Bring together relevant entrepreneurs who can create meaningful conversations and relationships.',
+    desc: 'The objective is not simply to fill seats. It is to bring the right people into the room.',
     icon: Users,
-    title: 'You convene the industry',
-    desc: 'Every month, a room of established entrepreneurs assembles because you called it. Twelve occasions a year on which the people who matter in your sector are in one place, at your invitation.',
   },
   {
+    number: '02',
+    title: 'HOST THE PLATFORM',
+    headline: 'Create the environment in which the first Circle can meet, connect and begin building trust.',
+    desc: 'The Founder helps turn an idea into an actual experience.',
     icon: Compass,
-    title: 'You host the platform',
-    desc: 'The Circle meeting is your event. You shape its focus, set its tone, and decide who stands in front of it.',
   },
   {
+    number: '03',
+    title: 'INVITE THE LEADERS',
+    headline: 'Identify entrepreneurs who can contribute beyond their own participation and encourage them to step into leadership.',
+    desc: 'A Circle should not depend forever on one person. The Founder begins something that others can eventually help lead.',
     icon: Award,
-    title: 'You invite the leaders',
-    desc: 'Senior industry figures, respected entrepreneurs and subject experts, invited as guests and speakers. That invitation comes from a position of hosting rather than asking.',
   },
   {
-    icon: Newspaper,
-    title: 'You carry media and visibility',
-    desc: 'Coverage through VyapaarJagat.com, features across the Peers Global media ecosystem, and your Circle’s own magazine and Coffee Table Book.',
+    number: '04',
+    title: 'MEDIA & VISIBILITY',
+    headline: 'Help create visibility for the Circle and the entrepreneurs within it.',
+    desc: 'Stories deserve to be seen. Contributions deserve to be recognised. And the community should have opportunities to represent what it is building.',
+    icon: Megaphone,
   },
   {
+    number: '05',
+    title: 'REPRESENT THE COMMUNITY',
+    headline: 'Carry the Circle\'s identity beyond the meeting room.',
+    desc: 'Represent PEERS GLOBAL with the same respect, responsibility and spirit with which the Circle was created.',
     icon: Globe2,
-    title: 'You represent the community',
-    desc: 'At regional and national gatherings, across your city, and throughout your industry sector as a recognized ecosystem convenor.',
   },
 ]
 
+// ─── What a Founder Does ──────────────────────────────────────────────────
 const WHAT_FOUNDER_DOES = [
-  { title: 'Defines the Circle', desc: 'The industry or purpose, the standard, and the character of the room.' },
-  { title: 'Convenes the founding members', desc: 'Complementary businesses, category exclusivity, entrepreneurs who give first.' },
-  { title: 'Runs the format from Day 1', desc: 'Fixed day, fixed time, the four-part agenda, from the very first meeting.' },
-  { title: 'Builds the leadership team', desc: 'By Stage 3, the Powerhouse is formed and the Circle no longer depends on you alone.' },
-  { title: 'Carries it to launch', desc: 'Stage 5, at 40+ members, with media, awards and industry positioning.' },
-  { title: 'Hands over the running', desc: 'A Circle Director takes the month-on-month after launch. You remain the Founder.' },
+  'see the opportunity',
+  'begin the conversation',
+  'introduce entrepreneurs to the idea',
+  'create the first gathering',
+  'encourage participation',
+  'build early relationships',
+  'invite people who can contribute',
+  'identify emerging leaders',
+  'help establish the Circle\'s rhythm',
+  'represent the Circle as it begins its journey',
 ]
 
+// ─── Who This Is For ──────────────────────────────────────────────────────
 const WHO_THIS_IS_FOR = [
-  'You have built something already — a business, a team, a reputation',
-  'Entrepreneurs in your city or industry already come to you for introductions',
-  'You can list fifteen serious business owners who would take your call',
-  'You can hold a standard among people who outrank you commercially',
-  'You finish what you begin',
+  'well connected within their industry',
+  'natural conveners',
+  'trusted by other entrepreneurs',
+  'comfortable starting something new',
+  'willing to make introductions',
+  'able to create conversations',
+  'interested in building a lasting community',
 ]
 
-const WHAT_COMMUNITY_PROVIDES = [
-  { title: 'The structure', desc: 'The complete Circle model, the four-part agenda, the seat system, roles and standards.' },
-  { title: 'The Circle Founder Playbook', desc: 'The full build guide, plus a 30-day quick-start covering exactly what to do in your first month.' },
-  { title: 'The systems', desc: 'The Unity App, member management, contribution tracking and the Peer directory from Day 1.' },
-  { title: 'Founder induction', desc: 'How to convene the founding group, run the agenda, and handle what every new Circle encounters.' },
-  { title: 'Regional support', desc: 'An Executive Director alongside you, and access to Founders who have already done it.' },
-  { title: 'The platform and brand', desc: 'You convene under Peers Global, with its credibility and national reach.' },
-  { title: 'Media and visibility', desc: 'Coverage through VyapaarJagat.com and the wider media ecosystem.' },
+// ─── What PEERS GLOBAL Provides & What You Bring ─────────────────────────
+const WHAT_PEERS_GLOBAL_PROVIDES = [
+  {
+    title: 'Community Structure & Framework',
+    desc: 'The complete governance model, four-part agenda, seat allocation system, and operational standards so you never build from scratch.',
+  },
+  {
+    title: 'Language & Philosophy',
+    desc: 'The trusted vocabulary, core principles, and established ethos of contribution over transaction.',
+  },
+  {
+    title: 'Unity Digital Ecosystem',
+    desc: 'The official Unity App for seamless member onboarding, attendance tracking, and cross-Circle networking from Day 1.',
+  },
+  {
+    title: 'Regional & Leadership Guidance',
+    desc: 'Direct mentorship from experienced Executive Directors and existing Founders to support every milestone of your launch.',
+  },
 ]
 
-const WHAT_YOU_BRING = [
-  { title: 'Standing in your market', desc: 'Your credibility is what brings the founding entrepreneurs in.' },
-  { title: 'Leadership', desc: 'Someone holds the standard, and in the first months that is you.' },
-  { title: 'Consistency', desc: 'Every month, from Day 1 without exception.' },
-  { title: 'Judgement', desc: 'About who belongs in the room you are building, and who does not.' },
+const WHAT_YOU_BRING_POINTS = [
+  {
+    title: 'Local Understanding & Market Insight',
+    desc: 'You understand your city and know the entrepreneurs who are building meaningful businesses in your sector.',
+  },
+  {
+    title: 'Trust & Relationships',
+    desc: 'The personal credibility that brings the first accomplished founders to the table.',
+  },
+  {
+    title: 'Initiative & The Willingness to Begin',
+    desc: 'Taking the courageous first step before the room exists and finding the people for whom the Circle genuinely matters.',
+  },
 ]
 
-const HOW_TO_BECOME = [
-  { step: '1', title: 'Become a Peer', desc: 'Peers Global membership is required.' },
-  { step: '2', title: 'Apply', desc: 'Your business, your city or industry, and the Circle you intend to build.' },
-  { step: '3', title: 'Meet an Executive Director', desc: 'An honest conversation about the opportunity and the role.' },
-  { step: '4', title: 'Complete Founder Induction', desc: 'Including the 30-day quick-start guide.' },
-  { step: '5', title: 'Hold Your First Meeting', desc: 'With your first members. Structure from Day 1.' },
-  { step: '6', title: 'Build Through Stages', desc: 'To official launch celebration at 40+.' },
+// ─── How to Become Checklist ──────────────────────────────────────────────
+const HOW_TO_BECOME_POINTS = [
+  'the city',
+  'the industry or purpose',
+  'the entrepreneurs you could bring together',
+  'the reason this Circle should exist',
+  'the relationships you already have',
+  'the contribution you could make',
 ]
 
+// ─── Frequently Asked Questions ──────────────────────────────────────────
 const FAQ = [
   {
-    q: 'Do I need to be a Peer already?',
-    a: 'Yes. Peers Global membership is required.',
+    q: 'Does a Circle need to be full before it begins?',
+    a: 'No. Circle starts from Day 1. The first entrepreneur is already the beginning of the Circle.',
   },
   {
-    q: 'How many entrepreneurs do I need to start?',
-    a: 'Your first meeting can be five people. A Circle starts on Day 1 with your first member. Structure begins immediately. Official launch happens at 40+, and it is a celebration rather than a beginning.',
+    q: 'Do I need a large personal network?',
+    a: 'Not necessarily. What matters is the willingness and ability to begin bringing relevant entrepreneurs together.',
   },
   {
-    q: 'How long from application to first meeting?',
-    a: 'Between five days and two months, depending on how quickly you convene your first founding members.',
+    q: 'Is the Founder the permanent leader of the Circle?',
+    a: 'Not necessarily. The Founder begins the Circle. As the community develops, leadership can become distributed through the Powerhouse and Circle leadership structure.',
   },
   {
-    q: 'How long to official launch?',
-    a: 'Roughly two to four months for a Founder working consistently. Some take longer, and take stronger Circles to launch for it.',
+    q: 'What is the biggest responsibility of a Founder?',
+    a: 'To create the conditions for the right entrepreneurs to meet, build relationships and begin contributing to one another.',
   },
   {
-    q: 'Can I found a Circle while running my business?',
-    a: 'Yes. Every Circle Founder is a working business owner. The role is designed around active founders.',
-  },
-  {
-    q: 'Can I start a Circle in an industry that exists elsewhere?',
-    a: 'Yes. An Industry Circle in one city is entirely separate from the same industry in another.',
-  },
-  {
-    q: 'What happens after launch?',
-    a: 'A Circle Director takes on the month-on-month running while you continue as Founder. Many Founders go on to build a second Circle or move into wider regional leadership.',
+    q: 'What happens after the Circle is established?',
+    a: 'The Circle develops its rhythm, leadership and community. The Founder becomes part of a larger story: one that is no longer about starting a Circle, but about helping that Circle become a meaningful community.',
   },
 ]
 
@@ -178,15 +240,16 @@ export function CircleFounderClient() {
             <span className="text-slate-800 font-semibold">Circle Founder</span>
           </nav>
 
-          {/* Hero Banner Box (Unified rounded card matching Why Join layout) */}
+          {/* Hero Banner Box */}
           <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
-
             {/* Fade Video Visual (Right 60%) */}
             <div
               className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
               style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+                maskImage:
+                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+                WebkitMaskImage:
+                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
               }}
             >
               {heroMedia.isYouTube && heroMedia.embedUrl ? (
@@ -217,41 +280,42 @@ export function CircleFounderClient() {
                   className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
                   style={{ fontFamily: 'var(--font-script)' }}
                 >
-                  Build the Room.
+                  Start With One
                 </p>
                 <p
                   className="text-2xl sm:text-3xl text-white/95 leading-tight mt-0.5 font-medium"
                   style={{ fontFamily: 'var(--font-script)' }}
                 >
-                  Convene the Leaders.
+                  Build With Trust.
                 </p>
                 <p
                   className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5"
                   style={{ fontFamily: 'var(--font-script)' }}
                 >
-                  Shape the Market.
+                  Create A Circle.
                 </p>
               </div>
             </div>
 
-            {/* Left Content (Z-10) */}
+            {/* Left Content */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl flex flex-col items-start">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FLAGSHIP ROLE</span>
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  <span className="brand-gradient-text">CIRCLE FOUNDER</span>
+                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-4">
-                  <span className="brand-gradient-text">Circle Founder</span>
+                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
+                  Circle Founder
                 </h1>
 
                 <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
-                  Leading the leaders.
+                  Launches new Circles.
                 </p>
 
                 <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-light">
-                  Every entrepreneur in your Circle is already a leader in their own right. Convening them, and holding their respect, is a different order of leadership entirely.
+                  Every Circle begins because someone decides to bring the right people together. A Circle does not begin with a room full of entrepreneurs. It begins with one entrepreneur who sees an opportunity: <strong className="text-slate-900 font-semibold">“There should be a Circle here.”</strong> A Circle Founder takes the first step — not by building a personal network, but by creating the possibility of a community.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
@@ -274,7 +338,6 @@ export function CircleFounderClient() {
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* Floating Stats Bar */}
@@ -304,138 +367,145 @@ export function CircleFounderClient() {
         </div>
       </section>
 
-      {/* ─── 2. THE MOST SIGNIFICANT ROLE ──────────────────────────────── */}
-      <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 bg-white border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left sm:text-center">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">CONVENE, DO NOT JOIN</span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-          </div>
-
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">
-            <span className="brand-gradient-text">The most significant role in this community</span>
-          </h2>
-
-          <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed font-light text-left">
-            <p>
-              A Circle Founder does not join a room. They create one.
-            </p>
-            <p>
-              You bring together the entrepreneurs of an industry or a city — accomplished business owners who did not know each other, who now meet every month because you convened them. You set the standard they operate by. You decide who belongs. You host the platform where their businesses grow.
-            </p>
-            <p className="font-medium text-slate-950">
-              This is the role from which everything at Peers Global begins. No Circle exists without a Founder. No city has a community until someone builds the first room in it.
-            </p>
-            <p>
-              It is also the most visible position an entrepreneur can hold in their own market.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 3. THE ROOM NOBODY HAS BUILT & DAY 1 PRINCIPLE ────────────── */}
-      <section className="py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-            {/* The room nobody has built */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between">
-              <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
-                  THE OPPORTUNITY
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 mb-4">
-                  The room nobody has built
-                </h3>
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-light mb-4">
-                  Somewhere in your city there are twenty entrepreneurs who would change each other’s businesses if they were ever in the same room.
-                </p>
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-light">
-                  They are not. They pass each other at events, exchange cards, and go back to solving the same problems separately. The ecosystem exists. The room does not.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 font-serif text-base font-bold text-slate-950">
-                A Circle Founder is the person who builds it.
-              </div>
-            </div>
-
-            {/* Circle starts from Day 1 */}
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-[#0062D2] to-[#004A9E] text-white shadow-xl flex flex-col justify-between">
-              <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-200 mb-2">
-                  CORE PRINCIPLE
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4">
-                  Circle starts from Day 1
-                </h3>
-                <blockquote className="font-serif text-lg sm:text-xl font-medium leading-snug mb-4 text-blue-50 italic">
-                  “Circle doesn’t start at 25 members. Circle starts from Day 1 — first member. Even if three people are there, it is still a Circle. Structure starts from Day 1.”
-                </blockquote>
-                <p className="text-xs sm:text-sm text-blue-100/90 leading-relaxed">
-                  You do not wait until you have a full room to begin. You run the format from your first meeting with your first members, and the room grows around a standard that was there from the beginning.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-blue-400/40 text-xs font-semibold text-amber-300 uppercase tracking-wider">
-                The official launch is a celebration, not the start.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 4. THE SIX STAGES OF CIRCLE GROWTH ─────────────────────────── */}
+      {/* ─── 2. THE ROOM NOBODY HAS BUILT ───────────────────────────────── */}
       <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE GROWTH SEQUENCE</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 flex flex-col items-start">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">THE VISION</span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-5">
+                The room nobody has built
+              </h2>
+
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-4 font-light">
+                Every city has entrepreneurs who could learn from one another. Every industry has experiences that deserve to be shared. Every growing business owner reaches moments where the right conversation, introduction or relationship could change what becomes possible.
+              </p>
+
+              <div className="p-6 rounded-2xl bg-[#FAFBFD] border-l-4 border-[#0062D2] border-y border-r border-slate-200/80 mb-6">
+                <p className="text-lg font-serif font-bold text-slate-950 mb-1">
+                  But sometimes that Circle does not exist yet. That is where the Founder comes in.
+                </p>
+                <p className="text-sm text-slate-600 font-light mt-2">
+                  The Founder sees the room before the room exists. And then begins building it.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 w-full">
+                <div className="p-5 rounded-2xl bg-[#F4F8FE] border border-blue-100 flex items-start gap-3.5">
+                  <div className="size-10 rounded-xl bg-blue-100 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
+                    <Compass className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-sm font-bold text-slate-900">See The Opportunity</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-light mt-0.5">
+                      Identify the missing ecosystem in your city or industry where accomplished founders can connect.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3.5">
+                  <div className="size-10 rounded-xl bg-slate-200 text-slate-800 flex items-center justify-center shrink-0 mt-0.5">
+                    <Sparkles className="size-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-sm font-bold text-slate-900">Create The Possibility</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-light mt-0.5">
+                      Turn an empty space into a vibrant home for collaboration, peer learning, and shared growth.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-              <span className="brand-gradient-text">Six stages from first member to launch.</span>
+
+            {/* Right Visual Image */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/60 aspect-[4/3]">
+                <Image
+                  src="/images/leadership-circle-founder.jpg"
+                  alt="Circle Founder bringing entrepreneurs together"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute top-4 right-4 text-right select-none pointer-events-none drop-shadow-md">
+                  <p className="text-xs text-white/90 font-medium tracking-wider uppercase">
+                    Stage 01
+                  </p>
+                  <p
+                    className="text-lg text-amber-300 font-bold leading-tight"
+                    style={{ fontFamily: 'var(--font-script)' }}
+                  >
+                    Build The Room
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 3. CIRCLE STARTS FROM DAY 1 & SIX STAGES TABLE ──────────────── */}
+      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THE GROWTH SEQUENCE</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-4">
+              Circle starts from Day 1
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-3 font-light">
-              Structure begins immediately. Official launch happens at 40+ as a celebration of the community already built.
+            <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed mb-3">
+              You do not wait until everything is perfect. You do not need a full room before you call it a Circle.
+            </p>
+            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              The Circle starts from Day 1. It starts with the first entrepreneur. Then the first conversation. Then the first meeting. Then the first relationship. Then the rhythm begins.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {STAGES.map((s) => (
+          {/* 6 Stages Table / Cards Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SIX_STAGES.map((item) => (
               <div
-                key={s.stage}
-                className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm hover:border-blue-300 transition-colors flex flex-col justify-between"
+                key={item.stage}
+                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-[#0062D2]/40 hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="size-8 rounded-full bg-blue-100 text-[#0062D2] text-xs font-bold flex items-center justify-center font-mono">
-                      0{s.stage}
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                      {s.members} Members
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                      Stage {item.stage}
                     </span>
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-slate-950 mb-1">
-                    {s.title}
+                  <h3 className="font-serif text-xl font-bold text-slate-950 mb-2">
+                    {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                    {s.desc}
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="mt-8 p-5 rounded-2xl bg-blue-50/70 border border-blue-100 text-center max-w-3xl mx-auto">
+            <p className="text-sm font-serif font-bold text-slate-900">
+              The Founder starts the journey. The community eventually carries it forward.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ─── 5. WHAT THE ROLE CARRIES (HOMEPAGE DARK CONSTELLATION THEME) ─── */}
+      {/* ─── 4. WHAT THE ROLE CARRIES (5 DIMENSIONS - DARK THEME) ─────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80">
-        {/* Background Glow & Atmospheric Orbs */}
         <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
         <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
         <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
 
-        {/* Constellation Star Particle Overlay */}
         <svg viewBox="0 0 1400 600" className="absolute inset-0 size-full pointer-events-none opacity-20" preserveAspectRatio="none">
           <g fill="#38BDF8">
             <circle cx="80" cy="60" r="1.5" /><circle cx="200" cy="130" r="1" /><circle cx="340" cy="45" r="2" />
@@ -452,51 +522,50 @@ export function CircleFounderClient() {
           </g>
         </svg>
 
-        {/* Orbit rings decorative */}
-        <div className="pointer-events-none absolute -bottom-24 -left-20 size-[380px] opacity-20">
-          <svg viewBox="0 0 400 400" className="size-full stroke-cyan-400/30 fill-none">
-            <circle cx="100" cy="300" r="260" strokeWidth="1" strokeDasharray="6 6" />
-            <circle cx="100" cy="300" r="210" strokeWidth="1" />
-            <circle cx="100" cy="300" r="160" strokeWidth="1" />
-            <circle cx="100" cy="90" r="3.5" fill="#38bdf8" className="animate-pulse" />
-          </svg>
-        </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="flex items-center justify-center gap-2 mb-3.5">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">AUTHORITY & REACH</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
+              <span className="w-5 h-px bg-cyan-400" />
+              FIVE DIMENSIONS OF RESPONSIBILITY
+              <span className="w-5 h-px bg-cyan-400" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              <span className="brand-gradient-text">What the role carries</span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+              What the role carries
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 mt-3 font-light">
-              Not through advertising, but as the convenor of something that matters in your market.
+            <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+              Being a Circle Founder means carrying responsibility for the beginning. The role includes five important dimensions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ROLE_CARRIES.map((item, idx) => {
-              const Icon = item.icon
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ROLE_CARRIES.map((dim, idx) => {
+              const Icon = dim.icon
               return (
                 <div
-                  key={idx}
-                  className="rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] p-7 sm:p-8 text-white shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  key={dim.number}
+                  className={`p-7 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
+                    idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
+                  }`}
                 >
-                  {/* Subtle glass reflection */}
                   <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
 
                   <div className="relative z-10">
-                    <div className="size-12 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
-                      <Icon className="size-6" />
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-xs font-bold text-cyan-400 border border-cyan-500/30 px-2.5 py-1 rounded-full bg-cyan-500/10">
+                        {dim.number}
+                      </span>
+                      <div className="size-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
+                        <Icon className="size-5" />
+                      </div>
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-white mb-2">
-                      {item.title}
+                    <h3 className="font-serif text-lg font-bold text-white mb-2 tracking-wide">
+                      {dim.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                      {item.desc}
+                    <p className="text-xs sm:text-sm text-cyan-200/90 font-medium mb-2 leading-snug">
+                      {dim.headline}
+                    </p>
+                    <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                      {dim.desc}
                     </p>
                   </div>
                 </div>
@@ -506,47 +575,126 @@ export function CircleFounderClient() {
         </div>
       </section>
 
-      {/* ─── 6. WHAT A CIRCLE FOUNDER DOES & WHO THIS IS FOR ───────────── */}
+      {/* ─── 5. LEADING THE LEADERS ─────────────────────────────────────── */}
       <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
-            {/* Left: What a Circle Founder does */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">OPERATIONAL EXECUTION</span>
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">DISTRIBUTED LEADERSHIP</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight">
-                <span className="brand-gradient-text">What a Circle Founder does</span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-5">
+                Leading the leaders
               </h2>
+              <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed mb-4">
+                A Founder starts the Circle. That does not mean the Founder must remain the centre of everything.
+              </p>
+              <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed mb-6">
+                The strongest communities gradually develop shared responsibility. As the Circle grows, leadership can move seamlessly through four evolutionary stages:
+              </p>
 
-              <div className="space-y-4 pt-2">
-                {WHAT_FOUNDER_DOES.map((act, i) => (
-                  <div key={i} className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200 flex items-start gap-3">
-                    <span className="size-6 rounded-full bg-blue-100 text-[#0062D2] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                      {i + 1}
-                    </span>
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-slate-950">
-                        {act.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
-                        {act.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              {/* Step sequence */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <span className="text-xs font-bold text-[#0062D2] uppercase">Step 1</span>
+                  <h4 className="font-serif text-base font-bold text-slate-900 mt-1">One Founder</h4>
+                  <p className="text-xs text-slate-600 font-light mt-0.5">Sees the vision and starts the room.</p>
+                </div>
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <span className="text-xs font-bold text-[#0062D2] uppercase">Step 2</span>
+                  <h4 className="font-serif text-base font-bold text-slate-900 mt-1">A Powerhouse</h4>
+                  <p className="text-xs text-slate-600 font-light mt-0.5">Active committees take functional ownership.</p>
+                </div>
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <span className="text-xs font-bold text-[#0062D2] uppercase">Step 3</span>
+                  <h4 className="font-serif text-base font-bold text-slate-900 mt-1">Circle Director & Team</h4>
+                  <p className="text-xs text-slate-600 font-light mt-0.5">Holds month-on-month operational rhythm.</p>
+                </div>
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <span className="text-xs font-bold text-[#0062D2] uppercase">Step 4</span>
+                  <h4 className="font-serif text-base font-bold text-slate-900 mt-1">Self-Sustaining Community</h4>
+                  <p className="text-xs text-slate-600 font-light mt-0.5">Thrives and outgrows any individual effort.</p>
+                </div>
               </div>
             </div>
 
-            {/* Right: Who this role is for & is not for */}
+            {/* Right Quote Card */}
+            <div className="lg:col-span-5">
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-[#FAFBFD] to-[#F1F5F9] border border-slate-200/90 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-5">
+                    <Quote className="size-6" />
+                  </div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
+                    THE FOUNDER&apos;S LEGACY
+                  </h3>
+                  <blockquote className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug tracking-tight mb-4">
+                    “You are not simply building a group. You are helping build something that can outgrow your individual effort.”
+                  </blockquote>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    That is an important part of the Founder&apos;s journey — creating an institution that continues to elevate entrepreneurs year after year.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. WHAT A FOUNDER DOES & WHO THIS IS FOR ────────────────────── */}
+      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            {/* Left: What a Founder Does */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-1">
+                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="brand-gradient-text">THE INITIATOR</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
+                What a Founder does
+              </h2>
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-light">
+                The Founder is often the first person to step up and make things happen across the Circle journey:
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-3 pt-2">
+                {WHAT_FOUNDER_DOES.map((item, idx) => (
+                  <div key={idx} className="p-3.5 rounded-2xl bg-white border border-slate-200 flex items-start gap-2.5 shadow-sm">
+                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
+                    <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-100">
+                <p className="text-xs uppercase font-bold text-[#0062D2] tracking-wider mb-1">
+                  UNDERNEATH IT ALL
+                </p>
+                <p className="text-sm sm:text-base text-slate-900 leading-relaxed font-serif font-bold">
+                  Bring the right people together and help them discover what they can build together.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Who This Is For */}
             <div className="lg:col-span-5 space-y-6">
-              {/* Who this is for */}
-              <div className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200 shadow-sm">
-                <h3 className="font-serif text-xl font-bold text-slate-950 mb-3">
-                  This role is for you if:
+              <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-1">
+                  FOUNDER PROFILE
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-slate-950 mb-3">
+                  Who this is for
                 </h3>
-                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700">
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-5">
+                  Circle Founders are entrepreneurs who see beyond their own business. They may be:
+                </p>
+
+                <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
                   {WHO_THIS_IS_FOR.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -554,134 +702,161 @@ export function CircleFounderClient() {
                     </li>
                   ))}
                 </ul>
-              </div>
 
-              {/* Who this is not for */}
-              <div className="p-7 rounded-3xl bg-rose-50/50 border border-rose-200 shadow-sm">
-                <h3 className="font-serif text-xl font-bold text-rose-950 mb-2">
-                  This is NOT for you if:
-                </h3>
-                <p className="text-xs sm:text-sm text-rose-900 leading-relaxed font-light">
-                  You are looking for a title, a customer list, or a channel to sell into. A Circle led by someone selling to it does not survive its first year, and the room recognises it long before the Founder does.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 7. WHAT THE COMMUNITY PROVIDES & WHAT YOU BRING ────────────── */}
-      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
-            {/* What community provides */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
-              <h3 className="font-serif text-2xl font-bold text-slate-950 mb-6">
-                What the community provides
-              </h3>
-              <div className="space-y-4">
-                {WHAT_COMMUNITY_PROVIDES.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-slate-950">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-600 mt-0.5 font-light">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* What you bring */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
-              <h3 className="font-serif text-2xl font-bold text-slate-950 mb-6">
-                What you bring
-              </h3>
-              <div className="space-y-4">
-                {WHAT_YOU_BRING.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-slate-950">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-600 mt-0.5 font-light">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 8. HOW TO BECOME A CIRCLE FOUNDER (6 STEPS) ────────────────── */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE PIPELINE</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-              <span className="brand-gradient-text">How to become a Circle Founder</span>
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-3 font-light">
-              From application to your first meeting, supported by experienced Founders and regional Executive Directors.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-            {HOW_TO_BECOME.map((item) => (
-              <div
-                key={item.step}
-                className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="size-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center mb-3">
-                    {item.step}
-                  </div>
-                  <h4 className="font-serif text-base font-bold text-slate-950 mb-1">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    {item.desc}
+                <div className="mt-6 pt-5 border-t border-slate-200">
+                  <p className="text-xs text-slate-600 font-medium">
+                    You do not have to know everyone. You need to be willing to begin.
                   </p>
                 </div>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link
-              href="/start-a-circle"
-              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
-            >
-              <span>Apply to Found a Circle</span>
-              <ArrowRight className="size-4" />
-            </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── 9. COMMON QUESTIONS (FAQ) ─────────────────────────────────── */}
+      {/* ─── 7. WHAT PEERS GLOBAL PROVIDES & WHAT YOU BRING ─────────────── */}
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
+            {/* What PEERS GLOBAL provides */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
+                  THE FOUNDATION
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 mb-4">
+                  What PEERS GLOBAL provides
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
+                  You do not have to build the Circle framework from scratch. PEERS GLOBAL provides the community structure, language and framework within which the Circle can develop.
+                </p>
+
+                <div className="space-y-4">
+                  {WHAT_PEERS_GLOBAL_PROVIDES.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-serif text-base font-bold text-slate-950">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5 font-light leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-slate-200 text-xs font-semibold text-slate-700">
+                The structure is provided. The community is built together.
+              </div>
+            </div>
+
+            {/* What You Bring */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
+                  THE CATALYST
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 mb-4">
+                  What you bring
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
+                  You bring something no framework can manufacture: <strong className="font-semibold text-slate-900">Trust</strong>.
+                </p>
+
+                <div className="space-y-4">
+                  {WHAT_YOU_BRING_POINTS.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 className="size-5 text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-serif text-base font-bold text-slate-950">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5 font-light leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-slate-200 text-xs text-slate-600 font-medium">
+                Your role is not to persuade everyone. It is to find the people for whom the Circle could genuinely matter.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 8. HOW TO BECOME A CIRCLE FOUNDER ──────────────────────────── */}
       <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THE FIRST STEP</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-4">
+              How to become a Circle Founder
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
+              The starting point is simple. Ask yourself: <br />
+              <span className="font-serif font-bold text-slate-900 text-lg sm:text-xl">“If this Circle does not exist today, am I willing to help create it?”</span>
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+            <h3 className="font-serif text-xl font-bold text-slate-950 mb-4 text-center sm:text-left">
+              Then identify:
+            </h3>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+              {HOW_TO_BECOME_POINTS.map((pt, idx) => (
+                <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+                  <div className="size-7 rounded-full bg-blue-100 text-[#0062D2] text-xs font-bold flex items-center justify-center shrink-0">
+                    {idx + 1}
+                  </div>
+                  <span className="text-xs sm:text-sm font-medium text-slate-800 capitalize">
+                    {pt}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100 text-center">
+              <p className="text-sm text-slate-800 font-light">
+                From there, begin the conversation with PEERS GLOBAL. Every Circle that exists today was once only an idea. Someone had to take the first step.
+              </p>
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link
+                href="/start-a-circle"
+                className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+              >
+                <span>Begin the Conversation</span>
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 9. FREQUENTLY ASKED QUESTIONS ──────────────────────────────── */}
+      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FAQ</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">FREQUENTLY ASKED QUESTIONS</span>
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight">
-              <span className="brand-gradient-text">Common questions</span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
+              Frequently asked questions
             </h2>
           </div>
 
@@ -691,7 +866,7 @@ export function CircleFounderClient() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm transition-colors"
+                  className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-sm transition-colors"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
@@ -705,7 +880,7 @@ export function CircleFounderClient() {
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-6 pb-6 pt-1 text-sm text-slate-600 leading-relaxed font-light border-t border-slate-100">
+                    <div className="px-6 pb-6 pt-1 text-sm text-slate-600 leading-relaxed font-light border-t border-slate-200/80">
                       {item.a}
                     </div>
                   )}
@@ -716,9 +891,8 @@ export function CircleFounderClient() {
         </div>
       </section>
 
-      {/* ─── 10. CLOSING HERO BANNER ─── */}
+      {/* ─── 10. START WITH ONE ENTREPRENEUR (CLOSING HERO BANNER) ──────── */}
       <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 lg:py-28">
-        {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
@@ -732,7 +906,6 @@ export function CircleFounderClient() {
           className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
         />
 
-        {/* Subtle Geometric Orbital Line Art */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
           <svg
             viewBox="0 0 760 520"
@@ -754,35 +927,42 @@ export function CircleFounderClient() {
             <div className="lg:col-span-8 flex flex-col items-start">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-sky-200 mb-3">
                 <span className="w-5 h-px bg-sky-200" />
-                BUILD YOUR CIRCLE
+                START WITH ONE ENTREPRENEUR
                 <span className="w-5 h-px bg-sky-200" />
               </div>
 
               <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
-                There is a room your city needs and does not have.
+                You only have to begin.
               </h2>
 
-              <p className="text-base sm:text-xl text-white/90 leading-relaxed font-light mb-8 max-w-2xl">
-                You already know who should be in it.
+              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light mb-3 max-w-2xl">
+                You do not have to build the whole Circle today. Find the first entrepreneur. Start the first conversation. Create the first connection. Then let contribution, trust and relationships build what comes next.
               </p>
 
+              <div className="space-y-1 mb-8">
+                <p className="text-sm font-semibold text-sky-200">Start with one entrepreneur.</p>
+                <p className="text-sm font-semibold text-sky-200">Build with trust.</p>
+                <p className="text-sm font-semibold text-sky-200">Grow through contribution.</p>
+                <p className="text-lg font-serif font-bold text-amber-300">Create a Circle.</p>
+              </div>
+
               <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-white hover:bg-blue-50 text-[#0062D2] px-8 py-3.5 text-sm font-semibold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
                 <Link
                   href="/start-a-circle"
-                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
+                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
                 >
                   <span>Apply to Found a Circle</span>
                   <ArrowRight className="size-4" />
                 </Link>
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="size-4" />
+                </a>
               </div>
             </div>
 
@@ -791,19 +971,25 @@ export function CircleFounderClient() {
                 className="text-2xl sm:text-3xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                Build Your Business.
+                Start With One.
               </p>
               <p
                 className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium mt-1"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                Build Your Relationships.
+                Build With Trust.
+              </p>
+              <p
+                className="text-2xl sm:text-3xl text-white leading-tight font-medium mt-1"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Grow Through Contribution.
               </p>
               <p
                 className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-1"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                Build Your Circle.
+                Create A Circle.
               </p>
             </div>
           </div>

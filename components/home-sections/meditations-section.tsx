@@ -5,14 +5,14 @@ import Link from 'next/link'
 
 const ROW_1_IMAGES = [
   { src: '/images/leadership-circle-founder.jpg', alt: 'Circle Founder' },
-  { src: '/images/circle-meeting.png', alt: 'Circle Meeting' },
+  { src: '/images/section_image/circle-meeting.png', alt: 'Circle Meeting' },
   { src: '/images/peers-avatars/amit-desai.jpg', alt: 'Amit Desai' },
   { src: '/images/who-we-are-friends.jpg', alt: 'Peers Community' },
   { src: '/images/industry-director-speaker.jpg', alt: 'Industry Director' },
   { src: '/images/peers-avatars/neha-kothari.jpg', alt: 'Neha Kothari' },
   { src: '/images/executive-director-hero.jpg', alt: 'Executive Director' },
   { src: '/images/peers-avatars/rajesh-shah.jpg', alt: 'Rajesh Shah' },
-  { src: '/images/conclave.png', alt: 'Peers Conclave' },
+  { src: '/images/section_image/conclave.png', alt: 'Peers Conclave' },
   { src: '/images/leadership-climbers-hero.jpg', alt: 'Leaders Climbing' },
 ]
 
@@ -26,7 +26,7 @@ const ROW_2_IMAGES = [
   { src: '/images/peers-avatars/vikram-patel.jpg', alt: 'Vikram Patel' },
   { src: '/images/leadership-entrepreneurs-meeting.jpg', alt: 'Entrepreneurs Meeting' },
   { src: '/images/peers-avatars/pradeep-joshi.jpg', alt: 'Pradeep Joshi' },
-  { src: '/images/circle-director-hero.jpg', alt: 'Circle Director' },
+  { src: '/images/section_image/circle-director-hero.jpg', alt: 'Circle Director' },
 ]
 
 const ROW_3_IMAGES = [
@@ -37,9 +37,9 @@ const ROW_3_IMAGES = [
   { src: '/images/story-priya-karan.jpg', alt: 'Collaboration Story' },
   { src: '/images/give-first-card.jpg', alt: 'Give First Culture' },
   { src: '/images/who-we-are-boardroom.jpg', alt: 'Boardroom Session' },
-  { src: '/images/executive-director-conclave.jpg', alt: 'Executive Director Conclave' },
-  { src: '/images/circle-roundtable-topdown.jpg', alt: 'Roundtable Meeting' },
-  { src: '/images/who-we-are-mountain.jpg', alt: 'Summit Milestone' },
+  { src: '/images/section_image/executive-director-conclave.jpg', alt: 'Executive Director Conclave' },
+  { src: '/images/section_image/circle-roundtable-topdown.jpg', alt: 'Roundtable Meeting' },
+  { src: '/images/membership-mountain-closing.jpg', alt: 'Summit Milestone' },
 ]
 
 export function MeditationsSection() {
