@@ -516,8 +516,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16">
             <div className="lg:col-span-7 space-y-5">
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
-                <span className="brand-gradient-text">Your Circle. Your Inner Board.</span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-950 tracking-tight leading-tight">
+                Your Circle. Your Inner Board.
               </h2>
 
               <p className="text-base sm:text-lg font-bold text-[#0062D2] leading-snug">
@@ -588,8 +588,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE 4-PART EXPERIENCE</span>
               </div>
-              <h3 className="font-serif text-3xl sm:text-4xl font-normal tracking-tight leading-tight text-slate-900 mb-3">
-                <span className="brand-gradient-text">The meeting has a rhythm</span>
+              <h3 className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight leading-tight text-slate-950 mb-3">
+                The meeting has a rhythm
               </h3>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 Every Circle follows a structured four-part experience. The structure creates consistency without taking away the human element. Because when entrepreneurs know that there is a meaningful space for them every month, relationships have the opportunity to deepen.
@@ -753,8 +753,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">TRUSTED & FOCUSED</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight mb-2">
-            <span className="brand-gradient-text">Why category exclusivity matters</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-950 tracking-tight leading-tight mb-2">
+            Why category exclusivity matters
           </h2>
 
           <p className="text-lg font-bold text-[#0062D2] mb-3">
@@ -828,8 +828,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND THE RIGHT FIT</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
-                <span className="brand-gradient-text">Two ways to find your Circle</span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-950 tracking-tight leading-tight">
+                Two ways to find your Circle
               </h2>
             </div>
 
@@ -925,8 +925,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">PARTICIPATION & RECIPROCITY</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal tracking-tight leading-tight text-slate-900 mb-3">
-                <span className="brand-gradient-text">What members actively share</span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight leading-tight text-slate-950 mb-3">
+                What members actively share
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 A Circle becomes valuable when its members participate. That participation takes many reciprocal forms:
@@ -1228,8 +1228,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">EXPLORE CIRCLES</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight mb-2">
-                <span className="brand-gradient-text">The 18 Circles</span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-2 text-slate-950">
+                The 18 Circles
               </h2>
               <p className="text-sm sm:text-base text-slate-600">
                 Find the Circle where your business belongs. Select any city or category to explore live chapters and seats across India.
@@ -1485,8 +1485,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT MAKES A CIRCLE DIFFERENT</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-tight">
-              <span className="brand-gradient-text">More than meetings. A movement.</span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-slate-950">
+              More than meetings. A movement.
             </h2>
           </div>
 

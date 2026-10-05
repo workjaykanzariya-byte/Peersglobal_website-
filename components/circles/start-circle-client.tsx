@@ -330,81 +330,148 @@ export function StartCircleClient() {
       {/* =================================================================
           SECTION 2: WHERE A CIRCLE BEGINS (NOT WITH A NUMBER. WITH A PERSON)
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE BEGINNING</span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-
-            <div className="lg:col-span-7 space-y-5">
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-                <span className="brand-gradient-text">A Circle does not begin when a room is full.</span>
-              </h2>
-
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                It begins when one entrepreneur decides that the right people should have a room to meet, learn, share, collaborate and grow together.
-              </p>
-
-              <div className="space-y-3 pt-2">
-                <div className="p-4 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-slate-800 text-sm font-medium">
-                  • Maybe your industry is not represented in your city yet.
+            {/* Left Column: Narrative & Context triggers */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE BEGINNING</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-slate-800 text-sm font-medium">
-                  • Maybe your purpose is shared by entrepreneurs who have never found one another.
-                </div>
-                <div className="p-4 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-slate-800 text-sm font-medium">
-                  • Maybe you have built something—and now you want to create a space where others can build alongside you.
+
+                <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-4">
+                  A Circle does not begin when a room is full.
+                </h2>
+
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-6">
+                  It begins when one entrepreneur decides that the right people should have a room to meet, learn, share, collaborate and grow together.
+                </p>
+
+                {/* 3 Origin Trigger Cards */}
+                <div className="space-y-3 mb-6">
+                  {[
+                    {
+                      icon: Building2,
+                      title: 'Industry Representation',
+                      desc: 'Maybe your industry is not yet represented in your city, and needs a dedicated peer space.',
+                    },
+                    {
+                      icon: Compass,
+                      title: 'Shared Purpose',
+                      desc: 'Maybe your purpose is shared by ambitious entrepreneurs who simply haven’t found one another.',
+                    },
+                    {
+                      icon: HeartHandshake,
+                      title: 'Collaborative Growth',
+                      desc: 'Maybe you have built something solid—and now want to create a space where others build alongside you.',
+                    },
+                  ].map((trigger, i) => {
+                    const Icon = trigger.icon
+                    return (
+                      <div
+                        key={i}
+                        className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:bg-blue-50/30 hover:border-blue-200/80 transition-all group"
+                      >
+                        <div className="size-10 rounded-xl bg-white border border-slate-200 text-blue-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:border-blue-300">
+                          <Icon className="size-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-slate-900 mb-0.5">{trigger.title}</p>
+                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{trigger.desc}</p>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
 
-              <p className="text-base sm:text-lg text-[#0062D2] font-bold leading-relaxed pt-2">
-                That is where a Circle begins. Not with a number. With a person.
-              </p>
-            </div>
-
-            {/* Right Card: You Do Not Wait for a Full Room */}
-            <div className="lg:col-span-5">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm space-y-5">
-                <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-sm">
-                  DAY 1
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold text-slate-900">
-                  You Do Not Wait for a Full Room
-                </h3>
-
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  A common assumption is that a Circle begins after enough entrepreneurs have joined. The Peers Global approach is different.
+              {/* Bottom Insight Pill */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 border border-blue-100 flex items-center justify-between gap-4">
+                <p className="text-sm sm:text-base font-bold text-slate-900">
+                  That is where a Circle begins. <span className="text-blue-600">Not with a number. With a person.</span>
                 </p>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs font-semibold text-slate-800 space-y-1">
-                  <div>You begin with the first person.</div>
-                  <div>Then the second.</div>
-                  <div>Then the third.</div>
+                <div className="size-8 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <ArrowRight className="size-4" />
                 </div>
-
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  The structure, rhythm and purpose are established from Day 1. Even if three people are there, it is still a Circle.
-                </p>
-
-                <div className="pt-3 border-t border-slate-200/80 space-y-1.5 text-xs text-slate-700">
-                  <div className="font-bold text-[#0062D2]">A Circle is defined by:</div>
-                  <div>✓ A shared context</div>
-                  <div>✓ A clear purpose</div>
-                  <div>✓ A commitment to meet</div>
-                  <div>✓ A willingness to contribute</div>
-                  <div>✓ A structure that helps relationships grow</div>
-                </div>
-
-                <p className="text-xs font-bold text-slate-800 italic pt-1">
-                  The room grows. The culture grows with it.
-                </p>
               </div>
             </div>
+
+            {/* Right Column: Day 1 Principles Executive Card */}
+            <div className="lg:col-span-5 flex flex-col">
+              <div className="h-full rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-7 sm:p-9 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                
+                <div>
+                  {/* Top Badge */}
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 text-[#0062D2] text-xs font-bold uppercase tracking-wider">
+                      <Sparkles className="size-3.5" />
+                      Day 1 Framework
+                    </span>
+                    <span className="text-xs text-slate-400 font-semibold">Founding Phase</span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug mb-3">
+                    You Do Not Wait for a Full Room
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
+                    A common assumption is that a Circle starts only after dozens join. The Peers Global approach is different:
+                  </p>
+
+                  {/* Step Progression */}
+                  <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-white border border-slate-200/80 mb-5 text-center">
+                    <div className="p-2 rounded-xl bg-blue-50/50">
+                      <div className="text-xs font-bold text-blue-600">1st</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">The Founder</div>
+                    </div>
+                    <div className="p-2 rounded-xl bg-blue-50/50">
+                      <div className="text-xs font-bold text-blue-600">2nd</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">First Peer</div>
+                    </div>
+                    <div className="p-2 rounded-xl bg-blue-50/50">
+                      <div className="text-xs font-bold text-blue-600">3rd</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">Core Triad</div>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-slate-600 leading-relaxed mb-5">
+                    The structure, rhythm, and purpose are established on Day 1. Even with three people, it is already an active Circle.
+                  </p>
+
+                  {/* Defined Checklist */}
+                  <div className="space-y-2 pt-4 border-t border-slate-200/80">
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                      A Circle is defined by:
+                    </div>
+                    {[
+                      'A shared industry or purpose context',
+                      'A clear, governed monthly agenda',
+                      'A fixed commitment to meet consistently',
+                      'A culture of contribution before asking',
+                      'A structured framework for lasting relationships',
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="size-3.5 text-blue-600 shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer note */}
+                <div className="pt-5 mt-5 border-t border-slate-200/80">
+                  <p className="text-xs font-bold text-slate-800 italic">
+                    "The room grows. The culture grows with it."
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -413,7 +480,7 @@ export function StartCircleClient() {
       {/* =================================================================
           SECTION 3: THE SIX STAGES TABLE / GRID
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
@@ -422,44 +489,96 @@ export function StartCircleClient() {
           </div>
           
           <div className="max-w-3xl mb-12">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
-              <span className="brand-gradient-text">The Six Stages</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
+              The Six Stages
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Starting a Circle is a journey. Each stage has a purpose—and each one brings the Circle closer to becoming a meaningful community.
+              Starting a Circle is a progressive roadmap. Each stage has a defined milestone—bringing the founding room closer to a permanent high-trust community.
             </p>
           </div>
 
-          {/* 6 Stage Responsive Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-            {SIX_STAGES.map((s) => (
-              <div key={s.step} className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between hover:shadow-md hover:border-[#0062D2]/40 transition-all">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="size-9 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                      {s.step}
-                    </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full">
-                      {s.tag}
-                    </span>
+          {/* 6 Stage Executive Roadmap Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {SIX_STAGES.map((s, idx) => {
+              const stageColors = [
+                { badge: 'bg-blue-50 text-blue-700 border-blue-200', numBg: 'bg-blue-600 text-white', accent: 'border-l-blue-600' },
+                { badge: 'bg-sky-50 text-sky-700 border-sky-200', numBg: 'bg-sky-600 text-white', accent: 'border-l-sky-600' },
+                { badge: 'bg-indigo-50 text-indigo-700 border-indigo-200', numBg: 'bg-indigo-600 text-white', accent: 'border-l-indigo-600' },
+                { badge: 'bg-amber-50 text-amber-700 border-amber-200', numBg: 'bg-amber-600 text-white', accent: 'border-l-amber-600' },
+                { badge: 'bg-emerald-50 text-emerald-700 border-emerald-200', numBg: 'bg-emerald-600 text-white', accent: 'border-l-emerald-600' },
+                { badge: 'bg-rose-50 text-rose-700 border-rose-200', numBg: 'bg-rose-600 text-white', accent: 'border-l-rose-600' },
+              ][idx] || { badge: 'bg-slate-100 text-slate-700 border-slate-200', numBg: 'bg-slate-800 text-white', accent: 'border-l-blue-600' }
+
+              return (
+                <div
+                  key={s.step}
+                  className={`group p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between relative overflow-hidden border-l-[5px] ${stageColors.accent}`}
+                >
+                  <div>
+                    {/* Top Step Header */}
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-2.5">
+                        <span className={`size-8 rounded-xl ${stageColors.numBg} flex items-center justify-center font-bold text-xs shadow-xs`}>
+                          {s.step}
+                        </span>
+                        <span className="text-xs font-bold text-slate-400 tracking-wider">
+                          STAGE {idx + 1}
+                        </span>
+                      </div>
+                      <span className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${stageColors.badge}`}>
+                        {s.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                      {s.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {s.desc}
+                    </p>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">{s.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{s.desc}</p>
+
+                  {/* Progress Milestone Line */}
+                  <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                    <span className="font-semibold text-slate-500">Milestone {idx + 1} of 6</span>
+                    <div className="flex items-center gap-1">
+                      {[...Array(6)].map((_, dotIdx) => (
+                        <span
+                          key={dotIdx}
+                          className={`size-1.5 rounded-full ${
+                            dotIdx <= idx ? 'bg-blue-600' : 'bg-slate-200'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#061836] text-white flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-            <p className="text-xs sm:text-sm text-slate-200 font-medium">
-              <strong className="text-sky-300">The objective is not simply to fill seats.</strong> The objective is to build the right room.
-            </p>
+          {/* Bottom Objective Banner */}
+          <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#040F24] via-slate-900 to-[#0B1B38] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg border border-slate-800">
+            <div className="flex items-center gap-4 text-center sm:text-left">
+              <div className="size-11 rounded-2xl bg-white/10 text-sky-400 flex items-center justify-center shrink-0">
+                <Target className="size-6" />
+              </div>
+              <div>
+                <p className="text-sm sm:text-base font-bold text-white">
+                  The objective is not simply to fill seats.
+                </p>
+                <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
+                  The objective is to curate and build the right room from Day 1.
+                </p>
+              </div>
+            </div>
+
             <Link
               href="/circles/find"
-              className="text-xs font-bold text-sky-300 hover:text-white uppercase tracking-wider shrink-0 flex items-center gap-1"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:opacity-95 transition-opacity shrink-0 inline-flex items-center gap-2"
             >
               <span>Found a Circle</span>
-              <ArrowRight className="size-3.5" />
+              <ArrowRight className="size-4" />
             </Link>
           </div>
 
@@ -481,8 +600,8 @@ export function StartCircleClient() {
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIRST 30 DAYS</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight">
-                <span className="brand-gradient-text">Your First Month</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight">
+                Your First Month
               </h2>
 
               <p className="text-base sm:text-lg font-bold text-[#0062D2]">
@@ -647,45 +766,105 @@ export function StartCircleClient() {
       {/* =================================================================
           SECTION 6: NOT ABOUT BUILDING YOUR PERSONAL NETWORK
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#040F24] text-white relative overflow-hidden">
-            <div className="absolute right-0 top-0 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+          <div className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1832] to-[#040C1A] text-white relative overflow-hidden shadow-2xl border border-slate-800">
+            {/* Ambient blur accents */}
+            <div className="absolute top-0 right-0 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 size-80 rounded-full bg-rose-600/10 blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 max-w-3xl space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                <span className="text-xs font-bold tracking-[0.22em] uppercase text-sky-300">CRITICAL DISTINCTION</span>
+            <div className="relative z-10 max-w-5xl">
+              
+              {/* Top Eyebrow */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-6">
+                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-sky-300">
+                  CRITICAL DISTINCTION
+                </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-white tracking-tight leading-tight mb-4 max-w-3xl">
                 Starting a Circle Is Not About Building Your Personal Network
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                This distinction matters. A Circle Founder is not creating a private prospecting list. You are creating a room in which entrepreneurs can become Peers.
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl mb-8">
+                This distinction matters. A Circle Founder is not creating a private prospecting list. You are creating a trusted room in which independent entrepreneurs can become lifelong Peers.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-                  <div className="text-xs text-rose-400 font-bold uppercase">Instead of Asking:</div>
-                  <div className="text-sm font-semibold text-slate-200">&ldquo;How many people can I bring?&rdquo;</div>
-                  <div className="text-xs text-rose-400 font-bold uppercase pt-2">Or:</div>
-                  <div className="text-sm font-semibold text-slate-200">&ldquo;What can this Circle do for me?&rdquo;</div>
+              {/* Comparison Cards: Transactional vs Powerhouse */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                
+                {/* Left: Transactional Mindset */}
+                <div className="p-6 sm:p-7 rounded-2xl bg-rose-950/20 border border-rose-500/25 backdrop-blur-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-bold uppercase tracking-wider text-rose-400">
+                        Instead of Asking:
+                      </span>
+                      <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                        Transactional View
+                      </span>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-xl bg-white/[0.04] border border-white/5">
+                        <p className="text-xs text-rose-300 font-semibold mb-1">Old Question 1</p>
+                        <p className="text-sm sm:text-base font-medium text-slate-200">
+                          "How many people can I bring to my circle?"
+                        </p>
+                      </div>
+                      <div className="p-4 rounded-xl bg-white/[0.04] border border-white/5">
+                        <p className="text-xs text-rose-300 font-semibold mb-1">Old Question 2</p>
+                        <p className="text-sm sm:text-base font-medium text-slate-200">
+                          "What can this Circle do for my business right now?"
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-blue-500/10 border border-blue-400/30 space-y-2">
-                  <div className="text-xs text-sky-300 font-bold uppercase">The Powerhouse Question:</div>
-                  <div className="text-sm font-bold text-white">&ldquo;Who should be in this room?&rdquo;</div>
-                  <div className="text-xs text-sky-300 font-bold uppercase pt-2">And:</div>
-                  <div className="text-sm font-bold text-white">&ldquo;What could this Circle make possible for everyone in it?&rdquo;</div>
+                {/* Right: Powerhouse Leadership */}
+                <div className="p-6 sm:p-7 rounded-2xl bg-blue-950/40 border border-blue-400/40 backdrop-blur-sm flex flex-col justify-between shadow-lg shadow-blue-950/50">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-bold uppercase tracking-wider text-sky-300">
+                        The Powerhouse Questions:
+                      </span>
+                      <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/40">
+                        Peers Principle
+                      </span>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-xl bg-blue-600/15 border border-blue-400/30">
+                        <p className="text-xs text-sky-300 font-semibold mb-1">Foundational Question</p>
+                        <p className="text-sm sm:text-base font-bold text-white">
+                          "Who genuinely belongs in this room?"
+                        </p>
+                      </div>
+                      <div className="p-4 rounded-xl bg-blue-600/15 border border-blue-400/30">
+                        <p className="text-xs text-sky-300 font-semibold mb-1">Impact Question</p>
+                        <p className="text-sm sm:text-base font-bold text-white">
+                          "What could this Circle make possible for everyone in it?"
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
               </div>
 
-              <p className="text-xs sm:text-sm text-sky-200 font-medium italic pt-2">
-                That shift is the beginning of Powerhouse leadership.
-              </p>
+              {/* Bottom Insight Footer */}
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between flex-wrap gap-3">
+                <p className="text-xs sm:text-sm text-sky-200 font-medium">
+                  ✦ <span className="font-semibold text-white">That mindset shift</span> is the true beginning of Powerhouse leadership.
+                </p>
+                <span className="text-xs text-slate-400 font-medium tracking-wide">
+                  Peers Global Founder Standard
+                </span>
+              </div>
+
             </div>
           </div>
 

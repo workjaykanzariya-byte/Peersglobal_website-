@@ -370,6 +370,27 @@ export function PartnerPageClient() {
 
           </div>
 
+          {/* 4-Item Floating Stats Bar */}
+          <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { val: '6 Formats', label: 'Collaboration Pathways', sub: 'Experience, Knowledge & Scale' },
+              { val: 'Zero Prospecting', label: 'Protected Rooms', sub: 'No cold pitching or scraping' },
+              { val: '100% Vetted', label: 'Ecosystem Alignment', sub: 'Non-zero-sum value creators' },
+              { val: '1M Mission', label: 'Social Impact Tie-in', sub: 'Direct MSME fellowship alignment' },
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  {stat.val}
+                </div>
+                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                <div className="text-[11px] text-slate-500 font-normal">{stat.sub}</div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -967,290 +988,376 @@ export function PartnerPageClient() {
       </section>
 
       {/* ── START A CONVERSATION / FORM ── */}
-      <section id="start-conversation" className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#FAFBFD] to-white border-b border-slate-200/80 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_50%_at_50%_20%,rgba(29,78,216,0.03),transparent_60%)]" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                Dialogue &amp; Evaluation
-              </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
-              START A CONVERSATION
-            </h2>
-            <p className="text-slate-600 text-base sm:text-lg">
-              If you believe your organisation can contribute something meaningful to the PEERS GLOBAL ecosystem, tell us about it.
-            </p>
-          </div>
+      <section id="start-conversation" className="py-14 sm:py-20 bg-[#F8FAFC] border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle ambient backdrops */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-amber-50/80 via-white to-orange-50/60 border border-amber-200 max-w-2xl mx-auto text-center space-y-2 shadow-2xs">
-            <h3 className="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center justify-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-amber-700" />
-              BEFORE YOU APPLY — ASK YOURSELF:
-            </h3>
-            <p className="text-sm text-amber-950">
-              <strong>“Are we bringing value — or simply looking for access?”</strong>
-              <br />
-              If the answer is <span className="brand-gradient-text font-bold">value</span>, there may be something worth exploring.
-              <br />
-              If the answer is <span className="text-rose-600 font-bold">access</span>, this may not be the right community for you.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-            {submitted ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] rounded-full flex items-center justify-center mx-auto">
-                  <Check className="w-8 h-8" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            {/* Left Column: Briefing & Value Test (Sticky on Desktop) */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-5">
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    DIALOGUE &amp; EVALUATION
+                  </span>
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-950">
-                  Partnership Enquiry Received
-                </h3>
-                <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
-                  Thank you for sharing your vision. Our ecosystem leadership team will review your proposal against our community value standards and respond within 2-3 business days.
+
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+                  Start a Conversation
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  If you believe your organisation can contribute capability, insight, or capital to what the PEERS GLOBAL ecosystem is becoming, let&apos;s talk.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-800 border border-slate-200 hover:bg-slate-50 transition-colors cursor-pointer"
-                >
-                  Submit Another Proposal
-                </button>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6 text-xs sm:text-sm">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">Your Full Name *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Anand Mahindra"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
-                  </div>
 
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">Organisation / Enterprise Name *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Acme Industries Ltd"
-                      value={formData.organisation}
-                      onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
+              {/* Direct Founder & Ecosystem Review Card */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    Direct Leadership Review
                   </div>
+                  <span className="px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#0062D2] text-[10px] font-bold uppercase tracking-wider">
+                    Tier-1 Priority
+                  </span>
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">Your Role / Designation *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Managing Director / VP"
-                      value={formData.role}
-                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">Work Email *</label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="name@company.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">Phone Number *</label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+91 98765 43210"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
-                  </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Every proposal is evaluated directly by our governing council for bilateral value. We do not accept purely transactional or unsolicited marketing pitches.
+                </p>
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                  <span>Secretariat Horizon</span>
+                  <span className="font-bold text-slate-800">48 – 72 Business Hours</span>
                 </div>
+              </div>
 
-                <div className="space-y-1.5">
-                  <label className="font-bold text-slate-800">Proposed Relationship Model *</label>
-                  <select
-                    value={formData.relationshipType}
-                    onChange={(e) => setFormData({ ...formData, relationshipType: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                  >
-                    <option value="Strategic Partnership">Strategic Institutional Partnership</option>
-                    <option value="Knowledge & Masterclass Co-Creation">Knowledge & Masterclass Co-Creation</option>
-                    <option value="Event / Conclave Sponsorship">Event / Conclave Sponsorship</option>
-                    <option value="Social Impact & Fellowship Sponsorship">Social Impact & Fellowship Sponsorship</option>
-                    <option value="Public Channel Advertising">Public Channel Advertising</option>
-                    <option value="Other Value Creation">Other Co-Creation Model</option>
-                  </select>
+              {/* Luxury Dark Value-First Test Card */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#040F24] text-white space-y-3 shadow-md relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-400">
+                  <ShieldCheck className="w-4 h-4 text-sky-400 shrink-0" />
+                  <span>The Partnership Standard</span>
                 </div>
+                <p className="text-xs italic text-slate-200 leading-relaxed font-medium">
+                  &ldquo;Are we bringing genuine capability — or simply looking for access?&rdquo;
+                </p>
+                <ul className="space-y-2 pt-1 text-xs text-slate-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="size-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Focus on co-creating tangible value for founders &amp; fellows</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="size-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Long-term strategic ecosystem alignment over one-off promos</span>
+                  </li>
+                </ul>
+              </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">Why PEERS GLOBAL? *</label>
-                    <textarea
-                      required
-                      rows={3}
-                      placeholder="What draws your organisation to our community ethos?"
-                      value={formData.whyPeersGlobal}
-                      onChange={(e) => setFormData({ ...formData, whyPeersGlobal: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
+              {/* Direct Secretariat Contact Note */}
+              <p className="text-xs text-slate-500 pt-1">
+                Prefer direct correspondence? Email us at{' '}
+                <a href="mailto:partnerships@peersglobal.com" className="text-[#0062D2] font-semibold hover:underline">
+                  partnerships@peersglobal.com
+                </a>
+              </p>
+            </div>
+
+            {/* Right Column: Sleek Form Architecture */}
+            <div className="lg:col-span-7">
+              <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+                {/* Top Accent Bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] via-[#0062D2] to-[#E11D48]" />
+
+                {submitted ? (
+                  <div className="text-center py-12 space-y-4">
+                    <div className="w-16 h-16 bg-blue-50 border border-blue-200 text-[#0062D2] rounded-full flex items-center justify-center mx-auto shadow-sm">
+                      <Check className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-950">
+                      Partnership Proposal Received
+                    </h3>
+                    <p className="text-slate-600 max-w-md mx-auto text-xs sm:text-sm leading-relaxed">
+                      Thank you for sharing your vision. Our ecosystem leadership team will review your proposal against our community value standards and respond within 2-3 business days.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                      className="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-900 text-white hover:bg-slate-800 transition-colors cursor-pointer shadow-sm"
+                    >
+                      Submit Another Proposal
+                    </button>
                   </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
+                    
+                    {/* Header inside form */}
+                    <div className="pb-3 border-b border-slate-100 flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                        Proposal Submission Desk
+                      </span>
+                      <span className="text-[11px] font-mono text-slate-400">
+                        * Required fields
+                      </span>
+                    </div>
 
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">What would you like to build together? *</label>
-                    <textarea
-                      required
-                      rows={3}
-                      placeholder="Outline the specific initiative, experience, or tool."
-                      value={formData.whatToBuild}
-                      onChange={(e) => setFormData({ ...formData, whatToBuild: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
-                  </div>
-                </div>
+                    {/* Name & Org */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">Your Full Name *</label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Anand Mahindra"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">Who would benefit? *</label>
-                    <textarea
-                      required
-                      rows={2}
-                      placeholder="Specify beneficiaries (MSMEs, student fellows, etc.)."
-                      value={formData.whoBenefits}
-                      onChange={(e) => setFormData({ ...formData, whoBenefits: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
-                  </div>
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">Organisation / Enterprise *</label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Acme Industries Ltd"
+                          value={formData.organisation}
+                          onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
+                    </div>
 
-                  <div className="space-y-1.5">
-                    <label className="font-bold text-slate-800">What would you contribute? *</label>
-                    <textarea
-                      required
-                      rows={2}
-                      placeholder="Outline resources, capability, or capital you will invest."
-                      value={formData.whatToContribute}
-                      onChange={(e) => setFormData({ ...formData, whatToContribute: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
-                    />
-                  </div>
-                </div>
+                    {/* Role, Email, Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">Designation / Role *</label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Managing Director"
+                          value={formData.role}
+                          onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
 
-                <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200">
-                  <p className="text-xs text-slate-500">
-                    We evaluate every proposal for ecosystem alignment. Direct sales inquiries will be rejected.
-                  </p>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 uppercase tracking-wider shrink-0 disabled:opacity-50 cursor-pointer"
-                  >
-                    {isSubmitting ? (
-                      'Transmitting Proposal...'
-                    ) : (
-                      <>
-                        Submit Partnership Proposal <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-            )}
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">Work Email *</label>
+                        <input
+                          type="email"
+                          required
+                          placeholder="name@company.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">Phone Number *</label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder="+91 98765 43210"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Relationship Model */}
+                    <div className="space-y-1.5">
+                      <label className="font-bold text-slate-900 text-xs">Proposed Relationship Model *</label>
+                      <select
+                        value={formData.relationshipType}
+                        onChange={(e) => setFormData({ ...formData, relationshipType: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                      >
+                        <option value="Strategic Partnership">Strategic Institutional Partnership</option>
+                        <option value="Knowledge & Masterclass Co-Creation">Knowledge &amp; Masterclass Co-Creation</option>
+                        <option value="Event / Conclave Sponsorship">Event / Conclave Sponsorship</option>
+                        <option value="Social Impact & Fellowship Sponsorship">Social Impact &amp; Fellowship Sponsorship</option>
+                        <option value="Public Channel Advertising">Public Channel Advertising</option>
+                        <option value="Other Value Creation">Other Co-Creation Model</option>
+                      </select>
+                    </div>
+
+                    {/* Textareas 1 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">Why PEERS GLOBAL? *</label>
+                        <textarea
+                          required
+                          rows={2}
+                          placeholder="What draws your organisation to our community ethos?"
+                          value={formData.whyPeersGlobal}
+                          onChange={(e) => setFormData({ ...formData, whyPeersGlobal: e.target.value })}
+                          className="w-full px-3.5 py-2 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">What to build together? *</label>
+                        <textarea
+                          required
+                          rows={2}
+                          placeholder="Outline the specific initiative, experience, or tool."
+                          value={formData.whatToBuild}
+                          onChange={(e) => setFormData({ ...formData, whatToBuild: e.target.value })}
+                          className="w-full px-3.5 py-2 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Textareas 2 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">Who would benefit? *</label>
+                        <textarea
+                          required
+                          rows={2}
+                          placeholder="Specify beneficiaries (MSMEs, student fellows, founders, etc.)."
+                          value={formData.whoBenefits}
+                          onChange={(e) => setFormData({ ...formData, whoBenefits: e.target.value })}
+                          className="w-full px-3.5 py-2 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="font-bold text-slate-900 text-xs">What would you contribute? *</label>
+                        <textarea
+                          required
+                          rows={2}
+                          placeholder="Outline resources, capability, or capital you will invest."
+                          value={formData.whatToContribute}
+                          onChange={(e) => setFormData({ ...formData, whatToContribute: e.target.value })}
+                          className="w-full px-3.5 py-2 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Submit Row */}
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-100">
+                      <p className="text-[11px] text-slate-500 font-normal">
+                        Direct sales pitches without community value will be declined.
+                      </p>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full sm:w-auto px-7 py-3 rounded-xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs uppercase tracking-wider shadow-md transition-all flex items-center justify-center gap-2 shrink-0 disabled:opacity-50 cursor-pointer active:scale-[0.99]"
+                      >
+                        {isSubmitting ? (
+                          'Transmitting...'
+                        ) : (
+                          <>
+                            <span>Submit Proposal</span>
+                            <Send className="w-3.5 h-3.5" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+
+                  </form>
+                )}
+              </div>
+            </div>
+
           </div>
+
         </div>
       </section>
 
       {/* ── FINAL HOME-THEMED CALL TO ACTION ── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 md:py-28">
+      <section className="relative py-12 sm:py-16 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
         {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(0,98,210,0.22),transparent_55%),radial-gradient(circle_at_85%_30%,rgba(225,29,72,0.15),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
         />
 
-        {/* Subtle geometric orbital line art */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-16 bottom-0 pointer-events-none w-[360px] sm:w-[480px] lg:w-[580px] opacity-20 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="space-y-4">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-white/70" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
-                THE PEERS GLOBAL INVITATION
-              </span>
-              <span className="h-[1.5px] w-6 bg-white/70" />
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
-              LET&apos;S BUILD SOMETHING WORTH BUILDING
-            </h2>
-            <p className="max-w-2xl mx-auto text-white/90 text-sm sm:text-base leading-relaxed">
-              The right partner does more than attach a logo. They contribute capability. They create possibility. They strengthen an experience. They help something meaningful travel further.
-            </p>
-            <p className="text-cyan-200 font-bold text-base sm:text-lg">
-              Partnership is not about entering the community. It is about contributing to what the community is becoming.
-            </p>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            {/* Left Column: Heading, Ethos & Punchline */}
+            <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+                  THE PEERS GLOBAL INVITATION
+                </span>
+              </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider">
-            <a
-              href="#start-conversation"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all hover:-translate-y-0.5 active:scale-[0.98]"
-            >
-              Become a Partner →
-            </a>
-            <a
-              href="#start-conversation"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              Explore Sponsorship →
-            </a>
-            <a
-              href="#start-conversation"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              Advertising Enquiry →
-            </a>
-            <Link
-              href="/contact"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              Contact PEERS GLOBAL →
-            </Link>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                LET&apos;S BUILD SOMETHING <br className="hidden sm:inline" />
+                <span className="italic text-cyan-200">WORTH BUILDING.</span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                The right partner does more than attach a logo. They contribute capability. They create possibility. They strengthen an experience. They help something meaningful travel further.
+              </p>
+
+              <p className="text-xs sm:text-sm font-semibold text-sky-200">
+                Partnership is not about entering the community. It is about contributing to what the community is becoming.
+              </p>
+            </div>
+
+            {/* Right Column: Interactive Quick Actions */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <a
+                href="#start-conversation"
+                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+              >
+                <span>Become a Partner</span>
+                <ArrowRight className="size-3.5" />
+              </a>
+
+              <a
+                href="#start-conversation"
+                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold text-xs uppercase tracking-wider transition-all border border-white/20 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+              >
+                <span>Explore Sponsorship</span>
+                <ChevronRight className="size-3.5 text-white/60" />
+              </a>
+
+              <div className="flex gap-2.5 w-full max-w-xs">
+                <a
+                  href="#start-conversation"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Ad Enquiry
+                </a>
+                <Link
+                  href="/contact"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

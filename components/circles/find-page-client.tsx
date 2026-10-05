@@ -821,46 +821,58 @@ export function FindPageClient() {
       </section>
 
       {/* =================================================================
-          SECTION 4: WHAT HAPPENS NEXT
+          SECTION 4: WHAT HAPPENS NEXT (Executive 4-Step Pipeline Layout)
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-          <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS NEXT</span>
-          </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
-            What Happens Next?
-          </h2>
-          <div className="text-base text-slate-600 leading-relaxed mb-12 max-w-3xl space-y-2">
-            <p>Once we understand your enquiry, the conversation can move forward from there.</p>
-            <p className="font-medium text-slate-900">
-              The objective is not simply to place you somewhere. It is to understand where you could belong — and where your presence could contribute.
+          <div className="max-w-3xl space-y-3 text-left">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS NEXT</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
+              What Happens Next?
+            </h2>
+            <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed">
+              Once we understand your enquiry, the conversation moves forward with intention.
             </p>
-            <p className="text-sm text-slate-500">
-              Your industry may suggest one direction. Your purpose may suggest another. Your experience, ambition and relationships may reveal something else. The right Circle should make sense not only for what you do, but also for what you are trying to build.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              The objective is not simply to place you somewhere. It is to understand where you could belong — and where your presence could contribute and thrive.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Connected 4-Step Pipeline */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {WHAT_HAPPENS.map((item, i) => {
               const Icon = item.icon
               return (
-                <div key={item.step} className="relative">
-                  {/* Connector line */}
-                  {i < WHAT_HAPPENS.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-[calc(100%_-_16px)] w-full h-px border-t-2 border-dashed border-slate-200 z-0" />
-                  )}
-                  <div className="relative z-10 flex flex-col">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="size-16 rounded-2xl bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0">
-                        <Icon className="size-7" />
+                <div
+                  key={item.step}
+                  className="relative rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all flex flex-col justify-between group space-y-5"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center group-hover:scale-105 group-hover:bg-[#0062D2] group-hover:text-white transition-all shadow-2xs">
+                        <Icon className="size-5.5" />
                       </div>
-                      <span className="text-3xl font-bold text-slate-100">{item.step}</span>
+                      <span className="text-2xl font-mono font-bold text-slate-300 group-hover:text-[#0062D2] transition-colors">
+                        0{item.step}
+                      </span>
                     </div>
-                    <h3 className="text-base font-bold text-[#0F172A] mb-2">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 group-hover:text-[#0062D2] transition-colors">
+                    <span>Phase 0{item.step}</span>
+                    <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               )
@@ -938,43 +950,9 @@ export function FindPageClient() {
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
                 If you prefer to explore independently, begin with the Unity App. Your digital journey can help you understand the community before you decide how deeply you want to participate.
               </p>
-              <p className="text-sm text-slate-800 font-semibold mb-6">
+              <p className="text-sm text-slate-800 font-semibold">
                 Explore. Understand. Connect. Then decide.
               </p>
-
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={SITE.appStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="app-badge-btn"
-                  aria-label="Download on the Apple App Store"
-                >
-                  <Apple className="size-5.5 fill-white shrink-0" />
-                  <div className="text-left">
-                    <span className="app-badge-sub">Download on the</span>
-                    <span className="app-badge-title">App Store</span>
-                  </div>
-                </a>
-                <a
-                  href={SITE.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="app-badge-btn"
-                  aria-label="Get it on Google Play"
-                >
-                  <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
-                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
-                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
-                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
-                  </svg>
-                  <div className="text-left">
-                    <span className="app-badge-sub">GET IT ON</span>
-                    <span className="app-badge-title">Google Play</span>
-                  </div>
-                </a>
-              </div>
             </div>
 
             {/* Right: App feature list */}
@@ -1005,35 +983,100 @@ export function FindPageClient() {
       </section>
 
       {/* =================================================================
-          SECTION 5.5: A CIRCLE IS MORE THAN A CATEGORY
+          SECTION 5.5: A CIRCLE IS MORE THAN A CATEGORY (Executive Philosophy Showcase)
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#0F172A] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-[2px] w-6 bg-[#60A5FA]" />
-            <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#60A5FA]">THE PHILOSOPHY</span>
-            <span className="h-[2px] w-6 bg-[#60A5FA]" />
-          </div>
+      <section className="py-20 sm:py-28 bg-[#061836] text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-rose-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight mb-6">
-            A Circle is More Than a Category
-          </h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Heading & Narrative */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase text-sky-400">
+                  THE PHILOSOPHY
+                </span>
+              </div>
 
-          <div className="space-y-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            <p>You may enter a Circle because it matches your industry.</p>
-            <p>You may discover another because it matches your ambition.</p>
-            <p className="text-white font-semibold text-lg sm:text-xl py-2">
-              But belonging is created by something deeper.
-            </p>
-            <p>It is created when people begin to understand one another.</p>
-            <p className="text-emerald-400 font-medium">When experience is shared.</p>
-            <p className="text-blue-400 font-medium">When introductions become relationships.</p>
-            <p className="text-purple-400 font-medium">When relationships become collaboration.</p>
-            <p className="text-amber-400 font-medium">When collaboration creates contribution.</p>
-            <p className="text-rose-400 font-semibold text-lg">And when contribution creates impact.</p>
-            <p className="pt-4 text-sm uppercase tracking-widest text-slate-400 font-bold">
-              That is why finding your Circle is only the beginning.
-            </p>
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-[1.12]">
+                A Circle is More Than <br className="hidden sm:block" />
+                <span className="brand-gradient-text">a Category.</span>
+              </h2>
+
+              <div className="space-y-3.5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+                <p>
+                  You may enter a Circle because it matches your industry. You may discover another because it matches your ambition.
+                </p>
+                <p className="text-white font-semibold text-lg sm:text-xl border-l-2 border-sky-400 pl-4 my-3">
+                  But belonging is created by something deeper — when people begin to truly understand one another.
+                </p>
+                <p className="text-sm text-slate-400">
+                  That is why finding your Circle is not the finish line — it is where meaningful growth begins.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: 5-Stage Belonging Transformation Cards */}
+            <div className="lg:col-span-6 space-y-3">
+              {[
+                {
+                  label: 'Experience is shared',
+                  desc: 'Real challenges spoken without hesitation.',
+                  color: 'text-emerald-400',
+                  bg: 'bg-emerald-500/10 border-emerald-500/20',
+                  dot: 'bg-emerald-400',
+                },
+                {
+                  label: 'Introductions become relationships',
+                  desc: 'Moving beyond transactional contact into genuine trust.',
+                  color: 'text-sky-400',
+                  bg: 'bg-sky-500/10 border-sky-500/20',
+                  dot: 'bg-sky-400',
+                },
+                {
+                  label: 'Relationships become collaboration',
+                  desc: 'Discovering complementary capabilities and new markets.',
+                  color: 'text-purple-400',
+                  bg: 'bg-purple-500/10 border-purple-500/20',
+                  dot: 'bg-purple-400',
+                },
+                {
+                  label: 'Collaboration creates contribution',
+                  desc: 'Creating tangible value for peers and their ecosystem.',
+                  color: 'text-amber-400',
+                  bg: 'bg-amber-500/10 border-amber-500/20',
+                  dot: 'bg-amber-400',
+                },
+                {
+                  label: 'Contribution creates impact',
+                  desc: 'Transforming businesses, families, and communities.',
+                  color: 'text-rose-400',
+                  bg: 'bg-rose-500/10 border-rose-500/20',
+                  dot: 'bg-rose-400',
+                },
+              ].map((item, idx) => (
+                <div
+                  key={item.label}
+                  className={`flex items-start gap-4 p-4 sm:p-5 rounded-2xl border ${item.bg} backdrop-blur-sm transition-all hover:translate-x-1`}
+                >
+                  <div className="mt-1 flex items-center justify-center">
+                    <span className={`size-2 rounded-full ${item.dot} shrink-0 ring-4 ring-white/5`} />
+                  </div>
+                  <div className="space-y-0.5">
+                    <h4 className={`text-sm sm:text-base font-bold ${item.color}`}>
+                      When {item.label}.
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
@@ -1101,92 +1144,112 @@ export function FindPageClient() {
       </section>
 
       {/* =================================================================
-          SECTION 7: FIND WHERE YOU BELONG - CLOSING HERO
+          SECTION 7: FIND WHERE YOU BELONG - CLOSING HERO (Executive 2-Column Split)
           ================================================================= */}
       <section className="relative overflow-hidden py-20 sm:py-28 bg-[#061320] text-white">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-600/15 via-rose-600/10 to-blue-600/15 blur-[140px] rounded-full pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-blue-600/15 via-rose-600/10 to-blue-600/15 blur-[140px] rounded-full pointer-events-none"
           aria-hidden="true"
         />
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND WHERE YOU BELONG</span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Heading, Core Narrative & Actions */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND WHERE YOU BELONG</span>
+              </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight mb-8">
-            There is no single definition of the entrepreneur.
-          </h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-white tracking-tight leading-[1.12]">
+                There is no single definition of <br className="hidden sm:block" />
+                <span className="brand-gradient-text">the entrepreneur.</span>
+              </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto text-left mb-10">
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
-              <span>Some are building companies.</span>
-            </div>
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
-              <span>Some are expanding across markets.</span>
-            </div>
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-              <span>Some are preparing for their next stage.</span>
-            </div>
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-              <span>Some are rebuilding.</span>
-            </div>
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
-              <span>Some are learning.</span>
-            </div>
-            <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.04] border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
-              <span>Some are looking for people who understand.</span>
-            </div>
-          </div>
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+                Every journey has its own rhythm, scale and inflection point. Your Circle should have room for the journey you are actually on.
+              </p>
 
-          <p className="text-lg sm:text-xl font-medium text-white mb-8">
-            And some have reached a point where they are ready to help someone else move forward.
-          </p>
+              <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-2">
+                <p className="text-sm font-semibold text-white">
+                  And some have reached a point where they are ready to help someone else move forward.
+                </p>
+                <p className="text-base sm:text-lg text-amber-300 font-serif italic">
+                  &ldquo;Your Circle should have room for your journey.&rdquo;
+                </p>
+              </div>
 
-          <p className="font-serif text-2xl sm:text-3xl text-amber-300 italic mb-10">
-            &ldquo;Your Circle should have room for your journey.&rdquo;
-          </p>
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                >
+                  <Smartphone className="size-4" />
+                  <span>Download Unity App</span>
+                </a>
+                <a
+                  href="#find-form"
+                  className="rounded-full bg-white text-slate-900 hover:bg-slate-100 px-7 py-3.5 text-xs sm:text-sm font-bold transition-all hover:scale-105 inline-flex items-center gap-2 shadow-sm"
+                >
+                  <span>Submit Your Enquiry</span>
+                  <ArrowRight className="size-4" />
+                </a>
+              </div>
+            </div>
 
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-            <a
-              href="https://unity.peersglobal.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-8 py-4 text-base font-semibold shadow-xl shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2.5"
-            >
-              <Smartphone className="size-5" />
-              <span>Download Unity App</span>
-            </a>
-            <a
-              href="#find-form"
-              className="rounded-full bg-white hover:bg-slate-100 text-[#0F172A] px-8 py-4 text-base font-semibold transition-all hover:scale-105 shadow-lg inline-flex items-center gap-2"
-            >
-              <span>Submit Your Enquiry</span>
-              <ArrowRight className="size-4" />
-            </a>
+            {/* Right Column: 6 Distinct Entrepreneur Types */}
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {[
+                { title: 'Building companies', desc: 'Starting from the foundation up', dot: 'bg-blue-400' },
+                { title: 'Expanding across markets', desc: 'Scaling into new cities & regions', dot: 'bg-rose-400' },
+                { title: 'Preparing next stage', desc: 'Planning leadership or enterprise shift', dot: 'bg-amber-400' },
+                { title: 'Rebuilding with resilience', desc: 'Pivoting and reimagining value', dot: 'bg-emerald-400' },
+                { title: 'Continuously learning', desc: 'Gaining perspectives from veteran peers', dot: 'bg-purple-400' },
+                { title: 'Looking for people who understand', desc: 'Seeking genuine, contextual trust', dot: 'bg-cyan-400' },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-white/20 hover:bg-white/[0.07] transition-all space-y-1.5 backdrop-blur-sm"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className={`size-2 rounded-full ${item.dot} shrink-0 ring-4 ring-white/5`} />
+                    <h4 className="text-sm sm:text-base font-bold text-white">{item.title}</h4>
+                  </div>
+                  <p className="text-xs text-slate-400 font-normal leading-relaxed pl-4.5">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
           </div>
 
           {/* Final Brand manifesto footer */}
-          <div className="pt-10 border-t border-white/10 max-w-2xl mx-auto text-center space-y-3">
-            <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">PEERS GLOBAL</p>
-            <p className="text-lg sm:text-xl font-serif text-white font-semibold italic">
-              &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
-            </p>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              You bring your experience. You bring your ambition. You bring your willingness to contribute. We help you find the room where those things can become meaningful relationships.
-            </p>
-            <p className="text-sm text-slate-300 font-medium pt-2">
-              Because every entrepreneur belongs somewhere. And sometimes, finding the right Circle changes what becomes possible.
-            </p>
+          <div className="pt-16 mt-16 border-t border-white/10">
+            <div className="max-w-3xl mx-auto rounded-3xl bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/10 p-8 sm:p-10 text-center space-y-4 shadow-xl backdrop-blur-md relative overflow-hidden">
+              <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-24 bg-blue-500/20 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-sky-300 font-bold">PEERS GLOBAL MANIFESTO</span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-serif text-white font-semibold italic leading-snug">
+                &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
+              </h3>
+
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal max-w-xl mx-auto">
+                You bring your experience. You bring your ambition. You bring your willingness to contribute. We help you find the room where those things can become meaningful relationships.
+              </p>
+
+              <div className="pt-3 border-t border-white/10 max-w-lg mx-auto">
+                <p className="text-xs sm:text-sm text-sky-200/90 font-medium">
+                  Because every entrepreneur belongs somewhere. And sometimes, finding the right Circle changes what becomes possible.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

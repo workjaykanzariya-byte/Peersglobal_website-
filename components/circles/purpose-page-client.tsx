@@ -1147,50 +1147,98 @@ export function PurposePageClient() {
       {/* =================================================================
           SECTION 10: THE QUESTION THAT MATTERS (Pre-closing reflective card)
           ================================================================= */}
-      <section className="py-16 sm:py-20 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* =================================================================
+          SECTION 10: THE QUESTION THAT MATTERS (Executive Reflective Showcase)
+          ================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 shadow-sm p-8 sm:p-12 lg:p-16">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
-              THE QUESTION THAT MATTERS
-            </span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-          </div>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              
+              {/* Left Column: Heading, Context & Ambition Tags */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                    <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                      THE QUESTION THAT MATTERS
+                    </span>
+                  </div>
 
-          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
-            You know what you do. <br className="hidden sm:block" />
-            What are you trying to build?
-          </h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15]">
+                    You know what you do. <br />
+                    <span className="brand-gradient-text">What are you trying to build?</span>
+                  </h2>
 
-          <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto mb-8 text-xs sm:text-sm font-medium text-slate-700">
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200">A larger business?</span>
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200">A new venture?</span>
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200">A global presence?</span>
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200">A stronger family enterprise?</span>
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200">A leadership transformation?</span>
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200">An IPO journey?</span>
-            <span className="px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200">A sustainable future?</span>
-          </div>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
+                    Whatever your ambition, you do not have to pursue it alone. Purpose Circles unite entrepreneurs striving toward the same inflection point.
+                  </p>
+                </div>
 
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto mb-6">
-            Whatever your ambition, you do not have to pursue it without relationships.
-          </p>
+                {/* Ambitions Interactive Badges */}
+                <div className="space-y-2.5 pt-2">
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Select your focus area</p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      'A larger business?',
+                      'A new venture?',
+                      'A global presence?',
+                      'A stronger family enterprise?',
+                      'A leadership transformation?',
+                      'An IPO journey?',
+                      'A sustainable future?',
+                    ].map((badge) => (
+                      <span
+                        key={badge}
+                        className="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm font-semibold text-slate-700 hover:border-blue-400 hover:bg-blue-50 hover:text-[#0062D2] transition-all cursor-default shadow-2xs"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-          <p className="font-serif text-xl sm:text-2xl text-[#0062D2] font-semibold italic max-w-xl mx-auto mb-8">
-            “Sometimes the right people are not the people doing what you do. They are the people going where you are trying to go.”
-          </p>
+                <div className="pt-2">
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-8 py-3.5 text-xs sm:text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  >
+                    <span>Download Unity App & Find Your Circle</span>
+                    <ArrowRight className="size-4" />
+                  </a>
+                </div>
+              </div>
 
-          <div className="inline-flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="https://unity.peersglobal.com"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-            >
-              <span>Download Unity App & Find Your Circle</span>
-              <ArrowRight className="size-4" />
-            </a>
+              {/* Right Column: Key Philosophy Quote Card */}
+              <div className="lg:col-span-5">
+                <div className="relative p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#061836] to-[#0D244D] text-white shadow-xl space-y-6 overflow-hidden border border-blue-900/40">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-xl pointer-events-none" />
+                  
+                  <span className="font-serif text-5xl sm:text-6xl text-sky-400/50 leading-none block -mb-4">“</span>
+                  
+                  <p className="text-lg sm:text-xl font-medium leading-snug text-slate-100">
+                    Sometimes the right people are not the people doing what you do. They are the people going where you are trying to go.
+                  </p>
+
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-sky-300">The Peers Principle</p>
+                      <p className="text-[11px] text-slate-400 mt-0.5">Shared destination over shared title</p>
+                    </div>
+                    <div className="size-8 rounded-full bg-white/10 flex items-center justify-center text-sky-300">
+                      <Compass className="size-4" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </div>

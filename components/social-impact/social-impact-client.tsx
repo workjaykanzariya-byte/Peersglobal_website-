@@ -29,6 +29,8 @@ import {
   HelpCircle,
   Heart,
   Check,
+  HeartCrack,
+  Flame,
 } from 'lucide-react'
 
 // ─── 3 Evidenced SDGs ────────────────────────────────────────────────────────
@@ -53,6 +55,7 @@ const EVIDENCED_SDGS = [
       'Dedicated Fempreneur Circles, category-exclusive advisory rooms, capital readiness coaching, and commercial supply chain linkages.',
     evidence:
       'Targeted fellowship seats and active women-led enterprise growth cohorts documented inside the community.',
+    badge: 'Fempreneur Circles',
   },
   {
     num: '09',
@@ -63,19 +66,20 @@ const EVIDENCED_SDGS = [
       'Fostering joint ventures, technology transfers, clean-tech adoption through Greenpreneur, and domestic value-chain matchmaking.',
     evidence:
       'Verified cross-city and cross-industry JVs executed and logged inside the Unity App.',
+    badge: 'MSME Infrastructure',
   },
 ]
 
 // ─── The 8-Stage Impact Journey Pipeline ─────────────────────────────────────
 const IMPACT_JOURNEY_STAGES = [
-  { stage: 'SEE', desc: 'Recognise a need.' },
-  { stage: 'CARE', desc: 'Decide that it matters.' },
+  { stage: 'SEE', desc: 'Recognise a need in your peer or region.' },
+  { stage: 'CARE', desc: 'Decide that the challenge matters.' },
   { stage: 'CONTRIBUTE', desc: 'Give something you can genuinely offer.' },
-  { stage: 'CONNECT', desc: 'Bring the right people together.' },
-  { stage: 'ACT', desc: 'Turn intention into something real.' },
-  { stage: 'MEASURE', desc: 'Understand what changed.' },
-  { stage: 'SHARE', desc: 'Let the learning travel.' },
-  { stage: 'MULTIPLY', desc: 'Enable the next action.' },
+  { stage: 'CONNECT', desc: 'Bring the right people and resources together.' },
+  { stage: 'ACT', desc: 'Turn intention into an executed initiative.' },
+  { stage: 'MEASURE', desc: 'Track what changed on the Unity App ledger.' },
+  { stage: 'SHARE', desc: 'Let the playbook travel across circles.' },
+  { stage: 'MULTIPLY', desc: 'Enable the next entrepreneur to lead.' },
 ]
 
 export function SocialImpactClient() {
@@ -83,458 +87,295 @@ export function SocialImpactClient() {
     <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
       
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+      <div className="border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-[#0062D2] transition-colors">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <ChevronRight className="size-3.5 text-slate-400" />
           <span>About</span>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-slate-900 font-bold">Foundation &amp; Social Impact</span>
+          <ChevronRight className="size-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Foundation &amp; Social Impact</span>
         </div>
       </div>
 
-      {/* ─── SECTION 1: HERO (SOCIAL IMPACT: IMPACT IS NOT WHAT WE SAY. IT IS WHAT CHANGES BECAUSE WE ACTED.) ─── */}
-      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
+      {/* ─── SECTION 1: HERO (EVIDENCED SOCIAL IMPACT) ─── */}
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Master Card Hero Box */}
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
+            {/* Ambient Background Accents */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
-                  EVIDENCED SOCIAL IMPACT
-                </span>
-              </div>
-
-              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
-                <span className="brand-gradient-text block">SOCIAL IMPACT</span>
-                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
-                  Impact is not what we say. It is what changes because we acted.
-                </span>
-              </h1>
-
-              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
-                <p>
-                  Entrepreneurship creates value. But value does not have to stop with the business.
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-medium text-slate-800">
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">• A skill can be shared</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">• A young person mentored</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">• A community strengthened</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">• An opportunity created</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">• A problem solved</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">• A life changed</div>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
+              
+              {/* Left Column: Manifesto & Details */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+                    EVIDENCED SOCIAL IMPACT &amp; FOUNDATION
+                  </span>
                 </div>
 
-                <p className="border-l-2 border-[#0062D2] pl-3 italic text-slate-900 font-serif text-base pt-1">
-                  At PEERS GLOBAL, social impact is built around a simple belief: One entrepreneur can impact another. And when that impact keeps moving, one action can become many.
-                </p>
+                <div className="space-y-2.5">
+                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
+                    Foundation &amp; Social Impact
+                  </h1>
+                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
+                    Impact is not what we say. It is what changes because we acted together.
+                  </p>
+                </div>
+
+                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                  <p>
+                    Entrepreneurship creates economic value, but that value multiplies when directed back into communities. <strong className="text-slate-900 font-semibold">One action, logged transparently on our ledger, can protect livelihoods, preserve businesses, and change families.</strong>
+                  </p>
+
+                  {/* 4 Impact Focus Badges */}
+                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-1">
+                    {[
+                      { text: '1 Action = 1 Life Impacted', icon: HeartHandshake },
+                      { text: 'Section 8 Registered Foundation', icon: Landmark },
+                      { text: 'Preserving MSME Employment', icon: Building2 },
+                      { text: 'UN Sustainable Goals Aligned', icon: Globe2 },
+                    ].map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
+                      >
+                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
+                        <span>{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
+                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
+                    <span>Every contribution is affirmed directly by the receiver on the Unity App.</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                  <Link
+                    href="/1-million-mission"
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                  >
+                    <span>Explore 1M Mission</span>
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+
+                  <a
+                    href="#sdgs"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
+                  >
+                    <span>Evidenced SDGs</span>
+                  </a>
+                </div>
               </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/1-million-mission"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200"
-                >
-                  <span>Explore 1M Mission →</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <a
-                  href="#sdgs"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
-                >
-                  <span>See Evidenced SDGs →</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Right Hero Visual Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
-                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
+              {/* Right Column: Hero Visual Card */}
+              <div className="lg:col-span-5 relative">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
                   <Image
-                    src="/images/culture-hero-desk.jpg"
-                    alt="Social impact and mentorship in action"
+                    src="/images/who-we-are-impact.jpg"
+                    alt="Peers Global foundation and social impact in action"
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
-                  
-                  <div className="absolute top-5 right-5">
-                    <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 border border-blue-400/30 backdrop-blur-md text-[11px] font-mono font-bold uppercase tracking-wider">
-                      Section 8 Foundation
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-slate-950/30 pointer-events-none" />
+
+                  {/* Top Badges */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold text-sky-300 tracking-widest uppercase backdrop-blur-md">
+                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                      SECTION 8 FOUNDATION
+                    </span>
+                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                      100% EVIDENCE-BASED
                     </span>
                   </div>
 
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
+                  {/* Bottom Highlight */}
+                  <div className="relative z-10 text-white space-y-1">
+                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
                       1 Action = 1 Life Impacted
-                    </span>
-                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
-                      &ldquo;Evidence first. Real work. Measurable human outcomes.&rdquo;
+                    </p>
+                    <p className="text-sm sm:text-base font-bold leading-snug">
+                      Evidence first. Real work. Measurable human outcomes across Bharat.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
 
+            </div>
           </div>
+
+          {/* Floating Stats Bar */}
+          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+            {[
+              { icon: Target, value: '1M Target', label: 'Entrepreneurs by 2030' },
+              { icon: HeartHandshake, value: '100% Confirmed', label: 'Peer Receiver Verified' },
+              { icon: Globe2, value: '3 Priority SDGs', label: 'Decent Work, Equality, Infra' },
+              { icon: Building2, value: '10,000+ Jobs', label: 'Protected & Preserved' },
+            ].map((stat, i) => {
+              const Icon = stat.icon
+              return (
+                <div
+                  key={i}
+                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
+                    <Icon className="size-5" />
+                  </div>
+                  <div>
+                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+                      {stat.value}
+                    </div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 2: HOW IMPACT ACTUALLY WORKS HERE & WHERE WE FOCUS ───────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left: HOW IMPACT ACTUALLY WORKS HERE */}
-            <div className="lg:col-span-6 space-y-6">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    ACTION OVER SLOGANS
-                  </span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
-                  HOW IMPACT ACTUALLY WORKS HERE
-                </h2>
-              </div>
-
-              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
-                <p>
-                  Impact begins with action. Not with a slogan. Not with a campaign created for a photograph. Not with a number on a presentation.
-                </p>
-                <p>
-                  It begins when someone decides to contribute. A Peer can:
-                </p>
-                <div className="grid grid-cols-2 gap-2 text-xs font-medium text-slate-800">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">• Teach &amp; mentor</div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">• Share hard-won experience</div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">• Give focused time</div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">• Create commercial opportunity</div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">• Support a person in struggle</div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">• Solve an operational problem</div>
-                </div>
-                <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200 space-y-1">
-                  <p className="text-xs text-slate-600">The action may be small. Its effect may not be.</p>
-                  <p className="font-serif font-bold text-base sm:text-lg text-[#0062D2]">
-                    1 Action = 1 Life Impacted.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: WHERE WE FOCUS */}
-            <div className="lg:col-span-6">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200 shadow-sm space-y-6">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                  <Target className="w-5 h-5" />
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-950">
-                  WHERE WE FOCUS
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Social impact becomes meaningful when it is specific. Rather than trying to speak about everything, PEERS GLOBAL focuses its impact work around defined areas where action can be organised, measured and evidenced:
-                </p>
-                <div className="space-y-2 text-xs text-slate-800 font-medium">
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">● What the need is</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">● What PEERS GLOBAL is doing</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">● Who is being served</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">● Who is contributing</div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200">● What has actually happened &amp; what evidence exists</div>
-                </div>
-                <p className="text-xs font-bold text-rose-700 pt-1">
-                  No impact claim without evidence.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 3: THE FOUNDATION (1MEIF) ──────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─── SECTION 2: 3 EVIDENCED SDGs ─── */}
+      <section id="sdgs" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-800 flex items-center justify-center border border-amber-200 shadow-2xs">
-                <Landmark className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block">
-                  SECTION 8 NOT-FOR-PROFIT ENTITY
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2 max-w-2xl">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  GLOBAL STANDARDS
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-                  THE FOUNDATION: 1 Million Entrepreneurs International Forum
-                </h3>
               </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+                Our 3 Priority Sustainable Development Goals
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                We do not claim vague impact. We align strictly with measurable United Nations SDGs where peer collaboration delivers verifiable proof.
+              </p>
             </div>
 
-            <div className="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-              <p>
-                The Foundation provides an institutional structure for the social-impact work connected with the ecosystem. The source architecture identifies the Foundation with the <strong>1 Million Entrepreneurs International Forum (1MEIF), Section 8</strong>.
-              </p>
-              <p>
-                Carrying the work that sits outside commercial membership: grassroots mentorship, student founder fellowships, capacity building in Tier 2 and Tier 3 cities, and sponsored seats for underserved builders.
-              </p>
-
-              <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1">
-                <strong className="text-slate-950 font-bold block text-sm">The Foundation Principle:</strong>
-                <p className="italic text-slate-800">
-                  Build an institution capable of turning entrepreneurial contribution into measurable social impact.
-                </p>
-              </div>
+            <div className="p-3 rounded-2xl bg-blue-50 border border-blue-200 text-xs text-[#0062D2] font-semibold shrink-0">
+              UN SDG Framework Aligned
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* ─── SECTION 4: THE SDGs WE IMPACT (3 GOALS. REAL WORK. EVIDENCE FIRST.) ─── */}
-      <section id="sdgs" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="max-w-3xl mb-12">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                SUBSTANTIVE ALIGNMENT
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
-              THE SDGs WE IMPACT
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
-              Social impact should not become a collection of fashionable labels. PEERS GLOBAL identifies three Sustainable Development Goals directly relevant to its evidenced work.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {EVIDENCED_SDGS.map((sdg) => (
               <div
                 key={sdg.num}
-                className="p-7 rounded-3xl bg-[#FBFCFE] border border-slate-200 shadow-sm flex flex-col justify-between space-y-4 hover:border-blue-300 transition-all"
+                className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="space-y-3">
-                  <span className="w-10 h-10 rounded-2xl bg-blue-50 text-[#0062D2] border border-blue-200 font-mono font-bold text-sm flex items-center justify-center">
-                    {sdg.num}
-                  </span>
-                  <h3 className="font-serif font-bold text-slate-950 text-xl">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center font-mono font-bold text-lg group-hover:scale-110 transition-transform shadow-2xs">
+                      {sdg.num}
+                    </span>
+                    <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-[10px] font-bold text-slate-700 uppercase tracking-wider">
+                      {sdg.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
                     {sdg.title}
                   </h3>
-                  <div className="space-y-2 text-xs text-slate-600">
+
+                  <div className="space-y-2 text-xs">
                     <div>
-                      <strong className="text-slate-900 block font-bold">Why it matters:</strong>
-                      <p className="font-light">{sdg.whyItMatters}</p>
+                      <strong className="text-slate-800 font-bold block mb-0.5">Why it matters:</strong>
+                      <p className="text-slate-600 font-light leading-relaxed">{sdg.whyItMatters}</p>
                     </div>
                     <div>
-                      <strong className="text-slate-900 block font-bold">What we are doing:</strong>
-                      <p className="font-light">{sdg.whatWeDo}</p>
-                    </div>
-                    <div>
-                      <strong className="text-slate-900 block font-bold">Evidence:</strong>
-                      <p className="font-light">{sdg.evidence}</p>
+                      <strong className="text-slate-800 font-bold block mb-0.5">What we do:</strong>
+                      <p className="text-slate-600 font-light leading-relaxed">{sdg.whatWeDo}</p>
                     </div>
                   </div>
+                </div>
+
+                <div className="pt-4 mt-4 border-t border-slate-200/80 text-[11px] font-semibold text-[#0062D2]">
+                  <span>Evidence: {sdg.evidence}</span>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-900 text-white text-center space-y-2 max-w-3xl mx-auto">
-            <h4 className="font-serif font-bold text-lg text-amber-300">
-              THREE GOALS. REAL WORK. EVIDENCE FIRST.
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300 font-light">
-              We will not list all 17 SDGs simply to appear comprehensive. There is a clear connection between:
-            </p>
-            <p className="text-xs font-mono font-bold text-sky-200 uppercase tracking-wider">
-              The Goal → The Action → The People → The Result → The Evidence.
-            </p>
-          </div>
-
         </div>
       </section>
 
-      {/* ─── SECTION 5: MENTOR & TRAIN, VOLUNTEER & IMPACT REPORTS ───────────── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Box 1: MENTOR & TRAIN */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                  <Users className="w-5 h-5" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  MENTOR &amp; TRAIN
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed font-light">
-                  Experience becomes more valuable when it is shared. One entrepreneur may have spent years learning something that another person is trying to understand today.
-                </p>
-                <div className="space-y-1 text-xs text-slate-700 font-medium">
-                  <p>• Knowledge &amp; skills</p>
-                  <p>• Battle-tested experience</p>
-                  <p>• Perspective &amp; encouragement</p>
-                </div>
-                <p className="text-[11px] text-[#0062D2] font-semibold pt-1">
-                  Access to lived experience, not just theory.
-                </p>
-              </div>
-              <Link href="/contact?intent=membership" className="text-xs font-bold text-[#0062D2] hover:underline">
-                Apply to Mentor →
-              </Link>
-            </div>
-
-            {/* Box 2: VOLUNTEER */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100">
-                  <HeartHandshake className="w-5 h-5" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  VOLUNTEER
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed font-light">
-                  Sometimes the most valuable thing you can give is your time. Not every contribution needs a financial transaction.
-                </p>
-                <div className="space-y-1 text-xs text-slate-700 font-medium">
-                  <p>• An hour of advice</p>
-                  <p>• A confidential conversation</p>
-                  <p>• A day of service at a conclave</p>
-                  <p>• A door-opening connection</p>
-                </div>
-              </div>
-              <Link href="/contact?intent=support" className="text-xs font-bold text-purple-700 hover:underline">
-                Volunteer Desk →
-              </Link>
-            </div>
-
-            {/* Box 3: IMPACT REPORTS */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100">
-                  <FileText className="w-5 h-5" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  IMPACT REPORTS
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed font-light">
-                  If we create impact, we should be able to show it. Social impact deserves transparency: documenting what happened, not just what was intended.
-                </p>
-                <div className="space-y-1 text-xs text-slate-700 font-medium">
-                  <p>• Who participated &amp; benefited</p>
-                  <p>• What action took place</p>
-                  <p>• What changed &amp; what remains</p>
-                </div>
-              </div>
-              <Link href="/1-million-mission" className="text-xs font-bold text-emerald-700 hover:underline">
-                Read Impact Reports →
-              </Link>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 6: MEASURE WHAT MATTERS & THE IMPACT JOURNEY ───────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {/* ─── SECTION 3: THE 8-STAGE IMPACT JOURNEY PIPELINE ─── */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            
-            {/* Box 1: MEASURE WHAT MATTERS */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200 shadow-sm space-y-4">
-              <h3 className="text-2xl font-serif font-bold text-slate-950">
-                MEASURE WHAT MATTERS
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                A large number does not automatically mean a large impact. One meaningful intervention can matter enormously to one person.
-              </p>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-800 space-y-1">
-                <strong className="block font-bold text-slate-950">The questions we ask:</strong>
-                <p>• Who was impacted and what changed?</p>
-                <p>• Can the impact be demonstrated?</p>
-                <p>• Can the model be repeated and sustained?</p>
-              </div>
+          <div className="max-w-2xl space-y-2">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                SYSTEMIC PIPELINE
+              </span>
             </div>
-
-            {/* Box 2: FROM ENTREPRENEUR TO IMPACT CREATOR */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200 shadow-sm space-y-4">
-              <h3 className="text-2xl font-serif font-bold text-slate-950">
-                FROM ENTREPRENEUR TO IMPACT CREATOR
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                An entrepreneur creates value through a business. An impact creator creates value that travels beyond the business.
-              </p>
-              <p className="text-xs sm:text-sm font-serif italic text-slate-900 font-medium">
-                The two do not have to be separate identities. Impact begins when contribution moves beyond ourselves.
-              </p>
-            </div>
-
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+              The 8-Stage Impact Journey
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+              How intention transforms into verified, compounding community impact.
+            </p>
           </div>
 
-          {/* THE 8-STAGE IMPACT JOURNEY PIPELINE */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 text-white shadow-xl space-y-6">
-            <div className="text-center space-y-1">
-              <span className="text-xs font-bold uppercase tracking-widest text-amber-300">
-                THE MULTIPLIER MECHANISM
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
-                THE IMPACT JOURNEY
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 text-center">
-              {IMPACT_JOURNEY_STAGES.map((s, idx) => (
-                <div key={s.stage} className="p-3 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                  <span className="text-xs font-mono font-bold text-sky-300 block">
-                    {s.stage}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+            {IMPACT_JOURNEY_STAGES.map((st, idx) => (
+              <div
+                key={idx}
+                className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all space-y-2 text-center flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-[#0062D2] block">
+                    STEP #{idx + 1}
                   </span>
-                  <p className="text-[11px] text-slate-300 font-light leading-tight">
-                    {s.desc}
-                  </p>
+                  <h4 className="text-sm font-bold text-slate-900 mt-1">
+                    {st.stage}
+                  </h4>
                 </div>
-              ))}
-            </div>
-
-            <p className="text-center text-xs font-serif italic text-blue-200 pt-2">
-              &ldquo;The chain continues: 1 Action = 1 Life Impacted.&rdquo;
-            </p>
+                <p className="text-[11px] text-slate-500 font-light leading-snug">
+                  {st.desc}
+                </p>
+              </div>
+            ))}
           </div>
 
         </div>
       </section>
 
-      {/* ─── SECTION 7: CLOSING ROYAL HERO BANNER (JOIN THE IMPACT) ────────── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* Geometric Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg
-            viewBox="0 0 600 600"
-            fill="none"
-            className="w-full h-full text-white/30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="300" cy="300" r="230" stroke="currentColor" strokeWidth="1.2" />
-            <circle cx="300" cy="300" r="170" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <circle cx="300" cy="300" r="110" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="120" y1="180" x2="480" y2="420" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="300" cy="300" r="6" fill="#7DD3FC" />
-            <circle cx="300" cy="300" r="15" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+      {/* ─── SECTION 4: SIGNATURE LUXURY CLOSING HERO BANNER ─── */}
+      <section
+        id="download-unity"
+        className="relative py-20 lg:py-28 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-slate-800"
+      >
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
           </svg>
         </div>
 
@@ -542,70 +383,74 @@ export function SocialImpactClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Manifesto */}
-            <div className="lg:col-span-8 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — 1 ACTION = 1 LIFE IMPACTED —
-              </span>
+            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                  THE SOCIAL IMPACT MISSION
+                </span>
+              </div>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                JOIN THE IMPACT
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+                One entrepreneur can impact another. When it multiplies, it changes a nation.
               </h2>
 
-              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+              <div className="space-y-3.5 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl">
                 <p>
-                  You do not need to wait until you have everything figured out. You can begin with what you already have:
+                  Join the foundation initiatives, mentor first-generation founders, and record verified acts of support on the Unity App.
                 </p>
-                <div className="space-y-1 pl-3 border-l-2 border-sky-300 text-sm text-sky-100 font-medium">
-                  <p>Your experience.</p>
-                  <p>Your time.</p>
-                  <p>Your knowledge.</p>
-                  <p>Your network.</p>
-                  <p className="text-white font-bold">Your willingness to help.</p>
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+                  <p className="text-sky-200 font-medium text-xs sm:text-sm">
+                    • 1 Action = 1 Life Impacted · 3 UN SDGs · 1 Million Mission by 2030.
+                  </p>
+                  <p className="text-white font-bold text-xs sm:text-sm">Lead through authentic giving.</p>
                 </div>
-                <p className="text-white font-serif text-lg italic pt-1">
-                  What can you give today that could change something for someone else?
-                </p>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3.5 pt-3">
                 <Link
-                  href="/contact?intent=membership"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                  href="/apply"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
                 >
-                  <span>Mentor &amp; Train</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-
-                <Link
-                  href="/contact?intent=support"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
-                >
-                  <span>Volunteer →</span>
+                  <span>Apply for Membership</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link
                   href="/1-million-mission"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
                 >
-                  <span>Read Impact Reports →</span>
+                  <span>Explore 1M Mission →</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
+            {/* Right Cursive Script Highlights */}
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 See.
-                <br />
+              </p>
+              <p
+                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
                 Care.
-                <br />
-                Contribute.
-                <br />
-                Multiply.
+              </p>
+              <p
+                className="text-xl sm:text-2xl text-white leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Act.
+              </p>
+              <p
+                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Impact.
               </p>
             </div>
 

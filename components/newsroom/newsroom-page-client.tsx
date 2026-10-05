@@ -255,458 +255,514 @@ export function NewsroomPageClient() {
         </div>
       </div>
 
-      {/* ─── Hero Section ─── */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-bold uppercase tracking-wider text-[#0062D2] mx-auto shadow-xs">
-            <Megaphone className="w-3.5 h-3.5 text-[#0062D2]" />
-            Official Public Record
-          </div>
+      {/* ─── Hero Section (Home & Circles Master Design Layout) ─── */}
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[460px] lg:min-h-[520px] flex items-center">
+            
+            {/* Ambient Lighting */}
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="space-y-4">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[#0062D2] block">
-              PEERS GLOBAL
-            </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-              NEWSROOM
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl font-serif text-slate-800 italic max-w-3xl mx-auto leading-snug font-normal">
-              What is happening at PEERS GLOBAL — and what the world is saying about it.
-            </p>
-          </div>
+            {/* Media Background Layer (Right ~60% fading into white on the left) */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+              }}
+            >
+              {/* Active Video Background */}
+              <video
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/circles-hero-new.jpg"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="size-full object-cover object-center opacity-90"
+              />
 
-          <div className="max-w-2xl mx-auto space-y-3 pt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
-            <p className="font-serif italic text-slate-800 text-base sm:text-lg">
-              A community is built through action. And meaningful action deserves to be documented.
-            </p>
-            <p>
-              The PEERS GLOBAL Newsroom is where you can find the public record of what we are doing, what we are building, what we are announcing, and where PEERS GLOBAL is being talked about.
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-3 pt-2 text-xs sm:text-sm font-bold text-slate-700 font-mono">
-              <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-xs">No manufactured headlines.</span>
-              <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-xs">No inflated claims.</span>
-              <span className="px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#0062D2] shadow-xs">Just information worth knowing.</span>
+              {/* Seamless gradient overlays for misty fade */}
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+
+              {/* Top-Right Script Typography */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
+                  Verified Facts
+                </p>
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  Authentic Stories
+                </p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  Public Record
+                </p>
+              </div>
+
+              {/* Bottom-Right Frosted Glass Pill */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
+                    PRESS SECRETARIAT
+                  </p>
+                  <p className="text-xs font-bold tracking-wider text-white">
+                    PEERS GLOBAL NEWSROOM
+                  </p>
+                </div>
+              </div>
             </div>
+
+            {/* Left Content Area */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-12">
+              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
+                
+                {/* Eyebrow with brand gradient bar */}
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    PUBLIC RECORD &amp; PRESS SECRETARIAT
+                  </span>
+                </div>
+
+                {/* H1 Heading */}
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-950 tracking-tight leading-[1.15] mb-3.5">
+                  What is happening at{' '}
+                  <span className="bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent">
+                    PEERS GLOBAL.
+                  </span>
+                </h1>
+
+                {/* Subtitle & Descriptions */}
+                <p className="text-xs sm:text-sm md:text-base text-slate-600 font-normal leading-relaxed mb-5 max-w-lg">
+                  What we are doing, what we are building, what we are announcing, and where PEERS GLOBAL is being covered across national media.
+                </p>
+
+                {/* Featured Highlight Quote Card */}
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
+                  <p className="italic text-slate-800 text-xs sm:text-sm font-medium leading-relaxed">
+                    “A community is built through action. And meaningful action deserves to be documented without hype.”
+                  </p>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3 mb-2">
+                  <a
+                    href="#latest"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white px-6 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                  >
+                    <span>Explore Latest</span>
+                    <ArrowRight className="size-4" />
+                  </a>
+
+                  <a
+                    href="#press-releases"
+                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                  >
+                    <span>Press Releases</span>
+                  </a>
+
+                  <a
+                    href="#media-kit"
+                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-700 px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                  >
+                    <span>Media Kit</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
-          <div className="pt-4 flex flex-wrap justify-center gap-3 sm:gap-4">
-            <a
-              href="#latest"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052b3] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all uppercase tracking-wider"
-            >
-              Explore Latest
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#press-releases"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold border border-slate-200 hover:bg-slate-50 transition-all shadow-xs uppercase tracking-wider"
-            >
-              Press Releases
-            </a>
-            <a
-              href="#in-the-media"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold border border-slate-200 hover:bg-slate-50 transition-all shadow-xs uppercase tracking-wider"
-            >
-              In The Media
-            </a>
-            <a
-              href="#media-kit"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold border border-slate-200 hover:bg-slate-50 transition-all shadow-xs uppercase tracking-wider"
-            >
-              Media Kit
-            </a>
-            <a
-              href="#media-enquiry"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#0062D2] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:opacity-95 transition-all uppercase tracking-wider"
-            >
-              Make an Enquiry
-            </a>
+          {/* 4-Item Floating Stats Bar */}
+          <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { val: '19 Hubs', label: 'National Footprint', sub: 'Operating Chapters across Bharat' },
+              { val: '100% Fact-Checked', label: 'Verified Public Record', sub: 'Zero manufactured hype' },
+              { val: '6 Ecosystem Media', label: 'Podcasts, TV & Books', sub: 'Continuous founder coverage' },
+              { val: '24h Response', label: 'Media Enquiry Desk', sub: 'Direct journalist access' },
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  {stat.val}
+                </div>
+                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                <div className="text-[11px] text-slate-500 font-normal">{stat.sub}</div>
+              </div>
+            ))}
           </div>
+
         </div>
       </section>
 
       {/* ─── Section 1: LATEST (What is happening now) ─── */}
-      <section id="latest" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="latest" className="py-14 sm:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-                LATEST
-              </span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#061836] tracking-tight leading-[1.12]">
-              What is happening now
-            </h2>
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              The latest developments from across the PEERS GLOBAL ecosystem.
-            </p>
-
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#F8FAFD] border border-blue-100 text-xs sm:text-sm text-slate-700 space-y-2">
-              <div className="font-bold text-slate-900 uppercase tracking-wider text-xs">
-                This is where you will find:
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            
+            {/* Left Context & Category Scope */}
+            <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    LATEST DEVELOPMENTS
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight leading-snug">
+                  What is happening now
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  The verified real-time pulse of expansions, leadership appointments, and milestone updates across the PEERS GLOBAL ecosystem.
+                </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 pt-1">
-                {[
-                  'Community announcements',
-                  'New initiatives',
-                  'Major milestones',
-                  'Events and gatherings',
-                  'Leadership developments',
-                  'Impact updates',
-                  'New collaborations',
-                  'Important organisational announcements',
-                ].map((point) => (
-                  <div key={point} className="flex items-start gap-2">
-                    <span className="text-[#0062D2] font-bold">●</span>
-                    <span>{point}</span>
+
+              {/* Scope Box */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#F8FAFD] border border-slate-200/90 shadow-2xs space-y-3">
+                <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Coverage Scope
+                </div>
+                <div className="grid grid-cols-1 gap-2 text-xs text-slate-700">
+                  {[
+                    'Community Announcements',
+                    'New Circle Initiatives',
+                    'Major Industrial Milestones',
+                    'Leadership Councils',
+                    'Impact & MSME Updates',
+                    'Bilateral Collaborations',
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2 p-1.5 rounded-lg bg-white border border-slate-100">
+                      <CheckCircle2 className="size-3.5 text-[#0062D2] shrink-0" />
+                      <span className="font-medium text-slate-800">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Feed Grid */}
+            <div className="lg:col-span-8 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
+                  [LIVE NEWSROOM FEED — ACTIVE ARCHIVE]
+                </span>
+                <span className="text-xs font-mono text-slate-400 hidden sm:inline">
+                  Newest first &bull; Real-time public record
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                {LATEST_STORIES.map((story, idx) => (
+                  <div
+                    key={story.headline}
+                    className="p-5 sm:p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:bg-white hover:border-[#0062D2] hover:shadow-md transition-all flex flex-col justify-between space-y-3.5 group"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between text-xs font-mono">
+                        <span className="px-2.5 py-0.5 rounded-md bg-blue-50 text-[#0062D2] font-bold border border-blue-100 text-[11px]">
+                          {story.category}
+                        </span>
+                        <span className="text-slate-500 text-[11px]">{story.date}</span>
+                      </div>
+
+                      <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors leading-snug">
+                        {story.headline}
+                      </h3>
+
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                        {story.summary}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs">
+                      <span className="font-mono text-slate-400 text-[11px]">Item #{idx + 1}</span>
+                      <a
+                        href={story.readMoreUrl}
+                        className="inline-flex items-center gap-1 font-bold text-[#0062D2] hover:underline uppercase tracking-wider text-[11px]"
+                      >
+                        <span>Details</span>
+                        <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Live Feed Container */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
-                [LIVE NEWSROOM FEED — ACTIVE ARCHIVE]
-              </span>
-              <span className="text-xs font-mono text-slate-400">
-                Date · Headline · Category · Short summary · Read more
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {LATEST_STORIES.map((story, idx) => (
-                <div
-                  key={story.headline}
-                  className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-[#0062D2] hover:shadow-md transition-all flex flex-col justify-between space-y-5 group"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="px-3 py-1 rounded-full bg-blue-50 text-[#0062D2] font-bold border border-blue-100">
-                        {story.category}
-                      </span>
-                      <span className="text-slate-500">{story.date}</span>
-                    </div>
-
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors leading-snug">
-                      {story.headline}
-                    </h3>
-
-                    <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                      {story.summary}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-mono text-slate-400">Item #{idx + 1}</span>
-                    <a
-                      href={story.readMoreUrl}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#0062D2] hover:underline uppercase tracking-wider"
-                    >
-                      <span>Read more</span>
-                      <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs text-center text-slate-500 font-mono pt-2">
-              The newest information appears first.
-            </p>
           </div>
 
         </div>
       </section>
 
       {/* ─── Section 2: PRESS RELEASES ─── */}
-      <section id="press-releases" className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="press-releases" className="py-14 sm:py-20 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-                PRESS RELEASES
-              </span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#061836] tracking-tight leading-[1.12]">
-              When PEERS GLOBAL has something official to announce.
-            </h2>
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              Press releases are the formal record of significant organisational announcements.
-            </p>
-
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/80 text-xs sm:text-sm text-slate-700 space-y-2">
-              <div className="font-bold text-slate-900 uppercase tracking-wider text-xs">
-                They may cover:
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            
+            {/* Left Column: Context & Covered Areas */}
+            <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    PRESS RELEASES
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight leading-snug">
+                  Official Announcements
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  Press releases are the formal record of significant governance, policy, and organizational announcements.
+                </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 pt-1 font-medium text-slate-800">
-                {[
-                  'New initiatives',
-                  'Major milestones',
-                  'Leadership appointments',
-                  'Strategic developments',
-                  'Community announcements',
-                  'Impact initiatives',
-                  'Major events',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle2 className="size-3.5 text-[#0062D2] shrink-0" />
-                    <span>{item}</span>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
+                <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Announcement Categories
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-xs font-medium text-slate-800">
+                  {[
+                    'New Charters',
+                    'Milestones',
+                    'Leadership',
+                    'Strategic Deals',
+                    'Communities',
+                    'Social Impact',
+                    'Annual Summits',
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50 border border-slate-100 text-[11px]">
+                      <CheckCircle2 className="size-3 text-[#0062D2] shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Press Release List */}
+            <div className="lg:col-span-8 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
+                  [OFFICIAL PRESS RELEASES — PERMANENT RECORD]
+                </span>
+                <span className="text-xs font-mono text-slate-400 hidden sm:inline">
+                  Downloadable official statements
+                </span>
+              </div>
+
+              <div className="divide-y divide-slate-200/80 rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden">
+                {PRESS_RELEASES.map((pr) => (
+                  <div
+                    key={pr.headline}
+                    className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-blue-50/20 transition-colors"
+                  >
+                    <div className="space-y-1.5 max-w-xl">
+                      <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                        <span className="px-2.5 py-0.5 rounded bg-blue-50 text-[#0062D2] font-bold border border-blue-200 text-[11px]">
+                          {pr.type}
+                        </span>
+                        <span className="text-slate-400">•</span>
+                        <span className="text-slate-600 font-semibold text-[11px]">{pr.date}</span>
+                      </div>
+
+                      <h3 className="text-base sm:text-lg font-bold text-slate-950 leading-snug">
+                        {pr.headline}
+                      </h3>
+
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                        {pr.summary}
+                      </p>
+
+                      <div className="text-[11px] text-slate-500 font-mono pt-1">
+                        Contact: <a href={`mailto:${pr.mediaContact}`} className="text-[#0062D2] font-semibold hover:underline">{pr.mediaContact}</a>
+                      </div>
+                    </div>
+
+                    <a
+                      href="#media-enquiry"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-[#0062D2] hover:text-white text-slate-700 text-xs font-bold border border-slate-200 hover:border-[#0062D2] transition-all shrink-0 self-start uppercase tracking-wider"
+                    >
+                      <span>Official PDF</span>
+                      <Download className="size-3.5" />
+                    </a>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Press Release Archive */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
-                [LIVE PRESS RELEASE ARCHIVE — PERMANENT RECORD]
-              </span>
-              <span className="text-xs font-mono text-slate-400">
-                Publication date · Headline · Official announcement · Relevant facts · Media contact
-              </span>
-            </div>
-
-            <div className="divide-y divide-slate-200 rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden">
-              {PRESS_RELEASES.map((pr) => (
-                <div
-                  key={pr.headline}
-                  className="p-6 sm:p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 hover:bg-blue-50/30 transition-colors"
-                >
-                  <div className="space-y-2 max-w-3xl">
-                    <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                      <span className="px-2.5 py-0.5 rounded bg-blue-50 text-[#0062D2] font-bold border border-blue-200">
-                        {pr.type}
-                      </span>
-                      <span className="text-slate-400">•</span>
-                      <span className="text-slate-600 font-bold">{pr.date}</span>
-                    </div>
-
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#061836] leading-snug">
-                      {pr.headline}
-                    </h3>
-
-                    <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                      {pr.summary}
-                    </p>
-
-                    <div className="text-xs text-slate-500 font-mono pt-1">
-                      Media Contact: <a href={`mailto:${pr.mediaContact}`} className="text-[#0062D2] font-bold hover:underline">{pr.mediaContact}</a>
-                    </div>
-                  </div>
-
-                  <a
-                    href="#media-enquiry"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-100 hover:bg-[#0062D2] hover:text-white text-slate-700 text-xs font-bold transition-all shrink-0 self-start uppercase tracking-wider"
-                  >
-                    <span>Request Official PDF</span>
-                    <Download className="size-3.5" />
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs text-slate-500 font-mono text-center pt-2">
-              Every release clearly identifies its publication date, headline, official announcement, relevant facts and media contact.
-            </p>
           </div>
 
         </div>
       </section>
 
       {/* ─── Section 3: IN THE MEDIA ─── */}
-      <section id="in-the-media" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="in-the-media" className="py-14 sm:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
-          <div className="max-w-3xl space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-                IN THE MEDIA
-              </span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-5">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                  IN THE MEDIA
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+                When the story travels beyond our own channels
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600">
+                Verified external coverage across major national and international business publications.
+              </p>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#061836] tracking-tight leading-[1.12]">
-              When the story travels beyond our own channels.
-            </h2>
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              PEERS GLOBAL is part of a larger entrepreneurial conversation.
-            </p>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              This section brings together verified external coverage featuring:
-            </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs sm:text-sm font-semibold text-slate-800">
-              {['● PEERS GLOBAL', '● Its initiatives', '● Its leadership', '● Its Peers', '● Its work', '● Its events', '● Its impact'].map((feat) => (
-                <div key={feat} className="p-2.5 rounded-lg bg-slate-50 border border-slate-200/70">
-                  {feat}
-                </div>
+            <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-slate-700">
+              {['Leadership', 'Circles', 'Manufacturing', '1-to-1 Sync', 'Impact'].map((t) => (
+                <span key={t} className="px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200">
+                  {t}
+                </span>
               ))}
             </div>
           </div>
 
           {/* Coverage Grid */}
-          <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
-                [VERIFIED PRESS COVERAGE — EDITORIAL MENTIONS]
-              </span>
-              <span className="text-xs font-mono text-slate-400">
-                Publication · Date · Headline · Subject · Original source
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {VERIFIED_MEDIA_COVERAGE.map((item) => (
-                <div
-                  key={item.headline}
-                  className="p-7 sm:p-8 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-xs hover:border-[#0062D2] hover:shadow-md transition-all flex flex-col justify-between space-y-6"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="px-3 py-1 rounded-full bg-blue-50 text-[#0062D2] font-bold border border-blue-100 uppercase">
-                        {item.publication}
-                      </span>
-                      <span className="text-slate-500 font-medium">{item.date}</span>
-                    </div>
-
-                    <h3 className="font-serif text-xl font-bold text-[#061836] leading-snug">
-                      &ldquo;{item.headline}&rdquo;
-                    </h3>
-
-                    <div className="space-y-1 text-xs text-slate-600 font-sans">
-                      <div><strong className="text-slate-900">Subject:</strong> {item.subject}</div>
-                      <div><strong className="text-slate-900">Original source:</strong> {item.source}</div>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {VERIFIED_MEDIA_COVERAGE.map((item) => (
+              <div
+                key={item.headline}
+                className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:border-[#0062D2] hover:bg-white hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+              >
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#0062D2] font-bold border border-blue-100 uppercase text-[11px]">
+                      {item.publication}
+                    </span>
+                    <span className="text-slate-500 text-[11px]">{item.date}</span>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-mono">
-                    <span className="text-slate-400">Verified Editorial</span>
-                    <a
-                      href="#media-enquiry"
-                      className="inline-flex items-center gap-1 font-bold text-[#0062D2] hover:underline uppercase tracking-wider"
-                    >
-                      <span>Press Details</span>
-                      <ExternalLink className="size-3.5" />
-                    </a>
+                  <h3 className="text-base font-bold text-slate-950 leading-snug">
+                    &ldquo;{item.headline}&rdquo;
+                  </h3>
+
+                  <div className="space-y-1 text-xs text-slate-600 font-sans">
+                    <div><strong className="text-slate-900 font-bold">Subject:</strong> {item.subject}</div>
+                    <div><strong className="text-slate-900 font-bold">Source:</strong> {item.source}</div>
                   </div>
                 </div>
-              ))}
-            </div>
 
-            {/* Editorial Integrity Box */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-amber-950 space-y-2">
-              <div className="flex items-center gap-2 font-serif font-bold text-base sm:text-lg text-amber-900">
-                <ShieldCheck className="size-5 text-amber-700" />
-                Editorial Integrity &amp; Verification Rules
+                <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-400 text-[11px]">Verified Editorial</span>
+                  <a
+                    href="#media-enquiry"
+                    className="inline-flex items-center gap-1 font-bold text-[#0062D2] hover:underline uppercase tracking-wider text-[11px]"
+                  >
+                    <span>Press Details</span>
+                    <ExternalLink className="size-3" />
+                  </a>
+                </div>
               </div>
-              <ul className="text-xs sm:text-sm space-y-1 text-amber-900/90 leading-relaxed list-disc list-inside">
-                <li>No unverified mentions.</li>
-                <li>No self-described &ldquo;coverage&rdquo; without an actual publication.</li>
-                <li>No presenting paid promotion as editorial coverage.</li>
-                <li>If someone else tells the story, let their words remain theirs.</li>
-              </ul>
+            ))}
+          </div>
+
+          {/* Editorial Integrity Box */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-2 font-bold text-xs sm:text-sm text-amber-900">
+              <ShieldCheck className="size-4.5 text-amber-700 shrink-0" />
+              <span>Editorial Integrity Rule: Zero paid promotions presented as earned media.</span>
             </div>
+            <span className="text-[11px] font-mono text-amber-800">
+              Only verified editorial features are archived.
+            </span>
           </div>
 
         </div>
       </section>
 
       {/* ─── Section 4: THE MEDIA STORY ─── */}
-      <section className="py-16 sm:py-24 bg-[#061836] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-cyan-200 text-xs font-mono uppercase tracking-widest border border-white/15">
+      <section className="py-12 sm:py-16 bg-[#040F24] text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-cyan-200 text-[11px] font-mono uppercase tracking-widest border border-white/15">
             THE MEDIA STORY
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-tight text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-white">
             PEERS GLOBAL was created around a simple belief: <br />
             <span className="italic text-cyan-200">Every honest entrepreneurial story deserves visibility.</span>
           </h2>
 
-          <div className="space-y-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed text-left max-w-3xl mx-auto">
-            <p>
-              That principle extends beyond our own community.
-            </p>
-            <p>
-              Entrepreneurs build businesses that employ people, solve problems, create products, serve communities and generate opportunities.
-            </p>
-            <p className="font-serif italic text-white text-lg sm:text-xl">
-              Yet many of their stories remain unseen.
-            </p>
-            <p>
-              The Newsroom is one place where those stories can become part of the public record.
-            </p>
-          </div>
+          <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+            Entrepreneurs build businesses that employ people, solve problems, create products, and serve communities. Yet many of their stories remain unseen. The Newsroom is where those journeys become part of the public record.
+          </p>
         </div>
       </section>
 
       {/* ─── Section 5: OUR MEDIA ECOSYSTEM ─── */}
-      <section id="media-ecosystem" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="media-ecosystem" className="py-14 sm:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
-          <div className="max-w-3xl space-y-4">
+          <div className="space-y-2 max-w-3xl">
             <div className="flex items-center gap-2">
               <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                 OUR MEDIA ECOSYSTEM
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#061836] tracking-tight leading-[1.12]">
-              Platforms and formats designed to give entrepreneurial stories a place to travel.
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+              Platforms designed to give entrepreneurial stories a place to travel
             </h2>
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              The broader PEERS GLOBAL media ecosystem includes specialized vehicles created to document, broadcast, and amplify the voices of builders across Bharat and the world.
+            <p className="text-xs sm:text-sm text-slate-600">
+              Specialized formats created to document, broadcast, and amplify the voices of builders across Bharat and the world.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {MEDIA_ECOSYSTEM.map((eco) => {
               const IconComp = eco.icon
               return (
                 <div
                   key={eco.title}
-                  className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-[#0062D2] hover:shadow-md transition-all flex flex-col justify-between space-y-5 group"
+                  className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:bg-white hover:border-[#0062D2] hover:shadow-md transition-all flex flex-col justify-between space-y-4 group"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <div className="size-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
-                        <IconComp className="size-6" />
+                      <div className="size-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
+                        <IconComp className="size-5" />
                       </div>
-                      <span className="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-slate-100 text-slate-700 uppercase tracking-wider">
+                      <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 uppercase tracking-wider">
                         {eco.tag}
                       </span>
                     </div>
 
-                    <div className="space-y-2">
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#061836] group-hover:text-[#0062D2] transition-colors">
+                    <div className="space-y-1">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
                         {eco.title}
                       </h3>
-                      <p className="text-sm font-semibold text-slate-800 leading-snug">
+                      <p className="text-xs font-semibold text-slate-800 leading-snug">
                         {eco.desc}
                       </p>
                     </div>
 
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal pt-2 border-t border-slate-100">
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal pt-2 border-t border-slate-200/60">
                       {eco.status}
                     </p>
                   </div>
 
-                  <div className="pt-3 flex items-center justify-between">
+                  <div className="pt-2 flex items-center justify-between text-xs">
                     <span className="text-[11px] font-mono text-slate-400">Verified Format</span>
                     <a
                       href="#media-enquiry"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#0062D2] hover:underline uppercase tracking-wider"
+                      className="inline-flex items-center gap-1 font-bold text-[#0062D2] hover:underline uppercase tracking-wider text-[11px]"
                     >
                       <span>Participate / Pitch</span>
-                      <ChevronRight className="size-3.5" />
+                      <ChevronRight className="size-3" />
                     </a>
                   </div>
                 </div>
@@ -718,38 +774,35 @@ export function NewsroomPageClient() {
       </section>
 
       {/* ─── Section 6: FACTSHEET & MEDIA KIT ─── */}
-      <section id="media-kit" className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="media-kit" className="py-14 sm:py-20 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
               <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                 FACTSHEET &amp; MEDIA KIT
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#061836] tracking-tight leading-[1.12]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-950 tracking-tight leading-snug">
               Need to understand PEERS GLOBAL quickly?
             </h2>
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal">
               The Media Kit provides the essential information journalists, publishers, event organisers and partners may need.
-            </p>
-            <p className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-              All downloadable material should be the latest approved version.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {MEDIA_KIT_DOWNLOADS.map((item) => (
               <div
                 key={item.name}
-                className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-5 hover:border-[#0062D2] hover:shadow-md transition-all group"
+                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-4 hover:border-[#0062D2] hover:shadow-md transition-all group"
               >
-                <div className="space-y-3">
-                  <div className="size-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
+                <div className="space-y-2.5">
+                  <div className="size-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
                     <FileText className="size-5" />
                   </div>
-                  <h3 className="text-base font-serif font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
                     {item.name}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed font-normal">
@@ -757,11 +810,11 @@ export function NewsroomPageClient() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-[11px] font-mono text-slate-500 font-semibold">{item.format}</span>
                   <a
                     href="#media-enquiry"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#0052b3] uppercase tracking-wider"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#0062D2] hover:text-[#0052b3] uppercase tracking-wider"
                   >
                     <span>Request Kit</span>
                     <Download className="size-3.5" />
@@ -772,31 +825,27 @@ export function NewsroomPageClient() {
           </div>
 
           {/* THE OFFICIAL BOILERPLATE BOX */}
-          <div className="p-8 sm:p-10 rounded-2xl sm:rounded-[28px] bg-white border border-slate-200/90 shadow-sm space-y-4">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0062D2] block">
                   THE OFFICIAL BOILERPLATE
                 </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#061836]">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-950">
                   PEERS GLOBAL — Standard Approved Editorial Copy
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={copyBoilerplate}
-                className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2.5 rounded-full bg-blue-50 text-[#0062D2] border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer self-start sm:self-auto shrink-0 uppercase tracking-wider"
+                className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full bg-blue-50 text-[#0062D2] border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer self-start sm:self-auto shrink-0 uppercase tracking-wider"
               >
-                {copied ? <Check className="size-4 text-emerald-600" /> : <Copy className="size-4" />}
+                {copied ? <Check className="size-3.5 text-emerald-600" /> : <Copy className="size-3.5" />}
                 <span>{copied ? 'Copied to Clipboard!' : 'Copy Boilerplate'}</span>
               </button>
             </div>
 
-            <p className="text-xs text-slate-500 font-normal">
-              A concise, approved description of PEERS GLOBAL for use by journalists, event organisers, publications and partners.
-            </p>
-
-            <blockquote className="text-sm sm:text-base text-slate-800 leading-relaxed font-serif italic border-l-4 border-[#0062D2] pl-4 py-1 bg-slate-50/60 rounded-r-xl">
+            <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed italic border-l-4 border-[#0062D2] pl-4 py-1.5 bg-slate-50/70 rounded-r-xl">
               &ldquo;{officialBoilerplateText}&rdquo;
             </blockquote>
           </div>
@@ -805,29 +854,31 @@ export function NewsroomPageClient() {
       </section>
 
       {/* ─── Section 7: FOR JOURNALISTS & MEDIA (ENQUIRY FORM) ─── */}
-      <section id="media-enquiry" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+      <section id="media-enquiry" className="py-14 sm:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
             {/* Left Column: Context & Welcomed Topics */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
-                  FOR JOURNALISTS &amp; MEDIA
-                </span>
+            <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-24">
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    FOR JOURNALISTS &amp; MEDIA
+                  </span>
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight leading-snug">
+                  Looking for a story, a source or a conversation?
+                </h2>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  We welcome thoughtful conversations with journalists and creators:
+                </p>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#061836] tracking-tight leading-[1.15]">
-                Looking for a story, a source or a conversation?
-              </h2>
-
-              <p className="text-base text-slate-700 leading-relaxed font-normal">
-                We welcome thoughtful conversations about:
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
                 {[
                   '● Entrepreneurship',
                   '● Business communities',
@@ -835,33 +886,33 @@ export function NewsroomPageClient() {
                   '● Entrepreneurial leadership',
                   '● Innovation',
                   '● Impact',
-                  '● The experience of building a business',
-                  '● The changing entrepreneurial ecosystem',
+                  '● The experience of building',
+                  '● Changing MSME ecosystems',
                 ].map((item) => (
-                  <div key={item} className="p-3 rounded-xl bg-[#F8FAFD] border border-slate-200/70">
+                  <div key={item} className="p-2.5 rounded-xl bg-[#F8FAFD] border border-slate-200/70">
                     {item}
                   </div>
                 ))}
               </div>
 
-              <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-200/80 space-y-3">
-                <p className="text-sm sm:text-base font-serif italic text-[#061836]">
+              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-200/80 space-y-2">
+                <p className="text-xs sm:text-sm italic text-slate-900 font-medium">
                   &ldquo;If your story is relevant to our world, tell us what you are working on.&rdquo;
                 </p>
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0062D2]">
-                  <span>Direct Secretariat SLA: Under 24 Business Hours</span>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2]">
+                  Direct Secretariat SLA: Under 24 Business Hours
                 </div>
               </div>
             </div>
 
             {/* Right Column: Interactive Media Enquiry Form */}
             <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-2xl sm:rounded-[28px] bg-[#FAFBFD] border border-slate-200/90 shadow-sm space-y-6">
+              <div className="p-6 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-md space-y-5">
                 <div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#061836]">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-950">
                     MEDIA ENQUIRIES
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 pt-1">
+                  <p className="text-xs sm:text-sm text-slate-600 pt-0.5">
                     We will route the enquiry to the appropriate spokesperson or leadership desk.
                   </p>
                 </div>
@@ -869,10 +920,10 @@ export function NewsroomPageClient() {
                 {formSubmitted ? (
                   <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
                     <CheckCircle2 className="size-12 text-emerald-600 mx-auto" />
-                    <h4 className="font-serif text-xl font-bold text-emerald-950">
+                    <h4 className="text-lg font-bold text-emerald-950">
                       Media Enquiry Transmitted
                     </h4>
-                    <p className="text-sm text-emerald-800 max-w-md mx-auto">
+                    <p className="text-xs sm:text-sm text-emerald-800 max-w-md mx-auto">
                       Thank you. Your request has been logged with the PEERS GLOBAL Press Secretariat. A verified representative will respond within your indicated deadline.
                     </p>
                     <button
@@ -896,9 +947,9 @@ export function NewsroomPageClient() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmitEnquiry} className="space-y-4 text-xs sm:text-sm">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1.5">
-                        <label className="font-bold text-slate-800">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="space-y-1">
+                        <label className="font-bold text-slate-800 text-xs">
                           Your name <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -907,12 +958,12 @@ export function NewsroomPageClient() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="e.g. Aditi Sharma"
-                          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="font-bold text-slate-800">
+                      <div className="space-y-1">
+                        <label className="font-bold text-slate-800 text-xs">
                           Publication / organisation <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -920,15 +971,15 @@ export function NewsroomPageClient() {
                           required
                           value={formData.organisation}
                           onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                          placeholder="e.g. Financial Express / BBC"
-                          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
+                          placeholder="e.g. Financial Express / LiveMint"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1.5">
-                        <label className="font-bold text-slate-800">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="space-y-1">
+                        <label className="font-bold text-slate-800 text-xs">
                           Your role <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -936,13 +987,13 @@ export function NewsroomPageClient() {
                           required
                           value={formData.role}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                          placeholder="e.g. Senior Editor / Tech Correspondent"
-                          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
+                          placeholder="e.g. Senior Editor"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="font-bold text-slate-800">
+                      <div className="space-y-1">
+                        <label className="font-bold text-slate-800 text-xs">
                           Your deadline <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -951,13 +1002,13 @@ export function NewsroomPageClient() {
                           value={formData.deadline}
                           onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                           placeholder="e.g. Oct 15, 2026 / 48 Hours"
-                          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="font-bold text-slate-800">
+                    <div className="space-y-1">
+                      <label className="font-bold text-slate-800 text-xs">
                         What you are working on <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -966,12 +1017,12 @@ export function NewsroomPageClient() {
                         value={formData.topic}
                         onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                         placeholder="e.g. Story on tier-2 manufacturing founder ecosystems"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="font-bold text-slate-800">
+                    <div className="space-y-1">
+                      <label className="font-bold text-slate-800 text-xs">
                         What you need from PEERS GLOBAL <span className="text-red-500">*</span>
                       </label>
                       <textarea
@@ -980,12 +1031,12 @@ export function NewsroomPageClient() {
                         value={formData.needs}
                         onChange={(e) => setFormData({ ...formData, needs: e.target.value })}
                         placeholder="e.g. Founder interview with Dr. Pravin Parmar, case study data, high-res photos"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm resize-none"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="font-bold text-slate-800">
+                    <div className="space-y-1">
+                      <label className="font-bold text-slate-800 text-xs">
                         Your contact details (Email / Phone) <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -994,16 +1045,16 @@ export function NewsroomPageClient() {
                         value={formData.contact}
                         onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                         placeholder="e.g. journalist@publication.com | +91 98765 43210"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl bg-[#0062D2] hover:bg-[#0052b3] text-white font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider cursor-pointer active:scale-[0.99]"
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                     >
                       <span>Transmit Media Enquiry →</span>
-                      <Send className="size-4" />
+                      <Send className="size-3.5" />
                     </button>
                   </form>
                 )}
@@ -1016,113 +1067,210 @@ export function NewsroomPageClient() {
       </section>
 
       {/* ─── Section 8: A NOTE ON ACCURACY ─── */}
-      <section className="py-16 sm:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#0062D2] text-xs font-bold uppercase tracking-wider">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            STANDARDS &amp; GOVERNANCE
-          </div>
+      <section className="py-14 sm:py-18 bg-[#F8FAFC] border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle background ambient accents */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#061836]">
-            A NOTE ON ACCURACY
-          </h2>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 lg:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Charter & Philosophy */}
+              <div className="lg:col-span-5 space-y-4 text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[#0062D2] text-xs font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  STANDARDS &amp; GOVERNANCE
+                </div>
 
-          <div className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-2xl mx-auto space-y-3 font-normal">
-            <p className="font-serif italic text-slate-900 text-lg">
-              The Newsroom is a public record. That means accuracy matters.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs sm:text-sm font-medium text-slate-800 pt-2">
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Dates should be correct.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Names should be correct.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Numbers should be verified.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Quotes should be authentic.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Links lead to original source.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Announcements distinct from opinions.</div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+                  A NOTE ON ACCURACY
+                </h2>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                  The Newsroom is an institutional public record. Every record released adheres to strict editorial integrity and verifiable validation standards.
+                </p>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900">
+                    <CheckCircle2 className="w-4 h-4 text-[#0062D2]" />
+                    Institutional Stand
+                  </div>
+                  <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                    &ldquo;And claims should be supportable. If we publish it, we should be able to stand behind it.&rdquo;
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: 6 Core Verifiable Principles Grid */}
+              <div className="lg:col-span-7">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-blue-100/70 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
+                      <Calendar className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">Chronological Rigour</h4>
+                      <p className="text-[11px] text-slate-600 mt-0.5">Dates and milestone timelines must be verifiable and exact.</p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-purple-100/70 text-purple-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <User className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">Identity & Attribution</h4>
+                      <p className="text-[11px] text-slate-600 mt-0.5">Names, designations, and affiliate titles are strictly authenticated.</p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-100/70 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">Verified Metrics</h4>
+                      <p className="text-[11px] text-slate-600 mt-0.5">Numbers and participation totals are cross-checked prior to release.</p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-amber-100/70 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <Mic className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">Authentic Quotations</h4>
+                      <p className="text-[11px] text-slate-600 mt-0.5">Direct member and leader quotes are recorded and authorized.</p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-indigo-100/70 text-indigo-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <ExternalLink className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">Source Traceability</h4>
+                      <p className="text-[11px] text-slate-600 mt-0.5">All hyperlinks lead directly to verified primary origin documents.</p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-rose-100/70 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <FileText className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">Editorial Distinction</h4>
+                      <p className="text-[11px] text-slate-600 mt-0.5">Official announcements remain distinct from opinions and commentary.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <p className="font-bold text-[#0062D2] pt-3 text-base">
-              And claims should be supportable. If we publish it, we should be able to stand behind it.
-            </p>
           </div>
         </div>
       </section>
 
       {/* ─── Section 9: Closing Royal Banner (FOR THE MEDIA) ─── */}
-      {/* ── FINAL HOME-THEMED CALL TO ACTION ── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 md:py-28">
+      <section className="relative py-12 sm:py-16 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
         {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(0,98,210,0.22),transparent_55%),radial-gradient(circle_at_85%_30%,rgba(225,29,72,0.15),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
         />
 
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
         {/* SVG Orbital Geometric Lines Background */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
+        <div className="absolute -right-16 -top-16 bottom-0 pointer-events-none w-[360px] sm:w-[480px] lg:w-[580px] opacity-20 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="space-y-4">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-white/70" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
-                FOR THE MEDIA
-              </span>
-              <span className="h-[1.5px] w-6 bg-white/70" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-white tracking-tight leading-[1.15]">
-              Official information. Real stories. <br className="hidden sm:inline" />
-              <span className="italic text-cyan-200">Verified facts. Direct access.</span>
-            </h2>
-            <p className="text-sm sm:text-base text-white/90 font-mono tracking-wider pt-1">
-              PEERS GLOBAL — Designed in Bharat. Built for the World.
-            </p>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            {/* Left Column */}
+            <div className="lg:col-span-8 flex flex-col items-start space-y-3.5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+                  FOR THE MEDIA
+                </span>
+              </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider">
-            <a
-              href="#latest"
-              className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all hover:-translate-y-0.5 active:scale-[0.98]"
-            >
-              Explore Latest →
-            </a>
-            <a
-              href="#press-releases"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              View Press Releases →
-            </a>
-            <a
-              href="#in-the-media"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              In the Media →
-            </a>
-            <a
-              href="#media-kit"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              Download Media Kit →
-            </a>
-            <a
-              href="#media-enquiry"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              Make a Media Enquiry →
-            </a>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Official information. Real stories. <br className="hidden sm:inline" />
+                <span className="italic text-cyan-200">Verified facts. Direct access.</span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                PEERS GLOBAL — Designed in Bharat. Built for the World.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <a
+                  href="#latest"
+                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold shadow-md hover:scale-105 transition-all uppercase tracking-wider cursor-pointer"
+                >
+                  <span>Explore Latest</span>
+                  <ArrowRight className="size-3.5" />
+                </a>
+
+                <a
+                  href="#press-releases"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all cursor-pointer"
+                >
+                  <span>Press Releases</span>
+                </a>
+
+                <a
+                  href="#media-kit"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all cursor-pointer"
+                >
+                  <span>Download Media Kit</span>
+                </a>
+
+                <a
+                  href="#media-enquiry"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all cursor-pointer"
+                >
+                  <span>Make Enquiry</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1 lg:pl-6">
+              <p
+                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Public Record
+              </p>
+              <p
+                className="text-2xl sm:text-3xl text-sky-300 leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Authentic &amp; Verified
+              </p>
+              <p
+                className="text-xl sm:text-2xl text-rose-300 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Zero Hype
+              </p>
+            </div>
+
           </div>
         </div>
       </section>

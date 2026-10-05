@@ -89,34 +89,49 @@ const GENERAL_ENQUIRY_DOORS = [
 
 const OFFICIAL_SOCIALS = [
   {
-    name: 'LINKEDIN',
+    name: 'LinkedIn',
     handle: 'PEERS GLOBAL',
     url: 'https://linkedin.com/company/peersglobal',
-    status: 'Official Community Channel'
+    category: 'Corporate Network',
+    iconColor: 'from-[#0A66C2] to-[#004182]',
+    bgLight: 'hover:border-[#0A66C2]/40 hover:shadow-[#0A66C2]/10',
+    tag: 'Official Profile'
   },
   {
-    name: 'INSTAGRAM',
+    name: 'Instagram',
     handle: '@peersglobal',
     url: 'https://instagram.com/peersglobal',
-    status: 'Official Visual Stories'
+    category: 'Visual & Stories',
+    iconColor: 'from-[#E1306C] via-[#FD1D1D] to-[#F77737]',
+    bgLight: 'hover:border-[#E1306C]/40 hover:shadow-[#E1306C]/10',
+    tag: 'Visual Updates'
   },
   {
-    name: 'FACEBOOK',
+    name: 'Facebook',
     handle: 'PEERS GLOBAL Community',
     url: 'https://facebook.com/peersglobal',
-    status: 'Official Regional Updates'
+    category: 'Regional Community',
+    iconColor: 'from-[#1877F2] to-[#0D5EC4]',
+    bgLight: 'hover:border-[#1877F2]/40 hover:shadow-[#1877F2]/10',
+    tag: 'Community Hub'
   },
   {
-    name: 'YOUTUBE',
+    name: 'YouTube',
     handle: 'PEERS GLOBAL Official',
     url: 'https://youtube.com/@peersglobal',
-    status: 'Official Video Broadcasts & Talks'
+    category: 'Talks & Broadcasts',
+    iconColor: 'from-[#FF0000] to-[#C40000]',
+    bgLight: 'hover:border-[#FF0000]/40 hover:shadow-[#FF0000]/10',
+    tag: 'Video Channel'
   },
   {
-    name: 'X (TWITTER)',
+    name: 'X (Twitter)',
     handle: '@peersglobal',
     url: 'https://x.com/peersglobal',
-    status: 'Official Public Announcements'
+    category: 'Public Bulletins',
+    iconColor: 'from-[#0F1419] to-[#272C30]',
+    bgLight: 'hover:border-slate-800/40 hover:shadow-slate-900/10',
+    tag: 'Dispatches'
   }
 ]
 
@@ -293,6 +308,27 @@ export function ContactPageClient() {
               </div>
             </div>
 
+          </div>
+
+          {/* 4-Item Floating Stats Bar */}
+          <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { val: '7 Direct Routes', label: 'Department Routing', sub: 'Zero spam, straight to steward' },
+              { val: '< 24h Response', label: 'Secretariat SLA', sub: 'Human response guarantee' },
+              { val: '100% Confidential', label: 'Protected Dialogue', sub: 'Executive discretion' },
+              { val: 'Ahmedabad HQ', label: 'Global Headquarters', sub: 'Gujarat, Bharat' },
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  {stat.val}
+                </div>
+                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                <div className="text-[11px] text-slate-500 font-normal">{stat.sub}</div>
+              </div>
+            ))}
           </div>
 
         </div>
@@ -650,111 +686,157 @@ export function ContactPageClient() {
       </section>
 
       {/* ── OUR OFFICIAL SOCIAL ACCOUNTS ── */}
-      <section className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
+      <section className="py-20 sm:py-28 bg-[#F8FAFD] border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle decorative background gradient accents */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                Verified Channels
-              </span>
+          {/* Header Section */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2 border-b border-slate-200/60">
+            <div className="max-w-2xl space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  Verified Digital Presence
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-bold text-slate-950 tracking-tight leading-tight">
+                Our Official Social Accounts
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Connect with PEERS GLOBAL across our verified communication channels. For your security and authenticity, refer exclusively to the handles listed below.
+              </p>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
-              OUR OFFICIAL SOCIAL ACCOUNTS
-            </h2>
-            <p className="text-slate-700 text-sm sm:text-base">
-              You will find PEERS GLOBAL in several places online. For your security, please use only the accounts officially listed by us.
-            </p>
+            
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-semibold shrink-0 self-start md:self-end shadow-2xs">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>100% Authenticated Directory</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {/* Social Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {OFFICIAL_SOCIALS.map((soc, idx) => (
               <a
                 key={idx}
                 href={soc.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-400 hover:shadow-md transition-all flex flex-col justify-between group space-y-4"
+                className={`group relative p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden ${soc.bgLight}`}
               >
-                <div>
-                  <span className="text-xs font-mono font-bold brand-gradient-text block mb-1">
-                    {soc.name}
-                  </span>
-                  <div className="text-sm font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors">
-                    {soc.handle}
+                {/* Top Subtle Gradient Accent Line */}
+                <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${soc.iconColor} opacity-70 group-hover:opacity-100 transition-opacity`} />
+                
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className={`inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-tr ${soc.iconColor}`} />
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
+                      {soc.tag}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">
+                      {soc.name}
+                    </h3>
+                    <p className="text-base font-bold text-slate-900 mt-1 tracking-tight group-hover:text-[#1D4ED8] transition-colors break-words">
+                      {soc.handle}
+                    </p>
+                    <p className="text-xs text-slate-500 mt-1 font-medium">
+                      {soc.category}
+                    </p>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
-                  <span>Verified</span>
-                  <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#1D4ED8]" />
+
+                <div className="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#1D4ED8] transition-colors">
+                  <span className="flex items-center gap-1.5 text-emerald-600 font-medium text-[11px]">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    Verified
+                  </span>
+                  <div className="flex items-center gap-1 text-[11px] font-bold">
+                    <span>Visit</span>
+                    <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
                 </div>
               </a>
             ))}
           </div>
 
-          <div className="p-4 rounded-xl bg-white border border-slate-200 text-center max-w-2xl mx-auto text-xs text-slate-500 font-medium">
-            These are our only official accounts. If an account is not listed here, do not assume it represents PEERS GLOBAL.
+          {/* Security Notice Pill */}
+          <div className="flex items-center justify-center gap-3 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 text-center max-w-3xl mx-auto shadow-2xs">
+            <ShieldCheck className="w-5 h-5 text-amber-500 shrink-0 hidden sm:block" />
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+              <strong className="text-slate-900 font-semibold">Security Advisory:</strong> These are our only official global profiles. If an account is not listed in this authenticated directory, do not assume it represents PEERS GLOBAL.
+            </p>
           </div>
         </div>
       </section>
 
       {/* ── FINAL HOME-THEMED CLOSING BANNER ── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 md:py-28">
+      <section className="relative py-12 sm:py-16 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
         {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(0,98,210,0.22),transparent_55%),radial-gradient(circle_at_85%_30%,rgba(225,29,72,0.15),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
         />
 
-        {/* Subtle geometric orbital line art */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-16 bottom-0 pointer-events-none w-[360px] sm:w-[480px] lg:w-[580px] opacity-20 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="flex items-center justify-center gap-2.5">
-            <span className="h-[1.5px] w-6 bg-white/70" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
-              WE ARE LISTENING
-            </span>
-            <span className="h-[1.5px] w-6 bg-white/70" />
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            {/* Left Column: Heading, Ethos & Punchline */}
+            <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+                  WE ARE LISTENING
+                </span>
+              </div>
 
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
-            EVERY MEANINGFUL RELATIONSHIP BEGINS WITH A CONVERSATION
-          </h2>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Every meaningful relationship begins with a <span className="italic text-cyan-200">conversation.</span>
+              </h2>
 
-          <p className="text-lg sm:text-xl text-cyan-200 font-serif italic max-w-xl mx-auto">
-            Whether you are exploring, joining, leading or partnering — we are here.
-          </p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                Whether you are exploring, joining, leading or partnering — our desks are open and ready to connect.
+              </p>
+            </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider">
-            <a
-              href="#send-message"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all hover:-translate-y-0.5 active:scale-[0.98]"
-            >
-              Start a Conversation →
-            </a>
-            <Link
-              href="/our-story"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
-            >
-              Read Our Story →
-            </Link>
+            {/* Right Column: Interactive Quick Actions */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <a
+                href="#send-message"
+                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+              >
+                <span>Start a Conversation</span>
+                <ArrowRight className="size-3.5" />
+              </a>
+
+              <Link
+                href="/our-story"
+                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold text-xs uppercase tracking-wider transition-all border border-white/20 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+              >
+                <span>Read Our Story</span>
+                <ChevronRight className="size-3.5 text-white/60" />
+              </Link>
+            </div>
+
           </div>
         </div>
       </section>

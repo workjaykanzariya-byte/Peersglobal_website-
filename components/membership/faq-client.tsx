@@ -28,6 +28,10 @@ import {
   Clock,
   Coins,
   Compass,
+  Plus,
+  Minus,
+  Sparkles,
+  X,
 } from 'lucide-react'
 
 // ─── Topic Filters ────────────────────────────────────────────────────────
@@ -376,83 +380,104 @@ export function MemberFaqClient() {
       </div>
 
       {/* =========================================================================
-          SECTION 1: HERO — MEMBER FAQ
+          SECTION 1: HERO — MEMBER FAQ (Signature Fade Video Banner)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAFCFF] via-[#FFFFFF] to-[#F8FAFC] border-b border-slate-200/80 pt-10 sm:pt-14 pb-16 lg:pb-24">
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-16 lg:pb-24 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Hero Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                  MEMBER FAQ
-                </span>
+
+          {/* Hero Banner Box */}
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
+
+            {/* Fade Visual (Right 60%) */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
+              }}
+            >
+              <video
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/membership-hero-peers.jpg"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover object-center scale-105"
+              />
+              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+
+              {/* Script Overlay - Top Right */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+                  Clear Answers Before You Join.
+                </p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  Decisions with Confidence.
+                </p>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.35rem] font-serif font-bold text-[#0B192C] tracking-tight leading-[1.12]">
-                <span className="brand-gradient-text">The questions people naturally ask before becoming a Peer.</span>
-              </h1>
-
-              <div className="space-y-3 text-[15px] sm:text-base text-slate-600 leading-relaxed">
-                <p>
-                  Joining a community is not a small decision. You may want to understand how membership works, what it means to belong to a Circle, what your commitment looks like, and what happens if your circumstances change.
-                </p>
-                <p className="font-semibold text-slate-900 text-lg">
-                  You should have clear answers before you decide. This FAQ is here for exactly that.
-                </p>
-              </div>
-
-              {/* CTAs */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
-                >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                </a>
-
-                <Link
-                  href="/circles/find"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
-                >
-                  <span>Explore Circles</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+              {/* Pill Overlay - Bottom Right */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-right">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">THE CLARITY MATRIX</p>
+                  <p className="text-xs font-bold tracking-wider text-white">UNDERSTAND YOUR SEAT IN THE ROOM</p>
+                </div>
               </div>
             </div>
 
-            {/* Right Card: The Simplest Way to Think About It */}
-            <div className="lg:col-span-5">
-              <div className="relative p-8 sm:p-10 rounded-3xl bg-[#040F24] text-white shadow-2xl overflow-hidden space-y-6">
-                <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
-
-                <div className="relative z-10 space-y-5">
-                  <span className="text-xs uppercase font-bold tracking-widest text-sky-300">
-                    THE CLARITY MATRIX
+            {/* Left Hero Content */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl flex flex-col items-start space-y-5">
+                
+                {/* Eyebrow */}
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    MEMBER FAQ
                   </span>
-
-                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
-                    The Simplest Way to Think About It
-                  </h3>
-
-                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-200">
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>PEERS GLOBAL</strong> is the community.</div>
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>Your Circle</strong> is your Inner Board.</div>
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>Unity</strong> keeps the relationship alive beyond the meeting.</div>
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">• <strong>Your contribution</strong> gives your membership meaning.</div>
-                  </div>
-
-                  <div className="pt-3 border-t border-white/10 text-center">
-                    <p className="font-serif italic text-base text-amber-300">
-                      &ldquo;You should know what you are joining, what is expected of you, and what you can contribute.&rdquo;
-                    </p>
-                  </div>
                 </div>
+
+                {/* Main Headline */}
+                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15]">
+                  The questions people naturally ask before becoming a Peer.
+                </h1>
+
+                {/* Description */}
+                <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+                  Joining a community is not a small decision. You may want to understand how membership works, what it means to belong to a Circle, what your commitment looks like, and what happens if your circumstances change.
+                </p>
+
+                {/* Sub-quote */}
+                <div className="p-3.5 rounded-xl bg-blue-50/70 border border-blue-100 text-xs text-slate-700 flex items-center gap-2">
+                  <span className="text-[#0062D2] font-bold text-sm">✦</span>
+                  <p>
+                    <strong className="text-slate-900 font-semibold">Clarity Matrix:</strong> PEERS GLOBAL is the community. Your Circle is your Inner Board.
+                  </p>
+                </div>
+
+                {/* CTAs */}
+                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  >
+                    <Smartphone className="size-4" />
+                    <span>Download Unity App</span>
+                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+
+                  <Link
+                    href="/circles/find"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs"
+                  >
+                    <span>Explore Circles</span>
+                  </Link>
+                </div>
+
               </div>
             </div>
 
@@ -461,51 +486,64 @@ export function MemberFaqClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 2: QUESTIONS & ANSWERS (Search + Filters + 10 Categories)
+          SECTION 2: QUESTIONS & ANSWERS (2-Column Category Matrix Grid)
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          {/* Header */}
-          <div className="max-w-3xl mb-10 space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                COMPLETE DIRECTORY
-              </span>
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-100">
+            <div className="max-w-2xl space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  COMPLETE DIRECTORY
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+                Straight answers to every question
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                Find clear, transparent information regarding membership standards, Circle participation, platform subscriptions, and the LSR Growth Model.
+              </p>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-900">
-              <span className="brand-gradient-text">Straight answers to every question</span>
-            </h2>
+
+            {/* Search Input */}
+            <div className="relative w-full md:w-80 shrink-0">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <Search className="size-4" />
+              </div>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search questions..."
+                className="w-full pl-10 pr-9 py-2.5 rounded-full border border-slate-200 bg-[#FAFBFD] text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100 transition-all shadow-2xs"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer"
+                >
+                  <X className="size-3.5" />
+                </button>
+              )}
+            </div>
           </div>
 
-          {/* Search Bar */}
-          <div className="relative mb-6 max-w-2xl">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
-              <Search className="size-5" />
-            </div>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by keyword or question..."
-              className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-slate-200 bg-[#FAFBFD] text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100 transition-all"
-            />
-          </div>
-
-          {/* Topic Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 mb-12">
-            <span className="text-xs font-semibold text-slate-500 mr-2">Filter by section:</span>
+          {/* Topic Filter Pills (Horizontal Bar) */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold text-slate-500 mr-2 shrink-0">Filter by category:</span>
             {TOPICS.map((topic) => {
               const active = selectedTopic === topic
               return (
                 <button
                   key={topic}
                   onClick={() => setSelectedTopic(topic)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     active
-                      ? 'bg-[#0062D2] text-white shadow-xs'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-xs scale-102'
+                      : 'bg-[#FAFBFD] hover:bg-slate-100 border border-slate-200/80 text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {topic}
@@ -514,69 +552,110 @@ export function MemberFaqClient() {
             })}
           </div>
 
-          {/* FAQ 10 Categories Grid (2 Columns) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            {filteredCategories.map((cat) => {
-              const Icon = cat.icon
-              return (
-                <div
-                  key={cat.id}
-                  className="rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-6 sm:p-7 shadow-2xs space-y-4"
-                >
-                  <div className="flex items-center gap-3.5 pb-4 border-b border-slate-200">
-                    <div
-                      className="size-11 rounded-2xl flex items-center justify-center shrink-0"
-                      style={{ backgroundColor: cat.bg, border: `1px solid ${cat.border}` }}
-                    >
-                      <Icon className="size-5" style={{ color: cat.color }} />
-                    </div>
+          {/* 2-Column FAQ Category Grid */}
+          {filteredCategories.length === 0 ? (
+            <div className="p-12 text-center rounded-3xl bg-[#FAFBFD] border border-slate-200 space-y-4 max-w-2xl mx-auto">
+              <HelpCircle className="size-10 text-slate-400 mx-auto" />
+              <h3 className="text-lg font-bold text-slate-900">No questions found matching your search</h3>
+              <p className="text-xs text-slate-500 font-light">
+                Try searching for terms like &ldquo;Circle&rdquo;, &ldquo;Subscription&rdquo;, &ldquo;GST&rdquo;, or &ldquo;Ownership&rdquo;.
+              </p>
+              <button
+                onClick={() => { setSearchQuery(''); setSelectedTopic('All') }}
+                className="px-5 py-2 rounded-full bg-[#0062D2] text-white text-xs font-bold shadow-xs hover:bg-blue-700 cursor-pointer"
+              >
+                Reset Search &amp; Filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+              {filteredCategories.map((cat) => {
+                const Icon = cat.icon
+                return (
+                  <div
+                    key={cat.id}
+                    className="p-6 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-6 flex flex-col justify-between"
+                  >
                     <div>
-                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                        SECTION {cat.num}
-                      </span>
-                      <h3 className="font-serif text-lg font-bold text-slate-900 leading-snug">
-                        {cat.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5">
-                    {cat.items.map((item, idx) => {
-                      const itemKey = `${cat.id}-${idx}`
-                      const isOpen = !!openItems[itemKey]
-                      return (
-                        <div
-                          key={idx}
-                          className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-2xs"
-                        >
-                          <button
-                            onClick={() => toggleItem(itemKey)}
-                            className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-slate-800 hover:text-[#0062D2] transition-colors"
-                            aria-expanded={isOpen}
+                      {/* Card Header with icon, category badge, and title */}
+                      <div className="flex items-center justify-between pb-5 border-b border-slate-200/80 mb-5">
+                        <div className="flex items-center gap-3.5">
+                          <div
+                            className="size-11 rounded-2xl flex items-center justify-center shrink-0 shadow-2xs"
+                            style={{ backgroundColor: cat.bg, border: `1px solid ${cat.border}` }}
                           >
-                            <span>{item.q}</span>
-                            <div className="shrink-0 text-slate-400">
-                              {isOpen ? (
-                                <ChevronUp className="size-4 text-[#0062D2]" />
-                              ) : (
-                                <ChevronDown className="size-4" />
+                            <Icon className="size-5" style={{ color: cat.color }} />
+                          </div>
+                          <div>
+                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block font-mono">
+                              SECTION 0{cat.num} • {cat.topic}
+                            </span>
+                            <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                              {cat.title}
+                            </h3>
+                          </div>
+                        </div>
+
+                        <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-medium text-slate-500 bg-white border border-slate-200 shrink-0">
+                          0{cat.items.length}
+                        </span>
+                      </div>
+
+                      {/* Accordions inside this category */}
+                      <div className="space-y-3">
+                        {cat.items.map((item, idx) => {
+                          const itemKey = `${cat.id}-${idx}`
+                          const isOpen = !!openItems[itemKey]
+                          return (
+                            <div
+                              key={idx}
+                              className={`rounded-2xl border transition-all duration-200 bg-white overflow-hidden ${
+                                isOpen
+                                  ? 'border-[#0062D2] shadow-sm ring-1 ring-blue-500/10'
+                                  : 'border-slate-200/90 hover:border-slate-300 shadow-2xs'
+                              }`}
+                            >
+                              <button
+                                onClick={() => toggleItem(itemKey)}
+                                className="w-full p-4 text-left flex items-center justify-between gap-3 cursor-pointer"
+                                aria-expanded={isOpen}
+                              >
+                                <span className={`text-xs sm:text-sm font-bold transition-colors leading-snug ${
+                                  isOpen ? 'text-[#0062D2]' : 'text-slate-800 hover:text-[#0062D2]'
+                                }`}>
+                                  {item.q}
+                                </span>
+                                <div
+                                  className={`size-6 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                                    isOpen ? 'bg-[#0062D2] text-white' : 'bg-slate-100 text-slate-500'
+                                  }`}
+                                >
+                                  {isOpen ? <Minus className="size-3.5" /> : <Plus className="size-3.5" />}
+                                </div>
+                              </button>
+
+                              {isOpen && (
+                                <div className="px-4 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-light bg-[#FCFDFE]">
+                                  {item.a}
+                                </div>
                               )}
                             </div>
-                          </button>
+                          )
+                        })}
+                      </div>
+                    </div>
 
-                          {isOpen && (
-                            <div className="px-4 pb-4 pt-1 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-[#FAFBFD]">
-                              {item.a}
-                            </div>
-                          )}
-                        </div>
-                      )
-                    })}
+                    {/* Footer link / hint */}
+                    <div className="pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span>{cat.items.length} {cat.items.length === 1 ? 'Question' : 'Questions'} answered</span>
+                      <span className="text-[#0062D2] font-semibold">PEERS GLOBAL Standards</span>
+                    </div>
+
                   </div>
-                </div>
-              )
-            })}
-          </div>
+                )
+              })}
+            </div>
+          )}
 
         </div>
       </section>
@@ -588,15 +667,15 @@ export function MemberFaqClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-sm text-center space-y-6">
-            <div className="size-14 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mx-auto">
+            <div className="size-14 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mx-auto border border-blue-100">
               <Headphones className="size-7" />
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-serif text-3xl font-bold text-slate-900">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
                 Still Have a Question?
               </h3>
-              <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-light">
                 Some questions are answered best by a conversation. If you are already a Peer, ask inside Unity. If you are considering membership, begin with the Unity App and explore the community before making your decision.
               </p>
             </div>
@@ -624,34 +703,38 @@ export function MemberFaqClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: CLOSING MANIFESTO BANNER
+          SECTION 4: CLOSING MANIFESTO BANNER (Homepage Styling)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
+      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,98,210,0.3),transparent),radial-gradient(ellipse_60%_50%_at_90%_100%,rgba(225,29,72,0.15),transparent)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[360px] bg-gradient-to-r from-blue-600/15 via-indigo-600/10 to-rose-600/15 blur-[120px] rounded-full"
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  YOUR INFORMED DECISION
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                  Your Informed Decision
                 </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white">
-                <span className="brand-gradient-text">You simply need enough information to make a decision with confidence.</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-bold leading-[1.18] tracking-tight text-white">
+                You simply need enough information to make a decision with confidence.
               </h2>
 
-              <p className="text-base sm:text-lg font-medium text-slate-200 max-w-2xl">
+              <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
                 PEERS GLOBAL is the community. Your Circle is your Inner Board. Unity keeps the relationship alive beyond the meeting. When you are ready, begin with Unity.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-4 pt-3">
                 <a
                   href="https://unity.peersglobal.com"
                   target="_blank"
@@ -660,26 +743,26 @@ export function MemberFaqClient() {
                 >
                   <Smartphone className="size-4" />
                   <span>Download Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </a>
 
                 <Link
                   href="/circles/find"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
                 >
                   <span>Explore Circles</span>
-                  <ArrowRight className="size-4" />
                 </Link>
               </div>
             </div>
 
             <div className="lg:col-span-4 text-right flex justify-end">
               <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
+                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-md"
                 style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
               >
                 Informed <br />
                 Decisions &amp; <br />
-                <span className="text-[#7DD3FC]">Confidence</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-200 font-semibold">Confidence</span>
               </div>
             </div>
 

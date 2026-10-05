@@ -233,53 +233,87 @@ export function UnityPageClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (UNITY: A GLOBAL COMMUNITY IN YOUR POCKET) ────── */}
-      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Hero Banner */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
             
-            {/* Left Column: Heading & Value */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
-                  THE DIGITAL HOME OF PEERS GLOBAL
-                </span>
+            {/* Fade Video Backdrop */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+              }}
+            >
+              <video
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/circles-hero-new.jpg"
+                autoPlay loop muted playsInline
+                className="size-full object-cover object-center"
+              />
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+
+              {/* Script overlay */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>No Advertising.</p>
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>No Strangers.</p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Just Peers.</p>
               </div>
 
-              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
-                <span className="brand-gradient-text block">UNITY</span>
-                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
-                  A global community of entrepreneurs, in your pocket.
-                </span>
-              </h1>
+              {/* Glass pill badge */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">PRIVATE ECOSYSTEM</p>
+                  <p className="text-xs font-bold tracking-wider text-white">THE ROOM IS KNOWN · CONTEXT IS REAL</p>
+                </div>
+              </div>
+            </div>
 
-              {/* High-Impact Tagline Badges */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {[
-                  'No advertising',
-                  'No strangers',
-                  'No algorithm deciding what you see',
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs sm:text-sm font-semibold text-slate-800 shadow-xs"
-                  >
-                    ✓ {tag}
+            {/* Left Content */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl flex flex-col items-start space-y-4">
+                
+                <div className="flex items-center gap-2">
+                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                    THE DIGITAL HOME OF PEERS GLOBAL
                   </span>
-                ))}
-              </div>
+                </div>
 
-              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
-                <p>
-                  Unity is where the <strong>PEERS GLOBAL</strong> community continues between meetings.
+                <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-normal text-slate-900 tracking-tight leading-[1.08]">
+                  UNITY
+                </h1>
+
+                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug">
+                  A global community of entrepreneurs, in your pocket.
                 </p>
 
-                {/* 6 Core Pillars Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2">
+                {/* Tagline Pills */}
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {[
+                    'No advertising',
+                    'No strangers',
+                    'No algorithms',
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 shadow-2xs"
+                    >
+                      ✓ {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-lg">
+                  Unity is where the <strong>PEERS GLOBAL</strong> community continues between meetings. Relationships continue every day.
+                </p>
+
+                {/* 6 Core Quick Pills */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full max-w-lg pt-1">
                   {[
                     'Your Circle',
                     'Your relationships',
@@ -290,92 +324,60 @@ export function UnityPageClient() {
                   ].map((p) => (
                     <div
                       key={p}
-                      className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2"
+                      className="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 text-xs font-medium text-slate-800 flex items-center gap-2"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0062D2]" />
-                      <span>{p}</span>
+                      <span className="size-1.5 rounded-full bg-[#0062D2]" />
+                      <span className="truncate">{p}</span>
                     </div>
                   ))}
                 </div>
 
-                <p className="text-slate-900 font-semibold text-base pt-2">
-                  All in one private digital home.
-                </p>
+                {/* Download Badges & CTA */}
+                <div className="pt-3 flex flex-wrap items-center gap-3">
+                  <a
+                    href={SITE.appStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="app-badge-btn"
+                    aria-label="Download on the Apple App Store"
+                  >
+                    <Apple className="size-5.5 fill-white shrink-0" />
+                    <div className="text-left">
+                      <span className="app-badge-sub">Download on the</span>
+                      <span className="app-badge-title">App Store</span>
+                    </div>
+                  </a>
 
-                <p className="border-l-2 border-[#0062D2] pl-3 italic text-slate-700 text-sm sm:text-base">
-                  The meeting may bring people together once a month. Unity helps the relationship continue every day.
-                </p>
-              </div>
+                  <a
+                    href={SITE.playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="app-badge-btn"
+                    aria-label="Get it on Google Play"
+                  >
+                    <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                      <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                      <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                      <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                      <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                    </svg>
+                    <div className="text-left">
+                      <span className="app-badge-sub">GET IT ON</span>
+                      <span className="app-badge-title">Google Play</span>
+                    </div>
+                  </a>
 
-              {/* Download Badges & CTA */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
-                <a
-                  href={SITE.appStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="app-badge-btn"
-                  aria-label="Download on the Apple App Store"
-                >
-                  <Apple className="size-5.5 fill-white shrink-0" />
-                  <div className="text-left">
-                    <span className="app-badge-sub">Download on the</span>
-                    <span className="app-badge-title">App Store</span>
-                  </div>
-                </a>
-
-                <a
-                  href={SITE.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="app-badge-btn"
-                  aria-label="Get it on Google Play"
-                >
-                  <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
-                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
-                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
-                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
-                  </svg>
-                  <div className="text-left">
-                    <span className="app-badge-sub">GET IT ON</span>
-                    <span className="app-badge-title">Google Play</span>
-                  </div>
-                </a>
-
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
-                >
-                  <span>Open Web App</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: Hero Graphic */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-slate-950 p-2 sm:p-3">
-                <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden">
-                  <Image
-                    src="/images/unity-hero-phones.jpg"
-                    alt="Unity App Mobile Interface"
-                    fill
-                    className="object-contain object-center"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                  
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
-                      Private Ecosystem
-                    </span>
-                    <p className="font-serif text-base sm:text-lg font-bold leading-snug">
-                      The room is known. The context is real. The trust is shared.
-                    </p>
-                  </div>
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-slate-800 font-semibold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all"
+                  >
+                    <span>Open Web App</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
+
               </div>
             </div>
 
@@ -384,26 +386,26 @@ export function UnityPageClient() {
       </section>
 
       {/* ─── SECTION 2: A COMMUNITY, NOT A PLATFORM FULL OF STRANGERS ───── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-2">
                   <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    PURPOSE-BUILT ENVIRONMENT
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Purpose-Built Environment
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
-                  A COMMUNITY, NOT A PLATFORM FULL OF STRANGERS
+                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
+                  A community, not a platform full of strangers
                 </h2>
               </div>
 
-              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+              <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
                 <p>
-                  Most digital platforms are designed to keep you scrolling. <strong>Unity is designed to help you stay connected.</strong> There is a difference.
+                  Most digital platforms are designed to keep you scrolling. <strong className="text-slate-900 font-semibold">Unity is designed to help you stay connected.</strong> There is a difference.
                 </p>
                 <p>
                   You are not entering a room filled with anonymous profiles. You are entering a community of entrepreneurs who share a relationship with PEERS GLOBAL.
@@ -420,13 +422,13 @@ export function UnityPageClient() {
                 ].map((point) => (
                   <div
                     key={point.title}
-                    className="p-4 rounded-2xl bg-[#FBFCFE] border border-slate-200 shadow-2xs space-y-1"
+                    className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs space-y-1"
                   >
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
+                    <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
                       <CheckCircle2 className="w-4 h-4 text-[#0062D2] shrink-0" />
                       <span>{point.title}</span>
                     </div>
-                    <p className="text-xs text-slate-500 leading-relaxed pl-5.5">
+                    <p className="text-xs text-slate-500 leading-relaxed pl-6">
                       {point.desc}
                     </p>
                   </div>
@@ -436,16 +438,16 @@ export function UnityPageClient() {
 
             <div className="lg:col-span-6">
               <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#040E24] via-[#061836] to-[#0A2558] text-white shadow-xl space-y-6">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
-                  <ShieldCheck className="w-6 h-6" />
+                <div className="w-11 h-11 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
+                  <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-white leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
                   "The experience is built around relationships—not an algorithm deciding what should appear next."
                 </h3>
-                <p className="text-sm text-slate-300 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                   Unity removes the noise of open social networks. No promoted posts, no engagement hooks, and no vanity metrics. Just verified entrepreneurs solving problems, making introductions, and taking responsibility for one another.
                 </p>
-                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-sky-200">
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-sky-200">
                   <span>Trust-Based Architecture</span>
                   <span>100% Verified Founders</span>
                 </div>
@@ -457,52 +459,52 @@ export function UnityPageClient() {
       </section>
 
       {/* ─── SECTION 3: YOUR COMMUNITY, IN ONE PLACE (12 CORE FEATURES) ───── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
-            <div className="flex items-center gap-2 mb-1">
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <div className="flex items-center gap-2 mb-2">
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                THE 12 CORE MODULES
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                The 12 Core Modules
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
-              YOUR COMMUNITY, IN ONE PLACE
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
+              Your community, in one place
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-light leading-relaxed">
               Everything built for real collaboration, privacy, contribution, and continuous relationship building.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {TWELVE_FEATURES.map((feat) => {
               const Icon = feat.icon
               return (
                 <div
                   key={feat.num}
-                  className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
+                  className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-slate-400">
+                      <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-[11px] font-mono font-bold bg-slate-100 text-slate-600 border border-slate-200/60">
                         {feat.num}
                       </span>
-                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center border ${feat.color}`}>
-                        <Icon className="w-5 h-5" />
+                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center border shadow-2xs transition-transform duration-300 group-hover:scale-105 ${feat.color}`}>
+                        <Icon className="w-4 h-4" />
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-serif font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
+                      <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-tight">
                         {feat.title}
                       </h3>
-                      <p className="text-xs font-semibold text-slate-700 mt-1 leading-snug">
+                      <p className="text-xs font-semibold text-blue-600/90 mt-1 leading-snug">
                         {feat.subtitle}
                       </p>
                     </div>
 
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light pt-0.5">
                       {feat.desc}
                     </p>
                   </div>
@@ -515,52 +517,52 @@ export function UnityPageClient() {
       </section>
 
       {/* ─── SECTION 4: 4 DEEP-DIVE STRATEGIC BOXES (2X2 GRID) ────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Box 1: YOUR PROFILE IS PRIVATE BY DEFAULT */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                  <Lock className="w-6 h-6" />
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100/80 shadow-2xs">
+                  <Lock className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-950">
-                  YOUR PROFILE IS PRIVATE BY DEFAULT
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  Your profile is private by default
                 </h3>
-                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                   <p>
                     Your digital presence should begin with trust. Your profile is private by default.
                   </p>
                   <p>
                     Your participation should happen within the context of a community you have chosen to be part of.
                   </p>
-                  <p className="text-slate-900 font-medium pt-1">
+                  <p className="text-slate-800 font-medium pt-1">
                     Unity is not designed around strangers discovering you through an open algorithm. It is designed around relationships you can understand, and relationships you can choose to build.
                   </p>
                 </div>
               </div>
-              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-bold text-[#0062D2]">
-                <Shield className="w-4 h-4" />
+              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-[#0062D2]">
+                <Shield className="w-4 h-4 shrink-0" />
                 <span>Zero Open Harvesting • Mutual Connection Permissions</span>
               </div>
             </div>
 
             {/* Box 2: WHY THE APP MATTERS MORE THAN THE MEETING */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100">
-                  <Clock className="w-6 h-6" />
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100/80 shadow-2xs">
+                  <Clock className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-950">
-                  WHY THE APP MATTERS MORE THAN THE MEETING
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  Why the app matters more than the meeting
                 </h3>
-                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                   <p>
                     A Circle meeting may happen for a few hours each month. But a relationship does not stop when the meeting ends.
                   </p>
                   <p>
-                    There are approximately <strong>8,736 hours in a year</strong>. The meeting occupies only a small part of that time. The rest is where relationships can continue:
+                    There are approximately <strong className="text-slate-900 font-semibold">8,736 hours in a year</strong>. The meeting occupies only a small part of that time. The rest is where relationships continue:
                   </p>
                   <div className="grid grid-cols-2 gap-1.5 text-xs text-slate-800 font-medium pt-1">
                     <span>• A message</span>
@@ -575,22 +577,22 @@ export function UnityPageClient() {
                   </p>
                 </div>
               </div>
-              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-bold text-purple-700">
-                <TrendingUp className="w-4 h-4" />
+              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-purple-700">
+                <TrendingUp className="w-4 h-4 shrink-0" />
                 <span>8,736 Hours of Continuous Value</span>
               </div>
             </div>
 
             {/* Box 3: ONE COMMUNITY. EVERY COUNTRY. */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100">
-                  <Globe2 className="w-6 h-6" />
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100/80 shadow-2xs">
+                  <Globe2 className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-950">
-                  ONE COMMUNITY. EVERY COUNTRY.
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  One community. Every country.
                 </h3>
-                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                   <p>
                     PEERS GLOBAL is designed as one community across geographies.
                   </p>
@@ -605,20 +607,20 @@ export function UnityPageClient() {
                   </p>
                 </div>
               </div>
-              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-bold text-emerald-700">
-                <Compass className="w-4 h-4" />
+              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-emerald-700">
+                <Compass className="w-4 h-4 shrink-0" />
                 <span>Cross-Border Ecosystem Architecture</span>
               </div>
             </div>
 
             {/* Box 4: START HERE */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100">
-                  <Flag className="w-6 h-6" />
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100/80 shadow-2xs">
+                  <Flag className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-950">
-                  START HERE
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  Start here
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                   You do not need to understand every feature before you begin. Start with your people.
@@ -658,52 +660,142 @@ export function UnityPageClient() {
       </section>
 
       {/* ─── SECTION 5: UNITY IS WHERE THE RELATIONSHIP CONTINUES ─────────── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-              THE PHILOSOPHY OF UNITY
-            </span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-          </div>
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white p-7 sm:p-10 lg:p-12 shadow-xl border border-slate-800/80 relative overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute top-0 right-0 size-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 size-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
 
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 leading-tight">
-            UNITY IS WHERE THE RELATIONSHIP CONTINUES
-          </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+              
+              {/* Left Column: Narrative & 4 Pillars */}
+              <div className="lg:col-span-7 space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
+                    <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                    <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                      The Philosophy of Unity
+                    </span>
+                  </div>
 
-          <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light max-w-3xl mx-auto text-left sm:text-center">
-            <p>
-              PEERS GLOBAL is not only a place you visit. It is a community you belong to.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto text-xs sm:text-sm font-medium text-slate-800 text-left pt-2">
-              <div className="p-3 bg-white rounded-xl border border-slate-200">The Circle gives you your Inner Board.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">The meeting gives you shared experience.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Relationships create trust.</div>
-              <div className="p-3 bg-white rounded-xl border border-slate-200">Contribution gives those relationships meaning.</div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white tracking-tight leading-tight">
+                    Unity is where the relationship continues.
+                  </h2>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light mt-3">
+                    <strong className="text-white font-semibold">PEERS GLOBAL</strong> is not only a place you visit. It is a community you belong to. Unity keeps the ecosystem connected between the moments when people meet physically.
+                  </p>
+                </div>
+
+                {/* 4 Pillars Mini Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-300 flex items-center justify-center border border-sky-400/20">
+                        <Users className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-sky-300">Your Inner Board</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Dedicated, trusted founders around your table.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center border border-indigo-400/20">
+                        <Clock className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-indigo-300">Shared Experience</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Monthly structured meetings establish real mutual context.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-400/20">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-amber-300">Continuous Trust</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Direct peer messaging and verified collaboration create lasting ties.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center border border-emerald-400/20">
+                        <Sparkles className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-emerald-300">Active Contribution</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Logging Life Impact gives business relationships real purpose.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom Quote Banner */}
+                <div className="pt-3 border-t border-white/10">
+                  <p className="text-xs sm:text-[13px] text-slate-300 italic leading-relaxed font-light">
+                    "Because the real value of a community is not what happens when everyone is in the room. It is what people continue to do for one another after they leave it."
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: Visual App Mockup Showcase */}
+              <div className="lg:col-span-5 relative">
+                <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-slate-950/80 p-2 shadow-2xl backdrop-blur-md">
+                  <div className="relative h-[340px] sm:h-[400px] rounded-xl overflow-hidden bg-gradient-to-b from-[#0A2558] to-[#040E24] flex items-center justify-center">
+                    {/* Official Unity App Showcase Mockup */}
+                    <img
+                      src="/images/unity-creatives/1.png"
+                      alt="Unity App Interface"
+                      className="size-full object-contain object-center scale-105 hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#040D1E]/80 via-transparent to-transparent pointer-events-none" />
+
+                    <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white flex items-center justify-between">
+                      <div>
+                        <span className="inline-block px-2 py-0.5 rounded-md bg-blue-500/30 text-sky-300 border border-blue-400/40 text-[10px] font-bold uppercase tracking-wider">
+                          Unity App Experience
+                        </span>
+                        <p className="text-xs font-bold text-white mt-1">
+                          Timeline • Forum • Impact Tracking
+                        </p>
+                      </div>
+                      <span className="text-[10px] text-slate-300 font-mono">
+                        iOS & Android
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <p className="pt-2">
-              Unity keeps the community connected between the moments when people meet physically.
-            </p>
-            <p className="text-slate-950 font-serif font-bold text-lg sm:text-xl pt-3 italic">
-              "Because the real value of a community is not what happens when everyone is in the room. It is what people continue to do for one another after they leave it."
-            </p>
           </div>
+
         </div>
       </section>
 
       {/* ─── SECTION 6: FAQ ACCORDION ─────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <div className="flex items-center gap-2 mb-1">
-              <HelpCircle className="w-5 h-5 text-[#0062D2]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                FREQUENTLY ASKED QUESTIONS
+          <div className="mb-8 sm:mb-10">
+            <div className="flex items-center gap-2 mb-2">
+              <HelpCircle className="w-4 h-4 text-[#0062D2]" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                Frequently Asked Questions
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
-              Frequently Asked Questions
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
+              Frequently asked questions
             </h2>
           </div>
 
@@ -711,12 +803,12 @@ export function UnityPageClient() {
             {FAQS.map((faq, index) => {
               const isOpen = openFaq === index
               return (
-                <div key={faq.question} className="py-5">
+                <div key={faq.question} className="py-4 sm:py-5">
                   <button
                     onClick={() => toggleFaq(index)}
                     className="w-full flex items-center justify-between gap-4 text-left group focus:outline-none cursor-pointer"
                   >
-                    <span className="text-base sm:text-lg font-serif font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    <span className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
                       {faq.question}
                     </span>
                     <span
@@ -746,102 +838,115 @@ export function UnityPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 7: CLOSING ROYAL HERO BANNER (YOUR COMMUNITY. IN YOUR POCKET.) ── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* Geometric Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg
-            viewBox="0 0 600 600"
-            fill="none"
-            className="w-full h-full text-white/30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
+      {/* ─── SECTION 7: CLOSING EXECUTIVE BANNER (YOUR COMMUNITY. IN YOUR POCKET.) ── */}
+      <section className="relative py-12 sm:py-16 lg:py-20 bg-white border-t border-slate-200/80 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="rounded-3xl bg-gradient-to-br from-[#040D1E] via-[#081836] to-[#040C1A] text-white p-8 sm:p-11 lg:p-14 shadow-2xl border border-slate-800/80 relative overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute top-0 right-0 size-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 size-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — DIGITAL HOME —
-              </span>
-
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                YOUR COMMUNITY. IN YOUR POCKET.
-              </h2>
-
-              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
-                <p>
-                  A meeting can give you a conversation. Unity can help that conversation continue.
-                </p>
-                <div className="space-y-1.5 pl-3 border-l-2 border-sky-300 text-sm text-sky-100 font-medium">
-                  <p>A Peer can become a connection.</p>
-                  <p>A connection can become a relationship.</p>
-                  <p>A relationship can create collaboration.</p>
-                  <p>Collaboration can create contribution.</p>
-                  <p>Contribution can create impact.</p>
-                  <p>And impact can create possibilities for someone else.</p>
+            <div className="relative z-10 max-w-4xl space-y-7">
+              
+              {/* Header & Tag */}
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                    Digital Home
+                  </span>
                 </div>
-                <p className="text-white font-medium">
-                  That is Unity. Not another platform to keep you scrolling. A digital home for the community you have chosen to belong to.
+
+                <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-white tracking-tight leading-tight">
+                  Your community. In your pocket.
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light max-w-2xl">
+                  A meeting can give you a conversation. Unity can help that conversation continue.
                 </p>
               </div>
 
-              {/* Action Badges */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
+              {/* Connected Flow Steps (2x3 Grid with micro numbers) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {[
+                  { num: '01', title: 'A Peer', desc: 'Can become a connection.' },
+                  { num: '02', title: 'A Connection', desc: 'Can become a relationship.' },
+                  { num: '03', title: 'A Relationship', desc: 'Can create collaboration.' },
+                  { num: '04', title: 'Collaboration', desc: 'Can create contribution.' },
+                  { num: '05', title: 'Contribution', desc: 'Can create impact.' },
+                  { num: '06', title: 'Impact', desc: 'Creates possibilities for others.' },
+                ].map((item) => (
+                  <div
+                    key={item.num}
+                    className="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] transition-colors flex items-start gap-3"
+                  >
+                    <span className="inline-flex items-center justify-center size-6 rounded-md bg-blue-500/20 text-sky-300 text-[11px] font-mono font-bold border border-blue-400/30 shrink-0">
+                      {item.num}
+                    </span>
+                    <div>
+                      <span className="text-xs font-bold text-white block leading-tight">
+                        {item.title}
+                      </span>
+                      <span className="text-[11px] text-slate-300 leading-tight font-light">
+                        {item.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-xs sm:text-sm text-sky-200/90 font-medium leading-relaxed max-w-2xl">
+                That is Unity. Not another platform to keep you scrolling. A digital home for the community you have chosen to belong to.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <a
                   href={SITE.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                  className="app-badge-btn"
+                  aria-label="Download on the Apple App Store"
                 >
-                  <Apple className="w-4 h-4 fill-current" />
-                  <span>Download for iOS</span>
+                  <Apple className="size-5 fill-white shrink-0" />
+                  <div className="text-left">
+                    <span className="app-badge-sub">Download on the</span>
+                    <span className="app-badge-title">App Store</span>
+                  </div>
                 </a>
 
                 <a
                   href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                  className="app-badge-btn"
+                  aria-label="Get it on Google Play"
                 >
-                  <span>Google Play Store</span>
+                  <svg className="size-5 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                  </svg>
+                  <div className="text-left">
+                    <span className="app-badge-sub">GET IT ON</span>
+                    <span className="app-badge-title">Google Play</span>
+                  </div>
                 </a>
 
                 <Link
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 backdrop-blur-sm transition-all shadow-sm"
                 >
-                  <span>Apply for Membership →</span>
+                  <span>Apply for Membership</span>
+                  <ArrowRight className="size-4" />
                 </Link>
               </div>
-            </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Conversations.
-                <br />
-                Relationships.
-                <br />
-                Contributions.
-                <br />
-                Possibilities.
-              </p>
             </div>
-
           </div>
+
         </div>
       </section>
 

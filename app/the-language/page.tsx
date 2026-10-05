@@ -307,19 +307,6 @@ export default function TheLanguagePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/20 pointer-events-none" />
 
-                {/* Script Typography Overlaid on the Open Notebook Pages */}
-                <div className="absolute top-[34%] left-[28%] sm:left-[30%] -translate-y-1/2 pointer-events-none select-none text-left">
-                  <div
-                    className="text-slate-900 text-lg sm:text-2xl font-bold leading-tight drop-shadow-xs"
-                    style={{ fontFamily: 'var(--font-script, cursive)' }}
-                  >
-                    <div>People.</div>
-                    <div className="mt-0.5">Ideas.</div>
-                    <div className="mt-0.5 text-slate-700">Opportunities.</div>
-                    <div className="mt-1 text-[#1D4ED8] font-bold">Impact.</div>
-                  </div>
-                </div>
-
                 <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 pointer-events-none select-none text-right">
                   <div
                     className="text-white/95 text-xl sm:text-2xl font-bold leading-tight drop-shadow-lg"
@@ -923,45 +910,84 @@ export default function TheLanguagePage() {
             </div>
           </div>
 
-          {/* Living The Words Grid */}
-          <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 lg:p-14 shadow-sm space-y-8">
-            <div className="max-w-3xl space-y-3">
-              <div className="inline-flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  LIVING THE WORDS
-                </span>
-              </div>
-              <h3 className="text-2xl sm:text-4xl font-bold text-[#0f131a] tracking-tight">
-                A Language Becomes Culture When People Live It
-              </h3>
-            </div>
+          {/* Living The Words Split Section */}
+          <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 lg:p-14 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              
+              {/* Left Column: Heading & Cultural Context */}
+              <div className="lg:col-span-5 space-y-4">
+                <div className="inline-flex items-center gap-2.5">
+                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    LIVING THE WORDS
+                  </span>
+                </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs space-y-1.5">
-                <strong className="text-slate-900 font-bold text-sm block">Give-First</strong>
-                <p className="text-xs sm:text-sm text-cool-grey-600">Becomes real when someone helps without being asked.</p>
+                <h3 className="text-2xl sm:text-4xl lg:text-[40px] font-bold text-[#0f131a] tracking-tight leading-[1.18]">
+                  A Language Becomes Culture When People Live It
+                </h3>
+
+                <p className="text-sm sm:text-base text-cool-grey-600 leading-relaxed font-normal">
+                  Values are only as real as the everyday actions of the community. In Peers Global, each word in our vocabulary represents a living practice.
+                </p>
+
+                <div className="pt-4 border-t border-cool-grey-200/80 flex items-center gap-3 text-xs font-semibold text-slate-500">
+                  <span className="size-2 rounded-full bg-[#1D4ED8]" />
+                  <span>Practiced daily across all global Circles</span>
+                </div>
               </div>
-              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs space-y-1.5">
-                <strong className="text-slate-900 font-bold text-sm block">Peer</strong>
-                <p className="text-xs sm:text-sm text-cool-grey-600">Becomes real when trust is earned and protected.</p>
+
+              {/* Right Column: 2-Column Split of Living Words Cards */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-[#1D4ED8] transition-colors">Give-First</strong>
+                    <span className="size-2 rounded-full bg-blue-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when someone helps without being asked.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-indigo-600 transition-colors">Peer</strong>
+                    <span className="size-2 rounded-full bg-indigo-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when trust is earned and protected.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-emerald-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-emerald-600 transition-colors">Circle</strong>
+                    <span className="size-2 rounded-full bg-emerald-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when people show up for one another.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-amber-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-amber-600 transition-colors">Confidential Forum</strong>
+                    <span className="size-2 rounded-full bg-amber-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when sensitive matters remain safe.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-rose-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-rose-600 transition-colors">Life Impactor</strong>
+                    <span className="size-2 rounded-full bg-rose-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when action changes someone&apos;s journey.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-cyan-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-cyan-600 transition-colors">Unity</strong>
+                    <span className="size-2 rounded-full bg-cyan-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when connection continues 24/7.</p>
+                </div>
               </div>
-              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs space-y-1.5">
-                <strong className="text-slate-900 font-bold text-sm block">Circle</strong>
-                <p className="text-xs sm:text-sm text-cool-grey-600">Becomes real when people show up for one another.</p>
-              </div>
-              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs space-y-1.5">
-                <strong className="text-slate-900 font-bold text-sm block">Confidential Forum</strong>
-                <p className="text-xs sm:text-sm text-cool-grey-600">Becomes real when sensitive matters remain safe.</p>
-              </div>
-              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs space-y-1.5">
-                <strong className="text-slate-900 font-bold text-sm block">Life Impactor</strong>
-                <p className="text-xs sm:text-sm text-cool-grey-600">Becomes real when action changes someone&apos;s journey.</p>
-              </div>
-              <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs space-y-1.5">
-                <strong className="text-slate-900 font-bold text-sm block">Unity</strong>
-                <p className="text-xs sm:text-sm text-cool-grey-600">Becomes real when connection continues 24/7.</p>
-              </div>
+
             </div>
           </div>
 

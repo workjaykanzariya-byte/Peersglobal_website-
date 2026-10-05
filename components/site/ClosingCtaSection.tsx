@@ -100,16 +100,16 @@ export function ClosingCtaSection({
   return (
     <section
       ref={sectionRef}
-      className={`relative isolate overflow-hidden bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] py-14 sm:py-18 lg:py-20 text-white ${className}`}
+      className={`relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-16 sm:py-20 lg:py-24 text-white ${className}`}
     >
-      {/* Deep celestial radial gradients & luminous aura */}
+      {/* Deep celestial radial gradients & luminous brand aura */}
       <div
         aria-hidden="true"
         style={{
           transform: prefersReducedMotion ? 'none' : `translate3d(0, ${bgParallaxY}px, 0)`,
           transition: 'transform 0.1s linear',
         }}
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
       />
       <div
         aria-hidden="true"
@@ -117,7 +117,7 @@ export function ClosingCtaSection({
           transform: prefersReducedMotion ? 'translateY(-50%)' : `translate3d(0, calc(-50% + ${bgParallaxY * 0.8}px), 0)`,
           transition: 'transform 0.1s linear',
         }}
-        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 rounded-full bg-blue-600/20 blur-3xl"
+        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 rounded-full bg-blue-600/15 blur-3xl"
       />
       <div
         aria-hidden="true"
@@ -125,7 +125,7 @@ export function ClosingCtaSection({
           transform: prefersReducedMotion ? 'none' : `translate3d(0, ${bgParallaxY * -0.6}px, 0)`,
           transition: 'transform 0.1s linear',
         }}
-        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
       />
 
       {/* Subtle geometric orbital line art with Parallax */}

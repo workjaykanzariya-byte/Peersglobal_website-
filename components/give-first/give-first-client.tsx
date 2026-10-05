@@ -407,9 +407,42 @@ export function GiveFirstClient() {
         </div>
       </section>
 
-      {/* ─── Closing Brand Gradient Banner ─── */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] py-20 md:py-28 text-white">
+      {/* ─── Closing Master Celestial Banner with Brand Gradient Depth ─── */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 md:py-28">
+        {/* Deep celestial radial gradients & luminous aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+        />
+
+        {/* Subtle geometric orbital line art */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-rose-300/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-rose-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-rose-300/25" />
+          </svg>
+        </div>
+
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="flex items-center justify-center gap-2.5">
+            <span className="h-[1.5px] w-6 bg-white/70" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              THE PEERS GLOBAL INVITATION
+            </span>
+            <span className="h-[1.5px] w-6 bg-white/70" />
+          </div>
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
             Be the entrepreneur who gives.
           </h2>
@@ -420,14 +453,14 @@ export function GiveFirstClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#1D4ED8] text-xs sm:text-sm font-bold shadow-lg hover:bg-slate-100 transition-all uppercase tracking-wider active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all uppercase tracking-wider active:scale-95"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/the-idea"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-xs sm:text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all uppercase tracking-wider backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/[0.08] text-white text-xs sm:text-sm font-bold border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all uppercase tracking-wider backdrop-blur-sm"
             >
               <span>Explore Our World</span>
             </Link>

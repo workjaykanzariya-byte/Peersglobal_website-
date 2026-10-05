@@ -113,7 +113,7 @@ export function TiersClient() {
           </div>
 
           {/* Hero Banner Box */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
 
             {/* Fade Visual (Right 60%) */}
             <div
@@ -135,19 +135,19 @@ export function TiersClient() {
               <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
 
-              {/* Cursive Script Overlay - Top Right */}
-              <div className="absolute top-6 sm:top-10 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+              {/* Script Overlay - Top Right */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
                   Better People
                 </p>
-                <p className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
                   Bigger Opportunities.
                 </p>
               </div>
 
-              {/* Cursive Script Overlay - Bottom Right */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+              {/* Script Overlay - Bottom Right */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] pointer-events-none select-none">
+                <p className="text-lg sm:text-xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
                   Invest in People.
                 </p>
                 <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
@@ -158,41 +158,41 @@ export function TiersClient() {
 
             {/* Left Content (Z-10) */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
+              <div className="max-w-xl flex flex-col items-start space-y-4">
 
                 {/* Eyebrow */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    MEMBERSHIP & INVESTMENT
+                <div className="flex items-center gap-2.5 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Membership &amp; Investment
                   </span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[62px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
+                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15]">
                   Your Annual Investment
                 </h1>
 
-                <p className="text-xl sm:text-2xl text-slate-800 font-medium leading-snug mb-3 font-serif italic">
+                <p className="text-base sm:text-lg text-slate-800 font-semibold italic text-[#0062D2]">
                   Full transparency.
                 </p>
 
-                <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mb-8">
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                   Here is exactly what membership costs — in money and in time — so your decision is a complete one.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="pt-2 flex flex-wrap items-center gap-3">
                   <a
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
                   >
                     <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
+                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                   <Link
                     href="/membership/criteria"
-                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-7 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-xs sm:text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
                   >
                     <span>Apply for Membership</span>
                     <ArrowRight className="size-4" />
@@ -211,13 +211,13 @@ export function TiersClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+                  className="group rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all duration-300"
                 >
-                  <div className="size-11 sm:size-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                    <Icon className="size-5 sm:size-6 text-[#0062D2]" />
+                  <div className="size-11 sm:size-12 rounded-xl bg-blue-50 border border-blue-100/80 text-[#0062D2] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                    <Icon className="size-5 sm:size-6" />
                   </div>
                   <div>
-                    <div className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                    <div className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight group-hover:text-[#0062D2] transition-colors">
                       {stat.value}
                     </div>
                     <div className="text-xs text-slate-500 font-medium">
@@ -235,106 +235,125 @@ export function TiersClient() {
       {/* =================================================================
           SECTION 2: HOW MEMBERSHIP WORKS — Two Commitments + Steps
           ================================================================= */}
-      <section className="py-20 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="text-left max-w-3xl space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                How Membership Works
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
+              Two commitments, taken in your own time.
+            </h2>
+          </div>
 
-            {/* Left Narrative (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col items-start">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  HOW MEMBERSHIP WORKS
-                </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+            {/* Left Box: 2 Main Commitments (7 cols) */}
+            <div className="lg:col-span-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-7 sm:p-9 flex flex-col justify-between space-y-6 shadow-2xs">
+              <div className="space-y-5">
+                {/* Commitment 1 */}
+                <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] flex items-center gap-1.5">
+                      <span className="size-2 rounded-full bg-[#0062D2]" /> Step 1: Platform Subscription
+                    </span>
+                    <span className="font-mono text-xs font-bold text-slate-400 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      Foundation
+                    </span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    Your Peers Global subscription gives you the platform.
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
+                    The Unity App, the community, the Peer directory, the recognition system, and the ability to connect with entrepreneurs across cities and countries.
+                  </p>
+                </div>
+
+                {/* Commitment 2 */}
+                <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] flex items-center gap-1.5">
+                      <span className="size-2 rounded-full bg-rose-500" /> Step 2: Circle Experience
+                    </span>
+                    <span className="font-mono text-xs font-bold text-slate-400 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      When Ready
+                    </span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    A Circle is a separate, intentional step.
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
+                    When you are ready for a room, you request a Circle, it is approved by the Circle Director and the Membership Experience Committee, and you pay that Circle's Experience Fee. Twelve meetings a year, roundtables, masterclasses and a seat where your business category is held by you alone.
+                  </p>
+                </div>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-tight mb-5">
-                Two commitments, taken in your own time.
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4">
-                <strong className="text-slate-900 font-semibold">Your Peers Global subscription gives you the platform.</strong> <br />
-                The Unity App, the community, the Peer directory, the recognition system, and the ability to connect with entrepreneurs across cities and countries.
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-6">
-                <strong className="text-slate-900 font-semibold">A Circle is a separate step.</strong> <br />
-                When you are ready for a room, you request a Circle, it is approved by the Circle Director and the Membership Experience Committee, and you pay that Circle's Experience Fee. Twelve meetings a year, roundtables, masterclasses and a seat where your business category is held by you alone.
-              </p>
-
-              <p className="text-xs sm:text-sm text-slate-500 italic mb-6">
-                Many Peers join the platform first, spend months in the community, and request a Circle when the right room is available.
-              </p>
-
-              <div>
+              <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <p className="text-xs text-slate-700 italic font-light">
+                  Many Peers join the platform first, spend months in the community, and request a Circle when the right room is available.
+                </p>
                 <Link
                   href="/circles"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-bold shadow-md shadow-blue-600/20 transition-all inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs font-bold shadow-sm transition-all uppercase tracking-wider shrink-0"
                 >
-                  <span>See How Circles Work</span>
-                  <ArrowRight className="size-4" />
+                  <span>Explore Circles</span>
+                  <ArrowRight className="size-3.5" />
                 </Link>
               </div>
             </div>
 
-            {/* Center Quote Card (4 cols) */}
-            <div className="lg:col-span-4 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-blue-50/50 border border-slate-200/90 p-8 shadow-sm">
-              <div className="size-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center mb-5 shadow-sm">
-                <Quote className="size-6" />
-              </div>
-
-              <blockquote className="font-serif text-2xl text-slate-900 leading-snug mb-6 font-normal">
-                “The best investment an entrepreneur can make is in the people around their journey.”
-              </blockquote>
-
-              <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                PEERS GLOBAL —
-              </div>
-            </div>
-
-            {/* Right 3-Step Progression (3 cols) */}
-            <div className="lg:col-span-3 space-y-4">
-              <div className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-2xs">
-                <div className="size-11 rounded-xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center shrink-0">
-                  <Users className="size-5" />
+            {/* Right Column: Quote + 3-Step Pathway (5 cols) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
+              {/* Quote Card */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white border border-slate-800 shadow-lg relative overflow-hidden space-y-3">
+                <div className="absolute top-0 right-0 size-40 rounded-full bg-blue-600/15 blur-2xl pointer-events-none" />
+                <div className="size-9 rounded-xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/15">
+                  <Quote className="size-4.5" />
                 </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                    Join the community
-                  </div>
-                  <div className="text-[11px] text-slate-500">
-                    Access the platform immediately
-                  </div>
+                <blockquote className="text-base sm:text-lg font-semibold text-white leading-snug">
+                  “The best investment an entrepreneur can make is in the people around their journey.”
+                </blockquote>
+                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-300/80">
+                  PEERS GLOBAL CODE
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-2xs">
-                <div className="size-11 rounded-xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center shrink-0">
-                  <Clock className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                    Request a Circle
-                  </div>
-                  <div className="text-[11px] text-slate-500">
-                    When you’re ready
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-2xs">
-                <div className="size-11 rounded-xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center shrink-0">
-                  <UserCheck className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                    Take your seat
-                  </div>
-                  <div className="text-[11px] text-slate-500">
-                    In a room that accelerates your growth
-                  </div>
-                </div>
+              {/* 3 Steps Progression */}
+              <div className="space-y-2.5">
+                {[
+                  { num: '01', title: 'Join the Community', desc: 'Access the Unity platform and verified network immediately', icon: Users, color: 'text-blue-600 bg-blue-50 border-blue-100' },
+                  { num: '02', title: 'Request a Circle', desc: 'Apply for category exclusivity when you are ready', icon: Clock, color: 'text-purple-600 bg-purple-50 border-purple-100' },
+                  { num: '03', title: 'Take Your Seat', desc: 'Engage in a room of peers that accelerates your growth', icon: UserCheck, color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                ].map((s) => {
+                  const SIcon = s.icon
+                  return (
+                    <div
+                      key={s.num}
+                      className="p-3.5 sm:p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-slate-300 transition-all flex items-center justify-between gap-3 shadow-2xs group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className={`size-9 rounded-xl flex items-center justify-center border shrink-0 ${s.color}`}>
+                          <SIcon className="size-4.5" />
+                        </div>
+                        <div>
+                          <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-tight">
+                            {s.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 font-light mt-0.5">
+                            {s.desc}
+                          </p>
+                        </div>
+                      </div>
+                      <span className="font-mono text-xs font-bold text-slate-400 bg-white border border-slate-200/60 px-2 py-0.5 rounded-md shrink-0">
+                        {s.num}
+                      </span>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
@@ -346,21 +365,21 @@ export function TiersClient() {
       {/* =================================================================
           SECTION 3: MEMBERSHIP OPTIONS — Peer vs Charter Peer vs Freedom
           ================================================================= */}
-      <section className="py-20 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                MEMBERSHIP OPTIONS
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                Membership Options
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
               Two memberships. One community.
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
+            <p className="text-slate-600 text-xs sm:text-sm font-light">
               Choose the tier aligned with your business stage, operational scale, and growth ambition.
             </p>
           </div>
@@ -369,23 +388,23 @@ export function TiersClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
             {/* Card 1: Peer Membership (4 cols) */}
-            <div className="lg:col-span-4 rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+            <div className="lg:col-span-4 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-2xs hover:shadow-lg hover:border-slate-300 transition-all duration-300 group">
               <div>
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-5">
-                  <Users className="size-6" />
+                <div className="size-11 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <Users className="size-5.5" />
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">
                   Peer Membership
                 </h3>
-                <div className="font-serif text-3xl font-bold text-[#0062D2] mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-[#0062D2] mb-1.5 font-mono">
                   ₹18,000 <span className="text-xs font-sans text-slate-500 font-normal">per year</span>
                 </div>
                 <p className="text-[11px] uppercase font-bold tracking-wider text-slate-500 mb-6">
                   FOR ENTREPRENEURS BUILDING AND GROWING THEIR BUSINESS.
                 </p>
 
-                <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700 mb-8">
+                <ul className="space-y-3 text-xs sm:text-[13px] text-slate-700 mb-8 font-light">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
                     <span><strong className="text-slate-900 font-semibold">Access to Unity App</strong> and community platform</span>
@@ -416,16 +435,16 @@ export function TiersClient() {
               <div>
                 <Link
                   href="/membership/criteria"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/20 transition-all text-center inline-flex items-center justify-center gap-2"
+                  className="w-full rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/20 hover:shadow-lg transition-all text-center inline-flex items-center justify-center gap-2 uppercase tracking-wider group"
                 >
                   <span>Apply for Membership</span>
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
 
             {/* Card 2: Charter Peer (Navy Dark with Ribbon - 5 cols) */}
-            <div className="lg:col-span-5 rounded-3xl bg-[#081226] text-white border border-slate-800 p-7 sm:p-9 flex flex-col justify-between shadow-xl relative overflow-hidden">
+            <div className="lg:col-span-5 rounded-3xl bg-[#081226] text-white border border-slate-800 p-6 sm:p-9 flex flex-col justify-between shadow-xl relative overflow-hidden group">
               {/* Most Popular Ribbon */}
               <div className="absolute top-6 right-6">
                 <span className="px-3 py-1 rounded-full bg-amber-400 text-slate-950 text-[10px] font-bold uppercase tracking-wider shadow-md">
@@ -434,21 +453,21 @@ export function TiersClient() {
               </div>
 
               <div>
-                <div className="size-12 rounded-2xl bg-amber-400/20 border border-amber-400/40 text-amber-400 flex items-center justify-center mb-5">
-                  <Crown className="size-6" />
+                <div className="size-11 rounded-2xl bg-amber-400/20 border border-amber-400/40 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <Crown className="size-5.5" />
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-1">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">
                   Charter Peer
                 </h3>
-                <div className="font-serif text-3xl sm:text-4xl font-bold text-amber-300 mb-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-300 mb-1.5 font-mono">
                   ₹1,00,000 <span className="text-xs font-sans text-slate-400 font-normal">per year</span>
                 </div>
                 <p className="text-[11px] uppercase font-bold tracking-wider text-slate-400 mb-6">
                   FOR ENTREPRENEURS BUILDING ACROSS CITIES, INDUSTRIES AND BORDERS.
                 </p>
 
-                <ul className="space-y-3.5 text-xs sm:text-sm text-slate-200 mb-8">
+                <ul className="space-y-3 text-xs sm:text-[13px] text-slate-200 mb-8 font-light">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white font-semibold">Everything in Peer Membership</strong></span>
@@ -483,7 +502,7 @@ export function TiersClient() {
               <div>
                 <Link
                   href="/membership/criteria"
-                  className="w-full rounded-full bg-white hover:bg-slate-100 text-[#081226] px-6 py-3.5 text-xs sm:text-sm font-bold shadow-lg transition-all text-center inline-flex items-center justify-center gap-2"
+                  className="w-full rounded-xl bg-white hover:bg-slate-100 text-[#081226] px-6 py-3.5 text-xs sm:text-sm font-bold shadow-lg transition-all text-center inline-flex items-center justify-center gap-2 uppercase tracking-wider"
                 >
                   <span>Apply for Charter Membership</span>
                   <ArrowRight className="size-4" />
@@ -495,30 +514,30 @@ export function TiersClient() {
             </div>
 
             {/* Card 3: Freedom to go further (3 cols) */}
-            <div className="lg:col-span-3 rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-sm">
+            <div className="lg:col-span-3 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-2xs hover:shadow-lg hover:border-slate-300 transition-all duration-300 group">
               <div>
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-5">
-                  <Diamond className="size-6" />
+                <div className="size-11 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                  <Diamond className="size-5.5" />
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 leading-snug">
                   Freedom to go further.
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light mb-6">
                   Charter Peers get greater access, broader exposure and priority opportunities across the entire ecosystem.
                 </p>
 
-                <div className="h-px w-full bg-slate-200 mb-6" />
+                <div className="h-px w-full bg-slate-200/80 mb-6" />
 
                 <div className="text-slate-800 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  <p className="text-2xl sm:text-3xl text-slate-700">Designed in Bharat.</p>
-                  <p className="text-3xl sm:text-4xl text-[#0062D2] font-bold mt-1">Built for the World.</p>
+                  <p className="text-xl sm:text-2xl text-slate-700">Designed in Bharat.</p>
+                  <p className="text-2xl sm:text-3xl text-[#0062D2] font-bold mt-1">Built for the World.</p>
                 </div>
               </div>
 
               <div className="pt-6 border-t border-slate-100">
-                <p className="text-[11px] text-slate-500">
+                <p className="text-[11px] text-slate-500 font-medium">
                   Global collaboration across 25+ countries.
                 </p>
               </div>
@@ -530,97 +549,163 @@ export function TiersClient() {
       </section>
 
       {/* =================================================================
-          SECTION 4: WHAT YOU INVEST vs WHAT YOU RECEIVE (Two Tables)
+          SECTION 4: WHAT YOU INVEST — Transparent Breakdown
           ================================================================= */}
-      <section className="py-20 bg-white border-b border-slate-200/80">
+      <section className="py-14 sm:py-18 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+          {/* Section Header */}
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 mb-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0062D2]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0062D2]">
+                What You Invest
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
+              Transparent breakdown
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              Every rupee and hour required to participate fully. No hidden renewal clauses or unexpected fees.
+            </p>
+          </div>
+
+          {/* Investment Breakdown Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {INVEST_ROWS.map((row, idx) => (
+              <div
+                key={idx}
+                className={`relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl border transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${
+                  row.highlight
+                    ? 'bg-gradient-to-b from-blue-50/80 to-white border-blue-200 shadow-xs ring-1 ring-blue-500/10'
+                    : 'bg-white border-slate-200/90 shadow-2xs hover:border-slate-300'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Step 0{idx + 1}
+                    </span>
+                    {row.highlight && (
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white shadow-xs">
+                        All-in Total
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    {row.item}
+                  </h3>
+
+                  <div className="py-2.5 px-3.5 rounded-xl bg-slate-50 border border-slate-100 font-mono text-base sm:text-lg font-bold text-[#0062D2] mb-4">
+                    {row.cost}
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    {row.detail}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-400 font-medium">
+                  <CheckCircle2 className="size-3.5 text-emerald-600 shrink-0" />
+                  <span>100% transparent pricing</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Note Callout */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 flex items-start gap-3 text-xs sm:text-sm text-slate-600 shadow-2xs">
+            <Info className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
+            <p>
+              <strong className="font-semibold text-slate-900">Please Note:</strong> Circle Experience Fees vary by Circle and city depending on the meeting venue standards. The exact amount is confirmed transparently when your Circle seat request is approved.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =================================================================
+          SECTION 5: WHAT YOU RECEIVE — ₹2,00,000+ Estimated Value
+          ================================================================= */}
+      <section className="py-14 sm:py-18 lg:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Section Header */}
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 mb-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                What You Receive
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
+              ₹2,00,000+ estimated annual value
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              Every member receives tangible executive access, curated retreats, events, and brand positioning before closing a single business deal.
+            </p>
+          </div>
+
+          {/* Deliverables Grid + Grand Total Card */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-            {/* Left Table: WHAT YOU INVEST (6 Cols) */}
-            <div className="lg:col-span-6 flex flex-col">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  WHAT YOU INVEST
-                </span>
-              </div>
-
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
-                Transparent breakdown
-              </h3>
-
-              <div className="rounded-3xl border border-slate-200/90 overflow-hidden shadow-2xs">
-                <table className="w-full text-left text-xs sm:text-sm">
-                  <tbody className="divide-y divide-slate-200/80">
-                    {INVEST_ROWS.map((row, idx) => (
-                      <tr
-                        key={idx}
-                        className={row.highlight ? 'bg-blue-50/70 font-semibold' : 'bg-white'}
-                      >
-                        <td className="p-4 sm:p-5 font-bold text-slate-900 align-top w-1/3">
-                          {row.item}
-                        </td>
-                        <td className="p-4 sm:p-5 font-semibold text-[#0062D2] align-top whitespace-nowrap">
-                          {row.cost}
-                        </td>
-                        <td className="p-4 sm:p-5 text-slate-600 align-top text-xs">
-                          {row.detail}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <p className="text-xs text-slate-500 mt-4 italic leading-relaxed">
-                Circle Experience Fees vary by Circle and city. The exact amount is confirmed when your Circle request is approved.
-              </p>
+            {/* Left 8 Cols: Value Grid */}
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {RECEIVE_ROWS.map((row, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="size-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
+                      <Sparkles className="size-4" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-800">
+                      {row.benefit}
+                    </span>
+                  </div>
+                  <span className="font-mono text-xs sm:text-sm font-bold text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 ml-3">
+                    {row.value}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* Right Table: WHAT YOU RECEIVE (6 Cols) */}
-            <div className="lg:col-span-6 flex flex-col">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  WHAT YOU RECEIVE
-                </span>
+            {/* Right 4 Cols: Grand Summary Card */}
+            <div className="lg:col-span-4 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 text-white p-7 sm:p-8 shadow-xl flex flex-col justify-between min-h-[380px] border border-slate-800">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-6">
+                  <Award className="size-3.5" />
+                  Value Multiplier
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-400 font-light mb-1">
+                  Guaranteed Delivered Value
+                </p>
+                <div className="text-3xl sm:text-4xl font-bold text-white font-mono tracking-tight mb-4">
+                  ₹2,00,000+
+                </div>
+
+                <div className="h-px w-full bg-slate-800 my-4" />
+
+                <p className="text-xs text-slate-300 font-light leading-relaxed">
+                  You receive roughly <strong className="text-amber-300 font-semibold">6x to 7x return</strong> in direct event and leadership infrastructure for an investment of ~₹33,000–₹40,000 all-in.
+                </p>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
-                ₹2,00,000+ estimated annual value
-              </h3>
-
-              <div className="rounded-3xl border border-slate-200/90 overflow-hidden shadow-2xs">
-                <table className="w-full text-left text-xs sm:text-sm">
-                  <thead className="bg-[#FAFBFD] border-b border-slate-200">
-                    <tr>
-                      <th className="p-3.5 sm:p-4 font-bold text-slate-700">Benefit</th>
-                      <th className="p-3.5 sm:p-4 font-bold text-slate-700 text-right">Estimated value</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 bg-white">
-                    {RECEIVE_ROWS.map((row, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
-                        <td className="p-3 sm:p-3.5 text-slate-800">{row.benefit}</td>
-                        <td className="p-3 sm:p-3.5 text-slate-900 font-semibold text-right">{row.value}</td>
-                      </tr>
-                    ))}
-                    <tr className="bg-amber-50/80 font-bold border-t-2 border-amber-200">
-                      <td className="p-4 text-slate-950 font-serif text-sm sm:text-base">
-                        Total annual value
-                      </td>
-                      <td className="p-4 text-right font-serif text-base sm:text-lg text-slate-950">
-                        ₹2,00,000+
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="mt-8 pt-6 border-t border-slate-800/80">
+                <Link
+                  href="/membership"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all group uppercase tracking-wider"
+                >
+                  <span>Claim Your Seat</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <p className="text-[11px] text-slate-400 text-center mt-3 font-light">
+                  Direct peer vetting • No sales pitches
+                </p>
               </div>
-
-              <p className="text-xs text-slate-500 mt-4 italic leading-relaxed">
-                ₹2,00,000+ in annual value for roughly ₹33,000–₹40,000 all-in — before a single business deal.
-              </p>
             </div>
 
           </div>
@@ -629,118 +714,118 @@ export function TiersClient() {
       </section>
 
       {/* =================================================================
-          SECTION 5: WHAT NO SUBSCRIPTION BUYS & FEES AND TERMS
+          SECTION 6: WHAT NO SUBSCRIPTION BUYS & FEES AND TERMS
           ================================================================= */}
-      <section className="py-20 bg-[#FAFBFD] border-b border-slate-200/80">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
             {/* Left Box: What no subscription buys */}
-            <div className="rounded-3xl bg-white border border-slate-200/90 p-8 shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-0.5 w-6 bg-rose-500" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-rose-600">
-                  OUR CODE
+            <div className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-9 shadow-2xs space-y-5">
+              <div className="flex items-center gap-2">
+                <span className="h-0.5 w-6 bg-rose-500 rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-rose-600">
+                  Our Code
                 </span>
               </div>
 
-              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-snug">
                 What no subscription buys
               </h3>
 
-              <ul className="space-y-4 text-xs sm:text-sm text-slate-700">
-                <li className="flex items-start gap-3">
+              <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700 font-light">
+                <li className="flex items-start gap-3 p-3 rounded-xl bg-slate-50/60 border border-slate-100">
                   <div className="size-6 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 mt-0.5">
                     <XCircle className="size-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900">Peer Standing cannot be purchased.</strong> It comes from contribution confirmed by the entrepreneurs you helped.
+                    <strong className="text-slate-900 font-semibold">Peer Standing cannot be purchased.</strong> It comes from contribution confirmed by the entrepreneurs you helped.
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 p-3 rounded-xl bg-slate-50/60 border border-slate-100">
                   <div className="size-6 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 mt-0.5">
                     <XCircle className="size-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900">Peers Coin cannot be purchased.</strong> Every coin was earned by helping another entrepreneur.
+                    <strong className="text-slate-900 font-semibold">Peers Coin cannot be purchased.</strong> Every coin was earned by helping another entrepreneur.
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 p-3 rounded-xl bg-slate-50/60 border border-slate-100">
                   <div className="size-6 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 mt-0.5">
                     <XCircle className="size-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900">Leadership cannot be purchased.</strong> Every role is open to every Peer and follows contribution alone.
+                    <strong className="text-slate-900 font-semibold">Leadership cannot be purchased.</strong> Every role is open to every Peer and follows contribution alone.
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 p-3 rounded-xl bg-slate-50/60 border border-slate-100">
                   <div className="size-6 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 mt-0.5">
                     <XCircle className="size-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900">Event access is never complimentary.</strong> Every event carries a fee, for Charter Peers and Peers alike.
+                    <strong className="text-slate-900 font-semibold">Event access is never complimentary.</strong> Every event carries a fee, for Charter Peers and Peers alike.
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 p-3 rounded-xl bg-slate-50/60 border border-slate-100">
                   <div className="size-6 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 mt-0.5">
                     <XCircle className="size-4" />
                   </div>
                   <div>
-                    <strong className="text-slate-900">Respect inside a room cannot be purchased.</strong> A Peer who gives generously carries more weight in any Circle than a Charter Peer who does not.
+                    <strong className="text-slate-900 font-semibold">Respect inside a room cannot be purchased.</strong> A Peer who gives generously carries more weight in any Circle than a Charter Peer who does not.
                   </div>
                 </li>
               </ul>
             </div>
 
             {/* Right Box: Fees and terms */}
-            <div className="rounded-3xl bg-white border border-slate-200/90 p-8 shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  TERMS & CONDITIONS
+            <div className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-9 shadow-2xs space-y-5">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  Terms &amp; Conditions
                 </span>
               </div>
 
-              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-snug">
                 Fees and terms
               </h3>
 
-              <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700 mb-6">
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-700 font-light">
                 <li className="flex items-start gap-2.5">
                   <Check className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">Peers Global subscription:</strong> ₹18,000 per year, exclusive of tax</span>
+                  <span><strong className="text-slate-900 font-semibold">Peers Global subscription:</strong> ₹18,000 per year, exclusive of tax</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">Charter Peer subscription:</strong> ₹1,00,000 per year, exclusive of tax</span>
+                  <span><strong className="text-slate-900 font-semibold">Charter Peer subscription:</strong> ₹1,00,000 per year, exclusive of tax</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">Circle Experience Fee:</strong> Varies by Circle and city, payable on approval</span>
+                  <span><strong className="text-slate-900 font-semibold">Circle Experience Fee:</strong> Varies by Circle and city, payable on approval</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">Joining fee:</strong> None</span>
+                  <span><strong className="text-slate-900 font-semibold">Joining fee:</strong> None</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">Tax:</strong> GST in India, local equivalents elsewhere</span>
+                  <span><strong className="text-slate-900 font-semibold">Tax:</strong> GST in India, local equivalents elsewhere</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">Refunds:</strong> All fees are non-refundable</span>
+                  <span><strong className="text-slate-900 font-semibold">Refunds:</strong> All fees are non-refundable</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                  <span><strong className="text-slate-900">Upgrading to Charter:</strong> Subscribe at any time</span>
+                  <span><strong className="text-slate-900 font-semibold">Upgrading to Charter:</strong> Subscribe at any time</span>
                 </li>
               </ul>
 
               <div className="pt-4 border-t border-slate-100">
                 <Link
                   href="/terms"
-                  className="text-xs font-bold text-[#0062D2] hover:text-[#0052B4] inline-flex items-center gap-1.5"
+                  className="text-xs font-bold text-[#0062D2] hover:text-[#0052B4] inline-flex items-center gap-1.5 uppercase tracking-wider"
                 >
                   <span>Read Full Membership Terms</span>
                   <ArrowRight className="size-3.5" />
@@ -754,101 +839,106 @@ export function TiersClient() {
       </section>
 
       {/* =================================================================
-          SECTION 6: THE LSR GROWTH MODEL + READY TO BEGIN? CTA
+          SECTION 7: THE LSR GROWTH MODEL + READY TO BEGIN? CTA
           ================================================================= */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
             {/* Left: The LSR Growth Model (7 cols) */}
-            <div className="lg:col-span-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-8 sm:p-10">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  THE LSR GROWTH MODEL
-                </span>
+            <div className="lg:col-span-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-7 sm:p-9 flex flex-col justify-between space-y-6 shadow-2xs">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    The LSR Growth Model
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
+                  Learning, sales &amp; resources in harmony
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 group hover:border-blue-300 transition-all">
+                    <div className="size-9 rounded-xl bg-blue-50 border border-blue-100/60 text-[#0062D2] flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <BookOpen className="size-4.5" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors">Learning</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-light">
+                      Masterclasses, playbooks and experiential wisdom.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 group hover:border-emerald-300 transition-all">
+                    <div className="size-9 rounded-xl bg-emerald-50 border border-emerald-100/60 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <TrendingUp className="size-4.5" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Sales</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-light">
+                      Referrals, warm introductions and trusted market access.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 group hover:border-rose-300 transition-all">
+                    <div className="size-9 rounded-xl bg-rose-50 border border-rose-100/60 text-rose-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <Users className="size-4.5" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-rose-700 transition-colors">Resources</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-light">
+                      Talent, capital, partners, suppliers and expertise.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-3">
-                    <BookOpen className="size-5" />
-                  </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">Learning</h4>
-                  <p className="text-xs text-slate-500 leading-snug">
-                    Masterclasses, playbooks and mentorship.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                  <div className="size-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
-                    <TrendingUp className="size-5" />
-                  </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">Sales</h4>
-                  <p className="text-xs text-slate-500 leading-snug">
-                    Referrals, introductions and market access.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-3">
-                    <Users className="size-5" />
-                  </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">Resources</h4>
-                  <p className="text-xs text-slate-500 leading-snug">
-                    Talent, capital, partners, suppliers and expertise.
-                  </p>
-                </div>
+              <div className="p-3.5 rounded-xl bg-blue-50/70 border border-blue-100 text-xs text-slate-700 flex items-center gap-2">
+                <span className="text-[#0062D2] font-bold text-sm">✦</span>
+                <p>
+                  <strong className="text-slate-900 font-semibold">Held together by relationships:</strong> A mission to enhance the lives of one million entrepreneurs.
+                </p>
               </div>
-
-              <p className="text-xs text-slate-600 font-medium">
-                <strong className="text-slate-900">Held together by relationships.</strong> A mission to enhance the lives of one million entrepreneurs.
-              </p>
             </div>
 
             {/* Right: Ready to begin? (5 cols) */}
-            <div className="lg:col-span-5 rounded-3xl bg-[#081226] text-white p-8 sm:p-10 shadow-lg relative overflow-hidden">
-              {/* Background Looping Video Layer */}
-              <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-30">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="size-full object-cover object-center"
-                >
-                  <source src="/videos/leadership-hero-bg.mp4" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#081226] via-[#081226]/60 to-transparent" />
-              </div>
+            <div className="lg:col-span-5 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white p-7 sm:p-9 shadow-xl border border-slate-800 relative overflow-hidden flex flex-col justify-between space-y-6">
+              {/* Subtle top ambient glow */}
+              <div className="absolute -top-10 -right-10 size-48 rounded-full bg-blue-600/20 blur-2xl pointer-events-none" />
 
-              <div className="relative z-10">
-                <h3 className="font-serif text-3xl font-bold text-white mb-3">
+              <div className="relative z-10 space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                    Get Started
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                   Ready to begin?
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-8">
-                  Join a community of entrepreneurs who give, grow and build together.
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  Join a community of entrepreneurs who give, grow and build enduring relationships together.
                 </p>
+              </div>
 
-                <div className="flex flex-col sm:flex-row items-center gap-3">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto flex-1 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/25 transition-all text-center inline-flex items-center justify-center gap-2"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
-                  <Link
-                    href="/membership/criteria"
-                    className="w-full sm:w-auto flex-1 rounded-full border border-white/30 hover:border-white/60 bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 text-xs sm:text-sm font-semibold transition-all text-center inline-flex items-center justify-center gap-2"
-                  >
-                    <span>Apply for Membership</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
+              <div className="relative z-10 flex flex-col gap-3">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <Link
+                  href="/membership/criteria"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs"
+                >
+                  <span>Apply for Membership</span>
+                  <ArrowRight className="size-4" />
+                </Link>
               </div>
             </div>
 

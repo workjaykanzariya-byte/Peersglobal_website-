@@ -38,48 +38,64 @@ const EIGHT_REASONS = [
     title: 'End Entrepreneurial Isolation',
     desc: 'Building a business can be surprisingly lonely. There are decisions you cannot discuss with employees, questions you cannot always take home, and challenges difficult to explain to people who have never carried the responsibility of a business. A Circle gives you a room where other entrepreneurs understand the journey.',
     highlight: 'Someone understands.',
+    icon: Users2,
+    color: 'border-blue-200 bg-blue-50 text-[#0062D2]',
   },
   {
     num: '02',
     title: 'Grow Through Trust',
     desc: 'Business relationships become more meaningful when built over time: You meet, listen, learn, help, and keep showing up. Trust develops gradually—and with trust, conversations become deeper, introductions warmer, and collaboration natural.',
     highlight: 'Relationships are the foundation on which meaningful business grows.',
+    icon: Handshake,
+    color: 'border-purple-200 bg-purple-50 text-purple-700',
   },
   {
     num: '03',
     title: 'Learn From Real Experience',
     desc: 'There is knowledge in books and classrooms. And there is knowledge that comes from having built, failed, adapted, recovered and continued. You do not have to learn every lesson the hard way.',
     highlight: 'Another entrepreneur’s experience can save you years.',
+    icon: BookOpen,
+    color: 'border-emerald-200 bg-emerald-50 text-emerald-700',
   },
   {
     num: '04',
     title: 'Build a Lifelong Support System',
     desc: 'Your business, responsibilities, and ambitions will change. A Circle becomes more than a monthly gathering—it becomes a support system of people who celebrate with you, challenge you, introduce you, listen, and stand beside you.',
     highlight: 'Relationships that grow through different chapters of life and business.',
+    icon: HeartHandshake,
+    color: 'border-amber-200 bg-amber-50 text-amber-700',
   },
   {
     num: '05',
     title: 'Become a Better Leader',
     desc: 'Leadership is learning to listen, understand, communicate, take responsibility, develop other people, and create environments where others contribute. Inside PEERS GLOBAL, leadership follows contribution.',
     highlight: 'Leadership is not a position above people. It is responsibility for people.',
+    icon: Award,
+    color: 'border-rose-200 bg-rose-50 text-rose-700',
   },
   {
     num: '06',
     title: 'Create Real Impact',
     desc: 'Success becomes more meaningful when it creates value beyond your business: 1 Action = 1 Life Impacted. One intro opens a door; one conversation changes a decision; one piece of experience prevents an expensive mistake.',
     highlight: 'The objective is not to count activity. It is to recognise contribution.',
+    icon: Sparkles,
+    color: 'border-cyan-200 bg-cyan-50 text-cyan-700',
   },
   {
     num: '07',
     title: 'Access Resources You Cannot Build Alone',
     desc: 'No entrepreneur can build every capability internally. A strong community expands your available resources because trusted relationships make it easier to find knowledge, specialists, and perspectives.',
     highlight: 'Expanding capabilities through trusted connections.',
+    icon: Layers,
+    color: 'border-indigo-200 bg-indigo-50 text-indigo-700',
   },
   {
     num: '08',
     title: 'Get National and Global Reach',
     desc: 'A local Circle can be the beginning, but not the boundary. As relationships develop across Circles, cities, regions and countries, an entrepreneur’s world becomes larger without becoming less personal.',
     highlight: 'Local relationships can create global possibilities.',
+    icon: Globe,
+    color: 'border-teal-200 bg-teal-50 text-teal-700',
   },
 ]
 
@@ -89,44 +105,56 @@ const SIX_BELIEFS = [
     num: '01',
     title: 'People Before Transactions',
     desc: 'A person is never merely a lead, prospect, customer or opportunity. Every entrepreneur deserves to be treated as a person first.',
+    icon: Users2,
+    color: 'border-blue-200 bg-blue-50 text-[#0062D2]',
   },
   {
     num: '02',
     title: 'Give Before You Ask',
     desc: 'Contribution creates the conditions for trust. The question is not only "What can I get?" It is also "How can I help?"',
+    icon: Heart,
+    color: 'border-rose-200 bg-rose-50 text-rose-700',
   },
   {
     num: '03',
     title: 'Relationships Before Business',
     desc: 'Business may emerge from a relationship. But the relationship should never be treated merely as a route to business.',
+    icon: Handshake,
+    color: 'border-purple-200 bg-purple-50 text-purple-700',
   },
   {
     num: '04',
     title: 'Experience Is Meant to Be Shared',
     desc: 'What you have learned can become someone else’s shortcut. Your experience becomes more valuable when it helps another entrepreneur move forward.',
+    icon: BookOpen,
+    color: 'border-emerald-200 bg-emerald-50 text-emerald-700',
   },
   {
     num: '05',
     title: 'Leadership Is Service',
     desc: 'The strongest leaders are not necessarily the people who speak the most. They are the people who take responsibility when something needs to be done.',
+    icon: Award,
+    color: 'border-amber-200 bg-amber-50 text-amber-700',
   },
   {
     num: '06',
     title: 'Impact Is Bigger Than Individual Success',
     desc: 'A business creates value. A relationship creates value. A community multiplies that value. When one helps another, impact travels far beyond the original action.',
+    icon: Sparkles,
+    color: 'border-cyan-200 bg-cyan-50 text-cyan-700',
   },
 ]
 
 // ─── What We Ask of You ───────────────────────────────────────────────────
 const WHAT_WE_ASK = [
-  { action: 'Show up', desc: 'Be present at meetings and roundtables.' },
-  { action: 'Listen', desc: 'Understand before responding.' },
-  { action: 'Share', desc: 'Offer your experience and perspective.' },
-  { action: 'Give', desc: 'Look for ways to help another Peer.' },
-  { action: 'Connect', desc: 'Introduce people when there is genuine value.' },
-  { action: 'Respect', desc: 'Protect confidentiality and relationships.' },
-  { action: 'Contribute', desc: 'Take responsibility when you can make something better.' },
-  { action: 'Recognise', desc: 'Notice and celebrate the people who help others.' },
+  { action: 'Show up', desc: 'Be present at meetings and roundtables.', icon: UserCheck, color: 'border-blue-200 bg-blue-50 text-[#0062D2]' },
+  { action: 'Listen', desc: 'Understand before responding.', icon: HelpCircle, color: 'border-purple-200 bg-purple-50 text-purple-700' },
+  { action: 'Share', desc: 'Offer your experience and perspective.', icon: Share2, color: 'border-emerald-200 bg-emerald-50 text-emerald-700' },
+  { action: 'Give', desc: 'Look for ways to help another Peer.', icon: Heart, color: 'border-rose-200 bg-rose-50 text-rose-700' },
+  { action: 'Connect', desc: 'Introduce people when there is genuine value.', icon: Users2, color: 'border-cyan-200 bg-cyan-50 text-cyan-700' },
+  { action: 'Respect', desc: 'Protect confidentiality and relationships.', icon: ShieldCheck, color: 'border-amber-200 bg-amber-50 text-amber-700' },
+  { action: 'Contribute', desc: 'Take responsibility when you can make something better.', icon: Target, color: 'border-indigo-200 bg-indigo-50 text-indigo-700' },
+  { action: 'Recognise', desc: 'Notice and celebrate the people who help others.', icon: Award, color: 'border-teal-200 bg-teal-50 text-teal-700' },
 ]
 
 export function MembershipPageClient() {
@@ -147,95 +175,119 @@ export function MembershipPageClient() {
       </div>
 
       {/* =========================================================================
-          SECTION 1: HERO (WHY JOIN PEERS GLOBAL)
+          SECTION 1: HERO (WHY JOIN PEERS GLOBAL — SIGNATURE HERO BANNER)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAFCFF] via-[#FFFFFF] to-[#F8FAFC] border-b border-slate-200/80 pt-10 sm:pt-14 pb-16 lg:pb-24">
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                  WHY JOIN PEERS GLOBAL
-                </span>
+
+          {/* Hero Banner */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
+
+            {/* Fade Video Backdrop */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+              }}
+            >
+              <video
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/membership-hero-peers.jpg"
+                autoPlay loop muted playsInline
+                className="size-full object-cover object-center"
+              />
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+
+              {/* Script overlay */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Real People</p>
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Conversations</p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Impact</p>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.35rem] font-serif font-bold text-[#0B192C] tracking-tight leading-[1.12]">
-                <span className="brand-gradient-text">Because your next breakthrough will not come from working harder alone.</span>
-              </h1>
-
-              <div className="space-y-3 text-[15px] sm:text-base text-slate-600 leading-relaxed">
-                <p>
-                  Entrepreneurs are used to solving problems themselves. You carry the decisions. You carry the responsibility. You carry the uncertainty. And often, you carry all of it without having enough people around you who truly understand what it means to build a business.
-                </p>
-                <p className="font-semibold text-slate-900 text-lg">
-                  PEERS GLOBAL begins with a different belief: <span className="text-[#0062D2]">You were never meant to build alone.</span>
-                </p>
-                <p>
-                  This is not simply a place to meet more people. It is a community designed to help entrepreneurs build stronger relationships, learn from real experience, contribute to one another and create possibilities that are difficult to create alone.
-                </p>
-              </div>
-
-              {/* CTAs */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/circles/find"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
-                >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
-                >
-                  <Smartphone className="size-4 text-[#0062D2]" />
-                  <span>Download Unity App</span>
-                </a>
+              {/* Glass pill */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">PEER IS WHAT YOU BECOME</p>
+                  <p className="text-xs font-bold tracking-wider text-white">100% VERIFIED FOUNDERS &amp; EXECUTIVES</p>
+                </div>
               </div>
             </div>
 
-            {/* Right Card: Not a Membership You Renew */}
-            <div className="lg:col-span-5">
-              <div className="relative p-8 sm:p-10 rounded-3xl bg-[#040F24] text-white shadow-2xl overflow-hidden space-y-6">
-                <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
-
-                <div className="relative z-10 space-y-4">
-                  <span className="text-xs uppercase font-bold tracking-widest text-sky-300">
-                    MEMBERSHIP VS RELATIONSHIP
+            {/* Left Content */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl flex flex-col items-start space-y-4">
+                <div className="flex items-center gap-2.5 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Why Join Peers Global
                   </span>
+                </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
-                    This Is Not a Membership You Renew
-                  </h3>
+                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15]">
+                  Because your next breakthrough will not come from working harder alone.
+                </h1>
 
-                  <p className="text-sm text-slate-300 font-medium">
-                    It is a relationship you invest in.
+                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <p>
+                    Entrepreneurs are used to solving problems themselves. You carry the decisions, the responsibility, and the uncertainty—often without having enough people around you who truly understand what it means to build a business.
                   </p>
+                  <p className="font-semibold text-slate-900 pt-0.5">
+                    PEERS GLOBAL begins with a different belief: <span className="text-[#0062D2]">You were never meant to build alone.</span>
+                  </p>
+                </div>
 
-                  <div className="space-y-3 pt-2 text-xs sm:text-sm text-slate-200">
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                      • A membership gives you access. <strong>A relationship gives you understanding.</strong>
+                {/* CTAs */}
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/circles/find"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
+                  >
+                    <span>Find Your Circle</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold transition-all shadow-2xs uppercase tracking-wider"
+                  >
+                    <Smartphone className="size-4 text-[#0062D2]" />
+                    <span>Download Unity App</span>
+                  </a>
+                </div>
+
+                {/* Stat Pill Band */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-200/80">
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
+                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
+                      <Users2 className="w-3.5 h-3.5" />
+                      <span className="text-lg font-bold text-slate-900">45+</span>
                     </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                      • A membership puts you in a room. <strong>A relationship gives you people you can call.</strong>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                      • A membership creates introductions. <strong>A relationship creates trust.</strong>
-                    </div>
+                    <span className="text-[11px] text-slate-500 font-medium">Active Cities</span>
                   </div>
 
-                  <div className="pt-3 border-t border-white/10 text-center">
-                    <p className="font-serif italic text-base text-amber-300">
-                      &ldquo;Membership is what you buy. Peer is what you become.&rdquo;
-                    </p>
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
+                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span className="text-lg font-bold text-slate-900">100%</span>
+                    </div>
+                    <span className="text-[11px] text-slate-500 font-medium">Verified Founders</span>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
+                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span className="text-lg font-bold text-slate-900">1M+</span>
+                    </div>
+                    <span className="text-[11px] text-slate-500 font-medium">Lives Impact Mission</span>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -246,48 +298,64 @@ export function MembershipPageClient() {
       {/* =========================================================================
           SECTION 2: EIGHT REASONS ENTREPRENEURS JOIN
           ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="text-left max-w-3xl space-y-3">
+          <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                THE 8 REASONS
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                The 8 Reasons
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-slate-900">
-              <span className="brand-gradient-text">Eight Reasons Entrepreneurs Join</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-slate-900 leading-snug">
+              Eight reasons entrepreneurs join
             </h2>
+            <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+              Why business founders and executives choose to build enduring relationships within PEERS GLOBAL.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {EIGHT_REASONS.map((r) => (
-              <div
-                key={r.num}
-                className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-[#0062D2]/40 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="size-9 rounded-full bg-[#EFF6FF] text-[#0062D2] font-bold text-xs flex items-center justify-center">
-                      {r.num}
-                    </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {EIGHT_REASONS.map((r) => {
+              const Icon = r.icon
+              return (
+                <div
+                  key={r.num}
+                  className="group relative p-6 sm:p-6.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    {/* Header: Icon + Number badge */}
+                    <div className="flex items-center justify-between">
+                      <div className={`size-10 rounded-xl flex items-center justify-center border shadow-2xs group-hover:scale-105 transition-transform duration-300 ${r.color}`}>
+                        <Icon className="size-5" />
+                      </div>
+                      <span className="font-mono text-xs font-bold text-slate-500 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-md">
+                        {r.num}
+                      </span>
+                    </div>
+
+                    {/* Title & Desc */}
+                    <div className="space-y-2">
+                      <h3 className="text-base sm:text-[17px] font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
+                        {r.title}
+                      </h3>
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
+                        {r.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  <h3 className="font-serif text-lg font-bold text-slate-900 mb-2 leading-snug">
-                    {r.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    {r.desc}
-                  </p>
+                  {/* Highlight pill / footer */}
+                  <div className="pt-4 mt-4 border-t border-slate-100/90">
+                    <div className="text-[11px] sm:text-xs font-medium text-slate-700 bg-slate-50/80 rounded-lg p-2.5 border border-slate-100 leading-relaxed flex items-start gap-1.5">
+                      <span className="text-[#0062D2] font-bold mt-0.5">✦</span>
+                      <span>{r.highlight}</span>
+                    </div>
+                  </div>
                 </div>
-
-                <div className="pt-3 border-t border-slate-100 text-[11px] font-bold text-[#0062D2]">
-                  {r.highlight}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
         </div>
@@ -296,79 +364,79 @@ export function MembershipPageClient() {
       {/* =========================================================================
           SECTION 3: THE LSR GROWTH MODEL
           ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="text-center max-w-3xl mx-auto space-y-2">
             <div className="flex items-center justify-center gap-2">
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                THE CORE ENGINE
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                The Core Engine
               </span>
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-slate-900">
-              <span className="brand-gradient-text">The LSR Growth Model</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-slate-900 leading-snug">
+              The LSR Growth Model
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
               PEERS GLOBAL is built around three connected experiences that feed one another in a continuous cycle of growth:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Learning */}
-            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
-              <div>
-                <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-lg mb-4">
+            <div className="group p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-200/60 text-[#0062D2] flex items-center justify-center font-bold text-lg">
                   <BookOpen className="size-6" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-slate-900">
-                  LEARNING
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                  Learning
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                   Learn from people who have built, tested, failed, adapted and succeeded. Not theory alone. Real experience.
                 </p>
               </div>
-              <div className="pt-4 border-t border-slate-200 text-xs font-semibold text-[#0062D2]">
-                Experiential Wisdom
+              <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-[#0062D2] flex items-center gap-1.5">
+                <span>✦</span> Experiential Wisdom
               </div>
             </div>
 
             {/* Sharing */}
-            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
-              <div>
-                <div className="size-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-4">
+            <div className="group p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="size-12 rounded-2xl bg-emerald-50 border border-emerald-200/60 text-emerald-600 flex items-center justify-center font-bold text-lg">
                   <Share2 className="size-6" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-slate-900">
-                  SHARING
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                  Sharing
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                   Share what you know. Share what you have learned. Share the problem you are trying to solve. Share the opportunity you see.
                 </p>
               </div>
-              <div className="pt-4 border-t border-slate-200 text-xs font-semibold text-emerald-700">
-                Generous Contribution
+              <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-emerald-700 flex items-center gap-1.5">
+                <span>✦</span> Generous Contribution
               </div>
             </div>
 
             {/* Relationships */}
-            <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
-              <div>
-                <div className="size-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center font-bold text-lg mb-4">
+            <div className="group p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="size-12 rounded-2xl bg-rose-50 border border-rose-200/60 text-rose-600 flex items-center justify-center font-bold text-lg">
                   <HeartHandshake className="size-6" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-slate-900">
-                  RELATIONSHIPS
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                  Relationships
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                   Because learning and sharing become more valuable when they happen between people who genuinely trust one another.
                 </p>
               </div>
-              <div className="pt-4 border-t border-slate-200 text-xs font-semibold text-pink-700">
-                Enduring Trust
+              <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                <span>✦</span> Enduring Trust
               </div>
             </div>
           </div>
@@ -392,38 +460,51 @@ export function MembershipPageClient() {
       {/* =========================================================================
           SECTION 4: THE VALUE SYSTEM (SIX BELIEFS)
           ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="text-left max-w-3xl space-y-3">
+          <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                THE VALUE SYSTEM
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                The Value System
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-slate-900">
-              <span className="brand-gradient-text">Six beliefs that guide this community</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-slate-900 leading-snug">
+              Six beliefs that guide this community
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SIX_BELIEFS.map((b) => (
-              <div
-                key={b.num}
-                className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow space-y-3"
-              >
-                <div className="size-8 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                  {b.num}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {SIX_BELIEFS.map((b) => {
+              const Icon = b.icon
+              return (
+                <div
+                  key={b.num}
+                  className="group relative p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className={`size-10 rounded-xl flex items-center justify-center border ${b.color} shadow-xs`}>
+                        <Icon className="size-5" />
+                      </div>
+                      <span className="font-mono text-xs font-bold text-slate-400 bg-slate-50 border border-slate-100 px-2.5 py-1 rounded-md">
+                        {b.num}
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-base sm:text-[17px] font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
+                        {b.title}
+                      </h3>
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
+                        {b.desc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-serif text-xl font-bold text-slate-900">
-                  {b.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {b.desc}
-                </p>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
         </div>
@@ -432,38 +513,91 @@ export function MembershipPageClient() {
       {/* =========================================================================
           SECTION 5: MEMBERSHIP IS INDIVIDUAL. NEVER CORPORATE.
           ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#040F24] text-white relative overflow-hidden">
-            <div className="absolute -right-16 -top-16 size-80 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+          <div className="relative p-8 sm:p-12 lg:p-14 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white overflow-hidden shadow-2xl border border-slate-800/90">
+            {/* Ambient background glows */}
+            <div className="absolute -right-20 -top-20 size-96 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
+            <div className="absolute -left-20 -bottom-20 size-96 rounded-full bg-rose-600/10 blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 max-w-3xl space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                <span className="text-xs font-bold tracking-[0.22em] uppercase text-sky-300">
-                  INDIVIDUAL RELATIONSHIP
-                </span>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Heading, intro, and quote */}
+              <div className="lg:col-span-6 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                    Individual Relationship
+                  </span>
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                  Membership is individual. <br className="hidden sm:inline" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-indigo-300">
+                    Never corporate.
+                  </span>
+                </h2>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  PEERS GLOBAL is built around the entrepreneur as an individual. A business may have many employees. A company may have many partners. But the relationship with the community belongs to the individual Peer.
+                </p>
+
+                <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-500/20 backdrop-blur-xs">
+                  <p className="text-xs sm:text-[13px] text-sky-200 font-medium italic leading-relaxed">
+                    “It is not simply a corporate subscription. It is an individual relationship with a community.”
+                  </p>
+                </div>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight">
-                Membership Is Individual. Never Corporate.
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                PEERS GLOBAL is built around the entrepreneur as an individual. A business may have many employees. A company may have many partners. But the relationship with the community belongs to the individual Peer.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-semibold text-slate-200">
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10">• Your Circle knows you personally.</div>
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10">• Your relationships develop with you.</div>
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10">• Your contribution is recognised through you.</div>
-                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10">• Your journey belongs to you.</div>
+              {/* Right Column: 4 Pillars of Individual Relationship */}
+              <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  {
+                    title: 'Personal Recognition',
+                    desc: 'Your Circle knows you personally, not just your company label.',
+                    icon: Users2,
+                    border: 'border-blue-500/20 bg-blue-950/20 text-blue-400',
+                  },
+                  {
+                    title: 'Lifelong Growth',
+                    desc: 'Your relationships develop with you across chapters of life and business.',
+                    icon: Sparkles,
+                    border: 'border-rose-500/20 bg-rose-950/20 text-rose-400',
+                  },
+                  {
+                    title: 'Direct Contribution',
+                    desc: 'Your contribution and impact are recognised through you directly.',
+                    icon: Award,
+                    border: 'border-purple-500/20 bg-purple-950/20 text-purple-400',
+                  },
+                  {
+                    title: 'Personal Ownership',
+                    desc: 'Your journey, learnings, and standing belong to you forever.',
+                    icon: ShieldCheck,
+                    border: 'border-emerald-500/20 bg-emerald-950/20 text-emerald-400',
+                  },
+                ].map((item, idx) => {
+                  const ItemIcon = item.icon
+                  return (
+                    <div
+                      key={idx}
+                      className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-white/20 hover:bg-white/[0.07] transition-all duration-300 space-y-2.5 backdrop-blur-xs group"
+                    >
+                      <div className={`size-9 rounded-xl flex items-center justify-center border ${item.border} group-hover:scale-105 transition-transform duration-300`}>
+                        <ItemIcon className="size-4.5" />
+                      </div>
+                      <h4 className="text-sm font-bold text-white tracking-tight">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-slate-300 font-light leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  )
+                })}
               </div>
 
-              <p className="text-xs sm:text-sm text-sky-200 font-medium italic pt-2">
-                It is not simply a corporate subscription. It is an individual relationship with a community.
-              </p>
             </div>
           </div>
 
@@ -473,97 +607,185 @@ export function MembershipPageClient() {
       {/* =========================================================================
           SECTION 6: WHAT WE ASK OF YOU & WHAT YOU MAY DISCOVER HERE
           ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           {/* Part A: What We Ask of You */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div className="text-left max-w-3xl space-y-2">
               <div className="flex items-center gap-2">
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  COMMUNITY CODE
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  Community Code
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900">
-                What We Ask of You
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
+                What we ask of you
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                 A meaningful community cannot be built by passive participation. We ask you to:
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {WHAT_WE_ASK.map((item) => (
-                <div key={item.action} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-1">
-                  <h4 className="text-sm font-bold text-[#0062D2]">{item.action}</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+              {WHAT_WE_ASK.map((item, idx) => {
+                const Icon = item.icon
+                return (
+                  <div
+                    key={item.action}
+                    className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between space-y-3 group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center justify-center px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-100 text-slate-500 border border-slate-200/60">
+                        0{idx + 1}
+                      </span>
+                      <div className={`w-8 h-8 rounded-xl flex items-center justify-center border shadow-2xs transition-transform duration-300 group-hover:scale-105 ${item.color}`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-tight">
+                        {item.action}
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-light mt-1.5">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
 
-            <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200 text-xs font-bold text-slate-800 text-center">
-              And above all: <strong>Treat every Peer with respect.</strong> Because the community you experience is shaped by the community you help create.
+            <div className="p-4 sm:p-4.5 rounded-2xl bg-gradient-to-r from-[#061226] via-[#0A1A38] to-[#040D1E] text-white border border-slate-800 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20 shrink-0">
+                  <ShieldCheck className="w-4.5 h-4.5" />
+                </div>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                  <strong className="text-white font-semibold">Treat every Peer with respect.</strong> Because the community you experience is shaped by the community you help create.
+                </p>
+              </div>
+              <span className="text-[11px] font-mono uppercase tracking-wider text-sky-300/80 shrink-0">
+                Core Standard
+              </span>
             </div>
           </div>
 
           {/* Part B: What You May Discover Here */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center pt-8 border-t border-slate-200">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  THE TRANSFORMATION
-                </span>
-              </div>
-              <h3 className="font-serif text-3xl font-bold text-slate-900">
-                What You May Discover Here
-              </h3>
-              <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <div className="p-3 rounded-xl bg-white border border-slate-200">
-                  You may come looking for business. <strong>You may discover relationships.</strong>
+          <div className="pt-10 border-t border-slate-200/80">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+              
+              {/* Left: Transformation Cards */}
+              <div className="lg:col-span-7 space-y-5 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                      The Transformation
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
+                    What you may discover here
+                  </h3>
                 </div>
-                <div className="p-3 rounded-xl bg-white border border-slate-200">
-                  You may come looking for introductions. <strong>You may discover people you can trust.</strong>
-                </div>
-                <div className="p-3 rounded-xl bg-white border border-slate-200">
-                  You may come looking for answers. <strong>You may discover better questions.</strong>
-                </div>
-                <div className="p-3 rounded-xl bg-white border border-slate-200">
-                  You may come looking for growth. <strong>You may discover that helping someone else grow changes the way you see your own journey.</strong>
-                </div>
-              </div>
-              <p className="text-xs font-semibold text-[#0062D2] italic pt-1">
-                That is the difference between joining a network and becoming part of a community.
-              </p>
-            </div>
 
-            {/* Right: Your Journey Begins with a Conversation */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-md space-y-5">
-              <h4 className="font-serif text-2xl font-bold text-slate-900">
-                Your Journey Begins With a Conversation
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                You do not need to have everything figured out before you begin. You can start by exploring: understand the idea, discover the Circles, meet the people, ask questions, and see whether the culture feels right for you.
-              </p>
-              <div className="pt-2 flex flex-col gap-3">
-                <Link
-                  href="/circles/find"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-sm hover:opacity-95 uppercase tracking-wider"
-                >
-                  <span>Explore Circles &amp; Chapters</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-2xs"
-                >
-                  <Smartphone className="size-4 text-[#0062D2]" />
-                  <span>Start with Unity App</span>
-                </a>
+                <div className="space-y-3">
+                  {[
+                    {
+                      come: 'You may come looking for business.',
+                      discover: 'You may discover relationships.',
+                      icon: Handshake,
+                      color: 'text-blue-600 bg-blue-50 border-blue-200/70',
+                    },
+                    {
+                      come: 'You may come looking for introductions.',
+                      discover: 'You may discover people you can trust.',
+                      icon: Users2,
+                      color: 'text-purple-600 bg-purple-50 border-purple-200/70',
+                    },
+                    {
+                      come: 'You may come looking for answers.',
+                      discover: 'You may discover better questions.',
+                      icon: BookOpen,
+                      color: 'text-emerald-600 bg-emerald-50 border-emerald-200/70',
+                    },
+                    {
+                      come: 'You may come looking for growth.',
+                      discover: 'You may discover that helping someone else grow changes your own journey.',
+                      icon: Sparkles,
+                      color: 'text-rose-600 bg-rose-50 border-rose-200/70',
+                    },
+                  ].map((t, idx) => {
+                    const TIcon = t.icon
+                    return (
+                      <div
+                        key={idx}
+                        className="p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex items-start gap-3.5 group"
+                      >
+                        <div className={`size-9 rounded-xl flex items-center justify-center border shrink-0 mt-0.5 ${t.color}`}>
+                          <TIcon className="size-4.5" />
+                        </div>
+                        <div className="space-y-1 text-xs sm:text-[13px] leading-relaxed">
+                          <p className="text-slate-500 font-light">
+                            {t.come}
+                          </p>
+                          <p className="text-slate-900 font-bold group-hover:text-[#0062D2] transition-colors">
+                            {t.discover}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-blue-50/60 border border-blue-100 flex items-center gap-2">
+                  <span className="text-[#0062D2] font-bold text-sm">✦</span>
+                  <p className="text-xs sm:text-[13px] font-semibold text-slate-800">
+                    That is the difference between joining a network and becoming part of a community.
+                  </p>
+                </div>
               </div>
+
+              {/* Right: Your Journey Begins with a Conversation */}
+              <div className="lg:col-span-5 p-7 sm:p-9 rounded-3xl bg-gradient-to-b from-white to-slate-50/90 border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="space-y-4 relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-[#0062D2] text-[11px] font-bold tracking-wider uppercase">
+                    <span>✦ Get Started</span>
+                  </div>
+
+                  <h4 className="text-2xl sm:text-[26px] font-bold text-slate-900 tracking-tight leading-snug">
+                    Your journey begins with a conversation
+                  </h4>
+                  
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    You do not need to have everything figured out before you begin. You can start by exploring: understand the idea, discover the Circles, meet the people, ask questions, and see whether the culture feels right for you.
+                  </p>
+                </div>
+
+                <div className="pt-2 flex flex-col gap-3 relative z-10">
+                  <Link
+                    href="/circles/find"
+                    className="w-full flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  >
+                    <span>Explore Circles &amp; Chapters</span>
+                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-2xs hover:bg-slate-50 transition-colors"
+                  >
+                    <Smartphone className="size-4 text-[#0062D2]" />
+                    <span>Start with Unity App</span>
+                  </a>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -585,16 +807,16 @@ export function MembershipPageClient() {
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  YOU WERE NEVER MEANT TO BUILD ALONE
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  You Were Never Meant To Build Alone
                 </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white">
-                <span className="brand-gradient-text">What could I help make possible for someone else?</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold leading-[1.18] tracking-tight text-white">
+                What could I help make possible for someone else?
               </h2>
 
-              <p className="text-base sm:text-lg font-medium text-slate-200 max-w-xl">
+              <p className="text-sm sm:text-base font-light text-slate-300 max-w-xl leading-relaxed">
                 Because that is where membership begins to become something more: A relationship. A Circle. A community. A contribution. A possibility.
               </p>
 
@@ -605,7 +827,7 @@ export function MembershipPageClient() {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/circles/find"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg uppercase cursor-pointer"
                 >
                   <span>Find Your Circle</span>
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -615,7 +837,7 @@ export function MembershipPageClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white uppercase cursor-pointer"
                 >
                   <span>Download Unity App</span>
                 </a>

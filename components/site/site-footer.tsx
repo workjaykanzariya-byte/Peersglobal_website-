@@ -128,8 +128,8 @@ export function SiteFooter() {
       {/* ========================================================================= */}
       {/* 1. THRESHOLD BAND & APP DOWNLOAD                                          */}
       {/* ========================================================================= */}
-      <section className="w-full bg-[#f8fafc] border-t border-slate-200 py-12 sm:py-16 px-4 sm:px-8 lg:px-12">
-        <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+      <section className="w-full bg-[#f8fafc] border-t border-slate-200 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left: Statement + App Badges */}
           <div className="flex flex-col gap-3.5 max-w-2xl text-left items-start">
             {/* Eyebrow with gradient bar */}
@@ -226,7 +226,7 @@ export function SiteFooter() {
       {/* 2. SOCIAL BAR: "Follow Peers Global"                                      */}
       {/* ========================================================================= */}
       <section className="w-full bg-white py-6 border-t border-slate-200">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-[14px] font-bold text-slate-900">
               Follow Peers Global:
@@ -295,7 +295,7 @@ export function SiteFooter() {
       {/* 3. MAIN FOOTER (Microsoft Enterprise 6-Column Directory Grid)             */}
       {/* ========================================================================= */}
       <footer className="w-full bg-[#f8fafc] text-slate-800 pt-12 pb-10 border-t border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 6 Clean Columns */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 lg:gap-x-10 gap-y-8 sm:gap-y-10">
             {FOOTER_COLUMNS.map((col) => {

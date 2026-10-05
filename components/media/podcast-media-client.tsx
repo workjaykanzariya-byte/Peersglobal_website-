@@ -23,6 +23,12 @@ import {
   ExternalLink,
   CheckCircle2,
   Sparkles,
+  Radio,
+  Tv,
+  Film,
+  Award,
+  ShieldCheck,
+  Headphones,
 } from 'lucide-react'
 
 // ─── 4 Stats Bar ────────────────────────────────────────────────────────────
@@ -31,21 +37,25 @@ const STATS = [
     icon: Mic,
     label: 'Real Conversations',
     desc: 'Unscripted & In-Depth',
+    number: '120+ Episodes',
   },
   {
     icon: Play,
-    label: 'Inspiring Stories',
-    desc: 'Audio & Video Formats',
+    label: 'Inspiring Formats',
+    desc: 'Podcasts, TV & Print',
+    number: '4 Key Media',
   },
   {
     icon: FileText,
     label: 'Practical Insights',
     desc: 'MSME & Promoter Focus',
+    number: '100% Genuine',
   },
   {
     icon: Users,
     label: 'Entrepreneurs Everywhere',
     desc: 'Across Bharat & Beyond',
+    number: '1M+ Reach',
   },
 ]
 
@@ -54,6 +64,7 @@ const FORMAT_CARDS = [
   {
     id: 'podcast',
     title: 'The Peers Global Podcast',
+    tag: 'Audio & Video',
     icon: Mic,
     iconColor: 'text-[#0062D2]',
     image: '/images/industry-panel-leaders.jpg',
@@ -65,21 +76,23 @@ const FORMAT_CARDS = [
   {
     id: 'tv',
     title: 'Vyapaar Jagat TV',
+    tag: 'Broadcast Media',
     icon: Video,
-    iconColor: 'text-blue-600',
-    image: '/images/conclave.png',
+    iconColor: 'text-rose-600',
+    image: '/images/section_image/event_awards_stage.jpg',
     desc: 'Video features on businesses, founders and the ecosystems they operate in across industrial belts.',
-    ctaText: 'Watch Now',
+    ctaText: 'Watch on YouTube',
     ctaHref: 'https://www.youtube.com/@VyapaarJagatTV',
     external: true,
   },
   {
     id: 'vyapaarjagat',
     title: 'VyapaarJagat.com',
+    tag: 'Digital Newsroom',
     icon: Globe,
     iconColor: 'text-sky-600',
-    image: '/images/culture-hero-desk.jpg',
-    desc: 'Written coverage of MSMEs and entrepreneurs across India, celebrating grassroots growth.',
+    image: '/images/section_image/circles-hero-new.jpg',
+    desc: 'Written coverage of MSMEs and entrepreneurs across India, celebrating grassroots growth and entrepreneurial milestones.',
     ctaText: 'Read Articles',
     ctaHref: 'https://vyapaarjagat.com',
     external: true,
@@ -87,29 +100,31 @@ const FORMAT_CARDS = [
   {
     id: 'magazines',
     title: 'Circle Magazines',
+    tag: 'Print & Digital',
     icon: BookOpen,
     iconColor: 'text-indigo-600',
-    image: '/images/lexicon-hero-desk.jpg',
-    desc: 'Publications produced by Circles — their Peers, their collaborations, their year in review.',
-    ctaText: 'Read Magazines',
+    image: '/images/section_image/circle-meeting.png',
+    desc: 'Publications produced by Circles — their Peers, their collaborations, their year in review and playbooks.',
+    ctaText: 'Explore Magazines',
     ctaHref: '#channels',
     external: false,
   },
   {
     id: 'press',
     title: 'Press & Coverage',
+    tag: 'National Press',
     icon: Newspaper,
-    iconColor: 'text-teal-600',
-    image: '/images/executive-director-conclave.jpg',
-    desc: 'Peers Global in the national media, industry newspapers and television coverage.',
-    ctaText: 'View Coverage',
-    ctaHref: '#channels',
+    iconColor: 'text-purple-600',
+    image: '/images/section_image/executive-director-conclave.jpg',
+    desc: 'National and regional press coverage of Peers Global conclaves, milestone achievements and community initiatives.',
+    ctaText: 'View Newsroom',
+    ctaHref: '/newsroom',
     external: false,
   },
 ]
 
-// ─── 4 Featured Episodes Data ───────────────────────────────────────────────
-export interface Episode {
+// ─── 4 Featured Episodes ───────────────────────────────────────────────────
+interface Episode {
   id: string
   title: string
   subtitle: string
@@ -128,80 +143,80 @@ export interface Episode {
 
 const EPISODES: Episode[] = [
   {
-    id: 'ep-1',
-    title: 'From MSME to Global',
-    subtitle: 'Lessons in scaling from a manufacturing entrepreneur.',
-    tag: 'FROM MSME TO GLOBAL',
-    duration: '45:12',
+    id: 'ep-01',
+    title: 'From Near Bankruptcy to 120-Person Precision Engineering',
+    subtitle: 'Building through family resistance and industrial downturns.',
+    tag: 'MANUFACTURING',
+    duration: '48 mins',
     image: '/images/story-jignesh-rohit.jpg',
     guest: {
-      name: 'Rajesh Patel',
-      title: 'Founder, Sahyog Industries',
-      avatar: '/images/peers-avatars/rajesh-shah.jpg',
+      name: 'Rajesh Shah',
+      title: 'Founder, Apex Precision Engineering, Ahmedabad',
+      avatar: '/images/story-jignesh-rohit.jpg',
     },
     showNotes: [
-      'Transitioning from an unorganised job-work unit in Vatva to export-certified supplier.',
-      'Navigating capital goods financing without predatory collateral lock-ins.',
-      'How joining an Industry Circle helped solve critical quality control benchmarking.',
+      'How raw materials inflation in 2021 pushed their primary plant to 14 days of remaining liquidity.',
+      'Why peer accountability inside Gujarat Manufacturing Circle gave them clarity to renegotiate key client terms.',
+      'Transitioning from owner-dependent shopfloor to a professionalized second line of leadership.',
     ],
     spotifyUrl: 'https://open.spotify.com',
     youtubeUrl: 'https://youtube.com',
   },
   {
-    id: 'ep-2',
-    title: 'Leadership in Real Business',
-    subtitle: 'Building teams that last.',
-    tag: 'LEADERSHIP IN REAL BUSINESS',
-    duration: '38:26',
-    image: '/images/story-neha-simran.jpg',
+    id: 'ep-02',
+    title: 'How Two Rivals Built a ₹40 Cr Joint Cold Chain Network',
+    subtitle: 'The psychology of collaboration over destructive competition.',
+    tag: 'LOGISTICS & AGRI',
+    duration: '52 mins',
+    image: '/images/story-priya-karan.jpg',
     guest: {
-      name: 'Neha Shah',
-      title: 'Founder, Bright HR Solutions',
-      avatar: '/images/peers-avatars/neha-kothari.jpg',
+      name: 'Priya Sharma & Vikram Malhotra',
+      title: 'Zenith Logistics & TechPack Solutions, Mumbai',
+      avatar: '/images/story-priya-karan.jpg',
     },
     showNotes: [
-      'The difference between managing employees and developing autonomous departmental heads.',
-      'Structuring retention incentives for mid-tier talent in competitive regional markets.',
-      'Why psychological safety in board meetings unlocks genuine operational candor.',
+      'The initial friction when two regional logistics operators sat at the same Circle roundtable.',
+      'Structuring shared warehousing contracts without losing proprietary enterprise accounts.',
+      'Why open transparency on excess capacity lowered costs by 34% across 8 Maharashtra hubs.',
     ],
     spotifyUrl: 'https://open.spotify.com',
     youtubeUrl: 'https://youtube.com',
   },
   {
-    id: 'ep-3',
-    title: 'The Power of Collaboration',
-    subtitle: 'How one introduction changed everything.',
-    tag: 'THE POWER OF COLLABORATION',
-    duration: '52:18',
+    id: 'ep-03',
+    title: 'Scaling an MSME from Surat to 14 Export Markets with Zero Brokers',
+    subtitle: 'Overcoming trade barriers through verified peer syndicates.',
+    tag: 'GLOBAL TRADE',
+    duration: '44 mins',
     image: '/images/story-amit-sandeep.jpg',
     guest: {
-      name: 'Amit Trivedi',
-      title: 'Director, Trivedi Chemicals',
-      avatar: '/images/peers-avatars/amit-desai.jpg',
+      name: 'Harish Mehta',
+      title: 'Managing Director, Mehta Global Exim, Surat',
+      avatar: '/images/story-amit-sandeep.jpg',
     },
     showNotes: [
-      'Overcoming the initial fear of sharing supplier contacts with fellow promoters.',
-      'The math behind a 50:50 joint export venture that opened 3 Middle-Eastern distribution hubs.',
-      'Logging collaboration in Unity to build lasting verified relational standing.',
+      'The harsh realities of international customs compliance for first-generation Indian exporters.',
+      'How cross-Circle introductions directly bypassed predatory trade middlemen in Dubai and Rotterdam.',
+      'The 7 golden rules for building cross-border relationships that outlast macroeconomic currency shifts.',
     ],
     spotifyUrl: 'https://open.spotify.com',
     youtubeUrl: 'https://youtube.com',
   },
   {
-    id: 'ep-4',
-    title: 'A Stronger Bharat',
-    subtitle: 'A conversation with Dr. Pravin Parmar.',
-    tag: 'A STRONGER BHARAT THROUGH ENTREPRENEURS',
-    duration: '41:03',
-    image: '/images/founder-new.png',
+    id: 'ep-04',
+    title: 'Building Communities That Last: The Origin Story of Peers Global',
+    subtitle: 'Why peer governance is the foundation of genuine entrepreneurial trust.',
+    tag: 'COMMUNITY & VISION',
+    duration: '58 mins',
+    image: '/images/industry-cross-city-handshake.jpg',
     guest: {
       name: 'Dr. Pravin Parmar',
-      title: 'Founder, Peers Global',
-      avatar: '/images/dr-parmar-avatar.jpg',
+      title: 'Founder & Visionary, Peers Global & Vyapaar Jagat',
+      avatar: '/images/who-we-are-inner-board.jpg',
     },
     showNotes: [
       'The founding conviction born in a hospital corridor: why entrepreneurs must never build alone.',
-      'Why traditional networking failed Indian promoters and why Governed Collaboration succeeds.',
+      'Why traditional transactional networking failed Indian promoters and why Governed Collaboration succeeds.',
       'The roadmap to impact one million lives across India by 2030.',
     ],
     spotifyUrl: 'https://open.spotify.com',
@@ -233,312 +248,355 @@ export function PodcastMediaClient() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link
-              href="/"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link
-              href="/stories"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
-              Community Life
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Podcast & Media</span>
-          </nav>
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      
+      {/* ─── Breadcrumbs ─── */}
+      <div className="border-b border-slate-200/80 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
+            Home
+          </Link>
+          <ChevronRight className="size-3.5 text-slate-400" />
+          <Link href="/stories" className="hover:text-slate-900 transition-colors">
+            Community Life
+          </Link>
+          <ChevronRight className="size-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Podcast &amp; Media</span>
         </div>
       </div>
 
-      {/* ─── SECTION 1: HERO (STUDIO PODCAST & EDGE FADE) ────────────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
+      {/* ─── SECTION 1: HERO (STUDIO PODCAST & MEDIA ECOSYSTEM) ─── */}
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6 z-10">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
-                  — COMMUNITY LIFE —
+          
+          {/* Master Card Hero Box */}
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
+            {/* Ambient Background Accents */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
+              
+              {/* Left Column: Manifesto & Details */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+                    COMMUNITY LIFE &amp; MEDIA
+                  </span>
+                </div>
+
+                <div className="space-y-2.5">
+                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
+                    Podcast &amp; Media
+                  </h1>
+                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
+                    Every honest business story deserves visibility.
+                  </p>
+                </div>
+
+                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                  <p>
+                    Business media often covers only startups, funding, and unicorns. <strong className="text-slate-900 font-semibold">We tell the stories of promoters, manufacturers, and MSMEs who build real employment across Bharat.</strong>
+                  </p>
+
+                  {/* 4 Media Feature Pills */}
+                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-1">
+                    {[
+                      { text: 'Unscripted Founder Interviews', icon: Mic },
+                      { text: 'Vyapaar Jagat TV Broadcasts', icon: Tv },
+                      { text: 'Circle Annual Magazines', icon: BookOpen },
+                      { text: 'National Press & Newsroom', icon: Newspaper },
+                    ].map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
+                      >
+                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
+                        <span>{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
+                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
+                    <span>&ldquo;Even if a business shuts down, its story should never die.&rdquo;</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                  <a
+                    href="#channels"
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                  >
+                    <span>Listen &amp; Watch Now</span>
+                    <Play className="size-3.5 fill-current transition-transform group-hover:scale-110" />
+                  </a>
+
+                  <button
+                    onClick={() => setNominateOpen(true)}
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider cursor-pointer"
+                  >
+                    <span>Nominate an Entrepreneur</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Column: Hero Visual Card with Studio Spotlight */}
+              <div className="lg:col-span-5 relative">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
+                  <Image
+                    src="/images/industry-panel-leaders.jpg"
+                    alt="Peers Global podcast and media stage with broadcast microphones"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-slate-950/30 pointer-events-none" />
+
+                  {/* Top Neon / Badge Bar */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold text-sky-300 tracking-widest uppercase backdrop-blur-md">
+                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                      STUDIO BROADCAST
+                    </span>
+                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                      AUDIO &amp; VIDEO
+                    </span>
+                  </div>
+
+                  {/* Center Play Button Overlay */}
+                  <a
+                    href="#channels"
+                    className="relative z-10 mx-auto size-14 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform cursor-pointer border border-white/30 group/btn"
+                  >
+                    <Play className="size-6 fill-current ml-0.5" />
+                  </a>
+
+                  {/* Bottom Highlight */}
+                  <div className="relative z-10 text-white space-y-1">
+                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
+                      The Peers Global Podcast Series
+                    </p>
+                    <p className="text-sm sm:text-base font-bold leading-snug">
+                      Unscripted conversations with entrepreneurs across India.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Floating Stats Bar */}
+          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+            {STATS.map((stat, i) => {
+              const Icon = stat.icon
+              return (
+                <div
+                  key={i}
+                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
+                    <Icon className="size-5" />
+                  </div>
+                  <div>
+                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+                      {stat.number}
+                    </div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 2: WHY WE BUILT A MEDIA PLATFORM (SPLIT CARD) ─── */}
+      <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm p-7 sm:p-10 lg:p-12 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              
+              {/* Left Narrative */}
+              <div className="lg:col-span-6 space-y-5">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                      WHY WE BUILT A MEDIA PLATFORM
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+                    More business stories. A stronger Bharat.
+                  </h2>
+                </div>
+
+                <div className="space-y-3.5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                  <p>
+                    Mainstream business media obsessively covers funding rounds and speculative valuations.
+                  </p>
+                  <p>
+                    The businesses that quietly build families, regional hubs, and decades of employment across this country stay largely invisible — <strong className="text-slate-900 font-semibold">not for lack of substance, but because nobody told their story.</strong>
+                  </p>
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
+                    <p className="italic text-slate-900 text-xs sm:text-sm font-semibold">
+                      &ldquo;Even if a business shuts down, its story should never die.&rdquo;
+                    </p>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#0062D2] block">
+                      Core Editorial Principle
+                    </span>
+                  </div>
+                  <p>
+                    That is why Peers Global operates its own full-scale media network, and why visibility is one of our ten Ways of Collaboration.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Showcase Card */}
+              <div className="lg:col-span-6">
+                <div className="rounded-3xl overflow-hidden shadow-md border border-slate-200 grid grid-cols-1 sm:grid-cols-12 bg-white">
+                  {/* Left Half: Quote */}
+                  <div className="sm:col-span-6 p-7 sm:p-8 flex flex-col justify-between bg-slate-50/70 border-b sm:border-b-0 sm:border-r border-slate-200/80">
+                    <div>
+                      <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4 border border-blue-100">
+                        <Quote className="size-5 fill-current text-[#0062D2]" />
+                      </div>
+                      <p className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        &ldquo;Behind every business is a person, a family, a team and a story worth telling.&rdquo;
+                      </p>
+                    </div>
+
+                    <div className="pt-6">
+                      <span className="text-[11px] font-bold tracking-widest uppercase text-[#0062D2]">
+                        PEERS GLOBAL MEDIA
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right Half: Visual Stage with Cursive Overlay */}
+                  <div className="sm:col-span-6 relative h-60 sm:h-auto min-h-[220px] bg-slate-900">
+                    <Image
+                      src="/images/section_image/event_awards_stage.jpg"
+                      alt="Peers Global Media Showcase"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
+                      <p
+                        className="text-xl sm:text-2xl font-light italic text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] leading-tight"
+                        style={{ fontFamily: 'var(--font-script)' }}
+                      >
+                        Bigger Stories.
+                        <br />
+                        Stronger Businesses.
+                        <br />
+                        A Brighter Bharat.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 3: WHAT WE PUBLISH (5 PUBLISHING FORMATS) ─── */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2 max-w-xl">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  WHAT WE PUBLISH
                 </span>
               </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Podcast & Media
-              </h1>
-
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                Every honest business story deserves visibility.
-              </p>
-
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                That belief built VyapaarJagat.com, and everything we have published since.
-              </p>
-
-              <div className="pt-2">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Hero Visual with Horizontal Left Edge Fade */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/industry-panel-leaders.jpg"
-                  alt="Peers Global podcast and media stage with broadcast microphones"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                />
-
-                {/* Soft horizontal gradient edge fade on the left edge seamlessly blending into page background */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
-
-                {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none z-10" />
-
-                {/* Podcast Neon Badge Overlay on Upper Left of Visual */}
-                <div className="absolute top-6 left-8 sm:left-12 bg-slate-950/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-blue-400/40 text-left z-20 flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center border border-blue-400/30">
-                    <Mic className="w-4 h-4 text-blue-400" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold tracking-wider uppercase text-blue-300 block leading-none">
-                      PeersGlobal
-                    </span>
-                    <span className="text-xs font-bold tracking-tight text-white block leading-tight">
-                      PODCAST
-                    </span>
-                  </div>
-                </div>
-
-                {/* Stage Backdrop Brand Overlay on Top Right */}
-                <div className="absolute top-6 right-6 bg-slate-950/85 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px]">
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Ideas. People.
-                  </p>
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Communities.
-                  </p>
-                  <p className="text-[11px] font-bold text-sky-400 leading-tight mt-0.5">
-                    A Stronger Tomorrow.
-                  </p>
-                </div>
-
-                {/* Cursive overlay text on bottom right */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[240px]">
-                  <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Real Stories.
-                    <br />
-                    Real Entrepreneurs.
-                    <br />
-                    Real Impact.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 4-Stat Pillar Bar */}
-          <div className="mt-12 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-sm">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="text-sm sm:text-base font-serif font-bold text-slate-950 leading-snug">
-                          {stat.label}
-                        </div>
-                        <div className="text-xs text-slate-500 font-medium mt-0.5">
-                          {stat.desc}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 2: WHY WE BUILT A MEDIA PLATFORM ─────────────────────── */}
-      <section className="py-16 sm:py-20 bg-white border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Narrative */}
-            <div className="lg:col-span-6 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                — WHY WE BUILT A MEDIA PLATFORM —
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
-                More business stories. A stronger Bharat.
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+                5 Publishing Formats
               </h2>
-              <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed">
-                <p>
-                  Business media covers startups, funding and unicorns.
-                </p>
-                <p>
-                  The businesses that quietly build families, cities and employment across this country stay largely invisible — not for lack of substance, but because nobody tells their story.
-                </p>
-                <p className="font-serif italic text-slate-900 text-base sm:text-lg border-l-2 border-[#0062D2] pl-3.5 my-2">
-                  “Even if a business shuts down, its story should never die.”
-                </p>
-                <p>
-                  That is why Peers Global has its own media, and why visibility is one of the ten Ways of Collaboration rather than an afterthought.
-                </p>
-              </div>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                Different channels. One purpose: To give Indian entrepreneurs the dignity and visibility they deserve.
+              </p>
             </div>
 
-            {/* Right Split Card: Quote + Mountain Canvas */}
-            <div className="lg:col-span-6">
-              <div className="rounded-3xl overflow-hidden shadow-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-12 bg-white">
-                {/* Left Half: Quote */}
-                <div className="sm:col-span-6 p-7 sm:p-8 flex flex-col justify-between bg-slate-50/70 border-b sm:border-b-0 sm:border-r border-slate-200/80">
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                      <Quote className="w-5 h-5 fill-current text-[#0062D2]" />
-                    </div>
-                    <p className="text-lg sm:text-xl font-serif font-bold text-slate-900 leading-snug">
-                      “Behind every business is a person, a family, a team and a story worth telling.”
-                    </p>
-                  </div>
-
-                  <div className="pt-6">
-                    <span className="text-[11px] font-bold tracking-widest uppercase text-[#0062D2]">
-                      PEERS GLOBAL
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right Half: Mountain Landscape with Cursive overlay */}
-                <div className="sm:col-span-6 relative h-56 sm:h-auto min-h-[220px]">
-                  <Image
-                    src="/images/who-we-are-mountain.jpg"
-                    alt="Mountain peaks at dawn"
-                    fill
-                    className="object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/35 to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-                    <p
-                      className="text-xl sm:text-2xl font-light italic text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] leading-tight"
-                      style={{ fontFamily: 'var(--font-script)' }}
-                    >
-                      Bigger Stories.
-                      <br />
-                      Stronger Businesses.
-                      <br />
-                      A Brighter Bharat.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="p-3 rounded-2xl bg-white border border-slate-200/90 text-xs text-slate-700 font-semibold shadow-2xs shrink-0 flex items-center gap-2">
+              <Sparkles className="size-4 text-[#0062D2]" />
+              <span>Multi-Channel Ecosystem</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 3: WHAT WE PUBLISH (5 PUBLISHING FORMATS) ───────────── */}
-      <section className="py-16 sm:py-24 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-              — WHAT WE PUBLISH —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight mt-1">
-              What we publish
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2">
-              Different formats. One purpose — to give entrepreneurs the visibility they deserve.
-            </p>
           </div>
 
           {/* 5 Format Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {FORMAT_CARDS.map((item) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.id}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     {/* Visual Card Image */}
-                    <div className="relative h-36 w-full overflow-hidden bg-slate-900">
+                    <div className="relative h-40 w-full overflow-hidden bg-slate-900">
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="px-2.5 py-0.5 rounded-full bg-slate-950/75 backdrop-blur-md text-[10px] font-mono font-bold text-sky-300 border border-white/20">
+                          {item.tag}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-4 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
-                          <Icon className="w-3.5 h-3.5" />
+                    <div className="p-5 space-y-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <div className="size-8 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 group-hover:scale-110 transition-transform">
+                          <Icon className="size-4" />
                         </div>
-                        <h3 className="font-serif font-bold text-slate-950 text-sm leading-snug">
+                        <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:text-[#0062D2] transition-colors">
                           {item.title}
                         </h3>
                       </div>
 
-                      <p className="text-xs text-slate-600 leading-relaxed pt-1">
+                      <p className="text-xs text-slate-600 leading-relaxed font-light">
                         {item.desc}
                       </p>
                     </div>
                   </div>
 
                   {/* CTA Link */}
-                  <div className="p-4 pt-0">
+                  <div className="p-5 pt-0">
                     {item.external ? (
                       <a
                         href={item.ctaHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-blue-800 transition-colors uppercase tracking-wider"
                       >
                         <span>{item.ctaText}</span>
-                        <ExternalLink className="w-3 h-3" />
+                        <ExternalLink className="size-3.5" />
                       </a>
                     ) : (
                       <a
                         href={item.ctaHref}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors group-hover:translate-x-0.5"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-blue-800 transition-colors uppercase tracking-wider group-hover:translate-x-0.5"
                       >
                         <span>{item.ctaText}</span>
-                        <ArrowRight className="w-3 h-3" />
+                        <ArrowRight className="size-3.5" />
                       </a>
                     )}
                   </div>
@@ -546,30 +604,38 @@ export function PodcastMediaClient() {
               )
             })}
           </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 4: LISTEN AND WATCH (EPISODES GRID) ──────────────────── */}
-      <section id="channels" className="py-16 sm:py-20 bg-white border-t border-slate-200/80 scroll-mt-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 mb-10">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                — LISTEN AND WATCH —
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mt-1">
+      {/* ─── SECTION 4: LISTEN AND WATCH (FEATURED EPISODES) ─── */}
+      <section id="channels" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80 scroll-mt-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  FEATURED EPISODES
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
                 Latest from our channels
               </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                Click any episode to stream audio, review discussion notes, or watch full video recordings.
+              </p>
             </div>
 
             <a
               href="https://unity.peersglobal.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all"
             >
-              <span>View All Episodes</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>View All on Unity</span>
+              <ArrowRight className="size-3.5" />
             </a>
           </div>
 
@@ -582,7 +648,7 @@ export function PodcastMediaClient() {
                   setSelectedEpisode(ep)
                   setIsPlaying(true)
                 }}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="bg-[#FAFBFD] rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   {/* Video Still with Play Overlay & Duration */}
@@ -593,42 +659,42 @@ export function PodcastMediaClient() {
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-slate-950/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20" />
 
                     {/* Topic Badge on Top Left */}
-                    <div className="absolute top-3 left-3 max-w-[170px]">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-slate-950/80 px-2 py-0.5 rounded border border-white/20 line-clamp-1">
+                    <div className="absolute top-3.5 left-3.5 max-w-[170px]">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-slate-950/80 px-2.5 py-1 rounded-full border border-white/20 line-clamp-1 backdrop-blur-md">
                         {ep.tag}
                       </span>
                     </div>
 
                     {/* Duration Badge on Top Right */}
-                    <span className="absolute top-3 right-3 px-2 py-0.5 rounded-md text-[10px] font-medium bg-slate-950/80 text-white backdrop-blur-xs">
+                    <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-black/60 text-white backdrop-blur-md border border-white/10">
                       {ep.duration}
                     </span>
 
                     {/* Big Center Play Icon */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-11 h-11 rounded-full bg-white/90 text-slate-950 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#0062D2] group-hover:text-white transition-all">
-                        <Play className="w-5 h-5 fill-current ml-0.5" />
+                      <div className="size-12 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all">
+                        <Play className="size-5 fill-current ml-0.5" />
                       </div>
                     </div>
                   </div>
 
                   {/* Card Body */}
                   <div className="p-5 space-y-2">
-                    <h3 className="font-serif font-bold text-slate-950 text-base leading-snug group-hover:text-blue-600 transition-colors">
+                    <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:text-[#0062D2] transition-colors line-clamp-2">
                       {ep.title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-2">
                       {ep.subtitle}
                     </p>
                   </div>
                 </div>
 
                 {/* Guest Footer */}
-                <div className="p-5 pt-0 border-t border-slate-100 flex items-center gap-2.5 mt-3">
-                  <div className="relative w-8 h-8 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                <div className="p-5 pt-0 border-t border-slate-100 flex items-center gap-3 mt-3">
+                  <div className="relative size-9 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                     <Image
                       src={ep.guest.avatar}
                       alt={ep.guest.name}
@@ -640,7 +706,7 @@ export function PodcastMediaClient() {
                     <span className="text-xs font-bold text-slate-900 block">
                       {ep.guest.name}
                     </span>
-                    <span className="text-[10px] text-slate-500 block truncate max-w-[150px]">
+                    <span className="text-[10px] text-slate-500 block truncate max-w-[170px]">
                       {ep.guest.title}
                     </span>
                   </div>
@@ -648,73 +714,88 @@ export function PodcastMediaClient() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 5: MEDIA ENQUIRIES & NOMINATE A PEER ─────────────────── */}
-      <section className="py-14 sm:py-20 bg-[#F8FAFC] border-t border-slate-200/80">
+      {/* ─── SECTION 5: MEDIA ENQUIRIES & NOMINATE A PEER ─── */}
+      <section className="py-16 sm:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            
             {/* Left Card: Media Enquiries */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — MEDIA ENQUIRIES —
-                </span>
-                <h3 className="text-2xl font-serif font-bold text-slate-950">
-                  Want to feature a story?
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                    MEDIA &amp; EDITORIAL ENQUIRIES
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
+                  Want to feature a story or interview?
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  For interviews, coverage, collaborations or any media enquiries, please get in touch with our team.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  For press coverage, keynote interviews, joint podcasts, or media collaborations, get in touch directly with our editorial desk.
                 </p>
               </div>
 
-              <div className="pt-6">
+              <div>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0062D2] font-semibold text-xs border border-blue-200 shadow-xs hover:bg-blue-50 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all"
                 >
-                  <Mail className="w-3.5 h-3.5" />
-                  <span>Contact Us</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <Mail className="size-4 text-[#0062D2]" />
+                  <span>Contact Editorial Team</span>
+                  <ArrowRight className="size-3.5" />
                 </Link>
               </div>
             </div>
 
             {/* Right Card: Nominate a Peer */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                    <Megaphone className="w-4 h-4" />
-                  </div>
-                  <h3 className="text-xl font-serif font-bold text-slate-950">
-                    Entrepreneurs worth hearing from
-                  </h3>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                    NOMINATE AN ENTREPRENEUR
+                  </span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  If you know a Peer with a story that should be told, let us know. Visibility creates opportunities — for them and for the community.
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
+                  Entrepreneurs worth hearing from
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  If you know a Peer with a remarkable turnaround, breakthrough collaboration, or leadership story, let our producers know.
                 </p>
               </div>
 
-              <div className="pt-6">
+              <div>
                 <button
                   onClick={() => setNominateOpen(true)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0062D2] font-semibold text-xs border border-blue-200 shadow-xs hover:bg-blue-50 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
                 >
-                  <span>Nominate a Peer</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <Megaphone className="size-4" />
+                  <span>Nominate a Peer Story</span>
+                  <ArrowRight className="size-3.5" />
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 6: CLOSING ROYAL BLUE BANNER ─────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+      {/* ─── SECTION 6: SIGNATURE LUXURY CLOSING HERO BANNER ─── */}
+      <section
+        id="download-unity"
+        className="relative py-20 lg:py-28 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-slate-800"
+      >
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
         {/* SVG Orbital Geometric Lines Background */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
           <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
             <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
             <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
@@ -727,46 +808,94 @@ export function PodcastMediaClient() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                Build Your Business.
-                <br />
-                Build Your Relationships.
-                <br />
-                Build Your Circle.
+            
+            {/* Left Manifesto */}
+            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                  AMPLIFY YOUR VOICE
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+                Build Your Business. Build Your Relationships. Build Your Circle.
               </h2>
 
+              <div className="space-y-3.5 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl">
+                <p>
+                  Access our national distribution network, Vyapaar Jagat media channels, and peer podcast broadcasts to share your story with entrepreneurs who understand the climb.
+                </p>
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+                  <p className="text-sky-200 font-medium text-xs sm:text-sm">
+                    • 120+ Episodes · 5 Publishing Channels · 1M+ Community Reach.
+                  </p>
+                  <p className="text-white font-bold text-xs sm:text-sm">Join the authentic conversation today.</p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-3">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
+                >
+                  <span>Open Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                >
+                  <span>Apply for Membership →</span>
+                </Link>
+              </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
+            {/* Right Cursive Script Highlights */}
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Ideas.
-                <br />
+              </p>
+              <p
+                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
                 People.
-                <br />
+              </p>
+              <p
+                className="text-xl sm:text-2xl text-white leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
                 Communities.
-                <br />
+              </p>
+              <p
+                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
                 A Brighter Tomorrow.
               </p>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── MODAL: EPISODE MEDIA PLAYER ─────────────────────────────────── */}
+      {/* ─── MODAL: EPISODE MEDIA PLAYER ─── */}
       {selectedEpisode && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative">
             <button
               onClick={() => setSelectedEpisode(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-10 size-9 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="size-5" />
             </button>
 
             {/* Media Player Header */}
@@ -780,10 +909,10 @@ export function PodcastMediaClient() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
               
               <div className="absolute bottom-4 left-6 right-6 text-white">
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white uppercase tracking-wider inline-block mb-1.5">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-blue-600 text-white uppercase tracking-wider inline-block mb-1.5">
                   {selectedEpisode.tag} · {selectedEpisode.duration}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold leading-tight">
+                <h3 className="text-xl sm:text-2xl font-bold leading-tight">
                   {selectedEpisode.title}
                 </h3>
                 <p className="text-xs text-slate-300 mt-1">
@@ -796,28 +925,28 @@ export function PodcastMediaClient() {
             <div className="bg-slate-900 p-4 px-6 text-white flex items-center gap-4 border-b border-slate-800">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="w-10 h-10 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white flex items-center justify-center shrink-0 transition-colors"
+                className="size-10 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 transition-transform hover:scale-105 cursor-pointer"
               >
-                <Play className={`w-4 h-4 fill-current ${isPlaying ? 'opacity-80' : ''}`} />
+                <Play className={`size-4 fill-current ${isPlaying ? 'opacity-80' : ''}`} />
               </button>
 
               <div className="flex-1">
                 <div className="h-1.5 w-full bg-slate-700 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#0062D2] w-1/3 rounded-full" />
+                  <div className="h-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] w-1/3 rounded-full" />
                 </div>
-                <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+                <div className="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
                   <span>14:20</span>
                   <span>{selectedEpisode.duration}</span>
                 </div>
               </div>
 
-              <Volume2 className="w-4 h-4 text-slate-400" />
+              <Volume2 className="size-4 text-slate-400" />
             </div>
 
             {/* Show Notes & Guest Info */}
             <div className="p-6 sm:p-8 space-y-6">
               <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                <div className="relative size-11 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                   <Image
                     src={selectedEpisode.guest.avatar}
                     alt={selectedEpisode.guest.name}
@@ -839,10 +968,10 @@ export function PodcastMediaClient() {
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Key Discussion Points
                 </h4>
-                <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-700 font-light">
                   {selectedEpisode.showNotes.map((note, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="size-4 text-blue-600 shrink-0 mt-0.5" />
                       <span>{note}</span>
                     </li>
                   ))}
@@ -856,25 +985,25 @@ export function PodcastMediaClient() {
                     href="https://spotify.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-medium inline-flex items-center gap-1.5"
+                    className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
                   >
                     <span>Spotify</span>
-                    <ExternalLink className="w-3 h-3" />
+                    <ExternalLink className="size-3" />
                   </a>
                   <a
                     href="https://youtube.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-medium inline-flex items-center gap-1.5"
+                    className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
                   >
                     <span>YouTube</span>
-                    <ExternalLink className="w-3 h-3" />
+                    <ExternalLink className="size-3" />
                   </a>
                 </div>
 
                 <button
                   onClick={() => setSelectedEpisode(null)}
-                  className="px-4 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800"
+                  className="px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors cursor-pointer"
                 >
                   Close Player
                 </button>
@@ -884,44 +1013,44 @@ export function PodcastMediaClient() {
         </div>
       )}
 
-      {/* ─── MODAL: NOMINATE A PEER ───────────────────────────────────────── */}
+      {/* ─── MODAL: NOMINATE A PEER ─── */}
       {nominateOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl max-w-lg w-full p-7 sm:p-8 shadow-2xl border border-slate-200 relative">
             <button
               onClick={() => setNominateOpen(false)}
-              className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-10 size-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer"
             >
-              <X className="w-4 h-4" />
+              <X className="size-4" />
             </button>
 
-            <div className="mb-6">
-              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                — NOMINATE AN ENTREPRENEUR —
+            <div className="mb-6 space-y-1">
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                NOMINATE AN ENTREPRENEUR
               </span>
-              <h3 className="text-2xl font-serif font-bold text-slate-950 mt-1">
+              <h3 className="text-2xl font-bold text-slate-900 leading-tight">
                 Tell us who we should feature
               </h3>
-              <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed font-light">
                 Nominate a founder or business leader whose story deserves wider visibility.
               </p>
             </div>
 
             {nominationSent ? (
               <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-2">
-                <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
+                <CheckCircle2 className="size-8 text-emerald-600 mx-auto" />
                 <h4 className="text-sm font-bold text-slate-900">
                   Nomination Received!
                 </h4>
-                <p className="text-xs text-slate-600">
+                <p className="text-xs text-slate-600 font-light">
                   Thank you. Our editorial team will review and get in touch with the Circle Director.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleNominateSubmit} className="space-y-4">
                 <div>
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                    Entrepreneur Name
+                  <label className="text-xs font-semibold text-slate-800 block mb-1">
+                    Entrepreneur Name <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -934,8 +1063,8 @@ export function PodcastMediaClient() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                    Business / Enterprise
+                  <label className="text-xs font-semibold text-slate-800 block mb-1">
+                    Business / Enterprise <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -948,15 +1077,15 @@ export function PodcastMediaClient() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                    What makes their story remarkable?
+                  <label className="text-xs font-semibold text-slate-800 block mb-1">
+                    What makes their story remarkable? <span className="text-rose-500">*</span>
                   </label>
                   <textarea
                     required
                     rows={3}
                     value={nomineeStory}
                     onChange={(e) => setNomineeStory(e.target.value)}
-                    placeholder="Briefly describe what they built or overcome..."
+                    placeholder="Briefly describe what they built or overcame..."
                     className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
@@ -964,7 +1093,7 @@ export function PodcastMediaClient() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4] transition-all cursor-pointer shadow-md"
+                    className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md hover:shadow-lg"
                   >
                     Submit Nomination
                   </button>

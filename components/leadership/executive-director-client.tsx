@@ -285,42 +285,43 @@ export function ExecutiveDirectorClient() {
 
             {/* Left Content */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="brand-gradient-text">EXECUTIVE DIRECTOR</span>
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <div className="max-w-xl flex flex-col items-start space-y-5">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    EXECUTIVE DIRECTOR
+                  </span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
                   Executive Director
                 </h1>
 
-                <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
-                  Regional ecosystem builder.
+                <p className="text-base sm:text-lg font-semibold text-slate-800 leading-snug">
+                  Regional ecosystem builder across cities, districts and states.
                 </p>
 
-                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-light">
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                   A Circle brings people together. An Industry Director connects a sector. An Executive Director helps an entire territory become more connected. This is leadership at the ecosystem level. The responsibility is no longer limited to one Circle or one industry — it is about helping the PEERS GLOBAL community grow across a defined geography while keeping the culture, relationships and purpose intact.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                  <Link
+                    href="/contact?intent=leadership"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  >
+                    <span>Apply to Lead</span>
+                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                   <a
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs"
                   >
+                    <Users className="size-4 text-[#0062D2]" />
                     <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
                   </a>
-                  <Link
-                    href="/contact?intent=leadership"
-                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-8 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
-                  >
-                    <span>Apply to Lead</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
                 </div>
               </div>
             </div>
@@ -333,13 +334,13 @@ export function ExecutiveDirectorClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all cursor-default"
                 >
                   <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
                     <Icon className="size-6" />
                   </div>
                   <div>
-                    <div className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 leading-none">
+                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">
                       {stat.value}
                     </div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
@@ -354,112 +355,144 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── 2. THE FOUR LEVELS ─────────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="brand-gradient-text">THE FOUR LEVELS</span>
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                THE FOUR LEVELS
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               One philosophy. Different geography.
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-3 font-light">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
               The Executive Director structure grows with the geography of the community. The level changes. The responsibility expands. The principle remains the same.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
             {FOUR_LEVELS.map((item) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.number}
-                  className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm hover:border-[#0062D2]/40 hover:shadow-md transition-all flex flex-col justify-between"
+                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 cursor-default"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[11px] font-bold text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
                         {item.number}
                       </span>
-                      <div className="size-10 rounded-xl bg-white border border-slate-200 text-[#0062D2] flex items-center justify-center">
+                      <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center">
                         <Icon className="size-5" />
                       </div>
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-slate-950 mb-1">
-                      {item.level}
-                    </h3>
-                    <p className="text-xs text-[#0062D2] font-semibold mb-3">
-                      {item.geography}
-                    </p>
-                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                        {item.level}
+                      </h3>
+                      <p className="text-xs text-[#0062D2] font-semibold mt-1 mb-2">
+                        {item.geography}
+                      </p>
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
               )
             })}
           </div>
-
-          <div className="mt-8 p-5 rounded-2xl bg-blue-50/70 border border-blue-100 text-center max-w-3xl mx-auto">
-            <p className="text-sm font-serif font-bold text-slate-900">
-              Build relationships. Strengthen community. Create possibility.
-            </p>
-          </div>
         </div>
       </section>
 
       {/* ─── 3. WHERE THE COMMUNITY ACTUALLY GROWS ───────────────────────── */}
-      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="brand-gradient-text">GROWTH & CONNECTION</span>
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  STAGE 05 — REGIONAL ARCHITECTURE
+                </span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-5">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
                 Where the community actually grows
               </h2>
-              <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed mb-4">
+              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                 A community does not grow because a map becomes larger. It grows because people become connected.
               </p>
-              <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed mb-6">
-                A new Circle creates a room. A growing industry creates an ecosystem. A developing region creates a network of ecosystems. And when those ecosystems remain connected, the community begins to develop a life of its own.
-              </p>
 
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <p className="text-base font-serif font-bold text-slate-950 mb-1">
+              <div className="p-6 rounded-2xl bg-white border border-blue-100 shadow-2xs space-y-2">
+                <p className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
                   That is where the Executive Director becomes important.
                 </p>
-                <p className="text-xs sm:text-sm text-slate-600 font-light mt-1">
+                <p className="text-xs sm:text-sm text-slate-600 font-normal">
                   Not as someone who simply oversees geography, but as someone who helps people across that geography discover one another.
                 </p>
               </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
+                  <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <Globe2 className="size-5.5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900">Multi-City Scale</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                      Link circles across borders and establish healthy regional ecosystems.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
+                  <div className="size-11 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <Sparkles className="size-5.5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900">Culture Integrity</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                      Protect the trust, service ethos and give-first standard as we expand.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Right Visual Image */}
+            {/* Right Visual Image / Video */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/60 aspect-[4/3]">
-                <Image
-                  src="/images/executive-director-conclave.jpg"
-                  alt="Executive Director leading regional ecosystem"
-                  fill
-                  className="object-cover object-center"
+              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900">
+                <video
+                  src="/videos/peers-global-earth-loop.mp4"
+                  poster="/images/executive-director-hero.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                 <div className="absolute top-4 right-4 text-right select-none pointer-events-none drop-shadow-md">
-                  <p className="text-xs text-white/90 font-medium tracking-wider uppercase">
-                    Ecosystem Leadership
-                  </p>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 border border-white/20 text-[10px] font-bold text-white tracking-widest uppercase backdrop-blur-md">
+                    <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                    STAGE 05
+                  </span>
                   <p
-                    className="text-lg text-amber-300 font-bold leading-tight"
+                    className="text-lg sm:text-xl text-amber-300 font-bold leading-tight mt-1.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
                     style={{ fontFamily: 'var(--font-script)' }}
                   >
                     Regional Movement
                   </p>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white drop-shadow-md pointer-events-none select-none">
+                  <span className="text-[11px] uppercase tracking-wider font-semibold text-sky-200 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20">
+                    Connecting Cities & Leaders
+                  </span>
                 </div>
               </div>
             </div>
@@ -468,55 +501,90 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── 4. WHAT THE ROLE CARRIES ───────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="brand-gradient-text">TERRITORY RESPONSIBILITY</span>
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                TERRITORY RESPONSIBILITY
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               What the role carries
             </h2>
-            <p className="text-base sm:text-lg text-slate-700 font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
               The Executive Director carries responsibility for helping the community develop across the territory assigned to the role. That means looking beyond individual meetings and individual relationships.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
             {ROLE_CARRIES_POINTS.map((item, idx) => {
               const Icon = item.icon
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm flex flex-col justify-between"
+                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 cursor-default"
                 >
-                  <div>
-                    <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-4">
-                      <Icon className="size-5" />
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="size-11 rounded-2xl bg-blue-50 border border-blue-200/70 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
+                        <Icon className="size-5" />
+                      </div>
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 shadow-2xs">
+                        Pillar 0{idx + 1}
+                      </span>
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-slate-950 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                      {item.desc}
-                    </p>
+
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span className="text-slate-400 font-mono">Area Responsibility 0{idx + 1}</span>
+                    <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
+                      Standard &rarr;
+                    </span>
                   </div>
                 </div>
               )
             })}
           </div>
 
-          <div className="mt-8 p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center max-w-3xl mx-auto">
-            <p className="text-sm font-serif font-bold text-slate-900">
-              Help the community grow without losing the culture that made it meaningful.
-            </p>
+          {/* Full-Width Celestial Legacy Banner */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white border border-white/10 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-start gap-5 max-w-3xl">
+              <div className="size-12 rounded-2xl bg-white/10 border border-white/20 text-white flex items-center justify-center shrink-0 mt-1">
+                <Quote className="size-6 text-amber-300" />
+              </div>
+              <div className="space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-sky-400 block">
+                  THE SYSTEMIC MANDATE
+                </span>
+                <blockquote className="text-base sm:text-lg font-medium text-white leading-relaxed">
+                  “Help the community grow without losing the culture that made it meaningful.”
+                </blockquote>
+              </div>
+            </div>
+
+            <div className="shrink-0 text-right select-none">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase text-white/90">
+                REGIONAL STEWARDSHIP
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ─── 5. WHAT AN ED DOES (6 PILLARS - DARK CONSTELLATION THEME) ────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 text-white border-b border-slate-800/80">
         <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
         <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
         <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
@@ -528,7 +596,6 @@ export function ExecutiveDirectorClient() {
             <circle cx="1020" cy="60" r="2" /><circle cx="1180" cy="160" r="1.2" /><circle cx="1340" cy="80" r="1.5" />
             <circle cx="150" cy="500" r="1.2" /><circle cx="400" cy="540" r="1.8" /><circle cx="640" cy="560" r="1" />
             <circle cx="900" cy="520" r="1.5" /><circle cx="1100" cy="550" r="1" /><circle cx="70" cy="320" r="1" />
-            <circle cx="310" cy="270" r="1.8" /><circle cx="760" cy="300" r="1.2" /><circle cx="1260" cy="360" r="1" />
           </g>
           <g stroke="#38BDF8" strokeWidth="0.5" opacity="0.35" fill="none">
             <line x1="80" y1="60" x2="200" y2="130" /><line x1="200" y1="130" x2="340" y2="45" />
@@ -538,16 +605,17 @@ export function ExecutiveDirectorClient() {
         </svg>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
-              <span className="w-5 h-px bg-cyan-400" />
-              OPERATIONAL SCOPE
-              <span className="w-5 h-px bg-cyan-400" />
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-400">
+                OPERATIONAL SCOPE
+              </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
-              What an ED does
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-white tracking-tight leading-tight mb-3">
+              What an Executive Director does
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
               An Executive Director works across people, Circles, industries and geography. The role is fundamentally about connection, continuity and community development.
             </p>
           </div>
@@ -558,20 +626,20 @@ export function ExecutiveDirectorClient() {
               return (
                 <div
                   key={idx}
-                  className="p-7 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  className="p-7 sm:p-8 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-default"
                 >
                   <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
 
-                  <div className="relative z-10">
+                  <div className="relative z-10 space-y-3">
                     <div className="flex items-center justify-between mb-4">
                       <span className="font-mono text-xs font-bold text-cyan-400 border border-cyan-500/30 px-2.5 py-1 rounded-full bg-cyan-500/10">
                         {pillar.title}
                       </span>
-                      <div className="size-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
+                      <div className="size-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center group-hover:scale-105 transition-all shadow-inner">
                         <Icon className="size-5" />
                       </div>
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-white mb-2 tracking-wide">
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide">
                       {pillar.headline}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
@@ -584,7 +652,7 @@ export function ExecutiveDirectorClient() {
           </div>
 
           <div className="mt-10 p-5 rounded-2xl bg-cyan-950/40 border border-cyan-500/30 text-center max-w-3xl mx-auto">
-            <p className="text-sm font-serif font-bold text-cyan-200">
+            <p className="text-xs sm:text-sm font-semibold text-cyan-200">
               The role is not simply to make the community bigger. It is to help make the community stronger as it grows.
             </p>
           </div>
@@ -592,54 +660,60 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── 6. WHO YOU BECOME & LEADERSHIP AT SCALE ─────────────────────── */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             {/* Left: Progression */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-1">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="brand-gradient-text">REGIONAL TRANSFORMATION</span>
+            <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    REGIONAL TRANSFORMATION
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+                  Who you become
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                  Regional leadership changes the way you see a community. You begin to look beyond the people immediately around you. You begin to notice patterns. You see where one entrepreneur&apos;s experience could help another. You recognise where two communities could benefit from knowing each other. You begin thinking about continuity—not only activity.
+                </p>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
-                Who you become
-              </h2>
-              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-light">
-                Regional leadership changes the way you see a community. You begin to look beyond the people immediately around you. You begin to notice patterns. You see where one entrepreneur&apos;s experience could help another. You recognise where two communities could benefit from knowing each other. You begin thinking about continuity—not only activity.
-              </p>
 
               {/* 3-Step Progression */}
-              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100">
-                <span className="text-[11px] uppercase tracking-wider font-bold text-[#0062D2] block mb-2">
+              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100 shadow-2xs">
+                <span className="text-[11px] uppercase tracking-wider font-bold text-[#0062D2] block mb-2.5">
                   THE DEEPER JOURNEY OF AN EXECUTIVE DIRECTOR
                 </span>
-                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-serif font-bold text-slate-900">
-                  <span className="px-3 py-1.5 rounded-lg bg-white border border-blue-200">Leading people</span>
-                  <span>→</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-white border border-blue-200">Connecting communities</span>
-                  <span>→</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-[#0062D2] text-white">Building ecosystems</span>
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-slate-900">
+                  <span className="px-3 py-1.5 rounded-lg bg-white border border-blue-200 shadow-2xs">Leading people</span>
+                  <span className="text-slate-400">→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white border border-blue-200 shadow-2xs">Connecting communities</span>
+                  <span className="text-slate-400">→</span>
+                  <span className="px-3.5 py-1.5 rounded-lg bg-[#0062D2] text-white shadow-2xs">Building ecosystems</span>
                 </div>
               </div>
             </div>
 
             {/* Right: Leadership at scale card */}
-            <div className="lg:col-span-5">
-              <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm flex flex-col justify-between">
-                <div>
-                  <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-5">
-                    <Quote className="size-6" />
-                  </div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
-                    LEADERSHIP AT A LARGER SCALE
-                  </h3>
-                  <blockquote className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug tracking-tight mb-4">
-                    “Scale should never make a community less human.”
-                  </blockquote>
-                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                    At Circle level, you know people personally. At Industry level, you begin to see a sector. At regional level, you begin to see an ecosystem. Every entrepreneur remains a person first. Every relationship deserves respect.
-                  </p>
+            <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-2 shadow-2xs">
+                  <Quote className="size-6" />
                 </div>
+                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                  LEADERSHIP AT A LARGER SCALE
+                </div>
+                <blockquote className="text-lg sm:text-xl font-bold text-slate-900 leading-snug tracking-tight">
+                  “Scale should never make a community less human.”
+                </blockquote>
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                  At Circle level, you know people personally. At Industry level, you begin to see a sector. At regional level, you begin to see an ecosystem. Every entrepreneur remains a person first. Every relationship deserves respect.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 font-medium">
+                ✦ High trust creates unstoppable scale.
               </div>
             </div>
           </div>
@@ -647,61 +721,133 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── 7. WHO THIS IS FOR & PROGRESSION (LOCAL TO REGIONAL) ───────── */}
-      <section className="py-16 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                LEADERSHIP CRITERIA & PATHWAY
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
+              Candidacy Fit & Regional Expansion
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+              Who carries the regional mandate and how ecosystem leadership scales from local Circles to nationwide impact.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             {/* Left: Who this is for */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-1">
-                  CANDIDACY FIT
+            <div className="lg:col-span-6 flex">
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-white to-blue-50/20 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-200 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between w-full space-y-6">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between">
+                    <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shadow-2xs">
+                      <UserCheck className="size-6" />
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-blue-50 text-[#0062D2] border border-blue-100 text-[11px] font-bold uppercase tracking-wider">
+                      Candidacy Fit
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      Who this is for
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium">
+                      The Executive Director pathway may be meaningful for an entrepreneur who:
+                    </p>
+                  </div>
+
+                  <div className="grid sm:grid-cols-1 gap-2.5">
+                    {WHO_THIS_IS_FOR.map((item, i) => (
+                      <div key={i} className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
+                        <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm text-slate-700 font-light">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-slate-950 mb-3">
-                  Who this is for
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
-                  The Executive Director pathway may be meaningful for an entrepreneur who:
-                </p>
 
-                <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
-                  {WHO_THIS_IS_FOR.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 pt-5 border-t border-slate-200">
-                  <p className="text-xs text-slate-600 font-medium">
-                    You do not take on regional responsibility because you have finished learning. You take it on because you are willing to keep learning while helping others move forward.
-                  </p>
+                <div className="pt-5 border-t border-slate-100">
+                  <div className="p-4 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2.5">
+                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
+                    <span>You take on regional responsibility to keep learning while helping others move forward.</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Right: From Local to Regional & Responsibility of Scale */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between">
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-1">
-                    NATURAL PROGRESSION
+            <div className="lg:col-span-6 flex">
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-white to-amber-50/20 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-200 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between w-full space-y-6">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between">
+                    <div className="size-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center shadow-2xs">
+                      <TrendingUp className="size-6" />
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-600 border border-amber-100 text-[11px] font-bold uppercase tracking-wider">
+                      Natural Progression
+                    </span>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-slate-950 mb-3">
-                    From Local to Regional
-                  </h3>
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 mb-4 flex flex-wrap items-center gap-1.5">
-                    <span>Circle</span> → <span>City</span> → <span>District</span> → <span>State</span> → <span>Country</span> → <span className="text-[#0062D2]">Global</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
-                    Each step creates a wider field of relationships. The purpose is not simply geographic expansion. The purpose is to create more opportunities for: <strong>Learning, Sharing, Relationships, Collaboration, Contribution, and Impact.</strong>
-                  </p>
 
-                  <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80">
-                    <h4 className="font-serif text-sm font-bold text-amber-950 mb-1">The Responsibility of Scale</h4>
-                    <p className="text-xs text-amber-900/80 leading-relaxed">
-                      More people mean more relationships to care for. More Circles mean more leaders to support. That is why Executive Director leadership is fundamentally a service role. The community is bigger than the leader.
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      From Local to Regional
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-500 font-medium">
+                      A steady progression across interconnected spheres of community influence.
                     </p>
+                  </div>
+
+                  {/* Flow Pills */}
+                  <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex flex-wrap items-center gap-2 justify-between">
+                    <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-xs font-semibold text-slate-800">
+                      Circle
+                    </div>
+                    <span className="text-slate-400 font-bold">→</span>
+                    <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-xs font-semibold text-slate-800">
+                      City
+                    </div>
+                    <span className="text-slate-400 font-bold">→</span>
+                    <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-xs font-semibold text-slate-800">
+                      District
+                    </div>
+                    <span className="text-slate-400 font-bold">→</span>
+                    <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-2xs text-xs font-semibold text-slate-800">
+                      State
+                    </div>
+                    <span className="text-slate-400 font-bold">→</span>
+                    <div className="px-3 py-1.5 rounded-xl bg-[#0062D2] text-white shadow-2xs text-xs font-bold">
+                      Global
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/70 space-y-2">
+                    <p className="text-xs sm:text-sm text-slate-700 font-light leading-relaxed">
+                      Each step creates a wider field of relationships. The purpose is not simply geographic expansion — it is to multiply opportunities for collaborative impact.
+                    </p>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-amber-50/80 border border-amber-200/80 space-y-1.5">
+                    <h4 className="text-xs sm:text-sm font-bold text-amber-950 flex items-center gap-2">
+                      <ShieldCheck className="size-4 text-amber-600" />
+                      <span>The Responsibility of Scale</span>
+                    </h4>
+                    <p className="text-xs text-amber-900/80 leading-relaxed font-normal">
+                      More people mean more relationships to care for. More Circles mean more leaders to support. Executive Director leadership is fundamentally a service role.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-5 border-t border-slate-100">
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-700 flex items-center gap-2.5">
+                    <Globe2 className="size-4 shrink-0 text-[#0062D2]" />
+                    <span>The community is always bigger than any individual leader.</span>
                   </div>
                 </div>
               </div>
@@ -711,15 +857,17 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── 8. FREQUENTLY ASKED QUESTIONS ──────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="brand-gradient-text">FREQUENTLY ASKED QUESTIONS</span>
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="text-center space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                FREQUENTLY ASKED QUESTIONS
+              </span>
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
               Frequently asked questions
             </h2>
           </div>
@@ -730,11 +878,11 @@ export function ExecutiveDirectorClient() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-sm transition-colors"
+                  className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-2xs transition-colors"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-serif text-base sm:text-lg font-bold text-slate-950 hover:text-[#0062D2] transition-colors"
+                    className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 text-base sm:text-lg font-bold text-slate-900 hover:text-[#0062D2] transition-colors"
                   >
                     <span>{item.q}</span>
                     <ChevronDown
@@ -744,7 +892,7 @@ export function ExecutiveDirectorClient() {
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-6 pb-6 pt-1 text-sm text-slate-600 leading-relaxed font-light border-t border-slate-200/80">
+                    <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-200/80">
                       {item.a}
                     </div>
                   )}
@@ -756,98 +904,83 @@ export function ExecutiveDirectorClient() {
       </section>
 
       {/* ─── 9. BUILD WHERE PEOPLE CAN BELONG (CLOSING HERO BANNER) ──────── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 lg:py-28">
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.18),transparent_50%),radial-gradient(circle_at_82%_12%,rgba(99,102,241,0.15),transparent_50%)]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
         />
-
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg
-            viewBox="0 0 760 520"
-            fill="none"
-            className="h-full w-full"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-sky-200 mb-3">
-                <span className="w-5 h-px bg-sky-200" />
-                BUILD WHERE PEOPLE CAN BELONG
-                <span className="w-5 h-px bg-sky-200" />
+            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                  BUILD WHERE PEOPLE CAN BELONG
+                </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
                 Build the ecosystem. Strengthen the relationships.
               </h2>
 
-              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light mb-3 max-w-2xl">
+              <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-2xl">
                 A Circle can change the experience of one entrepreneur. An industry ecosystem can connect many. A regional ecosystem can create relationships across communities. And when those communities remain connected, possibility begins to travel.
               </p>
 
-              <p className="text-base sm:text-lg text-amber-300 font-medium leading-relaxed mb-8 max-w-2xl">
+              <p className="text-sm sm:text-base text-amber-300 font-medium leading-relaxed pb-3 max-w-2xl">
                 The geography may expand. The responsibility expands with it. The human principle remains the same.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
                   href="/contact?intent=leadership"
-                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group"
                 >
                   <span>Apply to Lead</span>
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
                 >
+                  <Users className="size-4" />
                   <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
                 </a>
               </div>
             </div>
 
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg">
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
               <p
-                className="text-2xl sm:text-3xl text-white/70 leading-tight font-medium"
+                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 From Circle to City.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium mt-1"
+                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 From District to State.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-white leading-tight font-medium mt-1"
+                className="text-xl sm:text-2xl text-white leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 From Country
               </p>
               <p
-                className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-1"
+                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 To Global Impact.
@@ -859,3 +992,4 @@ export function ExecutiveDirectorClient() {
     </div>
   )
 }
+

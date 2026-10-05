@@ -184,130 +184,156 @@ export function CircleMapClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#0062D2] selection:text-white antialiased">
-      {/* ─── Breadcrumb ─── */}
-      <div className="border-b border-slate-200/80 bg-slate-50/90 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-slate-600">
-          <Link href="/" className="hover:text-slate-900 transition-colors">
-            Home
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link href="/circles" className="hover:text-slate-900 transition-colors">
-            Circles
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[#0062D2] font-semibold">The Map</span>
-        </div>
-      </div>
-
       {/* =========================================================================
-          SECTION 1: HERO (THE MAP: WHERE THIS COMMUNITY IS, RIGHT NOW)
+          SECTION 1: HERO (THE SIGNATURE MAP HERO WITH VIDEO BACKDROP)
           ========================================================================= */}
-      <section className="relative pt-10 pb-14 sm:pt-14 sm:pb-20 border-b border-slate-200 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
+            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
+            <ChevronRight className="size-3.5 text-slate-400" />
+            <Link href="/circles" className="hover:text-slate-900 transition-colors">Circles</Link>
+            <ChevronRight className="size-3.5 text-slate-400" />
+            <span className="text-[#0062D2] font-semibold">The Map</span>
+          </div>
+
+          {/* Hero Banner */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
             
-            {/* Left Content (7 cols) */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50/80 border border-blue-100 text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text shadow-2xs">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                WHERE THIS COMMUNITY IS, RIGHT NOW
+            {/* Fade Video Backdrop */}
+            <div
+              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+              }}
+            >
+              <video
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/circles-hero-new.jpg"
+                autoPlay loop muted playsInline
+                className="size-full object-cover object-center"
+              />
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+
+              {/* Script overlay */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Where We Are</p>
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Every Live Pin</p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Right Now.</p>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-slate-900 tracking-tight leading-[1.08] font-bold">
-                The Map
-              </h1>
-
-              <p className="text-xl sm:text-2xl font-serif text-slate-800 font-bold leading-snug">
-                Where this community is, right now.
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-600 max-w-xl font-normal leading-relaxed">
-                Every Circle begins with people. And as those people come together across cities, districts, states and countries, something larger takes shape: a community connected by relationships, learning and collaboration.
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-800 font-medium max-w-xl leading-relaxed">
-                The Map gives you a view of that community. Not simply where Peers Global hopes to be. <strong>Where the community is—right now.</strong>
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/circles/find"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
-                >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <Link
-                  href="/start-a-circle"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
-                >
-                  <span>Start a Circle</span>
-                </Link>
+              {/* Glass pill badge */}
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">REAL-TIME PRESENCE</p>
+                  <p className="text-xs font-bold tracking-wider text-white">ACTIVE SCHEDULED MEETINGS ONLY</p>
+                </div>
               </div>
             </div>
 
-            {/* Right Visual Card (5 cols) */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700/60 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] p-8 text-white space-y-5">
-                <div className="size-11 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center">
-                  <MapPin className="size-6 text-[#7DD3FC]" />
+            {/* Left Content */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl flex flex-col items-start">
+                
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">WHERE THIS COMMUNITY IS, RIGHT NOW</span>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-white leading-tight">
-                  Every Pin Represents a Live Circle
-                </h3>
+                <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
+                  The Map
+                </h1>
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Each pin on the map represents a live Circle with a scheduled meeting. That matters.
+                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
+                  Where this community is, right now.
                 </p>
 
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-xs font-semibold text-sky-200">
-                  A pin is not a promise that a Circle may exist one day. It represents a Circle that is active and has a meeting scheduled.
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-lg">
+                  Every Circle begins with people. As those people come together across cities, districts, states and countries, a governed community takes shape. Every pin represents a live Circle with a scheduled meeting.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4 mb-10">
+                  <Link
+                    href="/circles/find"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Find Your Circle</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                  <Link
+                    href="/start-a-circle"
+                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs inline-flex items-center gap-2 cursor-pointer"
+                  >
+                    <span>Start a Circle</span>
+                  </Link>
                 </div>
 
-                <p className="text-xs text-slate-400 italic">
-                  The map is a view of the community as it exists—not a picture of an aspiration.
-                </p>
+                {/* Stat Band */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg">
+                  {[
+                    { icon: Building2, value: '500+', label: 'Live Circles' },
+                    { icon: MapPin, value: '45+', label: 'Active Cities' },
+                    { icon: Globe, value: '100%', label: 'Real Ground Data' },
+                  ].map((s) => {
+                    const Icon = s.icon
+                    return (
+                      <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
+                        <div className="size-9 rounded-full bg-white flex items-center justify-center text-[#0062D2] shadow-2xs shrink-0">
+                          <Icon className="size-4" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-base sm:text-lg text-[#0F172A] leading-none">{s.value}</div>
+                          <div className="text-[10px] text-slate-500 font-medium mt-1 leading-tight">{s.label}</div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+
               </div>
             </div>
 
           </div>
+        </div>
+      </section>
 
-          {/* 4 Core Pillars of The Map */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-10 mt-10 border-t border-slate-200">
-            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
-              <span className="block text-lg sm:text-xl font-serif font-bold text-slate-900 leading-tight">
-                Live Chapters
-              </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Scheduled meetings only
-              </span>
-            </div>
-            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
-              <span className="block text-lg sm:text-xl font-serif font-bold text-slate-900 leading-tight">
-                City to Region
-              </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Connected accountability
-              </span>
-            </div>
-            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
-              <span className="block text-lg sm:text-xl font-serif font-bold text-slate-900 leading-tight">
-                Local to Global
-              </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Cross-border scale
-              </span>
-            </div>
-            <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
-              <span className="block text-lg sm:text-xl font-serif font-bold text-slate-900 leading-tight">
-                Real-Time Data
-              </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Accurate ground presence
-              </span>
-            </div>
+      {/* =========================================================================
+          SECTION 1.5: PIN INTEGRITY PILLARS
+          ========================================================================= */}
+      <section className="py-8 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { icon: Calendar, title: 'Live Chapters', subtitle: 'Scheduled meetings only' },
+              { icon: Compass, title: 'City to Region', subtitle: 'Connected accountability' },
+              { icon: Globe, title: 'Local to Global', subtitle: 'Cross-border scale' },
+              { icon: CheckCircle2, title: 'Real-Time Data', subtitle: 'Accurate ground presence' },
+            ].map((pillar, idx) => {
+              const Icon = pillar.icon
+              return (
+                <div
+                  key={idx}
+                  className="p-4 sm:p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-center gap-3.5 group"
+                >
+                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 group-hover:bg-[#0062D2] group-hover:text-white transition-colors">
+                    <Icon className="size-5" />
+                  </div>
+                  <div>
+                    <span className="block text-sm sm:text-base font-bold text-slate-900 leading-tight">
+                      {pillar.title}
+                    </span>
+                    <span className="text-xs text-slate-500 font-medium mt-0.5 block">
+                      {pillar.subtitle}
+                    </span>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -670,50 +696,81 @@ export function CircleMapClient() {
       {/* =========================================================================
           SECTION 5: NOT ON THE MAP YET?
           ========================================================================= */}
-      <section className="py-16 sm:py-24 border-b border-slate-200 bg-white">
+      <section className="py-16 sm:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#F0F7FF] via-white to-[#FAFBFD] border border-[#DCEBFE] shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1832] to-[#040C1A] text-white p-8 sm:p-12 lg:p-14 shadow-2xl border border-slate-800 relative overflow-hidden">
+            {/* Ambient radial glows */}
+            <div className="absolute top-0 right-0 size-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 size-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
               
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              {/* Left Column: Narrative & Insights */}
+              <div className="lg:col-span-7 space-y-5">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                  <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-sky-300">
                     EXPAND THE HORIZON
                   </span>
                 </div>
 
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+                <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-white tracking-tight leading-tight">
                   Not on the Map Yet?
                 </h2>
 
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-2xl">
-                  Perhaps your city is not represented. Perhaps your industry or purpose does not yet have a Circle nearby. That does not mean your interest has nowhere to go. It may mean the next conversation has not happened yet.
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+                  Perhaps your city is not represented. Perhaps your industry or purpose does not yet have a Circle nearby. That does not mean your interest has nowhere to go. It simply means the next conversation has not happened yet.
                 </p>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
-                  You can tell us where you are, what you do and what kind of Circle you would like to see. If you are ready to help bring entrepreneurs together, you can also explore the possibility of starting a Circle.
-                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <p className="text-xs font-bold text-sky-300 mb-1">Request Expansion</p>
+                    <p className="text-xs text-slate-300 leading-relaxed">Tell us your location, industry, and the entrepreneurs you want around you.</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <p className="text-xs font-bold text-rose-300 mb-1">Founding Initiative</p>
+                    <p className="text-xs text-slate-300 leading-relaxed">Step up as a founding entrepreneur and establish the first trusted room.</p>
+                  </div>
+                </div>
 
-                <div className="p-3.5 rounded-2xl bg-white border border-blue-200 text-xs font-bold text-[#0062D2] inline-block">
-                  A community grows because someone is willing to begin.
+                <div className="pt-2">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500/20 border border-blue-400/30 text-xs font-semibold text-sky-200">
+                    <Sparkles className="size-3.5 text-sky-300" />
+                    <span>A community grows because someone is willing to begin.</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 flex flex-col gap-3">
-                <Link
-                  href="/bring-to-my-city"
-                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-center shadow-md hover:opacity-95 transition-opacity"
-                >
-                  Bring a Circle to My City
-                </Link>
-                <Link
-                  href="/start-a-circle"
-                  className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-center shadow-2xs hover:bg-slate-50 transition-colors"
-                >
-                  Start a Circle
-                </Link>
+              {/* Right Column: High-Impact Action Cards */}
+              <div className="lg:col-span-5 flex flex-col gap-4">
+                <div className="p-6 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md flex flex-col gap-4">
+                  <div className="space-y-1">
+                    <p className="text-sm font-bold text-white">Have a city in mind?</p>
+                    <p className="text-xs text-slate-400">Signal interest for future chapter rollout in your area.</p>
+                  </div>
+
+                  <Link
+                    href="/bring-to-my-city"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-600/25 hover:opacity-95 transition-opacity"
+                  >
+                    <span>Bring a Circle to My City</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+
+                  <div className="relative flex py-1 items-center">
+                    <div className="flex-grow border-t border-white/10"></div>
+                    <span className="flex-shrink mx-3 text-[10px] font-bold uppercase tracking-widest text-slate-400">or</span>
+                    <div className="flex-grow border-t border-white/10"></div>
+                  </div>
+
+                  <Link
+                    href="/start-a-circle"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider transition-all"
+                  >
+                    <span>Start a Circle as Founder</span>
+                  </Link>
+                </div>
               </div>
 
             </div>

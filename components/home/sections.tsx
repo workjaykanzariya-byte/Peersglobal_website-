@@ -1717,7 +1717,7 @@ export function CollaborationSection() {
   }, [isPaused, moveCard])
 
   return (
-    <section id="collaboration" className="relative overflow-hidden bg-[#f8fafc] py-16 sm:py-20 lg:py-28 border-b border-slate-200 text-slate-900">
+    <section id="collaboration" className="relative overflow-hidden bg-[#f8fafc] py-20 sm:py-28 lg:py-32 border-b border-slate-200 text-slate-900">
 
       {/* CSS 3D Stacking & Keyframe Swap Animation */}
       <style jsx global>{`
@@ -1833,11 +1833,11 @@ export function CollaborationSection() {
       <div className="pointer-events-none absolute -top-32 right-12 size-[450px] rounded-full bg-blue-500/[0.04] blur-[140px]" />
       <div className="pointer-events-none absolute -bottom-32 left-12 size-[400px] rounded-full bg-cyan-500/[0.04] blur-[130px]" />
 
-      <div className="shell">
+      <div className="shell max-w-7xl px-6 sm:px-10 lg:px-16 mx-auto">
 
         {/* Main 2-Column Grid (Left: Microsoft Typography & Dynamic Card Info | Right: 3D Deck) */}
         <div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -2248,7 +2248,7 @@ export function LsrSection() {
         </div>
       </div>
 
-      <div className="shell relative z-10 max-w-7xl">
+      <div className="shell relative z-10 max-w-7xl px-6 sm:px-10 lg:px-16 mx-auto">
         <div className="grid gap-12 lg:grid-cols-[34%_66%] xl:grid-cols-[32%_68%] lg:items-center">
 
           {/* Left Column: Heading, Subtitle & Membership CTA */}
@@ -5243,19 +5243,19 @@ export function EventsSection() {
 
 export function ClosingSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white">
+    <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-16 sm:py-20 lg:py-24 text-white">
       {/* Deep celestial radial gradients & luminous aura */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
       />
 
       {/* Subtle geometric orbital line art */}
