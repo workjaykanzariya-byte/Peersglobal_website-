@@ -42,136 +42,120 @@ export function GrievanceClient() {
         </div>
       </div>
 
-      {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Ambient Lighting */}
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+      {/* ── Master Full Bleed Dark Hero Section ── */}
+      <section className="relative min-h-[560px] sm:min-h-[620px] bg-[#040F24] text-white flex items-center overflow-hidden border-b border-slate-800">
+        {/* Background video layer */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/section_image/circle-meeting.png"
+            className="w-full h-full object-cover object-center opacity-40 scale-105"
+          >
+            <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
+          </video>
+          {/* Gradients to blend smoothly */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#040F24] via-[#040F24]/85 to-transparent sm:w-3/4" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#040F24] via-transparent to-[#040F24]/60" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
+        </div>
 
-            {/* Media Background Layer (Right ~60% fading into white on the left) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <img
-                src="/images/section_image/circle-meeting.png"
-                alt="Peers Global Grievance Secretariat"
-                className="size-full object-cover object-center opacity-85"
-              />
-
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Statutory Redressal
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Transparent Process
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Timebound SLA
-                </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>STATUTORY COMPLIANCE &amp; REDRESSAL</span>
               </div>
 
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    STATUTORY REDRESSAL CELL
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    IT ACT 2000 / RULES 2021
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content Area */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
-                
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    STATUTORY COMPLIANCE &amp; REDRESSAL
-                  </span>
-                </div>
-
-                {/* H1 Heading */}
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-950 tracking-tight leading-[1.12] mb-4">
-                  Grievance <br />
-                  <span className="italic bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent font-medium">
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  Grievance{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
                     Redressal Cell.
                   </span>
                 </h1>
-
-                {/* Subtitle & Descriptions */}
-                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-6 max-w-lg">
-                  In accordance with the Information Technology Act, 2000 and the Intermediary Guidelines and Digital Media Ethics Code Rules, 2021.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Statutory framework in accordance with Information Technology Act, 2000 &amp; Rules 2021.
                 </p>
+              </div>
 
-                {/* Featured Highlight Quote Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
-                  <p className="font-serif italic text-slate-900 text-sm sm:text-base font-medium">
-                    “Every grievance is treated with executive seriousness, confidentiality, and statutory resolution timelines.”
-                  </p>
-                </div>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-light">
+                Every grievance is treated with executive seriousness, confidentiality, and statutory resolution timelines by our designated compliance cell in Ahmedabad.
+              </p>
 
-                {/* Trust Badges */}
-                <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 font-mono text-[11px] shadow-2xs">
-                    Designated Compliance Desk
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-100 font-mono text-[11px]">
-                    Ahmedabad Secretariat
-                  </span>
-                </div>
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="#grievance-form"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Submit Grievance</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
 
+                <a
+                  href="mailto:grievance@peersglobal.com"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Email Officer Directly</span>
+                </a>
+              </div>
+
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/15">
+                {[
+                  { icon: Clock, value: '24 Hours', label: 'Acknowledgment SLA' },
+                  { icon: ShieldCheck, value: '15 Days', label: 'Statutory Resolution' },
+                  { icon: Scale, value: '100% Secret', label: 'Protected Whistleblower' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div
+                      key={s.label}
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all"
+                    >
+                      <div className="size-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
+                        <Icon className="size-5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                          {s.value}
+                        </div>
+                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                          {s.label}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-          </div>
-
-          {/* 4-Item Floating Stats Bar */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { val: '24 Hours', label: 'Formal Acknowledgment', sub: 'Instant ticket logging & dispatch', tag: 'Stage 1 SLA' },
-              { val: '15 Days', label: 'Statutory Resolution', sub: 'Written investigative finding', tag: 'Stage 2 SLA' },
-              { val: '100% Secret', label: 'Protected Mediation', sub: 'Strict executive confidentiality', tag: 'Whistleblower Safe' },
-              { val: 'Appeals Desk', label: 'Board of Advisory', sub: 'Secondary institutional escalation', tag: 'Council Review' },
-            ].map((stat, idx) => (
-              <div
-                key={idx}
-                className="group relative rounded-2xl bg-white border border-slate-200/90 p-5 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all duration-300 overflow-hidden"
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
-                    {stat.tag}
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                </div>
-                <div className="font-serif text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                  {stat.val}
-                </div>
-                <div className="text-sm font-bold text-slate-900 mt-1">{stat.label}</div>
-                <div className="text-xs text-slate-500 font-normal mt-0.5 leading-relaxed">{stat.sub}</div>
-              </div>
-            ))}
+                Statutory Redressal
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Transparent Process
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Timebound SLA
+              </p>
+            </div>
           </div>
-
         </div>
       </section>
 

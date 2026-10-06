@@ -173,33 +173,7 @@ export function TrustedWorldwideSection() {
             )}
           </button>
 
-          {/* Subtitle text in bottom-center */}
-          <div className="absolute inset-x-0 bottom-6 md:bottom-8 z-10 text-center pointer-events-none px-4">
-            <p className="text-white text-sm sm:text-base md:text-lg font-medium drop-shadow-lg tracking-wide bg-black/40 backdrop-blur-sm inline-block px-5 py-2 rounded-full border border-white/10">
-              Partners in Business. Friends in Life.
-            </p>
-          </div>
 
-          {/* Floating Lower-Left Badge */}
-          <div className="absolute bottom-5 left-5 z-20 flex items-center gap-3 p-2.5 pr-5 rounded-2xl bg-black/65 backdrop-blur-md border border-white/15 text-left shadow-xl">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 p-1 shrink-0">
-              <Image
-                src="/images/logo-icon-only.png"
-                alt="Peers Global Emblem"
-                width={32}
-                height={32}
-                className="object-contain"
-              />
-            </div>
-            <div>
-              <p className="text-white text-xs md:text-sm font-semibold leading-tight">
-                Peers Global Conclave
-              </p>
-              <p className="text-[#D1D5DB] text-[10px] md:text-xs leading-tight mt-0.5">
-                Where Founders Become Partners
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

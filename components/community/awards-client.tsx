@@ -174,38 +174,50 @@ export function AwardsClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (HONOURING CONTRIBUTION) ─── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Home-style looping video backdrop with dark scrim */}
+        <video
+          className="absolute inset-0 size-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none"
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Master Card Hero Box */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
-            {/* Ambient Background Accents */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
-
+          {/* Home-style full-bleed hero */}
+          <div className="min-h-[480px] lg:min-h-[520px] py-10 sm:py-14 flex items-center">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
               
               {/* Left Column: Manifesto & Details */}
-              <div className="lg:col-span-7 space-y-6">
+              <div className="lg:col-span-12 max-w-3xl space-y-6">
                 <div className="flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
                     HONOURING CONTRIBUTION
                   </span>
                 </div>
 
                 <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
+                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 tracking-tight leading-[1.14]">
                     Awards &amp; Recognition
                   </h1>
-                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
+                  <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
                     We do not recognise the largest business in the room. We recognise who did the most for everyone else.
                   </p>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                <div className="space-y-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                   <p>
-                    Recognition at Peers Global is earned in public and verified transparently. <strong className="text-slate-900 font-semibold">Every action is recorded in the Unity App and confirmed directly by the Peer who received it.</strong>
+                    Recognition at Peers Global is earned in public and verified transparently. <strong className="text-white font-semibold">Every action is recorded in the Unity App and confirmed directly by the Peer who received it.</strong>
                   </p>
 
                   {/* 4 Pillar Badges */}
@@ -218,16 +230,16 @@ export function AwardsClient() {
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
+                        className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-sm"
                       >
-                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
+                        <item.icon className="size-4 shrink-0 text-sky-400" />
                         <span>{item.text}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
-                    <Trophy className="size-4 shrink-0 text-[#0062D2]" />
+                  <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
+                    <Trophy className="size-4 shrink-0 text-sky-400" />
                     <span>Annual trophies celebrate transformative givers across our national and global community.</span>
                   </div>
                 </div>
@@ -245,58 +257,19 @@ export function AwardsClient() {
 
                   <a
                     href="#categories"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white font-bold text-xs sm:text-sm transition-all uppercase tracking-wider"
                   >
                     <span>View Categories</span>
                   </a>
                 </div>
               </div>
 
-              {/* Right Column: Hero Visual Showcase with Stage Image & Video Backdrop */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
-                  {/* Background Media: Rich Celebration Stage with Video/Image fallback */}
-                  <Image
-                    src="/images/section_image/event_awards_stage.jpg"
-                    alt="Annual Peers Global Awards & Recognition Celebration Stage"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-slate-950/30 pointer-events-none" />
-                  
-                  {/* Top Badges */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/75 border border-white/20 text-[10px] font-bold text-white tracking-widest uppercase backdrop-blur-md">
-                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      ANNUAL CEREMONY
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-sky-200 border border-white/20">
-                      100% LEDGER-BASED
-                    </span>
-                  </div>
-
-                  {/* Bottom Highlight */}
-                  <div className="relative z-10 space-y-2 text-white">
-                    <span className="inline-block px-3 py-0.5 rounded-full bg-blue-600/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider text-white border border-blue-400/40">
-                      Recognising Genuine Impact
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">
-                      Recognition is earned in public
-                    </h3>
-                    <p className="text-xs text-slate-200 leading-relaxed font-light">
-                      Every award follows confirmed giving recorded across circles. 1 Action = 1 Life Impacted.
-                    </p>
-                  </div>
-                </div>
-              </div>
 
             </div>
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
             <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
               <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
                 <Trophy className="size-5" />

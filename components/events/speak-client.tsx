@@ -112,7 +112,11 @@ export function SpeakClient() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    if (name === 'phone') {
+      setFormData((prev) => ({ ...prev, phone: value.replace(/\D/g, '').slice(0, 10) }))
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }))
+    }
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -681,10 +685,13 @@ export function SpeakClient() {
                     <input
                       type="tel"
                       name="phone"
+                      inputMode="numeric"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
                       required
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+91 98765 43210"
+                      placeholder="9876543210"
                       className="w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200 text-xs sm:text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400"
                     />
                   </div>

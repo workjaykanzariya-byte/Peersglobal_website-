@@ -659,10 +659,13 @@ export function BringToMyCityClient() {
                     <label className="font-bold text-slate-800">Phone Number *</label>
                     <input
                       type="tel"
+                      inputMode="numeric"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
                       required
-                      placeholder="Enter phone number"
+                      placeholder="9876543210"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
                       className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#0062D2] text-slate-900"
                     />
                   </div>

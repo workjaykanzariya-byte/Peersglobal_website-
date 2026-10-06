@@ -193,125 +193,93 @@ export function BenefitsClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
 
-      {/* ─── Breadcrumb ────────────────────────────────────────────────── */}
-      <div className="bg-white border-b border-slate-100 sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
-            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+      {/* =========================================================================
+          SECTION 1: HERO — WHAT YOU GET (Master Full Page Dark Video Banner)
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/membership-hero-peers.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link href="/membership" className="hover:text-[#0062D2] transition-colors">
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <Link href="/membership" className="hover:text-white transition-colors">
               Membership
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">What You Get</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-white font-semibold">What You Get</span>
           </nav>
-        </div>
-      </div>
 
-      {/* =========================================================================
-          SECTION 1: HERO — WHAT YOU GET (Signature Fade Video Banner)
-          ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-16 lg:pb-24 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Hero Banner Box */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
-
-            {/* Fade Visual (Right 60%) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/membership-hero-peers.jpg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover object-center scale-105"
-              />
-              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-
-              {/* Script Overlay - Top Right */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                  The Meeting Is an Event.
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  The Relationship Is the Experience.
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>WHAT YOU GET</span>
               </div>
 
-              {/* Pill Overlay - Bottom Right */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-right">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">BEYOND THE MEETING</p>
-                  <p className="text-xs font-bold tracking-wider text-white">WHERE COMMUNITY BECOMES COLLABORATION</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content (Z-10) */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start space-y-4">
-
-                {/* Eyebrow */}
-                <div className="flex items-center gap-2.5 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                    What You Get
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Membership is an ongoing journey,{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    not one monthly meeting
                   </span>
-                </div>
-
-                <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.15]">
-                  Membership is an ongoing journey, not one monthly meeting.
                 </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  A Circle meeting may happen once a month. Your PEERS GLOBAL experience continues 365 days a year.
+                </p>
+              </div>
 
-                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  <p>
-                    A Circle meeting may happen once a month. Your PEERS GLOBAL experience does not.
-                  </p>
-                  <p>
-                    It continues through conversations, learning, introductions, collaboration, recognition, leadership and the relationships you build between meetings.
-                  </p>
-                  <div className="p-3.5 sm:p-4 rounded-xl bg-blue-50/80 border border-blue-100 text-slate-800 text-xs sm:text-[13px] leading-relaxed font-normal">
-                    <strong className="font-semibold text-slate-900">The Real Value:</strong> Because the true return of a community is not what happens when everyone is sitting in the same room. It is what becomes possible between those moments.
-                  </div>
+              {/* Sub-content */}
+              <div className="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                <p>
+                  It continues through conversations, learning, introductions, collaboration, recognition, leadership and the relationships you build between meetings.
+                </p>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm text-slate-200 text-xs sm:text-[13px] leading-relaxed font-normal">
+                  <strong className="font-semibold text-white">The Real Value:</strong> Because the true return of a community is not what happens when everyone is sitting in the same room. It is what becomes possible between those moments.
                 </div>
+              </div>
 
-                {/* CTAs */}
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/circles/find"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider group"
-                  >
-                    <span>Find Your Circle</span>
-                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Find Your Circle</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
 
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-xs sm:text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
-                  >
-                    <Smartphone className="size-4 text-[#0062D2]" />
-                    <span>Download Unity App</span>
-                  </a>
-                </div>
-
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <Smartphone className="size-4 text-sky-400" />
+                  <span>Download Unity App</span>
+                </a>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 

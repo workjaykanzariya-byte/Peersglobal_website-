@@ -219,168 +219,139 @@ export function UnityPageClient() {
   return (
     <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
       
-      {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-[#0062D2] transition-colors">
-            Home
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span>Ecosystem</span>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-slate-900 font-bold">Unity</span>
+      {/* ─── SECTION 1: HERO (MASTER FULL PAGE DARK VIDEO BANNER) ────── */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
         </div>
-      </div>
 
-      {/* ─── SECTION 1: HERO (UNITY: A GLOBAL COMMUNITY IN YOUR POCKET) ────── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Hero Banner */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-            
-            {/* Fade Video Backdrop */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/circles-hero-new.jpg"
-                autoPlay loop muted playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-slate-400">Ecosystem</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-white font-semibold">Unity</span>
+          </nav>
 
-              {/* Script overlay */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>No Advertising.</p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>No Strangers.</p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Just Peers.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE DIGITAL HOME OF PEERS GLOBAL</span>
               </div>
 
-              {/* Glass pill badge */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">PRIVATE ECOSYSTEM</p>
-                  <p className="text-xs font-bold tracking-wider text-white">THE ROOM IS KNOWN · CONTEXT IS REAL</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start space-y-4">
-                
-                <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
-                    THE DIGITAL HOME OF PEERS GLOBAL
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  A global community of entrepreneurs,{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    in your pocket
                   </span>
-                </div>
-
-                <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-normal text-slate-900 tracking-tight leading-[1.08]">
-                  UNITY
                 </h1>
-
-                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug">
-                  A global community of entrepreneurs, in your pocket.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  No advertising. No strangers. No algorithm. Unity is where the PEERS GLOBAL community continues between meetings.
                 </p>
+              </div>
 
-                {/* Tagline Pills */}
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {[
-                    'No advertising',
-                    'No strangers',
-                    'No algorithms',
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 shadow-2xs"
-                    >
-                      ✓ {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-lg">
-                  Unity is where the <strong>PEERS GLOBAL</strong> community continues between meetings. Relationships continue every day.
-                </p>
-
-                {/* 6 Core Quick Pills */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full max-w-lg pt-1">
-                  {[
-                    'Your Circle',
-                    'Your relationships',
-                    'Your conversations',
-                    'Your contributions',
-                    'Your opportunities',
-                    'Your community',
-                  ].map((p) => (
-                    <div
-                      key={p}
-                      className="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/70 text-xs font-medium text-slate-800 flex items-center gap-2"
-                    >
-                      <span className="size-1.5 rounded-full bg-[#0062D2]" />
-                      <span className="truncate">{p}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Download Badges & CTA */}
-                <div className="pt-3 flex flex-wrap items-center gap-3">
-                  <a
-                    href={SITE.appStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="app-badge-btn"
-                    aria-label="Download on the Apple App Store"
+              {/* Tagline Pills */}
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  'No advertising',
+                  'No strangers',
+                  'No algorithms',
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-slate-200 backdrop-blur-sm shadow-2xs"
                   >
-                    <Apple className="size-5.5 fill-white shrink-0" />
-                    <div className="text-left">
-                      <span className="app-badge-sub">Download on the</span>
-                      <span className="app-badge-title">App Store</span>
-                    </div>
-                  </a>
+                    ✓ {tag}
+                  </span>
+                ))}
+              </div>
 
-                  <a
-                    href={SITE.playStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="app-badge-btn"
-                    aria-label="Get it on Google Play"
+              {/* 6 Core Quick Pills */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 w-full max-w-lg pt-1">
+                {[
+                  'Your Circle',
+                  'Your relationships',
+                  'Your conversations',
+                  'Your contributions',
+                  'Your opportunities',
+                  'Your community',
+                ].map((p) => (
+                  <div
+                    key={p}
+                    className="p-2.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-medium text-slate-200 flex items-center gap-2"
                   >
-                    <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                      <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
-                      <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
-                      <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
-                      <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
-                    </svg>
-                    <div className="text-left">
-                      <span className="app-badge-sub">GET IT ON</span>
-                      <span className="app-badge-title">Google Play</span>
-                    </div>
-                  </a>
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span className="truncate">{p}</span>
+                  </div>
+                ))}
+              </div>
 
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-slate-800 font-semibold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all"
-                  >
-                    <span>Open Web App</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
+              {/* Download Badges & CTA */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href={SITE.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-badge-btn"
+                  aria-label="Download on the Apple App Store"
+                >
+                  <Apple className="size-5.5 fill-white shrink-0" />
+                  <div className="text-left">
+                    <span className="app-badge-sub">Download on the</span>
+                    <span className="app-badge-title">App Store</span>
+                  </div>
+                </a>
 
+                <a
+                  href={SITE.playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-badge-btn"
+                  aria-label="Get it on Google Play"
+                >
+                  <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                  </svg>
+                  <div className="text-left">
+                    <span className="app-badge-sub">GET IT ON</span>
+                    <span className="app-badge-title">Google Play</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Open Web App</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
-
           </div>
         </div>
       </section>

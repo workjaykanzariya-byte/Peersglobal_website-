@@ -146,145 +146,125 @@ export function WhoBelongsClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
 
-      {/* ─── Breadcrumb ────────────────────────────────────────────────── */}
-      <div className="bg-white border-b border-slate-100 sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
-            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+      {/* =========================================================================
+          SECTION 1: HERO — WHO BELONGS HERE (Master Full Page Dark Video Banner)
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/membership-hero-peers.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link href="/membership" className="hover:text-[#0062D2] transition-colors">
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <Link href="/membership" className="hover:text-white transition-colors">
               Membership
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Who Belongs Here</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-white font-semibold">Who Belongs Here</span>
           </nav>
-        </div>
-      </div>
 
-      {/* =========================================================================
-          SECTION 1: HERO — WHO BELONGS HERE
-          ========================================================================= */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-lg bg-gradient-to-r from-white via-white/95 to-slate-50 min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Signature Right-Side Video Banner with smooth fade */}
-            <div
-              className="absolute inset-y-0 right-0 w-full lg:w-3/5 overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/membership-hero-peers.jpg"
-                autoPlay loop muted playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Script overlay */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Real People</p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Conversations</p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Belonging</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>WHO BELONGS HERE</span>
               </div>
 
-              {/* Glass pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">CULTURE OF CONTRIBUTION</p>
-                  <p className="text-xs font-bold tracking-wider text-white">THE FIFTEEN NAMES FIT</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start space-y-4">
-                <div className="flex items-center gap-2.5 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                    Who Belongs Here
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  This community is built for a{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    particular kind of entrepreneur
                   </span>
-                </div>
-
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15]">
-                  This community is built for a particular kind of entrepreneur.
                 </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  PEERS GLOBAL is not trying to be everything to everyone. It is built for founders who give first, show up consistently, and think in decades.
+                </p>
+              </div>
 
-                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  <p>
-                    PEERS GLOBAL is not trying to be everything to everyone. Because meaningful communities need something more than numbers: they need shared values, people who are willing to participate, and entrepreneurs who understand that a relationship is more important than a transaction—and that contribution is part of belonging.
+              {/* Sub-content */}
+              <div className="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                <p>
+                  Meaningful communities need something more than numbers: they need shared values, active participation, and entrepreneurs who understand that a relationship is more important than a transaction.
+                </p>
+                
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm text-slate-200 text-xs sm:text-[13px] leading-relaxed">
+                  <p className="font-semibold text-white">
+                    So before you ask: <span className="text-sky-300 font-bold">&ldquo;What will I get here?&rdquo;</span>
                   </p>
-                  
-                  <div className="p-3.5 sm:p-4 rounded-xl bg-blue-50/80 border border-blue-100 text-slate-800 text-xs sm:text-[13px] leading-relaxed">
-                    <p className="font-semibold text-slate-900">
-                      So before you ask: <span className="text-[#0062D2] font-bold">&ldquo;What will I get here?&rdquo;</span>
-                    </p>
-                    <p className="text-slate-600 mt-0.5 font-normal">
-                      There is another question worth asking: <span className="text-[#0062D2] font-semibold">&ldquo;What kind of Peer will I be?&rdquo;</span>
-                    </p>
+                  <p className="text-slate-300 mt-0.5 font-normal">
+                    There is another question worth asking: <span className="text-rose-300 font-semibold">&ldquo;What kind of Peer will I be?&rdquo;</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Explore PEERS GLOBAL</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <Smartphone className="size-4 text-sky-400" />
+                  <span>Download Unity App</span>
+                </a>
+              </div>
+
+              {/* Stat Pill Band */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-white/15">
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-sky-300 mb-0.5">
+                    <Users className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">45+</span>
                   </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Active Cities</span>
                 </div>
 
-                {/* CTAs */}
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/circles/find"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider group"
-                  >
-                    <span>Explore PEERS GLOBAL</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold transition-all shadow-2xs uppercase tracking-wider"
-                  >
-                    <Smartphone className="size-4 text-[#0062D2]" />
-                    <span>Download Unity App</span>
-                  </a>
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-rose-300 mb-0.5">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">100%</span>
+                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Verified Peers</span>
                 </div>
 
-                {/* Stat Pill Band */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-200/80">
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <Users className="w-3.5 h-3.5" />
-                      <span className="text-lg font-bold text-slate-900">45+</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Active Cities</span>
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-amber-300 mb-0.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">1M+</span>
                   </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                      <span className="text-lg font-bold text-slate-900">100%</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Verified Peers</span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span className="text-lg font-bold text-slate-900">1M+</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Lives to Impact</span>
-                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Lives to Impact</span>
                 </div>
-
               </div>
             </div>
-
           </div>
 
           {/* Section 1 Sub-Card: The Essence of Community */}

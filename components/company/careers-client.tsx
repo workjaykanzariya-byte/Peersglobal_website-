@@ -156,11 +156,11 @@ export function CareersClient() {
       </div>
 
       {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-8 pb-10 sm:pb-12 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-10 sm:pb-12 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[440px] lg:min-h-[480px] flex items-center">
+          {/* Home-style full-bleed hero with video backdrop */}
+          <div className="min-h-[440px] lg:min-h-[480px] flex items-center">
             
             {/* Ambient Lighting */}
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -168,11 +168,7 @@ export function CareersClient() {
 
             {/* Media Background Layer (Right ~60% fading into white on the left) */}
             <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
+              className="absolute inset-0 overflow-hidden pointer-events-none"
             >
               {/* Active Video Background */}
               <video
@@ -185,13 +181,11 @@ export function CareersClient() {
                 className="size-full object-cover object-center opacity-90"
               />
 
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+              {/* Dark scrim matching the home hero */}
+              <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none" />
 
               {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+              <div className="hidden">
                 <p className="text-lg sm:text-xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
                   Build With Purpose
                 </p>
@@ -204,7 +198,7 @@ export function CareersClient() {
               </div>
 
               {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
+              <div className="hidden">
                 <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 shadow-lg text-left">
                   <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
                     JOIN THE ECOSYSTEM
@@ -223,30 +217,30 @@ export function CareersClient() {
                 {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-2.5 mb-3">
                   <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
                     CAREERS AT PEERS GLOBAL
                   </span>
                 </div>
 
                 {/* H1 Heading */}
-                <h1 className="font-serif text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-950 tracking-tight leading-[1.18] mb-3">
+                <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-semibold text-white tracking-tight leading-[1.14] mb-3">
                   Build something that helps <br />
-                  <span className="italic bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent font-medium">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
                     other people build.
                   </span>
                 </h1>
 
                 {/* Subtitle & Descriptions */}
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-4 max-w-lg">
+                <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed mb-4 max-w-2xl">
                   PEERS GLOBAL is building an ecosystem around entrepreneurs, relationships, collaboration, learning, leadership and impact.
                 </p>
 
                 {/* Featured Highlight Quote Card */}
-                <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
-                  <p className="font-serif italic text-slate-900 text-xs sm:text-sm font-medium">
+                <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 mb-6 max-w-xl">
+                  <p className="italic text-white/95 text-sm sm:text-base font-medium">
                     “That requires people who care about what they are building — and why it matters.”
                   </p>
-                  <p className="text-[11px] text-slate-500 mt-1">
+                  <p className="text-xs text-slate-300 mt-1">
                     If that sounds like you, there may be a place for you here.
                   </p>
                 </div>
@@ -263,14 +257,14 @@ export function CareersClient() {
 
                   <a
                     href="#general-application"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-5 py-3 text-xs font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase"
+                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
                   >
                     <span>General Application</span>
                   </a>
 
                   <a
                     href="#who-we-hire"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-700 px-5 py-3 text-xs font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase"
+                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
                   >
                     <span>Who We Hire</span>
                   </a>
@@ -282,7 +276,7 @@ export function CareersClient() {
           </div>
 
           {/* 4-Item Floating Stats Bar */}
-          <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="relative z-10 mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { val: '4 Key Roles', label: 'Active Open Positions', sub: 'Engineering, Ops, Media & Design' },
               { val: '100% Autonomy', label: 'High-Context Culture', sub: 'Radical clarity & ownership' },
@@ -815,10 +809,13 @@ export function CareersClient() {
                         <label className="font-bold text-slate-900 text-xs">Phone Number *</label>
                         <input
                           type="tel"
+                          inputMode="numeric"
+                          maxLength={10}
+                          pattern="[0-9]{10}"
                           required
-                          placeholder="+91 98765 43210"
+                          placeholder="9876543210"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
                           className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
                         />
                       </div>

@@ -256,11 +256,11 @@ export function NewsroomPageClient() {
       </div>
 
       {/* ─── Hero Section (Home & Circles Master Design Layout) ─── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[460px] lg:min-h-[520px] flex items-center">
+          {/* Home-style full-bleed hero with video backdrop */}
+          <div className="min-h-[460px] lg:min-h-[520px] flex items-center">
             
             {/* Ambient Lighting */}
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -268,11 +268,7 @@ export function NewsroomPageClient() {
 
             {/* Media Background Layer (Right ~60% fading into white on the left) */}
             <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
+              className="absolute inset-0 overflow-hidden pointer-events-none"
             >
               {/* Active Video Background */}
               <video
@@ -285,13 +281,11 @@ export function NewsroomPageClient() {
                 className="size-full object-cover object-center opacity-90"
               />
 
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+              {/* Dark scrim matching the home hero */}
+              <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none" />
 
               {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+              <div className="hidden">
                 <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
                   Verified Facts
                 </p>
@@ -304,7 +298,7 @@ export function NewsroomPageClient() {
               </div>
 
               {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
+              <div className="hidden">
                 <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
                   <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
                     PRESS SECRETARIAT
@@ -323,27 +317,27 @@ export function NewsroomPageClient() {
                 {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-2.5 mb-3.5">
                   <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
                     PUBLIC RECORD &amp; PRESS SECRETARIAT
                   </span>
                 </div>
 
                 {/* H1 Heading */}
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-950 tracking-tight leading-[1.15] mb-3.5">
+                <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-semibold text-white tracking-tight leading-[1.14] mb-3.5">
                   What is happening at{' '}
-                  <span className="bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
                     PEERS GLOBAL.
                   </span>
                 </h1>
 
                 {/* Subtitle & Descriptions */}
-                <p className="text-xs sm:text-sm md:text-base text-slate-600 font-normal leading-relaxed mb-5 max-w-lg">
+                <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed mb-5 max-w-2xl">
                   What we are doing, what we are building, what we are announcing, and where PEERS GLOBAL is being covered across national media.
                 </p>
 
                 {/* Featured Highlight Quote Card */}
-                <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
-                  <p className="italic text-slate-800 text-xs sm:text-sm font-medium leading-relaxed">
+                <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 mb-6 max-w-xl">
+                  <p className="italic text-white/95 text-sm sm:text-base font-medium leading-relaxed">
                     “A community is built through action. And meaningful action deserves to be documented without hype.”
                   </p>
                 </div>
@@ -360,14 +354,14 @@ export function NewsroomPageClient() {
 
                   <a
                     href="#press-releases"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
                   >
                     <span>Press Releases</span>
                   </a>
 
                   <a
                     href="#media-kit"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-700 px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
                   >
                     <span>Media Kit</span>
                   </a>
@@ -379,7 +373,7 @@ export function NewsroomPageClient() {
           </div>
 
           {/* 4-Item Floating Stats Bar */}
-          <div className="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="relative z-10 mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               { val: '19 Hubs', label: 'National Footprint', sub: 'Operating Chapters across Bharat' },
               { val: '100% Fact-Checked', label: 'Verified Public Record', sub: 'Zero manufactured hype' },
@@ -673,12 +667,12 @@ export function NewsroomPageClient() {
           </div>
 
           {/* Editorial Integrity Box */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-2 font-bold text-xs sm:text-sm text-amber-900">
-              <ShieldCheck className="size-4.5 text-amber-700 shrink-0" />
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#040F24] border border-slate-800 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-2 font-bold text-xs sm:text-sm text-white">
+              <ShieldCheck className="size-4.5 text-sky-400 shrink-0" />
               <span>Editorial Integrity Rule: Zero paid promotions presented as earned media.</span>
             </div>
-            <span className="text-[11px] font-mono text-amber-800">
+            <span className="text-[11px] font-mono text-slate-300">
               Only verified editorial features are archived.
             </span>
           </div>

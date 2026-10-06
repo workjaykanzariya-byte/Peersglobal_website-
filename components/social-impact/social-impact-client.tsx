@@ -100,38 +100,50 @@ export function SocialImpactClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (EVIDENCED SOCIAL IMPACT) ─── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Home-style looping video backdrop with dark scrim */}
+        <video
+          className="absolute inset-0 size-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none"
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Master Card Hero Box */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
-            {/* Ambient Background Accents */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
-
+          {/* Home-style full-bleed hero */}
+          <div className="min-h-[480px] lg:min-h-[520px] py-10 sm:py-14 flex items-center">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
               
               {/* Left Column: Manifesto & Details */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
                     EVIDENCED SOCIAL IMPACT &amp; FOUNDATION
                   </span>
                 </div>
 
                 <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
-                    Foundation &amp; Social Impact
+                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14]">
+                    Foundation &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">Social Impact</span>
                   </h1>
-                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
+                  <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
                     Impact is not what we say. It is what changes because we acted together.
                   </p>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                <div className="space-y-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                   <p>
-                    Entrepreneurship creates economic value, but that value multiplies when directed back into communities. <strong className="text-slate-900 font-semibold">One action, logged transparently on our ledger, can protect livelihoods, preserve businesses, and change families.</strong>
+                    Entrepreneurship creates economic value, but that value multiplies when directed back into communities. <strong className="text-white font-semibold">One action, logged transparently on our ledger, can protect livelihoods, preserve businesses, and change families.</strong>
                   </p>
 
                   {/* 4 Impact Focus Badges */}
@@ -144,16 +156,16 @@ export function SocialImpactClient() {
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
+                        className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-sm"
                       >
-                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
+                        <item.icon className="size-4 shrink-0 text-sky-400" />
                         <span>{item.text}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
-                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
+                  <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
+                    <Sparkles className="size-4 shrink-0 text-sky-400" />
                     <span>Every contribution is affirmed directly by the receiver on the Unity App.</span>
                   </div>
                 </div>
@@ -169,7 +181,7 @@ export function SocialImpactClient() {
 
                   <a
                     href="#sdgs"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white font-bold text-xs sm:text-sm transition-all uppercase tracking-wider"
                   >
                     <span>Evidenced SDGs</span>
                   </a>
@@ -216,7 +228,7 @@ export function SocialImpactClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
             {[
               { icon: Target, value: '1M Target', label: 'Entrepreneurs by 2030' },
               { icon: HeartHandshake, value: '100% Confirmed', label: 'Peer Receiver Verified' },

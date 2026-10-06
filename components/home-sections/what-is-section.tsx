@@ -150,25 +150,9 @@ export function WhatIsSection() {
             </div>
           </div>
 
-          {/* Bottom Left Floating Branding Card */}
-          <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-20 flex items-center gap-3 px-4 py-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 text-white shadow-xl max-w-[280px]">
-            <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
-              <svg className="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                <path d="M2 12h20" />
-              </svg>
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-xs font-semibold leading-tight text-white">Peers Global Conclave</span>
-              <span className="text-[11px] text-slate-300 font-normal leading-tight">Where Founders Become Partners</span>
-            </div>
-          </div>
 
-          {/* Bottom Center Tagline Pill */}
-          <div className="hidden sm:flex absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-6 z-20 items-center px-5 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-white shadow-xl text-xs md:text-sm font-medium">
-            <span>Partners in Business. Friends in Life.</span>
-          </div>
+
+
         </div>
       </div>
     </section>

@@ -98,129 +98,95 @@ export function TiersClient() {
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
 
       {/* =================================================================
-          SECTION 1: HERO — Executive Split with Fade Mask & Script
+          SECTION 1: HERO — Executive Split with Master Full Page Dark Video Banner
           ================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-16 lg:pb-24 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/membership-hero-peers.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/membership" className="hover:text-slate-900 transition-colors">Membership</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">Membership & Investment</span>
-          </div>
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <Link href="/membership" className="hover:text-white transition-colors">Membership</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">Membership &amp; Investment</span>
+          </nav>
 
-          {/* Hero Banner Box */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
-
-            {/* Fade Visual (Right 60%) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-              }}
-            >
-              <video
-                src="/videos/stories-hero-bg.mp4"
-                poster="/images/membership-hero-peers.jpg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover object-center scale-105"
-              />
-              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-
-              {/* Script Overlay - Top Right */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                  Better People
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Bigger Opportunities.
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>MEMBERSHIP &amp; INVESTMENT</span>
               </div>
 
-              {/* Script Overlay - Bottom Right */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] pointer-events-none select-none">
-                <p className="text-lg sm:text-xl text-white/95 leading-tight font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                  Invest in People.
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Build What Matters.
-                </p>
-              </div>
-            </div>
-
-            {/* Left Content (Z-10) */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start space-y-4">
-
-                {/* Eyebrow */}
-                <div className="flex items-center gap-2.5 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                    Membership &amp; Investment
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Your Annual Investment in{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    High-Trust Growth
                   </span>
-                </div>
-
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15]">
-                  Your Annual Investment
                 </h1>
-
-                <p className="text-base sm:text-lg text-slate-800 font-semibold italic text-[#0062D2]">
-                  Full transparency.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Full transparency. Here is exactly what membership costs — in money and in time — so your decision is a complete one.
                 </p>
+              </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  Here is exactly what membership costs — in money and in time — so your decision is a complete one.
-                </p>
-
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <Link
-                    href="/membership/criteria"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-xs sm:text-sm font-bold hover:bg-slate-50 transition-all shadow-2xs uppercase tracking-wider"
-                  >
-                    <span>Apply for Membership</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
-
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <Link
+                  href="/membership/criteria"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Apply for Membership</span>
+                  <ArrowRight className="size-4" />
+                </Link>
               </div>
             </div>
-
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={i}
-                  className="group rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all duration-300"
+                  className="group rounded-2xl bg-white/10 border border-white/15 p-4 sm:p-5 flex items-center gap-3.5 shadow-lg backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300"
                 >
-                  <div className="size-11 sm:size-12 rounded-xl bg-blue-50 border border-blue-100/80 text-[#0062D2] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <div className="size-11 sm:size-12 rounded-xl bg-blue-500/20 border border-blue-400/30 text-sky-300 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                     <Icon className="size-5 sm:size-6" />
                   </div>
                   <div>
-                    <div className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight group-hover:text-[#0062D2] transition-colors">
+                    <div className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight group-hover:text-sky-300 transition-colors">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-slate-500 font-medium">
+                    <div className="text-xs text-slate-300 font-medium">
                       {stat.label}
                     </div>
                   </div>

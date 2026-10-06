@@ -116,134 +116,109 @@ export function CircleMagazinesClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
-      {/* ─── SECTION 1: HERO (SIGNATURE FADE VIDEO & EXECUTIVE HEADER) ─── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─── SECTION 1: HERO (MASTER FULL PAGE DARK VIDEO BANNER) ─── */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/who-we-are-boardroom.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/circles" className="hover:text-slate-900 transition-colors">Circles</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">Circle Magazines</span>
-          </div>
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <Link href="/circles" className="hover:text-white transition-colors">Circles</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">Circle Magazines</span>
+          </nav>
 
-          {/* Hero Banner */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-
-            {/* Fade Video */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/who-we-are-boardroom.jpg"
-                autoPlay loop muted playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Script overlay */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Real People</p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Collaborations</p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Impact</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>ANNUAL PEERS PUBLICATIONS</span>
               </div>
 
-              {/* Glass pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">OFFICIAL ANNUAL PUBLICATION</p>
-                  <p className="text-xs font-bold tracking-wider text-white">RECORDING THE IMPACT OF EVERY CIRCLE</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    ANNUAL PEERS PUBLICATIONS
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Every Circle Publishes Its Own{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Annual Magazine
                   </span>
-                </div>
-
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[60px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
-                  Circle Magazines
                 </h1>
-                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
-                  Every Circle publishes its own.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  The Peers, the collaborations, and the breakthroughs of the year — recorded properly in print and digital archives.
                 </p>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-lg">
-                  The Peers, the collaborations and the year, recorded properly in print and digital formats.
-                </p>
+              </div>
 
-                <div className="flex flex-wrap items-center gap-4 mb-10">
-                  <Link
-                    href="/unity"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <a
+                  href="#directory"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <BookOpen className="w-4 h-4 text-sky-400" />
+                  <span>Browse Issues</span>
+                </a>
+              </div>
 
-                  <a
-                    href="#directory"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold transition-all"
-                  >
-                    <BookOpen className="w-4 h-4 text-[#0062D2]" />
-                    <span>Browse Issues</span>
-                  </a>
+              {/* Stat Pill Band */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-6 border-t border-white/15">
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-sky-300 mb-0.5">
+                    <Users className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">19+</span>
+                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Active Circles</span>
                 </div>
 
-                {/* Stat Pill Band */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-6 border-t border-slate-200/80">
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <Users className="w-3.5 h-3.5" />
-                      <span className="text-lg font-serif font-bold text-slate-950">19+</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Active Circles</span>
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-sky-300 mb-0.5">
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">300+</span>
                   </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <BookOpen className="w-3.5 h-3.5" />
-                      <span className="text-lg font-serif font-bold text-slate-950">300+</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Founders Featured</span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <HeartHandshake className="w-3.5 h-3.5" />
-                      <span className="text-lg font-serif font-bold text-slate-950">100+</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Stories Published</span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span className="text-lg font-serif font-bold text-slate-950">1</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Global Ecosystem</span>
-                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Founders Featured</span>
                 </div>
 
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-rose-300 mb-0.5">
+                    <HeartHandshake className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">100+</span>
+                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Stories Published</span>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-amber-300 mb-0.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">1</span>
+                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Global Ecosystem</span>
+                </div>
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
@@ -537,45 +512,84 @@ export function CircleMagazinesClient() {
       </section>
 
       {/* ─── SECTION 5: Closing Banner ─── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-16 sm:py-20 lg:py-24 border-t border-slate-800">
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-16 sm:py-20 lg:py-24 border-t border-slate-800">
         {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
         />
 
+        {/* Subtle geometric orbital line art */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+          <svg
+            viewBox="0 0 760 520"
+            fill="none"
+            className="h-full w-full"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520"
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-blue-300/30"
+            />
+            <path
+              d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="5 8"
+              className="text-sky-200/25"
+            />
+            <path
+              d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520"
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-blue-200/20"
+            />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
+          </svg>
+        </div>
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-1">
-            <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+          <div className="inline-flex items-center gap-2.5">
+            <span className="h-[1.5px] w-6 bg-white/70" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
               Peers Global Ecosystem
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-bold text-white tracking-tight leading-tight">
-            Build Your Business. Build Your Relationships. Build Your Circle.
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-bold text-white tracking-tight leading-[1.15]">
+            Build Your Business.{' '}
+            <span className="bg-gradient-to-r from-[#60A5FA] to-[#F43F5E] bg-clip-text text-transparent">
+              Build Your Relationships.
+            </span>{' '}
+            Build Your Circle.
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-white/80 max-w-xl mx-auto leading-relaxed">
             Join verified business owners, record your shared milestones, and create lasting value.
           </p>
 
-          <div className="pt-2">
-            <Link
-              href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 text-xs sm:text-sm font-bold transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://unity.peersglobal.com"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-8 py-4 text-xs sm:text-sm font-bold tracking-wider text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
             >
               <span>Download Unity App</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
       </section>

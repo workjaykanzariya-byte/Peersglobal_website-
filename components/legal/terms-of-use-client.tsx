@@ -103,107 +103,63 @@ export function TermsOfUseClient() {
       </div>
 
       {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Ambient Lighting */}
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Home-style looping video backdrop with dark scrim */}
+        <video
+          className="absolute inset-0 size-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]"
+        />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Media Background Layer (Right ~60% fading into white on the left) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <img
-                src="/images/section_image/circle-roundtable-topdown.jpg"
-                alt="Peers Global Terms and Governance"
-                className="size-full object-cover object-center opacity-85"
-              />
-
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Clear Principles
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Protected Community
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Legal Certainty
-                </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="min-h-[480px] lg:min-h-[540px] flex items-center py-14 sm:py-20">
+            <div className="max-w-3xl flex flex-col items-start text-left">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
+                  LEGAL AGREEMENT &amp; GOVERNANCE
+                </span>
               </div>
 
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    GOVERNANCE COVENANT
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    CIN: U22219GJ2022PTC137646
-                  </p>
-                </div>
-              </div>
-            </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14] mb-4">
+                Platform Terms{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                  of Use.
+                </span>
+              </h1>
 
-            {/* Left Content Area */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
-                
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    LEGAL AGREEMENT &amp; GOVERNANCE
-                  </span>
-                </div>
+              <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed mb-5 max-w-2xl">
+                Governing rules for accessing the Peers Global platform, website, mobile ecosystem, and digital collaboration tools.
+              </p>
 
-                {/* H1 Heading */}
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-950 tracking-tight leading-[1.12] mb-4">
-                  Platform Terms <br />
-                  <span className="italic bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent font-medium">
-                    of Use.
-                  </span>
-                </h1>
+              <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3 py-0.5 mb-6 max-w-xl">
+                Our covenants protect genuine founders and ensure an unpolluted space for non-zero-sum collaboration.
+              </p>
 
-                {/* Subtitle & Descriptions */}
-                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-6 max-w-lg">
-                  Governing rules for accessing the Peers Global platform, website, mobile ecosystem, and digital collaboration tools.
-                </p>
-
-                {/* Featured Highlight Quote Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
-                  <p className="font-serif italic text-slate-900 text-sm sm:text-base font-medium">
-                    “Our covenants protect genuine founders and ensure an unpolluted space for non-zero-sum collaboration.”
-                  </p>
-                </div>
-
-                {/* Trust Badges */}
-                <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 font-mono text-[11px] shadow-2xs">
-                    CIN: U22219GJ2022PTC137646
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-100 font-mono text-[11px]">
-                    Ahmedabad, Gujarat Jurisdiction
-                  </span>
-                </div>
-
+              <div className="flex flex-wrap items-center gap-2 text-xs font-medium">
+                <span className="px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 font-mono text-[11px] backdrop-blur-sm">
+                  CIN: U22219GJ2022PTC137646
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 font-mono text-[11px] backdrop-blur-sm">
+                  Ahmedabad, Gujarat Jurisdiction
+                </span>
               </div>
             </div>
-
           </div>
+
+
 
           {/* 4-Item Floating Stats Bar */}
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

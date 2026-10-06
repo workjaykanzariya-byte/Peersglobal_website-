@@ -161,108 +161,90 @@ export function MeetingExperienceClient() {
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
 
       {/* =================================================================
-          SECTION 1: HERO — Fade Video Background
+          SECTION 1: HERO — MASTER FULL PAGE DARK VIDEO BANNER
           ================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/circles" className="hover:text-slate-900 transition-colors">Circles</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">The Circle Meeting Experience</span>
-          </div>
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <Link href="/circles" className="hover:text-white transition-colors">Circles</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">The Circle Meeting Experience</span>
+          </nav>
 
-          {/* Hero Banner */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-
-            {/* Fade Video */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/circles-hero-new.jpg"
-                autoPlay loop muted playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Script overlay */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Real People</p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Conversations</p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Impact</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE CIRCLE MEETING EXPERIENCE</span>
               </div>
 
-              {/* Glass pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">BETTER BUSINESSES</p>
-                  <p className="text-xs font-bold tracking-wider text-white">STRONGER RELATIONSHIPS · BRIGHTER LIVES</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">THE CIRCLE MEETING EXPERIENCE</span>
-                </div>
-
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[64px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
-                  Inside a Circle Meeting
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Inside a Circle Meeting —{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    The Four-Part Agenda
+                  </span>
                 </h1>
-                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
-                  Four parts. One purpose. Every Circle, every city, every month.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Four parts. One purpose. Every Circle, every city, every month. Here is the exact agenda so you know what to expect before you walk into the room.
                 </p>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-lg">
-                  Here is the exact agenda, so you know what to expect before you walk in.
-                </p>
+              </div>
 
-                <div className="flex flex-wrap items-center gap-4 mb-10">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank" rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <Smartphone className="size-4" />
-                    Download Unity App
-                  </a>
-                  <Link
-                    href="/circles/find"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs"
-                  >
-                    Visit as a Guest
-                  </Link>
-                </div>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <Smartphone className="size-4" />
+                  <span>Download Unity App</span>
+                </a>
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Visit as a Guest</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
 
-                {/* Stat Band */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg">
-                  {[
-                    { value: '500+', label: 'Circles Worldwide' },
-                    { value: '45+', label: 'Cities' },
-                    { value: '40–50', label: 'Peers per Circle' },
-                  ].map((s) => (
-                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-                      <div>
-                        <div className="font-bold text-base sm:text-xl text-[#0F172A] leading-none">{s.value}</div>
-                        <div className="text-[10px] text-slate-500 font-medium mt-1 leading-tight">{s.label}</div>
-                      </div>
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { value: '500+', label: 'Circles Worldwide' },
+                  { value: '45+', label: 'Cities' },
+                  { value: '40–50', label: 'Peers per Circle' },
+                ].map((s) => (
+                  <div key={s.label} className="flex items-center gap-2.5 p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                    <div>
+                      <div className="font-bold text-base sm:text-xl text-white leading-none">{s.value}</div>
+                      <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
                     </div>
-                  ))}
-                </div>
-
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -211,124 +211,94 @@ export function ExecutiveDirectorClient() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900">
       {/* ─── 1. HERO SECTION ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-5 sm:pt-6 pb-3 sm:pb-4 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          {heroMedia.isYouTube && heroMedia.embedUrl ? (
+            <iframe
+              src={`${heroMedia.embedUrl}&mute=1&loop=1`}
+              title={heroMedia.title}
+              className="size-full border-0 object-cover pointer-events-none scale-125 opacity-40"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
+          ) : (
+            <video
+              key={heroMedia.mediaUrl}
+              src={heroMedia.mediaUrl || '/videos/homepage-hero-bg.mp4'}
+              poster="/images/executive-director-hero.jpg"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="size-full object-cover"
+            />
+          )}
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-5">
-            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <ChevronRight className="size-3 text-slate-400" />
-            <Link href="/leadership" className="hover:text-[#0062D2] transition-colors">
+            <ChevronRight className="size-3 text-slate-500" />
+            <Link href="/leadership" className="hover:text-white transition-colors">
               Leadership
             </Link>
-            <ChevronRight className="size-3 text-slate-400" />
-            <span className="text-slate-800 font-semibold">Executive Director</span>
+            <ChevronRight className="size-3 text-slate-500" />
+            <span className="text-white font-semibold">Executive Director</span>
           </nav>
 
-          {/* Hero Banner Box */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
-            {/* Fade Video Visual (Right 60%) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-              }}
-            >
-              {heroMedia.isYouTube && heroMedia.embedUrl ? (
-                <iframe
-                  src={`${heroMedia.embedUrl}&mute=1&loop=1`}
-                  title={heroMedia.title}
-                  className="w-full h-full border-0 object-cover pointer-events-none scale-125"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
-              ) : (
-                <video
-                  key={heroMedia.mediaUrl}
-                  src={heroMedia.mediaUrl || '/videos/homepage-hero-bg.mp4'}
-                  poster="/images/executive-director-hero.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover object-center scale-105"
-                />
-              )}
-              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-
-              {/* Cursive Script Overlay */}
-              <div className="absolute top-6 sm:top-10 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p
-                  className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
-                  style={{ fontFamily: 'var(--font-script)' }}
-                >
-                  Build Relationships.
-                </p>
-                <p
-                  className="text-2xl sm:text-3xl text-white/95 leading-tight mt-0.5 font-medium"
-                  style={{ fontFamily: 'var(--font-script)' }}
-                >
-                  Strengthen Community.
-                </p>
-                <p
-                  className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5"
-                  style={{ fontFamily: 'var(--font-script)' }}
-                >
-                  Create Possibility.
-                </p>
-              </div>
-            </div>
-
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
             {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start space-y-5">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
-                    EXECUTIVE DIRECTOR
-                  </span>
-                </div>
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>EXECUTIVE DIRECTOR</span>
+              </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
-                  Executive Director
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Executive{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Director
+                  </span>
                 </h1>
 
-                <p className="text-base sm:text-lg font-semibold text-slate-800 leading-snug">
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
                   Regional ecosystem builder across cities, districts and states.
                 </p>
+              </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  A Circle brings people together. An Industry Director connects a sector. An Executive Director helps an entire territory become more connected. This is leadership at the ecosystem level. The responsibility is no longer limited to one Circle or one industry — it is about helping the PEERS GLOBAL community grow across a defined geography while keeping the culture, relationships and purpose intact.
-                </p>
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                A Circle brings people together. An Industry Director connects a sector. An Executive Director helps an entire territory become more connected. This is leadership at the ecosystem level. The responsibility is no longer limited to one Circle or one industry — it is about helping the PEERS GLOBAL community grow across a defined geography while keeping the culture, relationships and purpose intact.
+              </p>
 
-                <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                  <Link
-                    href="/contact?intent=leadership"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
-                  >
-                    <span>Apply to Lead</span>
-                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs"
-                  >
-                    <Users className="size-4 text-[#0062D2]" />
-                    <span>Download Unity App</span>
-                  </a>
-                </div>
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <Link
+                  href="/contact?intent=leadership"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                >
+                  <span>Apply to Lead</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                >
+                  <Users className="size-4 text-sky-400" />
+                  <span>Download Unity App</span>
+                </a>
               </div>
             </div>
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-4 sm:mt-5 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (

@@ -219,10 +219,10 @@ export function ClosingCtaSection({
               {primaryButtonText && primaryButtonHref && (
                 <Link
                   href={primaryButtonHref}
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-[#061836] shadow-md transition-all duration-200 hover:bg-slate-100 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] uppercase transition-all duration-200"
                 >
                   <span>{primaryButtonText}</span>
-                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-[#061836]" />
+                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-white" />
                 </Link>
               )}
 

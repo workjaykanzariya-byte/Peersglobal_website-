@@ -187,117 +187,118 @@ export function CircleMapClient() {
       {/* =========================================================================
           SECTION 1: HERO (THE SIGNATURE MAP HERO WITH VIDEO BACKDROP)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+      {/* =========================================================================
+          SECTION 1: HERO (MASTER FULL PAGE DARK VIDEO BANNER)
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/circles" className="hover:text-slate-900 transition-colors">Circles</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">The Map</span>
-          </div>
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <Link href="/circles" className="hover:text-white transition-colors">Circles</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">The Map</span>
+          </nav>
 
-          {/* Hero Banner */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-            
-            {/* Fade Video Backdrop */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/circles-hero-new.jpg"
-                autoPlay loop muted playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Script overlay */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Where We Are</p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Every Live Pin</p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Right Now.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>WHERE THIS COMMUNITY IS, RIGHT NOW</span>
               </div>
 
-              {/* Glass pill badge */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">REAL-TIME PRESENCE</p>
-                  <p className="text-xs font-bold tracking-wider text-white">ACTIVE SCHEDULED MEETINGS ONLY</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
-                
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">WHERE THIS COMMUNITY IS, RIGHT NOW</span>
-                </div>
-
-                <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
-                  The Map
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Where This Community Meets{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Across Cities &amp; Countries
+                  </span>
                 </h1>
-
-                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
-                  Where this community is, right now.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Every pin represents a live Circle with scheduled monthly meetings, active governance, and vetted local entrepreneurs.
                 </p>
+              </div>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-lg">
-                  Every Circle begins with people. As those people come together across cities, districts, states and countries, a governed community takes shape. Every pin represents a live Circle with a scheduled meeting.
-                </p>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Find Your Circle</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link
+                  href="/start-a-circle"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Start a Circle</span>
+                </Link>
+              </div>
 
-                <div className="flex flex-wrap items-center gap-4 mb-10">
-                  <Link
-                    href="/circles/find"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>Find Your Circle</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                  <Link
-                    href="/start-a-circle"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs inline-flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>Start a Circle</span>
-                  </Link>
-                </div>
-
-                {/* Stat Band */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg">
-                  {[
-                    { icon: Building2, value: '500+', label: 'Live Circles' },
-                    { icon: MapPin, value: '45+', label: 'Active Cities' },
-                    { icon: Globe, value: '100%', label: 'Real Ground Data' },
-                  ].map((s) => {
-                    const Icon = s.icon
-                    return (
-                      <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-                        <div className="size-9 rounded-full bg-white flex items-center justify-center text-[#0062D2] shadow-2xs shrink-0">
-                          <Icon className="size-4" />
-                        </div>
-                        <div>
-                          <div className="font-bold text-base sm:text-lg text-[#0F172A] leading-none">{s.value}</div>
-                          <div className="text-[10px] text-slate-500 font-medium mt-1 leading-tight">{s.label}</div>
-                        </div>
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: Building2, value: '500+', label: 'Live Circles' },
+                  { icon: MapPin, value: '45+', label: 'Active Cities' },
+                  { icon: Globe, value: '100%', label: 'Real Ground Data' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
                       </div>
-                    )
-                  })}
-                </div>
-
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Where
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                We Are
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Right Now
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -782,66 +783,96 @@ export function CircleMapClient() {
       {/* =========================================================================
           SECTION 6: CLOSING BANNER (FIND YOUR CIRCLE)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white">
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-16 sm:py-20 lg:py-24 text-white">
+        {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
         />
 
+        {/* Subtle geometric orbital line art */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+          <svg
+            viewBox="0 0 760 520"
+            fill="none"
+            className="h-full w-full"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520"
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-blue-300/30"
+            />
+            <path
+              d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="5 8"
+              className="text-sky-200/25"
+            />
+            <path
+              d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520"
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-blue-200/20"
+            />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
+          </svg>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
             
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+            <div className="flex max-w-3xl flex-col gap-3.5">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[1.5px] w-6 bg-white/70" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
                   THE MAP
                 </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white">
-                <span className="brand-gradient-text">Every pin is a live Circle with a scheduled meeting.</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.75rem] font-bold leading-[1.15] tracking-tight text-white">
+                Every pin is a live Circle with a{' '}
+                <span className="bg-gradient-to-r from-[#60A5FA] to-[#F43F5E] bg-clip-text text-transparent">
+                  scheduled meeting.
+                </span>
               </h2>
 
-              <p className="text-base sm:text-lg font-medium text-slate-200 max-w-xl">
-                A view of where the community is today—and where relationships may take it next.
+              <p className="text-base sm:text-lg font-medium text-white/95 mt-1">
+                A view of where the community is today — and where relationships may take it next.
               </p>
 
-              <div className="text-xs text-sky-300 tracking-wider font-semibold">
-                Explore the map. Discover the community. Find where you may belong.
-              </div>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  href="/circles/find"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
-                >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-
-                <Link
-                  href="/start-a-circle"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
-                >
-                  <span>Start a Circle</span>
-                </Link>
-              </div>
-
-              <div className="pt-2 text-xs text-slate-400">
-                Designed in Bharat. Connecting local rooms to global opportunities.
-              </div>
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed max-w-2xl">
+                Explore the map. Discover the community. Find where you belong across 45+ cities and international chapters.
+              </p>
             </div>
 
-            <div className="lg:col-span-4 text-right flex justify-end">
-              <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
+            <div className="flex shrink-0 flex-wrap items-center gap-4">
+              <Link
+                href="/circles/find"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-8 py-4 text-xs sm:text-sm font-bold tracking-wider text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
               >
-                Where <br />
-                We Are <br />
-                <span className="text-[#7DD3FC]">Right Now</span>
-              </div>
+                <span>Find Your Circle</span>
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+
+              <Link
+                href="/start-a-circle"
+                className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/[0.08] px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/15 hover:border-white/70 active:scale-[0.98] uppercase cursor-pointer"
+              >
+                <span>Start a Circle</span>
+              </Link>
             </div>
 
           </div>

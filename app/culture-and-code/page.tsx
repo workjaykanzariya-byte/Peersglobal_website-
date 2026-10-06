@@ -247,95 +247,118 @@ export default function CultureAndCodePage() {
 
       {/* =========================================================================
           SECTION 1: HERO ("OUR CULTURE & CODE")
+      {/* =========================================================================
+          SECTION 1: HERO (Master Full Page Dark Video Banner)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#040812] via-[#071328] to-[#040812] text-white pt-10 pb-20 sm:pb-28 border-b border-slate-800">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[140px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-1/2 right-10 h-[400px] w-[400px] rounded-full bg-rose-600/10 blur-[130px]"
-        />
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-14 sm:pb-20 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-medium tracking-wide mb-8 sm:mb-12">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
             <ChevronRight className="size-3.5 text-slate-500" />
             <span className="text-slate-400">Our World</span>
             <ChevronRight className="size-3.5 text-slate-500" />
-            <span className="brand-gradient-text font-bold">
-              Our Culture &amp; Code
-            </span>
+            <span className="text-white font-semibold">Our Culture &amp; Code</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-6 flex flex-col items-start space-y-6">
-              <div className="inline-flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  OUR CULTURE &amp; CODE
-                </span>
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE PEERS CODE · 6 COMMITMENTS</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-[62px] font-bold text-white tracking-tight leading-[1.08]">
-                <span>Our Culture &amp;</span>{' '}
-                <span className="brand-gradient-text block sm:inline">
-                  Code
-                </span>
-              </h1>
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  Our Culture &amp;{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Code.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Culture is what a community does, repeatedly, until it becomes who they are. Our language tells us what we mean. Our Code tells us how we behave.
+                </p>
+              </div>
 
-              <p className="text-lg sm:text-xl text-slate-200 font-medium leading-relaxed max-w-xl">
-                Culture is what a community does, repeatedly, until it becomes who they are.
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-400 font-normal leading-relaxed max-w-xl">
-                Our language tells us what we mean. Our Code tells us how we behave. Our rituals give us opportunities to practise that behaviour.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-xl shadow-blue-900/40 hover:shadow-2xl hover:-translate-y-0.5 transition-all group"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
                 >
                   <span>Become a Peer</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
                 <a
                   href="#the-code"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white px-8 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-xs"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
                 >
-                  Read The Peers Code
+                  <span>Read The Peers Code</span>
                 </a>
+              </div>
+
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: Shield, value: '6', label: 'Code Commitments' },
+                  { icon: Sparkles, value: '5', label: 'Recurring Rituals' },
+                  { icon: HeartHandshake, value: '100%', label: 'Give-First Mindset' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-[32px] overflow-hidden border border-white/15 shadow-2xl aspect-[16/11] sm:aspect-[16/10] bg-slate-900 group">
-                <Image
-                  src="/images/language-hero-desk.jpg"
-                  alt="The Peers Code journal on executive desk"
-                  fill
-                  priority
-                  className="object-cover object-center brightness-[0.95] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-                <div className="absolute bottom-5 right-6 sm:bottom-7 sm:right-7 pointer-events-none select-none text-right">
-                  <div
-                    className="text-white/95 text-lg sm:text-xl font-normal leading-tight drop-shadow-lg"
-                    style={{ fontFamily: 'var(--font-script, cursive)' }}
-                  >
-                    Written down. <br />
-                    Lived out. <br />
-                    <span className="text-amber-300 font-medium">Across every room.</span>
-                  </div>
-                </div>
-              </div>
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Written Down
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Lived Out
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Across Every Room
+              </p>
             </div>
           </div>
         </div>

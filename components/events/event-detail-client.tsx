@@ -846,12 +846,15 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
                     </label>
                     <input
                       type="tel"
+                      inputMode="numeric"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
                       required
                       value={formData.phone}
                       onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
+                        setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })
                       }
-                      placeholder="+91 98765 43210"
+                      placeholder="9876543210"
                       className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs text-slate-800 placeholder:text-slate-400 focus:border-[#0062D2] focus:outline-none"
                     />
                   </div>

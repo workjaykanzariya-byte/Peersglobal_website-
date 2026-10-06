@@ -91,125 +91,122 @@ export function TheIdeaClient() {
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-[#0062D2] selection:text-white font-sans">
 
       {/* =========================================================================
-          1. HERO SECTION (MASTER HERO BANNER CARD)
+          1. HERO SECTION (SIGNATURE MASTER HERO STYLE)
           ========================================================================= */}
-      <section id="the-idea" className="relative overflow-hidden border-b border-cool-grey-250/80 bg-gradient-to-b from-white via-[#FAFBFD] to-white pt-6 sm:pt-10 pb-12 sm:pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="the-idea" className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Background video layer */}
+        <video
+          className="absolute inset-0 size-full object-cover opacity-60"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          poster="/images/who-we-are-boardroom.jpg"
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        {/* Subtle, normal backdrop gradient so video is crisp and visible */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.70)_0%,rgba(4,15,36,0.50)_45%,rgba(4,15,36,0.30)_100%)]"
+        />
 
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-cool-grey-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="brand-gradient-text font-bold">The Idea</span>
-          </div>
-
-          {/* Master Hero Banner Card */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-cool-grey-250 shadow-sm min-h-[500px] lg:min-h-[540px] flex items-center">
-
-            {/* Right Media Background Layer (Signature mist fade) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/who-we-are-boardroom.jpg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="size-full object-cover object-center"
-              />
-
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Never Build
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Alone Again
-                </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center py-14 sm:py-20">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Breadcrumbs */}
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-medium tracking-wide">
+                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <ChevronRight className="size-3.5 text-slate-400" />
+                <span className="text-sky-300 font-semibold">The Idea</span>
               </div>
 
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    THE PHILOSOPHY OF PEERS GLOBAL
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    COMMUNITY OF COLLABORATION
-                  </p>
-                </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-xs uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+                <span>THE PHILOSOPHY OF PEERS GLOBAL</span>
               </div>
-            </div>
 
-            {/* Left Content Area */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start space-y-4">
-
-                {/* Eyebrow */}
-                <div className="flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    THE IDEA
-                  </span>
-                </div>
-
-                {/* Main Heading */}
-                <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-bold text-[#0f131a] tracking-tight leading-[1.1]">
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] text-white font-serif">
                   <span>The</span>{' '}
-                  <span className="brand-gradient-text">Idea</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Idea.
+                  </span>
                 </h1>
-
-                {/* Subline */}
-                <p className="text-xl sm:text-2xl font-semibold text-slate-800 leading-snug">
+                <p className="text-xl sm:text-2xl text-slate-200 font-medium leading-snug">
                   Entrepreneurs should not have to build alone.
                 </p>
+              </div>
 
-                {/* Intro Narrative */}
-                <div className="space-y-2 text-sm sm:text-base text-cool-grey-600 font-normal leading-relaxed max-w-lg">
-                  <p className="text-slate-800 font-medium">
-                    There is a side of entrepreneurship that rarely appears in photographs.
-                  </p>
-                  <p className="text-xs sm:text-sm text-cool-grey-500">
-                    The meetings are visible. The launches are visible. The growth is visible. But much of the journey happens quietly.
-                  </p>
-                </div>
+              <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3.5 py-0.5 max-w-2xl">
+                &ldquo;There is a side of entrepreneurship that rarely appears in photographs. PEERS GLOBAL exists to bring trust, shared strength, and collective momentum into that journey.&rdquo;
+              </p>
 
-                {/* CTAs */}
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-blue-500/30 hover:shadow-rose-500/40 hover:-translate-y-0.5 hover:opacity-95 transition-all duration-300 group cursor-pointer uppercase tracking-wider"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
 
-                  <a
-                    href="#the-quiet-journey"
-                    className="inline-flex items-center gap-2 rounded-full border border-cool-grey-250 bg-white hover:bg-slate-50 text-slate-800 px-8 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-xs"
-                  >
-                    Read the Story
-                  </a>
-                </div>
+                <a
+                  href="#the-quiet-journey"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-black/30 hover:bg-black/50 text-white font-medium text-sm backdrop-blur-xs transition-all duration-300"
+                >
+                  <span>Read the Story</span>
+                </a>
+              </div>
 
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/20">
+                {[
+                  { icon: HeartHandshake, value: 'Trust First', label: 'Foundation of Every Circle' },
+                  { icon: Sparkles, value: 'Give First', label: 'Core Culture & Currency' },
+                  { icon: ShieldCheck, value: 'Shared Strength', label: 'No One Builds Alone' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div
+                      key={s.label}
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-black/30 hover:bg-black/40 border border-white/20 backdrop-blur-xs transition-all"
+                    >
+                      <div className="size-10 rounded-xl bg-blue-500/25 border border-blue-400/35 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
+                        <Icon className="size-5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                          {s.value}
+                        </div>
+                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                          {s.label}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-xl space-y-1.5">
+              <p className="text-2xl sm:text-3xl text-white/80 leading-tight italic font-serif">
+                Never Build Alone
+              </p>
+              <p className="text-3xl sm:text-4xl text-white leading-tight font-bold italic font-serif">
+                Partners in Business
+              </p>
+              <p className="text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-rose-300 font-bold italic font-serif leading-tight">
+                Friends in Life
+              </p>
+            </div>
           </div>
-
         </div>
       </section>
 

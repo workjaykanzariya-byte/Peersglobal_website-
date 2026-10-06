@@ -215,7 +215,7 @@ export function SitemapClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
       {/* ── Breadcrumb ── */}
-      <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
+      <div className="border-b border-slate-200/70 bg-white shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
           <div className="flex items-center gap-2 text-slate-500 font-medium">
             <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
@@ -238,142 +238,126 @@ export function SitemapClient() {
       </div>
 
       {/* ── Signature Hero Section ── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Ambient Lighting */}
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Background video layer */}
+        <video
+          className="absolute inset-0 size-full object-cover opacity-35"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          poster="/images/section_image/circles-hero-new.jpg"
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        {/* Gradients to blend smoothly */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.85)_45%,rgba(4,15,36,0.65)_100%)]"
+        />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Media Background Layer (Right ~60% fading into white on the left) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <img
-                src="/images/section_image/circle-meeting.png"
-                alt="Peers Global Directory and Ecosystem Map"
-                className="size-full object-cover object-center opacity-85"
-              />
-
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Discover Your Path
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Connect With Peers
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Complete Ecosystem
-                </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center py-14 sm:py-20">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+                <span>ECOSYSTEM DIRECTORY &amp; SITEMAP</span>
               </div>
 
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    COMPLETE INDEX
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    PEERS GLOBAL SITEMAP
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content Area */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
-                
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    ECOSYSTEM DIRECTORY &amp; SITEMAP
-                  </span>
-                </div>
-
-                {/* H1 Heading */}
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-950 tracking-tight leading-[1.12] mb-4">
-                  Ecosystem <br />
-                  <span className="italic bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent font-medium">
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] text-white font-serif">
+                  Ecosystem{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
                     Directory &amp; Map.
                   </span>
                 </h1>
-
-                {/* Subtitle & Descriptions */}
-                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-6 max-w-lg">
-                  A comprehensive directory of every page, circle network, leadership pathway, governance charter, and community tool across our ecosystem.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  A comprehensive directory of every chapter, leadership pathway, governance framework, and resource across Peers Global.
                 </p>
+              </div>
 
-                {/* Featured Highlight Quote Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
-                  <p className="font-serif italic text-slate-900 text-sm sm:text-base font-medium">
-                    “Wherever you begin, there is a next step. Find your people. Find what you can contribute.”
-                  </p>
-                </div>
+              <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3.5 py-0.5 max-w-2xl">
+                &ldquo;Wherever you begin, there is a next step. Find your people. Find what you can contribute.&rdquo;
+              </p>
 
-                {/* Trust Badges */}
-                <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 font-mono text-[11px] shadow-2xs">
-                    60+ Active Portals
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-100 font-mono text-[11px]">
-                    10 Strategic Pillars
-                  </span>
-                </div>
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="#directory-grid"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-blue-500/30 hover:shadow-rose-500/40 hover:-translate-y-0.5 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Explore All Portals</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
 
+                <Link
+                  href="/circles"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Find Your Circle</span>
+                </Link>
+              </div>
+
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/15">
+                {[
+                  { icon: Map, value: '10 Pillars', label: 'Ecosystem Architecture' },
+                  { icon: Globe, value: '60+ Portals', label: 'Active Directory Index' },
+                  { icon: Sparkles, value: 'Real-Time', label: 'Live Resolution' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div
+                      key={s.label}
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all"
+                    >
+                      <div className="size-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
+                        <Icon className="size-5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                          {s.value}
+                        </div>
+                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                          {s.label}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-          </div>
-
-          {/* 4-Item Floating Stats Bar */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { val: '10 Pillars', label: 'Ecosystem Portals', sub: 'From Start Here to Governance', tag: 'Architecture' },
-              { val: '60+ Pages', label: 'Active Directory', sub: 'Fully mapped and indexed', tag: 'Complete Scope' },
-              { val: 'Real-Time', label: 'Live Resolution', sub: 'Updated with each deployment', tag: 'Synchronized' },
-              { val: 'Public Access', label: 'Open Navigation', sub: 'Transparent founder access', tag: 'Ecosystem' },
-            ].map((stat, idx) => (
-              <div
-                key={idx}
-                className="group relative rounded-2xl bg-white border border-slate-200/90 p-5 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all duration-300 overflow-hidden"
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-xl space-y-1.5">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight italic font-serif"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
-                    {stat.tag}
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                </div>
-                <div className="font-serif text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                  {stat.val}
-                </div>
-                <div className="text-sm font-bold text-slate-900 mt-1">{stat.label}</div>
-                <div className="text-xs text-slate-500 font-normal mt-0.5 leading-relaxed">{stat.sub}</div>
-              </div>
-            ))}
+                Discover Your Path
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold italic font-serif"
+              >
+                Connect With Peers
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-rose-300 font-bold italic font-serif leading-tight"
+              >
+                Complete Ecosystem
+              </p>
+            </div>
           </div>
-
         </div>
       </section>
 
       {/* ── Quick Access & Search Ribbon ── */}
-      <section className="py-6 border-b border-slate-200 bg-white sticky top-[49px] z-20 shadow-2xs backdrop-blur-md bg-white/95">
+      <section className="py-5 border-b border-slate-200/90 bg-white/95 backdrop-blur-md shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          
+
           {/* Search Input */}
           <div className="relative w-full md:w-80">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -409,7 +393,7 @@ export function SitemapClient() {
       {/* ── 10-Pillar Sitemap Grid ── */}
       <section id="directory-grid" className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
               <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
@@ -516,7 +500,7 @@ export function SitemapClient() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
+
             {/* Left Col (5 cols): Statement & Authority */}
             <div className="lg:col-span-5 space-y-4 text-left">
               <div className="flex items-center gap-2.5">

@@ -161,136 +161,105 @@ export function MembershipPageClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-[#0062D2] selection:text-white font-sans antialiased">
       
-      {/* ─── Breadcrumb ────────────────────────────────────────────────── */}
-      <div className="bg-white border-b border-slate-100 sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
-            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+      {/* =========================================================================
+          SECTION 1: HERO (WHY JOIN PEERS GLOBAL — MASTER DARK VIDEO BANNER)
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/membership-hero-peers.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Membership</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-white font-semibold">Membership</span>
           </nav>
-        </div>
-      </div>
 
-      {/* =========================================================================
-          SECTION 1: HERO (WHY JOIN PEERS GLOBAL — SIGNATURE HERO BANNER)
-          ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Hero Banner */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-
-            {/* Fade Video Backdrop */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/membership-hero-peers.jpg"
-                autoPlay loop muted playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Script overlay */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Real People</p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Conversations</p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Impact</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>WHY JOIN PEERS GLOBAL</span>
               </div>
 
-              {/* Glass pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">PEER IS WHAT YOU BECOME</p>
-                  <p className="text-xs font-bold tracking-wider text-white">100% VERIFIED FOUNDERS &amp; EXECUTIVES</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start space-y-4">
-                <div className="flex items-center gap-2.5 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                    Why Join Peers Global
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Because your next breakthrough will not come from{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    working harder alone
                   </span>
-                </div>
-
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.15]">
-                  Because your next breakthrough will not come from working harder alone.
                 </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Entrepreneurs carry the decisions, responsibility, and uncertainty. PEERS GLOBAL begins with a different belief: You were never meant to build alone.
+                </p>
+              </div>
 
-                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  <p>
-                    Entrepreneurs are used to solving problems themselves. You carry the decisions, the responsibility, and the uncertainty—often without having enough people around you who truly understand what it means to build a business.
-                  </p>
-                  <p className="font-semibold text-slate-900 pt-0.5">
-                    PEERS GLOBAL begins with a different belief: <span className="text-[#0062D2]">You were never meant to build alone.</span>
-                  </p>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Find Your Circle</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <Smartphone className="size-4 text-sky-400" />
+                  <span>Download Unity App</span>
+                </a>
+              </div>
+
+              {/* Stat Pill Band */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-white/15">
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-sky-300 mb-0.5">
+                    <Users2 className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">45+</span>
+                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Active Cities</span>
                 </div>
 
-                {/* CTAs */}
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/circles/find"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
-                  >
-                    <span>Find Your Circle</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold transition-all shadow-2xs uppercase tracking-wider"
-                  >
-                    <Smartphone className="size-4 text-[#0062D2]" />
-                    <span>Download Unity App</span>
-                  </a>
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-rose-300 mb-0.5">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">100%</span>
+                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Verified Founders</span>
                 </div>
 
-                {/* Stat Pill Band */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-200/80">
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <Users2 className="w-3.5 h-3.5" />
-                      <span className="text-lg font-bold text-slate-900">45+</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Active Cities</span>
+                <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 text-amber-300 mb-0.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span className="text-lg font-bold text-white">1M+</span>
                   </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                      <span className="text-lg font-bold text-slate-900">100%</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Verified Founders</span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60">
-                    <div className="flex items-center gap-1.5 text-[#0062D2] mb-0.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span className="text-lg font-bold text-slate-900">1M+</span>
-                    </div>
-                    <span className="text-[11px] text-slate-500 font-medium">Lives Impact Mission</span>
-                  </div>
+                  <span className="text-[11px] text-slate-300 font-medium">Lives Impact Mission</span>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </section>

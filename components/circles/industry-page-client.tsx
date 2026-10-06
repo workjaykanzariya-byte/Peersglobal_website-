@@ -232,128 +232,114 @@ export function IndustryPageClient() {
       {/* =========================================================================
           SECTION 1: HERO
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/circles" className="hover:text-slate-900 transition-colors">Circles</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">Industry Circles</span>
-          </div>
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/circles-hero-new.jpg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <Link href="/circles" className="hover:text-white transition-colors">Circles</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">Industry Circles</span>
+          </nav>
 
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script, cursive)' }}>
-                  Different Industries
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script, cursive)' }}>
-                  Same Purpose
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script, cursive)' }}>
-                  Greater Impact
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>BROWSE BY INDUSTRY</span>
+              </div>
+
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  A Room Where Nobody Needs{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Your Business Explained.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Your industry shapes your challenges, your language, and your opportunities. An Industry Circle brings vetted entrepreneurs together around that shared context with category exclusivity.
                 </p>
               </div>
 
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    9 SECTORS • CATEGORY EXCLUSIVE
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    YOUR INDUSTRY. YOUR ROOM.
-                  </p>
-                </div>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Find a Circle Near You</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link
+                  href="/circles"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Explore All Circles</span>
+                </Link>
+              </div>
+
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: Factory, value: '9', label: 'Industry Sectors' },
+                  { icon: Lock, value: '1 Seat', label: 'Per Category' },
+                  { icon: Users, value: '20–40', label: 'Curated Peers' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    BROWSE BY INDUSTRY
-                  </span>
-                </div>
-
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-[68px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
-                  Industry Circles
-                </h1>
-
-                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
-                  A room where nobody needs your business explained to them.
-                </p>
-
-                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8 max-w-lg">
-                  Your industry shapes your challenges, your opportunities, your language—and often the kind of experience that can help you move forward. An Industry Circle brings entrepreneurs together around that shared context. Because sometimes the most valuable conversation begins when you do not have to explain the basics.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-4 mb-10">
-                  <Link
-                    href="/circles/find"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <span>Find a Circle Near You</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                  <Link
-                    href="/circles"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 backdrop-blur-sm text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs"
-                  >
-                    Explore All Circles
-                  </Link>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 w-full max-w-lg">
-                  <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-                    <div className="size-9 rounded-full bg-white flex items-center justify-center text-[#0062D2] shadow-2xs shrink-0">
-                      <Factory className="size-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-base sm:text-lg text-[#0F172A] leading-none">9</div>
-                      <div className="text-[11px] text-slate-500 font-medium mt-1">Industry circles</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-                    <div className="size-9 rounded-full bg-white flex items-center justify-center text-[#0062D2] shadow-2xs shrink-0">
-                      <Lock className="size-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-base sm:text-lg text-[#0F172A] leading-none">1</div>
-                      <div className="text-[11px] text-slate-500 font-medium mt-1">Per category</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-                    <div className="size-9 rounded-full bg-white flex items-center justify-center text-[#0062D2] shadow-2xs shrink-0">
-                      <Users className="size-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-base sm:text-lg text-[#0F172A] leading-none">20–40</div>
-                      <div className="text-[11px] text-slate-500 font-medium mt-1">Curated Peers</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Different Industries
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Same Purpose
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Greater Impact
+              </p>
             </div>
           </div>
         </div>

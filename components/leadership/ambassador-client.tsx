@@ -36,6 +36,7 @@ import {
   Smile,
 } from 'lucide-react'
 import { usePageMedia } from '@/lib/hooks/use-page-media'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
@@ -190,139 +191,104 @@ export function AmbassadorClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900">
-      {/* ─── 1. HERO SECTION ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-5 sm:pt-6 pb-3 sm:pb-4 border-b border-slate-200/80 bg-gradient-to-b from-white via-[#F6F9FD] to-[#EDF3FB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─── 1. HERO SECTION (MASTER HOMEPAGE HERO STYLE) ──────────────── */}
+      <section className="relative min-h-[560px] sm:min-h-[620px] lg:min-h-[680px] bg-[#040F24] text-white flex items-center overflow-hidden">
+        {/* Background video layer */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          {heroMedia.isYouTube && heroMedia.embedUrl ? (
+            <iframe
+              src={`${heroMedia.embedUrl}&mute=1&loop=1`}
+              title={heroMedia.title}
+              className="w-full h-full border-0 object-cover pointer-events-none scale-125 opacity-40"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
+          ) : (
+            <video
+              key={heroMedia.mediaUrl}
+              src={heroMedia.mediaUrl || '/videos/journey-bg.mp4'}
+              poster="/images/leadership-ambassador.jpg"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover object-center opacity-40 scale-105"
+            />
+          )}
+          {/* Gradients to blend smoothly */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#040F24] via-[#040F24]/85 to-transparent sm:w-3/4" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#040F24] via-transparent to-[#040F24]/60" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-5">
-            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-300 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
             <ChevronRight className="size-3 text-slate-400" />
-            <Link href="/leadership" className="hover:text-[#0062D2] transition-colors">
+            <Link href="/leadership" className="hover:text-white transition-colors">
               Leadership
             </Link>
             <ChevronRight className="size-3 text-slate-400" />
-            <span className="text-slate-800 font-semibold">Ambassadors</span>
+            <span className="text-sky-300 font-semibold">Ambassadors</span>
           </nav>
 
-          {/* Hero Banner Box */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[520px] lg:min-h-[580px] flex items-center">
-            {/* Fade Video Visual (Right 60%) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[58%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-                WebkitMaskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.6) 28%, black 55%)',
-              }}
-            >
-              {heroMedia.isYouTube && heroMedia.embedUrl ? (
-                <iframe
-                  src={`${heroMedia.embedUrl}&mute=1&loop=1`}
-                  title={heroMedia.title}
-                  className="w-full h-full border-0 object-cover pointer-events-none scale-125"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
-              ) : (
-                <video
-                  key={heroMedia.mediaUrl}
-                  src={heroMedia.mediaUrl || '/videos/journey-bg.mp4'}
-                  poster="/images/leadership-ambassador.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover object-center scale-105"
-                />
-              )}
-              <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-white via-white/85 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-
-              {/* Cursive Script Overlay */}
-              <div className="absolute top-6 sm:top-10 right-6 sm:right-10 z-20 text-right drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p
-                  className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
-                  style={{ fontFamily: 'var(--font-script)' }}
-                >
-                  Carry The Name.
-                </p>
-                <p
-                  className="text-2xl sm:text-3xl text-white/95 leading-tight mt-0.5 font-medium"
-                  style={{ fontFamily: 'var(--font-script)' }}
-                >
-                  Carry The Spirit.
-                </p>
-                <p
-                  className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-0.5"
-                  style={{ fontFamily: 'var(--font-script)' }}
-                >
-                  Create Trust.
-                </p>
-              </div>
+          <div className="max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold text-slate-200">
+              <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+              AMBASSADOR LEADERSHIP
             </div>
 
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
-                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="brand-gradient-text">AMBASSADOR</span>
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                </div>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+              <span>Ambassador</span>{' '}
+              <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400 bg-clip-text text-transparent">Role</span>
+            </h1>
 
-                <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-950 leading-[1.08] mb-4">
-                  Ambassador
-                </h1>
+            <p className="text-xl sm:text-2xl font-medium text-slate-200 leading-snug">
+              You carry the name. You carry the trust.
+            </p>
 
-                <p className="text-xl sm:text-2xl font-medium text-slate-900 leading-snug mb-3">
-                  You carry the name.
-                </p>
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-light">
+              An Ambassador represents more than a community. You carry its spirit into conversations, relationships, cities, industries and opportunities. You are often the person someone encounters before they ever experience PEERS GLOBAL for themselves.
+            </p>
 
-                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl font-light">
-                  An Ambassador represents more than a community. You carry its spirit into conversations, relationships, cities, industries and opportunities. You are often the person someone encounters before they ever experience PEERS GLOBAL for themselves. That makes the role meaningful. Because when you carry the name, you also carry the responsibility of representing what the community believes in.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
-                  <Link
-                    href="/contact?intent=leadership"
-                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-8 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
-                  >
-                    <span>Apply to Lead</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
-              </div>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-2"
+              >
+                <span>Download Unity App</span>
+                <ArrowRight className="size-4" />
+              </a>
+              <Link
+                href="/contact?intent=leadership"
+                className="rounded-full border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all inline-flex items-center gap-2 shadow-sm"
+              >
+                <span>Become an Ambassador</span>
+                <ArrowRight className="size-4" />
+              </Link>
             </div>
           </div>
-
           {/* Floating Stats Bar */}
-          <div className="mt-4 sm:mt-5 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+                  className="rounded-2xl bg-white/5 border border-white/10 p-5 flex items-center gap-4 shadow-sm backdrop-blur-xs"
                 >
-                  <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                  <div className="size-12 rounded-xl bg-blue-500/20 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30">
                     <Icon className="size-6" />
                   </div>
                   <div>
-                    <div className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 leading-none">
+                    <div className="font-serif text-2xl sm:text-3xl font-bold text-white leading-none">
                       {stat.value}
                     </div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-slate-300 mt-1">
                       {stat.label}
                     </div>
                   </div>
@@ -390,69 +356,49 @@ export function AmbassadorClient() {
         </div>
       </section>
 
-      {/* ─── 3. WHAT THE ROLE CARRIES (3 PILLARS - DARK THEME) ────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] py-20 sm:py-24 lg:py-28 text-white border-b border-slate-800/80">
-        <div aria-hidden className="pointer-events-none absolute top-1/4 left-10 size-[320px] rounded-full bg-blue-600/12 blur-[120px]" />
-        <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 size-[380px] rounded-full bg-cyan-500/8 blur-[140px]" />
-        <div aria-hidden className="pointer-events-none absolute top-10 right-1/3 size-[250px] rounded-full bg-indigo-600/8 blur-[100px]" />
-
-        <svg viewBox="0 0 1400 600" className="absolute inset-0 size-full pointer-events-none opacity-20" preserveAspectRatio="none">
-          <g fill="#38BDF8">
-            <circle cx="80" cy="60" r="1.5" /><circle cx="200" cy="130" r="1" /><circle cx="340" cy="45" r="2" />
-            <circle cx="500" cy="100" r="1.2" /><circle cx="680" cy="35" r="1.5" /><circle cx="850" cy="110" r="1" />
-            <circle cx="1020" cy="60" r="2" /><circle cx="1180" cy="160" r="1.2" /><circle cx="1340" cy="80" r="1.5" />
-            <circle cx="150" cy="500" r="1.2" /><circle cx="400" cy="540" r="1.8" /><circle cx="640" cy="560" r="1" />
-            <circle cx="900" cy="520" r="1.5" /><circle cx="1100" cy="550" r="1" /><circle cx="70" cy="320" r="1" />
-            <circle cx="310" cy="270" r="1.8" /><circle cx="760" cy="300" r="1.2" /><circle cx="1260" cy="360" r="1" />
-          </g>
-          <g stroke="#38BDF8" strokeWidth="0.5" opacity="0.35" fill="none">
-            <line x1="80" y1="60" x2="200" y2="130" /><line x1="200" y1="130" x2="340" y2="45" />
-            <line x1="500" y1="100" x2="680" y2="35" /><line x1="850" y1="110" x2="1020" y2="60" />
-            <line x1="1020" y1="60" x2="1180" y2="160" />
-          </g>
-        </svg>
-
+      {/* ─── 3. WHAT THE ROLE CARRIES (3 PILLARS - LIGHT THEME) ────────────── */}
+      <section className="relative overflow-hidden bg-[#FAFBFD] py-16 sm:py-20 lg:py-24 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 mb-3.5">
-              <span className="w-5 h-px bg-cyan-400" />
-              THREE CORE PILLARS
-              <span className="w-5 h-px bg-cyan-400" />
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
+              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <span className="brand-gradient-text">THREE CORE PILLARS</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-4">
               What the role carries
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
               The Ambassador role carries three essential dimensions that define how the community is introduced to the world.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {THREE_PILLARS.map((item) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.number}
-                  className="p-7 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] shadow-[0_20px_50px_rgba(11,21,40,0.35)] hover:border-cyan-500/50 hover:shadow-[0_25px_60px_rgba(56,189,248,0.12)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  className="relative p-8 rounded-3xl border border-slate-200/90 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
                 >
-                  <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.06] via-transparent to-black/30" />
+                  {/* Watermark Number */}
+                  <div className="absolute top-4 right-6 text-6xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50/70">
+                    {item.number}
+                  </div>
 
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-xs font-bold text-cyan-400 border border-cyan-500/30 px-2.5 py-1 rounded-full bg-cyan-500/10">
-                        {item.number}
-                      </span>
-                      <div className="size-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center group-hover:scale-110 group-hover:bg-cyan-500/25 transition-all shadow-inner">
-                        <Icon className="size-5" />
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="size-13 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shadow-sm border border-blue-100/70">
+                        <Icon className="size-6" />
                       </div>
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-white mb-1">
+
+                    <h3 className="font-serif text-2xl font-bold text-slate-950 mb-1 tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-cyan-300 font-semibold mb-3">
+                    <p className="text-xs font-bold text-[#0062D2] mb-4 uppercase tracking-wider">
                       {item.headline}
                     </p>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                    <p className="text-sm text-slate-600 leading-relaxed font-light">
                       {item.desc}
                     </p>
                   </div>
@@ -725,106 +671,16 @@ export function AmbassadorClient() {
       </section>
 
       {/* ─── 9. CARRY THE NAME WITH MEANING (CLOSING HERO BANNER) ────────── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 lg:py-28">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
-        />
-
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg
-            viewBox="0 0 760 520"
-            fill="none"
-            className="h-full w-full"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-sky-200 mb-3">
-                <span className="w-5 h-px bg-sky-200" />
-                CARRY THE NAME WITH MEANING
-                <span className="w-5 h-px bg-sky-200" />
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
-                The community travels through people.
-              </h2>
-
-              <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light mb-3 max-w-2xl">
-                When you introduce PEERS GLOBAL to someone, you are not simply introducing an organisation. You may be introducing them to a relationship. A Circle. A possibility. A person who can help them. Or a person they may be able to help.
-              </p>
-
-              <p className="text-base sm:text-lg text-amber-300 font-medium leading-relaxed mb-8 max-w-2xl">
-                Carry the name with respect. Carry it with authenticity. Carry it with responsibility.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact?intent=leadership"
-                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2"
-                >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg">
-              <p
-                className="text-2xl sm:text-3xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Carry The Name.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium mt-1"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                With Respect.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-white leading-tight font-medium mt-1"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                With Authenticity.
-              </p>
-              <p
-                className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-1"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                With Responsibility.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="CARRY THE NAME WITH MEANING"
+        title="The community travels through people."
+        subtitle="When you introduce PEERS GLOBAL to someone, you may be introducing them to a relationship, a Circle, and a possibility."
+        description="Carry the name with respect. Carry it with authenticity. Carry it with responsibility."
+        primaryButtonText="APPLY TO LEAD"
+        primaryButtonHref="/contact?intent=leadership"
+        secondaryButtonText="DOWNLOAD UNITY APP"
+        secondaryButtonHref="https://unity.peersglobal.com"
+      />
     </div>
   )
 }

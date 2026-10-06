@@ -88,31 +88,44 @@ export function PeersCoinClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (PEERS COIN) ─── */}
-      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background & Overlay */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
-                  TOKEN OF RECOGNITION
-                </span>
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>TOKEN OF RECOGNITION</span>
               </div>
 
-              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
-                <span className="brand-gradient-text block">PEERS COIN</span>
-                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Peers{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Coin
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg text-slate-200 font-medium leading-relaxed">
                   The community gives back to those who give.
-                </span>
-              </h1>
+                </p>
+              </div>
 
-              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
-                <div className="space-y-1 pl-3 border-l-2 border-[#0062D2] text-sm sm:text-base text-slate-700 font-medium">
+              <div className="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                <div className="space-y-1 pl-3 border-l-2 border-blue-400 text-xs sm:text-sm text-slate-200 font-medium">
                   <p>Some contributions create an immediate result.</p>
                   <p>Some create a relationship.</p>
                   <p>Some help another Peer.</p>
@@ -122,61 +135,29 @@ export function PeersCoinClient() {
                 <p>
                   Peers Coin is one way PEERS GLOBAL recognises that spirit of contribution.
                 </p>
-                <p className="font-serif italic text-slate-900 font-medium text-base">
+                <p className="italic text-slate-200 font-medium text-xs sm:text-sm">
                   Not because everything meaningful should have a price. But because giving deserves to be noticed.
                 </p>
               </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-4">
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <Link
                   href="/how-to-earn-impact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
                 >
-                  <span>Discover the Impact System →</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Discover the Impact System</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link
                   href="/marketplace"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
                 >
-                  <span>Explore the Marketplace →</span>
+                  <span>Explore the Marketplace</span>
+                  <ChevronRight className="size-4 text-slate-300" />
                 </Link>
               </div>
             </div>
-
-            {/* Right Hero Visual Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
-                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
-                  <Image
-                    src="/images/culture-hero-desk.jpg"
-                    alt="Golden embossed Peers Coin token on wooden desk"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
-                  
-                  <div className="absolute top-5 right-5">
-                    <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 border border-amber-400/30 backdrop-blur-md text-[11px] font-mono font-bold uppercase tracking-wider">
-                      Non-Purchasable
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
-                      Give First Recognition
-                    </span>
-                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
-                      "A Peer's wallet is a record of what they gave."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
@@ -531,93 +512,107 @@ export function PeersCoinClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 7: CLOSING ROYAL HERO BANNER (GIVE FIRST. LET THE COMMUNITY GIVE BACK.) ── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* Geometric Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg
-            viewBox="0 0 600 600"
-            fill="none"
-            className="w-full h-full text-white/30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="300" cy="300" r="220" stroke="currentColor" strokeWidth="1.2" />
-            <circle cx="300" cy="300" r="160" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <circle cx="300" cy="300" r="100" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="100" y1="300" x2="500" y2="300" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="300" cy="300" r="6" fill="#7DD3FC" />
-            <circle cx="300" cy="300" r="14" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
+      {/* ─── SECTION 7: CLOSING BANNER (GIVE FIRST. LET THE COMMUNITY GIVE BACK.) ── */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28 border-t border-slate-800">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.18),transparent_50%),radial-gradient(circle_at_82%_12%,rgba(99,102,241,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-rose-500/10 blur-3xl"
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
             
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — CONTRIBUTE. EARN. EXPERIENCE. —
-              </span>
+            {/* Left Column: Manifesto & CTAs */}
+            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                  CONTRIBUTE. EARN. EXPERIENCE.
+                </span>
+              </div>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                GIVE FIRST. LET THE COMMUNITY GIVE BACK.
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+                Give first. Let the{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  community give back.
+                </span>
               </h2>
 
-              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+              <div className="space-y-3 text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-2xl">
                 <p>
                   The most valuable thing you can contribute to a community is not a coin. It is yourself.
                 </p>
-                <div className="space-y-1 pl-3 border-l-2 border-sky-300 text-sm text-sky-100 font-medium">
-                  <p>Your experience.</p>
-                  <p>Your introduction.</p>
-                  <p>Your knowledge.</p>
-                  <p>Your attention.</p>
-                  <p>Your willingness to help.</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 py-1 text-xs sm:text-sm font-medium text-slate-300">
+                  <div className="p-2.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center gap-2">
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span>Your Experience</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center gap-2">
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span>Your Introduction</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center gap-2">
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span>Your Knowledge</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center gap-2">
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span>Your Mentorship</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center gap-2">
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span>Your Attention</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center gap-2">
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span>Your Service</span>
+                  </div>
                 </div>
-                <p className="text-white font-serif text-lg italic">
-                  Peers Coin is simply one way the community can say: We noticed. We appreciate it. Thank you for giving.
+                <p className="text-slate-300 italic text-xs sm:text-sm pt-1">
+                  Peers Coin is simply one way the community says: We noticed. We appreciate it. Thank you for giving.
                 </p>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <Link
                   href="/how-to-earn-impact"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group"
                 >
-                  <span>Discover the Impact System</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <span>Discover Impact System</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link
                   href="/marketplace"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
                 >
-                  <span>Explore the Marketplace →</span>
-                </Link>
-
-                <Link
-                  href="/unity"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
-                >
-                  <span>Open Unity →</span>
+                  <span>Explore Marketplace</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Contribute.
-                <br />
-                Earn.
-                <br />
-                Redeem.
-                <br />
-                Experience.
+            {/* Right Column: Signature Accents */}
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1.5">
+              <p className="text-xl sm:text-2xl text-slate-300 font-medium leading-tight">
+                Contribute Freely.
+              </p>
+              <p className="text-xl sm:text-2xl text-slate-200 font-medium leading-tight">
+                Earn Recognition.
+              </p>
+              <p className="text-xl sm:text-2xl text-white font-medium leading-tight">
+                Redeem Value.
+              </p>
+              <p className="text-2xl sm:text-3xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                Experience Community.
               </p>
             </div>
 

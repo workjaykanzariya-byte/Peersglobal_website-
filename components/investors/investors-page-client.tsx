@@ -934,10 +934,13 @@ export function InvestorsPageClient() {
                     <label className="font-bold text-slate-800">Phone / Mobile *</label>
                     <input
                       type="tel"
+                      inputMode="numeric"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="9876543210"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
                       className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
                     />
                   </div>

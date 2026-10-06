@@ -58,38 +58,50 @@ export function LearningPillarClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (PRACTICAL LEARNING MASTERCLASS) ─── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Home-style looping video backdrop with dark scrim */}
+        <video
+          className="absolute inset-0 size-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none"
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Master Card Hero Box */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
-            {/* Ambient Background Accents */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
-
+          {/* Home-style full-bleed hero */}
+          <div className="min-h-[480px] lg:min-h-[520px] py-10 sm:py-14 flex items-center">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
               
               {/* Left Column: Manifesto & Details */}
-              <div className="lg:col-span-7 space-y-6">
+              <div className="lg:col-span-12 max-w-3xl space-y-6">
                 <div className="flex items-center gap-2">
                   <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
                     GROWTH &amp; PRACTITIONER LEARNING
                   </span>
                 </div>
 
                 <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
+                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 tracking-tight leading-[1.14]">
                     Learning
                   </h1>
-                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
+                  <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
                     From people who built the thing they are teaching. Not theory. What actually works.
                   </p>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                <div className="space-y-4 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                   <p>
-                    Peers Global runs on the <strong className="text-slate-900 font-semibold">LSR Growth Model — Learning, Sales, and Resources</strong>. Learning comes first because everything else compounds from it.
+                    Peers Global runs on the <strong className="text-white font-semibold">LSR Growth Model — Learning, Sales, and Resources</strong>. Learning comes first because everything else compounds from it.
                   </p>
 
                   {/* 4 Pillar Badges */}
@@ -102,16 +114,16 @@ export function LearningPillarClient() {
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
+                        className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-sm"
                       >
-                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
+                        <item.icon className="size-4 shrink-0 text-sky-400" />
                         <span>{item.text}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
-                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
+                  <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
+                    <Sparkles className="size-4 shrink-0 text-sky-400" />
                     <span>&ldquo;A Peer who understands their market makes better decisions and gives better advice to the room.&rdquo;</span>
                   </div>
                 </div>
@@ -127,60 +139,19 @@ export function LearningPillarClient() {
 
                   <a
                     href="#masterclasses"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white font-bold text-xs sm:text-sm transition-all uppercase tracking-wider"
                   >
                     <span>View Masterclasses</span>
                   </a>
                 </div>
               </div>
 
-              {/* Right Column: Hero Visual Card with Video & Overlay */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
-                  <video
-                    src="/videos/leadership-hero-bg.mp4"
-                    poster="/images/culture-hero-desk.jpg"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-slate-950/30 pointer-events-none" />
-
-                  {/* Top Badges */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold text-sky-300 tracking-widest uppercase backdrop-blur-md">
-                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      LSR GROWTH MODEL
-                    </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
-                      PRACTITIONER-LED
-                    </span>
-                  </div>
-
-                  {/* Center Play Button Overlay */}
-                  <div className="relative z-10 mx-auto size-14 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shadow-2xl border border-white/30">
-                    <GraduationCap className="size-6 text-white" />
-                  </div>
-
-                  {/* Bottom Highlight */}
-                  <div className="relative z-10 text-white space-y-1">
-                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
-                      Impact Mentor Masterclasses
-                    </p>
-                    <p className="text-sm sm:text-base font-bold leading-snug">
-                      Practical, unscripted masterclasses built for scaling MSMEs.
-                    </p>
-                  </div>
-                </div>
-              </div>
 
             </div>
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
             {[
               { icon: GraduationCap, number: '100+', label: 'Masterclasses Annually' },
               { icon: ShieldCheck, number: '100%', label: 'Practitioner Proven' },

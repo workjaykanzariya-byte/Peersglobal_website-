@@ -104,264 +104,257 @@ export function PeersCodeClient() {
         </div>
       </div>
 
-      {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Ambient Lighting */}
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+      {/* ── Master Full Bleed Dark Hero Section ── */}
+      <section className="relative min-h-[560px] sm:min-h-[620px] bg-[#040F24] text-white flex items-center overflow-hidden border-b border-slate-800">
+        {/* Background video layer */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/section_image/executive-director-conclave.jpg"
+            className="w-full h-full object-cover object-center opacity-40 scale-105"
+          >
+            <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
+          </video>
+          {/* Gradients to blend smoothly */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#040F24] via-[#040F24]/85 to-transparent sm:w-3/4" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#040F24] via-transparent to-[#040F24]/60" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
+        </div>
 
-            {/* Media Background Layer (Right ~60% fading into white on the left) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <img
-                src="/images/section_image/executive-director-conclave.jpg"
-                alt="Peers Global Constitutional Covenant"
-                className="size-full object-cover object-center opacity-85"
-              />
-
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Give First
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Tell The Truth
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Carry The Culture
-                </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>CONSTITUTIONAL COVENANT</span>
               </div>
 
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    CONSTITUTIONAL OATH
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    SIX CORE COMMITMENTS
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content Area */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
-                
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    CONSTITUTIONAL COVENANT
-                  </span>
-                </div>
-
-                {/* H1 Heading */}
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-950 tracking-tight leading-[1.12] mb-4">
-                  The Peers <br />
-                  <span className="italic bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent font-medium">
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  The Peers{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
                     Code of Honour.
                   </span>
                 </h1>
-
-                {/* Subtitle & Descriptions */}
-                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-6 max-w-lg">
-                  Six commitments. Every Peer makes them. Every leader upholds them. The non-negotiable bedrock of our community.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Six commitments. Every Peer makes them. Every leader upholds them.
                 </p>
-
-                {/* Featured Highlight Quote Card */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
-                  <p className="font-serif italic text-slate-900 text-sm sm:text-base font-medium">
-                    “Culture is not maintained by rules alone — it is maintained by how we welcome, listen, and handle disagreements.”
-                  </p>
-                </div>
-
-                {/* Trust Badges */}
-                <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
-                  <span className="px-3 py-1 rounded-full bg-white border border-slate-200 font-mono text-[11px] shadow-2xs">
-                    Binding on All Inducted Peers
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-100 font-mono text-[11px]">
-                    Enforced by National Council
-                  </span>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          {/* 4-Item Floating Stats Bar */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { val: '6 Commitments', label: 'Constitutional Pillars', sub: 'Non-negotiable member oaths', tag: 'Core Oaths' },
-              { val: 'Give First', label: 'Contribution Ethos', sub: 'Help before calculating return', tag: 'Non-Transactional' },
-              { val: 'Equal Voice', label: 'Turnover Agnostic', sub: '₹2 Cr and ₹200 Cr have equal dignity', tag: 'Equal Dignity' },
-              { val: '100% Binding', label: 'Membership Status', sub: 'Condition of active standing', tag: 'Governance Law' },
-            ].map((stat, idx) => (
-              <div
-                key={idx}
-                className="group relative rounded-2xl bg-white border border-slate-200/90 p-5 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all duration-300 overflow-hidden"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
-                    {stat.tag}
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-rose-500" />
-                </div>
-                <div className="font-serif text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                  {stat.val}
-                </div>
-                <div className="text-sm font-bold text-slate-900 mt-1">{stat.label}</div>
-                <div className="text-xs text-slate-500 font-normal mt-0.5 leading-relaxed">{stat.sub}</div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Six Commitments Sections with Sticky Navigation ── */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            
-            {/* Left Column: Sticky Table of Contents & Constitutional Card */}
-            <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-6">
-              
-              {/* Table of Contents Card */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-xs space-y-4">
-                <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-                  <Sparkles className="w-4 h-4 text-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                    Code of Honour Index
-                  </span>
-                </div>
-                
-                <nav className="space-y-1">
-                  {COMMITMENTS.map((item) => (
-                    <a
-                      key={item.num}
-                      href={`#code-${item.num}`}
-                      className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 transition-all text-xs font-semibold text-slate-700 hover:text-[#1D4ED8]"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <span className="font-mono text-[11px] text-slate-400 group-hover:text-[#1D4ED8]">
-                          {item.num}.
-                        </span>
-                        <span className="truncate max-w-[190px] sm:max-w-none">{item.title}</span>
-                      </div>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#1D4ED8] group-hover:translate-x-0.5 transition-all" />
-                    </a>
-                  ))}
-                </nav>
               </div>
 
-              {/* Constitutional Enforceability Card */}
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-blue-50/70 to-rose-50/40 border border-blue-100/80 shadow-2xs space-y-4">
-                <div className="flex items-center gap-2">
-                  <Scale className="w-4 h-4 text-[#1D4ED8]" />
-                  <span className="text-xs font-mono font-bold uppercase text-slate-900">
-                    Statutory Standing
-                  </span>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  The Peers Code is a mandatory covenant. Chronic absence, transactional selling, or breach of trust results in category revocation.
-                </p>
-                <div className="pt-2 flex flex-col gap-2 text-xs font-bold text-[#1D4ED8]">
-                  <Link href="/terms-of-use" className="hover:text-[#E11D48] transition-colors inline-flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200">
-                    <span>Terms of Use</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                  <Link href="/community-guidelines" className="hover:text-[#E11D48] transition-colors inline-flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200">
-                    <span>Community Guidelines</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-light">
+                Culture is not maintained by rules alone — it is maintained by how we welcome, listen, and handle disagreements with unyielding dignity across all business sizes.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="#code-index"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Read The 6 Commitments</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Become a Peer</span>
+                </Link>
               </div>
 
-            </div>
-
-            {/* Right Column: Commitments Grid Cards */}
-            <div className="lg:col-span-8 space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {COMMITMENTS.map((item) => {
-                  const IconComponent = item.icon
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/15">
+                {[
+                  { icon: HeartHandshake, value: 'Give First', label: 'Contribution Ethos' },
+                  { icon: Clock, value: 'Show Up', label: 'Presence Standard' },
+                  { icon: Scale, value: 'Equal Voice', label: 'Turnover Agnostic' },
+                ].map((s) => {
+                  const Icon = s.icon
                   return (
                     <div
-                      id={`code-${item.num}`}
-                      key={item.title}
-                      className={`group relative p-6 sm:p-7 rounded-3xl bg-white border ${item.borderLight} shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4 overflow-hidden scroll-mt-24`}
+                      key={s.label}
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all"
                     >
-                      {/* Top Gradient Accent Bar */}
-                      <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${item.gradient} opacity-70 group-hover:opacity-100 transition-opacity`} />
-
-                      <div className="space-y-3.5">
-                        <div className="flex items-center justify-between">
-                          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-slate-50 to-blue-50/60 border border-slate-200/80 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform">
-                            <IconComponent className="w-5 h-5 text-[#1D4ED8]" />
-                          </div>
-                          <span className="text-xs font-mono font-bold bg-slate-100/90 text-slate-700 px-3 py-1 rounded-full border border-slate-200/80">
-                            Oath {item.num}
-                          </span>
-                        </div>
-
-                        <div>
-                          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                            {item.tag}
-                          </div>
-                          <h2 className="text-xl font-serif font-bold text-slate-950 tracking-tight mt-0.5 group-hover:text-[#1D4ED8] transition-colors">
-                            {item.title}
-                          </h2>
-                        </div>
-
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                          {item.desc}
-                        </p>
+                      <div className="size-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
+                        <Icon className="size-5" />
                       </div>
-
-                      {/* Highlight Quote Box */}
-                      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50/50 via-slate-50/50 to-rose-50/40 border border-slate-100 text-xs italic font-serif text-slate-800 leading-relaxed">
-                        {item.quote}
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                          {s.value}
+                        </div>
+                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                          {s.label}
+                        </div>
                       </div>
                     </div>
                   )
                 })}
               </div>
+            </div>
 
-              {/* Membership Affirmation Banner */}
-              <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
-                <div>
-                  <h3 className="text-lg font-serif font-bold text-slate-950">Ready to uphold the Code of Honour?</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1">Join the verified peer collaboration network of visionary founders across Bharat.</p>
-                </div>
-                <Link
-                  href="/membership"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-all shadow-md shrink-0"
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Give First
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Tell The Truth
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Carry The Culture
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Six Commitments (Immersive 3-Column Card Grid Matrix) ── */}
+      <section id="code-index" className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          {/* Section Heading & Context */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-semibold uppercase tracking-wider brand-gradient-text">
+              <Sparkles className="w-3.5 h-3.5 text-[#E11D48]" />
+              <span>The Constitutional Covenant</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight">
+              The 6 Oaths of Peer Collaboration
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Every founder makes these commitments. They are the non-negotiable bedrock that preserves trust, psychological safety, and reciprocal growth across all chapter circles.
+            </p>
+          </div>
+
+          {/* 3-Column Grid of 6 Oaths */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {COMMITMENTS.map((item) => {
+              const IconComponent = item.icon
+              return (
+                <div
+                  id={`code-${item.num}`}
+                  key={item.title}
+                  className={`group relative p-7 sm:p-8 rounded-3xl bg-white border ${item.borderLight} shadow-xs hover:shadow-2xl transition-all duration-300 flex flex-col justify-between space-y-6 overflow-hidden hover:-translate-y-1`}
                 >
-                  <span>Explore Membership</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                  {/* Top Gradient Accent Bar */}
+                  <div className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r ${item.gradient} opacity-80 group-hover:opacity-100 transition-opacity`} />
+
+                  <div className="space-y-4">
+                    {/* Header: Icon & Oath Pill */}
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-50 to-blue-50/80 border border-slate-200/80 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform shadow-2xs">
+                        <IconComponent className="w-6 h-6 text-[#1D4ED8]" />
+                      </div>
+                      <span className="text-xs font-mono font-bold bg-slate-100/90 text-slate-700 px-3.5 py-1 rounded-full border border-slate-200/80">
+                        OATH {item.num}
+                      </span>
+                    </div>
+
+                    {/* Title & Tag */}
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                        {item.tag}
+                      </div>
+                      <h3 className="text-xl font-serif font-bold text-slate-950 tracking-tight mt-1 group-hover:text-[#1D4ED8] transition-colors">
+                        {item.title}
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  {/* Highlight Quote Box */}
+                  <div className="pt-4 border-t border-slate-100">
+                    <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/40 via-slate-50/50 to-rose-50/30 border border-slate-100 text-xs italic font-serif text-slate-800 leading-relaxed">
+                      {item.quote}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Statutory Enforcement Banner & Charters */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xs space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1D4ED8] shrink-0">
+                  <Scale className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-serif font-bold text-slate-950">Statutory Covenant &amp; Governance Standing</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-0.5">The Peers Code is a binding covenant. Chronic absence, pitching, or breach of trust results in category revocation.</p>
+                </div>
               </div>
             </div>
 
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <Link
+                href="/terms-of-use"
+                className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 transition-all flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-mono font-bold text-[#1D4ED8]">CHARTER 01</div>
+                  <div className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8]">Terms of Use</div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+              </Link>
+
+              <Link
+                href="/community-guidelines"
+                className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 transition-all flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-mono font-bold text-[#1D4ED8]">CHARTER 02</div>
+                  <div className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8]">Community Guidelines</div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+              </Link>
+
+              <Link
+                href="/refund-policy"
+                className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 transition-all flex items-center justify-between"
+              >
+                <div>
+                  <div className="text-xs font-mono font-bold text-[#1D4ED8]">CHARTER 03</div>
+                  <div className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8]">Seat Commitment &amp; Refund</div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+              </Link>
+            </div>
           </div>
+
+          {/* Membership Affirmation Banner */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+            <div className="space-y-1">
+              <h3 className="text-xl font-serif font-bold text-slate-950">Ready to uphold the Code of Honour?</h3>
+              <p className="text-sm text-slate-600">Join the verified peer collaboration network of visionary founders across Bharat.</p>
+            </div>
+            <Link
+              href="/membership"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 transition-all shadow-md shrink-0"
+            >
+              <span>Explore Membership</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
         </div>
       </section>
 

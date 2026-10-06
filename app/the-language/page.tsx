@@ -225,99 +225,119 @@ export default function TheLanguagePage() {
       />
 
       {/* =========================================================================
-          SECTION 1: HERO ("THE LANGUAGE")
+          SECTION 1: HERO (Master Full Page Dark Video Banner)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#040812] via-[#071328] to-[#040812] text-white pt-10 pb-20 sm:pb-28 border-b border-slate-800">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[140px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-1/2 right-10 h-[400px] w-[400px] rounded-full bg-rose-600/10 blur-[130px]"
-        />
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-14 sm:pb-20 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Top Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-medium tracking-wide mb-8 sm:mb-12">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
             <ChevronRight className="size-3.5 text-slate-500" />
             <span className="text-slate-400">Our World</span>
             <ChevronRight className="size-3.5 text-slate-500" />
-            <span className="brand-gradient-text font-bold">
-              The Language
-            </span>
+            <span className="text-white font-semibold">The Language</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Content (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-start space-y-6">
-              <div className="inline-flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  THE LEXICON &amp; CULTURE
-                </span>
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE LEXICON &amp; VOCABULARY</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-[62px] font-bold text-white tracking-tight leading-[1.08]">
-                <span>The</span>{' '}
-                <span className="brand-gradient-text block sm:inline">
-                  Language
-                </span>
-              </h1>
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  The{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Language.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Every community that lasts builds a language of its own. A shared vocabulary that creates trust, clarity, and enduring collaboration.
+                </p>
+              </div>
 
-              <p className="text-lg sm:text-xl text-slate-200 font-medium leading-relaxed max-w-xl">
-                Every community that lasts builds a language of its own.
-              </p>
-
-              <p className="text-sm sm:text-base text-slate-400 font-normal leading-relaxed max-w-xl">
-                A community becomes more than a collection of people when its members begin to share something deeper than a place or a purpose: a way of seeing, a way of speaking, and a way of recognising one another.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/membership"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-xl shadow-blue-900/40 hover:shadow-2xl hover:-translate-y-0.5 transition-all group"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
                 >
                   <span>Become a Peer</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
                 <a
                   href="#terms"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white px-8 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-xs"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
                 >
-                  Explore the 10 Words
+                  <span>Explore 10 Core Words</span>
                 </a>
+              </div>
+
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: BookOpen, value: '10 Words', label: 'Living Lexicon' },
+                  { icon: Handshake, value: '10 Forms', label: 'Collaboration Modes' },
+                  { icon: HeartHandshake, value: '1 Voice', label: 'Shared Culture' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-            {/* Right Media (6 cols) */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-[32px] overflow-hidden border border-white/15 shadow-2xl aspect-[16/11] sm:aspect-[16/10] group">
-                <Image
-                  src="/images/language-hero-desk.jpg"
-                  alt="PEERS GLOBAL notebook and desk"
-                  fill
-                  priority
-                  className="object-cover object-center brightness-[0.92] contrast-[1.08] transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/20 pointer-events-none" />
-
-                <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 pointer-events-none select-none text-right">
-                  <div
-                    className="text-white/95 text-xl sm:text-2xl font-bold leading-tight drop-shadow-lg"
-                    style={{ fontFamily: 'var(--font-script, cursive)' }}
-                  >
-                    People <br />
-                    Create <br />
-                    <span className="text-amber-300">Impact</span>
-                  </div>
-                </div>
-              </div>
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                People
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Create
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Enduring Impact
+              </p>
             </div>
           </div>
         </div>

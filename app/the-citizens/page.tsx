@@ -141,129 +141,122 @@ export default function TheCitizensPage() {
     <div className="min-h-screen bg-[#030B1C] text-slate-900 selection:bg-blue-600 selection:text-white">
 
       {/* =========================================================================
-          SECTION 1: HERO ("THE PEOPLE WHO BUILD PEERS GLOBAL" & "THE CITIZENS")
-          With Cinematic Earth Background Video
+          SECTION 1: HERO (Master Full Page Dark Video Banner)
           ========================================================================= */}
-      <section className="relative min-h-[88vh] lg:min-h-[92vh] overflow-hidden bg-[#030B1C] text-white flex flex-col justify-between pt-6 sm:pt-10 pb-16">
-
-        {/* Background Looping Earth Video */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-14 sm:pb-20 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
           <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
             autoPlay
             loop
             muted
             playsInline
-            preload="auto"
-            className="size-full object-cover object-center filter brightness-[0.78] contrast-[1.1]"
-          >
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
-          </video>
-          {/* Seamless atmospheric gradients */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030B1C]/90 via-[#030B1C]/55 to-[#030B1C]/35 pointer-events-none" />
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#030B1C] to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#030B1C] via-[#030B1C]/70 to-transparent pointer-events-none" />
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
         </div>
 
-        {/* Ambient atmospheric lighting glows */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 right-1/4 h-[450px] w-[450px] rounded-full bg-blue-600/15 blur-[140px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-10 left-10 h-[350px] w-[350px] rounded-full bg-cyan-500/10 blur-[120px]"
-        />
-
-        {/* Top Breadcrumb & Tagline */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-medium tracking-wide">
-              <Link href="/" className="hover:text-white transition-colors">
-                Home
-              </Link>
-              <ChevronRight className="size-3.5 text-slate-400" />
-              <span className="text-sky-400 font-semibold">The Citizens</span>
-            </div>
-
-            <div className="text-right hidden sm:block">
-              <span className="text-[11px] font-bold tracking-[0.2em] text-slate-300 uppercase block">
-                REAL PEOPLE • REAL BUSINESS • A STRONGER TOMORROW
-              </span>
-            </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Top Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-slate-400">Our World</span>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">The Citizens</span>
           </div>
-        </div>
 
-        {/* Hero Main Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-10 sm:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-
-            {/* Left Column: Headlines & Call to Actions */}
-            <div className="lg:col-span-8 flex flex-col items-start text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                <span className="w-6 h-[1.5px] bg-sky-400" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
                 <span>THE PEOPLE WHO BUILD PEERS GLOBAL</span>
               </div>
 
-              {/* Title */}
-              <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-tight leading-[1.08] mb-6">
-                The Citizens
-              </h1>
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  The{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Citizens.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  A community is not built by an organisation. It is built by the people inside it. Every role at Peers Global is held by an entrepreneur.
+                </p>
+              </div>
 
-              {/* Subtitle Quotes */}
-              <p className="font-serif italic text-xl sm:text-2xl lg:text-3xl text-slate-200 font-normal leading-relaxed mb-4 max-w-2xl">
-                A community is not built by an organisation. <br className="hidden sm:inline" />
-                <span className="text-white">It is built by the people inside it.</span>
-              </p>
-
-              {/* Descriptor */}
-              <p className="text-sm sm:text-base text-slate-300 font-light mb-8 max-w-xl">
-                Every role at Peers Global is held by an entrepreneur.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/membership"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 flex items-center gap-2"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
                 >
                   <span>Become a Peer</span>
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
+
                 <Link
                   href="/leadership"
-                  className="rounded-full border border-white/25 hover:border-white/50 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-7 py-3.5 text-sm font-medium transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
                 >
-                  Explore Leadership
+                  <span>Explore Leadership</span>
                 </Link>
               </div>
-            </div>
 
-            {/* Right Column: Subtle Artistic Motto Card */}
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
-              <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/10 to-white/[0.03] backdrop-blur-md border border-white/15 shadow-2xl max-w-sm">
-                <div className="font-serif italic text-2xl sm:text-3xl text-sky-200/90 font-light leading-snug mb-3">
-                  &ldquo;Peers Build A Brighter Tomorrow&rdquo;
-                </div>
-                <div className="text-xs tracking-wider uppercase text-slate-300 font-medium">
-                  Peers Global Citizens
-                </div>
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: Users, value: '10,000+', label: 'Active Citizens' },
+                  { icon: Award, value: '7 Stages', label: 'Leadership Pathway' },
+                  { icon: Globe, value: '100%', label: 'Entrepreneur-Led' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Real People
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Real Business
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                A Stronger Tomorrow
+              </p>
+            </div>
           </div>
         </div>
-
-        {/* Bottom Bar Indicator */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-medium">
-            <span>World&apos;s First Community of Collaboration</span>
-            <span className="hidden sm:inline italic font-serif text-slate-300">
-              &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
-            </span>
-          </div>
-        </div>
-
       </section>
 
 
@@ -754,7 +747,7 @@ export default function TheCitizensPage() {
             {/* Blue Pill CTA Button */}
             <Link
               href="/leadership"
-              className="inline-flex rounded-full bg-[#0066FF] hover:bg-[#0052D0] text-white px-8 py-3.5 text-sm font-semibold shadow-[0_8px_20px_rgba(0,102,255,0.28)] transition-all hover:scale-[1.03] active:scale-[0.98] items-center gap-2"
+              className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-[0_8px_20px_rgba(0,102,255,0.28)] transition-all hover:scale-[1.03] active:scale-[0.98] items-center gap-2"
             >
               <span>Explore the Leadership Path</span>
               <ArrowRight className="size-4" />
