@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface LsrPillar {
   letter: string
@@ -164,13 +165,12 @@ export function QuestSection() {
                 &ldquo;The question is not only: &lsquo;How far can I go?&rsquo; It is also: &lsquo;How many people can move forward because I chose to lead?&rsquo;&rdquo;
               </p>
             </div>
-            <Link
+            <GalaxyButton
               href="/leadership"
-              className="shrink-0 inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-8 py-3.5 text-base font-semibold shadow-lg shadow-blue-600/25 hover:shadow-red-500/25 hover:scale-105 transition-all text-center group"
+              size="lg"
             >
-              <span>EXPLORE LEADERSHIP</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              EXPLORE LEADERSHIP
+            </GalaxyButton>
           </div>
         </div>
       </div>

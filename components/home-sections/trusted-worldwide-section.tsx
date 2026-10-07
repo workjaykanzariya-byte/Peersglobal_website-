@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   Users,
@@ -52,10 +53,12 @@ export function TrustedWorldwideSection() {
                 <span>Building one alone can be exhausting.</span>
               </h2>
 
-          {/* Subheading / Copy */}
-          <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal">
-            Peers Global brings together founders and business leaders from across industries, cities, and countries into one connected, high-trust ecosystem.
-          </p>
+              {/* Subheading / Copy */}
+              <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal">
+                Peers Global brings together founders and business leaders from across industries, cities, and countries into one connected, high-trust ecosystem.
+              </p>
+            </div>
+          </div>
 
           {/* 3 Core Highlight Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl pt-4 text-left">
@@ -192,13 +195,12 @@ export function TrustedWorldwideSection() {
 
           {/* CTA Button */}
           <div className="pt-2">
-            <Link
+            <GalaxyButton
               href="/about"
-              className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-9 py-4 text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group"
+              size="lg"
             >
-              <span>Explore Peers Global</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              Explore Peers Global
+            </GalaxyButton>
           </div>
         </div>
       </div>

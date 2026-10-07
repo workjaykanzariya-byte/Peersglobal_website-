@@ -21,6 +21,7 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         gradient:
           'relative overflow-hidden rounded-full border border-white/20 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold shadow-[0_4px_14px_rgba(29,78,216,0.3)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_25px_rgba(225,29,72,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300',
+        galaxy: 'galaxy-btn',
       },
       size: {
         default:
@@ -60,7 +61,32 @@ function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const isButtonCta = isCta || variant === 'gradient'
+  const isButtonCta = isCta || variant === 'gradient' || variant === 'galaxy'
+
+  if (variant === 'galaxy') {
+    return (
+      <ButtonPrimitive
+        data-slot="button"
+        data-cta="true"
+        disabled={disabled || loading}
+        className={cn('galaxy-btn', className)}
+        {...props}
+      >
+        <span className="galaxy-btn__content">
+          {loading ? (
+            <span className="flex items-center gap-1.5">
+              <Loader2 className="size-3.5 animate-spin shrink-0" />
+              <span>{children}</span>
+            </span>
+          ) : (
+            <span className="galaxy-btn__text flex items-center gap-2">{children}</span>
+          )}
+        </span>
+        <span className="galaxy-btn__glow" aria-hidden="true" />
+        <span className="galaxy-btn__stars" aria-hidden="true" />
+      </ButtonPrimitive>
+    )
+  }
 
   return (
     <ButtonPrimitive

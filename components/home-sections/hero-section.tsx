@@ -4,6 +4,8 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
+import { GalaxyButton } from '@/components/ui/galaxy-button'
+
 export function HeroSection() {
   return (
     <section className="fd-hero">
@@ -46,40 +48,21 @@ export function HeroSection() {
             </div>
 
             <div className="fd-hero__cta flex flex-wrap items-center gap-3.5">
-              <Link
+              <GalaxyButton
                 href="/circles"
-                className="fd-hero__btn fd-hero__btn--brand group inline-flex items-center gap-2 uppercase tracking-wide text-xs sm:text-sm font-semibold"
+                size="lg"
+                className="text-xs sm:text-sm"
               >
-                <span>FIND YOUR CIRCLE</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-              <Link
+                FIND YOUR CIRCLE
+              </GalaxyButton>
+              <GalaxyButton
                 href="/membership"
-                className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
-                tabIndex={0}
+                variant="transparent"
+                size="lg"
+                className="text-xs sm:text-sm"
               >
-                <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="btnGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#1D4ED8" />
-                      <stop offset="50%" stopColor="#6366F1" />
-                      <stop offset="100%" stopColor="#E11D48" />
-                    </linearGradient>
-                  </defs>
-                  <rect
-                    className="animated-btn-border-path"
-                    stroke="url('#btnGradientStroke')"
-                    x="1"
-                    y="1"
-                    width="98"
-                    height="46"
-                    rx="23"
-                  />
-                </svg>
-                <div className="px-6 py-3.5 rounded-full bg-transparent border border-white/25 group-hover:border-transparent group-hover:bg-white/15 transition-all flex items-center gap-2 text-white text-sm font-semibold">
-                  <span>Apply for Membership</span>
-                </div>
-              </Link>
+                Apply for Membership
+              </GalaxyButton>
             </div>
 
             {/* Counter band */}

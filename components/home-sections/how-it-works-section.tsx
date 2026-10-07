@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 export function HowItWorksSection() {
   const [index, setIndex] = useState(0)
@@ -45,13 +46,12 @@ export function HowItWorksSection() {
           </p>
 
           <div className="pt-2">
-            <Link
+            <GalaxyButton
               href="/unity"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all group tracking-wider uppercase"
+              size="default"
             >
-              <span>EXPLORE UNITY</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              EXPLORE UNITY
+            </GalaxyButton>
           </div>
         </div>
       </div>
@@ -199,13 +199,13 @@ export function HowItWorksSection() {
 
       {/* Download App CTA */}
       <div className="fd-how-it-works__bottom">
-        <Link
+        <GalaxyButton
           href="/unity"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-8 py-3.5 text-xs sm:text-sm font-semibold shadow-lg shadow-blue-600/25 hover:shadow-red-500/25 hover:scale-105 transition-all group tracking-wider uppercase mb-1"
+          size="lg"
+          className="mb-1"
         >
-          <span>EXPLORE UNITY</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </Link>
+          EXPLORE UNITY
+        </GalaxyButton>
         <p className="fd-how-it-works__bottom-text">Download the app, explore the community, and see it for yourself.</p>
         <div className="fd-how-it-works__buttons">
           <a

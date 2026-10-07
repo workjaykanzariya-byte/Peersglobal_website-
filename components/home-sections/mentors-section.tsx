@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface UniversePillar {
   badge: string
@@ -200,13 +201,13 @@ export function MentorsSection() {
         <p className="fd-meet-your-mentors__tagline !max-w-xl text-sm sm:text-base text-slate-600 italic">
           &ldquo;Do not present testimonials merely as praise for PEERS GLOBAL. Present them as evidence of what becomes possible between people.&rdquo;
         </p>
-        <Link
-          className="fd-meet-your-mentors__btn"
+        <GalaxyButton
           href="/stories"
+          size="lg"
           aria-label="Meet the Peers"
         >
-          MEET THE PEERS →
-        </Link>
+          MEET THE PEERS
+        </GalaxyButton>
       </div>
     </section>
   )

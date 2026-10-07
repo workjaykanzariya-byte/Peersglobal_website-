@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type * as React from 'react'
 import { cn } from '@/lib/utils'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 /* ------------------------------------------------------------------ CTA */
 
@@ -49,6 +50,20 @@ export function Cta({
   size?: CtaSize
   className?: string
 } & Omit<React.ComponentProps<typeof Link>, 'href' | 'className' | 'children'>) {
+  if (variant === 'primary' || variant === 'brand-gradient') {
+    const galaxySize = size === 'sm' ? 'sm' : size === 'lg' ? 'lg' : 'default'
+    return (
+      <GalaxyButton
+        href={href}
+        size={galaxySize}
+        className={className}
+        {...(rest as any)}
+      >
+        {children}
+      </GalaxyButton>
+    )
+  }
+
   return (
     <Link
       href={href}
