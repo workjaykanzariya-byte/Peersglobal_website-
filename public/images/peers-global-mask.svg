@@ -1,0 +1,11 @@
+<svg width="1050" height="200" viewBox="0 0 1050 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .brand-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Roboto, sans-serif;
+      font-weight: 900;
+      font-size: 118px;
+      letter-spacing: 6px;
+    }
+  </style>
+  <text x="50%" y="64%" text-anchor="middle" fill="#ffffff" class="brand-text">Peers Global</text>
+</svg>

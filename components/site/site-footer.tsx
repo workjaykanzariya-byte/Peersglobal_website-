@@ -142,15 +142,24 @@ export function SiteFooter() {
 
             {/* Heading with brand gradient punchline */}
             <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2.25rem] font-bold text-slate-900 tracking-tight leading-snug">
-              A community you can belong to, contribute to, grow with, and build relationships{' '}
+              Peers are Partners in Business and Friends in{' '}
               <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                for life.
+                Life.
               </span>
             </h2>
 
-            <p className="text-[16px] font-semibold text-slate-800">
-              Build Your Business. Build Your Relationships. Build Your Circle.
-            </p>
+            <div className="flex flex-col gap-1.5 pt-0.5">
+              <p className="text-[16px] font-semibold text-slate-800 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>Circles, not crowds.</span>
+                <span className="text-slate-300">•</span>
+                <span>Trust, not transactions.</span>
+                <span className="text-slate-300">•</span>
+                <span>Peers, not gurus.</span>
+              </p>
+              <p className="text-sm font-medium text-slate-500">
+                Designed in Bharat. Built for the World.
+              </p>
+            </div>
 
             {/* Dual CTAs: JOIN PEERS GLOBAL and DOWNLOAD UNITY APP */}
             <div className="flex flex-wrap items-center gap-3.5 pt-1.5">

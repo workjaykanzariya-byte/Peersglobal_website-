@@ -24,8 +24,8 @@ export interface ClosingCtaSectionProps {
 export function ClosingCtaSection({
   eyebrow = 'FINAL CALL',
   title,
-  subtitle = 'Build Your Business. Build Your Relationships. Build Your Circle.',
-  description = "Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life.",
+  subtitle = 'Circles, not crowds. • Trust, not transactions. • Peers, not gurus.',
+  description = 'Designed in Bharat. Built for the World.',
   primaryButtonText = 'JOIN PEERS GLOBAL',
   primaryButtonHref = '/membership',
   secondaryButtonText = 'DOWNLOAD UNITY APP',
@@ -78,12 +78,12 @@ export function ClosingCtaSection({
 
   const defaultTitle = (
     <>
-      A community you can belong to, contribute to, grow with, and build relationships{' '}
+      Peers are Partners in Business and Friends in{' '}
       <em
         className="not-italic text-[#7DD3FC]"
         style={{ fontFamily: 'var(--font-script, Georgia, serif)', fontStyle: 'italic' }}
       >
-        for life.
+        Life.
       </em>
     </>
   )

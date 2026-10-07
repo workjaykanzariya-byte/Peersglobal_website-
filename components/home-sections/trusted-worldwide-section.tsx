@@ -35,25 +35,29 @@ export function TrustedWorldwideSection() {
           {/* Eyebrow & Titles matching standard Mindvalley typography */}
           <div className="fd-what-is-mindvalley__titles !gap-6">
             <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text">
-              WHO WE ARE
+              THE TRUTH EVERY ENTREPRENEUR KNOWS
             </p>
 
             <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5">
               <h2 className="fd-what-is-mindvalley__headline">
-                <span>A global community of entrepreneurs</span>{' '}
-                <span>who choose to grow together.</span>
+                <span>Building a business can be exciting.</span>{' '}
+                <span>Building one alone can be exhausting.</span>
               </h2>
 
               <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed">
-                Peers Global brings together entrepreneurs and business leaders from across industries, cities and countries into one connected community.
+                Entrepreneurs are expected to have answers. To make decisions. To solve problems. To lead teams. To find customers. To manage uncertainty. To keep going when nobody else can see what is happening behind the scenes.
               </p>
 
               <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed">
-                We call our members Peers. A Peer is an entrepreneur who believes in building trusted relationships, contributing to others, and growing together. Peers meet in Trusted Circles, collaborate through the Unity App, learn from one another, create opportunities for one another, and carry the community forward through leadership.
+                And yet, one part of entrepreneurship is rarely discussed: the feeling of carrying everything yourself.
+              </p>
+
+              <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed">
+                Sometimes what an entrepreneur needs is not another motivational speech. It is a person who understands. Someone who has faced a similar problem. Someone who can ask the right question. Someone who can make an introduction. Someone who can share an experience. Someone who can stand beside you when the answer is not obvious.
               </p>
 
               <p className="fd-what-is-mindvalley__paragraph !text-base sm:!text-[18px] !leading-relaxed font-semibold italic text-[#0F131A] pt-1">
-                &ldquo;Everything here is built on one belief: entrepreneurs should not have to build alone.&rdquo;
+                &ldquo;That is where collaboration begins.&rdquo;
               </p>
 
               {/* CTA Button with signature brand gradient */}

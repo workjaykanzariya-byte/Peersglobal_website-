@@ -60,25 +60,57 @@ export function PathwayCardsSection() {
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
-                  <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">OUR PHILOSOPHY</p>
-                  <h2 className="fd-pathway-cards__title">Peers are Partners in Business and Friends in Life.</h2>
+                  <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">YOUR CIRCLE. YOUR INNER BOARD.</p>
+                  <h2 className="fd-pathway-cards__title">
+                    <span>You don&apos;t need a bigger crowd.</span>{' '}
+                    <span>You need the right room.</span>
+                  </h2>
                 </div>
-                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">This is the sentence the whole community runs on.</p>
-                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--sub">A Peer gives an introduction without keeping score. Shares a hard-won lesson without charging for it. Celebrates another Peer&apos;s win as if it were their own. Over time, business partners become friends, and friends become the reason the business grows.</p>
+                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">
+                  A PEERS GLOBAL Circle is designed to bring together a curated group of entrepreneurs who can know, understand and support one another over time.
+                </p>
+                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--sub">
+                  A Circle becomes more than a meeting.
+                </p>
 
                 <div className="flex flex-col gap-2 mt-1">
-                  <p className="fd-pathway-cards__subhead">How growth works here:</p>
+                  <p className="fd-pathway-cards__subhead">It can become:</p>
                   <ul className="fd-pathway-cards__list">
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Business grows through relationships.</span></li>
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Relationships grow through trust.</span></li>
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>Trust grows through contribution.</span></li>
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span>And contribution creates impact.</span></li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>Your sounding board.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>Your source of experience.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>Your introduction to someone you should know.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>Your place to ask for help.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>Your place to give help.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMind)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <strong>Your Inner Board.</strong>
+                    </li>
                   </ul>
-                  <p className="fd-pathway-cards__quote pt-1">&ldquo;Give first. Everything else follows.&rdquo;</p>
+                  <p className="fd-pathway-cards__desc--sub pt-1 text-xs text-slate-300">
+                    The existing PEERS GLOBAL model describes Circles as structured groups of approximately 20–40 entrepreneurs, with category exclusivity and defined collaboration practices.
+                  </p>
+                  <p className="fd-pathway-cards__quote pt-1">
+                    &ldquo;The value of a Circle is not how many people are in the room. It is how deeply the people in the room can contribute to one another.&rdquo;
+                  </p>
                 </div>
               </div>
               <div className="pt-2">
-                <a className="fd-pathway-cards__btn" href="/apply" aria-label="Become a Peer">Become a Peer</a>
+                <a className="fd-pathway-cards__btn" href="/circles" aria-label="Find Your Circle">FIND YOUR CIRCLE →</a>
               </div>
             </div>
           </div>
@@ -293,29 +325,68 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--entrepreneur" id="trusted-circles" style={{ '--card-index': 1 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/circle-meeting.png" alt="Every Peer belongs to a Circle" width="461" height="259" loading="lazy" decoding="async" />
+            <img className="fd-pathway-cards__hero" src="/images/circle-meeting.png" alt="The 10 Forms of Collaboration" width="461" height="259" loading="lazy" decoding="async" />
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
-                  <p className="fd-pathway-cards__eyebrow !text-[#38BDF8]">TRUSTED CIRCLES</p>
-                  <h2 className="fd-pathway-cards__title">Every Peer belongs to a Circle.</h2>
+                  <p className="fd-pathway-cards__eyebrow !text-[#38BDF8]">THE 10 FORMS OF COLLABORATION</p>
+                  <h2 className="fd-pathway-cards__title">
+                    <span>Collaboration means more than</span>{' '}
+                    <span>exchanging business cards.</span>
+                  </h2>
                 </div>
-                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">A Circle brings together the right entrepreneurs around a common industry, interest, location or business opportunity. It is the heart of the community and the place where relationships are actually built.</p>
+                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">
+                  Inside PEERS GLOBAL, collaboration can take many forms.
+                </p>
 
                 <div className="flex flex-col gap-2 mt-1">
-                  <p className="fd-pathway-cards__subhead">How a Circle works:</p>
-                  <ul className="fd-pathway-cards__list">
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">The right people.</strong> Each Circle is composed of entrepreneurs from complementary businesses, chosen for fit and relevance.</span></li>
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">A fixed rhythm.</strong> The same Peers meet on a regular schedule, so trust has time to build.</span></li>
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">A structure for giving.</strong> Every meeting has a defined space for Peers to share what they can offer and what they need.</span></li>
-                    <li className="fd-pathway-cards__item"><svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg><span><strong className="text-white font-semibold">Continuity.</strong> The Circle carries on inside the Unity App between meetings.</span></li>
+                  <ul className="fd-pathway-cards__list max-h-[300px] overflow-y-auto pr-1">
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">01 — Business Referral.</strong> Create a trusted introduction when someone in your Circle can genuinely help.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">02 — Mentorship.</strong> Share experience that can help another entrepreneur move forward.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">03 — Joint Venture.</strong> Build something together that neither could create as effectively alone.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">04 — Knowledge Sharing.</strong> Share what you know so another entrepreneur does not have to learn everything the hard way.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">05 — Problem Solving.</strong> Become the thinking partner someone needs when a challenge becomes difficult.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">06 — Vendor Connect.</strong> Help a Peer find the right resource, provider or capability.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">07 — Funding Access.</strong> Open conversations that may connect the right opportunity with the right source of capital.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">08 — Visibility &amp; PR.</strong> Help another entrepreneur become more visible, credible and discoverable.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">09 — Emotional Support.</strong> Be present when business stops being only about business.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span><strong className="text-white font-semibold">10 — Execution Support.</strong> Sometimes the most valuable help is simply helping someone get something done.</span>
+                    </li>
                   </ul>
-                  <p className="fd-pathway-cards__quote pt-1">&ldquo;We put the right people in the room.&rdquo;</p>
+                  <p className="fd-pathway-cards__quote pt-1">&ldquo;Every form of collaboration begins with one human being choosing to help another.&rdquo;</p>
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <a className="fd-pathway-cards__btn" href="/circles/find" aria-label="Find Your Circle">Find Your Circle</a>
-                <a className="fd-pathway-cards__btn fd-pathway-cards__btn--secondary" href="/start-a-circle" aria-label="Start a Circle">Start a Circle</a>
+                <a className="fd-pathway-cards__btn" href="/10-forms-of-collaboration" aria-label="Explore the 10 Forms">EXPLORE THE 10 FORMS →</a>
               </div>
             </div>
           </div>
@@ -530,44 +601,74 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--authority" id="how-collaboration-works" style={{ '--card-index': 2 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Eleven ways a Peer creates value for another Peer" width="461" height="259" loading="lazy" decoding="async" />
+            <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Your Year Inside Peers Global" width="461" height="259" loading="lazy" decoding="async" />
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
-                  <p className="fd-pathway-cards__eyebrow !text-[#F59E0B]">HOW COLLABORATION WORKS</p>
-                  <h2 className="fd-pathway-cards__title">Eleven ways a Peer creates value for another Peer.</h2>
+                  <p className="fd-pathway-cards__eyebrow !text-[#F59E0B]">YOUR YEAR INSIDE PEERS GLOBAL</p>
+                  <h2 className="fd-pathway-cards__title">
+                    <span>Belonging is not one meeting a month.</span>{' '}
+                    <span>It is what happens between the meetings too.</span>
+                  </h2>
                 </div>
-                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Collaboration at Peers Global is a defined practice. These are the forms it takes.</p>
+                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">
+                  Your PEERS GLOBAL experience can include:
+                </p>
 
-                <ul className="fd-pathway-cards__list my-1">
+                <ul className="fd-pathway-cards__list max-h-[260px] overflow-y-auto pr-1 my-1">
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span><strong className="text-white font-semibold">Introductions:</strong> People who can open a door</span>
+                    <span>Circle meetings</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span><strong className="text-white font-semibold">Referrals:</strong> Direct leads that become long-term clients</span>
+                    <span>Peer-to-Peer conversations</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span><strong className="text-white font-semibold">Partnerships:</strong> Between complementary businesses</span>
+                    <span>Learning and masterclasses</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span><strong className="text-white font-semibold">Knowledge &amp; Mentorship:</strong> From lived experience &amp; seasoned leaders</span>
+                    <span>Business collaboration</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span><strong className="text-white font-semibold">Scale &amp; Resources:</strong> Capital, capacity, tools &amp; global market access</span>
+                    <span>MindMeld experiences</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span>Family gatherings</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span>Community events</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span>Leadership opportunities</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span>Recognition</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">Unity</strong> — the digital community experience</span>
                   </li>
                 </ul>
 
-                <p className="fd-pathway-cards__quote pt-1">
-                  &ldquo;A connection becomes valuable when it creates an opportunity, solves a problem or improves a life. Every one of these does exactly that.&rdquo;
-                </p>
+                <div className="pt-1 space-y-1">
+                  <p className="fd-pathway-cards__desc--sub text-xs text-slate-300">
+                    <strong className="text-white font-medium">The deeper idea:</strong> A strong community is not created by filling a calendar. It is created by giving people meaningful reasons to keep showing up for one another.
+                  </p>
+                  <p className="fd-pathway-cards__quote pt-1">
+                    &ldquo;The meeting is an event. The relationship is the experience.&rdquo;
+                  </p>
+                </div>
               </div>
               <div className="pt-2">
-                <a className="fd-pathway-cards__btn" href="/10-forms-of-collaboration" aria-label="Explore Collaboration">Explore Collaboration</a>
+                <a className="fd-pathway-cards__btn" href="/events" aria-label="Explore Your Year">EXPLORE YOUR YEAR →</a>
               </div>
             </div>
           </div>
@@ -782,49 +883,74 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--connection" id="impact" style={{ '--card-index': 3 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/who-we-are-impact.jpg" alt="We count lives impacted" width="461" height="259" loading="lazy" decoding="async" />
+            <img className="fd-pathway-cards__hero" src="/images/who-we-are-impact.jpg" alt="The Impact System" width="461" height="259" loading="lazy" decoding="async" />
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
-                  <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">IMPACT</p>
-                  <h2 className="fd-pathway-cards__title">We count lives impacted.</h2>
+                  <p className="fd-pathway-cards__eyebrow !text-[#F43F5E]">THE IMPACT SYSTEM</p>
+                  <h2 className="fd-pathway-cards__title">
+                    <span>Success is not only what you achieve.</span>{' '}
+                    <span>It is also what becomes possible for someone else because you were there.</span>
+                  </h2>
                 </div>
-                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Impact at Peers Global is practical. It is what happens when one entrepreneur helps another.</p>
+                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">
+                  PEERS GLOBAL places collaboration at the centre of its impact philosophy.
+                </p>
 
-                <ul className="fd-pathway-cards__list my-1">
-                  <li className="fd-pathway-cards__item">
-                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>An introduction that lands a first major client.</span>
-                  </li>
-                  <li className="fd-pathway-cards__item">
-                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>A conversation that prevents a costly mistake.</span>
-                  </li>
-                  <li className="fd-pathway-cards__item">
-                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>A partnership that opens a new market.</span>
-                  </li>
-                  <li className="fd-pathway-cards__item">
-                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>A mentor who gives someone the confidence to keep going.</span>
-                  </li>
-                  <li className="fd-pathway-cards__item">
-                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>A business that grows and hires twelve more people.</span>
-                  </li>
-                </ul>
+                <div className="flex flex-col gap-1.5 mt-1">
+                  <p className="fd-pathway-cards__subhead !text-rose-400 font-bold tracking-wide">
+                    1 Action = 1 Life Impacted
+                  </p>
+                  <ul className="fd-pathway-cards__list max-h-[220px] overflow-y-auto pr-1 my-1">
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>An introduction.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>A referral.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>A lesson.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>A solution.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>A connection.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>A conversation.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>A contribution.</span>
+                    </li>
+                    <li className="fd-pathway-cards__item">
+                      <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkConn)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                      <span>A moment of support.</span>
+                    </li>
+                  </ul>
+                  <p className="fd-pathway-cards__desc--sub text-xs text-slate-300 italic pt-0.5">
+                    Each can create movement in another person&apos;s journey.
+                  </p>
+                </div>
 
                 <div className="flex flex-col gap-1.5 pt-1">
-                  <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead !text-[15px]">
-                    Every one of those is a life changed. Every one begins with a Peer choosing to contribute.
+                  <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead !text-[14.5px]">
+                    The PEERS GLOBAL Impact System is designed to make contribution visible rather than leaving it as an invisible good intention.
                   </p>
-                  <p className="fd-pathway-cards__desc fd-pathway-cards__desc--sub">
-                    Contribution is recognised across the community — in your Circle, in the Unity App, and in the recognition Peers receive from other Peers.
+                  <p className="fd-pathway-cards__quote pt-1">
+                    &ldquo;What gets recognised gets repeated. And what gets repeated can become culture.&rdquo;
                   </p>
                 </div>
               </div>
               <div className="pt-2">
-                <a className="fd-pathway-cards__btn" href="/social-impact" aria-label="See Our Impact">See Our Impact</a>
+                <a className="fd-pathway-cards__btn" href="/how-to-earn-impact" aria-label="Discover the Impact System">DISCOVER THE IMPACT SYSTEM →</a>
               </div>
             </div>
           </div>
@@ -1038,42 +1164,60 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--body" id="the-1-million-mission" style={{ '--card-index': 4 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/climbers-clean.jpg" alt="The 1 Million Mission" width="461" height="259" loading="lazy" decoding="async" />
+            <img className="fd-pathway-cards__hero" src="/images/climbers-clean.jpg" alt="Why Entrepreneurs Choose Peers Global" width="461" height="259" loading="lazy" decoding="async" />
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
-                  <p className="fd-pathway-cards__eyebrow !text-[#34D399]">THE 1 MILLION MISSION</p>
-                  <h2 className="fd-pathway-cards__title">One million lives impacted.</h2>
+                  <p className="fd-pathway-cards__eyebrow !text-[#34D399]">WHY ENTREPRENEURS CHOOSE PEERS GLOBAL</p>
+                  <h2 className="fd-pathway-cards__title">Because growth has more than one dimension.</h2>
                 </div>
-                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Our mission is to impact one million lives through entrepreneurship, collaboration and opportunity.</p>
 
-                <ul className="fd-pathway-cards__list my-1">
+                <ul className="fd-pathway-cards__list max-h-[260px] overflow-y-auto pr-1 my-1">
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>Every referral that builds long-term clients.</span>
+                    <span><strong className="text-white font-semibold">01 — You don&apos;t have to build alone.</strong> Create relationships with people who understand the entrepreneurial journey.</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>Every introduction to key decision-makers.</span>
+                    <span><strong className="text-white font-semibold">02 — You can learn from experience.</strong> Move beyond theory and learn from entrepreneurs who have lived the problem.</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>Every hour of mentorship that prevents costly mistakes.</span>
+                    <span><strong className="text-white font-semibold">03 — You can build trusted relationships.</strong> Trust takes time. PEERS GLOBAL is designed around repeated interaction rather than one-time transactions.</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>Every partnership formed inside this community moves that number forward.</span>
+                    <span><strong className="text-white font-semibold">04 — You can collaborate meaningfully.</strong> Turn relationships into introductions, solutions, partnerships and opportunities.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">05 — You can become a better leader.</strong> Growth is not only about growing a business. It is also about growing the person leading it.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">06 — You can contribute.</strong> Your experience may be exactly what another entrepreneur needs next.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">07 — You can create an impact.</strong> Business growth and human impact do not have to exist in separate worlds.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkBody)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">08 — You can grow from local to global.</strong> A Circle can become a doorway to relationships beyond your immediate geography.</span>
                   </li>
                 </ul>
 
-                <div className="flex flex-col gap-1.5 pt-1">
-                  <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead !text-[15px]">
-                    When you become a Peer, your contribution becomes part of it.
+                <div className="flex flex-col gap-1 pt-1">
+                  <p className="fd-pathway-cards__desc--sub text-xs text-slate-300">
+                    <strong className="text-white font-medium">The thought that brings the section together:</strong>
+                  </p>
+                  <p className="fd-pathway-cards__quote pt-0.5">
+                    &ldquo;You may join for what you need today. You may stay for what you are able to create together tomorrow.&rdquo;
                   </p>
                 </div>
               </div>
               <div className="pt-2">
-                <a className="fd-pathway-cards__btn" href="/1-million-mission" aria-label="Join the 1 Million Mission">Join the 1 Million Mission</a>
+                <a className="fd-pathway-cards__btn" href="/why-peers-global" aria-label="Why Choose Peers Global">WHY CHOOSE PEERS GLOBAL →</a>
               </div>
             </div>
           </div>
@@ -1292,34 +1436,58 @@ export function PathwayCardsSection() {
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
-                  <p className="fd-pathway-cards__eyebrow !text-[#C084FC]">REAL COLLABORATIONS</p>
-                  <h2 className="fd-pathway-cards__title">What this looks like in real life.</h2>
+                  <p className="fd-pathway-cards__eyebrow !text-[#C084FC]">FROM MEMBER TO PEER</p>
+                  <h2 className="fd-pathway-cards__title">Membership is where the journey begins.</h2>
                 </div>
-                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">Three real stories. Each: two named Peers, their businesses, their cities, what happened, what it produced. Photograph of the two of them together.</p>
+                <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead">
+                  A Member enters the ecosystem. A Peer becomes part of a relationship. And over time, contribution creates something deeper: <strong className="text-white font-semibold">trust</strong>.
+                </p>
+                <p className="fd-pathway-cards__desc--sub text-xs text-slate-300">
+                  The PEERS GLOBAL language intentionally distinguishes between the two:
+                </p>
 
-                <ul className="fd-pathway-cards__list my-1">
+                <ul className="fd-pathway-cards__list max-h-[220px] overflow-y-auto pr-1 my-1">
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>Two named Peers in complementary industries.</span>
+                    <span><strong className="text-white font-semibold">Member</strong> is a status.</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>Cross-city partnerships without transactional friction.</span>
+                    <span><strong className="text-white font-semibold">Peer</strong> is a relationship.</span>
                   </li>
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
-                    <span>Every outcome backed by verified business numbers.</span>
+                    <span><strong className="text-white font-semibold">Belonging</strong> is an experience.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">Contribution</strong> is a culture.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">Collaboration</strong> is an action.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">Impact</strong> is an outcome.</span>
+                  </li>
+                  <li className="fd-pathway-cards__item">
+                    <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkMystic)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
+                    <span><strong className="text-white font-semibold">Recognition</strong> is appreciation.</span>
                   </li>
                 </ul>
 
-                <div className="flex flex-col gap-1.5 pt-1">
-                  <p className="fd-pathway-cards__desc fd-pathway-cards__desc--lead !text-[15px]">
-                    When business partners become friends, friends become the reason the business grows.
+                <div className="flex flex-col gap-1 pt-1">
+                  <p className="fd-pathway-cards__desc--sub text-xs text-slate-300">
+                    <strong className="text-white font-medium">Closing line:</strong>
+                  </p>
+                  <p className="fd-pathway-cards__quote pt-0.5">
+                    &ldquo;Membership is what you buy. Peer is what you become.&rdquo;
                   </p>
                 </div>
               </div>
               <div className="pt-2">
-                <a className="fd-pathway-cards__btn" href="/stories" aria-label="Read More Peer Stories">Read More Peer Stories</a>
+                <a className="fd-pathway-cards__btn" href="/why-peers-global" aria-label="From Member To Peer">BECOME A PEER →</a>
               </div>
             </div>
           </div>

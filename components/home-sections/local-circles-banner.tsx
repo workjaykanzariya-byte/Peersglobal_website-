@@ -1,7 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 // All 40 extracted brand partners with gradient treatment
 const BRANDS_ROW_1 = [
@@ -50,7 +52,33 @@ const BRANDS_ROW_2 = [
   { name: 'Zenith Capital', src: '/images/brands/zenith_capital.png' },
 ]
 
+const INDIA_CITIES = [
+  { name: 'Ahmedabad', href: '/cities' },
+  { name: 'Mumbai', href: '/cities' },
+  { name: 'Bengaluru', href: '/cities' },
+  { name: 'Delhi NCR', href: '/cities' },
+  { name: 'Pune', href: '/cities' },
+  { name: 'Hyderabad', href: '/cities' },
+  { name: 'Surat', href: '/cities' },
+  { name: 'Chennai', href: '/cities' },
+  { name: 'Kolkata', href: '/cities' },
+  { name: 'Jaipur', href: '/cities' },
+]
+
+const GLOBAL_CITIES = [
+  { name: 'Dubai', href: '/international' },
+  { name: 'London', href: '/international' },
+  { name: 'Singapore', href: '/international' },
+  { name: 'New York', href: '/international' },
+  { name: 'San Francisco', href: '/international' },
+  { name: 'Toronto', href: '/international' },
+  { name: 'Sydney', href: '/international' },
+]
+
 export function LocalCirclesBanner() {
+  const [activeTab, setActiveTab] = useState<'india' | 'international'>('india')
+  const cities = activeTab === 'india' ? INDIA_CITIES : GLOBAL_CITIES
+
   return (
     <section className="relative w-full overflow-hidden bg-white text-slate-900 border-y border-slate-200 select-none py-12 sm:py-16">
       {/* Subtle brand gradient ambient glow */}
