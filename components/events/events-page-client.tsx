@@ -736,15 +736,15 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredEvents.map((ev) => (
                 <div
-                  key={ev.id || ev.title}
+                  key={ev.event_id || ev.id || ev.title}
                   className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
                 >
                   <div>
-                    {ev.image && (
+                    {(ev.image_url || ev.image) && (
                       <div className="relative h-44 w-full overflow-hidden bg-slate-900">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={ev.image}
+                          src={ev.image_url || ev.image}
                           alt={ev.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -758,7 +758,7 @@ export function EventsPageClient({ initialEvents = [] }: EventsPageClientProps) 
                     <div className="p-6 space-y-3">
                       <div className="flex items-center gap-2 text-xs font-semibold text-[#0062D2]">
                         <Calendar className="w-3.5 h-3.5" />
-                        <span>{ev.date || 'Upcoming Session'}</span>
+                        <span>{ev.formatted_start_at || ev.date || 'Upcoming Session'}</span>
                       </div>
 
                       <h3 className="font-serif font-bold text-slate-950 text-lg leading-snug group-hover:text-[#0062D2] transition-colors">

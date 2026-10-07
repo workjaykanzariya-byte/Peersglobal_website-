@@ -1,11 +1,18 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 export function WhatIsSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true
+      videoRef.current.muted = true
+    }
+  }, [])
 
   const togglePlay = () => {
     if (!videoRef.current) return
@@ -104,7 +111,6 @@ export function WhatIsSection() {
             src="/videos/peersglobal.mp4"
             autoPlay
             muted
-            defaultMuted
             loop
             playsInline
             preload="auto"

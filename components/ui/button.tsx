@@ -1,6 +1,6 @@
 import { Button as ButtonPrimitive } from '@base-ui/react/button'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { LogoAnimation } from '@/components/ui/logo-animation'
+import { Loader2 } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -75,7 +75,7 @@ function Button({
     >
       {loading ? (
         <span className="flex items-center gap-1.5">
-          <LogoAnimation size="xs" loop autoplay className="shrink-0" />
+          <Loader2 className="size-3.5 animate-spin shrink-0" />
           <span>{children}</span>
         </span>
       ) : (

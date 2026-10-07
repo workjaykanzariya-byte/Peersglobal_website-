@@ -116,16 +116,16 @@ export function LocalCirclesBanner() {
         <div className="w-full flex items-center justify-center">
           <div className="flex flex-wrap items-center justify-center gap-y-2.5 text-sm sm:text-base font-medium tracking-wide text-slate-700">
             {cities.map((city, index) => (
-              <React.Fragment key={city}>
+              <React.Fragment key={city.name}>
                 <span className="text-slate-300 px-2.5 sm:px-3 font-light select-none">
                   |
                 </span>
                 <Link
-                  href="/cities"
+                  href={city.href}
                   className="group inline-flex items-center gap-1 text-slate-800 hover:text-[#1D4ED8] transition-all duration-200 hover:scale-105 transform origin-center py-0.5"
                 >
                   <span className="transition-all group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] font-semibold">
-                    {city}
+                    {city.name}
                   </span>
                 </Link>
                 {index === cities.length - 1 && (

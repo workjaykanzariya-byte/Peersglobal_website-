@@ -6,6 +6,7 @@ const MEMBERS_TOKEN = process.env.NEXT_PUBLIC_MEMBERS_API_TOKEN || '302|cO0VMR2d
 // ==========================================
 export interface PeerEvent {
   event_id: string;
+  id?: string;
   occurrence_id: string | null;
   title: string;
   description: string | null;
@@ -15,9 +16,11 @@ export interface PeerEvent {
   start_at: string;
   end_at: string | null;
   formatted_start_at: string;
+  date?: string;
   status: string;
   registered_count: number;
   image_url: string | null;
+  image?: string;
   location: string | null;
   meeting_link: string | null;
   circle?: {
