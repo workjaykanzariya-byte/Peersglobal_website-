@@ -1,11 +1,18 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 export function WhatIsSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true
+      videoRef.current.muted = true
+    }
+  }, [])
 
   const togglePlay = () => {
     if (!videoRef.current) return
@@ -32,51 +39,63 @@ export function WhatIsSection() {
           {/* Eyebrow & Titles */}
           <div className="fd-what-is-mindvalley__titles">
             <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text" data-fd-rise="0">
-              WHAT PEERS GLOBAL IS
+              WHAT IS PEERS GLOBAL?
             </p>
 
             <div className="fd-what-is-mindvalley__copy">
               <h2 className="fd-what-is-mindvalley__headline" data-fd-rise="80">
-                <span>A leadership organisation,</span>{' '}
-                <span>not a networking group.</span>
+                <span>More than a network.</span>{' '}
+                <span>A way of growing together.</span>
               </h2>
-              <p className="fd-what-is-mindvalley__paragraph" data-fd-rise="160">
-                Built on the LSR Growth Model — Learning, Sales and Resources — with a mission to enhance the lives of one million entrepreneurs.
+              <div className="space-y-3 max-w-3xl mx-auto">
+                <p className="fd-what-is-mindvalley__paragraph" data-fd-rise="160">
+                  PEERS GLOBAL is built around a simple belief: Entrepreneurs grow differently when they stop building in isolation. It brings entrepreneurs into structured relationships where business experience, knowledge, introductions, problem-solving, support and contribution can move between people.
+                </p>
+                <p className="text-sm sm:text-base text-slate-600 font-medium" data-fd-rise="200">
+                  The structure is designed around three dimensions of entrepreneurial growth:
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 Core Pillars (LSR) matching layout */}
+          <div className="fd-what-is-mindvalley__stats !gap-8 md:!gap-12 lg:!gap-16">
+            {/* Pillar 1 - Learning */}
+            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="240">
+              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
+                L — Learning
+              </h3>
+              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
+                Learning from people who have actually lived the experience.
+              </p>
+            </div>
+
+            {/* Pillar 2 - Sharing */}
+            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="300">
+              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
+                S — Sharing
+              </h3>
+              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
+                Sharing knowledge, relationships, opportunities and experience.
+              </p>
+            </div>
+
+            {/* Pillar 3 - Relationships */}
+            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="360">
+              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
+                R — Relationships
+              </h3>
+              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
+                Building trusted relationships that become stronger over time.
               </p>
             </div>
           </div>
 
-          {/* 3 Core Pillars matching Mindvalley stats layout */}
-          <div className="fd-what-is-mindvalley__stats !gap-8 md:!gap-12 lg:!gap-16">
-            {/* Pillar 1 */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="240">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                Your Circle. Your Inner Board.
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                20–40 curated entrepreneurs. Category exclusivity, so there is no competition inside the room.
-              </p>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="300">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                1 Action = 1 Life Impacted.
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Most communities measure activity. We measure impact.
-              </p>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="360">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                Partners in Business. Friends in Life.
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Two Family Meetups a year. A Confidential Forum. Relationships measured in decades.
-              </p>
-            </div>
+          {/* Closing Highlight */}
+          <div className="text-center mt-2 max-w-xl mx-auto" data-fd-rise="400">
+            <p className="text-base sm:text-lg font-serif italic text-slate-800 font-medium">
+              &ldquo;LSR is not a theory to read about. It is something to experience.&rdquo;
+            </p>
           </div>
         </div>
       </div>
@@ -92,7 +111,6 @@ export function WhatIsSection() {
             src="/videos/peersglobal.mp4"
             autoPlay
             muted
-            defaultMuted
             loop
             playsInline
             preload="auto"

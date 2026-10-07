@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export function HowItWorksSection() {
   const [index, setIndex] = useState(0)
@@ -17,11 +19,41 @@ export function HowItWorksSection() {
   return (
     <section className="fd-how-it-works" id="unity-app" style={{ ['--fd-i' as any]: index }}>
       <div className="fd-how-it-works__head" data-fd-rise="0">
-        <p className="fd-how-it-works__eyebrow brand-gradient-text">THE UNITY APP</p>
-        <h2 className="fd-how-it-works__title">The community works every day, not just on meeting day.</h2>
-        <p className="fd-how-it-works__desc">
-          The Peers Global Unity App is the digital home of the community. It is how Peers find each other, stay connected, and keep collaborating between meetings.
-        </p>
+        <p className="fd-how-it-works__eyebrow brand-gradient-text">UNITY</p>
+        <h2 className="fd-how-it-works__title">Your community doesn&apos;t disappear when the meeting ends.</h2>
+        <div className="fd-how-it-works__desc space-y-3.5">
+          <p className="text-base sm:text-[17px] text-slate-700 leading-relaxed font-normal">
+            Unity brings the PEERS GLOBAL experience into everyday community life.
+          </p>
+
+          <p className="text-xs sm:text-sm font-semibold tracking-wider text-slate-800 uppercase flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <span>Connect.</span>
+            <span>Share.</span>
+            <span>Discover.</span>
+            <span>Ask.</span>
+            <span>Offer.</span>
+            <span>Meet.</span>
+            <span>Follow up.</span>
+          </p>
+
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Continue the conversations that began in the Circle.
+          </p>
+
+          <p className="text-sm sm:text-base italic text-slate-800 font-medium pt-0.5">
+            Because the real question is not: <span className="font-semibold text-slate-900">&ldquo;How often did we meet?&rdquo;</span> It is: <span className="font-semibold text-slate-900">&ldquo;What happened because we stayed connected?&rdquo;</span>
+          </p>
+
+          <div className="pt-2">
+            <Link
+              href="/unity"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all group tracking-wider uppercase"
+            >
+              <span>EXPLORE UNITY</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div
@@ -167,6 +199,13 @@ export function HowItWorksSection() {
 
       {/* Download App CTA */}
       <div className="fd-how-it-works__bottom">
+        <Link
+          href="/unity"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-8 py-3.5 text-xs sm:text-sm font-semibold shadow-lg shadow-blue-600/25 hover:shadow-red-500/25 hover:scale-105 transition-all group tracking-wider uppercase mb-1"
+        >
+          <span>EXPLORE UNITY</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Link>
         <p className="fd-how-it-works__bottom-text">Download the app, explore the community, and see it for yourself.</p>
         <div className="fd-how-it-works__buttons">
           <a

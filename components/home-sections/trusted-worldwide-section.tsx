@@ -37,23 +37,20 @@ export function TrustedWorldwideSection() {
   }
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-[#FAFBFD] to-white py-20 md:py-28 px-4 sm:px-6 lg:px-8 border-b border-cool-grey-250/80" id="who-we-are">
-      <div className="max-w-6xl mx-auto mb-16 md:mb-20">
-        <div className="flex flex-col items-center text-center space-y-6">
-          {/* Eyebrow with Signature Gradient Lines */}
-          <div className="flex items-center gap-2.5">
-            <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-              WHO WE ARE
-            </span>
-            <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
-          </div>
+    <section className="fd-what-is-mindvalley !bg-white !py-20 md:!py-24 !px-6 md:!px-12" id="who-we-are">
+      <div className="fd-what-is-mindvalley__inner !mb-12">
+        <div className="fd-what-is-mindvalley__intro !gap-8">
+          {/* Eyebrow & Titles matching standard Mindvalley typography */}
+          <div className="fd-what-is-mindvalley__titles !gap-6">
+            <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text">
+              THE TRUTH EVERY ENTREPRENEUR KNOWS
+            </p>
 
-          {/* Headline */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold tracking-tight text-[#0f131a] leading-[1.12] max-w-4xl">
-            <span>A global community of entrepreneurs</span>{' '}
-            <span className="brand-gradient-text block sm:inline">who choose to grow together.</span>
-          </h2>
+            <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5">
+              <h2 className="fd-what-is-mindvalley__headline">
+                <span>Building a business can be exciting.</span>{' '}
+                <span>Building one alone can be exhausting.</span>
+              </h2>
 
           {/* Subheading / Copy */}
           <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal">

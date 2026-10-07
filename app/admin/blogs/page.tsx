@@ -27,7 +27,10 @@ interface BlogPostItem {
   excerpt: string
   content: string
   imageUrl: string
+  views?: number
 }
+
+const DEFAULT_SAMPLE_BLOGS: BlogPostItem[] = []
 
 export default function AdminBlogsPage() {
   const [blogs, setBlogs] = useState<BlogPostItem[]>([])
@@ -473,9 +476,7 @@ export default function AdminBlogsPage() {
                     placeholder="e.g. Navigating Scale: Key Takeaways from Conclave 2026"
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    placeholder="Enter publication title..."
                     className="w-full bg-[#070D18] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
-                    required
                   />
                 </div>
 
@@ -511,7 +512,6 @@ export default function AdminBlogsPage() {
                     placeholder="https://images.unsplash.com/photo-..."
                     value={formData.imageUrl}
                     onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                    placeholder="https://..."
                     className="w-full bg-[#070D18] border border-slate-800 rounded-xl p-3 text-white focus:outline-none focus:border-[#1E4ED8] focus:ring-1 focus:ring-[#1E4ED8]/30 transition"
                   />
                 </div>

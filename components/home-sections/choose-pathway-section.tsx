@@ -14,38 +14,38 @@ interface JourneyStep {
 const JOURNEY_STEPS: JourneyStep[] = [
   {
     step: '01',
-    title: 'Download Unity',
-    description: 'See the community from the inside.',
-    image: '/images/unity-creatives/Post 2.png',
-    link: '/unity',
+    title: 'Looking for business connections?',
+    description: 'Find entrepreneurs who understand what you are building and turn relationships into action.',
+    image: '/images/unity-hero-phones.jpg',
+    link: '/circles/find',
   },
   {
     step: '02',
-    title: 'Visit a Circle',
-    description: 'Come as a guest. Meet the room.',
-    image: '/images/section_image/circle-meeting.png',
+    title: 'Want to learn & contribute?',
+    description: 'Move beyond theory. Learn from lived experience and share what you know with fellow peers.',
+    image: '/images/circle-meeting.png',
     link: '/circles/find',
   },
   {
     step: '03',
-    title: 'Become a Peer',
-    description: 'Take your seat in the community.',
+    title: 'Looking for your next collaboration?',
+    description: 'Create meaningful partnerships, mutual introductions and joint opportunities without friction.',
     image: '/images/who-we-are-friends.jpg',
-    link: '/apply',
+    link: '/circles/find',
   },
   {
     step: '04',
-    title: 'Contribute',
-    description: 'Give first. Make the introduction. Share what you know.',
+    title: 'A room where you don’t explain from the start',
+    description: 'You may have a different stage, story or goals — but you never have to arrive as someone else.',
     image: '/images/who-we-are-impact.jpg',
-    link: '/give-first',
+    link: '/circles/find',
   },
   {
     step: '05',
-    title: 'Lead',
-    description: 'Start a Circle. Hold an industry. Build a city.',
+    title: 'Come as the entrepreneur you are',
+    description: 'Discover what becomes possible with the right people around you. You were never meant to build alone.',
     image: '/images/leadership-climbers-hero.jpg',
-    link: '/leadership',
+    link: '/circles/find',
   },
 ]
 
@@ -100,19 +100,27 @@ export function ChoosePathwaySection() {
       />
 
       {/* Header */}
-      <div className="max-w-[840px] mx-auto text-center mb-16 flex flex-col items-center gap-3 relative z-10">
+      <div className="max-w-[840px] mx-auto text-center mb-16 flex flex-col items-center gap-4 relative z-10">
         <p
           className="text-sm md:text-base font-semibold tracking-wider uppercase brand-gradient-text"
           style={{ letterSpacing: '0.46px' }}
         >
-          THE JOURNEY
+          THE THRESHOLD
         </p>
         <h2
           className="text-3xl md:text-5xl font-semibold text-white tracking-tight leading-tight"
           style={{ letterSpacing: '0.15px' }}
         >
-          Every Peer starts the same way.
+          You were never meant to build alone.
         </h2>
+        <div className="space-y-2 max-w-2xl mx-auto text-slate-300 text-sm md:text-base leading-relaxed">
+          <p>
+            You may be at a different stage. You may have a different story. You may have different goals.
+          </p>
+          <p className="text-white/90 font-medium">
+            You do not have to arrive as someone else. Come as the entrepreneur you are. And discover what may become possible with the right people around you.
+          </p>
+        </div>
       </div>
 
       {/* 5 Journey Steps List */}
@@ -176,8 +184,7 @@ export function ChoosePathwaySection() {
               {/* Action indicator */}
               <div className="flex items-center gap-3 shrink-0 ml-4">
                 <div
-                  className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
-                    isActive
+                  className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${isActive
                       ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-transparent text-white shadow-md'
                       : 'border-slate-200 bg-slate-50 text-slate-500 group-hover:bg-slate-100 group-hover:text-slate-800'
                   }`}
@@ -201,29 +208,38 @@ export function ChoosePathwaySection() {
       </div>
 
       {/* Bottom CTA Block */}
-      <div className="max-w-[720px] mx-auto text-center flex flex-col items-center gap-6 relative z-10">
+      <div className="max-w-[820px] mx-auto text-center flex flex-col items-center gap-6 relative z-10">
         <p className="text-base md:text-xl font-medium text-white/90 italic tracking-wide">
-          &ldquo;Most Peers arrive for the business. They stay for the relationships.&rdquo;
+          &ldquo;You were never meant to build alone.&rdquo;
         </p>
 
-        <Link
-          href="/apply"
-          className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm md:text-base font-semibold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
-          style={{
-            backgroundImage: 'linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%)',
-            boxShadow: '0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3)',
-          }}
-          aria-label="Start Your Journey"
-        >
-          <span>Start Your Journey</span>
-          <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-            <path
-              fillRule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </Link>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href="/circles/find"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm md:text-base font-semibold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
+            style={{
+              backgroundImage: 'linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%)',
+              boxShadow: '0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3)',
+            }}
+            aria-label="Find Your Circle"
+          >
+            <span>FIND YOUR CIRCLE →</span>
+          </Link>
+          <Link
+            href="/why-peers-global"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm md:text-base font-semibold text-white/90 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all shadow-sm cursor-pointer"
+            aria-label="Explore Peers Global"
+          >
+            <span>EXPLORE PEERS GLOBAL →</span>
+          </Link>
+          <Link
+            href="/unity"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm md:text-base font-semibold text-cyan-300 hover:text-cyan-200 bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/30 transition-all shadow-sm cursor-pointer"
+            aria-label="Download Unity"
+          >
+            <span>DOWNLOAD UNITY →</span>
+          </Link>
+        </div>
       </div>
 
       {/* Dynamic Sticky Bottom Bar - Appears smoothly when section is active */}
@@ -235,24 +251,24 @@ export function ChoosePathwaySection() {
         <div className="max-w-[1000px] mx-auto flex items-center justify-between gap-4">
           <div className="text-left">
             <p className="text-sm md:text-base font-semibold text-white">
-              Every Peer starts the same way.
+              You were never meant to build alone.
             </p>
             <p className="text-xs text-[#9CA3AF]">
-              Most Peers arrive for the business. They stay for the relationships.
+              Come as the entrepreneur you are. Discover what is possible with the right people around you.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             <Link
-              href="/apply"
+              href="/circles/find"
               className="px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold text-white transition-all shadow-md hover:scale-105 shrink-0"
               style={{
                 backgroundImage: 'linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%)',
                 boxShadow: '0 4px 14px rgba(29, 78, 216, 0.35)',
               }}
-              aria-label="Start Your Journey"
+              aria-label="Find Your Circle"
             >
-              Start Your Journey
+              FIND YOUR CIRCLE →
             </Link>
           </div>
         </div>

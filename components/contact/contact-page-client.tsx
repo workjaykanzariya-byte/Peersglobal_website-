@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import '@/app/sections.css'
+import { useSearchParams } from 'next/navigation'
+import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   ChevronRight,
@@ -459,11 +460,10 @@ export function ContactPageClient() {
                     const el = document.getElementById('send-message')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`group relative p-6 sm:p-7 rounded-2xl bg-white border transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-4 ${
-                    isSelected
+                  className={`group relative p-6 sm:p-7 rounded-2xl bg-white border transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-4 ${isSelected
                       ? 'border-[#1D4ED8] shadow-lg shadow-blue-500/10 ring-2 ring-blue-500/20 -translate-y-1.5'
                       : 'border-slate-200 shadow-xs hover:border-[#1D4ED8]/60 hover:shadow-xl hover:shadow-blue-600/10 hover:-translate-y-2'
-                  }`}
+                    }`}
                 >
                   <div className="space-y-4">
                     {/* Top Row: Icon + Route ID + Tag */}
@@ -499,11 +499,10 @@ export function ContactPageClient() {
                       <span className="truncate max-w-[150px] sm:max-w-[170px]">{route.email}</span>
                     </div>
 
-                    <div className={`inline-flex items-center gap-1 font-bold transition-all duration-300 ${
-                      isSelected
+                    <div className={`inline-flex items-center gap-1 font-bold transition-all duration-300 ${isSelected
                         ? 'text-[#1D4ED8]'
                         : 'text-slate-500 group-hover:text-[#1D4ED8]'
-                    }`}>
+                      }`}>
                       <span>{isSelected ? 'Selected' : 'Select Route'}</span>
                       {isSelected ? (
                         <CheckCircle className="w-4 h-4 text-[#1D4ED8]" />

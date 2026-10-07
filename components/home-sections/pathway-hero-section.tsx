@@ -5,7 +5,18 @@ import React from 'react'
 export function PathwayHeroSection() {
   return (
     <section className="fd-pathway-hero">
-      <video poster="https://a.storyblok.com/f/312081/0b859c882d/poster_pathway-hero.webp" className="fd-pathway-hero__video" autoPlay muted loop playsInline muted loop playsInline preload="metadata" aria-hidden="true" tabIndex="-1" src="https://assets.mindvalley.com/api/v1/assets/de3fb208-f92b-4ef3-849a-45b68507e1ec.mp4"></video>
+      <video
+        poster="https://a.storyblok.com/f/312081/0b859c882d/poster_pathway-hero.webp"
+        className="fd-pathway-hero__video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+        tabIndex={-1}
+        src="https://assets.mindvalley.com/api/v1/assets/de3fb208-f92b-4ef3-849a-45b68507e1ec.mp4"
+      />
 
       <div className="fd-pathway-hero__inner">
         <div className="fd-pathway-hero__copy">

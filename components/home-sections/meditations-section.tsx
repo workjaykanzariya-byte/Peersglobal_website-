@@ -44,22 +44,31 @@ const ROW_3_IMAGES = [
 
 export function MeditationsSection() {
   return (
-    <section className="fd-med-menu" id="fd-med-menu" aria-label="Built and led by entrepreneurs">
+    <section className="fd-med-menu" id="fd-med-menu" aria-label="The 1 Million Mission">
       <div className="fd-med-menu__inner">
         <p className="fd-med-menu__eyebrow brand-gradient-text" data-fd-rise="0">
-          LEADERSHIP
+          THE 1 MILLION MISSION
         </p>
         <h2 className="fd-med-menu__headline" data-fd-rise="80">
-          Built and led by entrepreneurs.
+          One entrepreneur can change more than a business.
         </h2>
         <p className="fd-med-menu__body" data-fd-rise="160">
-          Peers Global is carried forward by its own Peers. Circle Founders, Circle Directors,
-          Industry Directors, Regional Executive Directors and Global Advisors — every one of them a
-          business owner who chose to build something beyond their own company.
+          An entrepreneur can create employment. Solve a problem. Build a product. Teach another person. Support a family. Create an opportunity. Help another entrepreneur grow. Impact a community. And sometimes inspire another person to begin.
         </p>
         <p className="fd-med-menu__subbody" data-fd-rise="200">
-          Leadership here follows contribution. Peers who give the most are the ones who lead.
+          PEERS GLOBAL&apos;s stated mission is to impact 1 million entrepreneurs by 2030. But the number is not the whole story. The real question is: What happens when one person&apos;s growth creates the possibility for another person&apos;s growth? Then another. And another.
         </p>
+
+        {/* Badges / Counters */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-6" data-fd-rise="220">
+          <div className="bg-slate-100/80 border border-slate-200/80 rounded-full px-5 py-2 text-xs sm:text-sm font-semibold text-slate-800 shadow-sm">
+            1M+ Entrepreneurs to Impact by 2030
+          </div>
+          <div className="bg-slate-100/80 border border-slate-200/80 rounded-full px-5 py-2 text-xs sm:text-sm font-semibold text-slate-800 shadow-sm">
+            1 Action = 1 Life Impacted
+          </div>
+        </div>
+
         <div className="fd-med-menu__cta" data-fd-rise="240">
           <Link className="fd-med-menu__btn" href="/leadership" aria-label="Explore Leadership">
             Explore Leadership

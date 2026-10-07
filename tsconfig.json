@@ -36,6 +36,8 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "v0_source",
+    "peers-global-homepage-redesign-kit"
   ]
 }
