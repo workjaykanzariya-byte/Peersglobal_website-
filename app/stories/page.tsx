@@ -2,33 +2,32 @@ import type { Metadata } from 'next'
 import { StoriesPageClient } from '@/components/stories/stories-page-client'
 
 export const metadata: Metadata = {
-  title: 'Peer Stories | Real Collaborations at Peers Global',
+  title: 'Peer Stories | What Entrepreneurs Build When They Stop Building Alone',
   description:
-    'Real entrepreneurs, real collaborations, real outcomes. What Peers have built together across Circles, cities and industries.',
+    'Every story on this page belongs to real Peers. Real people, real businesses, real collaboration. Discover what exists today because Peers chose to collaborate.',
   keywords: [
-    'entrepreneur success stories India',
-    'business collaboration stories',
-    'MSME success stories',
-    'business partnership examples',
-    'peer stories',
-    'Peers Global collaborations',
+    'peer stories peers global',
+    'entrepreneur collaboration stories India',
+    'real business partnership outcomes',
+    'MSME joint ventures and referrals',
+    'authentic founder stories',
   ],
   alternates: {
     canonical: 'https://peersglobal.com/stories',
   },
   openGraph: {
-    title: 'Peer Stories | Real Collaborations at Peers Global',
+    title: 'Peer Stories | What Entrepreneurs Build When They Stop Building Alone',
     description:
-      'Real entrepreneurs, real collaborations, real outcomes. What Peers have built together across Circles, cities and industries.',
+      'Every story on this page belongs to real Peers. Real people, real businesses, real collaboration. Discover what exists today because Peers chose to collaborate.',
     url: 'https://peersglobal.com/stories',
     siteName: 'Peers Global',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Peer Stories | Real Collaborations at Peers Global',
+    title: 'Peer Stories | What Entrepreneurs Build When They Stop Building Alone',
     description:
-      'Real entrepreneurs, real collaborations, real outcomes. What Peers have built together across Circles, cities and industries.',
+      'Every story on this page belongs to real Peers. Real people, real businesses, real collaboration. Discover what exists today because Peers chose to collaborate.',
   },
 }
 
@@ -36,77 +35,27 @@ export default function StoriesPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Peers Global Peer Stories & Collaborations',
+    name: 'Peers Global Approved Peer Collaboration Stories',
     description:
-      'Real entrepreneurs, real collaborations, real outcomes across Peers Global Circles.',
+      'Verified real-world collaborations between entrepreneurs across Circles, cities and industries.',
     itemListElement: [
       {
         '@type': 'Article',
         position: 1,
-        headline: 'A referral that became ₹1.2 Cr in business',
-        description:
-          'Shah Packaging and Mehta Trading cross-Circle collaboration resulting in a continuous packaging supply contract.',
-        author: [
-          {
-            '@type': 'Person',
-            name: 'Jignesh Shah',
-          },
-          {
-            '@type': 'Person',
-            name: 'Rohit Mehta',
-          },
-        ],
+        headline: 'A referral that became ₹1.2 Cr in recurring packaging business',
+        author: [{ '@type': 'Person', name: 'Jignesh Shah' }, { '@type': 'Person', name: 'Rohit Mehta' }],
       },
       {
         '@type': 'Article',
         position: 2,
-        headline: 'A joint venture that opened 3 new markets',
-        description:
-          'Desai Exports and Malhotra Logistics structured a joint export corridor into European markets.',
-        author: [
-          {
-            '@type': 'Person',
-            name: 'Priya Desai',
-          },
-          {
-            '@type': 'Person',
-            name: 'Karan Malhotra',
-          },
-        ],
+        headline: 'A joint export alliance unlocking 3 new international markets',
+        author: [{ '@type': 'Person', name: 'Priya Desai' }, { '@type': 'Person', name: 'Karan Malhotra' }],
       },
       {
         '@type': 'Article',
         position: 3,
-        headline: 'A conversation that saved 18 months',
-        description:
-          'Trivedi Chemicals and Kulkarni Solutions chemical plant solvent recovery compliance guidance.',
-        author: [
-          {
-            '@type': 'Person',
-            name: 'Amit Trivedi',
-          },
-          {
-            '@type': 'Person',
-            name: 'Sandeep Kulkarni',
-          },
-        ],
-      },
-      {
-        '@type': 'Article',
-        position: 4,
-        headline: 'An introduction that led to a long-term partnership',
-        description:
-          'Patel HR Solutions and Kaur Tech engineering talent pipeline collaboration in Bengaluru.',
-        author: [
-          {
-            '@type': 'Person',
-            name: 'Neha Patel',
-          },
-          {
-            '@type': 'Person',
-            name: 'Simran Kaur',
-          },
-        ],
+        headline: 'A confidential hot seat session saving 18 months of compliance delays',
+        author: [{ '@type': 'Person', name: 'Amit Trivedi' }, { '@type': 'Person', name: 'Sandeep Kulkarni' }],
       },
     ],
   }

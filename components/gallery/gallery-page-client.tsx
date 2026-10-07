@@ -34,22 +34,22 @@ const STATS = [
   {
     icon: Camera,
     value: '5,000+',
-    label: 'Moments',
+    label: 'Captured Moments',
   },
   {
     icon: Calendar,
     value: '200+',
-    label: 'Events',
+    label: 'Conclaves & Events',
   },
   {
     icon: MapPin,
     value: '50+',
-    label: 'Cities',
+    label: 'Cities Represented',
   },
   {
     icon: Globe2,
     value: '10+',
-    label: 'Countries',
+    label: 'Global Regions',
   },
 ]
 
@@ -59,7 +59,7 @@ const COLLECTIONS = [
     id: 'circle-meetings',
     title: 'Circle Meetings',
     subtitle: 'The rooms where it happens, month after month.',
-    image: '/images/circle-meeting.png',
+    image: '/images/section_image/circle-meeting.png',
     icon: Users,
     iconBg: 'bg-blue-50 text-[#0062D2] border-blue-100',
     categoryName: 'Circle Meetings',
@@ -67,7 +67,7 @@ const COLLECTIONS = [
   {
     id: 'city-gatherings',
     title: 'City Gatherings',
-    subtitle: 'Circles coming together.',
+    subtitle: 'Circles coming together across regional chapters.',
     image: '/images/who-we-are-friends.jpg',
     icon: MapPin,
     iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-100',
@@ -76,8 +76,8 @@ const COLLECTIONS = [
   {
     id: 'regional-conclaves',
     title: 'Regional Conclaves',
-    subtitle: 'Territories in one place.',
-    image: '/images/executive-director-conclave.jpg',
+    subtitle: 'Territories in one high-energy room.',
+    image: '/images/section_image/executive-director-conclave.jpg',
     icon: Layers,
     iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
     categoryName: 'Regional Conclaves',
@@ -85,8 +85,8 @@ const COLLECTIONS = [
   {
     id: 'annual-summit',
     title: 'The Annual Summit',
-    subtitle: 'The whole community.',
-    image: '/images/conclave.png',
+    subtitle: 'The grand gala celebrating the whole community.',
+    image: '/images/section_image/event_awards_stage.jpg',
     icon: Star,
     iconBg: 'bg-amber-50 text-amber-600 border-amber-100',
     categoryName: 'Annual Summit',
@@ -94,25 +94,25 @@ const COLLECTIONS = [
   {
     id: 'awards',
     title: 'Recognition & Awards',
-    subtitle: 'Contribution celebrated.',
-    image: '/images/story-hero.jpg',
+    subtitle: 'Public contribution affirmed and celebrated.',
+    image: '/images/section_image/event_awards_stage.jpg',
     icon: Award,
-    iconBg: 'bg-orange-50 text-orange-600 border-orange-100',
+    iconBg: 'bg-rose-50 text-rose-600 border-rose-100',
     categoryName: 'Recognition & Awards',
   },
   {
     id: 'masterclasses',
     title: 'Masterclasses',
-    subtitle: 'Peers teaching Peers.',
-    image: '/images/industry-director-speaker.jpg',
+    subtitle: 'Impact mentors delivering practical wisdom.',
+    image: '/images/section_image/circle-roundtable-topdown.jpg',
     icon: GraduationCap,
-    iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+    iconBg: 'bg-purple-50 text-purple-600 border-purple-100',
     categoryName: 'Masterclasses',
   },
 ]
 
-// ─── Photo Items ────────────────────────────────────────────────────────────
-export interface GalleryPhoto {
+// ─── 12 Initial Gallery Photos ──────────────────────────────────────────────
+interface GalleryPhoto {
   id: string
   title: string
   category: string
@@ -125,123 +125,123 @@ export interface GalleryPhoto {
 
 const INITIAL_PHOTOS: GalleryPhoto[] = [
   {
-    id: 'photo-1',
+    id: 'photo-01',
     title: 'National Leadership Conclave Opening',
     category: 'Annual Summit',
     city: 'Ahmedabad',
     circle: 'All Circles',
     year: '2026',
-    image: '/images/executive-director-conclave.jpg',
-    caption: 'Executive Directors and Circle Founders gathered on stage for the annual vision assembly.',
+    image: '/images/section_image/event_awards_stage.jpg',
+    caption: 'Founders and Circle Directors convening on stage during the opening plenary in Ahmedabad.',
   },
   {
-    id: 'photo-2',
-    title: 'Cross-Industry Founders Dialogue',
-    category: 'City Gatherings',
-    city: 'Mumbai',
-    circle: 'Manufacturing & Packaging Circle',
-    year: '2026',
-    image: '/images/story-amit-sandeep.jpg',
-    caption: 'Entrepreneurs sharing insights on regional distribution networks and raw material sourcing.',
-  },
-  {
-    id: 'photo-3',
-    title: 'Monthly Circle Roundtable in Session',
+    id: 'photo-02',
+    title: 'Cross-Circle Collaboration Roundtable',
     category: 'Circle Meetings',
+    city: 'Mumbai',
+    circle: 'Logistics Circle',
+    year: '2026',
+    image: '/images/section_image/circle-roundtable-topdown.jpg',
+    caption: '12 enterprise peers discussing joint supply chain warehousing and regional distribution synergies.',
+  },
+  {
+    id: 'photo-03',
+    title: 'Gratitude & Impact Recognition Round',
+    category: 'Recognition & Awards',
+    city: 'Bengaluru',
+    circle: 'Technology Circle',
+    year: '2025',
+    image: '/images/story-jignesh-rohit.jpg',
+    caption: 'Peers publicly acknowledging confirmed business introductions and advisory interventions.',
+  },
+  {
+    id: 'photo-04',
+    title: 'Masterclass: Scaling Operations Past ₹50 Cr',
+    category: 'Masterclasses',
+    city: 'Surat',
+    circle: 'Manufacturing Circle',
+    year: '2026',
+    image: '/images/industry-panel-leaders.jpg',
+    caption: '20-minute unscripted insights on managing vendor liquidity and working capital.',
+  },
+  {
+    id: 'photo-05',
+    title: 'Regional Conclave Fellowship & Dinner',
+    category: 'Regional Conclaves',
+    city: 'Ahmedabad',
+    circle: 'All Circles',
+    year: '2025',
+    image: '/images/section_image/executive-director-conclave.jpg',
+    caption: 'Entrepreneurs forging lifelong friendships and collaborative partnerships after boardroom sessions.',
+  },
+  {
+    id: 'photo-06',
+    title: 'Fempreneur Circle Innovation Forum',
+    category: 'City Gatherings',
+    city: 'Bengaluru',
+    circle: 'Fempreneur Circle',
+    year: '2026',
+    image: '/images/story-neha-simran.jpg',
+    caption: 'First-generation women founders sharing manufacturing playbooks and export frameworks.',
+  },
+  {
+    id: 'photo-07',
+    title: 'Global Trade & Export Advisory Panel',
+    category: 'Circle Meetings',
+    city: 'Surat',
+    circle: 'Export Circle',
+    year: '2025',
+    image: '/images/story-amit-sandeep.jpg',
+    caption: 'Direct syndicate discussions on bypassing international trade brokers across UAE and EU hubs.',
+  },
+  {
+    id: 'photo-08',
+    title: 'Circle Director of the Year Presentation',
+    category: 'Recognition & Awards',
+    city: 'Ahmedabad',
+    circle: 'All Circles',
+    year: '2026',
+    image: '/images/section_image/event_awards_stage.jpg',
+    caption: 'Honouring the Director who fostered the highest member retention and collaborative impact.',
+  },
+  {
+    id: 'photo-09',
+    title: 'MindMeld Strategic Problem Solving',
+    category: 'Circle Meetings',
+    city: 'Mumbai',
+    circle: 'Healthcare Circle',
+    year: '2025',
+    image: '/images/section_image/circle-meeting.png',
+    caption: 'A member presenting their core operational bottleneck to their confidential Inner Advisory Board.',
+  },
+  {
+    id: 'photo-10',
+    title: 'West India MSME Summit Hall',
+    category: 'Regional Conclaves',
     city: 'Ahmedabad',
     circle: 'MSME Circle',
     year: '2026',
-    image: '/images/philosophy-networking.jpg',
-    caption: 'Promoters engaged in the hot-seat segment, offering critical operating advice without posturing.',
+    image: '/images/section_image/circles-hero-new.jpg',
+    caption: 'Over 300 business leaders gathered for governed collaboration and institutional growth.',
   },
   {
-    id: 'photo-4',
-    title: 'Women Entrepreneurship Masterclass',
-    category: 'Masterclasses',
-    city: 'Bengaluru',
-    circle: 'Technology Circle',
-    year: '2026',
-    image: '/images/story-neha-simran.jpg',
-    caption: 'Founders collaborating following a deep dive into organizational design and engineering talent retention.',
-  },
-  {
-    id: 'photo-5',
-    title: 'Keynote Address: Scaling Across Bharat',
-    category: 'Regional Conclaves',
-    city: 'Surat',
-    circle: 'Export & Global Trade Circle',
-    year: '2025',
-    image: '/images/industry-director-speaker.jpg',
-    caption: 'Industry Director presenting market expansion strategies to over 150 regional enterprise owners.',
-  },
-  {
-    id: 'photo-6',
-    title: 'National Summit Delegation Assembly',
+    id: 'photo-11',
+    title: 'Annual Peer Awards Ceremony',
     category: 'Annual Summit',
     city: 'Goa',
     circle: 'All Circles',
     year: '2025',
-    image: '/images/conclave.png',
-    caption: 'Peers from across 18 Circles celebrating milestones at the annual community summit.',
-  },
-  {
-    id: 'photo-7',
-    title: 'Collaborative Governance Panel',
-    category: 'Masterclasses',
-    city: 'Delhi',
-    circle: 'Healthcare Circle',
-    year: '2025',
-    image: '/images/industry-panel-leaders.jpg',
-    caption: 'Four seasoned operators discussing regulatory adaptations, capex planning, and succession.',
-  },
-  {
-    id: 'photo-8',
-    title: 'Peer Networking Lounge & Exchange',
-    category: 'City Gatherings',
-    city: 'Mumbai',
-    circle: 'Logistics Circle',
-    year: '2026',
-    image: '/images/peer-stories-hero.jpg',
-    caption: 'Candid conversations where cross-city joint ventures and client introductions take root.',
-  },
-  {
-    id: 'photo-9',
-    title: 'Annual Recognition & Certificate Honor',
-    category: 'Recognition & Awards',
-    city: 'Ahmedabad',
-    circle: 'All Circles',
-    year: '2025',
-    image: '/images/story-hero.jpg',
-    caption: 'Honoring top Life Impact contributors who gave the most value to their fellow entrepreneurs.',
-  },
-  {
-    id: 'photo-10',
-    title: 'Collaborative Chemistry in Surat',
-    category: 'Circle Meetings',
-    city: 'Surat',
-    circle: 'Manufacturing Circle',
-    year: '2026',
-    image: '/images/story-priya-karan.jpg',
-    caption: 'Founders finalizing details of a multi-modal freight partnership between Gujarat and Delhi.',
-  },
-  {
-    id: 'photo-11',
-    title: 'Community Celebration & Gala Night',
-    category: 'Annual Summit',
-    city: 'Ahmedabad',
-    circle: 'All Circles',
-    year: '2026',
-    image: '/images/philosophy-conference-event.jpg',
-    caption: 'Celebrating shared progress, lifelong bonds, and the journey toward 1 million lives impacted.',
+    image: '/images/section_image/event_awards_stage.jpg',
+    caption: 'Celebrating verified peer contributions and community milestones on the national stage.',
   },
   {
     id: 'photo-12',
-    title: 'Strategic Partnership Discussion',
+    title: 'Informal Fellowship & Morning Coffee',
     category: 'City Gatherings',
     city: 'Bengaluru',
     circle: 'Technology Circle',
     year: '2026',
-    image: '/images/story-jignesh-rohit.jpg',
+    image: '/images/story-priya-karan.jpg',
     caption: 'Entrepreneurs exploring joint vendor synergies following a productive morning assembly.',
   },
 ]
@@ -264,7 +264,7 @@ const MORE_PHOTOS: GalleryPhoto[] = [
     city: 'Ahmedabad',
     circle: 'MSME Circle',
     year: '2025',
-    image: '/images/circle-roundtable-topdown.jpg',
+    image: '/images/section_image/circle-roundtable-topdown.jpg',
     caption: 'Confidential boardroom deliberation on working capital management and vendor contracts.',
   },
   {
@@ -284,7 +284,7 @@ const MORE_PHOTOS: GalleryPhoto[] = [
     city: 'Goa',
     circle: 'Leadership Circle',
     year: '2025',
-    image: '/images/circle-meeting.png',
+    image: '/images/section_image/circle-meeting.png',
     caption: 'Circle Directors and Founders aligning on ecosystem expansion and governance standards.',
   },
 ]
@@ -374,168 +374,200 @@ export function GalleryPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link
-              href="/"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link
-              href="/events"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
-              Community Life
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Gallery</span>
-          </nav>
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      
+      {/* ─── Breadcrumbs ─── */}
+      <div className="border-b border-slate-200/80 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
+            Home
+          </Link>
+          <ChevronRight className="size-3.5 text-slate-400" />
+          <Link href="/events" className="hover:text-slate-900 transition-colors">
+            Community Life
+          </Link>
+          <ChevronRight className="size-3.5 text-slate-400" />
+          <span className="text-slate-900 font-semibold">Gallery</span>
         </div>
       </div>
 
-      {/* ─── SECTION 1: HERO (GROUP CELEBRATION & EDGE FADE) ─────────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-white">
+      {/* ─── SECTION 1: HERO (THE COMMUNITY AS IT ACTUALLY LOOKS) ─── */}
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6 z-10">
-              <div className="inline-flex items-center gap-2">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  COMMUNITY LIFE
-                </span>
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+          
+          {/* Master Card Hero Box */}
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
+            {/* Ambient Background Accents */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
+              
+              {/* Left Column: Manifesto & Details */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+                    COMMUNITY LIFE &amp; ARCHIVES
+                  </span>
+                </div>
+
+                <div className="space-y-2.5">
+                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
+                    Gallery
+                  </h1>
+                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
+                    The community, as it actually looks across rooms, cities, and national conclaves.
+                  </p>
+                </div>
+
+                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                  <p>
+                    Every photo here is a real moment from a real room. <strong className="text-slate-900 font-semibold">Circle boardrooms, masterclasses, regional summits, and lifelong friendships forged in business.</strong>
+                  </p>
+
+                  {/* 4 Pillar Badges */}
+                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-1">
+                    {[
+                      { text: 'Circle Boardrooms & Roundtables', icon: Users },
+                      { text: 'Annual National Conclaves', icon: Star },
+                      { text: 'Impact Mentor Masterclasses', icon: GraduationCap },
+                      { text: 'Verified Peer Awards & Galas', icon: Award },
+                    ].map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
+                      >
+                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
+                        <span>{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
+                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
+                    <span>Real moments captured across 50+ cities and 200+ community gatherings.</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                  <a
+                    href="#gallery-grid"
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                  >
+                    <span>Browse Gallery</span>
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+
+                  <a
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
+                  >
+                    <span>Open Unity App</span>
+                  </a>
+                </div>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Gallery
-              </h1>
+              {/* Right Column: Hero Visual Card */}
+              <div className="lg:col-span-5 relative">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
+                  <Image
+                    src="/images/section_image/executive-director-conclave.jpg"
+                    alt="Peers Global community leaders gathering on stage at the National Conclave"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-slate-950/30 pointer-events-none" />
 
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                The community, as it actually looks.
-              </p>
-
-              <div className="pt-2">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-medium text-sm shadow-md hover:shadow-lg transition-all duration-200 group"
-                >
-                  <Smartphone className="w-4 h-4" />
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Hero Visual with Horizontal Left Edge Fade */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/executive-director-conclave.jpg"
-                  alt="Peers Global community leaders gathering on stage at the National Conclave"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-
-                {/* Soft horizontal gradient edge fade on the left edge smoothly blending into page background */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
-
-                {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none z-10" />
-
-                {/* Stage Backdrop Brand Overlay on Top Right */}
-                <div className="absolute top-6 right-6 bg-slate-950/85 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[240px]">
-                  <div className="flex items-center justify-end gap-1.5 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white">
-                      PeersGlobal
+                  {/* Top Badges */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold text-sky-300 tracking-widest uppercase backdrop-blur-md">
+                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                      NATIONAL CONCLAVE
+                    </span>
+                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                      5,000+ PHOTOS
                     </span>
                   </div>
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Community of Entrepreneurs
-                  </p>
-                </div>
 
-                {/* Cursive overlay text on bottom right */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[240px]">
-                  <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    People.
-                    <br />
-                    Moments.
-                    <br />
-                    A Stronger Tomorrow.
-                  </p>
+                  {/* Bottom Highlight */}
+                  <div className="relative z-10 text-white space-y-1">
+                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
+                      Peers Global Institutional Archives
+                    </p>
+                    <p className="text-sm sm:text-base font-bold leading-snug">
+                      Moments that forge lasting trust and collaborative enterprise.
+                    </p>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
 
-          {/* 4-Stat Pillar Bar */}
-          <div className="mt-12 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-sm">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="text-2xl sm:text-3xl font-bold font-serif text-slate-950 tracking-tight">
-                          {stat.value}
-                        </div>
-                        <div className="text-xs sm:text-sm text-slate-600 font-medium">
-                          {stat.label}
-                        </div>
-                      </div>
+          {/* Floating Stats Bar */}
+          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+            {STATS.map((stat, i) => {
+              const Icon = stat.icon
+              return (
+                <div
+                  key={i}
+                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
+                    <Icon className="size-5" />
+                  </div>
+                  <div>
+                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+                      {stat.value}
                     </div>
-                  )
-                })}
-              </div>
-            </div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 2: BROWSE OUR GALLERY ───────────────────────────────── */}
-      <section id="gallery-grid" className="py-16 sm:py-20 bg-white border-y border-slate-200/80 scroll-mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      {/* ─── SECTION 2: BROWSE OUR GALLERY (FILTERS & PHOTOS) ─── */}
+      <section id="gallery-grid" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-2">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   BROWSE OUR GALLERY
                 </span>
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-                Moments that make a stronger tomorrow.
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+                Moments from across our community
               </h2>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleResetFilters}
+                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
+              >
+                <RotateCcw className="size-3.5" />
+                <span>Reset Filters</span>
+              </button>
             </div>
           </div>
 
-          {/* Filters and Controls Toolbar */}
-          <div className="bg-[#FAFBFD] p-4 rounded-2xl border border-slate-200/90 shadow-sm mb-8 space-y-4">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {/* Filters Toolbar */}
+          <div className="bg-[#FAFBFD] p-5 rounded-3xl border border-slate-200/90 shadow-2xs space-y-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
               {/* City Filter */}
               <div>
                 <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
@@ -544,7 +576,7 @@ export function GalleryPageClient() {
                 <select
                   value={selectedCity}
                   onChange={(e) => setSelectedCity(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer shadow-2xs"
                 >
                   {cities.map((c) => (
                     <option key={c} value={c}>
@@ -562,7 +594,7 @@ export function GalleryPageClient() {
                 <select
                   value={selectedCircle}
                   onChange={(e) => setSelectedCircle(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer shadow-2xs"
                 >
                   {circles.map((cir) => (
                     <option key={cir} value={cir}>
@@ -575,12 +607,12 @@ export function GalleryPageClient() {
               {/* Event Filter */}
               <div>
                 <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  Event
+                  Event Category
                 </label>
                 <select
                   value={selectedEvent}
                   onChange={(e) => setSelectedEvent(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer shadow-2xs"
                 >
                   {events.map((ev) => (
                     <option key={ev} value={ev}>
@@ -598,7 +630,7 @@ export function GalleryPageClient() {
                 <select
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer shadow-2xs"
                 >
                   {years.map((y) => (
                     <option key={y} value={y}>
@@ -609,203 +641,110 @@ export function GalleryPageClient() {
               </div>
             </div>
 
-            {/* Keyword Search & View Toggles */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-slate-200/80">
-              <div className="relative flex-1 w-full">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search photos by event, city, or keyword..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              <div className="flex items-center gap-2 self-end sm:self-auto">
-                {(selectedCity !== 'All' ||
-                  selectedCircle !== 'All' ||
-                  selectedEvent !== 'All' ||
-                  selectedYear !== 'All' ||
-                  searchQuery) && (
-                  <button
-                    onClick={handleResetFilters}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-medium text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5" />
-                    <span>Clear Filters</span>
-                  </button>
-                )}
-
-                {/* Grid / List View Toggle */}
-                <div className="flex items-center bg-white border border-slate-200 rounded-xl p-0.5">
-                  <button
-                    onClick={() => setViewMode('grid')}
-                    className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                      viewMode === 'grid'
-                        ? 'bg-[#0062D2] text-white shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    <LayoutGrid className="w-3.5 h-3.5" />
-                    <span>Grid</span>
-                  </button>
-                  <button
-                    onClick={() => setViewMode('list')}
-                    className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                      viewMode === 'list'
-                        ? 'bg-[#0062D2] text-white shadow-xs'
-                        : 'text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    <List className="w-3.5 h-3.5" />
-                    <span>List</span>
-                  </button>
-                </div>
-              </div>
+            {/* Search Input */}
+            <div className="relative">
+              <Search className="size-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search moments by topic, city, or chapter..."
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-2xs"
+              />
             </div>
           </div>
 
-          {/* Photo Grid View */}
-          {filteredPhotos.length === 0 ? (
-            <div className="text-center py-16 bg-slate-50 rounded-3xl border border-slate-200">
-              <p className="text-sm text-slate-500">
-                No photos found matching your current filter selections.
-              </p>
-              <button
-                onClick={handleResetFilters}
-                className="mt-4 px-5 py-2 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4]"
+          {/* Photo Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredPhotos.map((photo, idx) => (
+              <div
+                key={photo.id}
+                onClick={() => openLightbox(idx)}
+                className="rounded-3xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
-                Reset All Filters
-              </button>
-            </div>
-          ) : viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
-              {filteredPhotos.map((photo, index) => (
-                <div
-                  key={photo.id}
-                  onClick={() => openLightbox(index)}
-                  className="group relative h-56 rounded-2xl overflow-hidden bg-slate-900 cursor-pointer shadow-xs hover:shadow-lg transition-all duration-300"
-                >
+                <div className="relative h-56 w-full bg-slate-900 overflow-hidden">
                   <Image
                     src={photo.image}
                     alt={photo.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                  
+                  <div className="absolute top-3.5 right-3.5">
+                    <span className="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-[10px] font-mono font-bold text-sky-300 border border-white/20 shadow-md">
+                      {photo.year}
+                    </span>
+                  </div>
 
-                  {/* Top Badge: Category */}
-                  <div className="absolute top-3 left-3">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-slate-950/80 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                  <div className="absolute bottom-3.5 left-4 right-4 text-white">
+                    <span className="text-[10px] font-mono text-sky-300 uppercase tracking-widest font-bold block mb-0.5">
                       {photo.category}
                     </span>
-                  </div>
-
-                  {/* Bottom Text */}
-                  <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <h4 className="font-serif font-bold text-sm leading-snug line-clamp-1 group-hover:text-blue-300 transition-colors">
+                    <h4 className="text-base font-bold text-white leading-tight">
                       {photo.title}
                     </h4>
-                    <div className="flex items-center gap-2 text-[10px] text-slate-300 mt-1">
-                      <span className="flex items-center gap-0.5">
-                        <MapPin className="w-2.5 h-2.5 text-slate-400" />
-                        {photo.city}
-                      </span>
-                      <span>•</span>
-                      <span>{photo.year}</span>
-                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            /* List View */
-            <div className="space-y-3">
-              {filteredPhotos.map((photo, index) => (
-                <div
-                  key={photo.id}
-                  onClick={() => openLightbox(index)}
-                  className="bg-slate-50 hover:bg-white rounded-2xl p-3 sm:p-4 border border-slate-200/90 hover:border-blue-300 transition-all flex items-center justify-between gap-4 cursor-pointer group shadow-xs"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-20 h-14 rounded-xl overflow-hidden shrink-0 bg-slate-900">
-                      <Image
-                        src={photo.image}
-                        alt={photo.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#0062D2] block">
-                        {photo.category}
-                      </span>
-                      <h4 className="font-serif font-bold text-slate-950 text-sm group-hover:text-blue-600 transition-colors">
-                        {photo.title}
-                      </h4>
-                      <p className="text-xs text-slate-500 line-clamp-1">
-                        {photo.caption}
-                      </p>
-                    </div>
-                  </div>
 
-                  <div className="flex items-center gap-3 shrink-0 text-xs text-slate-500">
-                    <span className="hidden sm:inline-flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-slate-400" />
+                <div className="p-5 space-y-3 text-xs">
+                  <p className="text-slate-600 font-light leading-relaxed">
+                    {photo.caption}
+                  </p>
+
+                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-slate-500 text-[11px] font-medium">
+                    <span className="flex items-center gap-1">
+                      <MapPin className="size-3 text-[#0062D2]" />
                       {photo.city}
                     </span>
-                    <span className="hidden sm:inline-block">•</span>
-                    <span>{photo.year}</span>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
+                    <span>{photo.circle}</span>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
 
           {/* Load More Button */}
           {!hasLoadedMore && (
-            <div className="mt-10 text-center">
+            <div className="pt-6 text-center">
               <button
                 onClick={handleLoadMore}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 text-[#0062D2] hover:bg-blue-100 text-xs font-semibold border border-blue-200 transition-all cursor-pointer shadow-xs"
+                className="px-8 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer"
               >
-                <span>Load More Photos</span>
-                <ArrowDown className="w-3.5 h-3.5" />
+                Load More Archive Photos
               </button>
             </div>
           )}
+
         </div>
       </section>
 
-      {/* ─── SECTION 3: EXPLORE BY COLLECTION ────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 mb-10">
-            <div>
-              <div className="inline-flex items-center gap-2">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
+      {/* ─── SECTION 3: EXPLORE BY COLLECTION ─── */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   EXPLORE BY COLLECTION
                 </span>
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-                Moments from across our community.
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+                Curated Collections
               </h2>
             </div>
 
             <button
               onClick={handleResetFilters}
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-blue-800 transition-colors uppercase tracking-wider cursor-pointer"
             >
-              <span>View All Photos</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>View All Collections</span>
+              <ArrowRight className="size-3.5" />
             </button>
           </div>
 
-          {/* 6 Collections Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
             {COLLECTIONS.map((col) => {
               const Icon = col.icon
@@ -817,50 +756,56 @@ export function GalleryPageClient() {
                     const el = document.getElementById('gallery-grid')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                 >
                   <div>
-                    {/* Collection Image */}
                     <div className="relative h-32 w-full overflow-hidden bg-slate-900">
                       <Image
                         src={col.image}
                         alt={col.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                     </div>
 
-                    {/* Content */}
-                    <div className="p-3.5 space-y-1.5">
-                      <div className={`w-7 h-7 rounded-lg border flex items-center justify-center ${col.iconBg}`}>
-                        <Icon className="w-3.5 h-3.5" />
+                    <div className="p-4 space-y-1.5">
+                      <div className={`size-8 rounded-xl border flex items-center justify-center ${col.iconBg}`}>
+                        <Icon className="size-4" />
                       </div>
-                      <h3 className="font-serif font-bold text-slate-950 text-sm group-hover:text-blue-600 transition-colors leading-snug">
+                      <h3 className="font-bold text-slate-900 text-sm group-hover:text-[#0062D2] transition-colors leading-snug">
                         {col.title}
                       </h3>
-                      <p className="text-[11px] text-slate-600 leading-snug">
+                      <p className="text-[11px] text-slate-500 leading-snug font-light">
                         {col.subtitle}
                       </p>
                     </div>
                   </div>
 
-                  <div className="p-3.5 pt-0 flex justify-end">
-                    <div className="w-6 h-6 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-[#0062D2] group-hover:text-white group-hover:border-[#0062D2] transition-colors">
-                      <ArrowRight className="w-3 h-3" />
+                  <div className="p-4 pt-0 flex justify-end">
+                    <div className="size-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-[#0062D2] group-hover:text-white group-hover:border-[#0062D2] transition-colors">
+                      <ArrowRight className="size-3.5" />
                     </div>
                   </div>
                 </div>
               )
             })}
           </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 4: CLOSING ROYAL BLUE BANNER ─────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+      {/* ─── SECTION 4: SIGNATURE LUXURY CLOSING HERO BANNER ─── */}
+      <section
+        id="download-unity"
+        className="relative py-20 lg:py-28 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-slate-800"
+      >
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
         {/* SVG Orbital Geometric Lines Background */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
           <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
             <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
             <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
@@ -873,101 +818,110 @@ export function GalleryPageClient() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                Build Your Business.
-                <br />
-                Build Your Relationships.
-                <br />
-                Build Your Circle.
+            
+            {/* Left Manifesto */}
+            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                  WITNESS THE MOVEMENT
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+                Build Your Business. Build Your Relationships. Build Your Circle.
               </h2>
 
-              {/* App Store & Google Play Buttons */}
-              <div className="pt-3 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://apps.apple.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="app-badge-btn"
-                  aria-label="Download on the Apple App Store"
+              <div className="space-y-3.5 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl">
+                <p>
+                  Join over 1,000+ verified entrepreneurs across India. Experience the energy of governed peer circles in your city.
+                </p>
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+                  <p className="text-sky-200 font-medium text-xs sm:text-sm">
+                    • 5,000+ Moments · 200+ Conclaves · 50+ Cities Nationwide.
+                  </p>
+                  <p className="text-white font-bold text-xs sm:text-sm">Your next milestone starts with a conversation.</p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-3">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
                 >
-                  <Apple className="size-5.5 fill-white shrink-0" />
-                  <div className="text-left">
-                    <span className="app-badge-sub">Download on the</span>
-                    <span className="app-badge-title">App Store</span>
-                  </div>
-                </a>
+                  <span>Apply for Membership</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
 
                 <a
-                  href="https://play.google.com"
+                  href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="app-badge-btn"
-                  aria-label="Get it on Google Play"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
                 >
-                  <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
-                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
-                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
-                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
-                  </svg>
-                  <div className="text-left">
-                    <span className="app-badge-sub">GET IT ON</span>
-                    <span className="app-badge-title">Google Play</span>
-                  </div>
+                  <span>Open Unity App →</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
+            {/* Right Cursive Script Highlights */}
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
               <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                Ideas.
-                <br />
                 People.
-                <br />
-                Communities.
-                <br />
-                A Brighter Tomorrow.
+              </p>
+              <p
+                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Moments.
+              </p>
+              <p
+                className="text-xl sm:text-2xl text-white leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Growth.
+              </p>
+              <p
+                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                A Stronger Tomorrow.
               </p>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── MODAL: FULL LIGHTBOX VIEW ────────────────────────────────────── */}
+      {/* ─── MODAL: FULL LIGHTBOX VIEW ─── */}
       {lightboxIndex !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200">
           <div className="max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative">
-            {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-20 size-9 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="size-5" />
             </button>
 
-            {/* Previous Button */}
             <button
               onClick={prevPhoto}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 size-10 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center transition-colors cursor-pointer"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="size-5" />
             </button>
 
-            {/* Next Button */}
             <button
               onClick={nextPhoto}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 size-10 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center transition-colors cursor-pointer"
             >
-              <ChevronRightIcon className="w-5 h-5" />
+              <ChevronRightIcon className="size-5" />
             </button>
 
-            {/* Lightbox Image */}
             <div className="relative h-[420px] sm:h-[500px] w-full bg-slate-950">
               <Image
                 src={filteredPhotos[lightboxIndex].image}
@@ -977,27 +931,26 @@ export function GalleryPageClient() {
               />
             </div>
 
-            {/* Lightbox Caption Bar */}
             <div className="p-6 bg-slate-950 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#0062D2] bg-blue-900/40 px-2 py-0.5 rounded border border-blue-500/30 inline-block mb-1">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-blue-900/40 px-2.5 py-1 rounded-full border border-blue-500/30 inline-block mb-1.5">
                   {filteredPhotos[lightboxIndex].category}
                 </span>
-                <h3 className="font-serif font-bold text-lg text-white">
+                <h3 className="font-bold text-lg text-white">
                   {filteredPhotos[lightboxIndex].title}
                 </h3>
-                <p className="text-xs text-slate-300 mt-1 max-w-xl">
+                <p className="text-xs text-slate-300 mt-1 max-w-xl font-light">
                   {filteredPhotos[lightboxIndex].caption}
                 </p>
               </div>
 
-              <div className="text-xs text-slate-400 shrink-0 space-y-1">
+              <div className="text-xs text-slate-400 shrink-0 space-y-1 font-mono">
                 <div className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                  <MapPin className="size-3.5 text-sky-400" />
                   <span>{filteredPhotos[lightboxIndex].city}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                  <Calendar className="size-3.5 text-sky-400" />
                   <span>{filteredPhotos[lightboxIndex].year}</span>
                 </div>
               </div>

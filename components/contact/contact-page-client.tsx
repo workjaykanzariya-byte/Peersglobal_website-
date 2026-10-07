@@ -1,336 +1,333 @@
 'use client'
 
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   ChevronRight,
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
   ShieldCheck,
   Send,
-  MessageSquare,
-  Users,
-  Building2,
-  Sparkles,
-  HelpCircle,
-  Briefcase,
-  Megaphone,
-  TrendingUp,
-  LifeBuoy,
-  FileText,
   CheckCircle2,
-  Landmark,
-  Copy,
   Check,
   ExternalLink,
-  Shield,
   Headphones,
-  User,
-  Globe,
+  Smartphone,
+  Sparkles,
+  Users,
+  Compass,
+  Building2,
+  Trophy,
+  TrendingUp,
+  Mic,
+  HelpCircle,
+  Mail,
+  CheckCircle,
 } from 'lucide-react'
 
-const MAIN_CATEGORIES = [
+const SEVEN_ROUTES = [
   {
-    id: 'membership',
-    name: 'Membership',
-    desc: 'Questions about joining, subscriptions or Circles. Most of this is answered in the app or on the Member FAQ.',
-    link: '/faqs',
-    linkText: 'See Member FAQ',
+    id: '01',
+    code: 'membership-circle',
+    title: 'Membership & Circle Placement',
+    desc: 'Exploring membership, understanding Circle criteria, and finding the right industry group.',
+    email: 'membership@peersglobal.com',
     icon: Users,
-    routingTarget: 'membership@peersglobal.com',
+    tag: 'Ecosystem Entry',
+    iconBg: 'bg-blue-50 border-blue-100 text-[#1D4ED8]',
   },
   {
-    id: 'leadership',
-    name: 'Leadership',
-    desc: 'Founding a Circle, or taking a leadership role as Circle Director, Industry Director or Executive Director.',
-    link: '/leadership/apply',
-    linkText: 'Apply to Lead',
-    icon: Landmark,
-    routingTarget: 'leadership@peersglobal.com',
+    id: '02',
+    code: 'leadership-governance',
+    title: 'Leadership & Founding a Circle',
+    desc: 'Applying for Circle Founder, Circle Director, or Regional Stewardship positions.',
+    email: 'leadership@peersglobal.com',
+    icon: Compass,
+    tag: 'Executive Governance',
+    iconBg: 'bg-purple-50 border-purple-100 text-purple-600',
   },
   {
-    id: 'partnerships',
-    name: 'Partnerships',
-    desc: 'Organisations, chambers of commerce, industry bodies and associations wanting to collaborate with Peers Global.',
-    link: '#message-form',
-    linkText: 'Partner Enquiry',
+    id: '03',
+    code: 'partnerships-alliances',
+    title: 'Institutional Partnerships & Alliances',
+    desc: 'Trade chambers, industry bodies, academic institutions, and ecosystem co-creation.',
+    email: 'partners@peersglobal.com',
     icon: Building2,
-    routingTarget: 'partners@peersglobal.com',
+    tag: 'Global Alliances',
+    iconBg: 'bg-emerald-50 border-emerald-100 text-emerald-600',
   },
   {
-    id: 'sponsorship',
-    name: 'Sponsorship',
-    desc: 'Sponsoring upcoming regional conclaves, masterclasses, business awards or the annual flagship summit.',
-    link: '#message-form',
-    linkText: 'Sponsor Enquiry',
-    icon: Sparkles,
-    routingTarget: 'sponsorship@peersglobal.com',
+    id: '04',
+    code: 'sponsorship-events',
+    title: 'Sponsorship & Conclaves',
+    desc: 'Underwriting regional conclaves, masterclasses, awards, and community publications.',
+    email: 'sponsorship@peersglobal.com',
+    icon: Trophy,
+    tag: 'Events & Conclaves',
+    iconBg: 'bg-amber-50 border-amber-100 text-amber-600',
   },
   {
-    id: 'media',
-    name: 'Media',
-    desc: 'Interviews with Dr. Pravin Parmar, press releases, media coverage and official press commentary.',
-    link: '#message-form',
-    linkText: 'Press Office',
-    icon: Megaphone,
-    routingTarget: 'media@peersglobal.com',
-  },
-  {
-    id: 'investors',
-    name: 'Investors',
-    desc: 'Institutional, strategic and ecosystem investment discussions for collaborative infrastructure.',
-    link: '#message-form',
-    linkText: 'Investor Relations',
+    id: '05',
+    code: 'investors-capital',
+    title: 'Investors & Growth Capital',
+    desc: 'Accredited investment dialogue, fundraise queries, and infrastructure scaling.',
+    email: 'investors@peersglobal.com',
     icon: TrendingUp,
-    routingTarget: 'investors@peersglobal.com',
+    tag: 'Growth Capital',
+    iconBg: 'bg-rose-50 border-rose-100 text-[#E11D48]',
   },
+  {
+    id: '06',
+    code: 'media-press',
+    title: 'Media, Press & Speaking Enquiries',
+    desc: 'Journalist queries, founder interviews with Dr. Pravin Parmar, and editorial assets.',
+    email: 'media@peersglobal.com',
+    icon: Mic,
+    tag: 'Press & Media',
+    iconBg: 'bg-cyan-50 border-cyan-100 text-cyan-600',
+  },
+  {
+    id: '07',
+    code: 'general-support',
+    title: 'General Inquiries & Community Support',
+    desc: 'General curiosity, technical questions, or routing guidance across our ecosystem.',
+    email: 'hello@peersglobal.com',
+    icon: HelpCircle,
+    tag: 'Central Secretariat',
+    iconBg: 'bg-slate-100 border-slate-200 text-slate-700',
+  }
 ]
 
-const SUPPORT_CATEGORY = {
-  id: 'support',
-  name: 'Support',
-  desc: 'Technical issues with the Unity App, account verification, billing or subscription enquiries.',
-  link: '#message-form',
-  linkText: 'Contact Support',
-  icon: Headphones,
-  routingTarget: 'support@peersglobal.com',
-}
-
-const ROUTE_OPTIONS = [
+const MEMBER_CONVERSATION_POINTS = [
+  'Your Circle',
+  'Another Peer',
+  'A Peer-to-Peer meeting',
   'Membership',
-  'Leadership',
-  'Partnership',
-  'Sponsorship',
-  'Media',
-  'Investors',
-  'Support',
-  'Something else',
+  'Unity App',
+  'Community participation',
+  'Circle matters'
 ]
 
-function ContactPageInner() {
-  const searchParams = useSearchParams()
-  const [selectedTopic, setSelectedTopic] = useState('Membership')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [copiedKey, setCopiedKey] = useState<string | null>(null)
-  const [heroVideo, setHeroVideo] = useState('/videos/homepage-hero-bg.mp4')
+const GENERAL_ENQUIRY_DOORS = [
+  'Exploring PEERS GLOBAL',
+  'Looking for a Circle',
+  'Interested in collaboration',
+  'Considering a partnership',
+  'Interested in investment',
+  'Looking for media information',
+  'Exploring an opportunity to work with us'
+]
+
+const OFFICIAL_SOCIALS = [
+  {
+    name: 'LinkedIn',
+    handle: 'PEERS GLOBAL',
+    url: 'https://linkedin.com/company/peersglobal',
+    category: 'Corporate Network',
+    iconColor: 'from-[#0A66C2] to-[#004182]',
+    bgLight: 'hover:border-[#0A66C2]/40 hover:shadow-[#0A66C2]/10',
+    tag: 'Official Profile'
+  },
+  {
+    name: 'Instagram',
+    handle: '@peersglobal',
+    url: 'https://instagram.com/peersglobal',
+    category: 'Visual & Stories',
+    iconColor: 'from-[#E1306C] via-[#FD1D1D] to-[#F77737]',
+    bgLight: 'hover:border-[#E1306C]/40 hover:shadow-[#E1306C]/10',
+    tag: 'Visual Updates'
+  },
+  {
+    name: 'Facebook',
+    handle: 'PEERS GLOBAL Community',
+    url: 'https://facebook.com/peersglobal',
+    category: 'Regional Community',
+    iconColor: 'from-[#1877F2] to-[#0D5EC4]',
+    bgLight: 'hover:border-[#1877F2]/40 hover:shadow-[#1877F2]/10',
+    tag: 'Community Hub'
+  },
+  {
+    name: 'YouTube',
+    handle: 'PEERS GLOBAL Official',
+    url: 'https://youtube.com/@peersglobal',
+    category: 'Talks & Broadcasts',
+    iconColor: 'from-[#FF0000] to-[#C40000]',
+    bgLight: 'hover:border-[#FF0000]/40 hover:shadow-[#FF0000]/10',
+    tag: 'Video Channel'
+  },
+  {
+    name: 'X (Twitter)',
+    handle: '@peersglobal',
+    url: 'https://x.com/peersglobal',
+    category: 'Public Bulletins',
+    iconColor: 'from-[#0F1419] to-[#272C30]',
+    bgLight: 'hover:border-slate-800/40 hover:shadow-slate-900/10',
+    tag: 'Dispatches'
+  }
+]
+
+export function ContactPageClient() {
+  const [selectedRoute, setSelectedRoute] = useState(SEVEN_ROUTES[0].title)
   const [formData, setFormData] = useState({
-    fullName: '',
+    name: '',
     email: '',
     phone: '',
-    city: '',
-    country: 'India',
-    organisation: '',
-    message: '',
+    message: ''
   })
-
-  useEffect(() => {
-    const loadVideo = () => {
-      try {
-        const saved = localStorage.getItem('peers_admin_page_media')
-        if (saved) {
-          const items = JSON.parse(saved)
-          const target = items.find(
-            (i: any) =>
-              (i.pageSlug === '/contact' || i.pageId === 'contact' || i.pageName === 'Contact Page' || i.pageSlug === '/' || i.pageName === 'Home Page') &&
-              i.isActive &&
-              i.mediaUrl
-          )
-          if (target && target.mediaUrl) {
-            setHeroVideo(target.mediaUrl)
-          }
-        }
-      } catch (err) {}
-    }
-    loadVideo()
-    window.addEventListener('storage', loadVideo)
-    window.addEventListener('peers_media_updated', loadVideo)
-    return () => {
-      window.removeEventListener('storage', loadVideo)
-      window.removeEventListener('peers_media_updated', loadVideo)
-    }
-  }, [])
-
-  useEffect(() => {
-    const intent = searchParams.get('intent')
-    if (intent) {
-      const lower = intent.toLowerCase()
-      if (lower.includes('member')) setSelectedTopic('Membership')
-      else if (lower.includes('lead')) setSelectedTopic('Leadership')
-      else if (lower.includes('partner')) setSelectedTopic('Partnership')
-      else if (lower.includes('sponsor')) setSelectedTopic('Sponsorship')
-      else if (lower.includes('media')) setSelectedTopic('Media')
-      else if (lower.includes('invest')) setSelectedTopic('Investors')
-      else if (lower.includes('support')) setSelectedTopic('Support')
-    }
-  }, [searchParams])
-
-  const copyToClipboard = (text: string, key: string) => {
-    navigator.clipboard.writeText(text)
-    setCopiedKey(key)
-    setTimeout(() => setCopiedKey(null), 2000)
-  }
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setTimeout(() => {
       setIsSubmitting(false)
-      setIsSubmitted(true)
+      setSubmitted(true)
     }, 1000)
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFDFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-[#1E4ED8]">
-      {/* ─── Top Breadcrumb Navigation ─── */}
-      <div className="border-b border-slate-200/70 bg-white/85 backdrop-blur-md sticky top-0 z-30 shadow-2xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link href="/" className="hover:text-[#1E4ED8] transition-colors">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* ── Top Navigation Bar ── */}
+      <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
+          <div className="flex items-center gap-2 text-slate-500 font-medium">
+            <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
               Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-500">About</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-bold">Contact</span>
+            <span className="font-bold brand-gradient-text">Contact</span>
           </div>
-
-          <div className="hidden sm:flex items-center gap-2 text-[11px] font-medium text-slate-500">
-            <span className="inline-block size-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Routing Desks: Active &amp; Monitored</span>
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200">
+              <Headphones className="w-3.5 h-3.5 text-[#1D4ED8]" />
+              <span className="brand-gradient-text">Direct Human Secretariat</span>
+            </span>
           </div>
         </div>
       </div>
 
-      {/* ─── Hero Section: Homepage-Style Unified Master Banner Card ─── */}
-      <section className="relative pt-8 pb-16 md:pt-12 md:pb-20 overflow-hidden bg-[#FBFCFE] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-8 sm:gap-10">
-          
-          {/* Unified Master Hero Card (Matching Home Page Who We Are Hero Card) */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/80 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Right Media Background Layer (Fading into white on the left with live looping video) */}
+      {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Home-style full-bleed hero with video backdrop */}
+          <div className="min-h-[520px] lg:min-h-[580px] flex items-center">
+
+            {/* Media Background Layer (Right ~60% fading into white on the left) */}
             <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
+              className="absolute inset-0 overflow-hidden pointer-events-none"
             >
-              {/* High Definition Looping Background Video */}
+              {/* Active Video Background */}
               <video
-                key={heroVideo}
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/circles-hero-new.jpg"
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="auto"
                 className="size-full object-cover object-center"
-              >
-                <source src={heroVideo} type="video/mp4" />
-                <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
-                <source src="/videos/hero-background.mp4" type="video/mp4" />
-              </video>
+              />
 
-              {/* Seamless gradient overlays for the signature misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
+              {/* Dark scrim matching the home hero */}
+              <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none" />
 
-              {/* Top-Right Script Typography with Drop Shadow */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Better Communication
+              {/* Top-Right Script Typography */}
+              <div className="hidden">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
+                  We Are Listening
                 </p>
-                <p className="text-xl sm:text-3xl text-white font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  A Brighter Tomorrow
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  Direct Secretariat
+                </p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  Human Connection
                 </p>
               </div>
 
               {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
+              <div className="hidden">
                 <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
                   <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    DIRECT DESK ROUTING
+                    DIRECT HUMAN SECRETARIAT
                   </p>
                   <p className="text-xs font-bold tracking-wider text-white">
-                    GUARANTEED 48H SLA
+                    CONTACT PEERS GLOBAL
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Left Content Area (Overlaid on the crisp white side) */}
+            {/* Left Content Area */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
-                
-                {/* Eyebrow */}
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    OFFICIAL CONTACT &amp; GOVERNANCE
+              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
+
+                {/* Eyebrow with brand gradient bar */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
+                    DIRECT HUMAN SECRETARIAT
                   </span>
                 </div>
 
-                {/* Main Heading & Subheading in exact homepage serif hierarchy */}
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
-                  Contact <span className="italic text-[#1E4ED8]">Us.</span>
-                  <span className="text-lg sm:text-xl lg:text-2xl text-slate-700 italic font-normal block mt-1.5 leading-snug">
-                    Tell us what you need and it goes to the right person.
+                {/* H1 Heading */}
+                <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14] mb-4">
+                  We are here <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                    to listen.
                   </span>
                 </h1>
 
-                {/* Description */}
-                <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-lg font-normal">
-                  We reject the single generic inbox. Every enquiry is routed directly to the appropriate team leader with a guaranteed response within two working days.
+                {/* Subtitle & Descriptions */}
+                <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed mb-6 max-w-2xl">
+                  Whether you are already a Peer, exploring the community, looking to collaborate, interested in partnering, or simply have a question, we want your message to reach the right person.
                 </p>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
-                  {/* Download Unity App with Peers Global Logo Color Matching Glow & Gradient Hover */}
-                  <div className="relative group/unity-btn">
-                    <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/unity-btn:opacity-80 group-hover/unity-btn:blur-lg" />
-                    
-                    <Link
-                      href="/unity"
-                      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
-                    >
-                      <span>Download Unity App</span>
-                      <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                    </Link>
-                  </div>
+                {/* Featured Highlight Quote Card */}
+                <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 mb-8 max-w-xl">
+                  <p className="italic text-white/95 text-sm sm:text-base font-medium">
+                    &ldquo;Because contact should not feel like entering a system. It should feel like reaching a human being.&rdquo;
+                  </p>
+                  <p className="text-xs text-slate-300 mt-1 font-medium">
+                    Every message is directly routed to dedicated department stewards.
+                  </p>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
+                  <a
+                    href="#send-message"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                  >
+                    <span>Send Us a Message</span>
+                    <ArrowRight className="size-4" />
+                  </a>
 
                   <a
-                    href="#message-form"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-xs transition-all duration-200 hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-[2px] active:scale-[0.98]"
+                    href="#how-can-we-help"
+                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
                   >
-                    <Send className="size-4 text-[#1E4ED8]" />
-                    <span>Send Direct Message</span>
+                    <span>The 7 Categories</span>
+                  </a>
+
+                  <a
+                    href="#already-a-peer"
+                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                  >
+                    <span>Already a Peer?</span>
                   </a>
                 </div>
 
-                {/* 3 Highlights matching Homepage style */}
-                <div className="mt-2 grid grid-cols-3 gap-4 sm:gap-6 border-t border-slate-200/80 pt-6">
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">&lt; 48h</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Guaranteed SLA</p>
-                    <p className="text-[11px] text-slate-400 font-medium">Direct Routing</p>
+                {/* Quick Info Bar */}
+                <div className="flex items-center gap-6 text-xs text-slate-300 pt-2 border-t border-white/15 w-full max-w-lg">
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span>24–48h Secretariat SLA</span>
                   </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">7</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Dedicated Desks</p>
-                    <p className="text-[11px] text-slate-400 font-medium">Domain Focused</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">100%</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Human Response</p>
-                    <p className="text-[11px] text-slate-400 font-medium">No Generic Bots</p>
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <Sparkles className="w-4 h-4 text-sky-400" />
+                    <span>Direct Human Handling</span>
                   </div>
                 </div>
 
@@ -339,752 +336,589 @@ function ContactPageInner() {
 
           </div>
 
-          {/* ─── Floating Bottom Banner: Already a Peer? (Exact match to Home & Reference) ─── */}
-          <div className="rounded-2xl sm:rounded-[28px] bg-white border border-slate-200/80 shadow-sm p-5 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-5 transition-all duration-300 hover:shadow-md hover:border-blue-200">
-            <div className="flex items-center gap-4 text-left w-full sm:w-auto">
-              <div className="size-12 sm:size-14 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-[#1E4ED8] shrink-0 shadow-2xs">
-                <Users className="w-6 h-6 sm:w-7 sm:h-7" />
+          {/* 4-Item Floating Stats Bar */}
+          <div className="relative z-10 mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { val: '7 Direct Routes', label: 'Department Routing', sub: 'Zero spam, straight to steward' },
+              { val: '< 24h Response', label: 'Secretariat SLA', sub: 'Human response guarantee' },
+              { val: '100% Confidential', label: 'Protected Dialogue', sub: 'Executive discretion' },
+              { val: 'Ahmedabad HQ', label: 'Global Headquarters', sub: 'Gujarat, Bharat' },
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  {stat.val}
+                </div>
+                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                <div className="text-[11px] text-slate-500 font-normal">{stat.sub}</div>
               </div>
-              <div>
-                <h2 className="font-serif text-base sm:text-lg font-bold text-[#061836]">
-                  Already a Peer?
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                  Ask inside the Unity App. A real person answers, and it is faster than anything here.
-                </p>
-              </div>
-            </div>
-
-            <Link
-              href="/unity"
-              className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#1E4ED8] text-white text-xs sm:text-sm font-semibold hover:bg-[#1a42c0] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
-            >
-              <span>Open Unity App</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            ))}
           </div>
 
         </div>
       </section>
 
-      {/* ─── Section 2: Dedicated Desks & Category Routing Grid ─── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F2F6FE]/70 via-[#F8FAFD] to-[#FFFFFF] py-16 sm:py-20 lg:py-24 border-b border-slate-200/80">
-        {/* Soft Ambient Radial Glows */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-10 -right-20 h-[450px] w-[450px] rounded-full bg-blue-300/15 blur-[120px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-10 -left-20 h-[350px] w-[350px] rounded-full bg-sky-200/20 blur-[100px]"
-        />
+      {/* ── ALREADY A PEER? (FOR MEMBERS - UNITY APP) ── */}
+      <section id="already-a-peer" className="py-14 sm:py-18 bg-white border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl bg-slate-900 text-white p-8 sm:p-12 shadow-xl border border-slate-800">
+            {/* Subtle radial ambient glows */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                DEDICATED DESKS
-              </span>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Left Column */}
+              <div className="lg:col-span-8 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold tracking-wider text-rose-300">
+                  <Smartphone className="w-3.5 h-3.5 text-blue-400" />
+                  <span className="uppercase">Already a Peer?</span>
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight">
+                  Your fastest route is inside <span className="bg-gradient-to-r from-blue-400 via-rose-300 to-rose-400 bg-clip-text text-transparent">Unity</span>.
+                </h2>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+                  If you are already part of PEERS GLOBAL, the Unity App is the place to begin. It is designed to connect you instantly with the people, conversations and real-time support relevant to your journey.
+                </p>
+
+                <div className="pt-2">
+                  <p className="text-xs uppercase font-bold tracking-wider text-slate-400 mb-2.5">
+                    Direct Community Channels for:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {MEMBER_CONVERSATION_POINTS.map((pt, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/10 text-xs text-slate-200 font-medium transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
+                        {pt}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-400 italic pt-1 border-t border-white/10 max-w-xl">
+                  Keeping these conversations within your community channel ensures privacy, context, and immediate secretariat support.
+                </p>
+              </div>
+
+              {/* Right CTA */}
+              <div className="lg:col-span-4 flex flex-col items-center lg:items-end justify-center space-y-3">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 hover:scale-105 transition-all"
+                >
+                  <span>Ask in the Unity App</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <span className="text-xs text-slate-400 text-center lg:text-right">
+                  For membership, Circle matters &amp; 1-to-1 syncs
+                </span>
+              </div>
             </div>
-            
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#061836] tracking-tight leading-[1.15]">
-              What are you contacting us about?
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW CAN WE HELP? (THE 7 ROUTED CATEGORIES) ── */}
+      <section id="how-can-we-help" className="py-20 sm:py-28 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                INTELLIGENT HUMAN ROUTING
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0f131a] leading-[1.12]">
+              How can we <span className="brand-gradient-text">help you?</span>
             </h2>
-            
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-              Select an area below to see FAQs, applications, or click to populate the message router.
+
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed font-normal">
+              Tell us where your message belongs. Choose the dedicated pathway below to route your enquiry directly to that department steward.
             </p>
           </div>
 
-          {/* Cards Grid: 6 Main Cards (3 Columns) + 1 Wide Support Card */}
-          <div className="space-y-6 sm:space-y-7">
-            
-            {/* Top 6 Cards in 3 Columns */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-              {MAIN_CATEGORIES.map((cat) => {
-                const Icon = cat.icon
-                const isSelected = selectedTopic === cat.name
-                return (
-                  <div
-                    key={cat.id}
-                    onClick={() => {
-                      setSelectedTopic(cat.name)
-                      const el = document.getElementById('message-form')
-                      if (el) el.scrollIntoView({ behavior: 'smooth' })
-                    }}
-                    className={`group relative cursor-pointer p-7 sm:p-8 rounded-2xl sm:rounded-[24px] transition-all duration-300 border flex flex-col justify-between h-full ${
-                      isSelected
-                        ? 'bg-gradient-to-b from-blue-50/60 to-white border-[#1E4ED8] shadow-[0_12px_32px_rgba(30,78,216,0.14)] ring-2 ring-[#1E4ED8]/30'
-                        : 'bg-white border-blue-100/90 shadow-[0_4px_20px_rgba(30,78,216,0.04)] hover:border-blue-300 hover:shadow-[0_14px_34px_rgba(30,78,216,0.10)] hover:-translate-y-1'
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SEVEN_ROUTES.map((route) => {
+              const IconComp = route.icon
+              const isSelected = selectedRoute === route.title
+
+              return (
+                <div
+                  key={route.id}
+                  onClick={() => {
+                    setSelectedRoute(route.title)
+                    const el = document.getElementById('send-message')
+                    if (el) el.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className={`group relative p-6 sm:p-7 rounded-2xl bg-white border transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-4 ${isSelected
+                      ? 'border-[#1D4ED8] shadow-lg shadow-blue-500/10 ring-2 ring-blue-500/20 -translate-y-1.5'
+                      : 'border-slate-200 shadow-xs hover:border-[#1D4ED8]/60 hover:shadow-xl hover:shadow-blue-600/10 hover:-translate-y-2'
                     }`}
-                  >
-                    <div>
-                      {/* Icon Box */}
-                      <div className="size-11 sm:size-12 rounded-xl sm:rounded-2xl bg-[#EFF6FF] border border-blue-100/90 flex items-center justify-center text-[#1E4ED8] mb-5 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                >
+                  <div className="space-y-4">
+                    {/* Top Row: Icon + Route ID + Tag */}
+                    <div className="flex items-center justify-between">
+                      <div className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-300 shadow-2xs group-hover:scale-110 group-hover:shadow-md ${route.iconBg}`}>
+                        <IconComp className="w-5 h-5 transition-transform duration-300" />
                       </div>
-
-                      {/* Title */}
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#061836] group-hover:text-[#1E4ED8] transition-colors leading-tight">
-                        {cat.name}
-                      </h3>
-
-                      {/* Direct Route Monospace */}
-                      <p className="mt-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#1E4ED8]">
-                        DIRECT ROUTE: {cat.routingTarget.toUpperCase()}
-                      </p>
-
-                      {/* Description */}
-                      <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        {cat.desc}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-mono font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/80 group-hover:border-slate-300 transition-colors">
+                          ROUTE {route.id}
+                        </span>
+                        <span className="text-[11px] text-slate-600 font-medium bg-slate-50 px-2.5 py-0.5 rounded-full border border-slate-200/60 group-hover:bg-blue-50/70 group-hover:text-[#1D4ED8] group-hover:border-blue-200/80 transition-all">
+                          {route.tag}
+                        </span>
+                      </div>
                     </div>
 
-                    {/* Bottom CTA Link */}
-                    <div className="pt-5 mt-5 border-t border-slate-100/90 flex items-center justify-between">
-                      {cat.link.startsWith('/') ? (
-                        <Link
-                          href={cat.link}
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1E4ED8] group-hover:text-[#1a42c0] transition-colors"
-                        >
-                          {cat.linkText} <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                    {/* Title & Description */}
+                    <div className="space-y-1.5">
+                      <h3 className="text-lg font-bold text-[#0f131a] tracking-tight leading-snug group-hover:text-[#1D4ED8] transition-colors">
+                        {route.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        {route.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Action Footer */}
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-1.5 text-slate-400 font-mono group-hover:text-slate-600 transition-colors">
+                      <Mail className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1D4ED8] transition-colors" />
+                      <span className="truncate max-w-[150px] sm:max-w-[170px]">{route.email}</span>
+                    </div>
+
+                    <div className={`inline-flex items-center gap-1 font-bold transition-all duration-300 ${isSelected
+                        ? 'text-[#1D4ED8]'
+                        : 'text-slate-500 group-hover:text-[#1D4ED8]'
+                      }`}>
+                      <span>{isSelected ? 'Selected' : 'Select Route'}</span>
+                      {isSelected ? (
+                        <CheckCircle className="w-4 h-4 text-[#1D4ED8]" />
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1E4ED8] group-hover:text-[#1a42c0] transition-colors">
-                          {cat.linkText} <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                        </span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
                       )}
                     </div>
                   </div>
-                )
-              })}
-            </div>
-
-            {/* Bottom 7th Card: Support (Wide Full-Width Card spanning all 3 columns) */}
-            <div
-              onClick={() => {
-                setSelectedTopic(SUPPORT_CATEGORY.name)
-                const el = document.getElementById('message-form')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className={`group relative overflow-hidden cursor-pointer p-7 sm:p-8 sm:py-9 rounded-2xl sm:rounded-[24px] transition-all duration-300 border flex flex-col md:flex-row md:items-center md:justify-between gap-6 ${
-                selectedTopic === SUPPORT_CATEGORY.name
-                  ? 'bg-gradient-to-b from-blue-50/60 to-white border-[#1E4ED8] shadow-[0_12px_32px_rgba(30,78,216,0.14)] ring-2 ring-[#1E4ED8]/30'
-                  : 'bg-white border-blue-100/90 shadow-[0_4px_20px_rgba(30,78,216,0.04)] hover:border-blue-300 hover:shadow-[0_14px_34px_rgba(30,78,216,0.10)] hover:-translate-y-0.5'
-              }`}
-            >
-              {/* Left Side Content */}
-              <div className="max-w-2xl z-10">
-                <div className="size-11 sm:size-12 rounded-xl sm:rounded-2xl bg-[#EFF6FF] border border-blue-100/90 flex items-center justify-center text-[#1E4ED8] mb-4 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                  <Headphones className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#061836] group-hover:text-[#1E4ED8] transition-colors leading-tight">
-                  {SUPPORT_CATEGORY.name}
-                </h3>
-
-                <p className="mt-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#1E4ED8]">
-                  DIRECT ROUTE: {SUPPORT_CATEGORY.routingTarget.toUpperCase()}
-                </p>
-
-                <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  {SUPPORT_CATEGORY.desc}
-                </p>
-
-                <div className="pt-4">
-                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1E4ED8] group-hover:text-[#1a42c0] transition-colors">
-                    {SUPPORT_CATEGORY.linkText} <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </div>
-
-              {/* Right Side: Subtle Dotted Globe Graphic & Script Typography matching reference */}
-              <div className="relative shrink-0 hidden md:flex flex-col items-end justify-center select-none pointer-events-none pr-4 lg:pr-8">
-                {/* Globe Watermark background */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 opacity-15 pointer-events-none">
-                  <svg viewBox="0 0 200 200" fill="none" className="w-full h-full text-[#1E4ED8]" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <ellipse cx="100" cy="100" rx="80" ry="35" stroke="currentColor" strokeWidth="1.2" strokeDasharray="2 2" />
-                    <ellipse cx="100" cy="100" rx="40" ry="80" stroke="currentColor" strokeWidth="1.2" />
-                    <line x1="20" y1="100" x2="180" y2="100" stroke="currentColor" strokeWidth="1.2" />
-                  </svg>
-                </div>
-
-                {/* Script Typography matching reference */}
-                <div className="relative z-10 text-right drop-shadow-xs">
-                  <p className="text-xl sm:text-2xl text-slate-700 leading-tight font-normal" style={{ fontFamily: 'var(--font-script)' }}>
-                    People
-                  </p>
-                  <p className="text-xl sm:text-2xl text-slate-700 leading-tight font-normal mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                    Ideas
-                  </p>
-                  <p className="text-xl sm:text-2xl text-slate-700 leading-tight font-normal mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                    Partnerships
-                  </p>
-                  <p className="text-2xl sm:text-3xl text-[#1E4ED8] leading-tight font-semibold mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                    Impact
-                  </p>
-                  <div className="w-16 h-0.5 bg-[#1E4ED8] rounded-full ml-auto mt-1" />
-                </div>
-              </div>
-            </div>
-
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* ─── Section 3: Direct Routing Engine (Homepage-Matching Split Layout) ─── */}
-      <section id="message-form" className="relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-gradient-to-b from-[#F8FAFD] via-white to-[#F2F6FE]/60 border-b border-slate-200/80">
-        {/* Soft Ambient Radial Glows */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-1/4 -left-32 h-[500px] w-[500px] rounded-full bg-blue-400/10 blur-[130px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-10 -right-24 h-[450px] w-[450px] rounded-full bg-indigo-300/10 blur-[120px]"
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            
-            {/* Left Column: Direct Routing Authority & SLAs (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-24">
-              
-              {/* Eyebrow & Main Title */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    DIRECT ROUTING ENGINE
-                  </span>
-                </div>
-                
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-[#061836] tracking-tight leading-[1.15]">
-                  Send Us a <span className="italic text-[#1E4ED8]">Direct Message.</span>
-                </h2>
-                
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                  We reject the single generic inbox. Select your exact domain and your enquiry routes directly to the designated leadership desk with guaranteed acknowledgment.
-                </p>
-              </div>
-
-              {/* Guaranteed SLA Assurance Card */}
-              <div className="rounded-2xl sm:rounded-[24px] border border-blue-100 bg-gradient-to-br from-blue-50/80 via-white to-blue-50/30 p-6 sm:p-7 shadow-xs space-y-4">
-                <div className="flex items-center justify-between border-b border-blue-100/80 pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="size-10 rounded-xl bg-[#1E4ED8] text-white flex items-center justify-center shadow-sm">
-                      <Clock className="size-5" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] uppercase font-bold tracking-wider text-[#1E4ED8]">
-                        GUARANTEED SLA
-                      </p>
-                      <p className="text-sm font-bold text-slate-900">
-                        Response Within 48 Hours
-                      </p>
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold uppercase tracking-wider">
-                    Active SLA
-                  </span>
-                </div>
-
-                <ul className="space-y-3 text-xs text-slate-700 font-medium">
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-[#1E4ED8] shrink-0 mt-0.5" />
-                    <span><strong>Direct to Decision Makers:</strong> No generic bot screening or automated email blackholes.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-[#1E4ED8] shrink-0 mt-0.5" />
-                    <span><strong>Time-Stamped Routing:</strong> Instant delivery confirmation and ticket reference.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-[#1E4ED8] shrink-0 mt-0.5" />
-                    <span><strong>Executive Oversight:</strong> Monitored directly by the Director of Operations.</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Direct Contacts Fast-Box */}
-              <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-2xs space-y-3.5">
-                <p className="text-[11px] uppercase tracking-wider font-bold text-slate-400">
-                  Immediate Phone Lines
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#1E4ED8] flex items-center justify-center border border-blue-100 shrink-0">
-                    <Phone className="size-4 text-[#1E4ED8]" />
-                  </div>
-                  <div>
-                    <a href="tel:+919227122800" className="text-sm font-bold text-slate-900 hover:text-[#1E4ED8] transition-colors">
-                      +91 92271 22800
-                    </a>
-                    <span className="text-slate-400 mx-1.5">/</span>
-                    <a href="tel:+919316120831" className="text-sm font-bold text-slate-900 hover:text-[#1E4ED8] transition-colors">
-                      93161 20831
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Founder Quote Card */}
-              <div className="relative overflow-hidden rounded-2xl border border-blue-100/80 bg-slate-900 text-white p-6 shadow-sm">
-                <p className="text-xs sm:text-[13px] italic text-slate-200 leading-relaxed font-normal">
-                  &ldquo;In collaboration, responsiveness is the first measure of trust. We treat every incoming message as an invitation to create lasting value.&rdquo;
-                </p>
-                <div className="mt-3 flex items-center justify-between pt-3 border-t border-slate-800 text-xs">
-                  <span className="font-bold text-white">Dr. Pravin Parmar</span>
-                  <span className="text-cyan-400 font-mono text-[11px]">Founder, Peers Global</span>
-                </div>
-              </div>
-
+      {/* ── SEND US A MESSAGE (FORM) ── */}
+      <section id="send-message" className="py-20 sm:py-28 bg-white border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          {/* Section Header */}
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                DIRECT DESK TRANSMISSION
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
-            {/* Right Column: Form Container Card (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="p-7 sm:p-10 lg:p-12 rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-[0_16px_45px_rgba(0,0,0,0.06)]">
-                
-                {/* Form Header */}
-                <div className="border-b border-slate-100 pb-6 mb-7 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 leading-snug">
-                      Direct Enquiry Form
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 font-normal mt-0.5">
-                      Choose domain to route to the appropriate leadership desk.
-                    </p>
-                  </div>
-                  <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-mono font-bold text-[#1E4ED8]">
-                    <span className="size-2 rounded-full bg-[#1E4ED8] animate-pulse" />
-                    <span>{selectedTopic} Desk</span>
-                  </div>
-                </div>
-
-                {isSubmitted ? (
-                  <div className="p-8 sm:p-12 rounded-3xl bg-blue-50/70 border border-blue-200 text-center space-y-5 animate-in fade-in zoom-in-95 duration-500">
-                    <div className="size-16 rounded-full bg-[#1E4ED8] text-white flex items-center justify-center mx-auto shadow-lg">
-                      <CheckCircle2 className="w-9 h-9" />
-                    </div>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#061836]">Message Transmitted</h3>
-                    <p className="text-slate-700 max-w-lg mx-auto text-sm sm:text-base leading-relaxed font-normal">
-                      Thank you, <strong>{formData.fullName || 'Peer'}</strong>. Your enquiry regarding{' '}
-                      <span className="font-bold text-[#1E4ED8]">{selectedTopic}</span> has been routed to our leadership desk.
-                    </p>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-blue-200 shadow-2xs text-xs font-mono font-bold text-[#1E4ED8] uppercase tracking-wider">
-                      <Clock className="w-3.5 h-3.5" />
-                      Guaranteed response SLA: Within two working days
-                    </div>
-                    <div className="pt-4">
-                      <button
-                        onClick={() => {
-                          setIsSubmitted(false)
-                          setFormData({
-                            fullName: '',
-                            email: '',
-                            phone: '',
-                            city: '',
-                            country: 'India',
-                            organisation: '',
-                            message: '',
-                          })
-                        }}
-                        className="px-8 py-3.5 rounded-full bg-[#1E4ED8] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1a42c0] transition-colors shadow-md cursor-pointer"
-                      >
-                        Send Another Message
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
-                    {/* Topic selector pills */}
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5">
-                        Domain / Enquiry Type <span className="text-[#1E4ED8]">*</span>
-                      </label>
-                      <div className="flex flex-wrap gap-2">
-                        {ROUTE_OPTIONS.map((opt) => (
-                          <button
-                            key={opt}
-                            type="button"
-                            onClick={() => setSelectedTopic(opt)}
-                            className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
-                              selectedTopic === opt
-                                ? 'bg-[#1E4ED8] text-white shadow-md shadow-blue-600/25 scale-[1.02]'
-                                : 'bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200 hover:border-slate-300'
-                            }`}
-                          >
-                            {opt}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Form fields with icons */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                          Full Name <span className="text-[#1E4ED8]">*</span>
-                        </label>
-                        <div className="relative flex items-center">
-                          <User className="absolute left-3.5 size-4 text-slate-400 pointer-events-none" />
-                          <input
-                            type="text"
-                            required
-                            placeholder="Your full name"
-                            value={formData.fullName}
-                            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1E4ED8]/20 focus:border-[#1E4ED8] focus:bg-white transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                          Email Address <span className="text-[#1E4ED8]">*</span>
-                        </label>
-                        <div className="relative flex items-center">
-                          <Mail className="absolute left-3.5 size-4 text-slate-400 pointer-events-none" />
-                          <input
-                            type="email"
-                            required
-                            placeholder="your.email@business.com"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1E4ED8]/20 focus:border-[#1E4ED8] focus:bg-white transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                          Mobile Number <span className="text-[#1E4ED8]">*</span>
-                        </label>
-                        <div className="relative flex items-center">
-                          <Phone className="absolute left-3.5 size-4 text-slate-400 pointer-events-none" />
-                          <input
-                            type="tel"
-                            required
-                            placeholder="+91 98765 43210"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1E4ED8]/20 focus:border-[#1E4ED8] focus:bg-white transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                          City <span className="text-[#1E4ED8]">*</span>
-                        </label>
-                        <div className="relative flex items-center">
-                          <MapPin className="absolute left-3.5 size-4 text-slate-400 pointer-events-none" />
-                          <input
-                            type="text"
-                            required
-                            placeholder="e.g. Ahmedabad, Mumbai, Surat"
-                            value={formData.city}
-                            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1E4ED8]/20 focus:border-[#1E4ED8] focus:bg-white transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                          Country <span className="text-[#1E4ED8]">*</span>
-                        </label>
-                        <div className="relative flex items-center">
-                          <Globe className="absolute left-3.5 size-4 text-slate-400 pointer-events-none" />
-                          <input
-                            type="text"
-                            required
-                            placeholder="India"
-                            value={formData.country}
-                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1E4ED8]/20 focus:border-[#1E4ED8] focus:bg-white transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                          Organisation (Optional)
-                        </label>
-                        <div className="relative flex items-center">
-                          <Building2 className="absolute left-3.5 size-4 text-slate-400 pointer-events-none" />
-                          <input
-                            type="text"
-                            placeholder="Company or Enterprise name"
-                            value={formData.organisation}
-                            onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1E4ED8]/20 focus:border-[#1E4ED8] focus:bg-white transition-all"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
-                        Your Message <span className="text-[#1E4ED8]">*</span>
-                      </label>
-                      <div className="relative">
-                        <textarea
-                          rows={4}
-                          required
-                          placeholder="Tell us what you need in detail..."
-                          value={formData.message}
-                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1E4ED8]/20 focus:border-[#1E4ED8] focus:bg-white transition-all resize-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                      <div className="relative group/submit-btn w-full sm:w-auto">
-                        <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/submit-btn:opacity-80 group-hover/submit-btn:blur-lg" />
-                        
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-3.5 rounded-full bg-[#1E4ED8] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1a42c0] transition-all shadow-[0_4px_16px_rgba(30,78,216,0.3)] hover:shadow-[0_8px_24px_rgba(30,78,216,0.4)] disabled:opacity-50 active:scale-[0.98] cursor-pointer"
-                        >
-                          <span>{isSubmitting ? 'Routing message...' : 'SEND DIRECT MESSAGE'}</span>
-                          <Send className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                          <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                        </button>
-                      </div>
-
-                      <p className="text-xs font-semibold text-slate-600 flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-[#1E4ED8]" />
-                        Guaranteed response within 48h.
-                      </p>
-                    </div>
-                  </form>
-                )}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Section 4: Corporate Information & Statutory Details ─── */}
-      <section className="py-20 md:py-28 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
-            {/* Left: Entity & Registered Office */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  CORPORATE ENTITY
-                </span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-[#061836] tracking-tight leading-[1.18]">
-                Peers Global Business Media Private Limited
-              </h2>
-              
-              <div className="space-y-5 text-sm text-slate-700 pt-2">
-                <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <MapPin className="w-5 h-5 text-[#1E4ED8] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 font-bold mb-1">Registered Office</strong>
-                    <p className="text-slate-600 leading-relaxed">
-                      405, 4th Floor, Shivalik Shilp, Iscon Cross Road, S.G. Highway, Ahmedabad, Gujarat 380015, India
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <Mail className="w-5 h-5 text-[#1E4ED8] shrink-0" />
-                    <div>
-                      <span className="block text-xs uppercase tracking-wider text-slate-500 font-semibold">Corporate Email</span>
-                      <a href="mailto:hello@peersglobal.com" className="text-slate-900 font-bold hover:text-[#1E4ED8] transition-colors">
-                        hello@peersglobal.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <Phone className="w-5 h-5 text-[#1E4ED8] shrink-0" />
-                    <div>
-                      <span className="block text-xs uppercase tracking-wider text-slate-500 font-semibold">Phone Lines</span>
-                      <div className="font-bold text-slate-900 text-xs">
-                        <a href="tel:+919227122800" className="hover:text-[#1E4ED8] transition-colors">+91 92271 22800</a>
-                        <span className="text-slate-400 mx-1">/</span>
-                        <a href="tel:+919316120831" className="hover:text-[#1E4ED8] transition-colors">93161 20831</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* GSTIN & CIN Copy Badges */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                  <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-100 flex items-center justify-between">
-                    <div>
-                      <span className="block text-[11px] uppercase tracking-wider text-slate-500 font-bold">GST Registration</span>
-                      <span className="font-mono text-xs font-bold text-slate-900 mt-0.5 block">24AANCP4546L1ZY</span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => copyToClipboard('24AANCP4546L1ZY', 'gst')}
-                      className="p-2 rounded-xl bg-white border border-blue-200 text-[#1E4ED8] hover:bg-blue-50 transition-colors cursor-pointer"
-                      title="Copy GSTIN"
-                    >
-                      {copiedKey === 'gst' ? <Check className="size-4 text-emerald-600" /> : <Copy className="size-4" />}
-                    </button>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-100 flex items-center justify-between">
-                    <div>
-                      <span className="block text-[11px] uppercase tracking-wider text-slate-500 font-bold">Corporate Identity (CIN)</span>
-                      <span className="font-mono text-xs font-bold text-slate-900 mt-0.5 block">U22219GJ2022PTC137646</span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => copyToClipboard('U22219GJ2022PTC137646', 'cin')}
-                      className="p-2 rounded-xl bg-white border border-blue-200 text-[#1E4ED8] hover:bg-blue-50 transition-colors cursor-pointer"
-                      title="Copy CIN"
-                    >
-                      {copiedKey === 'cin' ? <Check className="size-4 text-emerald-600" /> : <Copy className="size-4" />}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Grievance Officer & Official Handles */}
-            <div className="lg:col-span-5 space-y-6">
-              
-              {/* Grievance Officer Box */}
-              <div className="p-7 rounded-[28px] bg-gradient-to-b from-blue-50/70 to-white border border-blue-200/80 space-y-4 shadow-sm">
-                <div className="flex items-center gap-2.5">
-                  <div className="size-9 rounded-xl bg-blue-100 text-[#1E4ED8] flex items-center justify-center">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-serif text-lg font-bold text-[#061836]">
-                    Grievance Officer (Indian IT Rules)
-                  </h3>
-                </div>
-                
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  In accordance with the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, the contact details of the Grievance Officer are published below:
-                </p>
-
-                <div className="space-y-2 text-xs text-slate-800 bg-white p-4 rounded-2xl border border-blue-100 shadow-2xs">
-                  <p><strong>Officer Name:</strong> Dr. Pravin Parmar</p>
-                  <p><strong>Designation:</strong> Founder &amp; Grievance Officer</p>
-                  <p>
-                    <strong>Email:</strong>{' '}
-                    <a href="mailto:grievance@peersglobal.com" className="text-[#1E4ED8] font-semibold underline">
-                      grievance@peersglobal.com
-                    </a>
-                  </p>
-                  <p><strong>Address:</strong> 405, Shivalik Shilp, Iscon Cross Road, S.G. Highway, Ahmedabad, Gujarat 380015</p>
-                  <p className="text-emerald-700 font-semibold pt-1 border-t border-slate-100">
-                    <strong>Resolution SLA:</strong> Acknowledged within 24 hours, resolved within 15 days.
-                  </p>
-                </div>
-              </div>
-
-              {/* Official Social Media Channels */}
-              <div className="p-7 rounded-[28px] bg-slate-50 border border-slate-200/80 space-y-4">
-                <h3 className="font-serif text-base font-bold text-[#061836]">
-                  Follow Official Handles
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { name: 'Facebook', url: SITE.socials.facebook },
-                    { name: 'YouTube', url: SITE.socials.youtube },
-                    { name: 'Instagram', url: SITE.socials.instagram },
-                    { name: 'LinkedIn', url: SITE.socials.linkedin },
-                  ].map((social) => (
-                    <a
-                      key={social.name}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-800 hover:bg-blue-50 hover:text-[#1E4ED8] hover:border-blue-200 transition-all shadow-2xs"
-                    >
-                      {social.name}
-                    </a>
-                  ))}
-                </div>
-                <p className="text-xs text-slate-500 italic">
-                  These are our only official accounts. We do not contact entrepreneurs through any other channel.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Closing Banner ─── */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-24 md:py-32">
-        {/* Deep celestial radial gradients & luminous aura */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
-        />
-
-        {/* SVG Orbital Geometric Lines Background */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-white tracking-tight leading-[1.15]">
-              Build Your Business. <br className="hidden sm:inline" />
-              Build Your Relationships. <br className="hidden sm:inline" />
-              Build Your Circle.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0f131a] leading-[1.12]">
+              Send us a <span className="brand-gradient-text">message.</span>
             </h2>
-            <p className="text-base sm:text-lg text-white/90 font-normal max-w-xl mx-auto leading-relaxed">
-              Ready to meet your peers? Download the Unity App and request your verified membership seat.
+
+            <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-normal">
+              You do not need to navigate complex departments. Just tell us what you need, and our human secretariat will guide you.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Link
-              href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl uppercase tracking-wider active:scale-[0.98]"
-            >
-              <span>Download Unity App</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          <div className="bg-[#FAFBFD] rounded-3xl border border-slate-200/90 p-8 sm:p-12 shadow-sm">
+            {submitted ? (
+              <div className="text-center py-12 space-y-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] rounded-full flex items-center justify-center mx-auto shadow-2xs">
+                  <Check className="w-8 h-8 text-[#1D4ED8]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#0f131a] tracking-tight">Message Routed Successfully</h3>
+                <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
+                  Your message has been directly assigned to the <strong className="text-slate-950">{selectedRoute}</strong> desk. A human representative will review and reply within 24 business hours.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(false)}
+                  className="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-800 border border-slate-200 hover:bg-slate-50 transition-colors cursor-pointer shadow-2xs"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6 text-xs sm:text-sm">
+                <div className="space-y-2">
+                  <label className="font-bold text-[#0f131a] block">
+                    YOUR PREFERRED ROUTE (Choose one of the 7 routes) *
+                  </label>
+                  <select
+                    value={selectedRoute}
+                    onChange={(e) => setSelectedRoute(e.target.value)}
+                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] focus:ring-1 focus:ring-[#1D4ED8] text-slate-900 shadow-2xs font-medium"
+                  >
+                    {SEVEN_ROUTES.map((r) => (
+                      <option key={r.id} value={r.title}>
+                        Route {r.id} — {r.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                  <div className="space-y-2">
+                    <label className="font-bold text-[#0f131a] block">Your Name *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Ramesh Patel"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] focus:ring-1 focus:ring-[#1D4ED8] text-slate-900 shadow-2xs"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="font-bold text-[#0f131a] block">Email Address *</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="name@company.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] focus:ring-1 focus:ring-[#1D4ED8] text-slate-900 shadow-2xs"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="font-bold text-[#0f131a] block">Phone Number *</label>
+                    <input
+                      type="tel"
+                      inputMode="numeric"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
+                      required
+                      placeholder="9876543210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] focus:ring-1 focus:ring-[#1D4ED8] text-slate-900 shadow-2xs"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-bold text-[#0f131a] block">
+                    YOUR MESSAGE (What would you like to talk to us about?) *
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    placeholder="Describe what you are building, exploring, or need assistance with..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] focus:ring-1 focus:ring-[#1D4ED8] text-slate-900 shadow-2xs"
+                  />
+                </div>
+
+                <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200/80">
+                  <p className="text-xs text-slate-500 font-medium">
+                    Your message will be routed directly to department stewards.
+                  </p>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 uppercase tracking-wider shrink-0 disabled:opacity-50 cursor-pointer hover:scale-105"
+                  >
+                    {isSubmitting ? (
+                      'Routing Message...'
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOR GENERAL ENQUIRIES ── */}
+      <section className="py-20 sm:py-28 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    OPEN DOORS
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight">
+                  For General Enquiries
+                </h2>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                  Not every conversation begins with membership. Whatever brings you here, tell us what you are trying to understand. We will help you find the right door.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {GENERAL_ENQUIRY_DOORS.map((door, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3.5 rounded-xl bg-white border border-slate-200/90 text-xs font-medium text-slate-800 flex items-center gap-2 shadow-2xs hover:border-slate-300 transition-colors"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#1D4ED8] shrink-0" />
+                    <span>{door}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* COMPANY DETAILS CARD */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider brand-gradient-text">
+                  STATUTORY &amp; CORPORATE DETAILS
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-[#0f131a] tracking-tight">
+                PEERS GLOBAL BUSINESS MEDIA PRIVATE LIMITED
+              </h3>
+
+              <div className="space-y-2 text-xs font-mono text-slate-700 pt-2 border-t border-slate-100">
+                <div className="flex justify-between py-1.5 border-b border-slate-100">
+                  <span className="text-slate-500">Corporate Identity (CIN):</span>
+                  <span className="text-slate-900 font-bold">U22219GJ2022PTC137646</span>
+                </div>
+                <div className="flex justify-between py-1.5 border-b border-slate-100">
+                  <span className="text-slate-500">GST Registration:</span>
+                  <span className="text-slate-900 font-bold">24AANCP4546L1ZY</span>
+                </div>
+                <div className="flex justify-between py-1.5 border-b border-slate-100">
+                  <span className="text-slate-500">Official Inquiries:</span>
+                  <span className="brand-gradient-text font-bold">hello@peersglobal.com</span>
+                </div>
+                <div className="flex justify-between py-1.5 border-b border-slate-100">
+                  <span className="text-slate-500">Headquartered:</span>
+                  <span className="text-slate-900 font-medium">Ahmedabad, Gujarat, Bharat</span>
+                </div>
+                <div className="flex justify-between py-1.5">
+                  <span className="text-slate-500">Founded by:</span>
+                  <span className="text-slate-900 font-bold">Dr. Pravin Parmar</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── GRIEVANCE REDRESSAL ── */}
+      <section className="py-20 sm:py-28 bg-white border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 max-w-4xl mx-auto space-y-6 shadow-xs">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  FORMAL GOVERNANCE
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight">
+                Grievance Redressal
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                Some messages require a dedicated formal escalation channel. For official compliance or grievance matters, please use our designated governance desk.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-2xl bg-white border border-slate-200/80 text-xs sm:text-sm text-slate-800 shadow-2xs">
+              <div className="space-y-1">
+                <span className="text-slate-500 block text-xs font-medium">Designated Officer:</span>
+                <span className="text-slate-950 font-bold text-sm">Office of Grievance Redressal</span>
+              </div>
+              <div className="space-y-1">
+                <span className="text-slate-500 block text-xs font-medium">Direct Governance Channel:</span>
+                <a href="mailto:grievance@peersglobal.com" className="brand-gradient-text hover:underline font-bold text-sm block">
+                  grievance@peersglobal.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── OUR OFFICIAL SOCIAL ACCOUNTS ── */}
+      <section className="py-20 sm:py-28 bg-[#F8FAFD] border-b border-slate-200/80 relative overflow-hidden">
+        {/* Subtle decorative background gradient accents */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          {/* Header Section */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2 border-b border-slate-200/60">
+            <div className="max-w-2xl space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  Verified Digital Presence
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-bold text-slate-950 tracking-tight leading-tight">
+                Our Official Social Accounts
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Connect with PEERS GLOBAL across our verified communication channels. For your security and authenticity, refer exclusively to the handles listed below.
+              </p>
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-semibold shrink-0 self-start md:self-end shadow-2xs">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>100% Authenticated Directory</span>
+            </div>
+          </div>
+
+          {/* Social Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {OFFICIAL_SOCIALS.map((soc, idx) => (
+              <a
+                key={idx}
+                href={soc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden ${soc.bgLight}`}
+              >
+                {/* Top Subtle Gradient Accent Line */}
+                <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${soc.iconColor} opacity-70 group-hover:opacity-100 transition-opacity`} />
+
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className={`inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-tr ${soc.iconColor}`} />
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
+                      {soc.tag}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">
+                      {soc.name}
+                    </h3>
+                    <p className="text-base font-bold text-slate-900 mt-1 tracking-tight group-hover:text-[#1D4ED8] transition-colors break-words">
+                      {soc.handle}
+                    </p>
+                    <p className="text-xs text-slate-500 mt-1 font-medium">
+                      {soc.category}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#1D4ED8] transition-colors">
+                  <span className="flex items-center gap-1.5 text-emerald-600 font-medium text-[11px]">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    Verified
+                  </span>
+                  <div className="flex items-center gap-1 text-[11px] font-bold">
+                    <span>Visit</span>
+                    <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Security Notice Pill */}
+          <div className="flex items-center justify-center gap-3 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 text-center max-w-3xl mx-auto shadow-2xs">
+            <ShieldCheck className="w-5 h-5 text-amber-500 shrink-0 hidden sm:block" />
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+              <strong className="text-slate-900 font-semibold">Security Advisory:</strong> These are our only official global profiles. If an account is not listed in this authenticated directory, do not assume it represents PEERS GLOBAL.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL HOME-THEMED CLOSING BANNER ── */}
+      <section className="relative py-12 sm:py-16 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
+        {/* Deep celestial radial gradients & luminous aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(0,98,210,0.22),transparent_55%),radial-gradient(circle_at_85%_30%,rgba(225,29,72,0.15),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
+        />
+
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-16 bottom-0 pointer-events-none w-[360px] sm:w-[480px] lg:w-[580px] opacity-20 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+
+            {/* Left Column: Heading, Ethos & Punchline */}
+            <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+                  WE ARE LISTENING
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Every meaningful relationship begins with a <span className="italic text-cyan-200">conversation.</span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                Whether you are exploring, joining, leading or partnering — our desks are open and ready to connect.
+              </p>
+            </div>
+
+            {/* Right Column: Interactive Quick Actions */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <a
+                href="#send-message"
+                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+              >
+                <span>Start a Conversation</span>
+                <ArrowRight className="size-3.5" />
+              </a>
+
+              <Link
+                href="/our-story"
+                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold text-xs uppercase tracking-wider transition-all border border-white/20 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+              >
+                <span>Read Our Story</span>
+                <ChevronRight className="size-3.5 text-white/60" />
+              </Link>
+            </div>
+
           </div>
         </div>
       </section>
     </div>
-  )
-}
-
-export function ContactPageClient() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-white" />}>
-      <ContactPageInner />
-    </Suspense>
   )
 }

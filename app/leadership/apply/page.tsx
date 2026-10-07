@@ -4,7 +4,7 @@ import { ApplyToLeadClient } from '@/components/leadership/apply-to-lead-client'
 export const metadata: Metadata = {
   title: 'Apply to Lead | Peers Global',
   description:
-    'Take a leadership role at Peers Global. Circle Founder, Circle Director, Industry Director, Executive Director or Ambassador — apply through the Unity App.',
+    'Leadership begins when contribution becomes responsibility. Apply to lead a Circle, an Industry or an entire ecosystem with PEERS GLOBAL.',
   keywords: [
     'apply leadership role peers global',
     'become circle founder',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Apply to Lead | Peers Global',
     description:
-      'Every leadership role at Peers Global begins with a conversation. Express your interest in leading a Circle, an Industry, or a Territory.',
+      'Leadership begins when contribution becomes responsibility. Apply to lead a Circle, an Industry or an entire ecosystem with PEERS GLOBAL.',
     url: 'https://peersglobal.com/leadership/apply',
     type: 'website',
     images: [

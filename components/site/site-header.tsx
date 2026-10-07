@@ -8,6 +8,7 @@ import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
 import { Logo } from '@/components/site/logo'
 import { HEADER_NAV, SITE, NavItem } from '@/lib/data/site'
 import { cn } from '@/lib/utils'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -286,14 +287,13 @@ export function SiteHeader() {
 
           {/* Right Side Action: ENTER PEERS GLOBAL */}
           <div className="flex items-center gap-3 shrink-0">
-            <Link
+            <GalaxyButton
               href="/apply"
               onMouseEnter={() => setOpenMenu(null)}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-5 py-2.5 text-xs font-semibold tracking-wide text-white transition-all shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-red-500/25 whitespace-nowrap hover:scale-[1.02] transform active:scale-[0.98]"
+              size="sm"
             >
-              <span>ENTER PEERS GLOBAL</span>
-              <ArrowRight className="size-3.5" />
-            </Link>
+              ENTER PEERS GLOBAL
+            </GalaxyButton>
 
             {/* Mobile Menu Button */}
             <button
@@ -314,14 +314,13 @@ export function SiteHeader() {
         {mobileMenuOpen ? (
           <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 py-5 shadow-2xl text-slate-800 animate-in slide-in-from-top-2 duration-200">
             <div className="mb-4 flex flex-col gap-2.5 border-b border-slate-200 pb-4">
-              <Link
+              <GalaxyButton
                 href="/apply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] py-2.5 text-xs font-semibold tracking-wide text-white transition-all shadow-md shadow-blue-600/25"
+                className="w-full justify-center"
               >
-                <span>ENTER PEERS GLOBAL</span>
-                <ArrowRight className="size-4" />
-              </Link>
+                ENTER PEERS GLOBAL
+              </GalaxyButton>
             </div>
 
             <div className="flex flex-col divide-y divide-slate-100">

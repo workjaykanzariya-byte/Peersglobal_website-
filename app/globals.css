@@ -38,10 +38,10 @@
   --color-panel-muted: var(--panel-muted);
   --color-panel-border: var(--panel-border);
 
-  --font-sans: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-display: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-serif: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-script: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-sans: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-display: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-serif: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-script: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --radius-sm: calc(var(--radius) * 0.45);
@@ -120,12 +120,12 @@ html, body {
    Blue #1D4ED8 · Crimson/Red #E11D48 · Sky #2563EB · Gold #D4AF37
 ----------------------------------------------------------------*/
 :root {
-  --font-sans: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-display: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-serif: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-script: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-montserrat: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
-  --font-poppins: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+  --font-sans: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-display: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-serif: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-script: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-montserrat: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-poppins: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --brand-blue: #1D4ED8;
   --brand-red: #E11D48;
   --brand-sky: #2563EB;
@@ -142,7 +142,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 1 — MICROSOFT ENTERPRISE (CLEAN, SHARP & ROYAL)
-   White canvas, #1D4ED8 Royal Blue, #E11D48 Accent, Segoe / Plus Jakarta Sans
+   White canvas, #1D4ED8 Royal Blue, #E11D48 Accent, Libre Franklin
 ============================================================= */
 [data-design='d1'] {
   color-scheme: light;
@@ -174,7 +174,7 @@ html, body {
 
   --radius: 0.375rem;
   --btn-radius: 4px;
-  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --display-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 600;
   --display-tracking: -0.015em;
   --display-leading: 1.15;
@@ -190,7 +190,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 2 — EDITORIAL
-   Segoe UI display, red rules, sharp borders
+   Libre Franklin display, red rules, sharp borders
 ============================================================= */
 [data-design='d2'] {
   color-scheme: light;
@@ -222,7 +222,7 @@ html, body {
 
   --radius: 0.0625rem;
   --btn-radius: 0rem;
-  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --display-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 700;
   --display-tracking: -0.02em;
   --display-leading: 1.05;
@@ -238,7 +238,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 3 — PREMIUM DARK
-   Deep navy, gold premium accent, Segoe UI typography
+   Deep navy, gold premium accent, Libre Franklin typography
 ============================================================= */
 [data-design='d3'] {
   color-scheme: dark;
@@ -270,7 +270,7 @@ html, body {
 
   --radius: 0.75rem;
   --btn-radius: 0.5rem;
-  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --display-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 600;
   --display-tracking: -0.02em;
   --display-leading: 1.08;
@@ -286,7 +286,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 4 — BOLD
-   High contrast, blue slabs, red CTAs, pill buttons, Segoe UI type
+   High contrast, blue slabs, red CTAs, pill buttons, Libre Franklin type
 ============================================================= */
 [data-design='d4'] {
   color-scheme: light;
@@ -318,7 +318,7 @@ html, body {
 
   --radius: 1.25rem;
   --btn-radius: 999px;
-  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --display-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 700;
   --display-tracking: -0.02em;
   --display-leading: 1.05;
@@ -334,7 +334,7 @@ html, body {
 
 /* =============================================================
    DIRECTION 5 — SOFT
-   Tinted light-blue canvas, airy, rounded, Segoe UI typography
+   Tinted light-blue canvas, airy, rounded, Libre Franklin typography
 ============================================================= */
 [data-design='d5'] {
   color-scheme: light;
@@ -366,7 +366,7 @@ html, body {
 
   --radius: 1.5rem;
   --btn-radius: 999px;
-  --display-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --display-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --display-weight: 600;
   --display-tracking: -0.02em;
   --display-leading: 1.1;
@@ -383,12 +383,12 @@ html, body {
 @layer base {
   *, ::before, ::after {
     border-color: var(--border);
-    font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif;
+    font-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   }
   html, body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif !important;
+    font-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
   }
   ::selection {
     background: var(--primary);
@@ -397,16 +397,21 @@ html, body {
 }
 
 /* =============================================================
-   UNIVERSAL MICROSOFT FONT ENFORCEMENT
-   Strictly applies Microsoft Segoe UI typography everywhere
+   UNIVERSAL FONT ENFORCEMENT
+   Strictly applies Libre Franklin typography across all elements
 ============================================================= */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, input, textarea,
 .font-serif,
 .font-display,
+.font-sans,
 .font-script,
 [class*="font-serif"],
 [class*="font-script"],
+[class*="font-sans"],
 [style*="font-family"] {
-  font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, var(--font-sans-modern), var(--font-sans-inter), sans-serif !important;
+  font-family: var(--font-libre-franklin), 'Libre Franklin', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
 }
 
 @layer components {
@@ -778,4 +783,272 @@ pre, code {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
+
+/* =============================================================
+   GALAXY BUTTON — Brand Blue & Red Cosmic Rotating Gradient
+============================================================= */
+.galaxy-btn {
+  /* Scoped Variables */
+  --btn-bg: #090d1a;
+  --btn-text: #ffffff;
+  --btn-primary: #1D4ED8; /* Royal Blue */
+  --btn-secondary: #3b82f6; /* Bright Blue */
+  --btn-accent: #E11D48; /* Crimson Red */
+  --btn-font-size: 13px; /* Base size */
+
+  /* Layout & Sizing */
+  font-family: inherit;
+  font-size: var(--btn-font-size);
+  padding: 0.75em 1.75em;
+  border-radius: 9999px;
+  border: none;
+  background: var(--btn-bg);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+
+  /* Shadow in brand blue and red */
+  box-shadow: 0 0.5em 1.5em -0.5em rgba(29, 78, 216, 0.45), 0 0.25em 1em -0.25em rgba(225, 29, 72, 0.35);
+}
+
+/* Accessible Focus State */
+.galaxy-btn:focus-visible {
+  outline: 2px solid var(--btn-secondary);
+  outline-offset: 4px;
+}
+
+/* Active Click State */
+.galaxy-btn:active {
+  transform: scale(0.96);
+}
+
+/* --- Interior Content --- */
+.galaxy-btn__content {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  position: relative;
+  z-index: 2;
+  color: var(--btn-text);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Text Styling */
+.galaxy-btn__text {
+  display: inline-block;
+  line-height: 1.2;
+}
+
+/* SVG Icon Styling */
+.galaxy-btn__icon {
+  width: 1.2em;
+  height: 1.2em;
+  transition: transform 0.3s ease;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Hover: Move Icon */
+.galaxy-btn:hover .galaxy-btn__icon {
+  transform: translateX(0.25em) rotate(-10deg);
+}
+
+/* --- The Rotating Gradient Border (The Nebula) --- */
+.galaxy-btn::before {
+  content: "";
+  position: absolute;
+  inset: -4px; /* Border width */
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    var(--btn-bg) 0deg,
+    var(--btn-primary) 60deg,
+    var(--btn-secondary) 120deg,
+    var(--btn-bg) 180deg,
+    var(--btn-accent) 240deg,
+    var(--btn-primary) 300deg,
+    var(--btn-bg) 360deg
+  );
+  border-radius: inherit;
+  animation: rotate-nebula 4s linear infinite;
+  filter: blur(8px); /* Soften for glow effect */
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+
+.galaxy-btn:hover::before {
+  opacity: 1;
+  animation-duration: 2s; /* Speed up on hover */
+}
+
+/* Mask to create the inner dark area (Simulates border) */
+.galaxy-btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px; /* Inner spacing */
+  background: var(--btn-bg);
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* --- Internal Star Animation --- */
+.galaxy-btn__stars {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  pointer-events: none;
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      white 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(circle at 80% 70%, white 1px, transparent 1.5px),
+    radial-gradient(circle at 40% 80%, white 0.5px, transparent 1px);
+  background-size: 120% 120%;
+  opacity: 0.35;
+  transition:
+    opacity 0.3s ease,
+    background-position 0.3s ease;
+}
+
+.galaxy-btn:hover .galaxy-btn__stars {
+  opacity: 0.85;
+  animation: star-drift 5s linear infinite alternate;
+}
+
+/* Glow Backdrop */
+.galaxy-btn__glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.4), rgba(225, 29, 72, 0.3), transparent 70%);
+  opacity: 0.5;
+  filter: blur(4px);
+  transition: opacity 0.3s ease;
+}
+
+.galaxy-btn:hover .galaxy-btn__glow {
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------
+   VARIANT: TRANSPARENT GLASS (DARK SECTIONS LIKE HERO)
+------------------------------------------------------------- */
+.galaxy-btn--transparent {
+  --btn-bg: rgba(15, 23, 42, 0.4);
+  --btn-text: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.galaxy-btn--transparent::after {
+  background: rgba(10, 15, 30, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.galaxy-btn--transparent:hover::after {
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.galaxy-btn--transparent:hover {
+  box-shadow: 0 8px 25px rgba(29, 78, 216, 0.3), 0 4px 15px rgba(225, 29, 72, 0.25);
+}
+
+/* -------------------------------------------------------------
+   VARIANT: TRANSPARENT GLASS (LIGHT / WHITE SECTIONS)
+------------------------------------------------------------- */
+.galaxy-btn--transparent-light {
+  --btn-bg: rgba(255, 255, 255, 0.88);
+  --btn-text: #0f172a;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px -2px rgba(29, 78, 216, 0.18), 0 2px 8px -1px rgba(225, 29, 72, 0.12);
+}
+
+.galaxy-btn--transparent-light::after {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.galaxy-btn--transparent-light:hover::after {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.galaxy-btn--transparent-light .galaxy-btn__content {
+  color: #0f172a;
+}
+
+.galaxy-btn--transparent-light .galaxy-btn__icon {
+  fill: #1D4ED8;
+}
+
+.galaxy-btn--transparent-light:hover .galaxy-btn__content {
+  color: #1D4ED8;
+}
+
+.galaxy-btn--transparent-light .galaxy-btn__stars {
+  opacity: 0.15;
+}
+
+/* -------------------------------------------------------------
+   VARIANT: FULL VIBRANT LOGO GRADIENT (SOLID BLUE TO RED)
+------------------------------------------------------------- */
+.galaxy-btn--gradient {
+  --btn-bg: linear-gradient(135deg, #1D4ED8 0%, #2563EB 40%, #E11D48 100%);
+  --btn-text: #ffffff;
+  box-shadow: 0 0.5em 1.8em -0.4em rgba(29, 78, 216, 0.5), 0 0.3em 1.2em -0.3em rgba(225, 29, 72, 0.45);
+}
+
+.galaxy-btn--gradient::after {
+  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 40%, #E11D48 100%);
+}
+
+.galaxy-btn--gradient:hover::after {
+  background: linear-gradient(135deg, #1E40AF 0%, #1D4ED8 40%, #BE123C 100%);
+}
+
+/* Size Modifiers */
+.galaxy-btn--sm {
+  --btn-font-size: 11px;
+  padding: 0.55em 1.25em;
+}
+
+.galaxy-btn--lg {
+  --btn-font-size: 14px;
+  padding: 0.9em 2.25em;
+}
+
+/* Keyframes */
+@keyframes rotate-nebula {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes star-drift {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1) translate(-2%, -2%);
+  }
+}
+
 

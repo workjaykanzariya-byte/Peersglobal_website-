@@ -36,57 +36,106 @@ export function GiveFirstClient() {
         </div>
       </div>
 
-      {/* ─── Hero Section ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200 bg-gradient-to-br from-blue-50/40 via-white to-rose-50/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
+      {/* ─── Hero Section with Video Background ─── */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white py-14 sm:py-18 md:py-24 border-b border-slate-800">
+        {/* Looping video background with cinematic poster fallback */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/images/hero-video-poster.jpg"
+            className="h-full w-full object-cover object-center opacity-40 scale-105 transition-transform duration-1000"
+          >
+            <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
+          </video>
+          {/* Cinematic dark scrim overlay matching the master standard */}
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.18),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(225,29,72,0.15),transparent_60%)]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.08]">
-                Give First
+              {/* Eyebrow badge */}
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[11px] font-bold uppercase tracking-widest text-slate-200">
+                  How We Collaborate · The Founding Principle
+                </span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tight text-white leading-[1.08]">
+                Give First. <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  Contribute Before You Ask.
+                </span>
               </h1>
-              <p className="text-xl sm:text-2xl font-serif brand-gradient-text italic leading-relaxed font-semibold">
-                You contribute before you ask. Always.
-              </p>
-              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-                It is the founding rule of this community and the reason everything else works.
+
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl">
+                It is the founding rule of this global community and the reason everything else works. You contribute before you ask. Always.
               </p>
 
-              <div className="pt-2">
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-sm font-bold shadow-md transition-all active:scale-95 uppercase tracking-wider"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(225,29,72,0.35)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.50)] transition-all uppercase tracking-wider active:scale-95"
                 >
                   <span>Download Unity App</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
+                <Link
+                  href="/circles"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-xs sm:text-sm font-semibold border border-white/25 hover:bg-white/20 transition-all uppercase tracking-wider backdrop-blur-sm"
+                >
+                  <span>Explore Circles</span>
+                </Link>
+              </div>
+
+              {/* Quick Stat Badges */}
+              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/15 max-w-lg">
+                <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
+                  <div className="text-lg sm:text-xl font-bold text-white">#1</div>
+                  <div className="text-[11px] text-slate-300 font-medium">Founding Rule</div>
+                </div>
+                <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
+                  <div className="text-lg sm:text-xl font-bold text-sky-300">100%</div>
+                  <div className="text-[11px] text-slate-300 font-medium">Peer Alignment</div>
+                </div>
+                <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
+                  <div className="text-lg sm:text-xl font-bold text-rose-300">Zero</div>
+                  <div className="text-[11px] text-slate-300 font-medium">Transaction Pitching</div>
+                </div>
               </div>
             </div>
 
-            {/* Right Climbers Hero Visual */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white">
-                <Image
-                  src="/images/leadership-climbers-hero.jpg"
-                  alt="Mountain climbers helping each other up at sunrise"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-cover object-center"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                {/* Script calligraphy watermark */}
-                <div className="absolute top-4 right-4 text-right">
-                  <span className="font-serif italic text-base sm:text-lg text-white/95 drop-shadow-md">
-                    Give.<br />Support.<br />Share.<br />Lift others.<br />That&apos;s how we grow.
-                  </span>
-                </div>
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest font-mono text-white border border-white/30 font-bold">
-                    A Stronger Community Builds Brighter Businesses
-                  </span>
-                </div>
-              </div>
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-5 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Give · Support
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Share · Lift Others
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                That&apos;s How We Grow
+              </p>
             </div>
           </div>
         </div>
@@ -407,9 +456,42 @@ export function GiveFirstClient() {
         </div>
       </section>
 
-      {/* ─── Closing Brand Gradient Banner ─── */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] py-20 md:py-28 text-white">
+      {/* ─── Closing Master Celestial Banner with Brand Gradient Depth ─── */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 md:py-28">
+        {/* Deep celestial radial gradients & luminous aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+        />
+
+        {/* Subtle geometric orbital line art */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-rose-300/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-rose-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-rose-300/25" />
+          </svg>
+        </div>
+
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="flex items-center justify-center gap-2.5">
+            <span className="h-[1.5px] w-6 bg-white/70" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              THE PEERS GLOBAL INVITATION
+            </span>
+            <span className="h-[1.5px] w-6 bg-white/70" />
+          </div>
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
             Be the entrepreneur who gives.
           </h2>
@@ -420,14 +502,14 @@ export function GiveFirstClient() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Link
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#1D4ED8] text-xs sm:text-sm font-bold shadow-lg hover:bg-slate-100 transition-all uppercase tracking-wider active:scale-95"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all uppercase tracking-wider active:scale-95"
             >
               <span>Download Unity App</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/the-idea"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-xs sm:text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all uppercase tracking-wider backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/[0.08] text-white text-xs sm:text-sm font-bold border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all uppercase tracking-wider backdrop-blur-sm"
             >
               <span>Explore Our World</span>
             </Link>

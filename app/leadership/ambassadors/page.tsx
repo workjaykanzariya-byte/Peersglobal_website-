@@ -2,40 +2,43 @@ import type { Metadata } from 'next'
 import { AmbassadorClient } from '@/components/leadership/ambassador-client'
 
 export const metadata: Metadata = {
-  title: 'Ambassador | Peers Global',
+  title: 'Ambassador | PEERS GLOBAL Leadership',
   description:
-    'Ambassadors carry Peers Global into rooms where it is not yet known. The role, the standing it builds, and who it is for.',
+    'You carry the name. An Ambassador represents more than a community — you carry its spirit into conversations, relationships, cities, and industries.',
   keywords: [
-    'peers global ambassador',
-    'business community ambassador role',
-    'entrepreneur network ambassador India',
-    'community representation',
-    'trusted leadership',
+    'Ambassador',
+    'PEERS GLOBAL Ambassador',
+    'You carry the name',
+    'Community representation',
+    'Built on trust',
+    'Not a sales role',
+    'Ambassador mindset',
+    'Leadership pathway India',
   ],
   alternates: {
     canonical: 'https://peersglobal.com/leadership/ambassadors',
   },
   openGraph: {
-    title: 'Ambassador | Peers Global',
+    title: 'Ambassador | You Carry The Name | PEERS GLOBAL',
     description:
-      'You carry the name. Discover the Ambassador appointment at Peers Global.',
+      'The community travels through people. Explore the Ambassador appointment at PEERS GLOBAL.',
     url: 'https://peersglobal.com/leadership/ambassadors',
     type: 'website',
     images: [
       {
-        url: '/images/ambassador-hero.jpg',
+        url: '/images/leadership-ambassador.jpg',
         width: 1200,
         height: 630,
-        alt: 'Ambassador representing Peers Global in executive business conversation',
+        alt: 'Ambassador representing Peers Global with authentic leadership and trust',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ambassador | Peers Global',
+    title: 'Ambassador | PEERS GLOBAL Leadership',
     description:
-      'You carry the name. Discover the Ambassador appointment at Peers Global.',
-    images: ['/images/ambassador-hero.jpg'],
+      'You carry the name. An Ambassador represents more than a community.',
+    images: ['/images/leadership-ambassador.jpg'],
   },
 }
 
@@ -43,59 +46,59 @@ export default function AmbassadorPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Ambassador | Peers Global',
+    name: 'Ambassador | PEERS GLOBAL Leadership',
     description:
-      'Ambassadors carry Peers Global into rooms where it is not yet known. The role, the standing it builds, and who it is for.',
+      'You carry the name. An Ambassador represents more than a community — you carry its spirit into conversations, relationships, cities, and industries.',
     url: 'https://peersglobal.com/leadership/ambassadors',
     mainEntity: {
       '@type': 'FAQPage',
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'Do I need to be a Peer already?',
+          name: 'Is an Ambassador a salesperson for PEERS GLOBAL?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Peers Global membership is required, and Ambassadors are chosen from within the community based on their proven alignment with our culture and code.',
+            text: 'No. The role is about representing the community, creating understanding and opening meaningful conversations—not pressuring people to join.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How much time does the role take?',
+          name: 'Does an Ambassador have to bring new members?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Considerably less than a Circle role. Ambassadors represent rather than operate, and the commitment is opportunistic and relational rather than fixed on a calendar.',
+            text: 'The source architecture does not define a specific membership quota or numerical target for the Ambassador role. The emphasis is on representing and carrying the community through people.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Can I be an Ambassador alongside another leadership role?',
+          name: 'Does an Ambassador represent PEERS GLOBAL everywhere?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'In select cases, an active Peer or Industry leader may carry Ambassador responsibilities. However, dedicated representation ensures unbiased introductions.',
+            text: 'An Ambassador carries the name and spirit of the community in their interactions. The precise scope of formal representation should follow the approved Ambassador guidelines.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How many Ambassadors are there?',
+          name: 'Can anyone become an Ambassador?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The role is held by a limited number of respected Peers. It depends on trust, credibility and stature rather than on geographical coverage.',
+            text: 'The source architecture does not specify formal eligibility criteria. The role should therefore be assigned according to the approved leadership and Ambassador process rather than assumed eligibility.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Is there a target for how many people I bring in?',
+          name: 'What is the most important quality of an Ambassador?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No. An Ambassador who introduces three entrepreneurs who genuinely belong here has done far more than one who introduces thirty who do not. Quality and culture come first.',
+            text: 'Trust. People may forget what you told them. They remember how you made them feel.',
           },
         },
         {
           '@type': 'Question',
-          name: 'What if someone I introduce does not work out?',
+          name: 'What should an Ambassador never do?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'That happens, and it is never held against you. Judgement is a practice, not a guarantee. The community values thoughtful introductions made in good faith.',
+            text: 'An Ambassador should never misrepresent the community, make promises on its behalf, pressure people into joining, or use the relationship only as a business opportunity.',
           },
         },
       ],

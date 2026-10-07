@@ -23,7 +23,6 @@ import {
   X,
   UserPlus,
   Loader2,
-  Linkedin,
   Grid,
   List,
   RotateCcw,

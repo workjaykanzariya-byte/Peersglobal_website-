@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface UniversePillar {
   badge: string
@@ -27,7 +28,7 @@ const ROW_1_PILLARS: UniversePillar[] = [
     badge: '03 · CIRCLES',
     title: 'Circles',
     role: 'Your home inside the community',
-    image: '/images/circle-meeting.png',
+    image: '/images/section_image/circle-meeting.png',
   },
   {
     badge: '04 · LANGUAGE',
@@ -54,13 +55,13 @@ const ROW_2_PILLARS: UniversePillar[] = [
     badge: '07 · UNITY APP',
     title: 'Unity App',
     role: 'The digital ecosystem',
-    image: '/images/unity-hero-phones.jpg',
+    image: '/images/unity-creatives/Post 2.png',
   },
   {
     badge: '08 · EVENTS',
     title: 'Events',
     role: 'Meetings, conclaves and the global summit',
-    image: '/images/conclave.png',
+    image: '/images/section_image/conclave.png',
   },
   {
     badge: '09 · MEDIA',
@@ -110,14 +111,30 @@ function PillarCard({ pillar }: { pillar: UniversePillar }) {
 
 export function MentorsSection() {
   return (
-    <section className="fd-meet-your-mentors" id="universe" aria-label="The Peers Global Universe">
+    <section className="fd-meet-your-mentors" id="universe" aria-label="Real People. Real Collaboration.">
       <div className="fd-meet-your-mentors__head">
         <p className="fd-meet-your-mentors__eyebrow brand-gradient-text" data-fd-rise="0">
-          THE PEERS GLOBAL UNIVERSE
+          REAL PEOPLE. REAL COLLABORATION.
         </p>
         <h2 className="fd-meet-your-mentors__headline" data-fd-rise="80">
-          Becoming a Peer means joining all of it.
+          <span>Don&apos;t take our word for it.</span>{' '}
+          <span>Look at what happens between Peers.</span>
         </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-2 text-center">
+          <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
+            <p className="text-xs uppercase tracking-wider font-semibold text-rose-600 mb-1">Peer Stories</p>
+            <p className="text-xs text-slate-600 leading-relaxed">Stories of entrepreneurs, their journeys and what they have experienced inside the community.</p>
+          </div>
+          <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
+            <p className="text-xs uppercase tracking-wider font-semibold text-blue-600 mb-1">Collaboration Wins</p>
+            <p className="text-xs text-slate-600 leading-relaxed">Real examples of relationships becoming action.</p>
+          </div>
+          <div className="bg-slate-50/80 rounded-xl p-3.5 border border-slate-100 shadow-sm">
+            <p className="text-xs uppercase tracking-wider font-semibold text-amber-600 mb-1">In Their Own Words</p>
+            <p className="text-xs text-slate-600 leading-relaxed">The most credible voice of a community is often the voice of the people who experience it.</p>
+          </div>
+        </div>
       </div>
 
       <div className="fd-meet-your-mentors__carousel">
@@ -181,16 +198,16 @@ export function MentorsSection() {
       </div>
 
       <div className="fd-meet-your-mentors__footer">
-        <p className="fd-meet-your-mentors__tagline">
-          One membership. An entire universe.
+        <p className="fd-meet-your-mentors__tagline !max-w-xl text-sm sm:text-base text-slate-600 italic">
+          &ldquo;Do not present testimonials merely as praise for PEERS GLOBAL. Present them as evidence of what becomes possible between people.&rdquo;
         </p>
-        <Link
-          className="fd-meet-your-mentors__btn"
-          href="/membership"
-          aria-label="Discover the Universe"
+        <GalaxyButton
+          href="/stories"
+          size="lg"
+          aria-label="Meet the Peers"
         >
-          Discover the Universe
-        </Link>
+          MEET THE PEERS
+        </GalaxyButton>
       </div>
     </section>
   )

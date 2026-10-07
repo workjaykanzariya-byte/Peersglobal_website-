@@ -23,117 +23,124 @@ import {
   Layers,
   Sparkles,
   Award,
+  Compass,
+  Briefcase,
+  HelpCircle,
+  Lightbulb,
+  Check,
 } from 'lucide-react'
 
-// ─── 4 Stats Bar ────────────────────────────────────────────────────────────
-const STATS = [
+// ─── 5 Places to Explore (Pillars) ───────────────────────────────────────────
+const FIVE_PLACES = [
   {
-    icon: Users,
-    label: 'Real Entrepreneurs',
-    desc: 'Practitioners & Promoters',
-  },
-  {
-    icon: Handshake,
-    label: 'Real Experience',
-    desc: 'Battle-Tested Insights',
-  },
-  {
-    icon: TrendingUp,
-    label: 'Practical Insights',
-    desc: 'Free of Generic Theory',
-  },
-  {
-    icon: Globe2,
-    label: 'A Stronger Tomorrow',
-    desc: '1 Million Mission',
-  },
-]
-
-// ─── 5 Publication Categories ───────────────────────────────────────────────
-const TOPICS = [
-  {
+    num: '01',
     id: 'growth',
-    title: 'Business Growth',
+    title: 'BUSINESS GROWTH',
+    tagline: 'Building a business is a continuing journey.',
+    desc: 'Explore practical thinking around growth, sales, markets, customers, strategy, operations, expansion and business decisions. Not theory for theory’s sake — experience that can help you think about your own business more clearly.',
+    bullets: [
+      'Growth & Scaling Models',
+      'Sales & Market Acquisition',
+      'Customer Retention & Operations',
+      'Strategic Expansion & Decision-Making',
+    ],
     icon: TrendingUp,
-    iconColor: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-    borderColor: 'border-blue-100',
-    desc: 'Practical operating knowledge — pricing, hiring, systems, expansion, cash flow.',
+    color: 'border-blue-200 bg-blue-50/70 text-[#0062D2]',
   },
   {
+    num: '02',
     id: 'collaboration',
-    title: 'Collaboration',
+    title: 'COLLABORATION',
+    tagline: 'Business relationships can become much more than introductions.',
+    desc: 'They can become partnerships, referrals, strategic alliances, learning relationships and new opportunities. Explore how entrepreneurs create value through relationships — and what makes collaboration meaningful. Because collaboration is not simply about knowing more people; it is about knowing how to create value together.',
+    bullets: [
+      'Strategic Alliances & JVs',
+      'High-Trust Referral Systems',
+      'Shared Infrastructure & CapEx',
+      'Value Creation Beyond Networking',
+    ],
     icon: Handshake,
-    iconColor: 'text-amber-600',
-    bgColor: 'bg-amber-50',
-    borderColor: 'border-amber-100',
-    desc: 'How entrepreneurs actually create value for each other, and what makes it work.',
+    color: 'border-purple-200 bg-purple-50/70 text-purple-700',
   },
   {
+    num: '03',
     id: 'leadership',
-    title: 'Leadership',
+    title: 'LEADERSHIP',
+    tagline: 'Leadership changes as the business changes.',
+    desc: 'What worked when you had five people may not work when you have fifty. What worked in the beginning may not work when the organisation grows. And sometimes the biggest leadership challenge is not leading others — it is reconstructing yourself as the entrepreneur your next stage requires.',
+    bullets: [
+      'Reconstructing Yourself at Each Stage',
+      'Leading Without Authority',
+      'Culture, Delegation & Team Maturity',
+      'Decision-Making in Uncertainty',
+    ],
     icon: Users,
-    iconColor: 'text-emerald-600',
-    bgColor: 'bg-emerald-50',
-    borderColor: 'border-emerald-100',
-    desc: 'Building teams, developing people, and leading in rooms where authority does not apply.',
+    color: 'border-emerald-200 bg-emerald-50/70 text-emerald-700',
   },
   {
+    num: '04',
     id: 'community',
-    title: 'Community',
+    title: 'COMMUNITY',
+    tagline: 'Entrepreneurs build businesses, but also ecosystems.',
+    desc: 'Explore ideas about trust, belonging, contribution, Give-First, relationships, peer communities, collaboration culture and collective growth. Because a strong community is not created simply by bringing people into the same room — it is created by what people repeatedly do for one another.',
+    bullets: [
+      'Trust & Collective Growth',
+      'The Give-First Philosophy',
+      'Building Local & Global Ecosystems',
+      'What People Repeatedly Do for Each Other',
+    ],
     icon: Globe2,
-    iconColor: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-    borderColor: 'border-purple-100',
-    desc: 'What it takes to build one, and why entrepreneurs grow faster inside one.',
+    color: 'border-amber-200 bg-amber-50/70 text-amber-700',
   },
   {
+    num: '05',
     id: 'founder',
-    title: "Founder's Desk",
+    title: "FOUNDER'S DESK",
+    tagline: 'Some lessons are too personal to fit neatly into a category.',
+    desc: 'Founder’s Desk is where entrepreneurs share the thinking behind the journey: the decisions, doubts, turning points, lessons, mistakes, moments when the plan changed, and the things nobody tells you before you begin. This is the entrepreneur behind the business.',
+    bullets: [
+      'The Doubts & Turning Points',
+      'Unscripted Lessons & Hard Truths',
+      'When the Plan Changed Overnight',
+      'The Human Behind the Enterprise',
+    ],
     icon: PenTool,
-    iconColor: 'text-rose-600',
-    bgColor: 'bg-rose-50',
-    borderColor: 'border-rose-100',
-    desc: 'Direct reflections and strategic perspectives from Dr. Pravin Parmar.',
+    color: 'border-rose-200 bg-rose-50/70 text-rose-700',
   },
 ]
 
-// ─── 8 Articles Data ────────────────────────────────────────────────────────
+// ─── Article Data for the 5 Categories ────────────────────────────────────────
 export interface Article {
   id: string
   title: string
   category: string
-  categoryBadgeColor: string
   readTime: string
   image: string
   excerpt: string
   author: {
     name: string
     title: string
-    avatar: string
+    company: string
   }
   date: string
-  industry: string
   content: string[]
 }
 
 const ARTICLES: Article[] = [
+  // Business Growth
   {
-    id: 'scalable-business-focus',
-    title: 'How to Build a Scalable Business Without Losing Focus',
+    id: 'growth-1',
+    title: 'How We Standardised 4 Core Products and Cut Delivery Lead Times by 34%',
     category: 'Business Growth',
-    categoryBadgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
     readTime: '5 min read',
     image: '/images/who-we-are-impact.jpg',
-    excerpt:
-      'Practical lessons on systems, delegation and staying close to your core vision as you grow.',
+    excerpt: 'When we expanded our packaging plant in Sanand, every unchecked bottleneck amplified. Here is the operational capacity matrix that fixed it.',
     author: {
-      name: 'Amit Shah',
-      title: 'CEO, Shah Packaging',
-      avatar: '/images/peers-avatars/amit-desai.jpg',
+      name: 'Jignesh Shah',
+      title: 'Founder & MD',
+      company: 'Shah Packaging Solutions, Ahmedabad',
     },
-    date: '12 Sep 2026',
-    industry: 'Packaging & Logistics',
+    date: 'Sep 2026',
     content: [
       'Scale is not simply multiplying your current chaotic processes by ten. When we expanded our packaging plant in Sanand, every unchecked operational bottleneck amplified overnight.',
       'The turning point came when we implemented a ruthless 80/20 capacity matrix. Instead of saying yes to every bespoke carton specification that entered our inbound pipeline, we standardized on four core corrugation dimensions.',
@@ -141,213 +148,110 @@ const ARTICLES: Article[] = [
     ],
   },
   {
-    id: 'competitors-to-collaborators',
-    title: 'From Competitors to Collaborators',
-    category: 'Collaboration',
-    categoryBadgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
-    readTime: '4 min read',
-    image: '/images/peer-stories-hero.jpg',
-    excerpt:
-      'How two companies in the same city found a way to create value together instead of competing.',
-    author: {
-      name: 'Neha Patel',
-      title: 'Founder, Patel HR Solutions',
-      avatar: '/images/peers-avatars/neha-kothari.jpg',
-    },
-    date: '10 Sep 2026',
-    industry: 'Technology & Services',
-    content: [
-      'For years, we viewed other regional recruitment consultancies in Ahmedabad as rivals bidding for the same corporate HR mandates.',
-      'Through our Circle Collaboration Roundtable, we sat down with an executive search boutique whose focus was strictly leadership roles. We agreed to cross-refer clients whenever requirements lay outside our primary sweet spots.',
-      'In twelve months, this single collaboration channel generated over ₹40 Lakhs in reciprocal placement fees without spending a single rupee on client acquisition advertising.',
-    ],
-  },
-  {
-    id: 'leading-without-authority',
-    title: 'Leading Without Authority',
-    category: 'Leadership',
-    categoryBadgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+    id: 'growth-2',
+    title: 'Pricing for Unit Economics: The Mistake That Cost Us ₹40 Lakhs Before We Fixed It',
+    category: 'Business Growth',
     readTime: '6 min read',
-    image: '/images/circle-meeting.png',
-    excerpt:
-      'What I learned about leadership from a room full of entrepreneurs who do not report to me.',
-    author: {
-      name: 'Rohit Mehta',
-      title: 'Founder, Mehta Trading',
-      avatar: '/images/peers-avatars/rajesh-shah.jpg',
-    },
-    date: '8 Sep 2026',
-    industry: 'Logistics & Trade',
-    content: [
-      'Leading your own employees is simple: you sign their paychecks. Leading a room of twenty fellow business owners with larger balance sheets than your own requires an entirely different discipline.',
-      'In a Peers Global Circle, authority does not exist. Influence is earned exclusively through consistency, vulnerability, and following through on the promises you make in the room.',
-      'When you stop demanding deference and start facilitating peer momentum, the boardroom elevates from polite conversation into fierce, transformational collaboration.',
-    ],
-  },
-  {
-    id: 'why-grow-faster-community',
-    title: 'Why Entrepreneurs Grow Faster in a Community',
-    category: 'Community',
-    categoryBadgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
-    readTime: '4 min read',
-    image: '/images/conclave.png',
-    excerpt:
-      'The difference between doing it alone and doing it with people who have your back.',
+    image: '/images/founder-new.png',
+    excerpt: 'Chasing gross revenue without factoring working capital financing cycles almost derailed our year. Here is what we changed.',
     author: {
       name: 'Priya Desai',
-      title: 'Founder, Desai Exports',
-      avatar: '/images/peers-avatars/priya-desai.jpg',
+      title: 'Co-Founder & CEO',
+      company: 'Desai Global Organics, Surat',
     },
-    date: '5 Sep 2026',
-    industry: 'Textiles & Export',
+    date: 'Sep 2026',
     content: [
-      'Building an enterprise alone is like walking through a fog. You repeatedly pay tuition for mistakes that another founder twenty kilometers away solved three years ago.',
-      'A true peer community removes that penalty. When our European shipping container was held up at customs, a single ten-minute WhatsApp exchange with a Circle peer saved our firm ₹18 Lakhs in demurrage fines.',
-      'Trust compresses time. When you are surrounded by peers who have agreed to the same ethical Code, conversations skip past posturing and get straight to the solution.',
+      'We thought high volume would compensate for thin margins. It did not. The 90-day credit cycles ate away at our cash reserves faster than our factory could produce.',
+      'We restructured our pricing to tie discounts strictly to 15-day settlement milestones. The revenue dipped slightly for two months, but our free cash flow doubled.',
+      'Never be afraid to lose low-margin, high-friction customers. The freed capacity allowed us to onboard clients who valued reliability over rock-bottom prices.',
     ],
   },
+  // Collaboration
   {
-    id: 'next-decade-indian-entrepreneurs',
-    title: 'The Next Decade for Indian Entrepreneurs',
-    category: "Founder's Desk",
-    categoryBadgeColor: 'bg-rose-100 text-rose-800 border-rose-200',
-    readTime: '7 min read',
-    image: '/images/founder-new.png',
-    excerpt:
-      'Why this is the most exciting time to build, and what it will take to make the most of it.',
-    author: {
-      name: 'Dr. Pravin Parmar',
-      title: 'Founder, Peers Global',
-      avatar: '/images/dr-parmar-avatar.jpg',
-    },
-    date: '1 Sep 2026',
-    industry: 'Cross-Industry',
-    content: [
-      'India’s entrepreneurial trajectory over the next ten years will not be decided solely in metropolitan tech corridors. It will be forged in tier-2 and tier-3 industrial hubs — in Surat, Morbi, Coimbatore, Indore, and Ludhiana.',
-      'The Indian promoter is the most resilient operator on earth. What our businesses lack is not ambition or tenacity; it is the structured peer infrastructure to collaborate without transactional paranoia.',
-      'When we unite one million entrepreneurs behind the principle of Give-First, we do not just create companies. We build institutional longevity that outlasts any single founder.',
-    ],
-  },
-  {
-    id: 'cash-flow-discipline',
-    title: 'Cash Flow Discipline for Growing Businesses',
-    category: 'Business Growth',
-    categoryBadgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-    readTime: '5 min read',
-    image: '/images/culture-hero-desk.jpg',
-    excerpt:
-      'Simple habits that make a significant difference to your runway and peace of mind.',
-    author: {
-      name: 'Karan Malhotra',
-      title: 'Founder, Malhotra Logistics',
-      avatar: '/images/peers-avatars/anand-sharma.jpg',
-    },
-    date: '28 Aug 2026',
-    industry: 'Packaging & Logistics',
-    content: [
-      'Revenue is vanity, profit is sanity, but cash flow is reality. Too many founders celebrate order book expansion while their working capital quietly bleeds dry.',
-      'We instituted a non-negotiable Monday morning receivables ritual. Every outstanding invoice past 45 days is reviewed directly by leadership with pre-agreed milestone escalation.',
-      'By tying sales commission payouts strictly to cash realization rather than invoice dispatch, our operating cycle compressed from 74 days to 38 days.',
-    ],
-  },
-  {
-    id: 'power-of-good-introduction',
-    title: 'The Power of a Good Introduction',
+    id: 'collab-1',
+    title: 'How Two Competing Fabricators Created a 50:50 Joint Corridor for Global Exports',
     category: 'Collaboration',
-    categoryBadgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
     readTime: '4 min read',
     image: '/images/industry-cross-city-handshake.jpg',
-    excerpt:
-      'How one introduction opened a new market for my business.',
+    excerpt: 'Instead of spending ₹2 Crore each on bonded cold storage, we pooled our logistics volume and opened three international trade lanes.',
     author: {
-      name: 'Simran Kaur',
-      title: 'Founder, Kaur Tech',
-      avatar: '/images/peers-avatars/fatima-khan.jpg',
+      name: 'Karan Malhotra',
+      title: 'Managing Partner',
+      company: 'Malhotra Freight Logistics, Mumbai',
     },
-    date: '25 Aug 2026',
-    industry: 'Technology & Services',
+    date: 'Sep 2026',
     content: [
-      'A cold email gets deleted in three seconds. A warm, respected introduction from a trusted peer skips past gatekeepers and lands straight on the board director’s desk.',
-      'When entering the Bengaluru enterprise banking space, six months of agency outreach yielded zero meetings. A fellow Peer from our Technology Circle made a single phone call on a Tuesday afternoon.',
-      'We had a signed proof-of-concept agreement four weeks later. That is the compounding velocity of social capital built on mutual trust.',
+      'Most business owners view anyone in their sector as a threat. We realized that while we competed locally, international corridors required scale that neither of us possessed alone.',
+      'Over a 45-minute discussion at a PEERS GLOBAL Regional Summit, we structured a shared-access logistics agreement with clear transparency rules.',
+      'The result: 24 multi-modal container shipments delivered to Europe in 9 months, cutting freight landing costs by 18% for both businesses.',
     ],
   },
+  // Leadership
   {
-    id: 'building-next-line-leaders',
-    title: 'Building the Next Line of Leaders',
+    id: 'lead-1',
+    title: 'Leading Without Authority: What 12 Months as a Circle Director Taught Me',
     category: 'Leadership',
-    categoryBadgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+    readTime: '7 min read',
+    image: '/images/industry-director-speaker.jpg',
+    excerpt: 'You cannot instruct another entrepreneur what to do. You earn their trust, create clarity, and lead through contribution.',
+    author: {
+      name: 'Dr. Pravin Parmar',
+      title: 'Founder & Chairman',
+      company: 'Peers Global Ecosystem',
+    },
+    date: 'Sep 2026',
+    content: [
+      'In your own business, you have organizational hierarchy. In a community of equals, hierarchy is useless. You must learn to lead through influence, empathy, and consistency.',
+      'The moment an entrepreneur realizes that leadership is not about being above others, but about making things possible for others, everything shifts.',
+      'Holding the rhythm of a Circle requires noticing the quieter Peer in the room, supporting the Chairs, and creating an environment where vulnerability is welcomed.',
+    ],
+  },
+  // Community
+  {
+    id: 'comm-1',
+    title: 'Why Real Communities Are Built on Repeated Action, Not Large WhatsApp Groups',
+    category: 'Community',
+    readTime: '5 min read',
+    image: '/images/who-we-are-boardroom.jpg',
+    excerpt: 'A room full of strangers scrolling on an algorithm is not a network. A community is forged when people repeatedly show up and contribute.',
+    author: {
+      name: 'Amit Trivedi',
+      title: 'Managing Director',
+      company: 'Trivedi Chemicals & Synthetics, Bharuch',
+    },
+    date: 'Sep 2026',
+    content: [
+      'Anyone can create a directory or a chat group. Very few organizations create a culture where business owners actively look out for one another without expecting immediate payback.',
+      'The Give-First principle works because it filters for entrepreneurs who are looking to build long-term relationships rather than extract fast transactions.',
+      'When you see a Peer take 2 hours out of their day to help you avoid a regulatory pitfall, your commitment to the community deepens permanently.',
+    ],
+  },
+  // Founder's Desk
+  {
+    id: 'founder-1',
+    title: 'The Things Nobody Tells You Before You Step Into Multi-City Expansion',
+    category: "Founder's Desk",
     readTime: '6 min read',
     image: '/images/who-we-are-mountain.jpg',
-    excerpt:
-      'Why developing leaders is the only way to build something that outlives you.',
+    excerpt: 'The doubts, the midnight cash flow reconciliations, and the realization that your company’s culture does not automatically travel by email.',
     author: {
-      name: 'Vikram Rao',
-      title: 'Founder, Rao Industries',
-      avatar: '/images/peers-avatars/vikram-patel.jpg',
+      name: 'Sandeep Kulkarni',
+      title: 'Executive Director',
+      company: 'Kulkarni Environmental Technologies, Pune',
     },
-    date: '22 Aug 2026',
-    industry: 'Manufacturing',
+    date: 'Sep 2026',
     content: [
-      'The greatest vulnerability in most Indian promoter-driven businesses is key-person dependency. If your company ceases to function when you take a two-week vacation, you do not own a business — you own a demanding job.',
-      'True institutional leadership requires transferring not just operational tasks, but judgment and decision-making frameworks to your tier-2 managers.',
-      'When you create room for your team to solve their own operational crises, you build a sustainable institution that outlives any individual in it.',
+      'When you operate in one city, you rely on informal presence and personal oversight. The moment you open the second and third city, your personal presence cannot scale.',
+      'You have to document your values, train leaders who think like owners, and accept that their way of achieving the outcome might differ from yours.',
+      'The hardest part of growth is reconstructing yourself. You have to let go of doing the work in order to build the people who do the work.',
     ],
-  },
-]
-
-// ─── 3 FAQ Items ────────────────────────────────────────────────────────────
-const FAQS = [
-  {
-    question: 'Who writes for Insights?',
-    answer:
-      'Peers, Circle Directors, Industry Directors and invited experts. Every writer has built and done the thing they are writing about.',
-  },
-  {
-    question: 'Can I contribute?',
-    answer:
-      'Yes. If you have solved a challenge or formulated a practical framework that would benefit other entrepreneurs, speak to your Circle Director.',
-  },
-  {
-    question: 'Do I need to be a member to read?',
-    answer:
-      'No. Insights is open to everyone across the global entrepreneurial ecosystem as part of our Give-First commitment.',
   },
 ]
 
 export function InsightsPageClient() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
-  const [selectedIndustry, setSelectedIndustry] = useState<string>('All')
-  const [selectedAuthor, setSelectedAuthor] = useState<string>('All')
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [readingArticle, setReadingArticle] = useState<Article | null>(null)
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index)
-  }
-
-  // Filter Categories
-  const categories = [
-    'All',
-    'Business Growth',
-    'Collaboration',
-    'Leadership',
-    'Community',
-    "Founder's Desk",
-  ]
-  const industries = ['All', 'Packaging & Logistics', 'Technology & Services', 'Logistics & Trade', 'Textiles & Export', 'Manufacturing']
-  const authors = [
-    'All',
-    'Dr. Pravin Parmar',
-    'Amit Shah',
-    'Neha Patel',
-    'Rohit Mehta',
-    'Priya Desai',
-    'Karan Malhotra',
-    'Simran Kaur',
-    'Vikram Rao',
-  ]
 
   // Filtered Articles
   const filteredArticles = useMemo(() => {
@@ -356,558 +260,516 @@ export function InsightsPageClient() {
         selectedCategory === 'All' ||
         art.category.toLowerCase() === selectedCategory.toLowerCase()
 
-      const matchInd =
-        selectedIndustry === 'All' ||
-        art.industry.toLowerCase() === selectedIndustry.toLowerCase()
-
-      const matchAuthor =
-        selectedAuthor === 'All' ||
-        art.author.name.toLowerCase().includes(selectedAuthor.toLowerCase())
-
+      const s = searchQuery.toLowerCase().trim()
       const matchSearch =
-        !searchQuery.trim() ||
-        art.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        art.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        art.author.name.toLowerCase().includes(searchQuery.toLowerCase())
+        !s ||
+        art.title.toLowerCase().includes(s) ||
+        art.excerpt.toLowerCase().includes(s) ||
+        art.author.name.toLowerCase().includes(s) ||
+        art.author.company.toLowerCase().includes(s)
 
-      return matchCat && matchInd && matchAuthor && matchSearch
+      return matchCat && matchSearch
     })
-  }, [selectedCategory, selectedIndustry, selectedAuthor, searchQuery])
+  }, [selectedCategory, searchQuery])
 
   return (
-    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/70 backdrop-blur-sm sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link
-              href="/"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link
-              href="/stories"
-              className="hover:text-blue-600 transition-colors duration-200"
-            >
-              Community Life
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-semibold">Blog & Insights</span>
-          </nav>
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      
+      {/* ─── Breadcrumbs ─── */}
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-[#0062D2] transition-colors">
+            Home
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span>Knowledge</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-bold">Insights</span>
         </div>
       </div>
 
-      {/* ─── SECTION 1: HERO (THOUGHTFUL ENTREPRENEUR & EDGE FADE) ────────── */}
-      <section className="relative pt-10 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-[#FBFCFE]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      {/* ─── SECTION 1: HERO (WRITTEN BY ENTREPRENEURS WHO HAVE DONE THE THING) ─── */}
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
             {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6 z-10">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text bg-blue-50/80 px-3 py-1 rounded-full border border-blue-200/60">
-                  — COMMUNITY LIFE —
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                  LIVED EXPERIENCE BEFORE THEORY
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Insights
+              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
+                <span className="brand-gradient-text block">INSIGHTS</span>
+                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
+                  Written by entrepreneurs who have done the thing they are writing about.
+                </span>
               </h1>
 
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                Written by entrepreneurs who have done the thing they are writing about.
-              </p>
+              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
+                <p>
+                  There is a difference between knowing something and having lived it.
+                </p>
 
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                Practical, specific and free of theory.
-              </p>
+                <div className="space-y-1.5 pl-3 border-l-2 border-[#0062D2] text-xs sm:text-sm text-slate-700 font-medium">
+                  <p>• You can study growth — or you can build a business through it.</p>
+                  <p>• You can read about leadership — or you can lead people through uncertainty.</p>
+                  <p>• You can learn about collaboration — or you can experience what happens when the right relationships come together.</p>
+                </div>
 
-              {/* Dual Action Buttons */}
+                <p className="text-slate-900 font-semibold pt-1">
+                  PEERS GLOBAL Insights is built around the second kind of knowledge:
+                </p>
+
+                <div className="flex flex-wrap gap-2 text-xs font-medium text-slate-800">
+                  <span className="px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-2xs">Experience lived</span>
+                  <span className="px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-2xs">Lessons learned</span>
+                  <span className="px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-2xs">Ideas tested</span>
+                  <span className="px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-2xs">Perspectives shared</span>
+                </div>
+              </div>
+
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-medium text-sm shadow-md hover:bg-[#0052B4] hover:shadow-lg transition-all duration-200 group"
+                  href="#articles-feed"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200 cursor-pointer"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <span>Start Reading</span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <a
-                  href="#articles"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-800 font-medium text-sm border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
+                  href="#five-places"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
                 >
-                  <span>Browse Insights</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
+                  <span>Five Places to Explore ↓</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Hero Visual with Horizontal Left Edge Fade */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/entrepreneur-thinking.jpg"
-                  alt="Entrepreneur working thoughtfully at his desk with laptop and notes"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                />
-
-                {/* Soft horizontal gradient edge fade on the left edge smoothly blending into page background */}
-                <div className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
-
-                {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent pointer-events-none z-10" />
-
-                {/* Stage Backdrop Brand Overlay on Top Right */}
-                <div className="absolute top-6 right-6 bg-slate-950/85 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px]">
-                  <div className="flex items-center justify-end gap-1.5 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white">
-                      PeersGlobal
+            {/* Right Hero Image Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
+                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/who-we-are-boardroom.jpg"
+                    alt="Entrepreneurs in discussion sharing battle-tested business insights"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                  
+                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
+                      Experience Before Theory
                     </span>
-                  </div>
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Better Entrepreneurs.
-                  </p>
-                  <p className="text-[11px] font-bold text-sky-400 leading-tight mt-0.5">
-                    A Brighter Tomorrow.
-                  </p>
-                </div>
-
-                {/* Stacked Topic Spine Element on Bottom Right */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[240px]">
-                  <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] mb-2"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Ideas. Experience.
-                    <br />
-                    Real Conversations.
-                    <br />
-                    A Stronger Tomorrow.
-                  </p>
-
-                  <div className="inline-flex flex-col items-end gap-1 bg-slate-950/70 backdrop-blur-md p-2 rounded-lg border border-white/10 text-[10px] font-semibold text-slate-300">
-                    <span className="text-sky-300">Business Growth</span>
-                    <span>Collaboration</span>
-                    <span>Leadership</span>
-                    <span>Community</span>
-                    <span className="text-rose-300">Founder&apos;s Desk</span>
+                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
+                      "People who have done the thing, sharing what they learned from doing it."
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* 4-Stat Pillar Bar */}
-          <div className="mt-12 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-sm">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="text-sm sm:text-base font-serif font-bold text-slate-950 leading-snug">
-                          {stat.label}
-                        </div>
-                        <div className="text-xs text-slate-500 font-medium mt-0.5">
-                          {stat.desc}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 2: WHAT WE PUBLISH (5 TOPIC PILLARS + QUOTE) ─────────── */}
-      <section className="py-16 sm:py-20 bg-[#FBFCFE] border-y border-slate-200/80">
+      {/* ─── SECTION 2: EXPERIENCE BEFORE THEORY ───────────────────────────── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
-            <div className="lg:col-span-8">
-              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                — WHAT WE PUBLISH —
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-1">
-                Practical knowledge for real business.
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 mt-2">
-                Insights from entrepreneurs, for entrepreneurs — across the topics that matter.
-              </p>
-            </div>
-
-            {/* Right Quote Callout */}
-            <div className="lg:col-span-4 bg-[#FBFCFE] p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-6 space-y-6">
               <div>
-                <Quote className="w-6 h-6 text-[#0062D2] mb-2 fill-current" />
-                <p className="text-sm sm:text-base font-serif font-bold text-slate-900 leading-snug">
-                  “Practical ideas from real entrepreneurs, for a stronger tomorrow.”
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    THE PHILOSOPHY
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  EXPERIENCE BEFORE THEORY
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                <p>
+                  The most useful business lessons are not always found in textbooks. Sometimes they come from:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-slate-800">
+                  <div className="p-3 rounded-xl bg-[#FBFCFE] border border-slate-200">• A decision that worked</div>
+                  <div className="p-3 rounded-xl bg-[#FBFCFE] border border-slate-200">• A decision that did not</div>
+                  <div className="p-3 rounded-xl bg-[#FBFCFE] border border-slate-200">• A difficult customer</div>
+                  <div className="p-3 rounded-xl bg-[#FBFCFE] border border-slate-200">• A failed experiment</div>
+                  <div className="p-3 rounded-xl bg-[#FBFCFE] border border-slate-200">• A successful expansion</div>
+                  <div className="p-3 rounded-xl bg-[#FBFCFE] border border-slate-200">• A leadership challenge</div>
+                </div>
+                <p className="border-l-2 border-[#0062D2] pl-3 italic text-slate-900 font-medium">
+                  An entrepreneur who has already travelled a road can often help another entrepreneur see the road differently.
                 </p>
               </div>
-              <span className="text-[10px] font-bold tracking-widest uppercase text-[#0062D2] mt-4 block">
-                PEERS GLOBAL
+            </div>
+
+            {/* Right: The Question We Ask Before Publishing */}
+            <div className="lg:col-span-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#040E24] via-[#061836] to-[#0A2558] text-white shadow-xl space-y-6">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
+                  <Lightbulb className="w-6 h-6" />
+                </div>
+
+                <h3 className="text-2xl font-serif font-bold text-white leading-snug">
+                  THE QUESTION WE ASK BEFORE PUBLISHING
+                </h3>
+
+                <div className="space-y-2 text-sm text-slate-300">
+                  <p className="line-through text-slate-400">“Will this article get attention?”</p>
+                  <p className="text-lg font-serif font-bold text-sky-200">
+                    “Has this person actually done the thing they are writing about?”
+                  </p>
+                </div>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  That question changes the quality of the conversation. It moves us away from generic advice, away from borrowed wisdom, away from content written simply because a topic is trending — and towards something much more valuable: <strong>Experience being shared with experience.</strong>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 3: FIVE PLACES TO EXPLORE ──────────────────────────────── */}
+      <section id="five-places" className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80 scroll-mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-14">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                CURATED TOPICS
               </span>
             </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              FIVE PLACES TO EXPLORE
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+              Explore by what you need right now on your journey.
+            </p>
           </div>
 
-          {/* 5 Topic Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {TOPICS.map((topic) => {
-              const Icon = topic.icon
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {FIVE_PLACES.map((place, idx) => {
+              const Icon = place.icon
               return (
                 <div
-                  key={topic.id}
+                  key={place.id}
                   onClick={() => {
-                    setSelectedCategory(topic.title)
-                    const el = document.getElementById('articles')
+                    setSelectedCategory(
+                      place.id === 'growth'
+                        ? 'Business Growth'
+                        : place.id === 'collaboration'
+                        ? 'Collaboration'
+                        : place.id === 'leadership'
+                        ? 'Leadership'
+                        : place.id === 'community'
+                        ? 'Community'
+                        : "Founder's Desk"
+                    )
+                    const el = document.getElementById('articles-feed')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`bg-white rounded-2xl p-5 border ${topic.borderColor} shadow-xs hover:shadow-md hover:border-blue-300 transition-all cursor-pointer flex flex-col justify-between group`}
+                  className={`p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all cursor-pointer flex flex-col justify-between space-y-6 group ${
+                    idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
+                  }`}
                 >
-                  <div className="space-y-3">
-                    <div
-                      className={`w-10 h-10 rounded-xl ${topic.bgColor} ${topic.iconColor} flex items-center justify-center`}
-                    >
-                      <Icon className="w-5 h-5" />
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold text-slate-400">
+                        {place.num}
+                      </span>
+                      <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${place.color}`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
                     </div>
-                    <h3 className="font-serif font-bold text-slate-950 text-base group-hover:text-blue-600 transition-colors">
-                      {topic.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {topic.desc}
+
+                    <div>
+                      <h3 className="text-xl font-serif font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
+                        {place.title}
+                      </h3>
+                      <p className="text-xs font-semibold text-slate-700 mt-1">
+                        {place.tagline}
+                      </p>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed font-light">
+                      {place.desc}
                     </p>
+
+                    <div className="pt-2 border-t border-slate-100 space-y-1">
+                      {place.bullets.map((b) => (
+                        <div key={b} className="flex items-center gap-2 text-[11px] font-medium text-slate-700">
+                          <Check className="w-3 h-3 text-[#0062D2] shrink-0" />
+                          <span>{b}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="pt-4 flex items-center gap-1 text-[11px] font-semibold text-[#0062D2]">
-                    <span>Browse category</span>
-                    <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-[#0062D2]">
+                    <span>Explore {place.title}</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               )
             })}
           </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 3: BROWSE INSIGHTS (LATEST ARTICLES GRID) ────────────── */}
-      <section id="articles" className="py-16 sm:py-24 bg-[#FBFCFE] scroll-mt-14">
+      {/* ─── SECTION 4: ARTICLES FEED (START READING) ───────────────────────── */}
+      <section id="articles-feed" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-              — BROWSE INSIGHTS —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1">
-              Latest articles
-            </h2>
-          </div>
-
-          {/* Filters Toolbar */}
-          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs mb-8 space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {/* Category Filter */}
-              <div>
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  Category
-                </label>
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  {categories.map((c) => (
-                    <option key={c} value={c}>
-                      {c === 'All' ? 'All Categories' : c}
-                    </option>
-                  ))}
-                </select>
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  KNOWLEDGE REPOSITORY
+                </span>
               </div>
-
-              {/* Industry Filter */}
-              <div>
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  Industry
-                </label>
-                <select
-                  value={selectedIndustry}
-                  onChange={(e) => setSelectedIndustry(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  {industries.map((ind) => (
-                    <option key={ind} value={ind}>
-                      {ind === 'All' ? 'All Industries' : ind}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Author Filter */}
-              <div>
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                  Author
-                </label>
-                <select
-                  value={selectedAuthor}
-                  onChange={(e) => setSelectedAuthor(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  {authors.map((a) => (
-                    <option key={a} value={a}>
-                      {a === 'All' ? 'All Authors' : a}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+                START READING
+              </h2>
             </div>
 
-            {/* Keyword Search Input */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-slate-100">
-              <div className="relative flex-1 w-full">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search articles, topics or authors..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              {(selectedCategory !== 'All' ||
-                selectedIndustry !== 'All' ||
-                selectedAuthor !== 'All' ||
-                searchQuery) && (
+            {/* Category Filter Pills & Search */}
+            <div className="flex flex-wrap items-center gap-2">
+              {[
+                'All',
+                'Business Growth',
+                'Collaboration',
+                'Leadership',
+                'Community',
+                "Founder's Desk",
+              ].map((cat) => (
                 <button
-                  onClick={() => {
-                    setSelectedCategory('All')
-                    setSelectedIndustry('All')
-                    setSelectedAuthor('All')
-                    setSearchQuery('')
-                  }}
-                  className="px-4 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer"
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer border ${
+                    selectedCategory === cat
+                      ? 'bg-[#0062D2] text-white border-[#0062D2] shadow-xs'
+                      : 'bg-[#FBFCFE] text-slate-700 border-slate-200 hover:border-slate-300'
+                  }`}
                 >
-                  Reset Filters
+                  {cat}
                 </button>
-              )}
-
-              <button
-                type="button"
-                className="w-full sm:w-auto px-6 py-2 rounded-full bg-[#0062D2] text-white text-xs font-medium hover:bg-[#0052B4] transition-all cursor-pointer"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-
-          {/* 8 Articles Grid */}
-          {filteredArticles.length === 0 ? (
-            <div className="text-center py-16 bg-white rounded-3xl border border-slate-200">
-              <p className="text-slate-500 text-sm">
-                No insights found matching your current filter selections.
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedCategory('All')
-                  setSelectedIndustry('All')
-                  setSelectedAuthor('All')
-                  setSearchQuery('')
-                }}
-                className="mt-4 px-5 py-2 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4]"
-              >
-                Reset All Filters
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {filteredArticles.map((art) => (
-                <div
-                  key={art.id}
-                  onClick={() => setReadingArticle(art)}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
-                >
-                  <div>
-                    {/* Thumbnail Image */}
-                    <div className="relative h-44 w-full overflow-hidden bg-slate-900">
-                      <Image
-                        src={art.image}
-                        alt={art.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-
-                      {/* Category Tag */}
-                      <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-white/95 backdrop-blur-md shadow-xs text-slate-900 border border-slate-200">
-                        {art.category}
-                      </span>
-
-                      {/* Read Time */}
-                      <span className="absolute top-3 right-3 px-2 py-0.5 rounded-md text-[10px] font-medium bg-slate-950/70 backdrop-blur-md text-white">
-                        {art.readTime}
-                      </span>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-5 space-y-2.5">
-                      <h3 className="font-serif font-bold text-slate-950 text-base leading-snug group-hover:text-blue-600 transition-colors">
-                        {art.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-                        {art.excerpt}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Author & Date Footer */}
-                  <div className="p-5 pt-0 border-t border-slate-100 flex items-center justify-between mt-3">
-                    <div className="flex items-center gap-2 pt-3">
-                      <div className="relative w-7 h-7 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
-                        <Image
-                          src={art.author.avatar}
-                          alt={art.author.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="leading-tight">
-                        <span className="text-xs font-semibold text-slate-900 block">
-                          {art.author.name}
-                        </span>
-                        <span className="text-[10px] text-slate-500 block truncate max-w-[120px]">
-                          {art.author.title}
-                        </span>
-                      </div>
-                    </div>
-
-                    <span className="text-[10px] text-slate-400 font-medium pt-3">
-                      {art.date}
-                    </span>
-                  </div>
-                </div>
               ))}
             </div>
-          )}
+          </div>
+
+          {/* Search Input Bar */}
+          <div className="relative mb-10">
+            <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by topic, keyword, or author..."
+              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#FBFCFE] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+            />
+          </div>
+
+          {/* Articles Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredArticles.map((art) => (
+              <div
+                key={art.id}
+                onClick={() => setReadingArticle(art)}
+                className="rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all overflow-hidden flex flex-col justify-between cursor-pointer group"
+              >
+                <div>
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-900">
+                    <Image
+                      src={art.image}
+                      alt={art.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[10px] font-bold text-white uppercase tracking-wider">
+                      {art.category}
+                    </span>
+                  </div>
+
+                  <div className="p-6 space-y-3">
+                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{art.readTime}</span>
+                    </div>
+
+                    <h3 className="font-serif font-bold text-slate-950 text-lg leading-snug group-hover:text-[#0062D2] transition-colors">
+                      {art.title}
+                    </h3>
+
+                    <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-3">
+                      {art.excerpt}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 pt-0 border-t border-slate-100 flex items-center justify-between">
+                  <div className="space-y-0.5">
+                    <span className="text-xs font-bold text-slate-900 block">
+                      {art.author.name}
+                    </span>
+                    <span className="text-[11px] text-slate-500 block">
+                      {art.author.company}
+                    </span>
+                  </div>
+
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#0062D2] group-hover:underline">
+                    <span>Read</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 4: WRITTEN BY PEERS & FAQS ───────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-t border-slate-200/80">
+      {/* ─── SECTION 5: PRACTICAL NOT PERFECT & INSIGHTS ARE NOT INSTRUCTIONS ── */}
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Left Column: Written by Peers */}
-            <div className="lg:col-span-6 bg-[#F8FAFC] rounded-3xl p-7 sm:p-9 border border-slate-200/90 shadow-sm flex flex-col justify-between h-full">
-              <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — WRITTEN BY PEERS —
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 leading-tight">
-                  Real experience. Real insights.
-                </h3>
-                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
-                  <p>
-                    Most of what appears here is written by entrepreneurs in this community.
-                  </p>
-                  <p>
-                    A Peer who solved a problem writes up how. A Circle Director shares what a masterclass produced. An Industry Director explains a change coming to their sector.
-                  </p>
-                  <p>
-                    Sharing knowledge is one of the ten Ways of Collaboration, and it earns Life Impact like any other contribution. If you have written something a room would benefit from, speak to your Circle Director.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-6">
-                <Link
-                  href="/10-ways-of-collaboration"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#0062D2] font-semibold text-xs border border-blue-200 shadow-xs hover:bg-blue-50 transition-all"
-                >
-                  <span>See the 10 Ways</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column: Common Questions FAQ + Story Callout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left: PRACTICAL, NOT PERFECT */}
             <div className="lg:col-span-6 space-y-6">
-              {/* FAQ Accordion */}
-              <div className="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm">
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  — COMMON QUESTIONS —
-                </span>
-                <h3 className="text-2xl font-serif font-bold text-slate-950 mt-1 mb-4">
-                  Frequently asked questions
-                </h3>
-
-                <div className="divide-y divide-slate-200">
-                  {FAQS.map((faq, index) => {
-                    const isOpen = openFaq === index
-                    return (
-                      <div key={faq.question} className="py-3.5">
-                        <button
-                          onClick={() => toggleFaq(index)}
-                          className="w-full flex items-center justify-between gap-3 text-left group focus:outline-none"
-                        >
-                          <span className="text-xs sm:text-sm font-serif font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                            {faq.question}
-                          </span>
-                          <ChevronDown
-                            className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${
-                              isOpen ? 'rotate-180 text-blue-600' : ''
-                            }`}
-                          />
-                        </button>
-
-                        {isOpen && (
-                          <div className="pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                            {faq.answer}
-                          </div>
-                        )}
-                      </div>
-                    )
-                  })}
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    THE REALITY
+                  </span>
                 </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  PRACTICAL, NOT PERFECT
+                </h2>
               </div>
 
-              {/* Callout Card: Have a story to share? */}
-              <div className="bg-blue-50/70 rounded-2xl p-5 border border-blue-100 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-[#0062D2] flex items-center justify-center shrink-0">
-                  <Send className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-950 font-serif">
-                    Have a story to share?
-                  </h4>
-                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                    If you have a perspective, a lesson or a story that could help other entrepreneurs, speak to your Circle Director.
+              <div className="space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                <p>
+                  Entrepreneurs rarely have perfect answers. They have experience. They have tested ideas. They have learned. They have changed their minds. They have made mistakes. They have discovered what works for them — and what does not.
+                </p>
+                <p>
+                  Insights should reflect that reality. You may not agree with every perspective. You may not follow every recommendation.
+                </p>
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 space-y-1 text-xs font-medium text-slate-800">
+                  <p>✓ Understand what happened.</p>
+                  <p>✓ Understand what was learned.</p>
+                  <p>✓ Understand what the entrepreneur would do differently.</p>
+                  <p className="text-[#0062D2] font-bold pt-1">
+                    ✓ Consider what applies to your own journey.
                   </p>
                 </div>
               </div>
             </div>
+
+            {/* Right: INSIGHTS ARE NOT INSTRUCTIONS & THE KNOWLEDGE KEEPS MOVING */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-xl font-serif font-bold text-slate-950">
+                  INSIGHTS ARE NOT INSTRUCTIONS
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  Read an experience. Question it. Relate it to your own context. Take what is useful. Leave what is not.
+                </p>
+                <p className="text-xs font-semibold text-slate-900 border-l-2 border-[#0062D2] pl-3 italic">
+                  The purpose is not to tell every entrepreneur what to do. It is to give entrepreneurs better things to think about.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-slate-900 text-white shadow-md space-y-4">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-sky-300 block">
+                  THE KNOWLEDGE KEEPS MOVING
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  One entrepreneur learns something through experience. They share it. Another entrepreneur discovers a new perspective. They apply it. They learn something else. They share that. And the cycle continues:
+                </p>
+                <div className="p-3 rounded-xl bg-white/10 border border-white/10 text-center font-mono font-bold text-xs sm:text-sm text-sky-200">
+                  Learning → Sharing → Relationships (LSR)
+                </div>
+                <p className="text-xs text-slate-300 font-light">
+                  LSR is not simply a model. It is a way knowledge moves through a community.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 5: CLOSING ROYAL BLUE BANNER ─────────────────────── */}
+      {/* ─── SECTION 6: HAVE SOMETHING WORTH SHARING? ──────────────────────── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-flex items-center gap-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              CONTRIBUTE YOUR LESSONS
+            </span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950">
+            HAVE SOMETHING WORTH SHARING?
+          </h2>
+
+          <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light max-w-2xl mx-auto">
+            <p>
+              Perhaps you have built something. Solved something. Learned something. Failed at something and discovered what the failure taught you. Or developed a perspective that another entrepreneur could genuinely benefit from.
+            </p>
+            <p className="font-serif font-bold text-slate-950 text-lg sm:text-xl">
+              "The most valuable lesson may be the one you once wished someone had shared with you."
+            </p>
+            <p className="text-[#0062D2] font-semibold text-sm">
+              Experience is meant to be shared.
+            </p>
+          </div>
+
+          <div className="pt-2">
+            <Link
+              href="/events/speak"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
+            >
+              <span>Propose an Insight or Masterclass</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 7: CLOSING ROYAL HERO BANNER (EVERY ARTICLE HAS A JOURNEY BEHIND IT) ── */}
       <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* SVG Orbital Geometric Lines Background */}
+        {/* Geometric Art */}
         <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
             <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
             <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
@@ -919,51 +781,65 @@ export function InsightsPageClient() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                Build Your Business.
-                <br />
-                Build Your Relationships.
-                <br />
-                Build Your Circle.
+            
+            {/* Left Manifesto */}
+            <div className="lg:col-span-8 space-y-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
+                — KNOWLEDGE THAT TRAVELS —
+              </span>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+                EVERY ARTICLE HAS A JOURNEY BEHIND IT.
               </h2>
 
+              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+                <p>
+                  Every lesson came from somewhere. Every perspective was shaped by experience. Every story belongs to someone.
+                </p>
+                <div className="space-y-1.5 pl-3 border-l-2 border-sky-300 text-sm text-sky-100 font-medium">
+                  <p>• Read the experience.</p>
+                  <p>• Think about the lesson.</p>
+                  <p>• Take your own next step.</p>
+                </div>
+              </div>
+
               {/* Action Buttons */}
-              <div className="pt-3 flex flex-wrap items-center gap-4">
+              <div className="pt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href="#articles-feed"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                >
+                  <span>Explore All Insights</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
+
                 <a
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 font-medium text-sm shadow-md transition-all uppercase tracking-wider"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-
-                <a
-                  href="#articles"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 text-white font-medium text-sm border border-white/20 hover:bg-white/20 transition-all"
-                >
-                  <span>Browse Insights</span>
-                  <ArrowRight className="w-4 h-4 text-slate-300" />
+                  <span>Open Unity App</span>
                 </a>
               </div>
             </div>
 
             {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
               <p
                 className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                A Stronger
+                Lived.
                 <br />
-                Tomorrow.
+                Learned.
                 <br />
-                Together.
+                Shared.
+                <br />
+                Applied.
               </p>
             </div>
+
           </div>
         </div>
       </section>
@@ -1003,32 +879,22 @@ export function InsightsPageClient() {
             <div className="p-6 sm:p-8 space-y-6">
               {/* Author Card */}
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-200">
-                    <Image
-                      src={readingArticle.author.avatar}
-                      alt={readingArticle.author.name}
-                      fill
-                      className="object-cover"
-                    />
+                <div>
+                  <div className="text-sm font-bold text-slate-900">
+                    {readingArticle.author.name}
                   </div>
-                  <div>
-                    <div className="text-sm font-bold text-slate-900">
-                      {readingArticle.author.name}
-                    </div>
-                    <div className="text-xs text-slate-500">
-                      {readingArticle.author.title}
-                    </div>
+                  <div className="text-xs text-slate-500">
+                    {readingArticle.author.title} — {readingArticle.author.company}
                   </div>
                 </div>
 
                 <span className="text-xs text-slate-400">
-                  Published {readingArticle.date}
+                  {readingArticle.date}
                 </span>
               </div>
 
               {/* Content Paragraphs */}
-              <div className="space-y-4 text-slate-700 text-sm leading-relaxed">
+              <div className="space-y-4 text-slate-700 text-sm leading-relaxed font-light">
                 {readingArticle.content.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
@@ -1041,7 +907,7 @@ export function InsightsPageClient() {
                 </span>
                 <button
                   onClick={() => setReadingArticle(null)}
-                  className="px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold"
+                  className="px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold cursor-pointer"
                 >
                   Close Reader
                 </button>
@@ -1050,6 +916,7 @@ export function InsightsPageClient() {
           </div>
         </div>
       )}
+
     </div>
   )
 }

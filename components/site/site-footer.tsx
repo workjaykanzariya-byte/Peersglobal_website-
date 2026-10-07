@@ -13,6 +13,7 @@ import {
   Download,
 } from 'lucide-react'
 import { SITE, ACTIVE_CITIES } from '@/lib/data/site'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 export function SiteFooter() {
   const [emailInput, setEmailInput] = useState('')
@@ -128,8 +129,8 @@ export function SiteFooter() {
       {/* ========================================================================= */}
       {/* 1. THRESHOLD BAND & APP DOWNLOAD                                          */}
       {/* ========================================================================= */}
-      <section className="w-full bg-[#f8fafc] border-t border-slate-200 py-12 sm:py-16 px-4 sm:px-8 lg:px-12">
-        <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+      <section className="w-full bg-[#f8fafc] border-t border-slate-200 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left: Statement + App Badges */}
           <div className="flex flex-col gap-3.5 max-w-2xl text-left items-start">
             {/* Eyebrow with gradient bar */}
@@ -142,35 +143,44 @@ export function SiteFooter() {
 
             {/* Heading with brand gradient punchline */}
             <h2 className="font-sans text-2xl sm:text-3xl lg:text-[2.25rem] font-bold text-slate-900 tracking-tight leading-snug">
-              A community you can belong to, contribute to, grow with, and build relationships{' '}
+              Peers are Partners in Business and Friends in{' '}
               <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                for life.
+                Life.
               </span>
             </h2>
 
-            <p className="text-[16px] font-semibold text-slate-800">
-              Build Your Business. Build Your Relationships. Build Your Circle.
-            </p>
+            <div className="flex flex-col gap-1.5 pt-0.5">
+              <p className="text-[16px] font-semibold text-slate-800 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>Circles, not crowds.</span>
+                <span className="text-slate-300">•</span>
+                <span>Trust, not transactions.</span>
+                <span className="text-slate-300">•</span>
+                <span>Peers, not gurus.</span>
+              </p>
+              <p className="text-sm font-medium text-slate-500">
+                Designed in Bharat. Built for the World.
+              </p>
+            </div>
 
             {/* Dual CTAs: JOIN PEERS GLOBAL and DOWNLOAD UNITY APP */}
             <div className="flex flex-wrap items-center gap-3.5 pt-1.5">
-              <Link
+              <GalaxyButton
                 href="/membership"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-7 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all uppercase"
+                size="default"
                 aria-label="Join Peers Global"
               >
-                <span>JOIN PEERS GLOBAL</span>
-                <ArrowRight className="size-4" />
-              </Link>
+                JOIN PEERS GLOBAL
+              </GalaxyButton>
 
-              <Link
+              <GalaxyButton
                 href="/unity"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 px-6 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-sm hover:shadow transition-all uppercase"
+                variant="transparent-light"
+                size="default"
+                icon={<Download className="size-4 text-[#1D4ED8]" />}
                 aria-label="Download Unity App"
               >
-                <Download className="size-4 text-[#1D4ED8]" />
-                <span>DOWNLOAD UNITY APP</span>
-              </Link>
+                Download Unity App
+              </GalaxyButton>
             </div>
 
           </div>
@@ -206,12 +216,13 @@ export function SiteFooter() {
                   placeholder="Enter your business email"
                   className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-[14.5px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-500/15 transition-all"
                 />
-                <button
+                <GalaxyButton
                   type="submit"
-                  className="whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-6 py-2.5 text-[14px] font-bold transition-all shrink-0 shadow-sm active:scale-[0.98] cursor-pointer"
+                  size="sm"
+                  className="shrink-0"
                 >
                   Subscribe
-                </button>
+                </GalaxyButton>
               </form>
             )}
 
@@ -226,7 +237,7 @@ export function SiteFooter() {
       {/* 2. SOCIAL BAR: "Follow Peers Global"                                      */}
       {/* ========================================================================= */}
       <section className="w-full bg-white py-6 border-t border-slate-200">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-[14px] font-bold text-slate-900">
               Follow Peers Global:
@@ -295,7 +306,7 @@ export function SiteFooter() {
       {/* 3. MAIN FOOTER (Microsoft Enterprise 6-Column Directory Grid)             */}
       {/* ========================================================================= */}
       <footer className="w-full bg-[#f8fafc] text-slate-800 pt-12 pb-10 border-t border-slate-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 6 Clean Columns */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 lg:gap-x-10 gap-y-8 sm:gap-y-10">
             {FOOTER_COLUMNS.map((col) => {

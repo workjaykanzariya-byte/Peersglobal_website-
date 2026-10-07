@@ -27,6 +27,7 @@ import {
   Plus,
   Star,
   BarChart3,
+  ChevronRight,
 } from 'lucide-react'
 
 interface CollaborationWay {
@@ -299,206 +300,123 @@ export default function TenWaysOfCollaborationPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      
-      {/* =====================================================================
-          1. HERO SECTION (Panoramic Canvas with Exact Organic Fading & Blocks Alignment)
-          ===================================================================== */}
-      <section className="relative overflow-hidden bg-white pt-10 pb-4 border-b border-slate-100">
-        
-        {/* Full-height Right Side Image Canvas with Fluid Organic Leftward Curve & Soft Fade */}
-        <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[56%] xl:w-[58%] overflow-hidden pointer-events-none select-none z-0">
-          {/* Boardroom Collaboration Video Background */}
-          <div className="relative size-full">
-            <video
-              src="/videos/homepage-hero-bg.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="size-full object-cover object-center scale-[1.03]"
-            />
-            {/* Top Atmospheric Gradient & Warm Tint */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent pointer-events-none" />
-            
-            {/* Soft left gradient fade into white */}
-            <div className="absolute inset-y-0 left-0 w-48 sm:w-64 bg-gradient-to-r from-white via-white/80 via-35% to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white via-white/40 to-transparent pointer-events-none" />
-          </div>
 
-          {/* Organic Fluid Curved Mask dividing the left white canvas and the image */}
-          <svg
-            className="absolute inset-y-0 -left-1 w-36 sm:w-48 h-full text-white fill-current pointer-events-none hidden lg:block"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <path d="M0,0 C85,25 25,75 100,100 L0,100 Z" />
-          </svg>
+      {/* =========================================================================
+          SECTION 1: HERO (Master Full Page Dark Video Banner)
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-14 sm:pb-20 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
         </div>
 
-        <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Main Hero Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center min-h-[540px] lg:min-h-[580px]">
-            
-            {/* Left Column: Heading, Subtitle, CTAs & 3-Pill Feature Bar (lg:col-span-7) */}
-            <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center pt-6 lg:pt-0">
-              
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Top Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-slate-400">How We Collaborate</span>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">10 Ways of Collaboration</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
               {/* Eyebrow */}
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                  The Language
-                </span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>HOW WE COLLABORATE · 10 WAYS</span>
               </div>
 
-              {/* H1 with radiant blue gradient on "Collaboration" */}
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[54px] font-semibold text-slate-950 tracking-tight leading-[1.12]">
-                The 10 Ways of <br />
-                <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                  Collaboration
-                </span>
-              </h1>
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  The 10 Ways of{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Collaboration.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  10 powerful forms of collaboration available inside every Peers Global Circle. A connection becomes valuable when it creates an opportunity, solves a problem or improves a life.
+                </p>
+              </div>
 
-              {/* Subline */}
-              <p className="text-base sm:text-lg text-slate-800 font-semibold mt-5 l  eading-relaxed max-w-xl">
-                10 powerful forms of collaboration available inside every Peers Global Circle.
-              </p>
-
-              {/* Supporting Line */}
-              <p className="text-sm sm:text-[15px] text-slate-500 font-light mt-2 max-w-lg leading-relaxed">
-                A connection becomes valuable when it creates an opportunity, solves a problem or improves a life.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 mt-7">
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/circles"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0062D2] px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
                 >
-                  Find Your Circle
-                  <ArrowRight className="size-4" />
+                  <span>Find Your Circle</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
                 <Link
                   href="/membership"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
                 >
-                  Become a Peer
+                  <span>Become a Peer</span>
                 </Link>
               </div>
 
-              {/* Bottom 3-Pill Feature Bar (People, Ideas, Together) */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-7 mt-6 border-t border-slate-100">
-                {/* Pill 1: People */}
-                <div className="flex items-center gap-2.5">
-                  <div className="size-9 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
-                    <Users2 className="size-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-900 leading-tight">People</p>
-                    <p className="text-[11px] text-slate-500 font-light leading-snug">Real Entrepreneurs</p>
-                  </div>
-                </div>
-
-                <span className="hidden sm:block h-6 w-[1px] bg-slate-200" />
-
-                {/* Pill 2: Ideas */}
-                <div className="flex items-center gap-2.5">
-                  <div className="size-9 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Lightbulb className="size-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-900 leading-tight">Ideas</p>
-                    <p className="text-[11px] text-slate-500 font-light leading-snug">Real Opportunities</p>
-                  </div>
-                </div>
-
-                <span className="hidden sm:block h-6 w-[1px] bg-slate-200" />
-
-                {/* Pill 3: Together */}
-                <div className="flex items-center gap-2.5">
-                  <div className="size-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs">
-                    <TrendingUp className="size-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-900 leading-tight">Together</p>
-                    <p className="text-[11px] text-slate-500 font-light leading-snug">A Brighter Tomorrow</p>
-                  </div>
-                </div>
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: Users2, value: 'People', label: 'Real Entrepreneurs' },
+                  { icon: Lightbulb, value: 'Ideas', label: 'Real Opportunities' },
+                  { icon: TrendingUp, value: 'Together', label: 'A Brighter Tomorrow' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
-
             </div>
 
-            {/* Right Column: Video Panorama & Bottom Highlights (lg:col-span-6) */}
-            <div className="lg:col-span-6 xl:col-span-5 relative min-h-[460px] sm:min-h-[500px] flex flex-col justify-end py-6">
-              
-              {/* Top-Right Cursive Accent */}
-              <div className="absolute top-2 right-2 sm:right-6 z-20 text-right select-none pointer-events-none">
-                <p className="font-[family-name:var(--font-script)] text-xl sm:text-2xl text-slate-600/90 leading-tight drop-shadow-xs rotate-[-3deg]">
-                  People <br />
-                  Ideas <br />
-                  Opportunities <br />
-                  Together
-                </p>
-                <div className="w-16 h-[1.5px] bg-slate-400/60 ml-auto mt-1" />
-              </div>
-
-
-              {/* Bottom Right Highlights: Dark Card & Watch Our Story Pill */}
-              <div className="relative z-20 flex flex-wrap items-center justify-between gap-3 mt-8 pt-4">
-                
-                {/* Dark Navy Card: Stronger Entrepreneurs */}
-                <div className="rounded-2xl bg-[#081A3A]/95 backdrop-blur-md border border-white/15 p-3.5 sm:p-4 shadow-2xl flex items-center gap-3 max-w-[240px]">
-                  <div className="size-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Users2 className="size-4" />
-                  </div>
-                  <div>
-                    <p className="text-xs sm:text-[13px] font-bold text-white leading-tight">
-                      Stronger Entrepreneurs.
-                    </p>
-                    <p className="text-[10px] text-slate-300 font-light mt-0.5 leading-snug">
-                      A Brighter Tomorrow.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Watch Our Story Pill Button */}
-                <Link
-                  href="/stories"
-                  className="rounded-full bg-white/95 backdrop-blur-md border border-white/80 py-2 px-4 shadow-xl flex items-center gap-2.5 hover:bg-white hover:scale-105 transition-all cursor-pointer"
-                >
-                  <span className="size-8 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shadow-xs">
-                    <Play className="size-3.5 fill-[#0062D2] ml-0.5" />
-                  </span>
-                  <div className="text-left">
-                    <span className="block text-[9px] font-bold uppercase tracking-wider text-slate-400 leading-none">
-                      Watch
-                    </span>
-                    <span className="block text-xs font-bold text-slate-800 leading-none mt-0.5">
-                      Our Story
-                    </span>
-                  </div>
-                </Link>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Hairline Bottom Banner Bar */}
-          <div className="pt-6 pb-2 mt-4 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
-            <div className="flex items-center gap-3">
-              <span className="h-[1px] w-8 bg-slate-300" />
-              <span>Collaborate · Create · Grow</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span>Peers Global</span>
-              <span className="h-[1px] w-8 bg-slate-300" />
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                People
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Ideas · Opportunities
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Together We Grow
+              </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -508,7 +426,7 @@ export default function TenWaysOfCollaborationPage() {
       <section className="py-16 sm:py-24 border-b border-slate-100 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
+
             {/* Left Story Column */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-3">
@@ -551,7 +469,7 @@ export default function TenWaysOfCollaborationPage() {
                   sizes="(max-width: 768px) 100vw, 420px"
                   className="object-cover"
                 />
-                
+
                 {/* Floating Top-Left Tag */}
                 <div className="absolute top-4 left-4 z-10 rounded-full bg-white/95 backdrop-blur-md px-3.5 py-1 shadow-sm border border-slate-100">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700">
@@ -581,7 +499,7 @@ export default function TenWaysOfCollaborationPage() {
           3. THE 10 WAYS OVERVIEW - STRONGER TOGETHER (Exact Redesign from Mockup)
           ===================================================================== */}
       <section className="relative py-20 sm:py-24 bg-gradient-to-b from-[#F8FAFD] via-white to-[#F5F8FD] border-b border-slate-100 overflow-hidden">
-        
+
         {/* Soft Background Ambient Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/35 via-transparent to-transparent pointer-events-none" />
 
@@ -606,7 +524,7 @@ export default function TenWaysOfCollaborationPage() {
         </div>
 
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           {/* Top-Right Decorative Cursive Script Accent */}
           <div className="hidden lg:block absolute top-0 right-4 xl:right-10 pointer-events-none select-none text-right">
             <div className="inline-block transform -rotate-6">
@@ -624,7 +542,7 @@ export default function TenWaysOfCollaborationPage() {
               </div>
               {/* Swoop flourish curve */}
               <svg className="w-36 h-7 ml-auto -mt-1 text-[#869EBC]/80 overflow-visible" viewBox="0 0 140 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M125 5C85 22 35 22 8 16C2 15 1 20 7 21C42 27 100 22 135 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
+                <path d="M125 5C85 22 35 22 8 16C2 15 1 20 7 21C42 27 100 22 135 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
               </svg>
             </div>
           </div>
@@ -800,7 +718,7 @@ export default function TenWaysOfCollaborationPage() {
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Left Headline */}
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 mb-3">
@@ -809,7 +727,7 @@ export default function TenWaysOfCollaborationPage() {
                   A Stronger Tomorrow
                 </span>
               </div>
-              
+
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight">
                 Collaboration changes <br className="hidden sm:inline" />
                 more than businesses.
@@ -841,7 +759,7 @@ export default function TenWaysOfCollaborationPage() {
           5. PUT COLLABORATION INTO ACTION (Fully Recreated with Realistic Mobile App Phone)
           ===================================================================== */}
       <section className="relative py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-[#F9FBFE] via-white to-[#F6FAFE] border-b border-slate-100 overflow-hidden">
-        
+
         {/* Top-Right Decorative Cursive Script Accent */}
         <div className="hidden lg:block absolute top-8 right-6 xl:right-12 pointer-events-none select-none text-right z-10">
           <div className="inline-block transform -rotate-6">
@@ -855,14 +773,14 @@ export default function TenWaysOfCollaborationPage() {
               <div>Together</div>
             </div>
             <svg className="w-32 h-6 ml-auto -mt-1 text-[#8EA6C5]/80 overflow-visible" viewBox="0 0 140 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M125 5C85 20 35 20 8 15C2 14 1 18 7 19C42 25 100 20 135 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M125 5C85 20 35 20 8 15C2 14 1 18 7 19C42 25 100 20 135 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </div>
         </div>
 
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
-            
+
             {/* ──────── LEFT COLUMN: Narrative, CTAs, 3 Metrics & Quote (5 cols) ──────── */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               {/* Eyebrow */}
@@ -983,7 +901,7 @@ export default function TenWaysOfCollaborationPage() {
 
             {/* ──────── CENTER COLUMN: Real Mobile Phone & Dotted Pointer (4 cols) ──────── */}
             <div className="lg:col-span-4 relative flex items-center justify-center py-4">
-              
+
               {/* Soft Ambient Blue Aura behind the Phone */}
               <div className="absolute size-[360px] sm:size-[440px] rounded-full bg-gradient-to-tr from-[#3B82F6]/25 via-[#60A5FA]/15 to-transparent blur-3xl pointer-events-none -z-10" />
 
@@ -1005,7 +923,7 @@ export default function TenWaysOfCollaborationPage() {
 
             {/* ──────── RIGHT COLUMN: Floating Card & 3 Feature Badges (3 cols) ──────── */}
             <div className="lg:col-span-3 flex flex-col justify-center space-y-6">
-              
+
               {/* Floating Card: Same Entrepreneurs. Bigger Possibilities. */}
               <Link
                 href="/circles"
@@ -1069,12 +987,16 @@ export default function TenWaysOfCollaborationPage() {
       </section>
 
       {/* =====================================================================
-          6. CLOSING BANNER (Vibrant Royal Blue Color Theme)
+          6. CLOSING BANNER (Master Dark Navy #040F24 Theme)
           ===================================================================== */}
       <section
-        className="relative overflow-hidden text-white py-20 sm:py-24"
-        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+        className="relative overflow-hidden text-white py-20 sm:py-24 bg-[#040F24] border-t border-slate-800"
       >
+        {/* Subtle radial ambient glows */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(29,78,216,0.22),transparent_60%)] pointer-events-none" />
+        <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+        <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-indigo-600/15 blur-3xl pointer-events-none" />
+
         {/* Soft Background Concentric Arcs matching the design */}
         <div className="absolute top-1/2 -left-20 -translate-y-1/2 size-[520px] rounded-full border border-white/10 pointer-events-none" />
         <div className="absolute top-1/2 -left-36 -translate-y-1/2 size-[700px] rounded-full border border-white/[0.06] pointer-events-none" />

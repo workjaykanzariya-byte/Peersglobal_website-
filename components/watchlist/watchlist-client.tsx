@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -22,285 +22,517 @@ import {
   Truck,
   Scale,
   BookOpen,
-  MessageSquare,
   Sparkles,
   ExternalLink,
   CheckCircle2,
+  AlertTriangle,
+  Quote,
+  Check,
+  Ban,
+  MessageSquare,
 } from 'lucide-react'
 
-// ─── Categories ─────────────────────────────────────────────────────────────
+// ─── 9 Categories (Explore by Category) ─────────────────────────────────────────
 const CATEGORIES = [
-  { id: 'finance', name: 'Finance & Accounting', icon: DollarSign, count: '18 tools' },
-  { id: 'sales', name: 'Sales & CRM', icon: TrendingUp, count: '14 tools' },
-  { id: 'operations', name: 'Operations', icon: Cog, count: '22 tools' },
-  { id: 'marketing', name: 'Marketing', icon: Megaphone, count: '19 tools' },
-  { id: 'people', name: 'People & HR', icon: Users, count: '12 tools' },
-  { id: 'ai', name: 'AI & Automation', icon: Cpu, count: '15 tools' },
-  { id: 'manufacturing', name: 'Manufacturing & Supply Chain', icon: Truck, count: '16 tools' },
-  { id: 'compliance', name: 'Compliance & Legal', icon: Scale, count: '9 tools' },
-  { id: 'books', name: 'Books', icon: BookOpen, count: '24 titles' },
+  {
+    id: 'finance',
+    name: 'FINANCE & ACCOUNTING',
+    icon: DollarSign,
+    desc: 'Tools and resources that help entrepreneurs manage financial information, planning and business discipline.',
+    color: 'border-blue-200 bg-blue-50/70 text-[#0062D2]',
+  },
+  {
+    id: 'sales',
+    name: 'SALES & CRM',
+    icon: TrendingUp,
+    desc: 'Resources used by Peers to manage relationships, sales processes, customer conversations and growth.',
+    color: 'border-purple-200 bg-purple-50/70 text-purple-700',
+  },
+  {
+    id: 'operations',
+    name: 'OPERATIONS',
+    icon: Cog,
+    desc: 'Practical tools and resources that help businesses run more effectively.',
+    color: 'border-emerald-200 bg-emerald-50/70 text-emerald-700',
+  },
+  {
+    id: 'marketing',
+    name: 'MARKETING',
+    icon: Megaphone,
+    desc: 'Platforms, tools, books and resources that Peers have actually used in their marketing journey.',
+    color: 'border-rose-200 bg-rose-50/70 text-rose-700',
+  },
+  {
+    id: 'people',
+    name: 'PEOPLE & HR',
+    icon: Users,
+    desc: 'Resources for hiring, developing, managing and working with people.',
+    color: 'border-amber-200 bg-amber-50/70 text-amber-700',
+  },
+  {
+    id: 'ai',
+    name: 'AI & AUTOMATION',
+    icon: Cpu,
+    desc: 'AI tools and automation resources that have been used by Peers in real business situations.',
+    color: 'border-cyan-200 bg-cyan-50/70 text-cyan-700',
+  },
+  {
+    id: 'manufacturing',
+    name: 'MANUFACTURING & SUPPLY CHAIN',
+    icon: Truck,
+    desc: 'Resources relevant to production, procurement, logistics, quality and supply-chain operations.',
+    color: 'border-indigo-200 bg-indigo-50/70 text-indigo-700',
+  },
+  {
+    id: 'compliance',
+    name: 'COMPLIANCE & LEGAL',
+    icon: Scale,
+    desc: 'Tools and resources that Peers have found useful in managing business compliance and legal requirements.',
+    color: 'border-teal-200 bg-teal-50/70 text-teal-700',
+  },
+  {
+    id: 'books',
+    name: 'BOOKS',
+    icon: BookOpen,
+    desc: 'Books recommended because a Peer has actually read them and found something valuable in them. Not bestsellers — tested wisdom.',
+    color: 'border-amber-200 bg-amber-50/70 text-amber-700',
+  },
 ]
 
-// ─── Verified Tools List ───────────────────────────────────────────────────
-const TOOLS = [
+// ─── Verified Entries with the Required 7 Elements ─────────────────────────────
+export interface WatchlistEntry {
+  id: string
+  name: string
+  category: string
+  type: 'Tool' | 'Book' | 'Product' | 'Service'
+  recommender: {
+    name: string
+    business: string
+    city: string
+  }
+  whyTheyUsedIt: string
+  whatItHelpedWith: string
+  whatTheyLiked: string
+  honestLimitation: string
+  peerVerdict: string
+}
+
+const WATCHLIST_ENTRIES: WatchlistEntry[] = [
   {
-    id: 'zoho-crm',
-    name: 'Zoho CRM',
-    category: 'Sales & CRM',
-    tag: 'CRM',
-    tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
-    logo: '/images/icons/zoho.png',
-    fallbackIcon: TrendingUp,
-    shortDesc: 'Simple, powerful CRM for growing businesses.',
+    id: 'entry-1',
+    name: 'Zoho CRM Plus',
+    category: 'SALES & CRM',
+    type: 'Tool',
     recommender: {
       name: 'Amit Shah',
-      company: 'Shah Packaging Pvt. Ltd.',
+      business: 'Shah Packaging Pvt Ltd',
       city: 'Ahmedabad',
-      avatar: '/images/avatar-1.jpg',
     },
-    verdict:
-      'We moved to Zoho CRM from spreadsheets. It fixed our follow-up process and improved our closure rate. It is weak at advanced automation, but perfect for MSMEs looking for simplicity.',
-    peerLink: 'Amit',
+    whyTheyUsedIt:
+      'We moved from chaotic spreadsheets and WhatsApp threads when our inbound enquiry volume crossed 80 leads per week across 3 regional manufacturing hubs.',
+    whatItHelpedWith:
+      'Standardizing multi-stage quote generation, tracking 15-day follow-ups, and eliminating lead leakage between sales managers and dispatch coordinators.',
+    whatTheyLiked:
+      'Affordable Indian context billing, smooth WhatsApp integration out of the box, and dependable mobile app access for field sales reps.',
+    honestLimitation:
+      'The initial module configuration is clunky. You will need 2-3 weeks of dedicated internal setup time before sales reps adopt it smoothly.',
+    peerVerdict:
+      '“It fixed our enquiry follow-up discipline permanently. Ideal for MSMEs scaling from 10 to 50 team members.”',
   },
   {
-    id: 'tally-prime',
-    name: 'Tally Prime',
-    category: 'Finance & Accounting',
-    tag: 'Finance',
-    tagColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    logo: '/images/icons/tally.png',
-    fallbackIcon: DollarSign,
-    shortDesc: 'Reliable accounting and GST compliance.',
+    id: 'entry-2',
+    name: 'Tally Prime with AWS Cloud Hosting',
+    category: 'FINANCE & ACCOUNTING',
+    type: 'Tool',
     recommender: {
       name: 'Neha Patel',
-      company: 'Patel Industries',
+      business: 'Patel Precision Components',
       city: 'Vadodara',
-      avatar: '/images/avatar-2.jpg',
     },
-    verdict:
-      'We have used Tally for over 8 years. It is rock solid for GST and accounting. It is not stylish, and the UI feels old, but it just works without downtime.',
-    peerLink: 'Neha',
+    whyTheyUsedIt:
+      'We needed real-time multi-branch accounting access for our accounts team without risking on-premise local server crashes or manual daily pen-drive backups.',
+    whatItHelpedWith:
+      'Instant GST reconciliation, multi-location inventory ledger tracking, and concurrent multi-user voucher entries across two plant locations.',
+    whatTheyLiked:
+      'Zero learning curve for our Indian accountants, rock-solid compliance with Indian tax regulations, and 99.9% cloud uptime.',
+    honestLimitation:
+      'The user interface remains dated and retro. It lacks modern SaaS analytics dashboards unless you build third-party PowerBI connectors.',
+    peerVerdict:
+      '“Not stylish, but utterly dependable. For Indian compliance and day-to-day accounts, it just works without downtime.”',
   },
   {
-    id: 'canva',
-    name: 'Canva',
-    category: 'Marketing',
-    tag: 'Marketing',
-    tagColor: 'bg-purple-50 text-purple-700 border-purple-200',
-    logo: '/images/icons/canva.png',
-    fallbackIcon: Megaphone,
-    shortDesc: 'Design tool for non-designers.',
-    recommender: {
-      name: 'Rohit Mehta',
-      company: 'Mehta Exports',
-      city: 'Surat',
-      avatar: '/images/avatar-3.jpg',
-    },
-    verdict:
-      'Canva has made it easy for our team to create professional presentations and social media content. It is limited for complex print design work, but for everyday business needs it is excellent.',
-    peerLink: 'Rohit',
-  },
-  {
-    id: 'chatgpt',
-    name: 'ChatGPT',
-    category: 'AI & Automation',
-    tag: 'AI & Automation',
-    tagColor: 'bg-teal-50 text-teal-700 border-teal-200',
-    logo: '/images/icons/openai.png',
-    fallbackIcon: Cpu,
-    shortDesc: 'AI assistant for research, content and productivity.',
+    id: 'entry-3',
+    name: 'The Hard Thing About Hard Things by Ben Horowitz',
+    category: 'BOOKS',
+    type: 'Book',
     recommender: {
       name: 'Priya Desai',
-      company: 'Desai Consultants',
-      city: 'Mumbai',
-      avatar: '/images/avatar-4.jpg',
+      business: 'Desai Global Organics',
+      city: 'Surat',
     },
-    verdict:
-      'We use ChatGPT daily for research, content drafts and idea generation. It saves hours of work. It can sometimes give generic answers, so you still need human judgement.',
-    peerLink: 'Priya',
+    whyTheyUsedIt:
+      'I read this during a painful 6-month export corridor restructuring when cash was tight and we had to lay off 15% of our operational team.',
+    whatItHelpedWith:
+      'Gave me the psychological clarity to make wartime CEO decisions, manage internal organizational panic, and communicate transparently with co-founders.',
+    whatTheyLiked:
+      'Zero motivational fluff. It dives straight into what to do when everything goes wrong and there are no good options available.',
+    honestLimitation:
+      'Written from a Silicon Valley venture-backed perspective. Some software compensation and equity mechanics do not directly map to traditional Indian manufacturing businesses.',
+    peerVerdict:
+      '“A book every promoter should read before they face their first major crisis. It normalizes the struggle.”',
+  },
+  {
+    id: 'entry-4',
+    name: 'Make.com (Integromat)',
+    category: 'AI & AUTOMATION',
+    type: 'Tool',
+    recommender: {
+      name: 'Rohit Mehta',
+      business: 'Mehta Industrial Trading',
+      city: 'Mumbai',
+    },
+    whyTheyUsedIt:
+      'We wanted to automate automated invoice extraction from supplier PDF emails directly into our internal order fulfillment tracking sheet.',
+    whatItHelpedWith:
+      'Eliminated 3 hours of daily manual data re-entry per coordinator, saving roughly ₹25,000 monthly in administrative data-entry costs.',
+    whatTheyLiked:
+      'Visual flowchart builder that makes complex multi-step conditional logic easy to build without hiring a dedicated software programmer.',
+    honestLimitation:
+      'If an API endpoint changes or a supplier alters their invoice layout, the webhook scenario silently fails unless you configure robust error alerting.',
+    peerVerdict:
+      '“Far more powerful than Zapier for complex multi-step workflows, and significantly more cost-effective for growing operations.”',
+  },
+  {
+    id: 'entry-5',
+    name: 'GreyHR',
+    category: 'PEOPLE & HR',
+    type: 'Tool',
+    recommender: {
+      name: 'Karan Malhotra',
+      business: 'Malhotra Logistics Group',
+      city: 'Pune',
+    },
+    whyTheyUsedIt:
+      'We needed biometric payroll sync, automated PF/ESIC deductions, and transparent leave tracking for our 120 warehouse and delivery employees.',
+    whatItHelpedWith:
+      'Cut monthly salary calculation time from 5 days down to 4 hours while maintaining 100% statutory labor compliance.',
+    whatTheyLiked:
+      'Comprehensive adherence to Indian state-specific labor laws and a clean mobile app for driver and worker attendance check-ins.',
+    honestLimitation:
+      'Customer support turnaround can be slow during the first week of the month when payroll runs nationwide.',
+    peerVerdict:
+      '“If you employ more than 30 people in India, this eliminates statutory compliance anxiety entirely.”',
   },
 ]
 
-// ─── Common Questions ───────────────────────────────────────────────────────
-const FAQS = [
-  {
-    q: 'Do vendors pay to be listed?',
-    a: 'No. There are no paid listings, no sponsored entries and no affiliate links anywhere on the Watchlist.',
-  },
-  {
-    q: 'Can I contact the Peer who recommended something?',
-    a: 'Yes. Send a connection request in the Unity App and ask them directly. That conversation is worth more than any review.',
-  },
-  {
-    q: 'Can I recommend a tool I built?',
-    a: 'Only where it is disclosed. A Peer recommending their own product must state that clearly, and it is labelled accordingly with a verified disclosure badge.',
-  },
-  {
-    q: 'Do I need to be a member to read this?',
-    a: 'No. The Watchlist is open to all entrepreneurs. Connecting directly with the Peer who recommended something requires membership inside the Unity App.',
-  },
-  {
-    q: 'How often is it updated?',
-    a: 'Continuously. Entries are added as Peers submit them through the app, and removed if a Peer ever withdraws their recommendation.',
-  },
+// ─── The 4 Watchlist Promise Questions ─────────────────────────────────────────
+const PROMISE_QUESTIONS = [
+  'Who used it? (Named Peer, entity and city)',
+  'Why did they use it? (Real operational context)',
+  'What did it help them do? (Measurable business problem)',
+  'What should you know before trying it? (Honest limitation)',
 ]
 
 export function WatchlistClient() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const [bookmarked, setBookmarked] = useState<{ [key: string]: boolean }>({})
 
-  const toggleBookmark = (id: string) => {
-    setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }))
-  }
+  // Filtered Entries
+  const filteredEntries = useMemo(() => {
+    return WATCHLIST_ENTRIES.filter((entry) => {
+      const matchCat =
+        selectedCategory === 'All' || entry.category === selectedCategory
 
-  const filteredTools = TOOLS.filter((tool) => {
-    const matchesSearch =
-      tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.recommender.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.recommender.company.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesCat =
-      selectedCategory === 'All' || tool.category === selectedCategory
-    return matchesSearch && matchesCat
-  })
+      const s = searchQuery.toLowerCase().trim()
+      const matchSearch =
+        !s ||
+        entry.name.toLowerCase().includes(s) ||
+        entry.category.toLowerCase().includes(s) ||
+        entry.recommender.name.toLowerCase().includes(s) ||
+        entry.recommender.business.toLowerCase().includes(s) ||
+        entry.whyTheyUsedIt.toLowerCase().includes(s) ||
+        entry.whatItHelpedWith.toLowerCase().includes(s) ||
+        entry.honestLimitation.toLowerCase().includes(s)
+
+      return matchCat && matchSearch
+    })
+  }, [selectedCategory, searchQuery])
 
   return (
-    <div className="min-h-screen bg-white text-[#1A1A1A] font-sans selection:bg-blue-100 selection:text-slate-900">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-slate-200 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-neutral-500 font-medium">
-          <Link href="/" className="hover:text-neutral-900 transition-colors">
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-[#0062D2] transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span>Growth &amp; Learning</span>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-neutral-900 font-semibold">The Watchlist</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span>Knowledge</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-bold">The Watchlist</span>
         </div>
       </div>
 
-      {/* ─── Hero Section with Visual Overlay ─── */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200 bg-gradient-to-br from-blue-50/40 via-white to-rose-50/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─── SECTION 1: HERO (THE WATCHLIST: A WORKING LIBRARY FOR PRACTITIONERS) ─── */}
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#1A1A1A] tracking-tight leading-[1.08] font-bold">
-                The Watchlist
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                  PRACTITIONER TOOLKIT
+                </span>
+              </div>
+
+              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
+                <span className="brand-gradient-text block">THE WATCHLIST</span>
+                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
+                  A working library for practitioners.
+                </span>
               </h1>
-              <p className="text-xl sm:text-2xl font-serif text-[#1D4ED8] italic leading-relaxed">
-                A working library for practitioners.
-              </p>
-              <p className="text-base sm:text-lg text-neutral-600 max-w-xl leading-relaxed">
-                Every tool, book and resource here was recommended by a Peer who used it to build their own business.
-              </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  href="/unity"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-sm font-bold hover:opacity-95 transition-all shadow-md uppercase tracking-wider"
+              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
+                <p>
+                  Entrepreneurs are constantly looking for useful things:
+                </p>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-medium text-slate-800">
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">• Better accounting tool</div>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">• CRM that actually works</div>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">• Book that shifts thinking</div>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">• AI tool that saves hours</div>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">• Operations process</div>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">• Real problem solvers</div>
+                </div>
+
+                <p className="border-l-2 border-[#0062D2] pl-3 italic text-slate-900 font-medium pt-1">
+                  The internet already has millions of recommendations. This is different. The Watchlist is built from the experience of Peers.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="#watchlist-grid"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200 cursor-pointer"
                 >
-                  Download Unity App
+                  <span>Browse Watchlist</span>
                   <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="#recommend"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-neutral-800 text-sm font-semibold border border-slate-200 hover:bg-slate-50 transition-all shadow-sm uppercase tracking-wider"
+                </a>
+
+                <a
+                  href="#recommend-tool"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
                 >
-                  Recommend a Tool
-                </Link>
+                  <span>Recommend a Tool ↓</span>
+                </a>
               </div>
             </div>
 
-            {/* Right Desk & Laptop Visual Frame */}
+            {/* Right Hero Image Card */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-slate-200 shadow-2xl bg-white">
-                <Image
-                  src="/images/lexicon-hero-desk.jpg"
-                  alt="Workdesk with laptop, coffee mug and business resources"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 500px"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                {/* Script calligraphy watermark */}
-                <div className="absolute top-4 right-4 text-right">
-                  <span className="font-serif italic text-lg sm:text-xl text-white/90 drop-shadow-md">
-                    Real People.<br />Real Experience.<br />Real Recommendations.
-                  </span>
-                </div>
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <p className="text-xs uppercase tracking-widest font-mono text-rose-300 font-bold">
-                    Community Curated
-                  </p>
-                  <p className="text-base font-serif font-medium">
-                    Practitioner Verified Toolkit
-                  </p>
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
+                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/lexicon-hero-desk.jpg"
+                    alt="Entrepreneur workstation with laptop, books and practical tools"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                  
+                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
+                      Zero Sponsored Listings
+                    </span>
+                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
+                      "Nothing appears unless a named Peer has actually used it in their business."
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── One Rule Banner ─── */}
-      <section className="py-8 bg-white border-b border-slate-200">
+      {/* ─── SECTION 2: ONE RULE & RECOMMENDED BY SOMEONE WHO USED IT ─────── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex items-start gap-4 max-w-3xl">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 border border-[#1D4ED8]/20 flex items-center justify-center text-[#1D4ED8] shrink-0 mt-1">
-                <ShieldCheck className="w-7 h-7" />
-              </div>
-              <div className="space-y-2">
-                <h2 className="text-xl sm:text-2xl font-serif text-[#1A1A1A] font-bold">
-                  One rule: Nothing appears here unless a named Peer has actually used it.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    THE GOLD STANDARD
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  RECOMMENDED BY SOMEONE WHO USED IT
                 </h2>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Not researched it. Not read about it. Used it, inside a real business, for long enough to know whether it works. Every entry carries the name of the Peer who recommends it, their business, and what they used it for. If you want to know more, they are one connection request away in the Unity App. That single rule is what separates this from every list of tools on the internet.
+              </div>
+
+              <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-200 space-y-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-900 block">
+                  OUR STARTING QUESTION:
+                </span>
+                <p className="font-serif font-bold text-xl text-slate-950">
+                  “Did a Peer actually use this?”
+                </p>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
+                  If the answer is no, it does not belong here. Every resource on The Watchlist is recommended by a named Peer who has actually used it to build their own business.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs font-semibold text-blue-950/90 pt-1">
+                  <span>• Not because it is popular</span>
+                  <span>• Not because someone paid</span>
+                  <span>• Not because it is trending</span>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-2">
+                <h3 className="font-serif font-bold text-slate-950 text-lg">
+                  ONE RULE
+                </h3>
+                <p className="text-sm font-semibold text-[#0062D2]">
+                  Nothing appears unless a named Peer has actually used it.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed font-light">
+                  That rule matters. Because there is a difference between: <em>“I have heard this is good”</em> and <em>“I used this in my business.”</em>
                 </p>
               </div>
             </div>
 
-            <div className="shrink-0 font-serif italic text-right text-sm text-[#0D6EFD] hidden lg:block border-l border-blue-100 pl-6">
-              No sponsors.<br />No paid listings.<br />Just real experience.
+            {/* Right: THE HONEST LIMITATION & NO PAID LISTINGS */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#040E24] via-[#061836] to-[#0A2558] text-white shadow-xl space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-white/10 text-amber-300 flex items-center justify-center border border-white/20">
+                  <AlertTriangle className="w-5 h-5" />
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-white leading-snug">
+                  THE HONEST LIMITATION
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
+                  Every entry carries one. Because a recommendation without a limitation is often just promotion.
+                </p>
+                <div className="space-y-1.5 pl-3 border-l-2 border-amber-400 text-xs text-slate-300 font-light">
+                  <p>• A tool may be excellent for scale, but unnecessary for small teams.</p>
+                  <p>• A platform may solve one problem while creating another.</p>
+                  <p>• A resource may work beautifully in one context and poorly in another.</p>
+                </div>
+                <p className="text-xs text-amber-200 font-semibold pt-1">
+                  The limitation is not a weakness in the Watchlist. It is part of the trust.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 border border-rose-100">
+                  <Ban className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-serif font-bold text-slate-950 text-base">
+                    NO PAID LISTINGS. NO AFFILIATE LINKS. EVER.
+                  </h4>
+                  <p className="text-xs text-slate-600 font-light">
+                    The person recommending the resource is here because of their experience — not because someone paid for visibility.
+                  </p>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── Browse The Watchlist Section ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      {/* ─── SECTION 3: EXPLORE BY CATEGORY (9 MODULES) ─────────────────────── */}
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-14">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                CATEGORIES
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              EXPLORE BY CATEGORY
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+              Discover tested tools, books and resources across every operational discipline.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {CATEGORIES.map((cat) => {
+              const Icon = cat.icon
+              return (
+                <div
+                  key={cat.id}
+                  onClick={() => {
+                    setSelectedCategory(cat.name)
+                    const el = document.getElementById('watchlist-grid')
+                    if (el) el.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all cursor-pointer flex flex-col justify-between space-y-4 group"
+                >
+                  <div className="space-y-3">
+                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${cat.color}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="font-serif font-bold text-slate-950 text-base group-hover:text-[#0062D2] transition-colors">
+                      {cat.name}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-light">
+                      {cat.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-[#0062D2]">
+                    <span>Filter entries</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 4: BROWSE THE WATCHLIST (7-ELEMENT STRUCTURED CARDS) ───── */}
+      <section id="watchlist-grid" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
-                Browse the Watchlist
+              <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  A PRACTITIONER'S LIBRARY
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+                PRACTITIONER ENTRIES
               </h2>
-              <p className="text-base text-neutral-600 mt-1">
-                Tools, books and resources actually used by entrepreneurs.
-              </p>
             </div>
 
-            {/* Filter Bar */}
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="relative min-w-[240px]">
-                <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Search tools, categories or keywords..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 rounded-full border border-[#DACFBA] bg-white text-xs text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#0D6EFD]"
-                />
-              </div>
-
+            {/* Category Selector */}
+            <div className="flex flex-wrap items-center gap-2">
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-3.5 py-2 rounded-full border border-[#DACFBA] bg-white text-xs font-medium text-neutral-700 focus:outline-none"
+                className="px-4 py-2.5 rounded-full bg-[#FBFCFE] border border-slate-200 text-xs font-semibold text-slate-800 focus:outline-none focus:border-blue-500"
               >
                 <option value="All">All Categories</option>
                 {CATEGORIES.map((c) => (
@@ -309,335 +541,321 @@ export function WatchlistClient() {
                   </option>
                 ))}
               </select>
-
-              {(searchQuery || selectedCategory !== 'All') && (
-                <button
-                  onClick={() => {
-                    setSearchQuery('')
-                    setSelectedCategory('All')
-                  }}
-                  className="text-xs text-blue-600 hover:underline font-semibold"
-                >
-                  Reset
-                </button>
-              )}
             </div>
           </div>
 
-          {/* Tools Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredTools.map((item) => {
-              const isFav = bookmarked[item.id]
-              return (
-                <div
-                  key={item.id}
-                  className="p-6 rounded-3xl bg-white border border-[#E8DFC9] shadow-sm flex flex-col justify-between space-y-5 hover:shadow-md transition-all"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span
-                        className={`px-3 py-1 rounded-full text-[11px] font-semibold border ${item.tagColor}`}
-                      >
-                        {item.tag}
-                      </span>
-                      <button
-                        onClick={() => toggleBookmark(item.id)}
-                        className="text-neutral-400 hover:text-neutral-900 transition-colors"
-                        aria-label="Save tool"
-                      >
-                        <Bookmark
-                          className={`w-4 h-4 ${
-                            isFav ? 'fill-blue-600 text-blue-600' : ''
-                          }`}
-                        />
-                      </button>
-                    </div>
+          {/* Search Input Bar */}
+          <div className="relative mb-10">
+            <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by tool name, Peer recommender, company or keyword..."
+              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#FBFCFE] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-500"
+            />
+          </div>
 
-                    <div>
-                      <h3 className="text-2xl font-serif text-[#1A1A1A] font-bold">
-                        {item.name}
-                      </h3>
-                      <p className="text-xs text-neutral-600 mt-1 leading-relaxed">
-                        {item.shortDesc}
-                      </p>
-                    </div>
-
-                    {/* Recommender Info */}
-                    <div className="pt-3 border-t border-[#F0E6D2] flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#FAF3E0] border border-[#DACFBA] flex items-center justify-center text-sm font-serif font-bold text-[#735017] shrink-0">
-                        {item.recommender.name.charAt(0)}
-                      </div>
-                      <div className="text-xs">
-                        <strong className="block text-neutral-900 font-semibold">
-                          {item.recommender.name}
-                        </strong>
-                        <span className="text-neutral-500">
-                          {item.recommender.company} • {item.recommender.city}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Honest Verdict Quote */}
-                    <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-[#EDE4D0] text-xs text-neutral-700 leading-relaxed font-sans italic">
-                      &ldquo;{item.verdict}&rdquo;
-                    </div>
+          {/* Structured Entries Grid */}
+          <div className="space-y-8">
+            {filteredEntries.map((entry) => (
+              <div
+                key={entry.id}
+                className="p-8 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm hover:shadow-md transition-all space-y-6"
+              >
+                {/* Header: Resource Name & Type */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] block">
+                      THE RESOURCE [{entry.type}]
+                    </span>
+                    <h3 className="font-serif font-bold text-2xl sm:text-3xl text-slate-950 mt-0.5">
+                      {entry.name}
+                    </h3>
+                    <span className="text-xs font-semibold text-slate-500 mt-1 block">
+                      Category: {entry.category}
+                    </span>
                   </div>
 
-                  <div className="pt-2">
-                    <Link
-                      href="/unity"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800"
-                    >
-                      Connect with {item.peerLink} in the app
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                  {/* Recommender Card */}
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs self-start sm:self-auto space-y-0.5">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block">
+                      RECOMMENDED BY
+                    </span>
+                    <h4 className="font-serif font-bold text-slate-900 text-sm">
+                      {entry.recommender.name}
+                    </h4>
+                    <p className="text-xs text-slate-600">
+                      {entry.recommender.business} · <span className="font-medium text-slate-900">{entry.recommender.city}</span>
+                    </p>
                   </div>
                 </div>
-              )
-            })}
+
+                {/* 3 Narrative Blocks: Why they used it, What it helped with, What they liked */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                      WHY THEY USED IT
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {entry.whyTheyUsedIt}
+                    </p>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                      WHAT IT HELPED WITH
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {entry.whatItHelpedWith}
+                    </p>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                      WHAT THEY LIKED
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {entry.whatTheyLiked}
+                    </p>
+                  </div>
+                </div>
+
+                {/* The Honest Limitation Block */}
+                <div className="p-5 rounded-2xl bg-rose-50/70 border border-rose-200/80 space-y-1">
+                  <div className="flex items-center gap-2 text-xs font-bold text-rose-900 uppercase tracking-wider">
+                    <AlertTriangle className="w-4 h-4 text-rose-600" />
+                    <span>THE HONEST LIMITATION</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-rose-950/80 leading-relaxed font-light pl-6">
+                    {entry.honestLimitation}
+                  </p>
+                </div>
+
+                {/* Peer's Verdict */}
+                <div className="p-4.5 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm text-slate-800 italic leading-relaxed flex items-start gap-3 shadow-2xs">
+                  <Quote className="w-5 h-5 text-[#0062D2] shrink-0 opacity-70 mt-0.5" />
+                  <div>
+                    <span className="font-serif font-bold text-slate-900 not-italic block text-xs mb-0.5">
+                      PEER'S VERDICT
+                    </span>
+                    {entry.peerVerdict}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
+
         </div>
       </section>
 
-      {/* ─── Categories Grid ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60 bg-[#FAF7F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
-              Categories
-            </h2>
-            <p className="text-sm text-neutral-600 mt-1">
-              Explore tools by function. Real recommendations from real entrepreneurs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-4">
-            {CATEGORIES.map((cat) => {
-              const Icon = cat.icon
-              return (
-                <div
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.name)}
-                  className="cursor-pointer p-5 rounded-2xl bg-white border border-[#E5DAC0] shadow-xs text-center space-y-2 hover:border-blue-500 hover:shadow-sm transition-all"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF4E6] border border-[#EADBBD] flex items-center justify-center text-[#8C6422] mx-auto">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xs font-serif font-bold text-neutral-900 leading-tight">
-                    {cat.name}
-                  </h3>
-                  <span className="block text-[11px] text-neutral-400 font-mono">
-                    {cat.count}
+      {/* ─── SECTION 5: THE WATCHLIST PROMISE & BEFORE YOU CHOOSE ──────────── */}
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left: THE WATCHLIST PROMISE */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    THE PROMISE
                   </span>
                 </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── How an Entry Gets Here & What a Good Entry Looks Like ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left: 4-Step Process */}
-            <div className="lg:col-span-7 space-y-8">
-              <div>
-                <h2 className="text-3xl font-serif text-[#1A1A1A]">
-                  How an entry gets here
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  THE WATCHLIST PROMISE
                 </h2>
-                <p className="text-sm text-neutral-600 mt-1">
-                  A four-stage verification path from practitioner experience to published community resource.
+                <p className="text-sm sm:text-base text-slate-600 mt-2 font-light">
+                  We will not try to make this the biggest library on the internet. We want to make it a library entrepreneurs can trust.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {[
-                  {
-                    step: '01',
-                    title: 'A Peer recommends it.',
-                    desc: 'Through the Unity App, naming the tool and what they specifically used it for.',
-                  },
-                  {
-                    step: '02',
-                    title: 'They state their experience.',
-                    desc: 'How long they have used it, what it replaced, and what it is genuinely good and bad at.',
-                  },
-                  {
-                    step: '03',
-                    title: 'Published with their name.',
-                    desc: 'Their recommendation, their reputation. No anonymity, no affiliate links.',
-                  },
-                  {
-                    step: '04',
-                    title: 'Other Peers can ask them.',
-                    desc: 'Directly through the app, asking the exact follow-up questions before buying.',
-                  },
-                ].map((item) => (
+              <div className="space-y-2.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
+                  Every recommendation answers four questions:
+                </span>
+                {PROMISE_QUESTIONS.map((q, idx) => (
                   <div
-                    key={item.step}
-                    className="p-6 rounded-2xl bg-white border border-[#E8DFC9] space-y-2 shadow-xs"
+                    key={q}
+                    className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-center gap-3 text-xs sm:text-sm font-medium text-slate-800"
                   >
-                    <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">
-                      {item.step}
+                    <span className="w-6 h-6 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs shrink-0">
+                      {idx + 1}
                     </span>
-                    <h3 className="text-base font-serif font-bold text-neutral-900">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-neutral-600 leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <span>{q}</span>
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Right: What a Good Entry Looks Like (Slack Example) */}
-            <div className="lg:col-span-5 space-y-4">
-              <h2 className="text-3xl font-serif text-[#1A1A1A]">
-                What a good entry looks like
-              </h2>
-              <div className="p-7 rounded-3xl bg-white border border-[#E8DFC9] shadow-md space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 border border-purple-200 flex items-center justify-center font-bold">
-                      S
-                    </div>
-                    <div>
-                      <h3 className="font-serif font-bold text-xl text-neutral-900">Slack</h3>
-                      <span className="text-xs text-neutral-500 font-medium">Communication</span>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-xs text-neutral-600">
-                  <strong>What it does:</strong> Team communication and project collaboration.
-                </p>
-
-                <div className="pt-2 border-t border-[#F0E6D2]">
-                  <p className="text-xs font-semibold text-neutral-900">
-                    Recommended by Karan Shah, Karan Tech Solutions, Pune
-                  </p>
-                  <div className="mt-2.5 p-4 rounded-xl bg-[#FAF7F0] border border-[#EDE4D0] text-xs text-neutral-700 italic leading-relaxed">
-                    &ldquo;We switched to Slack from email. It fixed slow communication and keeps our team aligned. It is weak at complex project management, but excellent for day-to-day collaboration.&rdquo;
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <Link
-                    href="/unity"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800"
-                  >
-                    Connect with Karan in the app <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Recommend a Tool CTA Banner ─── */}
-      <section id="recommend" className="py-12 bg-[#F0F5FF] border-b border-[#D4E2FF]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded-3xl bg-white border border-[#CDE0FF] shadow-sm">
-            <div className="space-y-2 text-center sm:text-left">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600">
-                <Send className="w-4 h-4" /> Recommend a Tool
-              </div>
-              <h3 className="text-2xl font-serif text-[#1A1A1A]">
-                If something changed how your business runs, tell the community.
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 max-w-xl">
-                Submit it in the Unity App. Name the tool, what it replaced, what it fixed, and where it falls short. Sharing what works earns Life Impact like any other contribution.
+              <p className="text-xs text-slate-600 font-semibold italic">
+                If we can answer those honestly, the recommendation has value.
               </p>
             </div>
-            <Link
-              href="/unity"
-              className="shrink-0 px-8 py-4 rounded-full bg-[#0D6EFD] text-white text-sm font-semibold hover:bg-blue-700 transition-all shadow-md"
-            >
-              Download Unity App
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── Common Questions Accordion ─── */}
-      <section className="py-16 md:py-24 border-b border-[#EADFC7]/60">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="text-center space-y-2">
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">
-              Common Questions
-            </h2>
-            <p className="text-sm text-neutral-600">
-              Honest clarity on policies, disclosures and peer connections.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {FAQS.map((faq, idx) => {
-              const isOpen = openFaq === idx
-              return (
-                <div
-                  key={faq.q}
-                  className="rounded-2xl border border-[#E8DFC9] bg-white overflow-hidden shadow-xs"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left text-base font-serif font-medium text-[#1A1A1A]"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                      className={`w-4 h-4 text-neutral-400 transition-transform ${
-                        isOpen ? 'rotate-180 text-blue-600' : ''
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-5 text-sm text-neutral-600 leading-relaxed border-t border-[#F0E6D2] pt-4">
-                      {faq.a}
-                    </div>
-                  )}
+            {/* Right: BEFORE YOU CHOOSE & THE PEER MAKES THE RECOMMENDATION */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-xl font-serif font-bold text-slate-950">
+                  BEFORE YOU CHOOSE
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  The Watchlist can help you discover possibilities. It cannot tell you what is right for your business. Your situation, budget, team, customers and growth stage may be different.
+                </p>
+                <div className="p-3 bg-blue-50/70 rounded-xl text-xs text-[#0062D2] font-semibold text-center">
+                  Explore. Ask. Compare. Think. Decide for yourself.
                 </div>
-              )
-            })}
+              </div>
+
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#040E24] via-[#061836] to-[#0A2558] text-white shadow-xl space-y-4">
+                <h3 className="text-xl font-serif font-bold text-white">
+                  THE PEER MAKES THE RECOMMENDATION
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  We do not want a faceless rating. We want a relationship behind the recommendation. In Unity, you can message the recommending Peer directly:
+                </p>
+                <div className="space-y-1 pl-3 border-l-2 border-sky-400 text-xs text-sky-200 font-medium">
+                  <p>“Why did you use it?”</p>
+                  <p>“What did it help you with?”</p>
+                  <p>“What didn't you like?”</p>
+                  <p>“Would you use it again?”</p>
+                </div>
+                <p className="text-xs text-white font-semibold pt-1">
+                  That conversation can be more valuable than a hundred anonymous reviews.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── Closing Brand Gradient Banner ─── */}
-      <section className="relative bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white py-24 md:py-32 overflow-hidden border-t border-slate-200">
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <p className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-white/95 leading-snug max-w-3xl mx-auto">
-            &ldquo;Ten years of hard-won judgement, from people with no reason to sell you anything.&rdquo;
-          </p>
+      {/* ─── SECTION 6: WANT TO RECOMMEND SOMETHING? ───────────────────────── */}
+      <section id="recommend-tool" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-flex items-center gap-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              CONTRIBUTE TO THE WATCHLIST
+            </span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+          </div>
 
-          <div className="space-y-2">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
-              Build Your Business. Build Your Relationships. Build Your Circle.
-            </h2>
-            <p className="text-base sm:text-lg text-white/80 font-light max-w-xl mx-auto">
-              Real People. Real Growth. A Stronger Tomorrow.
+          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950">
+            WANT TO RECOMMEND SOMETHING?
+          </h2>
+
+          <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light max-w-2xl mx-auto">
+            <p>
+              Perhaps there is a tool you have used for years. A book that changed your thinking. A resource that solved a difficult business problem. A piece of technology that genuinely made your work better.
+            </p>
+            <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200 text-xs sm:text-sm text-blue-950 font-medium space-y-1 text-left">
+              <span className="font-bold block uppercase tracking-wider text-blue-900">
+                REMEMBER THE STANDARD:
+              </span>
+              <p>1. You recommend from experience.</p>
+              <p>2. You explain why.</p>
+              <p>3. You disclose the honest limitation.</p>
+            </div>
+            <p className="text-xs text-slate-500 italic">
+              That is how the Watchlist remains useful.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="pt-2">
             <Link
-              href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#1D4ED8] text-sm font-bold hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl uppercase tracking-wider"
+              href="/events/speak"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
             >
-              Download Unity App
+              <span>Submit a Peer Recommendation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="#recommend"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all uppercase tracking-wider"
-            >
-              Recommend a Tool
-            </Link>
           </div>
         </div>
       </section>
+
+      {/* ─── SECTION 7: CLOSING ROYAL HERO BANNER (EXPLORE THE WATCHLIST) ──── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* Geometric Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Manifesto */}
+            <div className="lg:col-span-8 space-y-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
+                — TESTED IN REAL BUSINESSES —
+              </span>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+                Recommended by Peers. Shared with context.
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+                <p>
+                  Finance & Accounting · Sales & CRM · Operations · Marketing · People & HR · AI & Automation · Manufacturing & Supply Chain · Compliance & Legal · Books
+                </p>
+                <p className="font-medium text-white">
+                  What has actually worked for another entrepreneur might give you something useful to explore.
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
+
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                >
+                  <span>Apply for Membership →</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Cursive Script */}
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
+              <p
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Used.
+                <br />
+                Tested.
+                <br />
+                Honest.
+                <br />
+                Trusted.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }
