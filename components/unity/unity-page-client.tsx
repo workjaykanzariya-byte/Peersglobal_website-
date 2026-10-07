@@ -30,189 +30,182 @@ import {
   PlusCircle,
   Quote,
   Apple,
+  EyeOff,
+  SlidersHorizontal,
+  FolderLock,
+  History,
+  Send,
+  Sparkle
 } from 'lucide-react'
 import { SITE } from '@/lib/data/site'
 
-// ─── Stats Bar ────────────────────────────────────────────────────────────
-const STATS = [
+// ─── 12 Core Features of Unity ───────────────────────────────────────────────
+const TWELVE_FEATURES = [
   {
-    icon: Users,
-    value: '10,000+',
-    label: 'Entrepreneurs',
-  },
-  {
-    icon: Globe2,
-    value: '100+',
-    label: 'Cities',
-  },
-  {
-    icon: Building2,
-    value: '25+',
-    label: 'Countries',
-  },
-  {
-    icon: TrendingUp,
-    value: '1M+',
-    label: 'Lives to Impact',
-  },
-]
-
-// ─── 4 Built For Entrepreneurs Pillars (Section 2) ────────────────────────
-const BUILT_FOR_ENTREPRENEURS = [
-  {
-    icon: Megaphone,
-    title: 'There is no advertising.',
-    desc: 'Nobody is paying to appear in your feed.',
-    color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
-  },
-  {
-    icon: Ban,
-    title: 'There is no algorithm.',
-    desc: 'You see what your community is doing.',
-    color: 'text-purple-600 bg-purple-50 border-purple-200',
-  },
-  {
-    icon: Users,
-    title: 'There are no strangers.',
-    desc: 'Every profile belongs to a business owner who joined to contribute.',
-    color: 'text-blue-600 bg-blue-50 border-blue-200',
-  },
-  {
-    icon: Heart,
-    title: 'A feed worth reading.',
-    desc: 'The people in it are worth knowing.',
-    color: 'text-rose-600 bg-rose-50 border-rose-200',
-  },
-]
-
-// ─── 11 What Unity Does Cards + 1 Quote Card ──────────────────────────────
-const WHAT_UNITY_DOES = [
-  {
-    title: 'The Timeline',
-    desc: 'Asks, wins, knowledge, events and more from your community.',
-    linkText: 'See the Timeline',
-    linkHref: '#timeline',
+    num: '01',
+    title: 'THE TIMELINE',
+    subtitle: 'See what is happening across your community.',
+    desc: 'Discover updates, contributions, conversations and moments worth knowing about. Stay connected without having to search for everything yourself.',
     icon: Clock,
-    color: 'text-blue-600 bg-blue-50 border-blue-200',
+    color: 'border-blue-200 bg-blue-50/70 text-[#0062D2]',
   },
   {
-    title: 'The Peers',
-    desc: 'Search by industry, city, capability or Circle.',
-    linkText: 'See the Peer Directory',
-    linkHref: '/circles/find',
+    num: '02',
+    title: 'THE PEERS',
+    subtitle: 'Discover the people who make up the community.',
+    desc: 'Explore 200+ Peers and understand who they are, what they do and where meaningful connections may exist. Because the value of a community begins with knowing the people inside it.',
     icon: Users,
-    color: 'text-purple-600 bg-purple-50 border-purple-200',
+    color: 'border-purple-200 bg-purple-50/70 text-purple-700',
   },
   {
-    title: 'Connections & Followers',
-    desc: 'Connect, follow and reach Peers across the community.',
-    linkText: 'See Connections',
-    linkHref: '/who-belongs-here',
+    num: '03',
+    title: 'CONNECTIONS & FOLLOWERS',
+    subtitle: 'Build your own network within the wider community.',
+    desc: 'Stay connected with people you know. Follow people whose experience, work or contribution you want to continue learning from. Relationships can begin in a meeting. Unity helps them continue.',
     icon: UserPlus,
-    color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
+    color: 'border-emerald-200 bg-emerald-50/70 text-emerald-700',
   },
   {
-    title: 'Messaging & Circle Chat',
-    desc: 'Direct messaging, Circle chats, and committee chats.',
-    linkText: 'See Messaging',
-    linkHref: '/circle-meeting-experience',
+    num: '04',
+    title: 'MESSAGING & CIRCLE CHAT',
+    subtitle: 'Continue conversations beyond the meeting.',
+    desc: 'Connect one-to-one. Stay connected with your Circle. Keep useful conversations moving without losing the context of the relationship.',
     icon: MessageSquare,
-    color: 'text-amber-600 bg-amber-50 border-amber-200',
+    color: 'border-cyan-200 bg-cyan-50/70 text-cyan-700',
   },
   {
-    title: 'One-to-One Booking',
-    desc: 'Book conversations with any Peer you are connected to.',
-    linkText: 'See Booking',
-    linkHref: '/10-ways-of-collaboration',
-    icon: Calendar,
-    color: 'text-rose-600 bg-rose-50 border-rose-200',
+    num: '05',
+    title: 'THE CONFIDENTIAL FORUM',
+    subtitle: 'Some conversations require a different environment.',
+    desc: 'The Confidential Forum creates a space for conversations that benefit from trust, discretion and the shared understanding of fellow entrepreneurs. A place to ask, listen, share experience, and where confidentiality matters.',
+    icon: FolderLock,
+    color: 'border-amber-200 bg-amber-50/70 text-amber-700',
   },
   {
-    title: 'Contribution Logging',
-    desc: 'Log what you gave. The Peer who received it confirms.',
-    linkText: 'See Contribution',
-    linkHref: '/culture-and-code',
-    icon: TrendingUp,
-    color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
-  },
-  {
-    title: 'Impact Tracking',
-    desc: '1 Action = 1 Life Impacted. Badges, rankings and your live Impact Score.',
-    linkText: 'Understand Impact',
-    linkHref: '/culture-and-code',
+    num: '06',
+    title: 'IMPACT TRACKING',
+    subtitle: 'Contribution should be visible.',
+    desc: 'Unity allows you to track your impact through milestone badges and national rankings. Not as a measure of human worth, but as a way to recognise participation and contribution within the community.',
     icon: Sparkles,
-    color: 'text-amber-600 bg-amber-50 border-amber-200',
+    color: 'border-rose-200 bg-rose-50/70 text-rose-700',
   },
   {
-    title: 'The Marketplace',
-    desc: 'Redeem your Peers Coin. Everything is earned by helping another entrepreneur.',
-    linkText: 'Visit the Marketplace',
-    linkHref: '/membership/benefits',
-    icon: ShoppingBag,
-    color: 'text-cyan-600 bg-cyan-50 border-cyan-200',
+    num: '07',
+    title: 'CONTRIBUTION LOGGING',
+    subtitle: 'Your contribution has a history.',
+    desc: 'Record the actions, introductions and contributions you make through the community. Because when contribution becomes visible, it becomes easier to recognise the people who consistently help others move forward.',
+    icon: History,
+    color: 'border-indigo-200 bg-indigo-50/70 text-indigo-700',
   },
   {
-    title: 'Events',
-    desc: 'Circle meetings, masterclasses, conclaves and more. Browse, register and pay.',
-    linkText: 'See Events',
-    linkHref: '/events',
+    num: '08',
+    title: 'ONE-TO-ONE BOOKING',
+    subtitle: 'A meaningful relationship often needs more than a group conversation.',
+    desc: 'Book time with another Peer. Continue the conversation. Understand the business. Explore the possibility. Help each other. One introduction can become one relationship. One relationship can create many possibilities.',
     icon: Calendar,
-    color: 'text-purple-600 bg-purple-50 border-purple-200',
+    color: 'border-teal-200 bg-teal-50/70 text-teal-700',
   },
   {
-    title: 'Your Circle',
-    desc: 'Meeting dates, agendas, attendance and your room’s collective impact.',
-    linkText: 'Open Your Circle',
-    linkHref: '/circles',
+    num: '09',
+    title: 'EVENTS',
+    subtitle: 'Know what is happening across PEERS GLOBAL.',
+    desc: 'Discover events. Stay connected to the wider community. Move beyond your Circle when an opportunity, conversation or experience is relevant to you.',
+    icon: Calendar,
+    color: 'border-blue-200 bg-blue-50/70 text-[#0062D2]',
+  },
+  {
+    num: '10',
+    title: 'THE MARKETPLACE',
+    subtitle: 'A community can create opportunities for its own people.',
+    desc: 'The Marketplace provides a space for those opportunities within the wider PEERS GLOBAL ecosystem. Explore. Connect. Participate. And contribute.',
+    icon: ShoppingBag,
+    color: 'border-purple-200 bg-purple-50/70 text-purple-700',
+  },
+  {
+    num: '11',
+    title: 'YOUR CIRCLE',
+    subtitle: 'Your Circle remains at the centre of your PEERS GLOBAL experience.',
+    desc: 'Stay connected with your Circle between meetings. Continue conversations. Follow activity. Keep the relationship alive. Your Circle is not simply a monthly meeting. It is your Inner Board.',
     icon: Users,
-    color: 'text-teal-600 bg-teal-50 border-teal-200',
+    color: 'border-emerald-200 bg-emerald-50/70 text-emerald-700',
   },
   {
-    title: 'Request a Circle',
-    desc: 'When you find the room you want, request it here.',
-    linkText: 'Request a Circle',
-    linkHref: '/start-a-circle',
+    num: '12',
+    title: 'REQUEST A CIRCLE',
+    subtitle: 'Sometimes the Circle you are looking for does not exist yet.',
+    desc: 'Unity gives you a way to express that need. Perhaps there is an industry, a purpose, a city, or a community of entrepreneurs who should be connected. A request can be the beginning of something that did not exist before.',
     icon: PlusCircle,
-    color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
+    color: 'border-amber-200 bg-amber-50/70 text-amber-700',
+  },
+]
+
+// ─── 5 Starting Steps ────────────────────────────────────────────────────────
+const START_HERE_STEPS = [
+  {
+    title: 'FIND YOUR PEERS',
+    desc: 'Discover the entrepreneurs around you.',
+    icon: Users,
+  },
+  {
+    title: 'FIND YOUR CIRCLE',
+    desc: 'Understand where your primary community lives.',
+    icon: Compass,
+  },
+  {
+    title: 'START A CONVERSATION',
+    desc: 'Reach out to someone you would like to know.',
+    icon: MessageSquare,
+  },
+  {
+    title: 'CONTRIBUTE',
+    desc: 'Share something useful. Make an introduction. Help someone move forward.',
+    icon: Sparkles,
+  },
+  {
+    title: 'STAY CONNECTED',
+    desc: 'Let the relationship continue after the meeting.',
+    icon: CheckCircle2,
   },
 ]
 
 // ─── FAQs ─────────────────────────────────────────────────────────────────
 const FAQS = [
   {
-    question: 'Is the app free?',
+    question: 'Is Unity a social media platform?',
     answer:
-      'Yes, Unity is free to download and explore on iOS and Android. A Peers Global membership unlocks full interactive directory access, private direct messaging, and Circle participation.',
+      'Unity is the digital home of the PEERS GLOBAL community. Its purpose is to connect Peers, Circles, conversations, contributions, events and opportunities within that community.',
   },
   {
-    question: 'Can I explore before subscribing?',
-    answer:
-      'Yes. You can download the Unity App, explore public community feeds, see upcoming events, and review Circles across cities before committing.',
+    question: 'Are there advertisements?',
+    answer: 'No advertising. Nobody is paying to appear in your feed.',
   },
   {
-    question: 'Is my information visible to everyone?',
+    question: 'Will strangers be able to contact me?',
     answer:
-      'No. Your profile is private by default. Full contact details and direct booking become visible to a Peer only once a mutual connection is accepted.',
+      'The source positions Unity as a community environment rather than a platform full of strangers, with profiles private by default.',
   },
   {
-    question: 'Is there advertising in the app?',
+    question: 'What can I do inside Unity?',
     answer:
-      'No. There is no advertising anywhere in Unity, and nobody can pay to boost or promote themselves into your feed.',
+      'The source defines twelve core features: Timeline, Peers, Connections & Followers, Messaging & Circle Chat, Confidential Forum, Impact Tracking, Contribution Logging, One-to-One Booking, Events, Marketplace, Your Circle and Request a Circle.',
   },
   {
-    question: 'Can I message any Peer?',
-    answer:
-      'You can message any Peer you are mutually connected with. Charter Peers have priority capability to message any Peer across the global community directly.',
+    question: 'Can I communicate with my Circle?',
+    answer: 'Yes. Circle Chat and Your Circle are among the core Unity features.',
   },
   {
-    question: 'Is it available outside India?',
+    question: 'Can I connect with another Peer privately?',
     answer:
-      'Yes. Unity is a global application serving entrepreneurs across India, the Middle East, Southeast Asia, North America, and Europe.',
+      'Yes. Messaging and One-to-One Booking support continued individual relationships.',
   },
   {
-    question: 'Which devices does it support?',
+    question: 'Why does Unity matter if I already attend Circle meetings?',
     answer:
-      'Unity is fully native and optimised for both Apple iOS (iPhone/iPad) and Google Android devices.',
+      'Because relationships continue between meetings. Unity provides the digital environment for that ongoing connection.',
+  },
+  {
+    question: 'Can I request a new Circle?',
+    answer: 'Yes. Request a Circle is one of the core Unity features.',
   },
 ]
 
@@ -224,42 +217,99 @@ export function UnityPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* ─── SECTION 1: HERO (WITH PHONE MOCKUPS & EDGE FADE) ────────────── */}
-      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-20 overflow-hidden border-b border-slate-200/80 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-6 space-y-6 z-10">
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      
+      {/* ─── SECTION 1: HERO (MASTER FULL PAGE DARK VIDEO BANNER) ────── */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-slate-400">Ecosystem</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+            <span className="text-white font-semibold">Unity</span>
+          </nav>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                  THE UNITY APP
-                </span>
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE DIGITAL HOME OF PEERS GLOBAL</span>
               </div>
 
-              {/* Main Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-950 tracking-tight leading-[1.1]">
-                Unity
-              </h1>
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  A global community of entrepreneurs,{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    in your pocket
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  No advertising. No strangers. No algorithm. Unity is where the PEERS GLOBAL community continues between meetings.
+                </p>
+              </div>
 
-              {/* Subline */}
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-medium leading-snug">
-                A global community of entrepreneurs, in your pocket.
-              </p>
+              {/* Tagline Pills */}
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  'No advertising',
+                  'No strangers',
+                  'No algorithms',
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-slate-200 backdrop-blur-sm shadow-2xs"
+                  >
+                    ✓ {tag}
+                  </span>
+                ))}
+              </div>
 
-              {/* Supporting line */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                No advertising. No strangers. No algorithm deciding what you
-                see.
-              </p>
+              {/* 6 Core Quick Pills */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 w-full max-w-lg pt-1">
+                {[
+                  'Your Circle',
+                  'Your relationships',
+                  'Your conversations',
+                  'Your contributions',
+                  'Your opportunities',
+                  'Your community',
+                ].map((p) => (
+                  <div
+                    key={p}
+                    className="p-2.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-medium text-slate-200 flex items-center gap-2"
+                  >
+                    <span className="size-1.5 rounded-full bg-sky-400" />
+                    <span className="truncate">{p}</span>
+                  </div>
+                ))}
+              </div>
 
-              {/* App Store & Google Play Download Badges */}
+              {/* Download Badges & CTA */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://apps.apple.com"
+                  href={SITE.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="app-badge-btn"
@@ -273,7 +323,7 @@ export function UnityPageClient() {
                 </a>
 
                 <a
-                  href="https://play.google.com"
+                  href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="app-badge-btn"
@@ -290,72 +340,16 @@ export function UnityPageClient() {
                     <span className="app-badge-title">Google Play</span>
                   </div>
                 </a>
-              </div>
-            </div>
 
-            {/* Right Hero Visual with Phone Mockups & Cursive Overlay */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[420px] sm:h-[480px] lg:h-[530px] rounded-3xl overflow-hidden shadow-2xl bg-slate-950">
-                <Image
-                  src="/images/unity-hero-phones.jpg"
-                  alt="Peers Global Unity Mobile Application Interface Mockups"
-                  fill
-                  className="object-contain object-center p-2"
-                  priority
-                />
-
-                {/* Soft gradient horizontal fade on the left edge */}
-                <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-white via-white/60 to-transparent pointer-events-none z-10" />
-
-                {/* Ambient edge shading */}
-                <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-white/20 to-transparent pointer-events-none z-10" />
-
-                {/* Cursive overlay text on right */}
-                <div className="absolute top-1/2 -translate-y-1/2 right-4 sm:right-6 text-right z-20 max-w-[200px]">
-                  <p
-                    className="text-2xl sm:text-3xl font-light italic leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Real
-                    <br />
-                    Entrepreneurs.
-                    <br />
-                    Real Conversations.
-                    <br />
-                    Real Impact.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating Metric Stats Bar */}
-          <div className="mt-12 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 shadow-xl shadow-slate-200/50 border border-slate-200/90">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                {STATS.map((stat, i) => {
-                  const Icon = stat.icon
-                  return (
-                    <div
-                      key={stat.label}
-                      className={`flex items-center gap-4 ${
-                        i !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 shadow-sm">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="text-2xl sm:text-3xl font-bold font-serif text-slate-950 tracking-tight">
-                          {stat.value}
-                        </div>
-                        <div className="text-xs sm:text-sm text-slate-600 font-medium">
-                          {stat.label}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Open Web App</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
@@ -363,422 +357,570 @@ export function UnityPageClient() {
       </section>
 
       {/* ─── SECTION 2: A COMMUNITY, NOT A PLATFORM FULL OF STRANGERS ───── */}
-      <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Content Column */}
+            
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <div className="inline-flex items-center gap-2 mb-1">
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                    A COMMUNITY, NOT A PLATFORM FULL OF STRANGERS
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Purpose-Built Environment
                   </span>
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight mt-2">
-                  Built for entrepreneurs.
-                  <br />
-                  Not for attention.
+                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
+                  A community, not a platform full of strangers
                 </h2>
-                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mt-3">
-                  Every person in this app owns or leads a business. Every one
-                  of them has agreed to the same Code you have.
+              </div>
+
+              <div className="space-y-3.5 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                <p>
+                  Most digital platforms are designed to keep you scrolling. <strong className="text-slate-900 font-semibold">Unity is designed to help you stay connected.</strong> There is a difference.
+                </p>
+                <p>
+                  You are not entering a room filled with anonymous profiles. You are entering a community of entrepreneurs who share a relationship with PEERS GLOBAL.
                 </p>
               </div>
 
-              {/* 4 Pillars in a 2x2 Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {BUILT_FOR_ENTREPRENEURS.map((item) => {
-                  const Icon = item.icon
-                  return (
-                    <div
-                      key={item.title}
-                      className="p-5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-blue-300 hover:bg-white transition-all shadow-sm"
-                    >
-                      <div
-                        className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 border ${item.color}`}
-                      >
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <h3 className="font-serif font-bold text-slate-900 text-base leading-snug mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Right Image with Cursive Script Overlay */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 h-[340px] sm:h-[420px] group">
-                <Image
-                  src="/images/entrepreneur-thinking.jpg"
-                  alt="Entrepreneur in business suit engaging on smartphone app"
-                  fill
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-
-                {/* Cursive overlay on right */}
-                <div className="absolute top-8 left-8 text-left text-white z-10 max-w-[260px]">
-                  <p
-                    className="text-2xl sm:text-3xl font-light italic leading-tight text-white drop-shadow-md"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Ideas.
-                    <br />
-                    Collaborations.
-                    <br />
-                    Friendships.
-                    <br />
-                    A Stronger Tomorrow.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 3: WHAT UNITY DOES (11 CARDS + 1 QUOTE CARD = 12 GRID) ─ */}
-      <section className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 mb-1">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="text-xs font-bold uppercase tracking-widest brand-gradient-text">
-                WHAT UNITY DOES
-              </span>
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-2">
-              Everything built for real collaboration.
-            </h2>
-          </div>
-
-          {/* 12 Cards Grid (11 features + 1 quote card) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {WHAT_UNITY_DOES.map((item) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 border transition-transform duration-300 group-hover:scale-110 ${item.color}`}
-                    >
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-serif font-bold text-slate-900 text-sm leading-snug mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-slate-100">
-                    <Link
-                      href={item.linkHref}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#0062D2] hover:text-[#0052B4] transition-colors"
-                    >
-                      <span>{item.linkText}</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-                </div>
-              )
-            })}
-
-            {/* 12th Card: Frosted Quote Card */}
-            <div className="bg-gradient-to-br from-blue-50/90 to-sky-50/50 rounded-2xl p-5 border border-blue-200/70 shadow-sm flex flex-col justify-between">
-              <div>
-                <Quote className="w-8 h-8 text-[#0062D2] mb-3 opacity-80" />
-                <p className="text-sm font-serif italic text-slate-900 leading-snug">
-                  “More than an app. A community that shows up.”
-                </p>
-              </div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2] pt-4">
-                PEERS GLOBAL
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 4: FOUR HIGHLIGHT BOXES (2X2 GRID) ──────────────────── */}
-      <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Box 1: Your profile is private by default */}
-            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
-                <Lock className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="text-xl font-serif font-bold text-slate-950 mb-2">
-                  Your profile is private by default
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Nothing on your profile is public, and nothing is visible
-                  outside the community. Your full details become visible to a
-                  Peer once you connect with them. You control what the
-                  community sees, and no data leaves it.
-                </p>
-              </div>
-            </div>
-
-            {/* Box 2: Why the app matters more than the meeting */}
-            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
-                <Clock className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="text-xl font-serif font-bold text-slate-950 mb-2">
-                  Why the app matters more than the meeting
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  A Circle meets twelve times a year. That is roughly
-                  twenty-four hours. Unity is the other 8,736. It is where an
-                  Ask gets answered on a Tuesday and where real collaboration
-                  continues every day.
-                </p>
-              </div>
-            </div>
-
-            {/* Box 3: One community, every country */}
-            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100">
-                <Globe2 className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="text-xl font-serif font-bold text-slate-950 mb-2">
-                  One community, every country
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-2">
-                  Unity connects Peers across cities and borders from day one. A
-                  manufacturer in Gujarat and a distributor in Dubai. A founder
-                  in Ahmedabad and someone who has already entered the market
-                  they are heading toward.
-                </p>
-                <span className="text-xs font-bold text-[#0062D2]">
-                  Designed in Bharat. Built for the world.
-                </span>
-              </div>
-            </div>
-
-            {/* Box 4: Start here */}
-            <div className="bg-[#F8FAFC] rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
-                  <Flag className="w-5 h-5" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-slate-950">
-                  Start here
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 text-center pt-2">
+              {/* 4 Context Points */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {[
-                  { step: '1', name: 'Download', sub: 'iOS & Android' },
-                  { step: '2', name: 'Explore', sub: 'No commitment' },
-                  { step: '3', name: 'Subscribe', sub: 'Full access' },
-                  { step: '4', name: 'Attend', sub: 'Join events' },
-                  { step: '5', name: 'Request', sub: 'Your Circle' },
-                ].map((s) => (
+                  { title: 'You know your Circle', desc: 'Your primary cohort and verified inner board.' },
+                  { title: 'You know your Peers', desc: 'Active, verified entrepreneurs with real companies.' },
+                  { title: 'You know the context', desc: 'Every conversation is grounded in mutual contribution.' },
+                  { title: 'No algorithm deciding', desc: 'Pure chronological signal built around relationships.' },
+                ].map((point) => (
                   <div
-                    key={s.step}
-                    className="p-2 rounded-xl bg-white border border-slate-200/80 shadow-xs"
+                    key={point.title}
+                    className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs space-y-1"
                   >
-                    <span className="w-6 h-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-[11px] flex items-center justify-center mx-auto mb-1">
-                      {s.step}
-                    </span>
-                    <span className="text-[11px] font-bold text-slate-900 block leading-tight">
-                      {s.name}
-                    </span>
-                    <span className="text-[9px] text-slate-500 block leading-tight mt-0.5">
-                      {s.sub}
-                    </span>
+                    <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
+                      <CheckCircle2 className="w-4 h-4 text-[#0062D2] shrink-0" />
+                      <span>{point.title}</span>
+                    </div>
+                    <p className="text-xs text-slate-500 leading-relaxed pl-6">
+                      {point.desc}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
+
+            <div className="lg:col-span-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#040E24] via-[#061836] to-[#0A2558] text-white shadow-xl space-y-6">
+                <div className="w-11 h-11 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
+                  "The experience is built around relationships—not an algorithm deciding what should appear next."
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  Unity removes the noise of open social networks. No promoted posts, no engagement hooks, and no vanity metrics. Just verified entrepreneurs solving problems, making introductions, and taking responsibility for one another.
+                </p>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-sky-200">
+                  <span>Trust-Based Architecture</span>
+                  <span>100% Verified Founders</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 5: TWO-COLUMN SECTION (COMMON QUESTIONS & NOT READY YET) ─ */}
-      <section className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
+      {/* ─── SECTION 3: YOUR COMMUNITY, IN ONE PLACE (12 CORE FEATURES) ───── */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Left Column: Common Questions FAQ Accordion */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-[#0062D2]" />
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-                  Common questions —
-                </h2>
-              </div>
+          
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                The 12 Core Modules
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
+              Your community, in one place
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-light leading-relaxed">
+              Everything built for real collaboration, privacy, contribution, and continuous relationship building.
+            </p>
+          </div>
 
-              <div className="divide-y divide-slate-200 border-y border-slate-200 bg-white rounded-2xl px-6 shadow-sm border border-slate-200">
-                {FAQS.map((faq, index) => {
-                  const isOpen = openFaq === index
-                  return (
-                    <div key={faq.question} className="py-4">
-                      <button
-                        onClick={() => toggleFaq(index)}
-                        className="w-full flex items-center justify-between gap-4 text-left group focus:outline-none"
-                      >
-                        <span className="text-sm sm:text-base font-serif font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                          {faq.question}
-                        </span>
-                        <span
-                          className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                            isOpen
-                              ? 'bg-blue-50 text-blue-600'
-                              : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600'
-                          }`}
-                        >
-                          <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-300 ${
-                              isOpen ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </span>
-                      </button>
-
-                      {isOpen && (
-                        <div className="pt-2 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed pr-6">
-                          {faq.answer}
-                        </div>
-                      )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {TWELVE_FEATURES.map((feat) => {
+              const Icon = feat.icon
+              return (
+                <div
+                  key={feat.num}
+                  className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div className="space-y-3.5">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md text-[11px] font-mono font-bold bg-slate-100 text-slate-600 border border-slate-200/60">
+                        {feat.num}
+                      </span>
+                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center border shadow-2xs transition-transform duration-300 group-hover:scale-105 ${feat.color}`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
                     </div>
-                  )
-                })}
+
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-tight">
+                        {feat.title}
+                      </h3>
+                      <p className="text-xs font-semibold text-blue-600/90 mt-1 leading-snug">
+                        {feat.subtitle}
+                      </p>
+                    </div>
+
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light pt-0.5">
+                      {feat.desc}
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 4: 4 DEEP-DIVE STRATEGIC BOXES (2X2 GRID) ────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            
+            {/* Box 1: YOUR PROFILE IS PRIVATE BY DEFAULT */}
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100/80 shadow-2xs">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  Your profile is private by default
+                </h3>
+                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <p>
+                    Your digital presence should begin with trust. Your profile is private by default.
+                  </p>
+                  <p>
+                    Your participation should happen within the context of a community you have chosen to be part of.
+                  </p>
+                  <p className="text-slate-800 font-medium pt-1">
+                    Unity is not designed around strangers discovering you through an open algorithm. It is designed around relationships you can understand, and relationships you can choose to build.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-[#0062D2]">
+                <Shield className="w-4 h-4 shrink-0" />
+                <span>Zero Open Harvesting • Mutual Connection Permissions</span>
               </div>
             </div>
 
-            {/* Right Column: Not Ready Yet Box */}
-            <div className="lg:col-span-5 bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-md">
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-                <div className="sm:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-slate-950">
-                  <Image
-                    src="/images/unity-hero-phones.jpg"
-                    alt="Unity App Preview"
-                    fill
-                    className="object-cover object-left"
-                  />
+            {/* Box 2: WHY THE APP MATTERS MORE THAN THE MEETING */}
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100/80 shadow-2xs">
+                  <Clock className="w-5 h-5" />
                 </div>
-
-                <div className="sm:col-span-7 space-y-4">
-                  <h3 className="text-2xl font-serif font-bold text-slate-950">
-                    Not ready yet
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Download it anyway. Look at the community, read the feed, see
-                    the Circles. No pressure, and no expiry on deciding.
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  Why the app matters more than the meeting
+                </h3>
+                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <p>
+                    A Circle meeting may happen for a few hours each month. But a relationship does not stop when the meeting ends.
                   </p>
+                  <p>
+                    There are approximately <strong className="text-slate-900 font-semibold">8,736 hours in a year</strong>. The meeting occupies only a small part of that time. The rest is where relationships continue:
+                  </p>
+                  <div className="grid grid-cols-2 gap-1.5 text-xs text-slate-800 font-medium pt-1">
+                    <span>• A message</span>
+                    <span>• An introduction</span>
+                    <span>• A question</span>
+                    <span>• A shared opportunity</span>
+                    <span>• A one-to-one</span>
+                    <span>• A contribution</span>
+                  </div>
+                  <p className="italic text-slate-700 pt-1">
+                    The meeting creates the connection. Unity helps keep the connection alive.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-purple-700">
+                <TrendingUp className="w-4 h-4 shrink-0" />
+                <span>8,736 Hours of Continuous Value</span>
+              </div>
+            </div>
 
-                  <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                    <a
-                      href={SITE.appStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="app-badge-btn !w-full !justify-center"
-                      aria-label="Download on the Apple App Store"
-                    >
-                      <Apple className="size-5.5 fill-white shrink-0" />
-                      <div className="text-left">
-                        <span className="app-badge-sub">Download on the</span>
-                        <span className="app-badge-title">App Store</span>
-                      </div>
-                    </a>
+            {/* Box 3: ONE COMMUNITY. EVERY COUNTRY. */}
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100/80 shadow-2xs">
+                  <Globe2 className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  One community. Every country.
+                </h3>
+                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <p>
+                    PEERS GLOBAL is designed as one community across geographies.
+                  </p>
+                  <div className="space-y-1.5 pl-3 border-l-2 border-emerald-500 text-xs text-slate-700 font-medium">
+                    <p>• Your Circle gives you local relationships.</p>
+                    <p>• Your industry can connect you to relevant entrepreneurs.</p>
+                    <p>• Your purpose can take you beyond your industry.</p>
+                    <p>• And Unity can keep those relationships connected across the wider community.</p>
+                  </div>
+                  <p className="text-slate-900 font-semibold pt-1">
+                    Local relationships. National possibilities. Global connections. One community.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold text-emerald-700">
+                <Compass className="w-4 h-4 shrink-0" />
+                <span>Cross-Border Ecosystem Architecture</span>
+              </div>
+            </div>
 
-                    <a
-                      href={SITE.playStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="app-badge-btn !w-full !justify-center"
-                      aria-label="Get it on Google Play"
-                    >
-                      <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                        <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
-                        <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
-                        <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
-                        <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
-                      </svg>
-                      <div className="text-left">
-                        <span className="app-badge-sub">GET IT ON</span>
-                        <span className="app-badge-title">Google Play</span>
+            {/* Box 4: START HERE */}
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow">
+              <div className="space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100/80 shadow-2xs">
+                  <Flag className="w-5 h-5" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                  Start here
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  You do not need to understand every feature before you begin. Start with your people.
+                </p>
+
+                <div className="space-y-2 pt-1">
+                  {START_HERE_STEPS.map((s, idx) => {
+                    const SIcon = s.icon
+                    return (
+                      <div
+                        key={s.title}
+                        className="flex items-start gap-3 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs"
+                      >
+                        <div className="w-6 h-6 rounded-full bg-[#0062D2] text-white flex items-center justify-center shrink-0 text-[10px] font-bold">
+                          {idx + 1}
+                        </div>
+                        <div>
+                          <span className="text-xs font-bold text-slate-900 block leading-tight">
+                            {s.title}
+                          </span>
+                          <span className="text-[11px] text-slate-600 leading-tight">
+                            {s.desc}
+                          </span>
+                        </div>
                       </div>
-                    </a>
+                    )
+                  })}
+                </div>
+              </div>
+              <p className="text-xs font-semibold text-amber-800 text-center pt-2">
+                That is the purpose of Unity.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 5: UNITY IS WHERE THE RELATIONSHIP CONTINUES ─────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#FAFBFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white p-7 sm:p-10 lg:p-12 shadow-xl border border-slate-800/80 relative overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute top-0 right-0 size-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 size-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+              
+              {/* Left Column: Narrative & 4 Pillars */}
+              <div className="lg:col-span-7 space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
+                    <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                    <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                      The Philosophy of Unity
+                    </span>
                   </div>
 
-                  <p
-                    className="text-lg font-light italic text-blue-700 pt-2"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    See the Possibilities.
-                    <br />
-                    Join When You’re Ready.
+                  <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white tracking-tight leading-tight">
+                    Unity is where the relationship continues.
+                  </h2>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light mt-3">
+                    <strong className="text-white font-semibold">PEERS GLOBAL</strong> is not only a place you visit. It is a community you belong to. Unity keeps the ecosystem connected between the moments when people meet physically.
+                  </p>
+                </div>
+
+                {/* 4 Pillars Mini Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-300 flex items-center justify-center border border-sky-400/20">
+                        <Users className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-sky-300">Your Inner Board</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Dedicated, trusted founders around your table.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center border border-indigo-400/20">
+                        <Clock className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-indigo-300">Shared Experience</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Monthly structured meetings establish real mutual context.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-400/20">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-amber-300">Continuous Trust</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Direct peer messaging and verified collaboration create lasting ties.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.09] transition-colors space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center border border-emerald-400/20">
+                        <Sparkles className="w-3.5 h-3.5" />
+                      </div>
+                      <p className="text-xs font-bold text-emerald-300">Active Contribution</p>
+                    </div>
+                    <p className="text-xs text-slate-300/90 leading-relaxed font-light pl-8">
+                      Logging Life Impact gives business relationships real purpose.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom Quote Banner */}
+                <div className="pt-3 border-t border-white/10">
+                  <p className="text-xs sm:text-[13px] text-slate-300 italic leading-relaxed font-light">
+                    "Because the real value of a community is not what happens when everyone is in the room. It is what people continue to do for one another after they leave it."
                   </p>
                 </div>
               </div>
+
+              {/* Right Column: Visual App Mockup Showcase */}
+              <div className="lg:col-span-5 relative">
+                <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-slate-950/80 p-2 shadow-2xl backdrop-blur-md">
+                  <div className="relative h-[340px] sm:h-[400px] rounded-xl overflow-hidden bg-gradient-to-b from-[#0A2558] to-[#040E24] flex items-center justify-center">
+                    {/* Official Unity App Showcase Mockup */}
+                    <img
+                      src="/images/unity-creatives/1.png"
+                      alt="Unity App Interface"
+                      className="size-full object-contain object-center scale-105 hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#040D1E]/80 via-transparent to-transparent pointer-events-none" />
+
+                    <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white flex items-center justify-between">
+                      <div>
+                        <span className="inline-block px-2 py-0.5 rounded-md bg-blue-500/30 text-sky-300 border border-blue-400/40 text-[10px] font-bold uppercase tracking-wider">
+                          Unity App Experience
+                        </span>
+                        <p className="text-xs font-bold text-white mt-1">
+                          Timeline • Forum • Impact Tracking
+                        </p>
+                      </div>
+                      <span className="text-[10px] text-slate-300 font-mono">
+                        iOS & Android
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ─── SECTION 6: FAQ ACCORDION ─────────────────────────────────────── */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 sm:mb-10">
+            <div className="flex items-center gap-2 mb-2">
+              <HelpCircle className="w-4 h-4 text-[#0062D2]" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                Frequently Asked Questions
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
+              Frequently asked questions
+            </h2>
+          </div>
+
+          <div className="divide-y divide-slate-200 border-y border-slate-200">
+            {FAQS.map((faq, index) => {
+              const isOpen = openFaq === index
+              return (
+                <div key={faq.question} className="py-4 sm:py-5">
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full flex items-center justify-between gap-4 text-left group focus:outline-none cursor-pointer"
+                  >
+                    <span className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
+                      {faq.question}
+                    </span>
+                    <span
+                      className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                        isOpen
+                          ? 'bg-blue-50 text-blue-600'
+                          : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600'
+                      }`}
+                    >
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="pt-3 pb-1 text-sm text-slate-600 leading-relaxed pr-6 font-light">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 6: CLOSING DARK MOUNTAIN BANNER ─────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-slate-950 text-white overflow-hidden">
-        {/* Background Image: Mountain Climber */}
-        <div className="absolute inset-0 opacity-45 mix-blend-luminosity">
-          <Image
-            src="/images/membership-mountain-closing.jpg"
-            alt="Climber looking at sunrise from mountain peak"
-            fill
-            className="object-cover object-center"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90" />
+      {/* ─── SECTION 7: CLOSING EXECUTIVE BANNER (YOUR COMMUNITY. IN YOUR POCKET.) ── */}
+      <section className="relative py-12 sm:py-16 lg:py-20 bg-white border-t border-slate-200/80 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="rounded-3xl bg-gradient-to-br from-[#040D1E] via-[#081836] to-[#040C1A] text-white p-8 sm:p-11 lg:p-14 shadow-2xl border border-slate-800/80 relative overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute top-0 right-0 size-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 size-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                The community you want to belong to has to be built by someone.
-              </h2>
+            <div className="relative z-10 max-w-4xl space-y-7">
+              
+              {/* Header & Tag */}
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                    Digital Home
+                  </span>
+                </div>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-                Build Your Business. Build Your Relationships. Build Your Circle.
+                <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-white tracking-tight leading-tight">
+                  Your community. In your pocket.
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light max-w-2xl">
+                  A meeting can give you a conversation. Unity can help that conversation continue.
+                </p>
+              </div>
+
+              {/* Connected Flow Steps (2x3 Grid with micro numbers) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {[
+                  { num: '01', title: 'A Peer', desc: 'Can become a connection.' },
+                  { num: '02', title: 'A Connection', desc: 'Can become a relationship.' },
+                  { num: '03', title: 'A Relationship', desc: 'Can create collaboration.' },
+                  { num: '04', title: 'Collaboration', desc: 'Can create contribution.' },
+                  { num: '05', title: 'Contribution', desc: 'Can create impact.' },
+                  { num: '06', title: 'Impact', desc: 'Creates possibilities for others.' },
+                ].map((item) => (
+                  <div
+                    key={item.num}
+                    className="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] transition-colors flex items-start gap-3"
+                  >
+                    <span className="inline-flex items-center justify-center size-6 rounded-md bg-blue-500/20 text-sky-300 text-[11px] font-mono font-bold border border-blue-400/30 shrink-0">
+                      {item.num}
+                    </span>
+                    <div>
+                      <span className="text-xs font-bold text-white block leading-tight">
+                        {item.title}
+                      </span>
+                      <span className="text-[11px] text-slate-300 leading-tight font-light">
+                        {item.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-xs sm:text-sm text-sky-200/90 font-medium leading-relaxed max-w-2xl">
+                That is Unity. Not another platform to keep you scrolling. A digital home for the community you have chosen to belong to.
               </p>
 
-            </div>
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href={SITE.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-badge-btn"
+                  aria-label="Download on the Apple App Store"
+                >
+                  <Apple className="size-5 fill-white shrink-0" />
+                  <div className="text-left">
+                    <span className="app-badge-sub">Download on the</span>
+                    <span className="app-badge-title">App Store</span>
+                  </div>
+                </a>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-slate-200 drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                A Stronger
-                <br />
-                Tomorrow.
-                <br />
-                Together.
-              </p>
+                <a
+                  href={SITE.playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-badge-btn"
+                  aria-label="Get it on Google Play"
+                >
+                  <svg className="size-5 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                  </svg>
+                  <div className="text-left">
+                    <span className="app-badge-sub">GET IT ON</span>
+                    <span className="app-badge-title">Google Play</span>
+                  </div>
+                </a>
+
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 backdrop-blur-sm transition-all shadow-sm"
+                >
+                  <span>Apply for Membership</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+
             </div>
           </div>
+
         </div>
       </section>
+
     </div>
   )
 }

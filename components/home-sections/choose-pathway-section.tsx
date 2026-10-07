@@ -126,20 +126,18 @@ export function ChoosePathwaySection() {
               key={item.step}
               href={item.link}
               onMouseEnter={() => setActiveStep(index)}
-              className={`group flex items-center justify-between p-4 md:p-5 rounded-2xl border transition-all duration-300 text-decoration-none ${
-                isActive
+              className={`group flex items-center justify-between p-4 md:p-5 rounded-2xl border transition-all duration-300 text-decoration-none ${isActive
                   ? 'bg-white/[0.08] border-blue-500/60 shadow-lg shadow-blue-900/25 scale-[1.01]'
                   : 'bg-white/[0.03] border-white/10 hover:border-white/20 hover:bg-white/[0.06]'
-              }`}
+                }`}
             >
               <div className="flex items-center gap-4 md:gap-6 min-w-0">
                 {/* Step badge */}
                 <div
-                  className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-sm md:text-base shrink-0 transition-all ${
-                    isActive
+                  className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-sm md:text-base shrink-0 transition-all ${isActive
                       ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/40'
                       : 'bg-white/10 text-white/80 group-hover:bg-white/15'
-                  }`}
+                    }`}
                 >
                   {item.step}
                 </div>
@@ -175,11 +173,10 @@ export function ChoosePathwaySection() {
               {/* Action indicator */}
               <div className="flex items-center gap-3 shrink-0 ml-4">
                 <div
-                  className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
-                    isActive
+                  className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${isActive
                       ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-transparent text-white shadow-md'
                       : 'border-white/20 text-white/50 group-hover:border-white/40 group-hover:text-white'
-                  }`}
+                    }`}
                 >
                   <svg
                     className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
@@ -236,9 +233,8 @@ export function ChoosePathwaySection() {
 
       {/* Dynamic Sticky Bottom Bar - Appears smoothly when section is active */}
       <div
-        className={`fixed bottom-0 inset-x-0 z-50 bg-[#081827]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
-        }`}
+        className={`fixed bottom-0 inset-x-0 z-50 bg-[#081827]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
+          }`}
       >
         <div className="max-w-[1000px] mx-auto flex items-center justify-between gap-4">
           <div className="text-left">

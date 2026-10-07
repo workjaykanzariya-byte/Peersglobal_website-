@@ -4,849 +4,1052 @@ import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   ArrowRight,
-  Quote,
   Users,
-  Send,
-  Lightbulb,
-  UserCheck,
-  Building2,
-  Handshake,
-  Package,
-  Globe,
+  Compass,
+  Zap,
+  HeartHandshake,
+  Sparkles,
+  BookOpen,
+  Smartphone,
+  Share2,
+  Lock,
+  Layers,
+  CheckCircle2,
+  ChevronRight,
   TrendingUp,
   Award,
+  Handshake,
+  Lightbulb,
+  Building2,
+  Send,
+  Eye,
+  Heart,
+  Hammer,
   Shield,
-  HeartHandshake,
-  Smartphone,
-  Layers,
-  Sparkles,
-  Trophy,
-  Coins,
-  Compass,
-  ChevronRight,
+  ShieldCheck,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'The Language | Words We Live By — Peers Global',
   description:
-    'Every community that lasts builds a language of its own. Explore the core lexicon, principles, and shared vocabulary that define the Peers Global community of collaboration.',
+    'Every community that lasts builds a language of its own. Explore the core lexicon, principles, and shared vocabulary that define the PEERS GLOBAL community of collaboration.',
   keywords: [
     'The Language',
-    'Peers Global Lexicon',
+    'PEERS GLOBAL Lexicon',
     'Words We Live By',
-    'The Peer',
-    'The Circle',
-    'Give-First',
+    'Peer vs Member',
+    'Inner Board',
+    'Give-First Mindset',
+    'Life Impactor',
+    'LSR Model',
     'Unity App',
-    '10 Ways of Collaboration',
+    '10 Forms of Collaboration',
   ],
 }
 
-// 10 Ways of Collaboration Data
-const TEN_WAYS_DATA = [
+// 10 Forms of Collaboration Data
+const TEN_FORMS_OF_COLLABORATION = [
   {
-    num: '01',
-    title: 'Introduction',
-    desc: 'You open a door that you personally hold.',
-    icon: Users,
-  },
-  {
-    num: '02',
-    title: 'Referral',
-    desc: 'You send business to a Peer.',
+    id: 1,
+    form: 'Business Referral',
+    meaning: 'Connecting the right opportunity to the right Peer',
     icon: Send,
+    tag: 'Opportunity',
+    color: 'text-blue-600',
+    bg: 'bg-blue-50',
   },
   {
-    num: '03',
-    title: 'Knowledge',
-    desc: 'You share what you have learned.',
-    icon: Lightbulb,
+    id: 2,
+    form: 'Mentorship',
+    meaning: 'Sharing experience to help another entrepreneur navigate a challenge',
+    icon: BookOpen,
+    tag: 'Guidance',
+    color: 'text-indigo-600',
+    bg: 'bg-indigo-50',
   },
   {
-    num: '04',
-    title: 'Mentorship',
-    desc: "You invest in another entrepreneur's growth.",
-    icon: UserCheck,
-  },
-  {
-    num: '05',
-    title: 'Customer Connection',
-    desc: 'You connect to buyers.',
-    icon: Building2,
-  },
-  {
-    num: '06',
-    title: 'Partnership',
-    desc: 'You build together.',
+    id: 3,
+    form: 'Joint Venture',
+    meaning: 'Building something together that neither could build as effectively alone',
     icon: Handshake,
+    tag: 'Synergy',
+    color: 'text-rose-600',
+    bg: 'bg-rose-50',
   },
   {
-    num: '07',
-    title: 'Resources',
-    desc: 'You lend what you have.',
-    icon: Package,
+    id: 4,
+    form: 'Knowledge Sharing',
+    meaning: 'Making expertise available to others',
+    icon: Lightbulb,
+    tag: 'Wisdom',
+    color: 'text-amber-600',
+    bg: 'bg-amber-50',
   },
   {
-    num: '08',
-    title: 'Market Access',
-    desc: 'You open new geographies.',
-    icon: Globe,
+    id: 5,
+    form: 'Problem Solving',
+    meaning: 'Bringing experience and perspective to a real business challenge',
+    icon: Sparkles,
+    tag: 'Solutions',
+    color: 'text-emerald-600',
+    bg: 'bg-emerald-50',
   },
   {
-    num: '09',
-    title: 'Investor Connection',
-    desc: 'You connect to capital.',
+    id: 6,
+    form: 'Vendor Connect',
+    meaning: 'Helping a Peer discover a relevant supplier or service provider',
+    icon: Building2,
+    tag: 'Network',
+    color: 'text-cyan-600',
+    bg: 'bg-cyan-50',
+  },
+  {
+    id: 7,
+    form: 'Funding Access',
+    meaning: 'Connecting entrepreneurs with relevant funding relationships or opportunities',
     icon: TrendingUp,
+    tag: 'Capital',
+    color: 'text-violet-600',
+    bg: 'bg-violet-50',
   },
   {
-    num: '10',
-    title: 'Industry Expertise',
-    desc: 'You share specialist knowledge.',
-    icon: Award,
+    id: 8,
+    form: 'Visibility & PR',
+    meaning: 'Helping a Peer gain appropriate visibility for their work',
+    icon: Eye,
+    tag: 'Reach',
+    color: 'text-fuchsia-600',
+    bg: 'bg-fuchsia-50',
+  },
+  {
+    id: 9,
+    form: 'Emotional Support',
+    meaning: 'Being present when entrepreneurship becomes personally difficult',
+    icon: Heart,
+    tag: 'Resilience',
+    color: 'text-rose-600',
+    bg: 'bg-rose-50',
+  },
+  {
+    id: 10,
+    form: 'Execution Support',
+    meaning: 'Helping turn an idea or requirement into action',
+    icon: Hammer,
+    tag: 'Action',
+    color: 'text-blue-600',
+    bg: 'bg-blue-50',
   },
 ]
 
-// Lexicon Words Data
-const LEXICON_WORDS = [
+// Complete Reference Table Data
+const REFERENCE_TABLE_DATA = [
   {
-    title: 'Peer',
-    desc: 'You equal who builds with you',
-    icon: Shield,
-    color: 'bg-blue-50 text-[#0062D2] border-blue-100',
+    word: 'Peer',
+    badge: 'RELATIONSHIP',
+    meaning: 'A relationship built through trust, contribution and shared entrepreneurial experience.',
   },
   {
-    title: 'Circle',
-    desc: 'The room where trust is built',
-    icon: Compass,
-    color: 'bg-teal-50 text-teal-600 border-teal-100',
+    word: 'Member',
+    badge: 'STATUS',
+    meaning: 'The formal membership status within PEERS GLOBAL.',
   },
   {
-    title: 'Give-First',
-    desc: 'Contribution before any ask',
-    icon: HeartHandshake,
-    color: 'bg-amber-50 text-amber-600 border-amber-100',
+    word: 'Circle',
+    badge: 'COMMUNITY',
+    meaning: 'A structured community of entrepreneurs acting as an Inner Board.',
   },
   {
-    title: 'Unity',
-    desc: 'The community, every day',
-    icon: Smartphone,
-    color: 'bg-sky-50 text-sky-600 border-sky-100',
+    word: 'Powerhouse',
+    badge: 'LEADERSHIP',
+    meaning: 'A Peer who takes responsibility for actively contributing to the community.',
   },
   {
-    title: '10 Ways of Collaboration',
-    desc: 'How value moves between Peers',
-    icon: Layers,
-    color: 'bg-purple-50 text-purple-600 border-purple-100',
+    word: 'Give-First',
+    badge: 'MINDSET',
+    meaning: 'Beginning relationships with a willingness to contribute value upfront.',
   },
   {
-    title: 'Life Impact Score',
-    desc: 'A record of what you have given',
-    icon: Sparkles,
-    color: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+    word: 'Life Impactor',
+    badge: 'CONTRIBUTION',
+    meaning: 'A person whose action creates a lasting positive difference for another.',
   },
   {
-    title: 'Peer Standing',
-    desc: 'Recognition earned through contribution',
-    icon: Trophy,
-    color: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+    word: 'LSR',
+    badge: 'CORE MODEL',
+    meaning: 'Learning, Sharing and Relationships — the core operating rhythm of PEERS GLOBAL.',
   },
   {
-    title: 'Peers Coin',
-    desc: 'Rewards you earn by giving',
-    icon: Coins,
-    color: 'bg-orange-50 text-orange-600 border-orange-100',
+    word: 'Unity',
+    badge: 'DIGITAL HOME',
+    meaning: 'The digital community platform connecting Peers beyond physical meetings.',
   },
   {
-    title: '1 Million Mission',
-    desc: 'One million lives impacted',
-    icon: Globe,
-    color: 'bg-blue-50 text-[#0062D2] border-blue-100',
+    word: 'MindMeld',
+    badge: 'CONVERGENCE',
+    meaning: 'A cross-community environment for exchanging multi-industry perspectives.',
+  },
+  {
+    word: 'Confidential Forum',
+    badge: 'TRUSTED SPACE',
+    meaning: 'A trusted space for sensitive, discreet entrepreneurial conversations.',
+  },
+  {
+    word: '10 Forms of Collaboration',
+    badge: 'FRAMEWORK',
+    meaning: 'The principal ways Peers create measurable value for one another.',
   },
 ]
 
 export default function TheLanguagePage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-white text-[#0f131a] selection:bg-[#1D4ED8] selection:text-white font-sans">
+
+      {/* Structured Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'DefinedTermSet',
+            name: 'The PEERS GLOBAL Language',
+            description:
+              'The core lexicon and philosophy of PEERS GLOBAL: Peer, Circle, Powerhouse, Give-First, Life Impactor, LSR, Unity, MindMeld, Confidential Forum, and the 10 Forms of Collaboration.',
+            hasDefinedTerm: REFERENCE_TABLE_DATA.map((item) => ({
+              '@type': 'DefinedTerm',
+              name: item.word,
+              description: item.meaning,
+              inDefinedTermSet: 'https://peersglobal.com/the-language',
+            })),
+          }),
+        }}
+      />
 
       {/* =========================================================================
-          SECTION 1: HERO ("THE LANGUAGE")
-          Dark Executive Cinematic Banner matching reference screenshot
+          SECTION 1: HERO (Master Full Page Dark Video Banner)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#050C1A] text-white pt-8 pb-16 sm:pb-24 border-b border-slate-800">
-        
-        {/* Subtle Ambient Radial Glows */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[140px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-1/2 right-10 h-[400px] w-[400px] rounded-full bg-indigo-500/10 blur-[130px]"
-        />
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-14 sm:pb-20 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
           {/* Top Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-medium tracking-wide mb-8 sm:mb-12">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
             <ChevronRight className="size-3.5 text-slate-500" />
-            <span className="text-sky-400 font-semibold">The Language</span>
+            <span className="text-slate-400">Our World</span>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">The Language</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            
-            {/* Left Content (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="w-6 h-[1.5px] bg-sky-400" />
-                <span>THE LANGUAGE</span>
-                <span className="w-6 h-[1.5px] bg-sky-400" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE LEXICON &amp; VOCABULARY</span>
               </div>
 
-              {/* Title */}
-              <h1 className="font-serif text-4xl sm:text-6xl lg:text-[64px] font-normal text-white tracking-tight leading-[1.08] mb-5">
-                The Language
-              </h1>
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  The{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Language.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Every community that lasts builds a language of its own. A shared vocabulary that creates trust, clarity, and enduring collaboration.
+                </p>
+              </div>
 
-              {/* Lead Paragraph */}
-              <p className="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed mb-3 max-w-xl">
-                Every community that lasts builds a language of its own.
-              </p>
-
-              {/* Sub-lead Paragraph */}
-              <p className="text-sm sm:text-base text-slate-400 font-light leading-relaxed mb-8 max-w-xl">
-                These are the words Peers live by — and what each of them actually means here.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/membership"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
                 >
                   <span>Become a Peer</span>
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
 
-                <Link
-                  href="/circles"
-                  className="rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105"
+                <a
+                  href="#terms"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
                 >
-                  Find Your Circle
-                </Link>
+                  <span>Explore 10 Core Words</span>
+                </a>
               </div>
 
-            </div>
-
-            {/* Right Media (6 cols): Open Notebook & Coffee Mug Scene */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] aspect-[16/11] sm:aspect-[16/10] group">
-                
-                {/* Desk Photograph */}
-                <Image
-                  src="/images/language-hero-desk.jpg"
-                  alt="Peers Global notebook and desk"
-                  fill
-                  priority
-                  className="object-cover object-center brightness-[0.88] contrast-[1.1] transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Subtle vignette gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
-
-                {/* Script Typography Overlaid on the Open Notebook Pages */}
-                <div className="absolute top-[32%] left-[28%] sm:left-[30%] -translate-y-1/2 pointer-events-none select-none text-center sm:text-left">
-                  <div
-                    className="text-slate-800 text-lg sm:text-2xl font-bold leading-tight drop-shadow-xs"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    <div>People</div>
-                    <div className="mt-0.5">Ideas</div>
-                    <div className="mt-0.5">Opportunities</div>
-                    <div className="mt-0.5 text-[#0062D2]">Impact</div>
-                  </div>
-                </div>
-
-                {/* Script Typography on bottom right near mug: People Create Impact */}
-                <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 pointer-events-none select-none text-right">
-                  <div
-                    className="text-white/95 text-xl sm:text-2xl font-bold leading-tight drop-shadow-lg"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    People <br />
-                    Create <br />
-                    Impact
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* =========================================================================
-          SECTION 2: "WHY WORDS MATTER HERE" (OUR COMMON GROUND)
-          Pure White Section with Quote Card
-          ========================================================================= */}
-      <section className="relative py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200/80">
-        
-        {/* Subtle Watermark World Map Graphics in Background */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-[0.035] pointer-events-none overflow-hidden select-none">
-          <svg viewBox="0 0 1000 600" fill="currentColor" className="w-full h-full text-slate-900">
-            <circle cx="200" cy="200" r="140" />
-            <circle cx="500" cy="250" r="180" />
-            <circle cx="800" cy="300" r="160" />
-          </svg>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left 7 cols: Content */}
-            <div className="lg:col-span-7 flex flex-col items-start">
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-                <span>OUR COMMON GROUND</span>
-              </div>
-
-              {/* Headline */}
-              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-6">
-                Why words matter here
-              </h2>
-
-              {/* Narrative Paragraphs */}
-              <div className="space-y-4 text-slate-600 font-light text-sm sm:text-base leading-relaxed max-w-2xl">
-                <p className="text-base sm:text-lg text-slate-700 font-normal">
-                  A shared language does something that rules never can.
-                </p>
-                <p>
-                  When a hundred entrepreneurs in twelve cities use the same words to describe the same things, they behave the same way without anyone instructing them.
-                </p>
-                <p>
-                  These words are not branding. Each one describes something that genuinely happens here, every week, in real rooms between real people.
-                </p>
-                <p>
-                  Learn these five and you understand how this community works.
-                </p>
-              </div>
-
-            </div>
-
-            {/* Right 5 cols: Quote Card */}
-            <div className="lg:col-span-5 flex lg:justify-end">
-              <div className="bg-[#FAFBFD] rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.03)] max-w-md w-full relative">
-                
-                {/* Large Blue Quote Mark */}
-                <Quote className="size-9 text-[#0062D2] mb-5 opacity-80" />
-
-                {/* Quote Text */}
-                <p className="font-serif italic text-2xl sm:text-[26px] text-slate-800 font-normal leading-snug mb-6">
-                  &ldquo;Same words. <br />
-                  Same understanding. <br />
-                  <span className="text-[#0062D2] font-normal">A stronger community</span> <br />
-                  everywhere.&rdquo;
-                </p>
-
-                {/* Attribution */}
-                <div className="pt-5 border-t border-slate-200/70 text-xs font-bold tracking-[0.25em] text-slate-400 uppercase">
-                  PEERS GLOBAL
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* =========================================================================
-          SECTION 3: THE 4 CORE WORD ROWS (PHOTO ON LEFT, CONTENT ON RIGHT)
-          Exact Match to Reference Screenshot
-          ========================================================================= */}
-      <section className="relative py-20 sm:py-28 bg-[#FAFBFD] text-slate-900 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
-          
-          {/* ─────────────────────────────────────────────────────────────
-              ROW 1: THE PEER
-              ───────────────────────────────────────────────────────────── */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Video Card (6 cols) */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] sm:aspect-[16/9] shadow-md border border-slate-200 group bg-slate-950">
-                <video
-                  src="/videos/homepage-hero-bg.mp4"
-                  poster="/images/who-we-are-friends.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="size-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-                
-                {/* Cursive Script Overlay Bottom Right */}
-                <div className="absolute bottom-5 right-6 text-right pointer-events-none select-none z-10">
-                  <p
-                    className="text-white text-xl sm:text-2xl font-normal drop-shadow-md leading-tight"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Partners in Business <br />
-                    and Friends in Life.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content Block (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-                <span>THE PEER</span>
-              </div>
-
-              {/* Title */}
-              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-snug mb-4">
-                An equal who chooses to build with you
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed mb-4">
-                A Peer is an entrepreneur or business leader who believes in building trusted relationships, contributing to others, and growing together.
-              </p>
-
-              {/* Bold punchline */}
-              <p className="text-sm sm:text-base font-semibold text-slate-900 mb-6">
-                Peers are Partners in Business and Friends in Life.
-              </p>
-
-              {/* CTA Button */}
-              <Link
-                href="/membership"
-                className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 items-center gap-2"
-              >
-                <span>Become a Peer</span>
-                <ArrowRight className="size-4" />
-              </Link>
-
-            </div>
-
-          </div>
-
-
-          {/* ─────────────────────────────────────────────────────────────
-              ROW 2: THE CIRCLE
-              ───────────────────────────────────────────────────────────── */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Video Card (6 cols) */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] sm:aspect-[16/9] shadow-md border border-slate-200 group bg-slate-950">
-                <video
-                  src="/videos/leadership-hero-bg.mp4"
-                  poster="/images/who-we-are-boardroom.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="size-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-                
-                {/* Cursive Script Overlay Bottom Right */}
-                <div className="absolute bottom-5 right-6 text-right pointer-events-none select-none z-10">
-                  <p
-                    className="text-white text-xl sm:text-2xl font-normal drop-shadow-md leading-tight"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    The right people. <br />
-                    In the right room.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content Block (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-                <span>THE CIRCLE</span>
-              </div>
-
-              {/* Title */}
-              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-snug mb-4">
-                The room where trust is built
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed mb-4">
-                A Circle brings together the right entrepreneurs around a common industry, interest, location or opportunity. Small enough for trust. Diverse enough for real value. No head of the table. No back row.
-              </p>
-
-              {/* Bold punchline */}
-              <p className="text-sm sm:text-base font-semibold text-slate-900 mb-6">
-                We put the right people in the room.
-              </p>
-
-              {/* CTA Button */}
-              <Link
-                href="/circles"
-                className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 items-center gap-2"
-              >
-                <span>Find Your Circle</span>
-                <ArrowRight className="size-4" />
-              </Link>
-
-            </div>
-
-          </div>
-
-
-          {/* ─────────────────────────────────────────────────────────────
-              ROW 3: GIVE-FIRST
-              ───────────────────────────────────────────────────────────── */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Video Card (6 cols) */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] sm:aspect-[16/9] shadow-md border border-slate-200 group bg-slate-950">
-                <video
-                  src="/videos/stories-hero-bg.mp4"
-                  poster="/images/give-first-card.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="size-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-                
-                {/* Cursive Script Overlay Bottom Right */}
-                <div className="absolute bottom-5 right-6 text-right pointer-events-none select-none z-10">
-                  <p
-                    className="text-white text-xl sm:text-2xl font-normal drop-shadow-md leading-tight"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Give first. <br />
-                    Everything else follows.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content Block (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-                <span>GIVE-FIRST</span>
-              </div>
-
-              {/* Title */}
-              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-snug mb-4">
-                Contribution before any ask
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-                You contribute before you ask. Always. You make the introduction, share what you know, and help another entrepreneur without first calculating what it might return. This is how trust is manufactured.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          {/* ─────────────────────────────────────────────────────────────
-              ROW 4: UNITY
-              ───────────────────────────────────────────────────────────── */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Visual Card: Dark Phone Mockup with Video Motion Background (6 cols) */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] sm:aspect-[16/9] bg-[#0A1224] p-6 sm:p-8 shadow-md border border-slate-800 flex items-center justify-between group">
-                
-                {/* Looping Ambient Motion Video in Background */}
-                <video
-                  src="/videos/hero-background.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 size-full object-cover object-center filter brightness-[0.3] contrast-[1.25] pointer-events-none"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0A1224]/90 via-[#0A1224]/65 to-[#0A1224]/90 pointer-events-none" />
-
-                {/* Script Callout Left */}
-                <div className="pointer-events-none select-none z-10">
-                  <p
-                    className="text-white text-xl sm:text-2xl font-normal drop-shadow-md leading-tight"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    The community. <br />
-                    Every day.
-                  </p>
-                </div>
-
-                {/* Centered Phone Screen Mockup */}
-                <div className="relative w-36 sm:w-44 h-48 sm:h-56 z-10 shrink-0">
-                  <Image
-                    src="/images/unity-app-phone.png"
-                    alt="Unity App interface"
-                    fill
-                    className="object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]"
-                  />
-                </div>
-
-                {/* Feature Checklist Right */}
-                <div className="space-y-2.5 z-10 text-right sm:text-left">
-                  {['Connect', 'Collaborate', 'Log Impact', 'Find Opportunities', 'Stay Connected'].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-medium justify-end sm:justify-start">
-                      <span className="size-1.5 rounded-full bg-sky-400" />
-                      <span>{item}</span>
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: BookOpen, value: '10 Words', label: 'Living Lexicon' },
+                  { icon: Handshake, value: '10 Forms', label: 'Collaboration Modes' },
+                  { icon: HeartHandshake, value: '1 Voice', label: 'Shared Culture' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-
-                {/* Ambient glow */}
-                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-
+                  )
+                })}
               </div>
             </div>
 
-            {/* Right Content Block (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-                <span>UNITY</span>
-              </div>
-
-              {/* Title */}
-              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-slate-900 tracking-tight leading-snug mb-4">
-                The community, every day
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed mb-6">
-                Unity is the digital home of Peers Global. A Circle meets for a few hours a month; Unity is the rest of the year. It is where Peers find each other, book conversations, log contributions and keep collaborating between meetings.
-              </p>
-
-              {/* CTA Button */}
-              <a
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 items-center gap-2"
-              >
-                <span>Download Unity App</span>
-                <ArrowRight className="size-4" />
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* =========================================================================
-          SECTION 4: "HOW VALUE ACTUALLY MOVES BETWEEN PEERS"
-          (THE 10 WAYS OF COLLABORATION)
-          Exact match to 10 cards grid in reference screenshot
-          ========================================================================= */}
-      <section className="relative py-20 sm:py-28 bg-[#EEF5FC] text-slate-900 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          
-          {/* Header Area */}
-          <div className="text-center max-w-3xl mx-auto mb-14 relative">
-            
-            {/* Top-Right Script Callout */}
-            <div className="hidden lg:block absolute -right-44 -top-4 pointer-events-none select-none text-right">
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
               <p
-                className="text-[#0062D2] text-2xl font-bold leading-tight drop-shadow-xs -rotate-3"
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
-                More Ways. <br />
-                Greater Possibilities.
+                People
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Create
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Enduring Impact
               </p>
             </div>
-
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              <span>THE 10 WAYS OF COLLABORATION</span>
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            </div>
-
-            {/* Title */}
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-4">
-              How value actually moves between Peers
-            </h2>
-
-            {/* Subtitle */}
-            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-              Collaboration at Peers Global is a defined practice. These are the ten forms it takes.
-            </p>
-
           </div>
-
-          {/* 10 Cards Grid (5 columns on desktop, 2 rows) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 mb-12">
-            {TEN_WAYS_DATA.map((item, idx) => {
-              const IconComp = item.icon
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-200 transition-all duration-300 flex flex-col items-center text-center group"
-                >
-                  {/* Icon in Blue */}
-                  <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <IconComp className="size-5" />
-                  </div>
-
-                  {/* Number */}
-                  <span className="text-[11px] font-bold text-slate-400 tracking-wider mb-1">
-                    {item.num}
-                  </span>
-
-                  {/* Title */}
-                  <h3 className="text-sm font-bold text-slate-900 mb-1.5 leading-snug">
-                    {item.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[12px] text-slate-500 font-light leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Explore Collaboration CTA Button */}
-          <div className="flex justify-center">
-            <Link
-              href="/10-ways-of-collaboration"
-              className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 items-center gap-2"
-            >
-              <span>Explore Collaboration</span>
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-
         </div>
       </section>
-
 
       {/* =========================================================================
-          SECTION 5: "THE WORDS WE LIVE BY" (OUR LEXICON)
-          Pure White Section with 9 Lexicon Terms Grid
+          SECTION 2: PROLOGUE / MORE THAN VOCABULARY
           ========================================================================= */}
-      <section className="relative py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200/80">
+      <section className="relative py-20 sm:py-28 bg-white border-b border-cool-grey-250/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[32px] border border-cool-grey-250 bg-gradient-to-br from-[#FAFBFD] via-white to-blue-50/30 p-8 sm:p-12 lg:p-14 shadow-sm space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Heading */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="inline-flex items-center gap-2.5">
+                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    MORE THAN VOCABULARY
+                  </span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0f131a] tracking-tight leading-[1.15]">
+                  <span>Our language exists not to make us sound different,</span>{' '}
+                  <span className="brand-gradient-text block sm:inline">but to express something different.</span>
+                </h2>
+
+                <p className="text-cool-grey-600 text-base sm:text-lg leading-relaxed font-normal">
+                  These words describe the culture we are building together. They give behavioral shape to what we believe and how we treat one another across every room.
+                </p>
+              </div>
+
+              {/* Right Column: 4 Principle Pills */}
+              <div className="lg:col-span-5 space-y-3">
+                <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs flex items-center justify-between">
+                  <span className="text-xs sm:text-sm text-cool-grey-600">When we say <strong className="text-slate-900 font-bold">Peer</strong></span>
+                  <span className="text-xs font-bold brand-gradient-text">We mean more than a member</span>
+                </div>
+                <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs flex items-center justify-between">
+                  <span className="text-xs sm:text-sm text-cool-grey-600">When we say <strong className="text-slate-900 font-bold">Circle</strong></span>
+                  <span className="text-xs font-bold text-indigo-600">We mean more than a meeting</span>
+                </div>
+                <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs flex items-center justify-between">
+                  <span className="text-xs sm:text-sm text-cool-grey-600">When we say <strong className="text-slate-900 font-bold">Give-First</strong></span>
+                  <span className="text-xs font-bold text-rose-600">We mean more than generosity</span>
+                </div>
+                <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs flex items-center justify-between">
+                  <span className="text-xs sm:text-sm text-cool-grey-600">When we say <strong className="text-slate-900 font-bold">Life Impactor</strong></span>
+                  <span className="text-xs font-bold text-emerald-600">We mean collective impact</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 3: THE 10 CORE WORDS (01 to 10)
+          ========================================================================= */}
+      <section id="terms" className="relative py-20 sm:py-28 bg-[#FAFBFD] border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              <span>OUR LEXICON</span>
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE 10 DEFINING CONCEPTS
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
-            {/* Title */}
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-3">
-              The words we live by
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0f131a] tracking-tight leading-[1.14]">
+              <span>The Ten Words of</span>{' '}
+              <span className="brand-gradient-text block sm:inline">PEERS GLOBAL</span>
             </h2>
 
-            {/* Subtitle */}
-            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-              Different words. One standard. A shared language that makes the community work.
+            <p className="text-base sm:text-lg text-cool-grey-600 font-normal leading-relaxed">
+              Each word represents a pillar of how we relate, collaborate, and build enduring value together.
             </p>
-
           </div>
 
-          {/* 9 Lexicon Cards (Adaptive Grid) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-4.5 mb-14">
-            {LEXICON_WORDS.map((item, idx) => {
-              const IconComp = item.icon
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl p-4.5 border border-slate-200/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-slate-300 transition-all flex items-center gap-3.5 group"
-                >
-                  <div className={`size-10 rounded-xl flex items-center justify-center shrink-0 border ${item.color} group-hover:scale-105 transition-transform`}>
-                    <IconComp className="size-4.5" />
-                  </div>
+          <div className="space-y-8">
 
-                  <div className="min-w-0">
-                    <h3 className="text-sm font-bold text-slate-900 leading-tight mb-0.5 truncate">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] text-slate-500 font-light leading-snug line-clamp-2">
-                      {item.desc}
-                    </p>
+            {/* 01 — PEER */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center">
+                      <Users className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      01 — PEER
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    A Peer is not simply someone who belongs.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-100 self-start">
+                  Relationship Over Status
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  A Member has a status. <strong className="text-slate-900 font-bold">A Peer has a relationship.</strong> That distinction matters.
+                </p>
+                <p>
+                  You become a Member by joining PEERS GLOBAL. You become a Peer through the relationships you build, the trust you develop, the experience you share and the contribution you make.
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 py-2 text-xs sm:text-sm font-medium text-slate-800">
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2.5">
+                    <CheckCircle2 className="size-4 text-[#1D4ED8] shrink-0" />
+                    <span>Introduce you to someone you need to know</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2.5">
+                    <CheckCircle2 className="size-4 text-[#1D4ED8] shrink-0" />
+                    <span>Challenge your thinking constructively</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2.5">
+                    <CheckCircle2 className="size-4 text-[#1D4ED8] shrink-0" />
+                    <span>Share hard-won lessons openly</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2.5">
+                    <CheckCircle2 className="size-4 text-[#1D4ED8] shrink-0" />
+                    <span>Open previously closed doors</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2.5">
+                    <CheckCircle2 className="size-4 text-[#1D4ED8] shrink-0" />
+                    <span>Listen when business becomes difficult</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2.5">
+                    <CheckCircle2 className="size-4 text-[#1D4ED8] shrink-0" />
+                    <span>Celebrate when something goes right</span>
                   </div>
                 </div>
-              )
-            })}
+                <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 shadow-2xs">
+                  <p className="text-base sm:text-lg font-bold brand-gradient-text text-center">
+                    &ldquo;Membership is what you buy. Peer is what you become.&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 02 — CIRCLE */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center">
+                      <Compass className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      02 — CIRCLE
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    Your Circle. Your Inner Board.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-teal-50 text-teal-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-teal-100 self-start">
+                  The Inner Board
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  A Circle is where the idea of PEERS GLOBAL becomes personal. It is a structured community of entrepreneurs who meet regularly, build relationships and create opportunities for one another.
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 py-2 text-xs sm:text-sm font-medium text-slate-800">
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2">
+                    <span className="size-2 rounded-full bg-teal-500" />
+                    <span>Experience you can draw upon</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2">
+                    <span className="size-2 rounded-full bg-teal-500" />
+                    <span>Peers you can ask and help</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2">
+                    <span className="size-2 rounded-full bg-teal-500" />
+                    <span>Fresh perspectives on your business</span>
+                  </div>
+                </div>
+                <div className="p-5 rounded-2xl bg-teal-50/80 border border-teal-200/80 shadow-2xs">
+                  <p className="text-base sm:text-lg font-bold text-teal-900 text-center">
+                    &ldquo;Circles create the environment. Relationships create the value.&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 03 — POWERHOUSE */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                      <Zap className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      03 — POWERHOUSE
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    Contribution needs people who are willing to step forward.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-indigo-100 self-start">
+                  Contribution in Action
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  A Powerhouse is a Peer who takes responsibility for helping the community move forward. It represents contribution in action.
+                </p>
+                <p>
+                  Leadership inside PEERS GLOBAL is not a position of distance—it is a responsibility to serve the people around you.
+                </p>
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs font-semibold text-slate-900 text-sm sm:text-base">
+                  The strongest communities are strengthened by people who ask: <span className="brand-gradient-text font-bold">&ldquo;What can I contribute?&rdquo;</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 04 — GIVE-FIRST */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-rose-50 text-[#E11D48] flex items-center justify-center">
+                      <HeartHandshake className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      04 — GIVE-FIRST
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    Before asking what the community can do for you, ask what you can do for someone in it.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-rose-50 text-[#E11D48] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-rose-100 self-start">
+                  Mindset of Abundance
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  Give-First means beginning with a mindset of contribution rather than extraction. A small act of contribution creates a relationship. A relationship creates trust. Trust creates collaboration. And collaboration creates impact.
+                </p>
+                <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 shadow-2xs">
+                  <p className="text-sm sm:text-base font-bold text-slate-900 text-center">
+                    Give first. Build trust. Create value. Let relationships grow. That is how a community compounds.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 05 — LIFE IMPACTOR */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                      <Sparkles className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      05 — LIFE IMPACTOR
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    Success becomes more meaningful when it changes something for someone else.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-100 self-start">
+                  1 Action = 1 Life Impacted
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  A Life Impactor is a Peer whose actions create a positive difference in another person&apos;s journey. Every genuine contribution matters: introductions, teaching, mentoring, and solving real challenges.
+                </p>
+                <div className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-sm sm:text-base shadow-md">
+                  <Sparkles className="size-4" />
+                  <span>1 Action = 1 Life Impacted</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 06 — LSR */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center">
+                      <BookOpen className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      06 — LSR
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    Learning. Sharing. Relationships.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-100 self-start">
+                  The Core Model
+                </div>
+              </div>
+
+              <div className="mt-6 grid md:grid-cols-3 gap-4">
+                <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
+                  <h4 className="text-base font-bold text-[#0f131a]">LEARNING</h4>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Entrepreneurs never stop learning. Insight comes from mistakes, mentors, and hard-earned experiences.
+                  </p>
+                </div>
+                <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
+                  <h4 className="text-base font-bold text-[#0f131a]">SHARING</h4>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Knowledge becomes more valuable when it moves, turning individual experience into collective strength.
+                  </p>
+                </div>
+                <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
+                  <h4 className="text-base font-bold text-[#0f131a]">RELATIONSHIPS</h4>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Business is built by people. Trust takes time, and meaningful collaboration begins with genuine relationships.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 07 — UNITY */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
+                      <Smartphone className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      07 — UNITY
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    The community does not disappear when the meeting ends.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-sky-50 text-sky-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-sky-100 self-start">
+                  The Digital Home
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  Unity is the digital home of PEERS GLOBAL, connecting your Circle, conversations, collaborations, events, and impact 24/7.
+                </p>
+                <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white shadow-md space-y-1">
+                  <div className="text-base sm:text-lg font-bold text-sky-300">
+                    The meeting is an event. The relationship is the experience.
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-300 font-normal">
+                    Unity keeps the community connected and responsive between physical gatherings.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 08 — MINDMELD */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+                      <Share2 className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      08 — MINDMELD
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    When different entrepreneurs sit together, new possibilities emerge.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-purple-50 text-purple-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-purple-100 self-start">
+                  Cross-Industry Convergence
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  A MindMeld brings entrepreneurs together beyond individual Circles to encounter unexpected insights, cross-industry perspectives, and breakthrough ideas.
+                </p>
+              </div>
+            </div>
+
+            {/* 09 — CONFIDENTIAL FORUM */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center">
+                      <Lock className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      09 — CONFIDENTIAL FORUM
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    Some conversations need trust before they need answers.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-rose-50 text-rose-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-rose-100 self-start">
+                  Safe &amp; Discreet Space
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4 text-cool-grey-600 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  The Confidential Forum exists for sensitive entrepreneurial decisions that require discretion, safety, and mature peer counsel.
+                </p>
+              </div>
+            </div>
+
+            {/* 10 — THE 10 FORMS OF COLLABORATION */}
+            <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="size-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center">
+                      <Layers className="size-4" />
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                      10 — THE 10 FORMS OF COLLABORATION
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
+                    Collaboration can take many forms.
+                  </h3>
+                </div>
+                <div className="shrink-0 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-100 self-start">
+                  Beyond Referrals
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-6">
+                <p className="text-cool-grey-600 text-base sm:text-lg font-normal leading-relaxed">
+                  Collaboration happens wherever one entrepreneur&apos;s capability, relationship, or resource helps another move forward.
+                </p>
+
+                {/* 10 Forms Dynamic Cards Grid */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                  {TEN_FORMS_OF_COLLABORATION.map((item) => {
+                    const IconComponent = item.icon
+                    return (
+                      <div
+                        key={item.id}
+                        className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between space-y-3 group"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className={`size-10 rounded-xl ${item.bg} ${item.color} flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs`}>
+                            <IconComponent className="size-5" />
+                          </div>
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                            0{item.id}
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-sm font-bold text-[#0f131a] group-hover:text-blue-600 transition-colors">
+                            {item.form}
+                          </h4>
+                          <p className="text-xs text-cool-grey-600 leading-relaxed font-normal pt-1">
+                            {item.meaning}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 4: THE PEERS GLOBAL REFERENCE TABLE
+          ========================================================================= */}
+      <section className="relative py-20 sm:py-28 bg-white border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                QUICK LEXICON GUIDE
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0f131a] tracking-tight leading-[1.14]">
+              <span>The PEERS GLOBAL</span>{' '}
+              <span className="brand-gradient-text block sm:inline">Reference Table</span>
+            </h2>
+
+            <p className="text-cool-grey-600 text-base sm:text-lg font-normal leading-relaxed">
+              A comprehensive summary of the terminology that shapes our daily interactions.
+            </p>
           </div>
 
-          {/* Bottom Quote & Button */}
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="font-serif italic text-base sm:text-lg text-slate-700 font-normal leading-relaxed mb-8">
-              &ldquo;Circles, not crowds. Trust, not transactions. Peers, not gurus.&rdquo;
-            </p>
+          <div className="rounded-[32px] border border-cool-grey-250 bg-[#FAFBFD] p-6 sm:p-10 shadow-sm overflow-x-auto">
+            <table className="min-w-full text-left text-sm sm:text-base">
+              <thead>
+                <tr className="border-b border-cool-grey-250 text-slate-900 font-bold uppercase tracking-wider text-xs">
+                  <th className="py-4 pr-6 w-1/4">WORD</th>
+                  <th className="py-4 pr-6 w-1/4">CATEGORY</th>
+                  <th className="py-4">WHAT IT MEANS</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-cool-grey-200 text-slate-700">
+                {REFERENCE_TABLE_DATA.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-white transition-colors">
+                    <td className="py-4 pr-6 font-bold text-slate-900 align-middle">
+                      {row.word}
+                    </td>
+                    <td className="py-4 pr-6 align-middle">
+                      <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-[#1D4ED8] border border-blue-100">
+                        {row.badge}
+                      </span>
+                    </td>
+                    <td className="py-4 leading-relaxed text-cool-grey-600 align-middle font-normal text-xs sm:text-sm">
+                      {row.meaning}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
-            <Link
-              href="/lexicon"
-              className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 items-center gap-2"
-            >
-              <span>See the Full Lexicon</span>
-              <ArrowRight className="size-4" />
-            </Link>
+      {/* =========================================================================
+          SECTION 5: PHILOSOPHY & LIVING THE WORDS
+          ========================================================================= */}
+      <section className="relative py-20 sm:py-28 bg-[#FAFBFD] border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          {/* Why Words Matter - 2-Column Showcase */}
+          <div className="rounded-[32px] border border-cool-grey-250 bg-gradient-to-br from-[#FAFBFD] via-white to-blue-50/30 p-8 sm:p-12 lg:p-14 shadow-sm space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div className="lg:col-span-7 space-y-5">
+                <div className="inline-flex items-center gap-2.5">
+                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    THE POWER OF LANGUAGE
+                  </span>
+                </div>
+
+                <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0f131a] tracking-tight leading-[1.15]">
+                  <span>Why Words</span>{' '}
+                  <span className="brand-gradient-text block sm:inline">Matter</span>
+                </h3>
+
+                <div className="space-y-4 text-cool-grey-600 text-base sm:text-lg leading-relaxed font-normal">
+                  <p>
+                    Words shape behaviour. If we call someone a customer, we think of transactions. If we call someone a lead, we think of conversion. If we call someone a member, we recognise formal belonging.
+                  </p>
+                  <p>
+                    <strong className="text-slate-900 font-semibold">But when we call someone a Peer, everything changes.</strong> The word suggests relationship, respect, reciprocity, and human equality.
+                  </p>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-white border border-cool-grey-250/90 shadow-md space-y-4">
+                <div className="size-12 rounded-xl bg-gradient-to-br from-blue-600 to-rose-600 text-white flex items-center justify-center shadow-sm">
+                  <ShieldCheck className="size-6" />
+                </div>
+                <h4 className="text-lg font-bold text-[#0f131a]">
+                  Behavior Follows Language
+                </h4>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  The language guides the behaviour. And the behaviour makes the language real.
+                </p>
+                <div className="pt-2 border-t border-slate-100 text-xs font-bold text-blue-600">
+                  Relationship • Respect • Reciprocity
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Living The Words Split Section */}
+          <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 lg:p-14 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              
+              {/* Left Column: Heading & Cultural Context */}
+              <div className="lg:col-span-5 space-y-4">
+                <div className="inline-flex items-center gap-2.5">
+                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    LIVING THE WORDS
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-4xl lg:text-[40px] font-bold text-[#0f131a] tracking-tight leading-[1.18]">
+                  A Language Becomes Culture When People Live It
+                </h3>
+
+                <p className="text-sm sm:text-base text-cool-grey-600 leading-relaxed font-normal">
+                  Values are only as real as the everyday actions of the community. In Peers Global, each word in our vocabulary represents a living practice.
+                </p>
+
+                <div className="pt-4 border-t border-cool-grey-200/80 flex items-center gap-3 text-xs font-semibold text-slate-500">
+                  <span className="size-2 rounded-full bg-[#1D4ED8]" />
+                  <span>Practiced daily across all global Circles</span>
+                </div>
+              </div>
+
+              {/* Right Column: 2-Column Split of Living Words Cards */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-[#1D4ED8] transition-colors">Give-First</strong>
+                    <span className="size-2 rounded-full bg-blue-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when someone helps without being asked.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-indigo-600 transition-colors">Peer</strong>
+                    <span className="size-2 rounded-full bg-indigo-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when trust is earned and protected.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-emerald-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-emerald-600 transition-colors">Circle</strong>
+                    <span className="size-2 rounded-full bg-emerald-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when people show up for one another.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-amber-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-amber-600 transition-colors">Confidential Forum</strong>
+                    <span className="size-2 rounded-full bg-amber-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when sensitive matters remain safe.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-rose-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-rose-600 transition-colors">Life Impactor</strong>
+                    <span className="size-2 rounded-full bg-rose-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when action changes someone&apos;s journey.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-cyan-200 transition-all space-y-1.5 group">
+                  <div className="flex items-center justify-between">
+                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-cyan-600 transition-colors">Unity</strong>
+                    <span className="size-2 rounded-full bg-cyan-500/40" />
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when connection continues 24/7.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Cosmic Banner: Language in One Line */}
+          <div className="relative overflow-hidden rounded-[32px] border border-cool-grey-250 bg-gradient-to-br from-slate-900 via-[#0B1528] to-[#040812] p-8 sm:p-12 lg:p-14 text-white shadow-xl">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 max-w-4xl space-y-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold tracking-widest uppercase text-amber-300">
+                THE PEERS GLOBAL LANGUAGE IN ONE LINE
+              </div>
+
+              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]">
+                <span>Circles, not crowds. Trust, not transactions.</span>{' '}
+                <span className="brand-gradient-text block sm:inline">Peers, not gurus.</span>
+              </h3>
+
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+                Because the ambition is not simply to create a larger network. It is to create a community in which entrepreneurs learn from one another, contribute to one another, collaborate with one another—and grow without having to build alone.
+              </p>
+            </div>
           </div>
 
         </div>
       </section>
-
 
       {/* =========================================================================
           SECTION 6: CLOSING / MISSION SECTION
           ========================================================================= */}
       <ClosingCtaSection
-        eyebrow="THE LANGUAGE BUILDS THE FUTURE"
-        title="Learn the language, and you already understand the community."
-        subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
-        description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
+        eyebrow="PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE"
+        title="Designed in Bharat. Built for the World."
+        subtitle="Learn the language. Live the culture. Build without being alone."
+        description="PEERS GLOBAL is the World's First Community of Collaboration. Discover Circles, build lasting trust, and achieve impact at scale."
         primaryButtonText="BECOME A PEER"
         primaryButtonHref="/membership"
-        secondaryButtonText="FIND YOUR CIRCLE"
+        secondaryButtonText="EXPLORE CIRCLES"
         secondaryButtonHref="/circles"
       />
 
     </div>
   )
 }
+

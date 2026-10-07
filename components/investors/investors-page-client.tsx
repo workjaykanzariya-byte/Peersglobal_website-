@@ -1,697 +1,1046 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import {
   ArrowRight,
   ChevronRight,
   TrendingUp,
-  Building2,
   ShieldCheck,
-  Send,
-  CheckCircle2,
-  Layers,
   Sparkles,
-  Award,
-  Globe2,
-  Lock,
-  Phone,
-  Mail,
-  FileText,
-  Clock,
-  Briefcase,
-  User,
+  CheckCircle2,
   Check,
-  BarChart3,
-  Users,
+  Users2,
+  Layers,
+  Award,
+  HeartHandshake,
+  GraduationCap,
+  Target,
+  Send,
+  Lock,
 } from 'lucide-react'
 
-const REVENUE_STREAMS = [
+const ECOSYSTEM_LAYERS = [
   {
-    title: 'Subscription Revenue',
-    desc: 'Predictable, recurring annual platform subscriptions across Explorer and full Peer membership levels.',
+    title: 'CIRCLES',
+    subtitle: 'Structured communities of entrepreneurs built around industry and shared purpose.',
+    desc: 'Confidential, zero-conflict peer groups that meet regularly for structured problem solving and mutual accountability.',
+    icon: Users2,
+  },
+  {
+    title: 'COLLABORATION',
+    subtitle: 'Relationships that can move from introduction to meaningful action.',
+    desc: 'Frameworks and protocols that transform casual networking into bilateral deals, consortiums, and joint ventures.',
+    icon: HeartHandshake,
+  },
+  {
+    title: 'LEARNING',
+    subtitle: 'Experience, knowledge and insight shared between entrepreneurs.',
+    desc: 'Peer-driven masterclasses, candid playbooks, and practical wisdom distilled from living through market cycles.',
+    icon: GraduationCap,
+  },
+  {
+    title: 'RESOURCES',
+    subtitle: 'Tools, opportunities, experiences and ecosystem support.',
+    desc: 'Proprietary digital workflows, marketplace access, institutional partnerships, and growth infrastructure.',
     icon: Layers,
-    badge: 'Recurring Annual',
-    growth: 'High LTV / Retention',
   },
   {
-    title: 'Circle Revenue',
-    desc: 'Direct Circle Experience Fees across a growing national network of category-exclusive rooms.',
-    icon: Building2,
-    badge: 'Operational Hubs',
-    growth: '19 Active Rooms',
-  },
-  {
-    title: 'Events & Summits',
-    desc: 'High-margin delegate access, regional conclaves, masterclasses, and the annual flagship summit.',
-    icon: Sparkles,
-    badge: 'Conclaves & Summits',
-    growth: 'Flagship Reach',
-  },
-  {
-    title: 'Media & Ecosystem',
-    desc: 'Advertising, sponsorships, and digital docuseries across VyapaarJagat.com and Peers TV.',
-    icon: Globe2,
-    badge: 'Media Infrastructure',
-    growth: 'Digital Docuseries',
-  },
-  {
-    title: 'Marketplace Economy',
-    desc: 'Transactional infrastructure powering the Peers Coin redemption ecosystem and verified B2B services.',
+    title: 'LEADERSHIP',
+    subtitle: 'Pathways through which Peers can contribute, lead and take greater responsibility.',
+    desc: 'Governed roles including Circle Founders, Circle Directors, and Regional Council Stewards.',
     icon: Award,
-    badge: 'Ecosystem Utility',
-    growth: 'Peers Coin System',
+  },
+  {
+    title: 'IMPACT',
+    subtitle: 'A culture in which entrepreneurial contribution can create value beyond the individual business.',
+    desc: '1 Action = 1 Life Impacted framework translating enterprise growth into grassroots mentorship and community upliftment.',
+    icon: Target,
   },
 ]
 
-const VERIFIED_METRICS = [
-  { label: 'Active Curated Circles', value: '19', sub: 'Category-exclusive rooms' },
-  { label: 'Operating Cities', value: '11', sub: 'Hubs across Bharat' },
-  { label: 'Verified Business Promoters', value: '200+', sub: 'MSME & enterprise owners' },
-  { label: 'Confirmed Collaborations', value: '1,00,000+', sub: 'Logged on Unity platform' },
-  { label: 'Facilitated Value Impact', value: '₹400+ Cr', sub: 'Verified member outcomes' },
+const JOURNEY_STAGES = [
+  { step: '01', title: 'DISCOVER', desc: 'Find people and possibilities.' },
+  { step: '02', title: 'UNDERSTAND', desc: 'Learn from experience.' },
+  { step: '03', title: 'CONNECT', desc: 'Build relationships.' },
+  { step: '04', title: 'CONTRIBUTE', desc: 'Give something meaningful.' },
+  { step: '05', title: 'COLLABORATE', desc: 'Create value together.' },
+  { step: '06', title: 'LEAD', desc: 'Take responsibility.' },
+  { step: '07', title: 'IMPACT', desc: 'Create value beyond oneself.' },
+  { step: '08', title: 'MULTIPLY', desc: 'Help the next entrepreneur move forward.' },
+]
+
+const INVESTMENT_PRINCIPLES = [
+  'What is being built',
+  'Why it matters',
+  'How the model works',
+  'What has been demonstrated',
+  'What remains to be built',
+  'What the capital would enable',
+  'What the risks are',
+  'What the opportunity requires',
+]
+
+const HARD_QUESTIONS = [
+  'What are we building?',
+  'Why should it exist?',
+  'What evidence do we have?',
+  'What still needs to be proven?',
+  'What could this become?',
+  'What could prevent it from becoming that?',
 ]
 
 export function InvestorsPageClient() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [heroVideo, setHeroVideo] = useState('/videos/homepage-hero-bg.mp4')
   const [formData, setFormData] = useState({
     name: '',
     organisation: '',
     email: '',
     phone: '',
-    message: '',
+    investmentBackground: 'Angel / Family Office',
+    interests: '',
+    stageOrOpportunity: '',
+    engagementMode: '',
   })
-
-  useEffect(() => {
-    const loadVideo = () => {
-      try {
-        const saved = localStorage.getItem('peers_admin_page_media')
-        if (saved) {
-          const items = JSON.parse(saved)
-          const target = items.find(
-            (i: any) =>
-              (i.pageSlug === '/investors' ||
-                i.pageId === 'investors' ||
-                i.pageName === 'Investors' ||
-                i.pageSlug === '/' ||
-                i.pageId === 'home') &&
-              i.mediaType === 'video' &&
-              i.mediaUrl
-          )
-          if (target && target.mediaUrl) {
-            setHeroVideo(target.mediaUrl)
-          }
-        }
-      } catch {
-        // Fallback to default
-      }
-    }
-
-    loadVideo()
-    window.addEventListener('storage', loadVideo)
-    return () => window.removeEventListener('storage', loadVideo)
-  }, [])
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setTimeout(() => {
       setIsSubmitting(false)
-      setIsSubmitted(true)
+      setSubmitted(true)
     }, 1000)
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2] antialiased">
-      {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-[#0062D2] transition-colors">
-            Home
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span>About</span>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-slate-900 font-bold">Investors</span>
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* ── Breadcrumb Navigation ── */}
+      <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
+          <div className="flex items-center gap-2 text-slate-500 font-medium">
+            <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="font-bold brand-gradient-text">Investors</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200">
+              <TrendingUp className="w-3.5 h-3.5 text-[#1D4ED8]" />
+              <span className="brand-gradient-text">Institutional &amp; Growth Relations</span>
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* ─── Master Hero Video Card Banner ─── */}
-      <section className="relative overflow-hidden bg-[#FBFCFE] pt-6 sm:pt-10 pb-10 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-8 sm:gap-10">
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/80 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
-            {/* Background looping video with mask */}
+      {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
+      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[540px] lg:min-h-[600px] flex items-center">
+            
+            {/* Media Background Layer (Right ~60% fading into white on the left) */}
             <div
               className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
               style={{
-                maskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage:
-                  'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
               }}
             >
+              {/* Active Video Background */}
               <video
-                key={heroVideo}
+                src="/videos/homepage-hero-bg.mp4"
+                poster="/images/circles-hero-new.jpg"
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="auto"
                 className="size-full object-cover object-center"
-              >
-                <source src={heroVideo} type="video/mp4" />
-                <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
-                <source src="/videos/hero-background.mp4" type="video/mp4" />
-              </video>
+              />
 
-              {/* Seamless gradient overlays for the signature misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
+              {/* Seamless gradient overlays for misty fade */}
+              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
 
-              {/* Top-Right Script Typography with Drop Shadow */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none hidden md:block">
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Collaborative Capital
+              {/* Top-Right Script Typography */}
+              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
+                  Institutional Infrastructure
                 </p>
-                <p className="text-xl sm:text-3xl text-white font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  &amp; Infrastructure
+                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  Building Together
+                </p>
+                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
+                  Ecosystem Value
                 </p>
               </div>
 
               {/* Bottom-Right Frosted Glass Pill */}
               <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left flex items-center gap-2.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                  <div>
-                    <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                      INSTITUTIONAL DESK
-                    </p>
-                    <p className="text-xs font-bold tracking-wider text-white">
-                      PRE-SERIES A ENQUIRIES OPEN
-                    </p>
-                  </div>
+                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
+                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
+                    GROWTH CAPITAL &amp; ALLIANCES
+                  </p>
+                  <p className="text-xs font-bold tracking-wider text-white">
+                    PEERS GLOBAL ECOSYSTEM
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Left Hero Content */}
-            <div className="relative z-10 w-full lg:w-[58%] p-6 sm:p-10 lg:p-14 space-y-6">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-[11px] font-bold uppercase tracking-[0.22em] brand-gradient-text shadow-xs">
-                <TrendingUp className="w-3.5 h-3.5 text-[#1D4ED8]" />
-                Institutional Overview &amp; Thesis
-              </div>
-
-              {/* Headline */}
-              <div className="space-y-3">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-serif font-bold text-[#061836] tracking-tight leading-[1.08]">
-                  Building the Infrastructure of{' '}
-                  <span className="brand-gradient-text italic">Collaborative Capital</span>
-                </h1>
-                <p className="text-lg sm:text-xl font-serif text-slate-800 italic leading-relaxed font-normal">
-                  Transforming informal relational goodwill into measurable, scalable collaborative capital across India’s multi-trillion dollar MSME economy.
-                </p>
-              </div>
-
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-                Peers Global operates a structured, category-exclusive community model, proprietary Unity technology, and media platforms that unlock compounded enterprise value.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <a
-                  href="#investor-form"
-                  className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md transition-all active:scale-[0.98] overflow-hidden"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    Request Data Room Brief
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            {/* Left Content Area */}
+            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
+              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
+                
+                {/* Eyebrow with brand gradient bar */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    INVESTORS &amp; CAPITAL PARTNERS
                   </span>
-                </a>
+                </div>
 
-                <a
-                  href="#the-model"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-semibold border border-slate-300 shadow-xs hover:border-slate-400 transition-all active:scale-[0.98]"
-                >
-                  Explore Unit Economics
-                </a>
+                {/* H1 Heading */}
+                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[50px] font-bold text-slate-950 tracking-tight leading-[1.14] mb-4">
+                  Building the infrastructure for entrepreneurs to{' '}
+                  <span className="italic bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent font-medium">
+                    build, connect, collaborate and create impact.
+                  </span>
+                </h1>
+
+                {/* Subtitle & Core Observation */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
+                  <p className="font-serif italic text-slate-900 text-sm sm:text-base font-medium">
+                    “PEERS GLOBAL is being built around a simple observation: <span className="not-italic font-bold text-slate-950">Entrepreneurs should not have to build alone.”</span>
+                  </p>
+                  <p className="text-xs text-slate-600 mt-1">
+                    A multi-layered ecosystem enabling value created by one entrepreneur to compound across the entire network.
+                  </p>
+                </div>
+
+                {/* 6 Ecosystem Dimensions Pills */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full max-w-lg mb-8">
+                  {[
+                    'A community',
+                    'Collaboration infra',
+                    'Learning environment',
+                    'Leadership pathway',
+                    'Media platform',
+                    'Impact ecosystem',
+                  ].map((item, idx) => (
+                    <div key={idx} className="p-2.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center gap-1.5 text-xs font-semibold text-slate-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#1D4ED8] shrink-0" />
+                      <span className="truncate">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
+                  <a
+                    href="#investor-enquiry"
+                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                  >
+                    <span>Investor Enquiry</span>
+                    <ArrowRight className="size-4" />
+                  </a>
+
+                  <a
+                    href="#the-model"
+                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                  >
+                    <span>The Model</span>
+                  </a>
+
+                  <a
+                    href="#investment-principles"
+                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-700 px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                  >
+                    <span>Principles</span>
+                  </a>
+                </div>
+
+                {/* Quick Info Bar */}
+                <div className="flex items-center gap-6 text-xs text-slate-500 pt-2 border-t border-slate-200/80 w-full max-w-lg">
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span>Governed Capital Protocol</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <Sparkles className="w-4 h-4 text-[#1D4ED8]" />
+                    <span>Confidential Direct Briefings</span>
+                  </div>
+                </div>
+
               </div>
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ─── Fast-Track Data Room Access Bar ─── */}
-      <section className="bg-[#FAFBFD] border-b border-slate-200/80 py-5">
+      {/* ── THE OPPORTUNITY ── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-4 sm:p-5 rounded-2xl bg-white border border-blue-100/90 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3.5 text-center sm:text-left">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2] shrink-0">
-                <Lock className="w-5 h-5" />
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
               <div>
-                <p className="text-sm font-serif font-bold text-[#061836]">
-                  Confidential Institutional Investor Brief
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Market Context
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mb-3">
+                  THE OPPORTUNITY
+                </h2>
+                <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+                  Entrepreneurship is growing. But the experience of building a business is still deeply individual.
                 </p>
-                <p className="text-xs text-slate-500">
-                  Comprehensive unit economics, cohort retention, and capitalization tables are shared under standard NDA.
-                </p>
+              </div>
+
+              <div className="space-y-3 text-sm sm:text-base text-slate-700">
+                <p className="font-bold text-slate-900">Entrepreneurs need more than information:</p>
+                <ul className="space-y-2.5">
+                  {[
+                    'They need people who understand the journey.',
+                    'They need trusted relationships.',
+                    'They need access to experience.',
+                    'They need collaboration.',
+                    'They need opportunities to contribute.',
+                    'And they need an environment in which their own growth can create value for others.',
+                  ].map((need, idx) => (
+                    <li key={idx} className="flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0" />
+                      <span>{need}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-            <a
-              href="#investor-form"
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs transition-colors"
-            >
-              Direct Office Desk <ChevronRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── The Opportunity (12-Column Split Layout) ─── */}
-      <section className="py-20 md:py-28 border-b border-slate-200/80 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left 5 Cols: Highlight & Authority Card */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
-                <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-                Macro Thesis
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-[1.12]">
-                The Untapped Multi-Trillion Dollar <span className="italic text-[#1E4ED8]">MSME Backbone</span>
-              </h2>
-              <p className="text-base text-slate-600 leading-relaxed font-normal">
-                India runs on MSMEs. They employ crores of people and build employment, families and cities — largely without support systems, visibility or infrastructure.
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#F8FAFD] border border-slate-200 shadow-sm space-y-6">
+              <h3 className="text-xl font-serif font-bold text-slate-950">
+                PEERS GLOBAL is building around that opportunity.
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600">
+                The ambition is not simply to create another business network. It is to build an ecosystem in which:
               </p>
-
-              {/* Highlight callout card */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-[#EFF6FF] via-[#F8FAFC] to-white border border-blue-100 shadow-2xs space-y-3">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#0062D2] uppercase tracking-wider">
-                  <ShieldCheck className="w-4 h-4" />
-                  Structural Moat
-                </div>
-                <p className="text-base font-serif italic text-[#061836] leading-snug">
-                  &ldquo;Designed in India, built for a market that exists in every country.&rdquo;
-                </p>
-                <p className="text-xs text-slate-500">
-                  A defensible flywheel combining localized physical intimacy with digital scale and reputational governance.
-                </p>
-              </div>
-            </div>
-
-            {/* Right 7 Cols: Narrative & Four Pillars of Infrastructure */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="prose prose-lg text-slate-700 leading-relaxed font-normal space-y-5 max-w-none">
-                <p className="text-lg sm:text-xl font-serif text-[#061836] font-semibold leading-relaxed">
-                  Peers Global is building that infrastructure. A structured community model, a technology platform, a media ecosystem and a recognition system that makes collaboration measurable.
-                </p>
-                <p>
-                  Traditional business networks rely on transactional referrals that erode over time without governance. Peers Global replaces fragile transactional incentives with structured peer governance, hot-seat accountability, and bilateral reciprocity verified on the Unity platform.
-                </p>
-              </div>
-
-              {/* 4 Feature Value Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs space-y-2 hover:border-blue-200 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                    01
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: 'People connect', desc: 'Relational trust over transactions' },
+                  { label: 'Experience moves', desc: 'Practitioner wisdom shared directly' },
+                  { label: 'Collaboration happens', desc: 'Structured bilateral opportunities' },
+                  { label: 'Leadership develops', desc: 'Peer stewardship & council governance' },
+                  { label: 'Contribution compounds', desc: 'Give-first culture with Peers Coin' },
+                  { label: 'Impact travels', desc: '1 Action = 1 Life Impacted' },
+                ].map((item, idx) => (
+                  <div key={idx} className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                    <div className="text-xs font-bold brand-gradient-text">{item.label}</div>
+                    <div className="text-[11px] text-slate-600 mt-0.5">{item.desc}</div>
                   </div>
-                  <h3 className="text-base font-serif font-bold text-[#061836]">
-                    Curated Circle Model
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Category exclusivity per Circle ensures zero direct conflict, high trust density, and maximum peer collaboration.
-                  </p>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs space-y-2 hover:border-blue-200 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                    02
-                  </div>
-                  <h3 className="text-base font-serif font-bold text-[#061836]">
-                    Unity Technology OS
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Proprietary bilateral verification, attendance governance, hot-seat logging, and real-time collaboration telemetry.
-                  </p>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs space-y-2 hover:border-blue-200 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                    03
-                  </div>
-                  <h3 className="text-base font-serif font-bold text-[#061836]">
-                    Media Amplification
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    VyapaarJagat.com, digital docuseries, and national conclaves providing institutional-grade visibility.
-                  </p>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs space-y-2 hover:border-blue-200 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                    04
-                  </div>
-                  <h3 className="text-base font-serif font-bold text-[#061836]">
-                    Zero Salary Scale
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Scaling through entrepreneurial Circle Directors and Regional Promoters rather than heavy employee capex.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── The Model: Unit Economics & Scale ─── */}
-      <section id="the-model" className="py-20 md:py-28 border-b border-slate-200/80 bg-[#FAFBFD]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-              Unit Economics &amp; Scale
+      {/* ── THE MODEL ── */}
+      <section id="the-model" className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="max-w-3xl space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                System Architecture
+              </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#061836] leading-tight">
-              A Diversified, Compounding <span className="italic text-[#1E4ED8]">Revenue Architecture</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
+              THE MODEL
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              A model that compounds with the number of Circles, and a leadership structure that scales through entrepreneurs rather than employees.
+            <p className="text-slate-700 text-base sm:text-lg">
+              A community can become an ecosystem when every layer strengthens the next. PEERS GLOBAL brings together multiple dimensions of the entrepreneurial journey.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {REVENUE_STREAMS.map((stream, idx) => {
-              const Icon = stream.icon
+            {ECOSYSTEM_LAYERS.map((layer, idx) => {
+              const Icon = layer.icon
               return (
                 <div
-                  key={stream.title}
-                  className="group relative p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                  key={idx}
+                  className="p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 hover:shadow-md transition-all flex flex-col justify-between space-y-4 group"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2] transition-transform duration-300 group-hover:scale-110">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
-                        {stream.badge}
+                      <span className="text-xs font-mono font-bold text-slate-400">
+                        LAYER 0{idx + 1}
                       </span>
                     </div>
-
-                    <h3 className="text-2xl font-serif font-bold text-[#061836] group-hover:text-[#0062D2] transition-colors">
-                      {stream.title}
+                    <h3 className="text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors">
+                      {layer.title}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {stream.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
-                    <span>Focus Pillar</span>
-                    <span className="font-semibold text-slate-800">{stream.growth}</span>
+                    <p className="text-xs font-bold brand-gradient-text">{layer.subtitle}</p>
+                    <p className="text-xs text-slate-600 leading-relaxed">{layer.desc}</p>
                   </div>
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
 
-            {/* 6th Card: Scalability Flywheel Summary */}
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-[#061836] to-[#0A2558] text-white shadow-xl flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] uppercase font-bold tracking-widest text-sky-300">
-                  <BarChart3 className="w-3.5 h-3.5" />
-                  Compounding Moat
+      {/* ── THE ECOSYSTEM EFFECT & NETWORK EFFECT ── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* THE ECOSYSTEM EFFECT */}
+            <div className="space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Compounding Value
+                  </span>
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-white">
-                  High Operating Leverage
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  As regional Circle clusters reach density, centralized technology and media costs drop while network value increases exponentially.
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mb-2">
+                  THE ECOSYSTEM EFFECT
+                </h2>
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                  The model becomes more meaningful as participation increases:
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/15">
-                <a
-                  href="#investor-form"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-sky-300 hover:text-white uppercase tracking-wider transition-colors"
-                >
-                  Request Financial Model <ArrowRight className="w-4 h-4" />
-                </a>
+              <div className="space-y-2">
+                {[
+                  'One Peer brings experience.',
+                  'Another brings capability.',
+                  'Another brings an opportunity.',
+                  'Another creates a connection.',
+                  'Another mentors someone.',
+                  'Another builds a collaboration.',
+                  'Another takes that experience forward.',
+                ].map((line, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3 rounded-xl bg-[#F8FAFD] border border-slate-200 flex items-center gap-3 text-xs sm:text-sm text-slate-800 font-medium"
+                  >
+                    <span className="text-xs font-bold brand-gradient-text font-mono">0{idx + 1}</span>
+                    <span>{line}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/80 to-rose-50/50 border border-slate-200">
+                <p className="text-sm font-bold text-slate-900">
+                  The value does not stop at the first interaction. It travels.
+                </p>
+                <p className="text-xs text-slate-600 mt-0.5">
+                  That is the possibility behind a community of collaboration.
+                </p>
+              </div>
+            </div>
+
+            {/* NETWORK EFFECT */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200 space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Flywheel Dynamics
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950 mb-2">
+                  FROM MEMBERSHIP TO NETWORK EFFECT
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600">
+                  PEERS GLOBAL is designed around relationships rather than transactions:
+                </p>
+              </div>
+
+              <div className="relative pl-6 space-y-3 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-gradient-to-b before:from-[#1D4ED8] before:to-[#E11D48]">
+                {[
+                  'Membership creates participation.',
+                  'Participation creates relationships.',
+                  'Relationships create collaboration.',
+                  'Collaboration creates outcomes.',
+                  'Outcomes create trust.',
+                  'Trust strengthens the community.',
+                  'And a stronger community creates more possibilities for the next entrepreneur.',
+                ].map((step, idx) => (
+                  <div key={idx} className="relative text-xs sm:text-sm text-slate-700 font-medium">
+                    <span className="absolute -left-[23px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#1D4ED8]" />
+                    {step}
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 text-center shadow-xs">
+                <p className="text-sm font-bold brand-gradient-text">
+                  The community becomes more valuable when people contribute to one another.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Where We Are (Verified Metrics - Deep Dark Slate Theme) ─── */}
-      <section className="relative py-20 md:py-28 border-b border-slate-800 bg-gradient-to-br from-[#070D18] via-[#0B1528] to-[#0A101D] text-white overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-xs uppercase tracking-widest text-cyan-400 font-bold">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              Verified Operating Telemetry
+      {/* ── THE GROWTH ENGINE (LSR FRAMEWORK) ── */}
+      <section className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                LSR Framework
+              </span>
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
-              Where We Are Today
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
+              THE GROWTH ENGINE
             </h2>
-            <p className="text-sm sm:text-base text-slate-300">
-              Verified operational data across Bharat as of Q3 2026.
+            <p className="text-slate-600 text-sm sm:text-base">
+              The ecosystem is designed around the continuous movement of Learning, Self, and Resources.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
-            {VERIFIED_METRICS.map((metric) => (
-              <div
-                key={metric.label}
-                className="group relative p-6 sm:p-7 rounded-3xl border border-slate-700/60 bg-gradient-to-br from-[#0B1528] via-[#0F1D38] to-[#070D18] backdrop-blur-sm shadow-xl text-center space-y-2 hover:border-cyan-400/60 hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-mono font-bold text-cyan-400 group-hover:scale-105 transition-transform">
-                  {metric.value}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3">
+                L
+              </div>
+              <h3 className="text-lg font-serif font-bold text-slate-950">LEARNING</h3>
+              <p className="text-xs font-bold brand-gradient-text">What entrepreneurs know.</p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Tacit operating knowledge, market playbooks, mistakes navigated, and hard-earned domain insights.
+              </p>
+            </div>
+
+            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3">
+                S
+              </div>
+              <h3 className="text-lg font-serif font-bold text-slate-950">SELF</h3>
+              <p className="text-xs font-bold brand-gradient-text">
+                Who they become through experience, reflection and leadership.
+              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Emotional resilience, character under pressure, leadership stewardship, and self-awareness as a builder.
+              </p>
+            </div>
+
+            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3">
+                R
+              </div>
+              <h3 className="text-lg font-serif font-bold text-slate-950">RESOURCES</h3>
+              <p className="text-xs font-bold brand-gradient-text">
+                What they can access, share and create together.
+              </p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Relational capital, digital infrastructure, distribution networks, and collective purchasing power.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-white border border-slate-200 max-w-2xl mx-auto text-center space-y-1">
+            <p className="text-sm font-serif font-bold text-slate-950">
+              <span className="brand-gradient-text">LSR:</span> A simple way of thinking about entrepreneurial growth.
+            </p>
+            <p className="text-xs text-slate-600">
+              The stronger each becomes, the greater the possibility of contribution.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHERE WE ARE & WHAT WE ARE BUILDING TOWARD ── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <div className="space-y-8">
+            <div className="max-w-3xl space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  Trajectory &amp; Governance
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
+                WHERE WE ARE
+              </h2>
+              <p className="text-slate-700 text-base sm:text-lg">
+                PEERS GLOBAL is building the foundations of this ecosystem through its community, Circles, collaboration experiences, leadership pathways, initiatives, media and impact programmes.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'Operational Stage',
+                  metric: 'Foundation & Expansion',
+                  desc: '19+ operating cluster charters activated across industrial hubs.',
+                },
+                {
+                  title: 'Community & Circles',
+                  metric: 'Governed Circles',
+                  desc: 'Zero-conflict industry seats with peer-vetted onboarding.',
+                },
+                {
+                  title: 'Geographic Reach',
+                  metric: 'National Scale (Bharat)',
+                  desc: 'Active clusters across tier-1, tier-2 manufacturing hubs.',
+                },
+                {
+                  title: 'Business & Financial Model',
+                  metric: 'Multi-Pronged Revenue',
+                  desc: 'Annual memberships, corporate partnerships, masterclasses, and conclave assets.',
+                },
+                {
+                  title: 'Growth Trajectory',
+                  metric: 'Relational Density',
+                  desc: 'High-retention network density over low-touch member volume.',
+                },
+                {
+                  title: 'Impact Metric',
+                  metric: '1 Action = 1 Life',
+                  desc: 'Direct MSME mentorship, student fellowships, and foundation programs.',
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="p-6 rounded-2xl bg-[#F8FAFD] border border-slate-200 space-y-1.5 shadow-2xs">
+                  <span className="text-xs font-semibold text-slate-500 block">{item.title}</span>
+                  <div className="text-xl font-serif font-bold text-slate-950">{item.metric}</div>
+                  <p className="text-xs text-slate-600">{item.desc}</p>
                 </div>
-                <div className="text-xs sm:text-sm font-serif font-bold text-white pt-1">
-                  {metric.label}
+              ))}
+            </div>
+          </div>
+
+          {/* WHAT WE ARE BUILDING TOWARD */}
+          <div className="space-y-8 pt-8 border-t border-slate-200">
+            <div className="max-w-3xl space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  Long-Term Lifecycle
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
+                WHAT WE ARE BUILDING TOWARD
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600">
+                The long-term ambition is larger than membership. It is about creating an environment in which entrepreneurs can move through a complete journey:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {JOURNEY_STAGES.map((stg) => (
+                <div key={stg.step} className="p-5 rounded-xl bg-[#FAFBFD] border border-slate-200 space-y-1 shadow-2xs">
+                  <span className="text-xs font-mono font-bold brand-gradient-text block">
+                    {stg.step} · {stg.title}
+                  </span>
+                  <p className="text-xs text-slate-700">{stg.desc}</p>
                 </div>
-                <p className="text-[11px] text-slate-300 font-sans">
-                  {metric.sub}
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE LARGER VISION & WHAT MAKES THIS DIFFERENT ── */}
+      <section className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* THE LARGER VISION */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Generational Target
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
+                  THE LARGER VISION
+                </h2>
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                  The ambition of PEERS GLOBAL is expressed through a simple principle:
                 </p>
+
+                <div className="space-y-3">
+                  <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/80 to-rose-50/50 border border-slate-200">
+                    <span className="text-xs font-bold brand-gradient-text uppercase tracking-wider block">
+                      Core Operating Principle
+                    </span>
+                    <p className="text-xl font-serif font-bold text-slate-950 mt-1">1 Action = 1 Life Impacted.</p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <span className="text-xs font-bold text-slate-700 uppercase tracking-wider block">
+                      2030 Aspiration
+                    </span>
+                    <p className="text-xl font-serif font-bold text-slate-950 mt-1">
+                      1 Million+ Entrepreneurs to Impact by 2030.
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  The significance of these ambitions will ultimately depend not on the words themselves, but on the systems, people, evidence and sustained action behind them.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <p className="text-sm font-bold text-slate-950">
+                  The ambition is large. The standard of proof must be equally large.
+                </p>
+              </div>
+            </div>
+
+            {/* WHAT MAKES THIS DIFFERENT */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Strategic Differentiation
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
+                  WHAT MAKES THIS DIFFERENT
+                </h2>
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                  PEERS GLOBAL is not being built simply around the idea of acquiring more members. It is being built around the idea of <strong className="text-slate-950">increasing meaningful participation.</strong>
+                </p>
+
+                <div className="space-y-2 text-xs sm:text-sm text-slate-700">
+                  <div className="p-3 rounded-xl bg-[#F8FAFD] border border-slate-200 flex items-center justify-between">
+                    <span className="text-slate-600">A larger database</span>
+                    <span className="text-rose-600 font-semibold">≠ A stronger community</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#F8FAFD] border border-slate-200 flex items-center justify-between">
+                    <span className="text-slate-600">More contacts</span>
+                    <span className="text-rose-600 font-semibold">≠ More relationships</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#F8FAFD] border border-slate-200 flex items-center justify-between">
+                    <span className="text-slate-600">More visibility</span>
+                    <span className="text-rose-600 font-semibold">≠ More trust</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#F8FAFD] border border-slate-200 flex items-center justify-between">
+                    <span className="text-slate-600">More transactions</span>
+                    <span className="text-rose-600 font-semibold">≠ More collaboration</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/80 to-rose-50/50 border border-slate-200">
+                <p className="text-sm font-bold text-slate-950">The objective is not simply scale.</p>
+                <p className="text-xs brand-gradient-text font-semibold mt-0.5">It is meaningful scale.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INVESTMENT PRINCIPLES & GOVERNED DISCLOSURE ── */}
+      <section id="investment-principles" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="max-w-3xl space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                Governance &amp; Transparency
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
+              INVESTMENT PRINCIPLES
+            </h2>
+            <p className="text-slate-700 text-base sm:text-lg">
+              Any future investment conversation should begin with clarity. Investors should be able to understand:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {INVESTMENT_PRINCIPLES.map((principle, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-[#F8FAFD] border border-slate-200 flex items-start gap-3 shadow-2xs"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#1D4ED8] shrink-0 mt-0.5" />
+                <span className="text-sm font-medium text-slate-800">{principle}</span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ─── 12-Column Split Layout Direct Investor Enquiry Engine ─── */}
-      <section id="investor-form" className="py-20 md:py-28 bg-white border-b border-slate-200/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            {/* Left 5 Columns: Authority & Governance Desk Card */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest brand-gradient-text font-bold">
-                  <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-                  Institutional Desk
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] leading-tight">
-                  Direct Institutional <span className="italic text-[#1E4ED8]">Engagement</span>
-                </h2>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                  Detailed materials, capitalization tables, and technology audits are shared following an initial confidential conversation with our Founder and Advisory Council.
-                </p>
-              </div>
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50/70 to-rose-50/50 border border-slate-200 text-center max-w-3xl mx-auto space-y-1 shadow-xs">
+            <p className="text-base sm:text-lg font-serif font-bold text-slate-950">
+              “We would rather leave a number unpublished than publish a number that cannot be defended.”
+            </p>
+            <p className="text-xs brand-gradient-text font-semibold">
+              Trust begins with what you choose not to exaggerate.
+            </p>
+          </div>
 
-              {/* Protocol Commitments Card */}
-              <div className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm space-y-4">
-                <h3 className="text-sm font-serif font-bold text-[#061836] uppercase tracking-wider">
-                  Engagement Protocol &amp; SLAs
-                </h3>
-
-                <div className="space-y-3 text-xs text-slate-600">
-                  <div className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span><strong>Founder-Level Sync:</strong> Initial discussions coordinated directly by Dr. Pravin Parmar&apos;s office.</span>
-                  </div>
-                  <div className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span><strong>48-Hour Response SLA:</strong> Institutional inquiries reviewed within two business days.</span>
-                  </div>
-                  <div className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span><strong>Strict Confidentiality:</strong> NDA execution prior to sensitive metric or cap-table transmission.</span>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-slate-200/80 flex flex-col gap-2 text-xs text-slate-500">
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-3.5 h-3.5 text-[#0062D2]" />
-                    <span>investors@peersglobal.com</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-[#0062D2]" />
-                    <span>+91 92271 88998</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Legal Entity & Statutory Assurance */}
-              <div className="p-5 rounded-2xl bg-blue-50/60 border border-blue-100 text-xs text-slate-600 space-y-1.5">
-                <p className="font-bold text-[#061836]">
-                  Peers Global Business Media Pvt Ltd
-                </p>
-                <p>CIN: U22219GJ2022PTC137646 | GSTIN: 24AANCP4546L1ZY</p>
-                <p className="text-[11px] text-slate-500">Registered Office: B-1011, The Imperial Heights, 150 Feet Ring Road, Rajkot, Gujarat 360005.</p>
-              </div>
+          <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200 max-w-4xl mx-auto space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+              <Lock className="w-4 h-4 text-[#1D4ED8]" />
+              <span className="brand-gradient-text">THE INVESTMENT OPPORTUNITY &amp; CAPITAL CHARTER</span>
             </div>
-
-            {/* Right 7 Columns: Elevated Form Card */}
-            <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-md space-y-6">
-                <div className="border-b border-slate-200/80 pb-4">
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#061836]">
-                    Transmit Investor Brief
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Please provide your fund/office details for confidential coordination.
-                  </p>
-                </div>
-
-                {isSubmitted ? (
-                  <div className="p-10 rounded-2xl bg-white border border-emerald-200 text-center space-y-4 shadow-sm">
-                    <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto shadow-2xs">
-                      <CheckCircle2 className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold text-[#061836]">
-                      Enquiry Logged Successfully
-                    </h3>
-                    <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
-                      Thank you, <strong>{formData.name || 'Investor'}</strong>. Your brief has been forwarded directly to the Founder&apos;s office. Our leadership desk will coordinate next steps confidentially.
-                    </p>
-                    <div className="pt-2">
-                      <button
-                        onClick={() => setIsSubmitted(false)}
-                        className="px-6 py-3 rounded-full bg-[#0062D2] text-white text-xs font-bold hover:bg-[#0052B4] transition-colors shadow-sm"
-                      >
-                        Submit Another Enquiry
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                          Your Name *
-                        </label>
-                        <div className="relative">
-                          <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="text"
-                            required
-                            placeholder="Full name"
-                            value={formData.name}
-                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2] transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                          Fund / Organisation *
-                        </label>
-                        <div className="relative">
-                          <Building2 className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="text"
-                            required
-                            placeholder="Family office / Venture firm"
-                            value={formData.organisation}
-                            onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2] transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                          Work Email *
-                        </label>
-                        <div className="relative">
-                          <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="email"
-                            required
-                            placeholder="investor@fund.com"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2] transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                          Mobile Number *
-                        </label>
-                        <div className="relative">
-                          <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <input
-                            type="tel"
-                            required
-                            placeholder="+91 98765 43210"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2] transition-all"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                        Investment Scope &amp; Interest *
-                      </label>
-                      <textarea
-                        rows={4}
-                        required
-                        placeholder="Provide a brief overview of your thesis, ticket size or strategic intent..."
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#0062D2] transition-all resize-none"
-                      />
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all disabled:opacity-50 uppercase tracking-wider"
-                      >
-                        {isSubmitting ? 'Transmitting Brief...' : 'SUBMIT INVESTOR ENQUIRY'}
-                        <Send className="w-4 h-4" />
-                      </button>
-
-                      <p className="text-xs text-slate-500 flex items-center gap-1.5">
-                        <Lock className="w-3.5 h-3.5 text-slate-400" /> Strictly Confidential
-                      </p>
-                    </div>
-                  </form>
-                )}
-              </div>
-            </div>
+            <h3 className="text-xl font-serif font-bold text-slate-950">
+              Governed Capital Raising Protocol
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Active fundraise status, instruments, capital quantum, use of funds, investment terms, and eligible investor participation details are verified directly with our professional advisers and presented exclusively under formal non-disclosure and accredited investor qualifications.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Closing Banner ─── */}
-      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
-        {/* SVG Orbital Geometric Lines Background */}
+      {/* ── A CONVERSATION BEFORE A COMMITMENT & HARD QUESTIONS ── */}
+      <section className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                Mutual Due Diligence
+              </span>
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
+              A CONVERSATION BEFORE A COMMITMENT
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base">
+              Investment is a serious relationship. It should begin with understanding. Not pressure. Not artificial urgency. Not promises.
+            </p>
+          </div>
+
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 text-left shadow-sm space-y-6">
+            <h3 className="text-lg font-serif font-bold text-slate-950 text-center sm:text-left">
+              The right conversation should allow both sides to ask difficult questions:
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {HARD_QUESTIONS.map((q, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-xl bg-[#F8FAFD] border border-slate-200 flex items-center gap-3 shadow-2xs"
+                >
+                  <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-xs shrink-0 font-mono">
+                    ?
+                  </span>
+                  <span className="text-sm font-medium text-slate-800">{q}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-white border border-slate-200 max-w-2xl mx-auto space-y-2 shadow-xs">
+            <p className="text-sm font-bold text-slate-950">
+              BUILT WITH AMBITION. PRESENTED WITH DISCIPLINE.
+            </p>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              PEERS GLOBAL has a large ambition. But ambition is not evidence. A vision is not traction. A projection is not performance. And a promise is not a result. When there is something real to report, we report it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOR PROSPECTIVE INVESTORS / FORM ── */}
+      <section id="investor-enquiry" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="flex items-center justify-center gap-2">
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                Dialogue &amp; Alignment
+              </span>
+              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
+              FOR PROSPECTIVE INVESTORS
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base">
+              If you are interested in understanding PEERS GLOBAL as an investment opportunity, we would like to understand your perspective as well.
+            </p>
+          </div>
+
+          <div className="bg-[#FAFBFD] rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm">
+            {submitted ? (
+              <div className="text-center py-12 space-y-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] rounded-full flex items-center justify-center mx-auto">
+                  <Check className="w-8 h-8" />
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-slate-950">Investor Enquiry Transmitted</h3>
+                <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
+                  Thank you for reaching out. Our executive leadership and founder desk will review your details and initiate a confidential dialogue.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(false)}
+                  className="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-slate-800 border border-slate-200 hover:bg-slate-50 transition-colors cursor-pointer"
+                >
+                  Submit Another Enquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6 text-xs sm:text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-1.5">
+                    <label className="font-bold text-slate-800">Your Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Rahul Mehta"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="font-bold text-slate-800">Organisation / Fund / Entity *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Apex Horizon Capital / Single Family Office"
+                      value={formData.organisation}
+                      onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div className="space-y-1.5">
+                    <label className="font-bold text-slate-800">Work Email *</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="name@fund.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="font-bold text-slate-800">Phone / Mobile *</label>
+                    <input
+                      type="tel"
+                      inputMode="numeric"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
+                      required
+                      placeholder="9876543210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="font-bold text-slate-800">Investment Profile *</label>
+                    <select
+                      value={formData.investmentBackground}
+                      onChange={(e) => setFormData({ ...formData, investmentBackground: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                    >
+                      <option value="Angel / Family Office">Angel / Family Office</option>
+                      <option value="Venture Capital Fund">Venture Capital Fund</option>
+                      <option value="Private Equity / Growth">Private Equity / Growth</option>
+                      <option value="Strategic Corporate Investor">Strategic Corporate Investor</option>
+                      <option value="Institutional MSME Financier">Institutional MSME Financier</option>
+                      <option value="Other Accredited Entity">Other Accredited Entity</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="font-bold text-slate-800">What interests you about PEERS GLOBAL? *</label>
+                  <textarea
+                    required
+                    rows={3}
+                    placeholder="Tell us what draws you to our community of collaboration model..."
+                    value={formData.interests}
+                    onChange={(e) => setFormData({ ...formData, interests: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-1.5">
+                    <label className="font-bold text-slate-800">Opportunity Type Exploring *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Seed / Strategic Alliance / Growth Equity"
+                      value={formData.stageOrOpportunity}
+                      onChange={(e) => setFormData({ ...formData, stageOrOpportunity: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="font-bold text-slate-800">Engagement Mode *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Executive Briefing / 1-on-1 Dialogue"
+                      value={formData.engagementMode}
+                      onChange={(e) => setFormData({ ...formData, engagementMode: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:outline-none focus:border-[#1D4ED8] text-slate-900"
+                    />
+                  </div>
+                </div>
+
+                <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200">
+                  <p className="text-xs text-slate-500">
+                    Confidential &amp; governed disclosure protocol strictly applied.
+                  </p>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 uppercase tracking-wider shrink-0 disabled:opacity-50 cursor-pointer"
+                  >
+                    {isSubmitting ? (
+                      'Transmitting Enquiry...'
+                    ) : (
+                      <>
+                        Submit Investor Enquiry <Send className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL HOME-THEMED CALL TO ACTION ── */}
+      <section className="relative isolate overflow-hidden bg-[#040F24] text-white py-20 md:py-28">
+        {/* Deep celestial radial gradients & luminous aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+        />
+
+        {/* Subtle geometric orbital line art */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
           <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
@@ -702,22 +1051,49 @@ export function InvestorsPageClient() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight">
-            The Infrastructure of Collaboration
-          </h2>
-          <p className="text-base sm:text-lg text-white/80 font-light max-w-xl mx-auto">
-            Participate in India’s most disciplined, governed business community platform.
-          </p>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          <div className="space-y-4">
+            <div className="flex items-center justify-center gap-2.5">
+              <span className="h-[1.5px] w-6 bg-white/70" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+                INTERESTED IN THE JOURNEY?
+              </span>
+              <span className="h-[1.5px] w-6 bg-white/70" />
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
+              Build patiently. Build honestly. <br />
+              <span className="italic text-cyan-200">Build something that matters.</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-white/90 text-sm sm:text-base leading-relaxed">
+              If you are genuinely interested in understanding what PEERS GLOBAL is building, we welcome a conversation.
+            </p>
+          </div>
 
-          <div className="pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider">
             <a
-              href="#investor-form"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#061836] text-sm font-bold shadow-lg uppercase tracking-wider transition-all"
+              href="#investor-enquiry"
+              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all hover:-translate-y-0.5 active:scale-[0.98]"
             >
-              Investor Enquiry
-              <ArrowRight className="w-4 h-4" />
+              Investor Enquiry →
             </a>
+            <Link
+              href="/initiatives"
+              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
+            >
+              Explore PEERS GLOBAL →
+            </Link>
+            <Link
+              href="/our-story"
+              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
+            >
+              Read Our Story →
+            </Link>
+            <Link
+              href="/founder"
+              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
+            >
+              Meet the Founder →
+            </Link>
           </div>
         </div>
       </section>

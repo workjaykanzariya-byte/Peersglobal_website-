@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import {
   ArrowRight,
   ChevronRight,
@@ -20,597 +19,715 @@ import {
   Layers,
   Award,
   BookOpen,
+  Sprout,
+  Lightbulb,
+  Share2,
+  Smartphone,
+  Eye,
+  Smile,
+  Zap,
+  Check,
+  Compass,
+  Briefcase,
+  HelpCircle,
+  Flag,
+  Handshake,
 } from 'lucide-react'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 
-// ─── Timeline Milestones ───────────────────────────────────────────────────
-const TIMELINE = [
+// ─── Verified Milestones Timeline ───────────────────────────────────────────
+const VERIFIED_TIMELINE = [
   {
-    year: '2022',
-    title: 'The Hospital Corridor & The Founding Decision',
-    desc: 'During a severe family crisis in an Ahmedabad hospital, Dr. Pravin Parmar realized that skills, intelligence, and hard work mean very little without the right circle to call. Peers Global Business Media was incorporated with one singular conviction: entrepreneurs must never build alone.',
+    tag: '[DATE] — THE BEGINNING',
+    title: 'The Observation in the Corridor',
+    desc: '[Verified milestone and significance]',
+    highlight: 'It began with an observation',
   },
   {
-    year: '2023',
-    title: 'The First Circle & Codification of the 10 Ways',
-    desc: 'The inaugural flagship Circle launched in Ahmedabad with 22 curated manufacturing and MSME promoters. The 10 Ways of Collaboration and the Give-First principle were codified to replace transactional networking with governed peer accountability.',
+    tag: '[DATE] — THE FIRST STEP',
+    title: 'Early Steps of Entrepreneurship',
+    desc: '[Verified milestone and significance]',
+    highlight: 'Taking risks and building foundations',
   },
   {
-    year: '2024',
-    title: 'Crossing 100 Peers & Multi-City Expansion',
-    desc: 'First cross-city expansion beyond Ahmedabad into Surat, Vadodara, and Mumbai. The hot-seat and boardroom collaboration rituals saved member firms over ₹12 Crore in capex and compliance missteps.',
+    tag: '[DATE] — THE IDEA TAKES SHAPE',
+    title: 'The Story Nobody Would Publish',
+    desc: '[Verified milestone and significance]',
+    highlight: 'Human understanding over headlines',
   },
   {
-    year: '2025',
-    title: 'Launch of the Unity App & Relational Currency',
-    desc: 'The proprietary Unity App was deployed to log every collaboration with bilateral confirmation. The Life Impact Score and Peer Standing replaced subjective appreciation with verified relational equity.',
+    tag: '[DATE] — THE COMMUNITY BEGINS',
+    title: 'Why a Community & Why Peers',
+    desc: '[Verified milestone and significance]',
+    highlight: 'Moving beyond transactional networking',
   },
   {
-    year: '2026 & Beyond',
-    title: '19 Circles Across Bharat & The 1 Million Mission',
-    desc: 'Operating 19 industry and purpose-led Circles across major business territories in India, marching toward the institutional goal of impacting one million lives through entrepreneurship by 2030.',
-  },
-]
-
-// ─── What We Built Pillars ──────────────────────────────────────────────────
-const PILLARS = [
-  {
-    title: 'Circles',
-    desc: 'Rooms of curated entrepreneurs, strictly category-exclusive (one seat per business sector), meeting on a disciplined monthly rhythm.',
-    icon: Users,
-    color: 'text-blue-600 bg-blue-50 border-blue-100',
+    tag: '[DATE] — A NEW STAGE',
+    title: 'What We Built: Governed Circles',
+    desc: '[Verified milestone and significance]',
+    highlight: 'Structures for genuine collaboration',
   },
   {
-    title: 'The 10 Ways of Collaboration',
-    desc: 'A defined, structured practice so that "I want to help you" translates into specific, high-impact operating actions.',
-    icon: HeartHandshake,
-    color: 'text-emerald-600 bg-emerald-50 border-emerald-100',
+    tag: '[DATE] — THE ECOSYSTEM EXPANDS',
+    title: 'Unity App & Pan-Bharat Connect',
+    desc: '[Verified milestone and significance]',
+    highlight: 'Connecting across geography & industry',
   },
   {
-    title: 'The Recognition System',
-    desc: 'Life Impact Score, Peer Standing, and Peers Coin — ensuring contribution is recorded and honored rather than merely applauded.',
-    icon: Award,
-    color: 'text-amber-600 bg-amber-50 border-amber-100',
+    tag: '[DATE] — TODAY',
+    title: '1 Million+ Entrepreneurs to Impact by 2030',
+    desc: '[Verified current milestone]',
+    highlight: '1 Action = 1 Life Impacted',
   },
-  {
-    title: 'The Peers Code',
-    desc: 'Six non-negotiable commitments that create psychological safety and make the room safe enough to be radically transparent in.',
-    icon: ShieldCheck,
-    color: 'text-purple-600 bg-purple-50 border-purple-100',
-  },
-  {
-    title: 'The Unity App',
-    desc: 'The digital infrastructure running the community 365 days a year, not just on meeting day — direct booking, chat, and verified logging.',
-    icon: Globe2,
-    color: 'text-sky-600 bg-sky-50 border-sky-100',
-  },
-  {
-    title: 'Entrepreneur-Led Leadership',
-    desc: 'Founders, Circle Directors, Industry Directors, and Executive Directors — every single leader is a working business owner.',
-    icon: Layers,
-    color: 'text-rose-600 bg-rose-50 border-rose-100',
-  },
-]
-
-// ─── Live Metrics ───────────────────────────────────────────────────────────
-const METRICS = [
-  { value: '200+', label: 'Active Peers' },
-  { value: '19', label: 'Curated Circles' },
-  { value: '25+', label: 'Cities Across Bharat' },
-  { value: '1,00,000+', label: 'Confirmed Collaborations' },
-  { value: '1M', label: 'Lives Impacted Goal' },
 ]
 
 export function OurStoryClient() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      {/* ─── Breadcrumb ──────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30 shadow-2xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link
-              href="/"
-              className="hover:text-[#0062D2] transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-600">About</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-bold">Our Story</span>
-          </nav>
-        </div>
-      </div>
+    <div className="flex flex-col min-h-screen bg-white text-[#0f131a] selection:bg-[#1D4ED8] selection:text-white font-sans">
+      
+      {/* =========================================================================
+          1. HERO SECTION (MASTER HOMEPAGE HERO STYLE WITH BACKGROUND VIDEO)
+          ========================================================================= */}
+      <section id="our-story-hero" className="relative overflow-hidden bg-[#040F24] text-white border-b border-slate-800">
+        {/* Background video layer */}
+        <video
+          className="absolute inset-0 size-full object-cover opacity-60"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          poster="/images/circles-hero-new.jpg"
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        {/* Subtle, crisp gradient scrim overlay matching homepage/the-idea */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.72)_0%,rgba(4,15,36,0.52)_45%,rgba(4,15,36,0.32)_100%)] pointer-events-none"
+        />
 
-      {/* ─── SECTION 1: HERO (THE HOSPITAL CORRIDOR TURNING POINT) ────────── */}
-      <section className="relative pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF]">
-        {/* Soft luminous ambient glows */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-blue-200/40 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute -top-10 -left-10 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6 z-10">
-              <div className="inline-flex items-center gap-2">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  ABOUT PEERS GLOBAL
-                </span>
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-8 sm:py-12">
+            
+            {/* Left Content Area */}
+            <div className="lg:col-span-8 max-w-3xl space-y-4 sm:space-y-5">
+              {/* Breadcrumbs */}
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-medium tracking-wide">
+                <Link href="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+                <ChevronRight className="size-3.5 text-slate-400" />
+                <span className="text-sky-300 font-semibold">Our Story</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-serif font-bold text-[#061836] tracking-tight leading-[1.08]">
-                Our Story
-              </h1>
+              {/* Eyebrow Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-xs uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+                <span>OUR STORY &amp; FOUNDATION</span>
+              </div>
 
-              <p className="text-2xl sm:text-3xl font-serif text-slate-800 font-semibold leading-snug">
-                It began with one observation, in a hospital corridor.
+              {/* H1 Heading */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14]">
+                  It began with one observation,{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    in a hospital corridor.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
+                  Before there was a community, there was a question.
+                </p>
+              </div>
+
+              {/* Story Intro Quote */}
+              <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3.5 py-0.5 max-w-2xl">
+                &ldquo;A question about what happens to an entrepreneur when the business journey becomes difficult—and there is nobody around who truly understands what that journey feels like.&rdquo;
               </p>
 
-              <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl">
-                Entrepreneurs do not fail only because of business problems. They fail because they fight alone.
-              </p>
+              {/* Key Premise Box */}
+              <div className="space-y-1.5 text-xs sm:text-sm text-slate-300 font-light">
+                <p>PEERS GLOBAL did not begin with a website. It did not begin with a membership plan.</p>
+                <p className="text-white font-semibold">
+                  It began with an observation: <span className="text-sky-300">Entrepreneurs should not have to build alone.</span>
+                </p>
+              </div>
 
+              {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all duration-200 group active:scale-[0.98]"
+                  href="#before-there-was-a-community"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-blue-500/30 hover:shadow-rose-500/40 hover:-translate-y-0.5 hover:opacity-95 transition-all duration-300 group cursor-pointer uppercase tracking-wider"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <span>Read Full Story</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
                 </a>
 
                 <Link
                   href="/the-idea"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 font-semibold text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 hover:border-slate-400 transition-all duration-200 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-xs transition-all duration-300"
                 >
-                  <span>Read The Idea</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
+                  <span>Discover The Idea</span>
                 </Link>
               </div>
-            </div>
 
-            {/* Right Hero Visual with Rounded Glass Frame */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[500px] rounded-[32px] overflow-hidden shadow-[0_25px_70px_rgba(4,14,36,0.25)] border border-blue-900/15 bg-[#040e24]">
-                <Image
-                  src="/images/executive-director-conclave.jpg"
-                  alt="Peers Global leadership assembly"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                />
-
-                {/* Soft horizontal gradient edge fade on the left edge */}
-                <div className="absolute inset-y-0 left-0 w-24 sm:w-36 bg-gradient-to-r from-[#040e24]/60 via-[#040e24]/20 to-transparent pointer-events-none z-10" />
-
-                {/* Ambient Top & Bottom Vignettes */}
-                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#040e24]/70 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#040e24]/95 via-[#040e24]/50 to-transparent pointer-events-none z-10" />
-
-                {/* Stage Backdrop Brand Overlay */}
-                <div className="absolute top-6 right-6 bg-[#040e24]/90 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20 text-right z-20 max-w-[220px] shadow-lg">
-                  <p className="text-xs font-semibold text-slate-200 leading-tight">
-                    Designed in Bharat.
-                  </p>
-                  <p className="text-[11px] font-bold text-sky-400 leading-tight mt-0.5">
-                    Built for the World.
-                  </p>
-                </div>
-
-                {/* Cursive overlay text */}
-                <div className="absolute bottom-6 right-6 text-right z-20 max-w-[280px]">
-                  <p
-                    className="text-xl sm:text-2xl font-light italic leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    The right circle
-                    <br />
-                    can change your life
-                    <br />
-                    faster than the right idea.
-                  </p>
-                </div>
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/20">
+                {[
+                  { icon: HeartHandshake, value: 'Trust First', label: 'Genesis in the Corridor' },
+                  { icon: Users, value: 'Relationship', label: 'Beyond Transactions' },
+                  { icon: Target, value: '1M Mission', label: 'Life Impact by 2030' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div
+                      key={s.label}
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-xs transition-all"
+                    >
+                      <div className="size-10 rounded-xl bg-blue-500/25 border border-blue-400/35 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
+                        <Icon className="size-5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                          {s.value}
+                        </div>
+                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                          {s.label}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
+
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-xl space-y-1.5">
+              <p className="text-2xl sm:text-3xl text-white/80 leading-tight italic font-serif">
+                Never Build Alone
+              </p>
+              <p className="text-3xl sm:text-4xl text-white leading-tight font-bold italic font-serif">
+                Partners in Business
+              </p>
+              <p className="text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-rose-300 font-bold italic font-serif leading-tight">
+                Friends in Life
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 2: BEFORE THERE WAS A COMMUNITY ─────────────────────── */}
-      <section className="py-20 sm:py-24 bg-white border-y border-slate-200/80 relative">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-              THE ORIGINS
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight leading-tight">
-            Before there was a community
-          </h2>
 
-          <div className="prose prose-slate max-w-none text-base sm:text-lg text-slate-700 leading-relaxed space-y-5">
-            <p>
-              Dr. Pravin Parmar grew up in a farmer family in Botad.
-            </p>
-            <p>
-              Not a wealthy one. Uncertainty, hard work, seasons deciding whether there would be income that year, and dignity without money. No formal education in the family, but profound values in it.
-            </p>
-            <p>
-              He also saw something in that village that took thirty years to fully understand: when a season failed, nobody faced it alone. People carried each other. In Botad that was ordinary. Everywhere else, it turned out to be rare.
-            </p>
-            <p>
-              He could not speak English, and when he decided to learn, the school told him no. He stood up anyway — not really about English, but about deciding that his background would not decide his ceiling.
-            </p>
-            <p>
-              He paid his own fees by teaching other students while he was still studying. He built a company, was right about the product and early to the market, and eventually admitted to himself that it could run his present but not build his future. He closed it.
-            </p>
+
+      {/* =========================================================================
+          2. BEFORE THERE WAS A COMMUNITY
+          ========================================================================= */}
+      <section id="before-there-was-a-community" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAFBFD] to-white border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <div className="bg-gradient-to-r from-blue-50/90 via-sky-50/40 to-transparent p-6 sm:p-7 rounded-2xl border-l-4 border-[#0062D2] shadow-2xs my-6">
-              <p className="font-serif text-xl sm:text-2xl text-[#061836] font-semibold italic leading-snug">
-                Then a family crisis put him in a hospital, and hospitals strip every illusion a person carries.
+            {/* Left Column */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  BEFORE THERE WAS A COMMUNITY
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0f131a] tracking-tight leading-[1.15]">
+                <span>Every entrepreneur begins somewhere.</span>{' '}
+                <span className="brand-gradient-text block sm:inline">With an idea, a decision, a risk.</span>
+              </h2>
+
+              <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+                With a first customer. A first employee. A first success. And, sometimes, a moment when everything becomes uncertain.
               </p>
-            </div>
 
-            <p>
-              Standing there he understood something uncomfortable: skills mean very little without the right people around you. So does intelligence. So does hard work. What matters in those moments is who you can call.
-            </p>
-            <p>
-              He had spent years building capability. He had never built a circle. And almost none of the entrepreneurs he knew had one either.
-            </p>
-          </div>
-
-          <div className="pt-4">
-            <Link
-              href="/founder"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 text-[#0062D2] hover:bg-blue-100 font-bold text-xs border border-blue-200 transition-all shadow-2xs"
-            >
-              <span>Read the Founder&apos;s Story</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 3: THE STORY NOBODY WOULD PUBLISH ───────────────────── */}
-      <section className="py-20 sm:py-24 bg-gradient-to-b from-[#061836] via-[#081d42] to-[#040e24] text-white relative overflow-hidden border-b border-slate-900">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#0062D2]/20 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/3 right-10 w-96 h-96 bg-sky-500/10 rounded-full blur-[140px] pointer-events-none" />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
-            — THE INVISIBLE MSME —
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
-            The story nobody would publish
-          </h2>
-
-          <div className="text-base sm:text-lg text-slate-300 leading-relaxed space-y-5">
-            <p>
-              There was a second moment.
-            </p>
-            <p>
-              When he tried to get his own business story published, the media was not interested. Not out of rudeness — simply because business media covers startups, funding and unicorns, while MSMEs stay invisible.
-            </p>
-            <p>
-              And MSMEs are the businesses that build families, cities and employment across this country.
-            </p>
-            
-            <div className="bg-white/10 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/15 shadow-xl border-l-4 border-l-sky-400 text-slate-100">
-              <p className="font-medium text-base sm:text-lg leading-relaxed">
-                That rejection produced a belief that still governs everything here: <strong className="text-white">every honest business story deserves respect and visibility. Even if a business shuts down, its story should never die.</strong>
-              </p>
-            </div>
-
-            <p>
-              It also produced <strong className="text-sky-300">VyapaarJagat.com</strong>, a media platform for the businesses nobody else was covering.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 4: WHY A COMMUNITY, NOT SOMETHING EASIER ────────────── */}
-      <section className="py-20 sm:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="inline-flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-            <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-              THE STRATEGIC DECISION
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight leading-tight">
-            Why a community, and not something easier
-          </h2>
-
-          <div className="text-base sm:text-lg text-slate-700 leading-relaxed space-y-5">
-            <p>
-              Events would have been simpler. Media was already built.
-            </p>
-            <p className="font-serif text-2xl sm:text-3xl font-bold text-[#0062D2]">
-              Events end. Media informs. Only community transforms.
-            </p>
-            <p>
-              Entrepreneurs did not need more speakers. They needed a place where they could be real without being judged — where the room understood the weight they carried because everyone in it carried something similar.
-            </p>
-            <p>
-              So the decision was made to build rooms rather than audiences.
-            </p>
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-              <p className="text-xl font-serif font-bold text-[#061836]">
-                Circles, not crowds. Trust, not transactions. Peers, not gurus.
-              </p>
-            </div>
-            <p>
-              That was the beginning of Peers Global.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 5: WHAT WE BUILT (6 PILLARS) ────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-[#EFF6FF] via-[#F8FAFC] to-[#FFFFFF]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                THE ARCHITECTURE
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight mt-2">
-              What we built
-            </h2>
-            <p className="text-base text-slate-600 mt-2">
-              Not a networking group with a new name. A working system where each piece exists because something in the earlier version failed without it.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PILLARS.map((pillar) => {
-              const Icon = pillar.icon
-              return (
-                <div
-                  key={pillar.title}
-                  className="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div className="space-y-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${pillar.color}`}
-                    >
-                      <Icon className="w-5 h-5" />
+              <div className="space-y-3 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  The entrepreneurial journey is often described through its visible outcomes:
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {['Growth.', 'Revenue.', 'Recognition.', 'Expansion.'].map((o) => (
+                    <div key={o} className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 text-center font-bold text-sm text-[#0f131a] shadow-xs">
+                      {o}
                     </div>
-                    <h3 className="font-serif font-bold text-[#061836] text-xl group-hover:text-[#0062D2] transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      {pillar.desc}
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-3 pt-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  But there is another side of the journey that is less visible:
+                </p>
+                <div className="space-y-2.5">
+                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs">
+                    <div className="size-2.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                      The questions. The responsibility. The uncertainty.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs">
+                    <div className="size-2.5 rounded-full bg-violet-600 mt-2 shrink-0" />
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                      The decisions that cannot easily be explained to someone who has never carried them.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs">
+                    <div className="size-2.5 rounded-full bg-rose-600 mt-2 shrink-0" />
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                      And the feeling that, sometimes, you are carrying all of it alone.
                     </p>
                   </div>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            </div>
 
-          <div className="mt-12 text-center">
-            <Link
-              href="/the-idea"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] text-white font-bold text-xs shadow-md hover:bg-[#0052B4] transition-all hover:shadow-lg active:scale-[0.98]"
-            >
-              <span>Explore Our World</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            {/* Right Column Question Highlight */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[#061836] text-white shadow-xl space-y-6 border border-slate-800 relative overflow-hidden">
+                <div className="size-12 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
+                  <Sparkles className="size-6" />
+                </div>
+
+                <div className="space-y-3">
+                  <span className="text-xs font-mono uppercase tracking-widest text-sky-300 font-bold">
+                    THE STARTING POINT
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-snug">
+                    What if entrepreneurs had a community?
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light">
+                    Built not merely to connect them, but to help them build meaningful relationships with one another.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 flex items-center gap-3">
+                  <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-xs text-slate-300 font-medium tracking-wide">
+                    The question that sparked PEERS GLOBAL
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── SECTION 6: DATED TIMELINE ───────────────────────────────────── */}
-      <section className="py-20 sm:py-28 bg-white border-y border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                OUR JOURNEY
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#061836] tracking-tight mt-2">
-              How the community evolved
-            </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              From an insight in a hospital room to a national movement of Governed Collaboration.
-            </p>
-          </div>
-
-          <div className="relative border-l-2 border-blue-200 ml-4 sm:ml-8 space-y-10">
-            {TIMELINE.map((item) => (
-              <div key={item.year} className="relative pl-6 sm:pl-8 group">
-                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0062D2] border-4 border-white shadow-xs group-hover:scale-125 transition-transform" />
-                <span className="text-xs font-bold font-mono text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-200 inline-block mb-2">
-                  {item.year}
+      {/* =========================================================================
+          3. THE STORY NOBODY WOULD PUBLISH & WHY A COMMUNITY?
+          ========================================================================= */}
+      <section id="story-nobody-would-publish" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto space-y-16">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Box: The Story Nobody Would Publish */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  THE REAL HUMAN STORIES
                 </span>
-                <h3 className="font-serif font-bold text-[#061836] text-lg sm:text-xl leading-snug group-hover:text-[#0062D2] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1.5 font-normal">
-                  {item.desc}
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight leading-tight">
+                The Story Nobody Would Publish
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-cool-grey-600 font-normal leading-relaxed">
+                <p>
+                  Before PEERS GLOBAL, there was another part of the journey. The experience of building. Learning. Taking risks. Creating something.
+                </p>
+                <p>
+                  And discovering that the stories behind entrepreneurship are often more human than the headlines that eventually describe them.
+                </p>
+                <p>
+                  There were stories worth telling. But not every story found a place in the traditional media narrative.
                 </p>
               </div>
-            ))}
+
+              <div className="p-6 rounded-3xl bg-[#FAFBFD] border border-cool-grey-250 shadow-xs space-y-3">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#1D4ED8]">
+                  THAT EXPERIENCE CREATED ANOTHER REALISATION:
+                </div>
+                <p className="text-[#0f131a] font-medium text-base">
+                  Entrepreneurs did not only need visibility. They needed understanding.
+                </p>
+                <p className="text-xs sm:text-sm text-cool-grey-600 font-normal leading-relaxed">
+                  And perhaps they needed a place where their experience could be shared with people who understood the journey from the inside. That thought stayed.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Box: Why A Community? */}
+            <div id="why-a-community" className="lg:col-span-6 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  BEYOND PLATFORMS
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight leading-tight">
+                Why A Community?
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-cool-grey-600 font-normal leading-relaxed">
+                <p>
+                  A platform could have been easier. A media company could have been easier. A business network could have been easier.
+                </p>
+                <p className="font-bold text-[#0f131a]">
+                  But connection alone was not the answer. The deeper opportunity was relationship.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                {[
+                  'Knowing someone\'s name is not the same as knowing their journey.',
+                  'Meeting someone is not the same as trusting them.',
+                  'Networking is not the same as collaboration.',
+                  'And collaboration becomes meaningful only when people are willing to contribute to one another.',
+                ].map((item, idx) => (
+                  <div key={idx} className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 shadow-xs text-xs sm:text-sm text-slate-700 font-medium">
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white space-y-2">
+                <div className="text-xs font-mono uppercase tracking-widest text-sky-300">THE EVOLUTIONARY DIRECTION</div>
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-bold text-slate-100">
+                  <span>Connection</span>
+                  <span>→</span>
+                  <span>Relationship</span>
+                  <span>→</span>
+                  <span>Collaboration</span>
+                  <span>→</span>
+                  <span className="text-amber-300">Impact</span>
+                </div>
+                <p className="text-xs text-slate-300 font-light pt-1">That became the direction.</p>
+              </div>
+            </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 7: WHERE WE ARE NOW (LIVE COUNTERS ON DEEP NAVY) ────── */}
-      <section className="py-20 sm:py-24 bg-[#061836] text-white relative overflow-hidden border-b border-slate-900">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#0062D2]/20 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-sky-500/15 rounded-full blur-[140px] pointer-events-none" />
+      {/* =========================================================================
+          4. WHY PEERS? & WHAT WE BUILT
+          ========================================================================= */}
+      <section id="why-peers" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAFBFD] to-white border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto space-y-16">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            {/* Left: Why Peers? */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  THE WORD MATTERED
+                </span>
+              </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
-              — WHERE WE ARE NOW —
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight mt-2">
-              Designed in Bharat. Built for the world.
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight leading-tight">
+                Why Peers?
+              </h2>
+
+              <div className="flex flex-wrap gap-2">
+                {['Not customers.', 'Not leads.', 'Not prospects.', 'Not contacts.'].map((w) => (
+                  <span key={w} className="line-through text-slate-400 bg-white border border-slate-200 px-3.5 py-1.5 rounded-full text-xs font-medium">
+                    {w}
+                  </span>
+                ))}
+                <span className="text-white font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-4 py-1.5 rounded-full text-xs shadow-xs">
+                  Peers.
+                </span>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-white border border-cool-grey-250 shadow-xs space-y-2.5 text-xs sm:text-sm text-slate-800 font-medium">
+                <p>• People building businesses.</p>
+                <p>• People carrying responsibility.</p>
+                <p>• People learning.</p>
+                <p>• People contributing.</p>
+                <p>• People capable of helping one another.</p>
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-900 font-semibold italic border-l-2 border-[#E11D48] pl-3.5 py-1">
+                &ldquo;A Peer is not defined by what they can sell you. A Peer is defined by the relationship you can build together.&rdquo;
+              </p>
+
+              <p className="text-xs sm:text-sm text-cool-grey-600 font-normal">
+                That became part of the language—and eventually part of the culture.
+              </p>
+            </div>
+
+            {/* Right: What We Built */}
+            <div id="what-we-built" className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  THE ARCHITECTURE
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight leading-tight">
+                What We Built
+              </h2>
+
+              <p className="text-base text-cool-grey-600 font-normal">
+                The idea gradually became a structure:
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {[
+                  { label: 'Circles', desc: 'Created the environment for meaningful relationships.' },
+                  { label: 'Industry & Purpose', desc: 'Brought people together around shared context.' },
+                  { label: 'Collaboration', desc: 'Moved the community beyond networking.' },
+                  { label: 'Learning', desc: 'Allowed experience to travel from one entrepreneur to another.' },
+                  { label: 'Leadership', desc: 'Created opportunities for contribution.' },
+                  { label: 'Impact', desc: 'Gave contribution a visible purpose.' },
+                  { label: 'Unity App', desc: 'Brought the community into everyday life.' },
+                  { label: 'Wider Ecosystem', desc: 'Created possibilities beyond a single meeting or a single Circle.' },
+                ].map((item) => (
+                  <div key={item.label} className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-xs space-y-1">
+                    <div className="text-xs font-bold text-[#1D4ED8] uppercase tracking-wider">{item.label}</div>
+                    <div className="text-xs text-slate-600 font-medium">{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-5 rounded-2xl bg-slate-900 text-white space-y-1 mt-4">
+                <div className="text-xs font-bold uppercase tracking-wider text-sky-300">OUR FOUNDATIONAL OBJECTIVE</div>
+                <p className="text-xs sm:text-sm text-slate-200 font-light leading-relaxed">
+                  The objective was never simply to create a larger room. It was to create a better reason for people to stay connected after they left the room.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          5. THE JOURNEY SO FAR (TIMELINE)
+          ========================================================================= */}
+      <section id="journey-so-far" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto space-y-14">
+          
+          <div className="max-w-3xl space-y-3">
+            <div className="flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                ACCURATE MEMORY &amp; MILESTONES
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+              The Journey So Far
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-2">
-              Nineteen Circles across industries and ambitions. A community that began in Ahmedabad and now operates across cities — with a platform built from the start for entrepreneurs anywhere in the world.
+            <p className="text-sm sm:text-base text-cool-grey-600 font-normal leading-relaxed">
+              A story becomes meaningful when it can be remembered accurately. That is why the PEERS GLOBAL story should be told through a dated timeline—not reconstructed later from memory.
             </p>
           </div>
 
-          {/* Metric Bar — Clean White Cards on Deep Midnight Navy Canvas */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {METRICS.map((m) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {VERIFIED_TIMELINE.map((item, idx) => (
               <div
-                key={m.label}
-                className="bg-white text-slate-900 p-6 sm:p-7 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white text-center flex flex-col justify-center"
+                key={item.tag}
+                className="p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-cool-grey-250 shadow-xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
-                <span className="text-2xl sm:text-3xl font-bold font-serif text-[#061836]">
-                  {m.value}
-                </span>
-                <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider mt-1.5">
-                  {m.label}
-                </span>
+                <div className="space-y-4">
+                  {/* Header */}
+                  <div className="flex items-center justify-between gap-2 border-b border-slate-200/80 pb-3.5">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#1D4ED8] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                      {item.tag}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-slate-400">
+                      MILESTONE #{String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Title & Desc */}
+                  <div className="space-y-2">
+                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-cool-grey-600 font-normal leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom Highlight */}
+                <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                    <span>{item.highlight}</span>
+                  </div>
+                  <ChevronRight className="size-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 text-center">
-            <Link
-              href="/the-territory"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors uppercase tracking-wider"
-            >
-              <span>See the Territory</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+          <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200 text-amber-900 text-xs font-mono text-center font-medium">
+            [ALL DATES, MILESTONES AND CLAIMS TO BE VERIFIED BEFORE PUBLICATION]
           </div>
+
         </div>
       </section>
 
-      {/* ─── SECTION 8: WHAT WE ARE BUILDING TOWARD & WHAT HAS NOT CHANGED ─ */}
-      <section className="py-20 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          {/* Building Toward */}
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                THE MISSION
-              </span>
+      {/* =========================================================================
+          6. WHERE WE ARE NOW & WHAT WE ARE BUILDING TOWARD
+          ========================================================================= */}
+      <section id="what-we-are-building-toward" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAFBFD] to-white border-b border-cool-grey-250/80">
+        <div className="max-w-7xl mx-auto space-y-16">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            {/* Where We Are Now */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  CURRENT REALITY
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight leading-tight">
+                Where We Are Now
+              </h2>
+
+              <p className="text-base text-cool-grey-600 font-normal leading-relaxed">
+                PEERS GLOBAL has grown from an idea about relationships into a wider community and ecosystem:
+              </p>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-semibold text-slate-800">
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are Circles.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are Peers.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are leaders.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are collaborations.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are stories.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are initiatives.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">Impact system.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center text-blue-700">Connecting beyond.</div>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-white border border-cool-grey-250 shadow-xs space-y-3">
+                <p className="font-bold text-[#0f131a] text-base">
+                  But growth is not the most important part of the story.
+                </p>
+                <p className="text-slate-700 text-sm">
+                  The important question remains: <span className="text-[#1D4ED8] font-bold">Are the relationships becoming more meaningful?</span>
+                </p>
+                <p className="text-xs sm:text-sm text-cool-grey-600 font-normal leading-relaxed">
+                  Because the purpose was never simply to build a bigger community. It was to build a community in which entrepreneurs could experience what becomes possible when they stop building alone.
+                </p>
+              </div>
             </div>
-            <h2 className="text-3xl font-serif font-bold text-[#061836]">
-              What we are building toward
-            </h2>
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-              One million lives impacted through entrepreneurship, collaboration and opportunity. Not one million members. One million lives.
-            </p>
-            <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              Built one relationship at a time — one introduction, one conversation that saves someone eighteen months, one partnership that opens a market, one entrepreneur who stops carrying it alone.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/1-million-mission"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 text-[#0062D2] font-bold text-xs border border-blue-200 hover:bg-blue-100 transition-all shadow-2xs"
-              >
-                <span>See the 1 Million Mission</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+
+            {/* What We Are Building Toward */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  THE HORIZON
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f131a] tracking-tight leading-tight">
+                What We Are Building Toward
+              </h2>
+
+              <p className="text-base text-cool-grey-600 font-normal leading-relaxed">
+                The destination is larger than the organisation itself. It is a world in which entrepreneurs can find people who understand the journey:
+              </p>
+
+              <div className="space-y-2.5 text-xs sm:text-sm text-slate-800 font-medium">
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
+                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                  <span>Where experience can be shared.</span>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
+                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                  <span>Where contribution is recognised.</span>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
+                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                  <span>Where collaboration becomes natural.</span>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
+                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                  <span>Where one entrepreneur&apos;s action can positively affect another person&apos;s life.</span>
+                </div>
+              </div>
+
+              {/* 1M Ambition Box */}
+              <div className="p-6 rounded-3xl bg-gradient-to-r from-blue-900 to-indigo-950 text-white space-y-2.5 shadow-md">
+                <div className="text-xs font-mono font-bold uppercase tracking-wider text-sky-300">
+                  1 ACTION = 1 LIFE IMPACTED
+                </div>
+                <div className="text-xl sm:text-2xl font-bold text-white">
+                  1 Million+ Entrepreneurs to Impact by 2030
+                </div>
+                <p className="text-xs sm:text-sm text-slate-200 font-light">
+                  The number matters. But the lives behind the number matter more.
+                </p>
+              </div>
             </div>
+
           </div>
 
           {/* What Has Not Changed */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-blue-100 shadow-md space-y-4 border-l-4 border-l-[#0062D2]">
-            <div className="inline-flex items-center gap-2">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                UNCOMPROMISING CORE
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-cool-grey-250 shadow-xs space-y-4">
+            <div className="flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
+                WHAT HAS NOT CHANGED
               </span>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-[#061836]">
-              What has not changed
-            </h3>
-            <p className="text-xl font-serif italic text-slate-900 font-medium">
-              The community has grown. The belief has not: Entrepreneurs should not have to build alone.
+            
+            <p className="text-sm sm:text-base text-cool-grey-600 font-normal leading-relaxed">
+              The structure may evolve. The technology may change. The number of Circles may grow. The ecosystem may become global. New initiatives may emerge.
             </p>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              Everything here — every Circle, every rule, every system — exists to make that true for one more person, and then one more after that.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── SECTION 9: CLOSING ROYAL BLUE BANNER ─────────────────────── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* SVG Orbital Geometric Lines Background */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-8 space-y-5">
-              <p className="text-xs uppercase tracking-[0.22em] font-bold text-sky-200">
-                — BUILD A STRONGER TOMORROW —
+            <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-1.5 border-l-4 border-l-[#E11D48] shadow-xs">
+              <p className="text-base sm:text-lg font-bold text-[#0f131a]">
+                But the original belief remains.
               </p>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white leading-tight">
-                “The right circle can change your life faster than the right idea.”
-              </h2>
-
-              <p className="text-base sm:text-lg text-white/90 font-normal">
-                Build Your Business. Build Your Relationships. Build Your Circle.
+              <p className="text-xl sm:text-2xl font-bold brand-gradient-text">
+                Entrepreneurs should not have to build alone.
               </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 font-bold text-sm shadow-md transition-all hover:shadow-lg active:scale-[0.98] uppercase tracking-wider"
-                >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-
-                <Link
-                  href="/the-idea"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white font-semibold text-sm border border-white/20 hover:bg-white/20 transition-all active:scale-[0.98]"
-                >
-                  <span>Read The Idea</span>
-                  <ArrowRight className="w-4 h-4 text-slate-300" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Ideas.
-                <br />
-                People.
-                <br />
-                Communities.
-                <br />
-                A Brighter Tomorrow.
+              <p className="text-xs sm:text-sm text-cool-grey-600 font-normal">
+                That is still the starting point. And it remains the reason for everything that comes after it.
               </p>
             </div>
           </div>
+
         </div>
       </section>
+
+      {/* =========================================================================
+          7. THE STORY IS STILL BEING WRITTEN (CLOSING CTA BANNER)
+          ========================================================================= */}
+      <ClosingCtaSection
+        eyebrow="THE STORY IS STILL BEING WRITTEN"
+        title="PEERS GLOBAL is not a finished story."
+        subtitle="And the next chapter may belong to you."
+        description="Every Peer who joins adds another chapter. Every relationship creates another possibility. Every collaboration creates another connection. Stop building alone today."
+        primaryButtonText="DISCOVER THE IDEA"
+        primaryButtonHref="/the-idea"
+        secondaryButtonText="EXPLORE CIRCLES"
+        secondaryButtonHref="/circles"
+      />
+
     </div>
   )
 }

@@ -3,7 +3,15 @@
 import React, { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import {
+  ArrowRight,
+  Users,
+  Sparkles,
+  HeartHandshake,
+  ShieldCheck,
+  Building2,
+  Globe2,
+} from 'lucide-react'
 
 export function TrustedWorldwideSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -78,7 +86,7 @@ export function TrustedWorldwideSection() {
       {/* Cinematic Media Showcase */}
       <div className="max-w-[1200px] mx-auto">
         <div
-          className="relative w-full aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black cursor-pointer group border border-slate-200/80"
+          className="relative w-full aspect-[16/9] rounded-2xl md:rounded-[32px] overflow-hidden shadow-2xl bg-black cursor-pointer group border border-slate-200/80"
           onClick={togglePlay}
         >
           <video
@@ -94,9 +102,8 @@ export function TrustedWorldwideSection() {
 
           {/* Play/Pause Button Overlay on Hover */}
           <div
-            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-              isPlaying ? 'opacity-0 group-hover:opacity-100 bg-black/20' : 'opacity-100 bg-black/35'
-            }`}
+            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isPlaying ? 'opacity-0 group-hover:opacity-100 bg-black/20' : 'opacity-100 bg-black/35'
+              }`}
           >
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 text-[#0f131a] flex items-center justify-center shadow-2xl backdrop-blur-md transform transition-transform group-hover:scale-105">
               {isPlaying ? (
@@ -135,33 +142,7 @@ export function TrustedWorldwideSection() {
             )}
           </button>
 
-          {/* Subtitle text in bottom-center */}
-          <div className="absolute inset-x-0 bottom-6 md:bottom-8 z-10 text-center pointer-events-none px-4">
-            <p className="text-white text-sm sm:text-base md:text-lg font-medium drop-shadow-lg tracking-wide bg-black/40 backdrop-blur-sm inline-block px-5 py-2 rounded-full border border-white/10">
-              Partners in Business. Friends in Life.
-            </p>
-          </div>
 
-          {/* Floating Lower-Left Badge */}
-          <div className="absolute bottom-5 left-5 z-20 flex items-center gap-3 p-2.5 pr-5 rounded-2xl bg-black/65 backdrop-blur-md border border-white/15 text-left shadow-xl">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 p-1 shrink-0">
-              <Image
-                src="/images/logo-icon-only.png"
-                alt="Peers Global Emblem"
-                width={32}
-                height={32}
-                className="object-contain"
-              />
-            </div>
-            <div>
-              <p className="text-white text-xs md:text-sm font-semibold leading-tight">
-                Peers Global Conclave
-              </p>
-              <p className="text-[#D1D5DB] text-[10px] md:text-xs leading-tight mt-0.5">
-                Where Founders Become Partners
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

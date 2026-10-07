@@ -1104,10 +1104,8 @@ p.body,
      fd-what-is-mindvalley. It starts on that section's end colour (#DDE9FD) so the two
      blocks read as a single continuous gradient. See the note in that block. */
   background: linear-gradient(180deg, #DDE9FD 0%, #CADEFC 100%);
-  /* the 128px Figma bottom pad lives on .__nav's padding-bottom so the
-     container queries below (which can never target their own container)
-     can shrink it responsively */
-  padding: 0;
+  /* Equal padding top to balance with bottom spacing */
+  padding: 40px 0 0 0;
   overflow: hidden;
 }
 
@@ -1331,6 +1329,10 @@ p.body,
 
 /* ---------- tablet (self-derived: no tablet frame in Figma) ---------- */
 @container (max-width:1024px) {
+  .fd-how-it-works {
+    padding-top: 80px;
+  }
+
   .fd-how-it-works__carousel {
     /* 2 whole cards + equal peeks (48px inset at 768) */
     --fd-hiw-card: min(384px, calc((100cqw - 96px - var(--fd-hiw-gap)) / 2));
@@ -1350,6 +1352,10 @@ p.body,
 
 /* ---------- mobile (self-derived: no mobile frame in Figma) ---------- */
 @container (max-width:640px) {
+  .fd-how-it-works {
+    padding-top: 60px;
+  }
+
   .fd-how-it-works__head {
     padding: 0 20px
   }

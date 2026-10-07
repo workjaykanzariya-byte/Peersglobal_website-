@@ -120,7 +120,7 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="Give First" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Give First" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Give First</p>
@@ -128,7 +128,7 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Friends in Life" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Friends in Life" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Friends in Life</p>
@@ -136,7 +136,7 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Partners in Business" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Partners in Business" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Partners in Business</p>
@@ -144,7 +144,7 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-impact.jpg" alt="Contribution & Trust" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Contribution & Trust" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Contribution & Trust</p>
@@ -152,7 +152,7 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="The Conclave" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="The Conclave" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">The Conclave</p>
@@ -160,15 +160,15 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Category Exclusivity" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="Category Exclusivity" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Dr. Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Category Exclusivity</p>
                     <p className="fd-pathway-cards__auth">Zero Room Competition</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Cross-City Access" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/circles-hero-new.jpg" alt="Cross-City Access" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-City Access</p>
@@ -176,7 +176,7 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Build Together" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/circle-roundtable-topdown.jpg" alt="Build Together" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Build Together</p>
@@ -184,32 +184,32 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/lsr-city-sunrise.jpg" alt="LSR Growth Model" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story_procurement_syndicate.jpg" alt="LSR Growth Model" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_one.jpg" alt="Nitin Gadkari" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">LSR Growth Model</p>
                     <p className="fd-pathway-cards__auth">Learn, Sales, Resources</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Shared Wins" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/executive-director-conclave.jpg" alt="Shared Wins" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_one.jpg" alt="Simran Bakshi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Shared Wins</p>
                     <p className="fd-pathway-cards__auth">Celebrate as Your Own</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Trusted Circles" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/who-belongs-hero.jpg" alt="Trusted Circles" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_two.jpg" alt="Sunil Chordia" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Trusted Circles</p>
                     <p className="fd-pathway-cards__auth">Curated Inner Board</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/philosophy-conference-event.jpg" alt="Measure Impact" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/membership-hero-peers.jpg" alt="Measure Impact" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_two.jpg" alt="Tanvi Kedia" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Measure Impact</p>
                     <p className="fd-pathway-cards__auth">Lives Transformed</p>
@@ -218,96 +218,96 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Cross-City Access" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_cross_city_access.jpg" alt="Cross-City Access" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_three.jpg" alt="Swati Reddy" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-City Access</p>
                     <p className="fd-pathway-cards__auth">Local-to-Global Reach</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Build Together" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_build_together.jpg" alt="Build Together" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_three.jpg" alt="Abhay Kapoor" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Build Together</p>
                     <p className="fd-pathway-cards__auth">Never Build Alone</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/lsr-city-sunrise.jpg" alt="LSR Growth Model" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_lsr_growth_model.jpg" alt="LSR Growth Model" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_four.jpg" alt="Siddharth Rao" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">LSR Growth Model</p>
                     <p className="fd-pathway-cards__auth">Learn, Sales, Resources</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Shared Wins" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_shared_wins.jpg" alt="Shared Wins" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_four.jpg" alt="Rhea Sengupta" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Shared Wins</p>
                     <p className="fd-pathway-cards__auth">Celebrate as Your Own</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Trusted Circles" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_trusted_circles.jpg" alt="Trusted Circles" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_five.jpg" alt="Manoj Jindal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Trusted Circles</p>
                     <p className="fd-pathway-cards__auth">Curated Inner Board</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/philosophy-conference-event.jpg" alt="Measure Impact" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_measure_impact.jpg" alt="Measure Impact" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_five.jpg" alt="Deepika Somani" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Measure Impact</p>
                     <p className="fd-pathway-cards__auth">Lives Transformed</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Amit & Sandeep" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_joint_capex.jpg" alt="Amit & Sandeep" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_karan_mehta.jpg" alt="Karan Mehta" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Joint Capex</p>
                     <p className="fd-pathway-cards__auth">Amit & Sandeep</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Jignesh & Rohit" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_cross_industry.jpg" alt="Jignesh & Rohit" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_rohit_verma.jpg" alt="Rohit Verma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-Industry Ties</p>
                     <p className="fd-pathway-cards__auth">Jignesh & Rohit</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Neha & Simran" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_shared_logistics.jpg" alt="Neha & Simran" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_simran_kaur.jpg" alt="Simran Kaur" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Shared Logistics</p>
                     <p className="fd-pathway-cards__auth">Neha & Simran</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Priya & Karan" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_global_exports.jpg" alt="Priya & Karan" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_sneha_sharma.jpg" alt="Sneha Sharma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Global Exports</p>
                     <p className="fd-pathway-cards__auth">Priya & Karan</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="Unity App" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_confidential_counsel.jpg" alt="Founder Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_six.jpg" alt="Kavita Saxena" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
-                    <p className="fd-pathway-cards__prog">Everyday Unity</p>
-                    <p className="fd-pathway-cards__auth">Connect Anytime</p>
+                    <p className="fd-pathway-cards__prog">Confidential Counsel</p>
+                    <p className="fd-pathway-cards__auth">Founder Circle</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Family Meetups" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philo_family_meetups.jpg" alt="Family Meetups" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_six.jpg" alt="Vinay Bhatia" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Family Meetups</p>
                     <p className="fd-pathway-cards__auth">Friends in Life</p>
@@ -396,7 +396,7 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Manufacturing Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story_jignesh_rohit_new.jpg" alt="Manufacturing Circle" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Manufacturing Circle</p>
@@ -404,23 +404,23 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Fintech & BFSI Circle" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/modern_tech_hub.jpg" alt="Fintech & BFSI Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Fintech &amp; BFSI Circle</p>
                     <p className="fd-pathway-cards__auth">Bengaluru · 28 Peers · 1 Open Seat</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Health & Pharma Circle" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/circle-director-hero.jpg" alt="Health & Pharma Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Dr. Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Health &amp; Pharma Circle</p>
                     <p className="fd-pathway-cards__auth">Delhi NCR · 22 Peers · Next Tue</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Cross-Border Exports" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/event_awards_stage.jpg" alt="Cross-Border Exports" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-Border Exports</p>
@@ -428,7 +428,7 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="D2C Brands Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="D2C Brands Circle" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">D2C Brands Circle</p>
@@ -436,7 +436,7 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Tech Founders Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/hero_global_conclave.jpg" alt="Tech Founders Circle" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Tech Founders Circle</p>
@@ -444,15 +444,15 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="CleanTech & Energy" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/circle-roundtable-topdown.jpg" alt="CleanTech & Energy" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">CleanTech &amp; Energy</p>
                     <p className="fd-pathway-cards__auth">Hyderabad · 24 Peers · 2 Open Seats</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Infra & Engineering" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story_procurement_syndicate.jpg" alt="Infra & Engineering" width="147" height="83" loading="lazy" decoding="async" />
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Infra &amp; Engineering</p>
@@ -460,8 +460,8 @@ export function PathwayCardsSection() {
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Global Enterprise Circle" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/deal_handshake_meeting.jpg" alt="Global Enterprise Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_simran_kaur.jpg" alt="Simran Kaur" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Global Enterprise Circle</p>
                     <p className="fd-pathway-cards__auth">London · 20 Peers · 1 Open Seat</p>
@@ -469,23 +469,23 @@ export function PathwayCardsSection() {
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
                       <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Hospitality & Retail" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_sneha_sharma.jpg" alt="Sneha Sharma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Hospitality &amp; Retail</p>
                     <p className="fd-pathway-cards__auth">Singapore · 22 Peers · Next Mon</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Agri & Supply Chain" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story_farmer_logistics.jpg" alt="Agri & Supply Chain" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_rohit_verma.jpg" alt="Rohit Verma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Agri &amp; Supply Chain</p>
                     <p className="fd-pathway-cards__auth">Rajkot · 25 Peers · 2 Open Seats</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Family Business Board" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/hero_family_board.jpg" alt="Family Business Board" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_karan_mehta.jpg" alt="Karan Mehta" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Family Business Board</p>
                     <p className="fd-pathway-cards__auth">Chennai · 20 Peers · 1 Open Seat</p>
@@ -494,24 +494,24 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-director-speaker.jpg" alt="Specialty Chemicals" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Specialty Chemicals" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_two.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Specialty Chemicals</p>
                     <p className="fd-pathway-cards__auth">Vadodara · 21 Peers · 1 Open Seat</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Logistics & Supply Chain" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/circle_logistics_supply.jpg" alt="Logistics & Supply Chain" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_five.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Logistics &amp; Supply Chain</p>
                     <p className="fd-pathway-cards__auth">Kolkata · 26 Peers · 2 Open Seats</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Women Entrepreneurs" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/circle_women_entrepreneurs.jpg" alt="Women Entrepreneurs" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_two.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Women Entrepreneurs</p>
                     <p className="fd-pathway-cards__auth">Bengaluru · 24 Peers · Next Thu</p>
@@ -519,71 +519,63 @@ export function PathwayCardsSection() {
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
                       <img className="fd-pathway-cards__cover" src="/images/leadership-entrepreneurs-meeting.jpg" alt="AI & Enterprise SaaS" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_six.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">AI &amp; Enterprise SaaS</p>
                     <p className="fd-pathway-cards__auth">Gurugram · 25 Peers · 2 Open Seats</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Private Equity & Angels" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/circle_pe_angels.jpg" alt="Private Equity & Angels" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_karan_mehta.jpg" alt="Karan Mehta" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Private Equity &amp; Angels</p>
                     <p className="fd-pathway-cards__auth">Mumbai · 18 Peers · Next Fri</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/lexicon-team-understanding.jpg" alt="EdTech & Learning" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/lexicon-hero-desk.jpg" alt="EdTech & Learning" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_eight.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">EdTech &amp; Learning</p>
                     <p className="fd-pathway-cards__auth">Pune · 20 Peers · 1 Open Seat</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Textiles & Apparel" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/circle_textiles_apparel.jpg" alt="Textiles & Apparel" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_eight.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Textiles &amp; Apparel</p>
                     <p className="fd-pathway-cards__auth">Surat · 27 Peers · Next Wed</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="Heavy Engineering" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
-                    </div>
-                    <p className="fd-pathway-cards__prog">Heavy Engineering</p>
-                    <p className="fd-pathway-cards__auth">Coimbatore · 22 Peers · 3 Open Seats</p>
-                  </div>
-                  <div className="fd-pathway-cards__card">
-                    <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Digital Media Agencies" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/circle_digital_media.jpg" alt="Digital Media Agencies" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_simran_kaur.jpg" alt="Simran Kaur" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Digital Media Agencies</p>
                     <p className="fd-pathway-cards__auth">Delhi NCR · 23 Peers · 1 Open Seat</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Auto Components & EV" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/circle_auto_ev.jpg" alt="Auto Components & EV" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_nine.jpg" alt="Rajeev Nambiar" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Auto Components &amp; EV</p>
                     <p className="fd-pathway-cards__auth">Chennai · 24 Peers · Next Mon</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="FMCG & Packaged Goods" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/join-peers-hero.jpg" alt="FMCG & Packaged Goods" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_four.jpg" alt="Siddharth Rao" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">FMCG &amp; Packaged Goods</p>
                     <p className="fd-pathway-cards__auth">Indore · 22 Peers · 2 Open Seats</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/membership-hero-peers.jpg" alt="Scaleup CXO Circle" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/circle_scaleup_cxo.jpg" alt="Scaleup CXO Circle" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_nine.jpg" alt="Ananya Singhania" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Scaleup CXO Circle</p>
                     <p className="fd-pathway-cards__auth">Global Virtual · 20 Peers · 1 Open Seat</p>
@@ -678,72 +670,72 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Strategic Introductions" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/peer-stories-hero.jpg" alt="Strategic Introductions" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_one.jpg" alt="Devendra Naidu" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Strategic Introductions</p>
                     <p className="fd-pathway-cards__auth">To people who can open a door</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Client Referrals" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Client Referrals" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_two.jpg" alt="Ananya Singhania" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Client Referrals</p>
                     <p className="fd-pathway-cards__auth">Referrals that become long-term clients</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Business Partnerships" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/member-faq-hero.jpg" alt="Business Partnerships" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_three.jpg" alt="Siddharth Rawat" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Business Partnerships</p>
                     <p className="fd-pathway-cards__auth">Between complementary businesses</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/lexicon-team-understanding.jpg" alt="Knowledge Sharing" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/culture-hero-desk.jpg" alt="Knowledge Sharing" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_four.jpg" alt="Meenakshi Sundaram" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Knowledge Sharing</p>
                     <p className="fd-pathway-cards__auth">Hard-won lessons from lived experience</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/executive-director-hero.jpg" alt="Peer Mentorship" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/circle-director-hero.jpg" alt="Peer Mentorship" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_five.jpg" alt="Abhinav Chawla" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Peer Mentorship</p>
                     <p className="fd-pathway-cards__auth">From entrepreneurs further along</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Customer Connections" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/lexicon-team-understanding.jpg" alt="Customer Connections" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_six.jpg" alt="Tanvi Kedia" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Customer Connections</p>
                     <p className="fd-pathway-cards__auth">Customer leads in new market segments</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Investor Connections" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Investor Connections" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_seven.jpg" alt="Vikramaditya Bose" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Investor Connections</p>
                     <p className="fd-pathway-cards__auth">Right capital at the right stage</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="Shared Resources" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/leadership-entrepreneurs-meeting.jpg" alt="Shared Resources" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_eight.jpg" alt="Rhea Sengupta" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Shared Resources</p>
                     <p className="fd-pathway-cards__auth">Teams, tools, capacity &amp; licences</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Market Access" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Market Access" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_nine.jpg" alt="Nitin Gadkari" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Market Access</p>
                     <p className="fd-pathway-cards__auth">Access into a new city or country</p>
@@ -751,23 +743,23 @@ export function PathwayCardsSection() {
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
                       <img className="fd-pathway-cards__cover" src="/images/industry-director-speaker.jpg" alt="Industry Expertise" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_ten.jpg" alt="Suniti Mukherjee" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Industry Expertise</p>
                     <p className="fd-pathway-cards__auth">Specialized advice without hiring for it</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Local-to-Global" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/join-peers-hero.jpg" alt="Local-to-Global" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_eleven.jpg" alt="Harshvardhan Kapoor" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Local-to-Global</p>
                     <p className="fd-pathway-cards__auth">Borderless opportunities across community</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-impact.jpg" alt="Life Impact Outcomes" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/hero-collage/terrace.jpg" alt="Life Impact Outcomes" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_corp_twelve.jpg" alt="Deepika Somani" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Life Impact Outcomes</p>
                     <p className="fd-pathway-cards__auth">1 Action = 1 Life Impacted metric</p>
@@ -776,96 +768,96 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Capex Co-Financing" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_capex_cofinancing.jpg" alt="Capex Co-Financing" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_one.jpg" alt="Sameer Seth" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Capex Co-Financing</p>
                     <p className="fd-pathway-cards__auth">Mehta Multispeciality · Healthcare</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Global Export Consortia" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_export_consortia.jpg" alt="Global Export Consortia" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_two.jpg" alt="Swati Reddy" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Global Export Consortia</p>
                     <p className="fd-pathway-cards__auth">Solanki Ceramics · Morbi to Dubai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Cross-Selling Network" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_cross_selling.jpg" alt="Cross-Selling Network" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_three.jpg" alt="Abhay Kapoor" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-Selling Network</p>
                     <p className="fd-pathway-cards__auth">SaaS &amp; FinTech Integration</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Direct Agri Supply Link" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_direct_agri_supply.jpg" alt="Direct Agri Supply Link" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_four.jpg" alt="Manoj Jindal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Direct Agri Supply</p>
                     <p className="fd-pathway-cards__auth">Farm to Processing Hub Direct</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="Manufacturing Automation" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_mfg_automation.jpg" alt="Manufacturing Automation" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_five.jpg" alt="Devendra Joshi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Manufacturing Automation</p>
                     <p className="fd-pathway-cards__auth">Robotics Consortium Tooling</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="D2C Omnichannel Alliance" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_d2c_omnichannel.jpg" alt="D2C Omnichannel Alliance" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_six.jpg" alt="Simran Bakshi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">D2C Omnichannel Alliance</p>
                     <p className="fd-pathway-cards__auth">Retail Shelf Sharing Syndicate</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="Licence & Certification" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_pharma_licence.jpg" alt="Licence & Certification" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_seven.jpg" alt="Rohit Malhotra" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Licence &amp; Certification</p>
                     <p className="fd-pathway-cards__auth">Pharma Joint Compliance Hub</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Talent & Studio Exchange" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_talent_exchange.jpg" alt="Talent & Studio Exchange" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_eight.jpg" alt="Radhika Mathur" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Talent Exchange Pool</p>
                     <p className="fd-pathway-cards__auth">Creative &amp; Tech Shared Benches</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Angel Syndicate Round" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_angel_syndicate.jpg" alt="Angel Syndicate Round" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_nine.jpg" alt="Manish Goyal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Angel Syndicate Round</p>
                     <p className="fd-pathway-cards__auth">CleanTech Seed Round Bridge</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-roundtable-topdown.jpg" alt="Cross-Border JV" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_cross_border_jv.jpg" alt="Cross-Border JV" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_ten.jpg" alt="Kavita Saxena" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-Border JV</p>
                     <p className="fd-pathway-cards__auth">Infrastructure UAE-India Corridor</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/membership-hero-peers.jpg" alt="Family Governance Council" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_family_gov_council.jpg" alt="Family Governance Council" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_eleven.jpg" alt="Vinay Bhatia" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Family Governance Council</p>
                     <p className="fd-pathway-cards__auth">Second-Gen Transition Playbook</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="National Distribution Win" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/collab_national_distribution.jpg" alt="National Distribution Win" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_lead_twelve.jpg" alt="Pooja Merchant" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">National Distribution Win</p>
                     <p className="fd-pathway-cards__auth">FMCG Modern Trade Rollout</p>
@@ -960,96 +952,96 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="Major Client Landing" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/major_client_landing.jpg" alt="Major Client Landing" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_one.jpg" alt="Rajeev Nambiar" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Major Client Landing</p>
                     <p className="fd-pathway-cards__auth">First 8-figure enterprise contract · Mumbai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Preventing Costly Mistake" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/prevent_costly_mistake.jpg" alt="Preventing Costly Mistake" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_two.jpg" alt="Nalini Krishnan" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Preventing Costly Mistake</p>
                     <p className="fd-pathway-cards__auth">Governance advice saved ₹4.2 Cr · Delhi</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Cross-Border Market Entry" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/cross_border_market_entry.jpg" alt="Cross-Border Market Entry" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_three.jpg" alt="Tariq Mansoor" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-Border Market Entry</p>
                     <p className="fd-pathway-cards__auth">Dubai distribution partnership · UAE</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Founder Confidence & Grit" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/founder_mentorship_grit.jpg" alt="Founder Confidence & Grit" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_four.jpg" alt="Ananya Rao" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Founder Confidence &amp; Grit</p>
                     <p className="fd-pathway-cards__auth">Mentorship through turnaround · Pune</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="12 Jobs Created" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story_jignesh_rohit_new.jpg" alt="12 Jobs Created" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_five.jpg" alt="Prateek Sen" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">12 Jobs Created</p>
                     <p className="fd-pathway-cards__auth">Manufacturing plant expansion · Surat</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Scaling Women Founders" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/scaling_women_founders.jpg" alt="Scaling Women Founders" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_six.jpg" alt="Priyanka Nair" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Scaling Women Founders</p>
                     <p className="fd-pathway-cards__auth">Scaling D2C healthcare brand · Bengaluru</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="Clean Energy Microgrid" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/clean_energy_microgrid.jpg" alt="Clean Energy Microgrid" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_seven.jpg" alt="Rohan Singhal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Clean Energy Deployment</p>
                     <p className="fd-pathway-cards__auth">Collaborative rural solar · Hyderabad</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Direct Farm Sourcing" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/direct_farm_sourcing.jpg" alt="Direct Farm Sourcing" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_eight.jpg" alt="Ishita Bhatt" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Direct Farm Sourcing</p>
                     <p className="fd-pathway-cards__auth">Fair pricing for 800+ farmers · Rajkot</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/put-collaboration-into-action.png" alt="Life Impact Score: 100+" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/unity_life_impact_score.jpg" alt="Life Impact Score: 100+" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_nine.jpg" alt="Aalok Shrivastava" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Life Impact Score: 100+</p>
                     <p className="fd-pathway-cards__auth">Measured on Unity App · Top Peer</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Emergency Capex Bridge" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/emergency_capex_bridge.jpg" alt="Emergency Capex Bridge" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_ten.jpg" alt="Sunil Chordia" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Emergency Capex Bridge</p>
                     <p className="fd-pathway-cards__auth">Peer equipment syndicate · Ahmedabad</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Global Tech Syndicate" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/global_tech_syndicate.jpg" alt="Global Tech Syndicate" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_eleven.jpg" alt="Tarun Jaggi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Global Tech Syndicate</p>
                     <p className="fd-pathway-cards__auth">6 cross-city founders co-investing · London</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/mission-2030.jpg" alt="The 1 Million Mission" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/one_million_mission.jpg" alt="The 1 Million Mission" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_impact_twelve.jpg" alt="Divya Somani" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">The 1 Million Mission</p>
                     <p className="fd-pathway-cards__auth">Impacting 1M entrepreneurs by 2030</p>
@@ -1058,96 +1050,96 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-director-hero.jpg" alt="Circle Director Recognition" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_director_recognition.jpg" alt="Circle Director Recognition" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_one.jpg" alt="Kalyan Krishnamurthy" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Director Recognition</p>
                     <p className="fd-pathway-cards__auth">Honoring top contributors · Mumbai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="Unity App Impact Badge" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/exclusive_lounge.jpg" alt="Unity App Impact Badge" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_two.jpg" alt="Sarita Poddar" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Unity Impact Badge</p>
                     <p className="fd-pathway-cards__auth">10 Collaborations Logged · Gold Tier</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Peer Appreciation" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_peer_appreciation.jpg" alt="Peer Appreciation" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_three.jpg" alt="Viren Merchant" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Peer Appreciation</p>
                     <p className="fd-pathway-cards__auth">Unprompted peer testimonial · Delhi</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Supply Chain Contract" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_supply_chain_deal.jpg" alt="Supply Chain Contract" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_four.jpg" alt="Lalit Modi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Supply Chain Deal</p>
                     <p className="fd-pathway-cards__auth">₹18 Cr long-term volume · Surat</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Cross-City Hub" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_cross_city_hub.jpg" alt="Cross-City Hub" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_five.jpg" alt="Jayanti Chauhan" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Cross-City Hub</p>
                     <p className="fd-pathway-cards__auth">New branch in Singapore · Chennai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/executive-director-hero.jpg" alt="Mentorship Pay-It-Forward" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/leadership-entrepreneurs-meeting.jpg" alt="Mentorship Pay-It-Forward" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_six.jpg" alt="Aman Gupta" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Mentorship Network</p>
                     <p className="fd-pathway-cards__auth">Founder guiding 4 scaleups · Pune</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="Youth Founder Grant" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_youth_founder_grant.jpg" alt="Youth Founder Grant" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_seven.jpg" alt="Namita Thapar" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Youth Founder Grant</p>
                     <p className="fd-pathway-cards__auth">Seed pool for founders · Ahmedabad</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Healthcare Diagnostics Capex" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_healthcare_capex.jpg" alt="Healthcare Diagnostics Capex" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_eight.jpg" alt="Dr. Naresh Trehan" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Healthcare Capex</p>
                     <p className="fd-pathway-cards__auth">3 clinics equipped · Vadodara</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="Export License Clearance" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_export_clearance.jpg" alt="Export License Clearance" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_nine.jpg" alt="Nikhil Kamath" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Export Clearance</p>
                     <p className="fd-pathway-cards__auth">Solved in 48 hours · Dubai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Circle Impact Roll" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_circle_impact_roll.jpg" alt="Circle Impact Roll" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_ten.jpg" alt="Ghazal Alagh" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Circle Impact Roll</p>
                     <p className="fd-pathway-cards__auth">Monthly giving tally · Kolkata</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/leadership-entrepreneurs-meeting.jpg" alt="Tech Stack Sharing" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_tech_stack_sharing.jpg" alt="Tech Stack Sharing" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_eleven.jpg" alt="Ritesh Agarwal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Tech Stack Sharing</p>
                     <p className="fd-pathway-cards__auth">AI infrastructure sharing · Bengaluru</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Annual Impact Conclave" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/impact_annual_conclave.jpg" alt="Annual Impact Conclave" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_extra_twelve.jpg" alt="Vineeta Singh" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Annual Impact Conclave</p>
                     <p className="fd-pathway-cards__auth">Celebrating 25,000+ lives · Global</p>
@@ -1227,96 +1219,96 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/give-first-card.jpg" alt="100,000 Mentorship Hours" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="100,000 Mentorship Hours" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_one.jpg" alt="Pankaj Munjal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Mentorship Hours</p>
                     <p className="fd-pathway-cards__auth">100,000+ Hours · Global</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/cities-skyline-banner.jpg" alt="Cross-Border Market Corridors" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_market_corridor.jpg" alt="Cross-Border Market Corridors" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_two.jpg" alt="Rachna Bhasin" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Market Corridors</p>
                     <p className="fd-pathway-cards__auth">India &amp; UAE Routes</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/origin-story-office-bg.jpg" alt="250,000 Jobs Catalyzed" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_jobs_catalyzed.jpg" alt="250,000 Jobs Catalyzed" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_three.jpg" alt="Jayesh Shah" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Jobs Catalyzed</p>
                     <p className="fd-pathway-cards__auth">250,000+ SMEs · India</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/conclave.png" alt="Next-Gen Founder Incubator" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/philosophy-networking.jpg" alt="Next-Gen Founder Incubator" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_four.jpg" alt="Geetanjali Kirloskar" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Next-Gen Circles</p>
                     <p className="fd-pathway-cards__auth">Youth Ventures · Multi-city</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-priya-karan.jpg" alt="Women Entrepreneurship Council" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_women_founders.jpg" alt="Women Entrepreneurship Council" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_five.jpg" alt="Bhavna Doshi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Women Founders</p>
                     <p className="fd-pathway-cards__auth">300+ Enterprises · Bengaluru</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-panel-leaders.jpg" alt="Emergency Capex Syndicate" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_capex_syndicate.jpg" alt="Emergency Capex Syndicate" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_six.jpg" alt="Girish Paranjpe" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Capex Syndicate</p>
                     <p className="fd-pathway-cards__auth">Shared Asset Network</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/outcomes-peers-group.png" alt="Rural Supply Chain Integration" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/territory/territory-closing-hero.png" alt="Rural Supply Chain Integration" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_seven.jpg" alt="Madhuri Tripathi" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Supply Chain Hub</p>
                     <p className="fd-pathway-cards__auth">Farm to D2C · Rajkot</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-mountain.jpg" alt="CleanTech Alliances" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/executive-director-hero.jpg" alt="CleanTech Alliances" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_eight.jpg" alt="Adar Poonawalla" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">CleanTech Alliance</p>
                     <p className="fd-pathway-cards__auth">Zero-Waste Tech · Hyderabad</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-boardroom.jpg" alt="Peer Seed & Angel Network" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_angel_network.jpg" alt="Peer Seed & Angel Network" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_nine.jpg" alt="Siddharth Lal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Peer Angel Network</p>
                     <p className="fd-pathway-cards__auth">Growth Capital · Mumbai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-impact.jpg" alt="Global Chapter Expansion" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/exclusive_lounge.jpg" alt="Global Chapter Expansion" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_ten.jpg" alt="Anil Agarwal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Global Chapters</p>
                     <p className="fd-pathway-cards__auth">50+ Hub Cities · Worldwide</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="AI & Tech Playbooks" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_ai_playbooks.jpg" alt="AI & Tech Playbooks" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_eleven.jpg" alt="Sudhir Sitapati" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">AI Tech Playbooks</p>
                     <p className="fd-pathway-cards__auth">SME Modernization · Pune</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/executive-director-conclave.jpg" alt="Leadership Conclave 2030" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_leadership_summit.jpg" alt="Leadership Conclave 2030" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_grow_twelve.jpg" alt="Harsh Mariwala" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Leadership Summit</p>
                     <p className="fd-pathway-cards__auth">2,000+ Peers · New Delhi</p>
@@ -1325,96 +1317,96 @@ export function PathwayCardsSection() {
                 <div className="fd-pathway-cards__page">
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/industry-cross-city-handshake.jpg" alt="₹5,000 Cr Collaborative Commerce" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_collaborative_trade.jpg" alt="₹5,000 Cr Collaborative Commerce" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_one.jpg" alt="Harish Salve" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Collaborative Trade</p>
                     <p className="fd-pathway-cards__auth">₹5,000 Cr Commerce · Global</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-inner-board.jpg" alt="Deep-Tech Shared Labs & IP" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_deeptech_labs.jpg" alt="Deep-Tech Shared Labs & IP" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_one.jpg" alt="Shikha Sharma" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Deep-Tech Labs</p>
                     <p className="fd-pathway-cards__auth">Shared Testing &amp; IP · Bengaluru</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/who-we-are-friends.jpg" alt="First-Time Exporter Readiness" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_exporter_readiness.jpg" alt="First-Time Exporter Readiness" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_two.jpg" alt="Bhavish Aggarwal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Exporter Readiness</p>
                     <p className="fd-pathway-cards__auth">Global Compliance · Surat</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/culture-hero-desk.jpg" alt="Community Ethics & Governance" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/fatima-khan.jpg" alt="Fatima Khan" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/event_awards_stage.jpg" alt="Community Ethics & Governance" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_two.jpg" alt="Zia Mody" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Circle Governance</p>
                     <p className="fd-pathway-cards__auth">High-Trust Hubs · All Cities</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/unity-hero-phones.jpg" alt="The Unity App Platform" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_unity_app.jpg" alt="The Unity App Platform" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_three.jpg" alt="Sanjeev Bikhchandani" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">The Unity App</p>
                     <p className="fd-pathway-cards__auth">24/7 Digital Exchange</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/hot-seat.png" alt="Founder Health & Well-being" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/anand-sharma.jpg" alt="Anand Sharma" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_founder_longevity.jpg" alt="Founder Health & Well-being" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_three.jpg" alt="Kiran Mazumdar" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Founder Longevity</p>
                     <p className="fd-pathway-cards__auth">Health &amp; Wellness · Mumbai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/circle-meeting.png" alt="Lean Factory Benchmarking" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/rajesh-shah.jpg" alt="Rajesh Shah" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/section_image/circle-roundtable-topdown.jpg" alt="Lean Factory Benchmarking" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_four.jpg" alt="Ajay Piramal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Lean Factory Audits</p>
                     <p className="fd-pathway-cards__auth">Zero-Defect Hubs · Vadodara</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/put-collaboration-into-action.png" alt="Working Capital Liquidity" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/vikram-patel.jpg" alt="Vikram Patel" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_working_capital.jpg" alt="Working Capital Liquidity" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_four.jpg" alt="Falguni Nayar" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Working Capital</p>
                     <p className="fd-pathway-cards__auth">Receivables Liquidity · Chennai</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-jignesh-rohit.jpg" alt="Family Business Succession" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/pradeep-joshi.jpg" alt="Pradeep Joshi" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_family_succession.jpg" alt="Family Business Succession" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_five.jpg" alt="Nandan Nilekani" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Family Succession</p>
                     <p className="fd-pathway-cards__auth">Gen-2 Founder Shifts · Delhi</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-amit-sandeep.jpg" alt="Direct Bulk Sourcing Marketplace" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/priya-desai.jpg" alt="Priya Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_direct_bulk_sourcing.jpg" alt="Direct Bulk Sourcing Marketplace" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_five.jpg" alt="Anu Aga" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Direct Bulk Sourcing</p>
-                    <p className="fd-pathway-cards__auth">Zero-Broker Sourcing · Pan-India</p>
+                    <p className="fd-pathway-cards__auth">Zero-Broker Sourcing Pan-India</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/story-neha-simran.jpg" alt="Venture Resilience Hot Seats" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/neha-kothari.jpg" alt="Neha Kothari" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/mission_crisis_hotseats.jpg" alt="Venture Resilience Hot Seats" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_six.jpg" alt="Deepinder Goyal" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Crisis Hot Seats</p>
                     <p className="fd-pathway-cards__auth">Peer Counsel · All Hubs</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
-                      <img className="fd-pathway-cards__cover" src="/images/membership-mountain-closing.jpg" alt="1M Lives Milestone Summit" width="147" height="83" loading="lazy" decoding="async" />
-                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/amit-desai.jpg" alt="Amit Desai" width="55" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__cover" src="/images/story_procurement_syndicate.jpg" alt="1M Lives Milestone Summit" width="147" height="83" loading="lazy" decoding="async" />
+                      <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_woman_six.jpg" alt="Vandana Luthra" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">Milestone Summit</p>
                     <p className="fd-pathway-cards__auth">Global Impact · 2030</p>
@@ -1499,7 +1491,7 @@ export function PathwayCardsSection() {
                   <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
-                        <img src="/images/story-jignesh-rohit.jpg" alt="Jignesh Shah and Rohit Mehta" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <img src="/images/story_packaging_auto.jpg" alt="Jignesh Shah and Rohit Mehta" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-rose-300 border border-rose-500/30">
                           PACKAGING &amp; AUTOMOTIVE
                         </div>
@@ -1528,7 +1520,7 @@ export function PathwayCardsSection() {
                   <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
-                        <img src="/images/story-priya-karan.jpg" alt="Priya Desai and Karan Malhotra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <img src="/images/story_export_corridor.jpg" alt="Priya Desai and Karan Malhotra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-blue-300 border border-blue-500/30">
                           CROSS-BORDER EXPORTS
                         </div>
@@ -1557,7 +1549,7 @@ export function PathwayCardsSection() {
                   <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
-                        <img src="/images/story-amit-sandeep.jpg" alt="Amit Trivedi and Sandeep Kulkarni" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <img src="/images/story_chemical_review.jpg" alt="Amit Trivedi and Sandeep Kulkarni" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-amber-300 border border-amber-500/30">
                           OPERATIONAL WISDOM
                         </div>
@@ -1617,7 +1609,7 @@ export function PathwayCardsSection() {
                   <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
-                        <img src="/images/story-hero.jpg" alt="Nayan Shah and Vikramaditya Solanki" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <img src="/images/story_procurement_syndicate.jpg" alt="Nayan Shah and Vikramaditya Solanki" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-purple-300 border border-purple-500/30">
                           BULK PROCUREMENT
                         </div>
@@ -1646,7 +1638,7 @@ export function PathwayCardsSection() {
                   <div className="group relative rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 p-3.5 flex flex-col justify-between h-full">
                     <div>
                       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3 border border-white/10 shadow-md">
-                        <img src="/images/who-we-are-friends.jpg" alt="Pradeep Joshi and Fatima Khan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <img src="/images/story_farmer_logistics.jpg" alt="Pradeep Joshi and Fatima Khan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                         <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-semibold text-rose-300 border border-rose-500/30">
                           AGRI-LOGISTICS
                         </div>

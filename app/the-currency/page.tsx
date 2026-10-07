@@ -174,145 +174,121 @@ export default function TheCurrencyPage() {
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-blue-600 selection:text-white">
       
       {/* =========================================================================
-          SECTION 1: HERO ("THE CURRENCY" & "THE IMPACT SYSTEM")
-          Fade Video Hero Card (Exact Match to Homepage WhoWeAre signature style)
+          SECTION 1: HERO (Master Full Page Dark Video Banner)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-14 sm:pb-20 border-b border-slate-200/80">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-14 sm:pb-20 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Top Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">The Currency</span>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-slate-400">Our World</span>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">The Currency</span>
           </div>
 
-          {/* Top Hero Banner with Smooth Left-Fading Video */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-            
-            {/* Media Background Layer (Right ~60% fading into white on the left) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              {/* Active Video */}
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/who-we-are-boardroom.jpg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="size-full object-cover object-center"
-              />
-
-              {/* Seamless gradient overlays for the signature misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  People
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Ideas
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Opportunities
-                </p>
-                <p className="text-2xl sm:text-3xl text-white font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Impact
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE IMPACT SYSTEM · 1 ACTION = 1 LIFE</span>
               </div>
 
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    A STRONGER
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    MORE CONNECTED WORLD
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content Area (Overlaid on the crisp white side) */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
-                
-                {/* Eyebrow */}
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="h-0.5 w-6 bg-[#1E4ED8]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E4ED8]">
-                    THE CURRENCY
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  The{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Currency.
                   </span>
-                </div>
-
-                {/* Title */}
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-5">
-                  The Impact System: where entrepreneurs choose to{' '}
-                  <span className="font-serif italic text-[#1E4ED8]">grow together.</span>
                 </h1>
-
-                {/* Subtitle / Narrative */}
-                <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed mb-6 max-w-lg">
-                  Most communities measure activity. We measure impact. Every referral given, introduction made, or business guided counts as 1 Life Impacted — tracked live on the Unity App.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Most communities measure activity. We measure impact. Every introduction, referral, or guided decision is tracked live on the Unity App as 1 Life Impacted.
                 </p>
+              </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-wrap items-center gap-4 mb-10">
-                  <Link
-                    href="/unity"
-                    className="rounded-full bg-[#1E4ED8] hover:bg-[#1b44be] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
 
-                  <Link
-                    href="/stories"
-                    className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white/90 backdrop-blur-sm px-5 py-3 text-xs sm:text-sm font-semibold text-slate-700 shadow-xs transition-all hover:bg-slate-50 hover:border-slate-300"
-                  >
-                    <div className="size-6 rounded-full bg-blue-50 text-[#1E4ED8] flex items-center justify-center">
-                      <span className="text-xs">▶</span>
+                <Link
+                  href="/stories"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Watch Our Story</span>
+                </Link>
+              </div>
+
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { icon: Target, value: '1M+', label: 'Entrepreneurs to Impact' },
+                  { icon: Sparkles, value: '1 Action', label: '1 Life Impacted' },
+                  { icon: ShieldCheck, value: '100%', label: 'Peer-Verified' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
                     </div>
-                    <div className="text-left">
-                      <span className="text-[10px] uppercase text-slate-400 font-semibold block leading-none">WATCH</span>
-                      <span className="text-xs font-bold text-slate-900 leading-tight">Our Story</span>
-                    </div>
-                  </Link>
-                </div>
-
-                {/* Bottom 3 Metrics Stats */}
-                <div className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-100 w-full max-w-lg">
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">1M+</div>
-                    <div className="text-[11px] sm:text-xs text-slate-500 font-light mt-0.5">Entrepreneurs to Impact<br />By 2030</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-extrabold text-[#1E4ED8]">1 Action</div>
-                    <div className="text-[11px] sm:text-xs text-slate-500 font-light mt-0.5">= 1 Life Impacted<br />Unweighted</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">100%</div>
-                    <div className="text-[11px] sm:text-xs text-slate-500 font-light mt-0.5">Peer-Verified<br />Every Time</div>
-                  </div>
-                </div>
-
+                  )
+                })}
               </div>
             </div>
 
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                People
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Ideas · Opportunities
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Measurable Impact
+              </p>
+            </div>
           </div>
-
         </div>
       </section>
 
@@ -325,9 +301,9 @@ export default function TheCurrencyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            <span>OUR BELIEF</span>
+          <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="brand-gradient-text">OUR BELIEF</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mt-2">
@@ -381,15 +357,15 @@ export default function TheCurrencyPage() {
             <div className="lg:col-span-6 flex flex-col items-start">
               
               {/* Eyebrow */}
-              <div className="flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase mb-4">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
-                <span>SIMPLE. FAIR. MEANINGFUL.</span>
+              <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-4">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="brand-gradient-text">SIMPLE. FAIR. MEANINGFUL.</span>
               </div>
 
               {/* Title: One action, one life. */}
               <h2 className="font-serif text-4xl sm:text-5xl lg:text-[56px] font-bold text-slate-900 tracking-tight leading-[1.08] mb-6">
                 One action, <br />
-                <span className="font-serif italic font-bold text-[#0062D2]">one life.</span>
+                <span className="font-serif italic font-bold brand-gradient-text">one life.</span>
               </h2>
 
               {/* Body Paragraphs */}
@@ -465,36 +441,8 @@ export default function TheCurrencyPage() {
 
             </div>
 
-            {/* Right Column: "How it works" Card + Outer Callout Arc (6 cols) */}
+            {/* Right Column: "How it works" Card (6 cols) */}
             <div className="lg:col-span-6 relative">
-              
-              {/* Outer Decorative Arc & Gradient Glow */}
-              <div className="hidden xl:block absolute -right-24 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
-                {/* Soft gradient half-circle */}
-                <div className="w-56 h-80 rounded-r-full bg-gradient-to-r from-transparent via-blue-50/70 to-blue-100/40 blur-xl absolute -left-12 -top-10" />
-                
-                {/* SVG dashed curved arc with dot and text */}
-                <svg className="w-48 h-72 overflow-visible" viewBox="0 0 160 260" fill="none">
-                  {/* Dashed circular arc */}
-                  <path
-                    d="M 10 10 A 130 130 0 0 1 10 250"
-                    stroke="#0062D2"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 4"
-                    strokeOpacity="0.45"
-                  />
-                  {/* Glowing Apex Dot */}
-                  <circle cx="56" cy="100" r="4.5" fill="#0062D2" />
-                  <circle cx="56" cy="100" r="8" fill="#0062D2" fillOpacity="0.2" />
-                </svg>
-
-                {/* Vertical Text Label */}
-                <div className="absolute left-16 top-[115px] text-[9px] font-bold tracking-[0.22em] text-[#0062D2] uppercase leading-snug">
-                  SMALL <br />
-                  ACTIONS <br />
-                  BIG CHANGE
-                </div>
-              </div>
 
               {/* Main Card Container */}
               <div className="relative z-10 bg-white rounded-3xl sm:rounded-[32px] p-7 sm:p-10 border border-slate-200/90 shadow-[0_15px_45px_rgba(15,23,42,0.06)]">
@@ -515,9 +463,9 @@ export default function TheCurrencyPage() {
                 </div>
 
                 {/* Eyebrow */}
-                <div className="flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase mb-2">
-                  <span>FOUR SIMPLE STEPS</span>
-                  <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+                <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                  <span className="brand-gradient-text">FOUR SIMPLE STEPS</span>
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 </div>
 
                 {/* Headline */}
@@ -598,8 +546,9 @@ export default function TheCurrencyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Eyebrow */}
-          <div className="text-xs font-bold tracking-[0.2em] text-[#0062D2] uppercase mb-3">
-            VISIBLE. RECOGNISED. REAL.
+          <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-3">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="brand-gradient-text">VISIBLE. RECOGNISED. REAL.</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-12">
@@ -668,10 +617,10 @@ export default function TheCurrencyPage() {
       <section className="relative py-20 sm:py-28 bg-[#F8FAFC] text-slate-900 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
-          <div className="inline-flex items-center gap-3 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
-            <span>MORE THAN A NUMBER</span>
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
+          <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <span className="brand-gradient-text">MORE THAN A NUMBER</span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-14">
@@ -716,8 +665,9 @@ export default function TheCurrencyPage() {
             {/* Left Column: PEER STANDING (6 cols) */}
             <div className="lg:col-span-6 flex flex-col justify-between h-full">
               <div>
-                <div className="text-xs font-bold tracking-[0.2em] text-[#0062D2] uppercase mb-2">
-                  PEER STANDING
+                <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="brand-gradient-text">PEER STANDING</span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
                   What the community recognises you for
@@ -762,8 +712,9 @@ export default function TheCurrencyPage() {
 
             {/* Right Column: PEERS COIN (6 cols) */}
             <div className="lg:col-span-6 bg-[#F8FAFC] rounded-2xl p-7 sm:p-9 border border-slate-200/80 shadow-xs">
-              <div className="text-xs font-bold tracking-[0.2em] text-[#0062D2] uppercase mb-2">
-                PEERS COIN —
+              <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="brand-gradient-text">PEERS COIN</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
                 The community gives back to those who give
@@ -903,89 +854,110 @@ export default function TheCurrencyPage() {
 
       {/* =========================================================================
           SECTION 8: "OUR MISSION" (BECOME A LIFE IMPACTOR)
-          With Cinematic Looping Earth Background Video (as requested)
+          Master Homepage Closing Standard
           ========================================================================= */}
-      <section className="relative py-24 sm:py-32 overflow-hidden bg-[#030B1C] text-white border-t border-slate-900">
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-18 sm:py-24 border-t border-slate-900">
         
-        {/* Background Looping Earth Video */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="size-full object-cover object-center filter brightness-[0.75] contrast-[1.1]"
-          >
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
-          </video>
-          {/* Subtle multi-stop gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#030B1C] via-[#030B1C]/50 to-[#030B1C] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,11,28,0.2)_0%,rgba(3,11,28,0.8)_100%)] pointer-events-none" />
+        {/* Deep celestial radial gradients & luminous brand aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+        />
+
+        {/* Subtle geometric orbital line art */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35"
+        >
+          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
+            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
+            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
+            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
+            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
+          </svg>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column (8 cols): Mission Headline & CTAs */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 space-y-5">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="w-6 h-[1.5px] bg-sky-400" />
-                <span>OUR MISSION</span>
+              <div className="flex items-center gap-2.5">
+                <span className="h-[1.5px] w-6 bg-white/70" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  OUR MISSION
+                </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.15] mb-4">
-                Become a Life Impactor
+              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-[1.12]">
+                Become a{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  Life Impactor.
+                </span>
               </h2>
 
-              <p className="text-xl sm:text-2xl text-sky-300 font-semibold mb-4">
+              <p className="text-xl sm:text-2xl text-white/95 font-medium">
                 1M+ entrepreneurs to impact by 2030.
               </p>
 
-              <p className="text-sm sm:text-base text-slate-300 font-light mb-8 max-w-xl">
-                Every action you take inside your Circle adds to the global count of lives impacted.
+              <p className="text-sm sm:text-base text-slate-300 font-light max-w-xl leading-relaxed">
+                Every action you take inside your Circle adds to the global count of lives impacted. 1 Action = 1 Life Impacted.
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 pt-3">
                 <Link
-                  href="/membership"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 flex items-center gap-2"
+                  href="/1-million-mission"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-8 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-[0_4px_20px_rgba(225,29,72,0.35)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.50)] transition-all uppercase active:scale-95"
                 >
                   <span>See the 1 Million Mission</span>
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
                   href="/unity"
-                  className="rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-7 py-3.5 text-sm font-medium transition-all"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all uppercase backdrop-blur-sm"
                 >
-                  Download Unity App
+                  <span>Download Unity App</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Column (4 cols): Artistic Script Card */}
-            <div className="lg:col-span-4 flex lg:justify-end">
-              <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/10 to-white/[0.03] backdrop-blur-md border border-white/15 shadow-2xl max-w-sm">
-                <div className="font-serif italic text-2xl sm:text-3xl text-sky-200 font-light leading-snug space-y-1">
-                  <div>More People.</div>
-                  <div>Brighter Businesses.</div>
-                  <div className="text-white font-normal">A Better Tomorrow.</div>
-                </div>
-              </div>
+            {/* Right Column (4 cols): Floating Calligraphy Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                More People
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Brighter Businesses
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                A Better Tomorrow
+              </p>
             </div>
 
           </div>
         </div>
 
       </section>
-
-
-      {/* =========================================================================
-          SECTION 9: FINAL CALL (CLOSING CTA - EXACT SAME AS HOMEPAGE)
-          ========================================================================= */}
-      <ClosingCtaSection />
 
     </div>
   )

@@ -1,0 +1,97 @@
+name: Deploy Peers Global Website to Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  validate-and-deploy:
+    name: Build Check & Deploy to Production VPS
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js (v20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies (CI Build Validation)
+        run: |
+          echo "Installing dependencies to validate build..."
+          npm ci --prefer-offline || npm install
+
+      - name: 🏗️ Validate Production Build
+        run: |
+          echo "Running build validation check..."
+          export NEXT_PUBLIC_API_BASE_URL="https://peersunity.com"
+          npm run build
+
+      - name: 🚀 Deploy to Production Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PROD_SSH_HOST }}
+          username: ${{ secrets.PROD_SSH_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          port: ${{ secrets.PROD_SSH_PORT }}
+          timeout: 60s
+          command_timeout: 15m
+          script_stop: true
+          script: |
+            echo "=== [1/6] Navigating to application directory ==="
+            cd ${{ secrets.PROD_DEPLOY_PATH }} || { echo "Deploy path not found"; exit 1; }
+
+            echo "=== [2/6] Syncing with Git main branch ==="
+            git fetch origin main
+            git checkout main
+            git reset --hard origin/main
+
+            echo "=== [3/6] Setting environment paths ==="
+            export PATH="/home/peersglobal/.local/bin:/usr/local/bin:/usr/bin:$PATH"
+
+            echo "=== [4/6] Installing production dependencies ==="
+            npm install --prefer-offline --no-audit
+
+            echo "=== [5/6] Building Next.js production bundle ==="
+            npm run build
+
+            echo "=== [6/6] Reloading PM2 process ==="
+            pm2 reload peersglobal-website --update-env || pm2 restart peersglobal-website --update-env
+            pm2 save
+
+            echo "=== Local health verification ==="
+            sleep 3
+            curl -f -s -I http://127.0.0.1:3000/ || { echo "Local process failed health check"; exit 1; }
+            echo "Local Next.js service is healthy on port 3000."
+
+      - name: 🩺 Public Production Health Check
+        run: |
+          echo "Waiting 5 seconds for web proxy propagation..."
+          sleep 5
+          echo "Testing public HTTPS endpoint..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://peersglobal.com/)
+          echo "Homepage HTTP status: $STATUS"
+          if [ "$STATUS" -ne 200 ]; then
+            echo "❌ Production health check failed with status $STATUS"
+            exit 1
+          fi
+
+          echo "Testing key subpage..."
+          SUB_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://peersglobal.com/circles)
+          echo "Circles page HTTP status: $SUB_STATUS"
+          if [ "$SUB_STATUS" -ne 200 ]; then
+            echo "❌ Circles page failed with status $SUB_STATUS"
+            exit 1
+          fi
+
+          echo "✅ Production deployment successfully verified at https://peersglobal.com!"

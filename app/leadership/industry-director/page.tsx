@@ -2,24 +2,25 @@ import type { Metadata } from 'next'
 import { IndustryDirectorClient } from '@/components/leadership/industry-director-client'
 
 export const metadata: Metadata = {
-  title: 'Industry Director | Peers Global',
+  title: 'Industry Director | PEERS GLOBAL Leadership',
   description:
-    'An Industry Director brings together entrepreneurs from across cities and Circles, strengthens sector depth, and represents the voice of the industry within Peers Global and beyond.',
+    'Sector ecosystem owner for the city. An Industry Director carries responsibility for a sector—not simply for a Circle. One sector. One person responsible.',
   keywords: [
-    'industry director role',
-    'business community leadership India',
-    'entrepreneur mentor role',
-    'business circle leadership',
-    'sector leadership',
-    'industry voice',
+    'Industry Director',
+    'PEERS GLOBAL Industry Director',
+    'Sector ecosystem owner',
+    'City-level industry leadership',
+    'From Circle to Sector',
+    'Industry collaboration India',
+    'Ecosystem leadership',
   ],
   alternates: {
     canonical: 'https://peersglobal.com/leadership/industry-director',
   },
   openGraph: {
-    title: 'Industry Director | Peers Global',
+    title: 'Industry Director | Sector Ecosystem Owner | PEERS GLOBAL',
     description:
-      'You carry an industry. Discover the Industry Director leadership appointment at Peers Global.',
+      'An Industry Director carries responsibility for a sector—not simply for a Circle. Explore Industry Director leadership at PEERS GLOBAL.',
     url: 'https://peersglobal.com/leadership/industry-director',
     type: 'website',
     images: [
@@ -27,15 +28,15 @@ export const metadata: Metadata = {
         url: '/images/industry-director-speaker.jpg',
         width: 1200,
         height: 630,
-        alt: 'Industry Director addressing entrepreneurs at national conference',
+        alt: 'Industry Director addressing entrepreneurs at an ecosystem gathering',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Industry Director | Peers Global',
+    title: 'Industry Director | PEERS GLOBAL Leadership',
     description:
-      'You carry an industry. Discover the Industry Director leadership appointment at Peers Global.',
+      'Sector ecosystem owner for the city. An Industry Director carries responsibility for a sector—not simply for a Circle.',
     images: ['/images/industry-director-speaker.jpg'],
   },
 }
@@ -44,67 +45,59 @@ export default function IndustryDirectorPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Industry Director | Peers Global',
+    name: 'Industry Director | PEERS GLOBAL Leadership',
     description:
-      'An Industry Director brings together entrepreneurs from across cities and Circles, strengthens sector depth, and represents the voice of the industry within Peers Global and beyond.',
+      'Sector ecosystem owner for the city. An Industry Director carries responsibility for a sector—not simply for a Circle.',
     url: 'https://peersglobal.com/leadership/industry-director',
     mainEntity: {
       '@type': 'FAQPage',
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'How is an Industry Director selected?',
+          name: 'Is an Industry Director responsible for a Circle?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Industry Directors are appointed from established business owners with recognised domain authority, an active track record of contribution within Peers Global, and demonstrable integrity.',
+            text: 'The Industry Director role looks beyond an individual Circle and carries a city-level sector perspective.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Can I be an Industry Director and a Circle Director?',
+          name: 'Is this a position of authority over other entrepreneurs?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Generally, no. Both roles require dedicated presence and focus. A Circle Director leads one room vertically every month, while an Industry Director moves horizontally across multiple cities and Circles within a specific sector.',
+            text: "The role carries leadership responsibility, but PEERS GLOBAL's leadership philosophy is based on contribution, trust and service—not hierarchy.",
           },
         },
         {
           '@type': 'Question',
-          name: 'How many Industry Directors are there?',
+          name: 'Does the role guarantee recognition?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'There is typically one Industry Director per key sector nationally (e.g. Technology, Manufacturing, Healthcare, Real Estate, Retail).',
+            text: 'No guarantee should be implied. The role creates an opportunity for visibility and contribution; recognition should follow meaningful work.',
           },
         },
         {
           '@type': 'Question',
-          name: 'What is the time commitment?',
+          name: 'Do I need to be the biggest entrepreneur in my industry?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The commitment is estimated at 8 to 12 hours per month, encompassing national sector roundtables, collaboration with Circle Directors, and media coverage.',
+            text: 'The source does not define the role through business size or market position. What matters is the willingness and ability to contribute to the sector ecosystem.',
           },
         },
         {
           '@type': 'Question',
-          name: 'What kind of support does an Industry Director receive?',
+          name: 'Can leadership begin with a Circle?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'You receive direct support from the Peers Global Central Office, access to Unity App cross-city channel tools, executive media coverage via VyapaarJagat.com, and dedicated event coordination.',
+            text: 'Yes. The broader leadership pathway moves from contribution and Circle leadership toward ecosystem-level responsibility.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Can I nominate someone for this role?',
+          name: 'What is the heart of the role?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Peers, Circle Directors, and Regional Executive Directors can nominate prominent entrepreneurs who embody generous leadership and deep sector commitment.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What happens after my term ends?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Industry Directors serve a defined two-year term. Upon completing their tenure, Directors transition into the Industry Advisory Council or may be invited into Regional and Global governance boards.',
+            text: 'To help an industry become more connected, collaborative and capable—within the city and within the wider PEERS GLOBAL community.',
           },
         },
       ],

@@ -27,7 +27,7 @@ const ROW_1_PILLARS: UniversePillar[] = [
     badge: '03 · CIRCLES',
     title: 'Circles',
     role: 'Your home inside the community',
-    image: '/images/circle-meeting.png',
+    image: '/images/section_image/circle-meeting.png',
   },
   {
     badge: '04 · LANGUAGE',
@@ -54,13 +54,13 @@ const ROW_2_PILLARS: UniversePillar[] = [
     badge: '07 · UNITY APP',
     title: 'Unity App',
     role: 'The digital ecosystem',
-    image: '/images/unity-hero-phones.jpg',
+    image: '/images/unity-creatives/Post 2.png',
   },
   {
     badge: '08 · EVENTS',
     title: 'Events',
     role: 'Meetings, conclaves and the global summit',
-    image: '/images/conclave.png',
+    image: '/images/section_image/conclave.png',
   },
   {
     badge: '09 · MEDIA',

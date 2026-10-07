@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   ArrowRight,
   ChevronRight,
@@ -18,416 +19,239 @@ import {
   Zap,
   CheckCircle2,
   Compass,
+  ShoppingBag,
+  Heart,
+  Briefcase,
+  Layers,
+  ArrowUpRight,
+  Check,
 } from 'lucide-react'
 
-const INITIATIVES = [
+// ─── The 6 Ecosystem Initiatives ───────────────────────────────────────────
+const INITIATIVES_DATA = [
   {
     id: '01',
-    title: 'Peers Global',
-    subtitle: 'Flagship Community of Collaboration',
-    tag: 'Flagship Community',
-    desc: 'The world’s first community of collaboration. Circles of entrepreneurs across industries, cities and countries, built on trust and contribution.',
-    longDesc:
-      'Curated rooms of verified business founders, category-exclusive seats, governed monthly agendas, and verified bilateral collaboration tracking through the Unity App.',
-    link: '/circles',
-    linkText: 'Explore Peers Global',
+    name: 'PEERS GLOBAL',
+    tagline: 'The community of collaboration.',
+    desc: 'PEERS GLOBAL is the community at the centre of the ecosystem. It is built around entrepreneurs coming together not merely to network, but to build trusted relationships and create meaningful collaboration.',
+    structure: [
+      'Circles & Inner Boards',
+      'Peer-to-Peer relationships',
+      'Learning & masterclasses',
+      'Resources & playbooks',
+      'Leadership opportunities',
+      'Recognition & Life Impact',
+    ],
+    philosophy: 'Connection is the beginning. Collaboration is what comes next.',
+    ctaText: 'Explore PEERS GLOBAL',
+    ctaLink: '/circles',
     isExternal: false,
     icon: Users,
-    badgeColor: 'bg-blue-50 text-[#1E4ED8] border-blue-200/80',
-    accentBorder: 'border-blue-100 hover:border-blue-300',
-    metrics: '19 Circles · 11 Cities · Verified Promoters',
+    color: 'text-[#0062D2] bg-blue-50 border-blue-200',
   },
   {
     id: '02',
-    title: 'VyapaarJagat',
-    subtitle: 'Independent Media Platform for MSMEs',
-    tag: 'Independent Media',
-    desc: 'A dedicated national media platform for the businesses mainstream business media ignores.',
-    longDesc:
-      'Founded on one belief: every honest business story deserves respect and visibility. Even if a business shuts down, its story should never die. Reaching over 1M+ business owners across Bharat.',
-    link: 'https://vyapaarjagat.com',
-    linkText: 'Visit VyapaarJagat.com',
+    name: 'VYAPAARJAGAT',
+    tagline: 'Every business story deserves to be seen.',
+    desc: 'VyapaarJagat emerged from a personal realisation: Every story is important. Every story is unique. Every story matters. Born from trying to get a first-generation entrepreneur’s own story recognised — and discovering that many MSME journeys were never being told.',
+    structure: [
+      'MSME & startup features',
+      'VyapaarJagat Growth Show',
+      'Vyapaaratna National Awards',
+      'Entrepreneur video series',
+      'Greenpreneur recognitions',
+      'National MSME Conclaves',
+    ],
+    philosophy: 'Recognition is not vanity. Recognition tells someone: your journey matters.',
+    ctaText: 'Explore VyapaarJagat',
+    ctaLink: 'https://vyapaarjagat.com',
     isExternal: true,
     icon: Globe2,
-    badgeColor: 'bg-sky-50 text-sky-700 border-sky-200/80',
-    accentBorder: 'border-sky-100 hover:border-sky-300',
-    metrics: '1M+ Readers · MSME Awards · National Conclaves',
+    color: 'text-sky-700 bg-sky-50 border-sky-200',
   },
   {
     id: '03',
-    title: 'Fempreneur',
-    subtitle: 'National Movement for Women-Led Enterprise',
-    tag: 'Women In Business',
-    desc: 'Women building businesses face a different set of obstacles, and they are rarely discussed honestly.',
-    longDesc:
-      'Fempreneur exists so those conversations happen in a room built for them — addressing access to growth capital, scale barriers, family-enterprise balance, and institutional market access.',
-    link: '/circles',
-    linkText: 'Explore Fempreneur',
+    name: 'FEMPRENEUR',
+    tagline: 'A space for women in entrepreneurship.',
+    desc: 'FEMPRENEUR is dedicated to creating a space where women entrepreneurs can be recognised, connected and supported — addressing growth capital, scale barriers, family-enterprise balance, and institutional access.',
+    structure: [
+      'Women founder circles',
+      'Capital & scale forums',
+      'Mentorship & leadership tracks',
+      'Peer advisory tables',
+      'National visibility summits',
+      'Verified impact cohorts',
+    ],
+    philosophy: 'Create a space where women entrepreneurs can be recognised, connected and supported.',
+    ctaText: 'Explore FEMPRENEUR',
+    ctaLink: '/circles',
     isExternal: false,
     icon: Sparkles,
-    badgeColor: 'bg-purple-50 text-purple-700 border-purple-200/80',
-    accentBorder: 'border-purple-100 hover:border-purple-300',
-    metrics: 'Category-Exclusive · Capital & Growth Forums',
+    color: 'text-purple-700 bg-purple-50 border-purple-200',
   },
   {
     id: '04',
-    title: 'Greenpreneur',
-    subtitle: 'Sustainable & ESG-Focused Businesses',
-    tag: 'Sustainability & ESG',
-    desc: 'For entrepreneurs building sustainable and ESG-focused businesses.',
-    longDesc:
-      'A young sector with policy complexity, specialised funding and long horizons. Greenpreneur brings circular-economy and clean-tech entrepreneurs together to work through it collectively.',
-    link: '/circles',
-    linkText: 'Explore Greenpreneur',
+    name: 'GREENPRENEUR',
+    tagline: 'Entrepreneurship with a responsibility to the future.',
+    desc: 'GREENPRENEUR brings sustainability into the entrepreneurial conversation. Building a business is not only about what can be created today, but about what kind of world that creation leaves behind: People, Planet, Purpose, and Long-term value.',
+    structure: [
+      'Circular economy alliances',
+      'ESG compliance roundtables',
+      'Clean-tech founder networks',
+      'Green procurement linkages',
+      'Sustainability masterclasses',
+      'Impact measurement rubrics',
+    ],
+    philosophy: 'Growth and responsibility do not have to be opposites.',
+    ctaText: 'Explore GREENPRENEUR',
+    ctaLink: '/circles',
     isExternal: false,
     icon: Leaf,
-    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200/80',
-    accentBorder: 'border-emerald-100 hover:border-emerald-300',
-    metrics: 'ESG Compliance · Circular Economy Alliances',
+    color: 'text-emerald-700 bg-emerald-50 border-emerald-200',
   },
   {
     id: '05',
-    title: '1 Million Entrepreneurs International Forum',
-    subtitle: 'Section 8 Not-for-Profit Entity',
-    tag: 'Philanthropic Arm',
-    desc: 'A Section 8 not-for-profit, working toward one million lives impacted through entrepreneurship, collaboration and opportunity.',
-    longDesc:
-      'Carrying the initiatives that sit outside commercial membership: grassroots mentorship, student founder incubators, and capacity development for first-generation founders.',
-    link: '/1-million-mission',
-    linkText: 'See 1 Million Mission',
+    name: '1 MILLION ENTREPRENEURS INTERNATIONAL FORUM',
+    tagline: 'One entrepreneur can impact another.',
+    desc: 'The 1 Million Entrepreneurs International Forum (1MEIF) represents the larger institutional impact ambition: 1 Million+ entrepreneurs to impact by 2030. Impact travels through a product, service, job, relationship, recommendation, collaboration, or helping hand.',
+    structure: [
+      'Section 8 non-profit foundation',
+      'Grassroots entrepreneur mentorship',
+      'Tier-2 and Tier-3 founder fellowships',
+      'Student builder incubation',
+      '1 Action = 1 Life Impacted model',
+      'Global social impact reports',
+    ],
+    philosophy: 'Impact multiplies through people. The Forum is the institutional expression of that belief.',
+    ctaText: 'Explore 1MEIF',
+    ctaLink: '/1-million-mission',
     isExternal: false,
     icon: Award,
-    badgeColor: 'bg-amber-50 text-amber-800 border-amber-200/80',
-    accentBorder: 'border-amber-100 hover:border-amber-300',
-    metrics: '1M Mission · Grassroots Fellowships · Tier 2/3 Focus',
+    color: 'text-amber-800 bg-amber-50 border-amber-200',
+  },
+  {
+    id: '06',
+    name: 'PEERS GLOBAL STORE',
+    tagline: 'A place for the ecosystem to experience what it creates.',
+    desc: 'The PEERS GLOBAL STORE is part of the wider ecosystem — an extension of the community where official merchandise, lapel pins, leather folios, playbooks, and verified community offerings are accessible through Peers Coin and community channels.',
+    structure: [
+      'Official Heritage Lapel Pins',
+      'Monogrammed leather folios',
+      'Commemorative citizen coins',
+      'Founder growth toolkits',
+      'Summit & conclave delegate items',
+      'Peers Coin redemptions',
+    ],
+    philosophy: 'What the ecosystem creates should have a place within the ecosystem.',
+    ctaText: 'Visit the PEERS GLOBAL Store',
+    ctaLink: '/marketplace',
+    isExternal: false,
+    icon: ShoppingBag,
+    color: 'text-rose-700 bg-rose-50 border-rose-200',
   },
 ]
 
 export function InitiativesPageClient() {
-  const [heroVideo, setHeroVideo] = useState('/videos/homepage-hero-bg.mp4')
-
-  useEffect(() => {
-    const loadVideo = () => {
-      try {
-        const saved = localStorage.getItem('peers_admin_page_media')
-        if (saved) {
-          const items = JSON.parse(saved)
-          const target = items.find(
-            (i: any) =>
-              (i.pageSlug === '/initiatives' ||
-                i.pageId === 'initiatives' ||
-                i.pageName === 'Our Initiatives' ||
-                i.pageSlug === '/' ||
-                i.pageName === 'Home Page') &&
-              i.isActive &&
-              i.mediaUrl
-          )
-          if (target && target.mediaUrl) {
-            setHeroVideo(target.mediaUrl)
-          }
-        }
-      } catch (err) {}
-    }
-    loadVideo()
-    window.addEventListener('storage', loadVideo)
-    window.addEventListener('peers_media_updated', loadVideo)
-    return () => {
-      window.removeEventListener('storage', loadVideo)
-      window.removeEventListener('peers_media_updated', loadVideo)
-    }
-  }, [])
-
   return (
-    <div className="min-h-screen bg-[#FDFDFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-[#1E4ED8]">
-      {/* ─── Top Breadcrumb Navigation ─── */}
-      <div className="border-b border-slate-200/70 bg-white/85 backdrop-blur-md sticky top-0 z-30 shadow-2xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-            <Link href="/" className="hover:text-[#1E4ED8] transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-500">About</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-900 font-bold">Our Initiatives</span>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-2 text-[11px] font-medium text-slate-500">
-            <span className="inline-block size-2 rounded-full bg-blue-600 animate-pulse" />
-            <span>Unified Portfolio: 5 Platforms Active</span>
-          </div>
+    <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      
+      {/* ─── Breadcrumbs ─── */}
+      <div className="border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-[#0062D2] transition-colors">
+            Home
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span>About</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 font-bold">Our Initiatives</span>
         </div>
       </div>
 
-      {/* ─── Hero Section: Homepage-Style Unified Master Banner Card ─── */}
-      <section className="relative pt-8 pb-16 md:pt-12 md:pb-20 overflow-hidden bg-[#FBFCFE] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-8 sm:gap-10">
-          
-          {/* Unified Master Hero Card (Matching Home Page Who We Are Hero Card) */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/80 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Right Media Background Layer (Fading into white on the left with live looping video) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              {/* High Definition Looping Background Video */}
-              <video
-                key={heroVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                className="size-full object-cover object-center"
-              >
-                <source src={heroVideo} type="video/mp4" />
-                <source src="/videos/homepage-hero-bg.mp4" type="video/mp4" />
-                <source src="/videos/hero-background.mp4" type="video/mp4" />
-              </video>
-
-              {/* Seamless gradient overlays for signature misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/80 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography with Drop Shadow */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  People
-                </p>
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Ideas
-                </p>
-                <p className="text-lg sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Partnerships
-                </p>
-                <p className="text-xl sm:text-3xl text-white font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Impact
-                </p>
-              </div>
-
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    UNIFIED ECOSYSTEM
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    ONE MISSION · 5 PLATFORMS
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content Area (Overlaid on the crisp white side) */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
-                
-                {/* Eyebrow */}
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    ECOSYSTEM PLATFORMS &amp; ARMS
-                  </span>
-                </div>
-
-                {/* Main Heading & Subheading in exact homepage serif hierarchy */}
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.85rem] font-normal tracking-tight text-slate-900 leading-[1.18]">
-                  Our <span className="italic text-[#1E4ED8]">Initiatives.</span>
-                  <span className="text-lg sm:text-xl lg:text-2xl text-slate-700 italic font-normal block mt-1.5 leading-snug">
-                    One mission. Several purpose-built platforms.
-                  </span>
-                </h1>
-
-                {/* Description */}
-                <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-lg font-normal">
-                  Each platform exists because a specific group of entrepreneurs was being left out of the national conversation. Together, they ensure no builder struggles alone.
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
-                  {/* Glowing Unity App Button */}
-                  <div className="relative group/unity-btn">
-                    <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#E53935] via-[#3B82F6] to-[#1E4ED8] opacity-0 blur-md transition-all duration-500 group-hover/unity-btn:opacity-80 group-hover/unity-btn:blur-lg" />
-                    
-                    <Link
-                      href="/unity"
-                      className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(30,78,216,0.30)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_22px_rgba(30,78,216,0.40)] active:scale-[0.97]"
-                    >
-                      <span>Download Unity App</span>
-                      <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-                    </Link>
-                  </div>
-
-                  <a
-                    href="#portfolio"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-xs transition-all duration-200 hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-[2px] active:scale-[0.98]"
-                  >
-                    <span>Explore Platforms</span>
-                  </a>
-                </div>
-
-                {/* 3 Impact Highlights */}
-                <div className="mt-2 grid grid-cols-3 gap-4 sm:gap-6 border-t border-slate-200/80 pt-6">
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">5</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Dedicated Arms</p>
-                    <p className="text-[11px] text-slate-400 font-medium">B2B &amp; Non-Profit</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">1M+</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Entrepreneurs</p>
-                    <p className="text-[11px] text-slate-400 font-medium">National Reach</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">100%</p>
-                    <p className="text-xs text-slate-600 font-semibold leading-snug mt-1">Unified Code</p>
-                    <p className="text-[11px] text-slate-400 font-medium">LSR Growth Model</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          {/* ─── Fast-Track Callout Card ─── */}
-          <div className="rounded-2xl sm:rounded-[28px] bg-white border border-slate-200/80 shadow-sm p-5 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-5 transition-all duration-300 hover:shadow-md hover:border-blue-200">
-            <div className="flex items-center gap-4 text-left w-full sm:w-auto">
-              <div className="size-12 sm:size-14 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-[#1E4ED8] shrink-0 shadow-2xs">
-                <Target className="w-6 h-6 sm:w-7 sm:h-7" />
-              </div>
-              <div>
-                <h2 className="font-serif text-base sm:text-lg font-bold text-[#061836]">
-                  Purposeful Division — Shared Values
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                  They share the same belief, the same code and the same mission. What differs is the specialized group they serve.
-                </p>
-              </div>
-            </div>
-
-            <a
-              href="#portfolio"
-              className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#1E4ED8] text-white text-xs sm:text-sm font-semibold hover:bg-[#1a42c0] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
-            >
-              <span>View All 5 Platforms</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ─── Section 2: Why More Than One (Rich 2-Column Split Layout) ─── */}
-      <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-gradient-to-b from-[#F2F6FE]/70 via-[#F8FAFD] to-[#FFFFFF] border-b border-slate-200/80">
-        {/* Soft Ambient Radial Glows */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-10 -left-20 h-[450px] w-[450px] rounded-full bg-blue-300/15 blur-[120px]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-10 -right-20 h-[350px] w-[350px] rounded-full bg-sky-200/20 blur-[100px]"
-        />
+      {/* ─── SECTION 1: HERO (OUR INITIATIVES — DIFFERENT PLATFORMS. ONE BELIEF.) ─── */}
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 bg-gradient-to-b from-[#F0F5FD] via-white to-[#FBFCFE] border-b border-slate-200/80 overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Column: Editorial Philosophy (6 cols) */}
-            <div className="lg:col-span-6 flex flex-col gap-6">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    PURPOSEFUL DIVISION
-                  </span>
-                </div>
-                
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-[#061836] tracking-tight leading-[1.18]">
-                  Why more than <span className="italic text-[#1E4ED8]">one platform?</span>
-                </h2>
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
+                  THE ECOSYSTEM
+                </span>
               </div>
 
-              <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                <p className="text-base sm:text-lg font-serif italic text-slate-950 font-normal border-l-2 border-[#1E4ED8] pl-4 py-0.5">
-                  &ldquo;Entrepreneurs are not one homogeneous audience.&rdquo;
+              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
+                <span className="brand-gradient-text block">OUR INITIATIVES</span>
+                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
+                  Different platforms. One belief.
+                </span>
+              </h1>
+
+              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed font-light">
+                <p className="font-serif font-bold text-slate-950 text-lg sm:text-xl">
+                  PEERS GLOBAL began with a simple belief: Entrepreneurs should not have to build alone.
                 </p>
                 <p>
-                  A woman building a high-growth enterprise in a market that does not take her seriously faces something fundamentally different from a manufacturer expanding into export supply chains. A founder building a circular sustainability enterprise faces something different again.
+                  But entrepreneurship does not exist in one room. It exists across industries, across generations, across communities, across business stages, and across the many ways an entrepreneur can create value.
                 </p>
-                <p className="font-semibold text-slate-900">
-                  Each initiative exists because a particular group needed a room built specifically for them — with tailored governance, dedicated resources, and peers who speak their exact operational language.
-                </p>
-              </div>
-
-              {/* Multiplier Quote Box */}
-              <div className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-50/80 via-white to-slate-50 p-6 shadow-2xs">
-                <div className="flex items-start justify-between gap-4">
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
-                    &ldquo;They share the same belief, the same code and the same mission. What differs is who they serve.&rdquo;
-                  </p>
-                  <p
-                    className="text-xl sm:text-2xl text-[#1E4ED8] font-semibold select-none shrink-0"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Unified Mission ✨
+                <div className="p-4 rounded-2xl bg-white border border-blue-200 shadow-2xs space-y-1 text-xs sm:text-sm text-slate-800 font-medium">
+                  <p>That is why the PEERS GLOBAL ecosystem extends beyond one platform.</p>
+                  <p className="text-[#0062D2] font-semibold">
+                    Each initiative has its own purpose. Together, they form a larger movement around entrepreneurship, recognition, sustainability, community and impact.
                   </p>
                 </div>
+              </div>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="#ecosystem"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200"
+                >
+                  <span>Explore The 6 Initiatives →</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
+                >
+                  <span>Download Unity App →</span>
+                </Link>
               </div>
             </div>
 
-            {/* Right Column: 3 Core Pillars of Distinction Card (6 cols) */}
-            <div className="lg:col-span-6">
-              <div className="p-7 sm:p-9 rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-[0_16px_40px_rgba(30,78,216,0.06)] space-y-5">
-                <div className="border-b border-slate-100 pb-4 flex items-center justify-between">
-                  <div>
-                    <h3 className="font-serif text-xl font-bold text-slate-900">
-                      Tailored Operating Rooms
-                    </h3>
-                    <p className="text-xs text-slate-500 font-normal">
-                      How specialized platforms eliminate generic networking.
+            {/* Right Hero Visual Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
+                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/who-we-are-boardroom.jpg"
+                    alt="Peers Global unified ecosystem initiatives"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                  
+                  <div className="absolute top-5 right-5">
+                    <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 border border-blue-400/30 backdrop-blur-md text-[11px] font-mono font-bold uppercase tracking-wider">
+                      6 Unified Initiatives
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
+                      Unified Movement
+                    </span>
+                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
+                      &ldquo;Create value. Connect people. Recognise contribution. Build impact.&rdquo;
                     </p>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[11px] font-mono font-bold text-[#1E4ED8]">
-                    PRECISION
-                  </span>
-                </div>
-
-                <div className="space-y-3.5">
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3.5">
-                    <div className="size-10 rounded-xl bg-blue-50 text-[#1E4ED8] flex items-center justify-center border border-blue-100 shrink-0 shadow-2xs">
-                      <Users className="size-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-slate-900">Exclusivity in the Room</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed mt-0.5">Category exclusivity ensures candid, non-competitive peer conversations without guarded dialogue.</p>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3.5">
-                    <div className="size-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100 shrink-0 shadow-2xs">
-                      <Sparkles className="size-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-slate-900">Dedicated Problem Space</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed mt-0.5">Focusing specifically on unique institutional hurdles: procurement access, ESG compliance, and venture funding.</p>
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3.5">
-                    <div className="size-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 shrink-0 shadow-2xs">
-                      <CheckCircle2 className="size-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-slate-900">Verified Outcomes</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed mt-0.5">Tracking real bilateral collaborations and lives impacted through the Unity App rather than attendance numbers.</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -437,101 +261,95 @@ export function InitiativesPageClient() {
         </div>
       </section>
 
-      {/* ─── Section 3: The Unified Portfolio (5 Master Cards) ─── */}
-      <section id="portfolio" className="py-16 sm:py-24 lg:py-28 bg-[#FFFFFF] border-b border-slate-200/80">
+      {/* ─── SECTION 2: THE PEERS GLOBAL ECOSYSTEM (6 INITIATIVES CARDS) ───── */}
+      <section id="ecosystem" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+          <div className="max-w-3xl mb-14">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                THE UNIFIED PORTFOLIO
+                THE 6 PLATFORMS
               </span>
             </div>
-            
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#061836] tracking-tight leading-[1.15]">
-              The 5 Ecosystem Initiatives
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              THE PEERS GLOBAL ECOSYSTEM
             </h2>
-            
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-              Five distinct expressions of one governing commitment: no entrepreneur builds alone.
+            <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
+              Six initiatives. Different expressions. One larger idea: Create value. Connect people. Recognise contribution. Build impact.
             </p>
           </div>
 
-          {/* Cards Stack */}
-          <div className="space-y-6 sm:space-y-8">
-            {INITIATIVES.map((item, idx) => {
+          <div className="space-y-8">
+            {INITIATIVES_DATA.map((item) => {
               const Icon = item.icon
               return (
                 <div
-                  key={item.title}
-                  className={`group relative p-8 sm:p-10 md:p-12 rounded-2xl sm:rounded-[32px] bg-white border ${item.accentBorder} shadow-[0_6px_24px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 overflow-hidden`}
+                  key={item.id}
+                  className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-8"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-                    
-                    {/* Left Details */}
-                    <div className="space-y-4 max-w-3xl">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className={`px-3.5 py-1 rounded-full text-xs font-bold border ${item.badgeColor}`}>
-                          {item.tag}
-                        </span>
-                        <span className="text-xs uppercase tracking-widest font-mono font-bold text-slate-400">
-                          PLATFORM {item.id}
-                        </span>
-                        <span className="text-xs font-mono text-slate-500 hidden sm:inline">
-                          · {item.metrics}
-                        </span>
+                  {/* Left content */}
+                  <div className="space-y-4 max-w-3xl">
+                    <div className="flex items-center gap-3">
+                      <span className="px-3 py-1 rounded-xl bg-white border border-slate-200 text-xs font-mono font-bold text-[#0062D2]">
+                        {item.id}
+                      </span>
+                      <div className={`p-2 rounded-xl border ${item.color} flex items-center justify-center`}>
+                        <Icon className="w-5 h-5" />
                       </div>
-
                       <div>
-                        <div className="flex items-center gap-3">
-                          <div className="size-11 sm:size-12 rounded-2xl bg-blue-50 text-[#1E4ED8] flex items-center justify-center border border-blue-100/90 shadow-2xs group-hover:scale-105 transition-transform">
-                            <Icon className="size-5 sm:size-6" />
-                          </div>
-                          <div>
-                            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#061836] group-hover:text-[#1E4ED8] transition-colors">
-                              {item.title}
-                            </h3>
-                            <p className="text-xs sm:text-sm font-semibold text-[#1E4ED8]">
-                              {item.subtitle}
-                            </p>
-                          </div>
-                        </div>
+                        <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950">
+                          {item.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm font-semibold text-[#0062D2]">
+                          {item.tagline}
+                        </p>
                       </div>
-
-                      <p className="text-base sm:text-lg text-slate-800 font-serif italic border-l-2 border-[#1E4ED8]/60 pl-3 py-0.5">
-                        &ldquo;{item.desc}&rdquo;
-                      </p>
-
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        {item.longDesc}
-                      </p>
                     </div>
 
-                    {/* Right CTA Button */}
-                    <div className="shrink-0 pt-2 lg:pt-0">
-                      {item.isExternal ? (
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#061836] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1E4ED8] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {item.desc}
+                    </p>
+
+                    {/* Structure Tags */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
+                      {item.structure.map((feat) => (
+                        <div
+                          key={feat}
+                          className="p-2 rounded-xl bg-white border border-slate-200 text-[11px] font-medium text-slate-700 flex items-center gap-1.5"
                         >
-                          <span>{item.linkText}</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
-                      ) : (
-                        <Link
-                          href={item.link}
-                          className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#1E4ED8] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1a42c0] transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
-                        >
-                          <span>{item.linkText}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
-                      )}
+                          <Check className="w-3.5 h-3.5 text-[#0062D2] shrink-0" />
+                          <span className="line-clamp-1">{feat}</span>
+                        </div>
+                      ))}
                     </div>
 
+                    <p className="text-xs font-serif italic text-slate-800 border-l-2 border-[#0062D2] pl-3 pt-1">
+                      {item.philosophy}
+                    </p>
+                  </div>
+
+                  {/* Right CTA */}
+                  <div className="shrink-0 pt-2 lg:pt-0">
+                    {item.isExternal ? (
+                      <a
+                        href={item.ctaLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#061836] text-white text-xs font-semibold hover:bg-[#0062D2] transition-all shadow-sm"
+                      >
+                        <span>{item.ctaText}</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.ctaLink}
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4] transition-all shadow-sm"
+                      >
+                        <span>{item.ctaText}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               )
@@ -541,46 +359,227 @@ export function InitiativesPageClient() {
         </div>
       </section>
 
-      {/* ─── Closing Banner: One mission across all of them ─── */}
-      <section className="relative bg-[#0062D2] text-white py-24 md:py-32 overflow-hidden">
-        {/* SVG Orbital Geometric Lines Background */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg viewBox="0 0 760 520" fill="none" className="h-full w-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520" stroke="currentColor" strokeWidth="1" className="text-blue-300/30" />
-            <path d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520" stroke="currentColor" strokeWidth="1" strokeDasharray="5 8" className="text-sky-200/25" />
-            <path d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520" stroke="currentColor" strokeWidth="1" className="text-blue-200/20" />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-sky-200 font-mono font-bold">
-              <Sparkles className="w-3.5 h-3.5" />
-              THE UNIFIED MEASURE
-            </div>
+      {/* ─── SECTION 3: ONE ECOSYSTEM. MANY EXPRESSIONS. & FROM BUSINESS TO MOVEMENT ─── */}
+      <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-white tracking-tight leading-[1.15]">
-              One mission across all of them: <br className="hidden sm:inline" />
-              <span className="italic text-cyan-200">&ldquo;We are not counting members. We are counting lives impacted.&rdquo;</span>
-            </h2>
-            <p className="text-base sm:text-lg text-white/90 font-normal max-w-xl mx-auto leading-relaxed">
-              Connect with your peers through the Unity App and discover your category-exclusive Circle.
-            </p>
-          </div>
+            {/* Left: ONE ECOSYSTEM. MANY EXPRESSIONS. */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-slate-950">
+                  ONE ECOSYSTEM. MANY EXPRESSIONS.
+                </h3>
+                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <p>
+                    These initiatives are different. They should not be made to look identical. Because each exists for a different reason:
+                  </p>
+                  <div className="space-y-1.5 pl-3 border-l-2 border-blue-400 text-xs text-slate-800 font-medium">
+                    <p>• One builds community.</p>
+                    <p>• One gives business stories visibility.</p>
+                    <p>• One creates a dedicated entrepreneurial space for women.</p>
+                    <p>• One brings sustainability into entrepreneurship.</p>
+                    <p>• One carries the larger impact ambition.</p>
+                    <p>• One creates a place for ecosystem experiences and offerings.</p>
+                  </div>
+                  <div className="pt-2 text-xs font-bold text-slate-900">
+                    Common thread: People matter. Stories matter. Contribution matters. Impact matters.
+                  </div>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-slate-200 text-xs font-semibold text-[#0062D2]">
+                Distinct purposes • Shared founding core
+              </div>
+            </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Link
-              href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white text-[#0062D2] hover:bg-slate-100 text-sm font-bold transition-all shadow-lg hover:shadow-xl uppercase tracking-wider active:scale-[0.98]"
-            >
-              <span>Download Unity App</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {/* Right: FROM BUSINESS TO MOVEMENT */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100">
+                  <Zap className="w-5 h-5" />
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-slate-950">
+                  FROM BUSINESS TO MOVEMENT
+                </h3>
+                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <div className="space-y-1 pl-3 border-l-2 border-purple-400 text-xs text-slate-800 font-medium">
+                    <p>A business can create value.</p>
+                    <p>A community can multiply it.</p>
+                    <p>A story can inspire it.</p>
+                    <p>Recognition can strengthen it.</p>
+                    <p>Collaboration can accelerate it.</p>
+                    <p className="font-bold text-purple-900">And impact can carry it forward.</p>
+                  </div>
+                  <p className="pt-1">
+                    That is the larger ecosystem PEERS GLOBAL is building. Not six disconnected initiatives. One ecosystem of possibility.
+                  </p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-slate-200 text-xs font-semibold text-purple-700">
+                Compounding value at national scale
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
+      {/* ─── SECTION 4: DESIGNED FOR DIFFERENT JOURNEYS & THE INVITATION ───── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left: DESIGNED FOR DIFFERENT JOURNEYS */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    EVERY BUILDER BELONGS
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                  DESIGNED FOR DIFFERENT JOURNEYS
+                </h2>
+              </div>
+
+              <div className="space-y-3 text-xs sm:text-sm text-slate-700 font-medium">
+                <p className="text-slate-600 font-light">You may come here because you are:</p>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">• Building a business.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">• Looking for your people.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">• Looking for recognition.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">• Building something for women entrepreneurs.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">• Working toward a more sustainable future.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">• Looking for ways to create social impact.</div>
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">• Looking for an ecosystem that helps your contribution travel further.</div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200 text-xs text-blue-950 font-semibold leading-relaxed">
+                Wherever your journey begins, there may be a place for you somewhere within this ecosystem.
+              </div>
+            </div>
+
+            {/* Right: THE INVITATION */}
+            <div className="lg:col-span-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#040E24] via-[#061836] to-[#0A2558] text-white shadow-xl space-y-6">
+                <div className="w-10 h-10 rounded-xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
+                  <Compass className="w-5 h-5" />
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-snug">
+                  THE INVITATION
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  You do not have to enter everything. Start with what speaks to the entrepreneur you are today:
+                </p>
+
+                <div className="p-4 rounded-2xl bg-white/10 border border-white/20 space-y-1.5 text-xs text-white">
+                  <p>• Explore.</p>
+                  <p>• Understand.</p>
+                  <p>• Meet the people.</p>
+                  <p>• Discover the work.</p>
+                  <p className="text-sky-200 font-bold">• And decide where you can contribute.</p>
+                </div>
+
+                <p className="text-xs font-serif italic text-slate-300 pt-1">
+                  Because an ecosystem becomes meaningful when you can see your place in it.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 5: CLOSING ROYAL HERO BANNER (YOU WERE NEVER MEANT TO BUILD ALONE) ── */}
+      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+        {/* Geometric Art */}
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+          <svg
+            viewBox="0 0 600 600"
+            fill="none"
+            className="w-full h-full text-white/30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="300" cy="300" r="230" stroke="currentColor" strokeWidth="1.2" />
+            <circle cx="300" cy="300" r="170" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <circle cx="300" cy="300" r="110" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="120" y1="180" x2="480" y2="420" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="300" cy="300" r="6" fill="#7DD3FC" />
+            <circle cx="300" cy="300" r="15" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Manifesto */}
+            <div className="lg:col-span-8 space-y-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
+                — EXPLORE THE ECOSYSTEM —
+              </span>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+                YOU WERE NEVER MEANT TO BUILD ALONE.
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
+                <p>
+                  Connect across our six platforms and discover where your contribution can create the greatest impact.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-sky-100 font-medium">
+                  <Link href="/circles" className="hover:underline">Explore PEERS GLOBAL →</Link>
+                  <a href="https://vyapaarjagat.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Explore VyapaarJagat →</a>
+                  <Link href="/circles" className="hover:underline">Explore FEMPRENEUR →</Link>
+                  <Link href="/circles" className="hover:underline">Explore GREENPRENEUR →</Link>
+                  <Link href="/1-million-mission" className="hover:underline">Explore 1MEIF →</Link>
+                  <Link href="/marketplace" className="hover:underline">Explore PEERS Store →</Link>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/circles"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                >
+                  <span>Explore PEERS GLOBAL</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                >
+                  <span>Download Unity App →</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Cursive Script */}
+            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
+              <p
+                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Community.
+                <br />
+                Stories.
+                <br />
+                Purpose.
+                <br />
+                Impact.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }

@@ -22,6 +22,10 @@ import {
   MessageSquareOff,
   UserX,
   ChevronLeft,
+  Quote,
+  Sparkles,
+  ShieldAlert,
+  CalendarCheck,
 } from 'lucide-react'
 
 // ─── Four Agenda Segments ──────────────────────────────────────────────────
@@ -157,108 +161,90 @@ export function MeetingExperienceClient() {
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
 
       {/* =================================================================
-          SECTION 1: HERO — Fade Video Background
+          SECTION 1: HERO — MASTER FULL PAGE DARK VIDEO BANNER
           ================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
+        </div>
 
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 font-medium tracking-wide mb-6">
-            <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <Link href="/circles" className="hover:text-slate-900 transition-colors">Circles</Link>
-            <ChevronRight className="size-3.5 text-slate-400" />
-            <span className="text-[#0062D2] font-semibold">The Circle Meeting Experience</span>
-          </div>
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <Link href="/circles" className="hover:text-white transition-colors">Circles</Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">The Circle Meeting Experience</span>
+          </nav>
 
-          {/* Hero Banner */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[500px] lg:min-h-[560px] flex items-center">
-
-            {/* Fade Video */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/circles-hero-new.jpg"
-                autoPlay loop muted playsInline
-                className="size-full object-cover object-center"
-              />
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Script overlay */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>Real People</p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Conversations</p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>Real Impact</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
+            {/* Left Hero Content */}
+            <div className="lg:col-span-12 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>THE CIRCLE MEETING EXPERIENCE</span>
               </div>
 
-              {/* Glass pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">BETTER BUSINESSES</p>
-                  <p className="text-xs font-bold tracking-wider text-white">STRONGER RELATIONSHIPS · BRIGHTER LIVES</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Left Content */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl flex flex-col items-start">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-[#0062D2]" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">THE CIRCLE MEETING EXPERIENCE</span>
-                </div>
-
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[64px] font-normal text-slate-900 tracking-tight leading-[1.08] mb-4">
-                  Inside a Circle Meeting
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                  Inside a Circle Meeting —{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    The Four-Part Agenda
+                  </span>
                 </h1>
-                <p className="text-xl sm:text-2xl text-slate-800 font-bold leading-snug mb-3">
-                  Four parts. One purpose. Every Circle, every city, every month.
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Four parts. One purpose. Every Circle, every city, every month. Here is the exact agenda so you know what to expect before you walk into the room.
                 </p>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-lg">
-                  Here is the exact agenda, so you know what to expect before you walk in.
-                </p>
+              </div>
 
-                <div className="flex flex-wrap items-center gap-4 mb-10">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank" rel="noopener noreferrer"
-                    className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <Smartphone className="size-4" />
-                    Download Unity App
-                  </a>
-                  <Link
-                    href="/circles/find"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs"
-                  >
-                    Visit as a Guest
-                  </Link>
-                </div>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <Smartphone className="size-4" />
+                  <span>Download Unity App</span>
+                </a>
+                <Link
+                  href="/circles/find"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Visit as a Guest</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
 
-                {/* Stat Band */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg">
-                  {[
-                    { value: '500+', label: 'Circles Worldwide' },
-                    { value: '45+', label: 'Cities' },
-                    { value: '40–50', label: 'Peers per Circle' },
-                  ].map((s) => (
-                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-                      <div>
-                        <div className="font-bold text-base sm:text-xl text-[#0F172A] leading-none">{s.value}</div>
-                        <div className="text-[10px] text-slate-500 font-medium mt-1 leading-tight">{s.label}</div>
-                      </div>
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
+                {[
+                  { value: '500+', label: 'Circles Worldwide' },
+                  { value: '45+', label: 'Cities' },
+                  { value: '40–50', label: 'Peers per Circle' },
+                ].map((s) => (
+                  <div key={s.label} className="flex items-center gap-2.5 p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                    <div>
+                      <div className="font-bold text-base sm:text-xl text-white leading-none">{s.value}</div>
+                      <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
                     </div>
-                  ))}
-                </div>
-
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -268,53 +254,92 @@ export function MeetingExperienceClient() {
       {/* =================================================================
           SECTION 2: WHY THE AGENDA NEVER CHANGES
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— BUILT FOR OUTCOMES —</span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            {/* Left Column: Narrative & Key Principles */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">BUILT FOR OUTCOMES</span>
+                </div>
 
-            <div className="lg:col-span-7">
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
-                Why the agenda never changes
-              </h2>
+                <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-5">
+                  Why the agenda never changes
+                </h2>
 
-              <p className="text-base sm:text-lg font-semibold text-[#0F172A] leading-relaxed mb-4">
-                Put twelve entrepreneurs in a room without structure and you get a pleasant conversation that produces nothing.
-              </p>
-              <p className="text-base sm:text-lg text-[#0062D2] font-bold leading-relaxed mb-6">
-                The agenda is what turns goodwill into outcomes.
-              </p>
+                <div className="p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100/90 mb-6">
+                  <p className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    Put twelve entrepreneurs in a room without structure and you get a pleasant conversation that produces nothing.
+                  </p>
+                  <p className="text-sm sm:text-base font-semibold text-blue-600 mt-2">
+                    The agenda is what turns goodwill into real business outcomes.
+                  </p>
+                </div>
 
-              <p className="text-base text-slate-700 leading-relaxed mb-4">
-                Every Circle meeting follows the same four segments, in the same order, in every city and every country. A Peer who has attended a meeting in one city recognises immediately what is happening in another.
-              </p>
-              <p className="text-base text-slate-600 leading-relaxed">
-                That consistency is deliberate. Nobody has to wonder when it is their turn, how to ask for something, or whether their contribution will be noticed. The agenda holds the room so the people in it can focus on each other.
-              </p>
+                <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                  <p>
+                    Every Circle meeting follows the exact same four segments, in the same order, in every city and country. A Peer who has attended a meeting in one city immediately recognizes what is happening in another.
+                  </p>
+                  <p>
+                    That consistency is deliberate. Nobody has to wonder when it is their turn, how to ask for something, or whether their contribution will be noticed.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 Pillars strip */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-slate-100">
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <p className="text-xs font-bold text-slate-900 mb-0.5">Equal Space</p>
+                  <p className="text-[11px] text-slate-500 leading-snug">Every business gets identical floor time.</p>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <p className="text-xs font-bold text-slate-900 mb-0.5">Predictability</p>
+                  <p className="text-[11px] text-slate-500 leading-snug">Zero guesswork on turns, asks, or timing.</p>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <p className="text-xs font-bold text-slate-900 mb-0.5">Global Cadence</p>
+                  <p className="text-[11px] text-slate-500 leading-snug">Identical flow in every city worldwide.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="relative p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] shadow-sm overflow-hidden">
-                <div className="absolute top-1/2 -right-10 -translate-y-1/2 w-32 h-32 rounded-full border border-dashed border-[#0062D2]/20 pointer-events-none" />
+            {/* Right Column: High-Impact Illuminated Quote Card */}
+            <div className="lg:col-span-5 flex flex-col">
+              <div className="h-full relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#0B1528] via-slate-900 to-[#0F1E36] text-white shadow-xl flex flex-col justify-between overflow-hidden border border-slate-800">
+                {/* Glow & Backdrop circles */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/15 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-rose-600/15 rounded-full blur-2xl pointer-events-none" />
+
                 <div className="relative z-10">
-                  <span className="font-serif text-5xl sm:text-6xl text-[#0062D2] leading-none block mb-2">"</span>
-                  <p className="font-serif text-xl sm:text-2xl text-[#0F172A] font-bold leading-snug mb-4">
-                    Structure creates freedom. The agenda gives us the space to do what matters.
+                  <div className="size-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-blue-400 mb-6 shadow-inner">
+                    <Quote className="size-6 -scale-x-100" />
+                  </div>
+
+                  <p className="text-xl sm:text-2xl font-semibold text-slate-100 leading-relaxed mb-6">
+                    "Structure creates freedom. The agenda gives us the space to do what actually matters."
                   </p>
+                </div>
+
+                <div className="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-blue-300">The Peers Principle</p>
+                    <p className="text-xs text-slate-400">Consistency across 500+ Circles</p>
+                  </div>
                   <Link
                     href="/the-idea"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#0052B4] tracking-wider uppercase"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-bold text-white transition-all"
                   >
-                    <span>PEERS GLOBAL</span>
-                    <span className="h-px w-8 bg-[#0062D2]" />
+                    <span>Read The Idea</span>
+                    <ArrowRight className="size-3.5" />
                   </Link>
                 </div>
               </div>
             </div>
+
           </div>
 
         </div>
@@ -323,131 +348,132 @@ export function MeetingExperienceClient() {
       {/* =================================================================
           SECTION 3: THE FOUR-PART AGENDA
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-100">
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-left mb-2">
-            <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— THE FOUR-PART AGENDA —</span>
+          {/* Section Header */}
+          <div className="max-w-3xl mb-12">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE FOUR-PART AGENDA</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-4">
+              A meeting designed for real value
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Every month, every city follows this exact sequential structure. Click on any segment to inspect its depth and purpose.
+            </p>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-12">
-            A meeting designed for real value
-          </h2>
 
-          {/* Progress bar with numbered steps */}
-          <div className="flex items-center gap-0 mb-12 overflow-x-auto pb-2">
-            {SEGMENTS.map((seg, i) => (
-              <React.Fragment key={seg.num}>
-                <button
-                  onClick={() => setActiveSegment(activeSegment === i ? null : i)}
-                  className={`flex flex-col items-center shrink-0 cursor-pointer group`}
+          {/* 4-Step Pipeline Flow */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {SEGMENTS.map((seg, i) => {
+              const isSelected = activeSegment === i
+              return (
+                <div
+                  key={seg.num}
+                  onClick={() => setActiveSegment(isSelected ? null : i)}
+                  className={`group relative flex flex-col rounded-3xl bg-white border transition-all duration-300 cursor-pointer overflow-hidden ${
+                    isSelected
+                      ? 'border-blue-500 shadow-xl shadow-blue-500/10 ring-2 ring-blue-500/20'
+                      : 'border-slate-200/90 shadow-sm hover:border-slate-300 hover:shadow-md'
+                  }`}
                 >
-                  <div
-                    className={`size-10 rounded-full border-2 flex items-center justify-center font-bold text-sm transition-all ${
-                      activeSegment === i
-                        ? 'border-current bg-current text-white scale-110'
-                        : 'bg-white border-slate-200 text-slate-400 hover:border-slate-300'
-                    }`}
-                    style={activeSegment === i ? { borderColor: seg.accentColor, backgroundColor: seg.accentColor } : {}}
-                  >
-                    {seg.num}
-                  </div>
-                </button>
-                {i < SEGMENTS.length - 1 && (
-                  <div className="flex-1 h-px border-t-2 border-dashed border-slate-200 mx-2" />
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* 4-Column Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SEGMENTS.map((seg, i) => (
-              <div
-                key={seg.num}
-                className={`flex flex-col rounded-3xl border overflow-hidden transition-all cursor-pointer hover:shadow-lg ${
-                  activeSegment === i ? `border-2 shadow-xl` : 'border-slate-200 bg-white shadow-2xs'
-                }`}
-                style={activeSegment === i ? { borderColor: seg.accentColor } : {}}
-                onClick={() => setActiveSegment(activeSegment === i ? null : i)}
-              >
-                {/* Image area */}
-                <div className={`relative h-36 ${seg.numBg} flex items-center justify-center overflow-hidden`}>
-                  <div className="text-center select-none">
-                    <p className="font-serif text-2xl sm:text-3xl font-bold" style={{ fontFamily: 'var(--font-script)', color: seg.accentColor }}>
-                      {seg.imgLabel.split(' · ').map((word, wi) => (
-                        <span key={wi} className="block leading-tight text-2xl">{word}</span>
-                      ))}
-                    </p>
-                  </div>
-                  {/* Segment number badge */}
-                  <div
-                    className="absolute top-3 left-3 size-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
-                    style={{ backgroundColor: seg.accentColor }}
-                  >
-                    {seg.num}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-5">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium mb-2">
-                    <Clock className="size-3.5" />
-                    {seg.time}
-                  </div>
-
-                  <h3 className="font-serif text-lg font-bold text-[#0F172A] leading-snug mb-2">{seg.title}</h3>
-
-                  <p className="text-xs font-bold mb-2" style={{ color: seg.accentColor }}>{seg.tagline}</p>
-
-                  <p className="text-xs text-slate-500 leading-relaxed mb-4 flex-1">{seg.body.slice(0, 160)}…</p>
-
-                  {/* Expanded detail */}
-                  {activeSegment === i && (
-                    <div className="mb-4 space-y-3 animate-in fade-in duration-200">
-                      {seg.quote && (
-                        <div className={`p-3 rounded-xl ${seg.numBg} ${seg.borderColor} border`}>
-                          <p className="font-serif text-base font-bold leading-snug" style={{ color: seg.accentColor }}>
-                            {seg.quote}
-                          </p>
-                        </div>
-                      )}
-                      <p className="text-xs text-slate-600 leading-relaxed">{seg.body}</p>
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Why it comes first</p>
-                        <p className="text-xs text-slate-600 leading-relaxed">{seg.why}</p>
+                  {/* Top Status Header */}
+                  <div className={`p-6 pb-5 ${seg.numBg} border-b ${seg.borderColor}/40 relative`}>
+                    <div className="flex items-center justify-between mb-4">
+                      <span
+                        className="inline-flex items-center justify-center size-9 rounded-xl font-bold text-sm text-white shadow-sm"
+                        style={{ backgroundColor: seg.accentColor }}
+                      >
+                        {seg.num}
+                      </span>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 border border-slate-200/60 text-xs font-semibold text-slate-700 shadow-2xs">
+                        <Clock className="size-3 text-slate-500" />
+                        {seg.time}
                       </div>
                     </div>
-                  )}
 
-                  <Link
-                    href={seg.ctaHref}
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-xs font-bold inline-flex items-center gap-1 hover:opacity-80 transition-opacity"
-                    style={{ color: seg.accentColor }}
-                  >
-                    {seg.ctaText}
-                    <ArrowRight className="size-3" />
-                  </Link>
+                    <p className="text-base font-bold text-slate-900 leading-snug">
+                      {seg.title}
+                    </p>
+                    <p className="text-xs font-semibold mt-1" style={{ color: seg.accentColor }}>
+                      {seg.tagline}
+                    </p>
+                  </div>
+
+                  {/* Body Info */}
+                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {seg.body.slice(0, 140)}...
+                    </p>
+
+                    {/* Signal Pill */}
+                    <div className="pt-3 border-t border-slate-100">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                        Core Signal
+                      </div>
+                      <p className="text-xs font-medium text-slate-800 leading-tight">
+                        {seg.signal}
+                      </p>
+                    </div>
+
+                    {/* Expand Detail Drawer */}
+                    {isSelected && (
+                      <div className="pt-3 border-t border-slate-100 space-y-3 animate-in fade-in duration-200 text-left">
+                        {seg.quote && (
+                          <div className={`p-3 rounded-xl ${seg.numBg} ${seg.borderColor} border`}>
+                            <p className="text-xs font-bold leading-snug" style={{ color: seg.accentColor }}>
+                              {seg.quote}
+                            </p>
+                          </div>
+                        )}
+                        <p className="text-xs text-slate-600 leading-relaxed">{seg.body}</p>
+                        <div>
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Why it matters</p>
+                          <p className="text-xs text-slate-600 leading-relaxed">{seg.why}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="pt-2 flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-500 group-hover:text-blue-600 transition-colors">
+                        {isSelected ? 'Collapse details' : 'View breakdown'}
+                      </span>
+                      <div
+                        className="size-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-blue-600 group-hover:text-white transition-all"
+                      >
+                        <ChevronRight className={`size-3.5 transition-transform duration-200 ${isSelected ? 'rotate-90' : ''}`} />
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
-          {/* Signal table */}
-          <div className="mt-12 rounded-2xl border border-slate-200 overflow-hidden">
-            <div className="grid grid-cols-2 bg-slate-50 border-b border-slate-200 px-6 py-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Segment</span>
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">What it signals</span>
+          {/* Quick Summary Strip */}
+          <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="size-2 rounded-full bg-blue-600" />
+              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-800">
+                At a Glance: The Four Agenda Signals
+              </h3>
             </div>
-            {SEGMENTS.map((seg) => (
-              <div key={seg.num} className="grid grid-cols-2 border-b border-slate-100 last:border-0 px-6 py-4 hover:bg-slate-50 transition-colors">
-                <div className="flex items-center gap-2">
-                  <span className="size-2 rounded-full shrink-0" style={{ backgroundColor: seg.accentColor }} />
-                  <span className="text-sm font-semibold text-[#0F172A]">{seg.title}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {SEGMENTS.map((seg) => (
+                <div key={seg.num} className="p-4 rounded-2xl bg-slate-50/70 border border-slate-100 flex flex-col justify-between">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="size-2 rounded-full" style={{ backgroundColor: seg.accentColor }} />
+                    <span className="text-xs font-bold text-slate-900">{seg.title}</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    "{seg.signal}"
+                  </p>
                 </div>
-                <span className="text-sm text-slate-600">{seg.signal}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
         </div>
@@ -462,8 +488,9 @@ export function MeetingExperienceClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
             <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— SAME STRUCTURE, BIGGER POSSIBILITIES —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SAME STRUCTURE, BIGGER POSSIBILITIES</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
                 What you walk away with
@@ -490,8 +517,9 @@ export function MeetingExperienceClient() {
 
             {/* Right: Between meetings */}
             <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-emerald-600 text-xs font-bold tracking-[0.25em] uppercase">— BETWEEN MEETINGS —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">BETWEEN MEETINGS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
                 The Circle works all month.
@@ -540,48 +568,78 @@ export function MeetingExperienceClient() {
       {/* =================================================================
           SECTION 5: TESTIMONIAL CAROUSEL
           ================================================================= */}
-      <section className="py-12 sm:py-16 bg-[#F0F7FF] border-b border-[#DCEBFE]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center">
-            <div className="relative w-full">
-              <div className="p-8 sm:p-12">
-                <p className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#0F172A] leading-relaxed mb-6 italic">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-900 via-[#0B1528] to-slate-950 text-white relative overflow-hidden">
+        {/* Background ambient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-blue-600/15 to-rose-600/15 blur-3xl pointer-events-none rounded-full" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col items-center">
+            
+            {/* Top eyebrow pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-8">
+              <Sparkles className="size-3.5 text-blue-400" />
+              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-blue-200">
+                PEER VOICES & EXPERIENCES
+              </span>
+            </div>
+
+            {/* Testimonial Card */}
+            <div className="w-full bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative">
+              <Quote className="size-12 text-blue-400/25 absolute top-6 left-6 -scale-x-100 pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <p className="text-xl sm:text-2xl lg:text-[28px] font-medium text-slate-100 leading-relaxed max-w-3xl mb-8">
                   "{TESTIMONIALS[testimonialIdx].quote}"
                 </p>
-                <div className="flex items-center justify-center gap-3">
-                  <div className="size-10 rounded-full bg-[#0062D2] text-white flex items-center justify-center font-bold text-sm">
+
+                <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+                  <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-500/20">
                     {TESTIMONIALS[testimonialIdx].name[0]}
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-bold text-[#0F172A]">{TESTIMONIALS[testimonialIdx].name}</p>
-                    <p className="text-xs text-slate-500">{TESTIMONIALS[testimonialIdx].role} · {TESTIMONIALS[testimonialIdx].circle}</p>
+                    <p className="text-base font-bold text-white tracking-tight">{TESTIMONIALS[testimonialIdx].name}</p>
+                    <p className="text-xs sm:text-sm text-slate-400 font-medium">
+                      {TESTIMONIALS[testimonialIdx].role} <span className="text-blue-400">·</span> {TESTIMONIALS[testimonialIdx].circle}
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Dots + arrows */}
-              <div className="flex items-center justify-center gap-4 mt-2">
-                {TESTIMONIALS.map((_, i) => (
+              {/* Navigation Controls */}
+              <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/5">
+                <div className="flex items-center gap-2">
+                  {TESTIMONIALS.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setTestimonialIdx(i)}
+                      aria-label={`Go to slide ${i + 1}`}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        i === testimonialIdx ? 'bg-gradient-to-r from-blue-400 to-indigo-400 w-8' : 'bg-white/20 hover:bg-white/40 w-2'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2">
                   <button
-                    key={i}
-                    onClick={() => setTestimonialIdx(i)}
-                    className={`size-2 rounded-full transition-all ${i === testimonialIdx ? 'bg-[#0062D2] w-6' : 'bg-slate-300'}`}
-                  />
-                ))}
-                <button
-                  onClick={() => setTestimonialIdx((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
-                  className="ml-2 size-8 rounded-full border border-slate-300 flex items-center justify-center hover:border-[#0062D2] hover:text-[#0062D2] transition-all"
-                >
-                  <ChevronLeft className="size-4" />
-                </button>
-                <button
-                  onClick={() => setTestimonialIdx((i) => (i + 1) % TESTIMONIALS.length)}
-                  className="size-8 rounded-full border border-slate-300 flex items-center justify-center hover:border-[#0062D2] hover:text-[#0062D2] transition-all"
-                >
-                  <ChevronRight className="size-4" />
-                </button>
+                    onClick={() => setTestimonialIdx((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
+                    className="size-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/15 hover:border-white/25 transition-all shadow-sm"
+                    aria-label="Previous testimonial"
+                  >
+                    <ChevronLeft className="size-4" />
+                  </button>
+                  <button
+                    onClick={() => setTestimonialIdx((i) => (i + 1) % TESTIMONIALS.length)}
+                    className="size-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/15 hover:border-white/25 transition-all shadow-sm"
+                    aria-label="Next testimonial"
+                  >
+                    <ChevronRight className="size-4" />
+                  </button>
+                </div>
               </div>
+
             </div>
+
           </div>
         </div>
       </section>
@@ -589,89 +647,99 @@ export function MeetingExperienceClient() {
       {/* =================================================================
           SECTION 6: WHAT GUESTS EXPERIENCE + RULES
           ================================================================= */}
-      <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
+      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
-            {/* Guests */}
-            <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— FOR FIRST-TIME VISITORS —</span>
+            {/* Left Card: Guests Experience */}
+            <div className="lg:col-span-6 bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-9 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FOR FIRST-TIME VISITORS</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
+                  What guests experience
+                </h2>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                  If you visit a Circle, here is exactly what will happen throughout your attendance.
+                </p>
+
+                <div className="grid grid-cols-1 gap-3 mb-6">
+                  {[
+                    { icon: '👋', title: 'Welcomed by name', text: 'Someone will greet you before the meeting starts and introduce you to Peers so you never stand alone.' },
+                    { icon: '🎤', title: 'Introduced to the room', text: 'A brief, warm recognition during the opening segment to welcome you to the community.' },
+                    { icon: '👁️', title: 'Watch the full agenda', text: 'Experience all four segments firsthand to see exactly how the room operates and collaborates.' },
+                    { icon: '🗣️', title: 'Brief collaboration turn', text: 'Opportunity to share who you are and introduce your work during the collaboration round.' },
+                    { icon: '🤝', title: 'No high-pressure selling', text: 'Nobody will pitch or pressure you. You are there to observe the dynamic and culture.' },
+                    { icon: '📞', title: 'Single courtesy follow-up', text: 'A Circle Director will call once afterwards simply to hear your genuine feedback.' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50/70 border border-slate-100 hover:border-blue-100 hover:bg-blue-50/30 transition-all">
+                      <span className="text-xl shrink-0 mt-0.5">{item.icon}</span>
+                      <div>
+                        <p className="text-xs sm:text-sm font-bold text-slate-900 mb-0.5">{item.title}</p>
+                        <p className="text-xs text-slate-600 leading-relaxed">{item.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
-                What guests experience
-              </h2>
-              <p className="text-base text-slate-600 leading-relaxed mb-8">
-                If you visit a Circle, here is exactly what will happen.
-              </p>
 
-              <div className="space-y-3">
-                {[
-                  { icon: '👋', text: 'You will be welcomed by name. Someone will meet you, introduce you to Peers before the meeting starts, and make sure you are never standing alone.' },
-                  { icon: '🎤', text: 'You will be introduced to the room. Briefly and warmly, during the opening.' },
-                  { icon: '👁️', text: 'You will watch the full agenda. All four segments. You will see exactly how the room works and who would be around you.' },
-                  { icon: '🗣️', text: 'You will be asked to present. Introduce yourself during the collaboration round.' },
-                  { icon: '🤝', text: 'You will not be sold to. Nobody will pressure you, and nobody will ask you to decide anything on the day.' },
-                  { icon: '📞', text: 'You will be contacted once afterwards. A Circle Director will call to hear what you thought. Once.' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-[#FAFBFD] border border-slate-100">
-                    <span className="text-xl shrink-0">{item.icon}</span>
-                    <p className="text-sm text-slate-700 leading-relaxed">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-
-              <p className="text-sm text-slate-500 italic mt-6 leading-relaxed">
-                Most entrepreneurs visit, take a week to think, and then apply. That is exactly how it should work.
-              </p>
-
-              <div className="mt-6">
+              <div className="pt-4 border-t border-slate-100">
+                <p className="text-xs sm:text-sm text-slate-500 italic mb-4">
+                  "Most entrepreneurs visit, take a week to reflect, and then apply. That is exactly how it should work."
+                </p>
                 <Link
                   href="/circles/find"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
+                  className="rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm shadow-blue-500/20"
                 >
-                  Visit a Circle
-                  <ArrowRight className="size-4" />
+                  <CalendarCheck className="size-4" />
+                  Visit a Circle as Guest
+                  <ArrowRight className="size-4 ml-1" />
                 </Link>
               </div>
             </div>
 
-            {/* Rules */}
-            <div className="lg:col-span-6">
-              <div className="text-left mb-2">
-                <span className="text-rose-600 text-xs font-bold tracking-[0.25em] uppercase">— THE CODE OF THE ROOM —</span>
-              </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
-                What is not allowed
-              </h2>
-              <p className="text-base text-slate-600 leading-relaxed mb-8">
-                The agenda only works if certain things never happen inside it.
-              </p>
+            {/* Right Card: Code of the Room / Rules */}
+            <div className="lg:col-span-6 bg-white rounded-3xl border border-rose-200/80 p-6 sm:p-9 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-rose-600">THE CODE OF THE ROOM</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
+                  What is not allowed
+                </h2>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                  The agenda only produces massive business outcomes because strict boundaries are enforced.
+                </p>
 
-              <div className="space-y-3">
-                {RULES.map((rule) => {
-                  const Icon = rule.icon
-                  return (
-                    <div key={rule.rule} className="flex items-start gap-4 p-5 rounded-2xl bg-rose-50 border border-rose-100">
-                      <div className="size-9 rounded-full bg-white text-rose-500 flex items-center justify-center shrink-0 shadow-2xs">
-                        <Icon className="size-4" />
+                <div className="grid grid-cols-1 gap-3.5 mb-6">
+                  {RULES.map((rule) => {
+                    const Icon = rule.icon
+                    return (
+                      <div key={rule.rule} className="flex items-start gap-4 p-4 rounded-2xl bg-rose-50/60 border border-rose-100/80 hover:bg-rose-50 transition-all">
+                        <div className="size-10 rounded-xl bg-white border border-rose-200 text-rose-600 flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                          <Icon className="size-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-slate-900 mb-1">{rule.rule}</p>
+                          <p className="text-xs text-slate-600 leading-relaxed">{rule.detail}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-sm font-bold text-[#0F172A] mb-0.5">{rule.rule}</p>
-                        <p className="text-xs text-slate-600 leading-relaxed">{rule.detail}</p>
-                      </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
 
-              <div className="mt-6">
+              <div className="pt-4 border-t border-rose-100">
                 <Link
                   href="/culture-and-code"
-                  className="rounded-full border border-rose-300 text-rose-600 hover:bg-rose-50 px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2"
+                  className="rounded-xl border border-rose-300 text-rose-600 hover:bg-rose-50 px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2"
                 >
-                  Read the Peers Code
-                  <ArrowRight className="size-4" />
+                  <ShieldAlert className="size-4" />
+                  Read Full Culture & Code
+                  <ArrowRight className="size-4 ml-1" />
                 </Link>
               </div>
             </div>
@@ -688,8 +756,9 @@ export function MeetingExperienceClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
             <div className="lg:col-span-4">
-              <div className="text-left mb-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">— COMMON QUESTIONS —</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
                 Frequently asked questions

@@ -21,9 +21,6 @@ import {
   Lightbulb,
   Sprout,
   GraduationCap,
-  PhoneCall,
-  BarChart3,
-  Headphones,
   Play,
   ChevronRight,
   Globe,
@@ -35,8 +32,13 @@ import {
   Target,
   User,
   X,
+  Compass as CompassIcon,
+  MessageSquare,
+  Shield,
+  Briefcase,
+  Share2,
 } from 'lucide-react'
-import { Cta, Eyebrow, ClosingCtaSection } from '@/components/site/ui'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { usePageMedia, ResolvedMediaItem } from '@/lib/hooks/use-page-media'
 
 export function TheIdeaClient() {
@@ -45,44 +47,7 @@ export function TheIdeaClient() {
   // Modal player state for full screen/interactive playback
   const [activeModalMedia, setActiveModalMedia] = useState<ResolvedMediaItem | null>(null)
 
-  // 0. Hero Collage 4-part Geometric Videos (Dynamic & Connected to Admin)
-  const heroShape1Media = getMedia({
-    sectionName: 'The Idea',
-    subModuleName: 'HERO COLLAGE — TOP LEFT (BOARDROOM)',
-    subModuleId: 'sub-our-world-the-idea-hero-1',
-    fallbackUrl: '/videos/leadership-hero-bg.mp4',
-    fallbackSourceType: 'localhost',
-    fallbackTitle: 'Peers Boardroom & Leadership Circle Video',
-  })
-
-  const heroShape2Media = getMedia({
-    sectionName: 'The Idea',
-    subModuleName: 'HERO COLLAGE — TOP RIGHT (CONCLAVE)',
-    subModuleId: 'sub-our-world-the-idea-hero-2',
-    fallbackUrl: '/videos/hero-background.mp4',
-    fallbackSourceType: 'localhost',
-    fallbackTitle: 'Peers Global Grand Conclave Video',
-  })
-
-  const heroShape3Media = getMedia({
-    sectionName: 'The Idea',
-    subModuleName: 'HERO COLLAGE — BOTTOM LEFT (PARTNERS)',
-    subModuleId: 'sub-our-world-the-idea-hero-3',
-    fallbackUrl: '/videos/peers-global-earth-loop.mp4',
-    fallbackSourceType: 'localhost',
-    fallbackTitle: 'Partners in Business & Friends in Life Video',
-  })
-
-  const heroShape4Media = getMedia({
-    sectionName: 'The Idea',
-    subModuleName: 'HERO COLLAGE — BOTTOM RIGHT (CIRCLES)',
-    subModuleId: 'sub-our-world-the-idea-hero-4',
-    fallbackUrl: '/videos/stories-hero-bg.mp4',
-    fallbackSourceType: 'localhost',
-    fallbackTitle: 'Peers Circles Collaboration Video',
-  })
-
-  // 1. Resolve media dynamically for Sub-Module: THE SILENT REALITY (Matches Screenshot 3)
+  // 1. Resolve media dynamically for Sub-Module: THE SILENT REALITY
   const silentRealityMedia = getMedia({
     sectionName: 'The Idea',
     subModuleName: 'THE SILENT REALITY',
@@ -92,7 +57,7 @@ export function TheIdeaClient() {
     fallbackTitle: 'The Silent Reality — The Problem Nobody Talks About',
   })
 
-  // 2. Resolve media dynamically for Sub-Module: ORIGIN STORY (Matches Screenshot 5)
+  // 2. Resolve media dynamically for Sub-Module: ORIGIN STORY
   const originStoryMedia = getMedia({
     sectionName: 'The Idea',
     subModuleName: 'ORIGIN STORY',
@@ -123,1414 +88,1299 @@ export function TheIdeaClient() {
   })
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      
+    <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-[#0062D2] selection:text-white font-sans">
+
       {/* =========================================================================
-          1. HERO SECTION (HOMEPAGE-STYLE MASTER HERO BANNER CARD)
+          1. HERO SECTION (SIGNATURE MASTER HERO STYLE)
           ========================================================================= */}
-      <section id="the-idea" className="relative overflow-hidden border-b border-slate-200/90 bg-[#FAFBFD] pt-6 sm:pt-8 pb-10 sm:pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Master Hero Banner Card */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[32px] bg-white border border-slate-200/90 shadow-sm min-h-[480px] lg:min-h-[520px] flex items-center">
-            
-            {/* Right Media Background Layer (Fading into white on the left) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/who-we-are-boardroom.jpg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="size-full object-cover object-center"
-              />
+      <section id="the-idea" className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-12 sm:pb-16 border-b border-slate-800">
+        {/* Background video layer */}
+        <video
+          className="absolute inset-0 size-full object-cover opacity-60"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          poster="/images/who-we-are-boardroom.jpg"
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        {/* Subtle, normal backdrop gradient so video is crisp and visible */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.70)_0%,rgba(4,15,36,0.50)_45%,rgba(4,15,36,0.30)_100%)]"
+        />
 
-              {/* Seamless gradient overlays for the signature misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  People, Ideas, Partnerships
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  A Stronger Tomorrow
-                </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center py-14 sm:py-20">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Breadcrumbs */}
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-medium tracking-wide">
+                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <ChevronRight className="size-3.5 text-slate-400" />
+                <span className="text-sky-300 font-semibold">The Idea</span>
               </div>
 
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    OUR WORLD · THE IDEA
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    BUILDING TOGETHER
-                  </p>
-                </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-xs uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+                <span>THE PHILOSOPHY OF PEERS GLOBAL</span>
               </div>
-            </div>
 
-            {/* Left Content Area */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
-                
-                {/* Eyebrow */}
-                <div className="flex items-center gap-2.5 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    PEERS GLOBAL · WORLD&apos;S FIRST COMMUNITY OF COLLABORATION
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] text-white font-serif">
+                  <span>The</span>{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Idea.
                   </span>
-                </div>
-
-                {/* Main Heading */}
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-950 tracking-tight leading-[1.08] mb-4">
-                  The Idea
                 </h1>
-
-                {/* Subline */}
-                <p className="text-xl sm:text-2xl text-slate-800 font-semibold leading-snug mb-3">
+                <p className="text-xl sm:text-2xl text-slate-200 font-medium leading-snug">
                   Entrepreneurs should not have to build alone.
                 </p>
+              </div>
 
-                {/* Description */}
-                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8 max-w-lg">
-                  Everything Peers Global is today comes from that one foundational sentence. We connect visionary entrepreneurs, industry leaders, and creators for structured peer circles, mutual growth, and lifelong collaboration.
-                </p>
+              <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3.5 py-0.5 max-w-2xl">
+                &ldquo;There is a side of entrepreneurship that rarely appears in photographs. PEERS GLOBAL exists to bring trust, shared strength, and collective momentum into that journey.&rdquo;
+              </p>
 
-                {/* CTAs */}
-                <div className="flex flex-wrap items-center gap-4 mb-2">
-                  <Link
-                    href="/membership"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <span>Join Peers Global</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-blue-500/30 hover:shadow-rose-500/40 hover:-translate-y-0.5 hover:opacity-95 transition-all duration-300 group cursor-pointer uppercase tracking-wider"
+                >
+                  <span>Download Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </a>
 
-                  <Link
-                    href="/circles"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white/90 backdrop-blur-sm text-slate-800 px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105 shadow-2xs"
-                  >
-                    Find Your Circle
-                  </Link>
-                </div>
+                <a
+                  href="#the-quiet-journey"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-black/30 hover:bg-black/50 text-white font-medium text-sm backdrop-blur-xs transition-all duration-300"
+                >
+                  <span>Read the Story</span>
+                </a>
+              </div>
 
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/20">
+                {[
+                  { icon: HeartHandshake, value: 'Trust First', label: 'Foundation of Every Circle' },
+                  { icon: Sparkles, value: 'Give First', label: 'Core Culture & Currency' },
+                  { icon: ShieldCheck, value: 'Shared Strength', label: 'No One Builds Alone' },
+                ].map((s) => {
+                  const Icon = s.icon
+                  return (
+                    <div
+                      key={s.label}
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-black/30 hover:bg-black/40 border border-white/20 backdrop-blur-xs transition-all"
+                    >
+                      <div className="size-10 rounded-xl bg-blue-500/25 border border-blue-400/35 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
+                        <Icon className="size-5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                          {s.value}
+                        </div>
+                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                          {s.label}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-xl space-y-1.5">
+              <p className="text-2xl sm:text-3xl text-white/80 leading-tight italic font-serif">
+                Never Build Alone
+              </p>
+              <p className="text-3xl sm:text-4xl text-white leading-tight font-bold italic font-serif">
+                Partners in Business
+              </p>
+              <p className="text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-rose-300 font-bold italic font-serif leading-tight">
+                Friends in Life
+              </p>
+            </div>
           </div>
-
         </div>
       </section>
 
       {/* =========================================================================
-          MICROSOFT AZURE SUB-NAVIGATION ANCHOR BAR
+          SUB-NAV ANCHOR BAR
           ========================================================================= */}
-      <nav aria-label="Page navigation" className="sticky top-20 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-2xs">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-13 overflow-x-auto no-scrollbar">
-          
+      <nav aria-label="Page navigation" className="sticky top-20 z-40 border-b border-cool-grey-250/80 bg-white/95 backdrop-blur-md shadow-2xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-13 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-6 sm:gap-8 whitespace-nowrap text-[13.5px] font-semibold text-slate-700 py-1">
-            <a href="#the-idea" className="text-[#0078D4] border-b-2 border-[#0078D4] pb-3 pt-3 hover:text-[#006cbd] transition-colors">
-              The Idea
+            <a href="#the-quiet-journey" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
+              The Quiet Journey
             </a>
-            <a href="#silent-reality" className="hover:text-[#0078D4] pb-3 pt-3 transition-colors">
-              The Silent Reality
+            <a href="#the-problem" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
+              The Problem
             </a>
-            <a href="#origin-story" className="hover:text-[#0078D4] pb-3 pt-3 transition-colors">
-              Origin Story
+            <a href="#origin-story" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
+              Where It Came From
             </a>
-            <a href="#core-philosophy" className="hover:text-[#0078D4] pb-3 pt-3 transition-colors">
-              Core Philosophy
+            <a href="#what-we-believe" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
+              What We Believe
             </a>
-            <a href="#lsr-model" className="hover:text-[#0078D4] pb-3 pt-3 transition-colors">
-              LSR Model
+            <a href="#partners-and-friends" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
+              Partners &amp; Friends
             </a>
-            <a href="#one-million-mission" className="hover:text-[#0078D4] pb-3 pt-3 transition-colors">
-              1 Million Mission
+            <a href="#what-we-are-building" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
+              What We Are Building
+            </a>
+            <a href="#one-million-mission" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
+              1M Mission
             </a>
           </div>
 
           <div className="hidden md:flex items-center shrink-0 pl-4">
-            <Link
-              href="/membership"
-              className="inline-flex items-center justify-center rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-4 py-1.5 text-xs font-semibold transition-colors"
+            <a
+              href="https://unity.peersglobal.com"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all hover:opacity-95 shadow-xs"
             >
-              Get started
-            </Link>
+              Get Unity App
+            </a>
           </div>
-
         </div>
       </nav>
 
       {/* =========================================================================
-          2. THE PROBLEM NOBODY TALKS ABOUT (SUB-MODULE: THE SILENT REALITY)
+          2. THE QUIET JOURNEY OF ENTREPRENEURSHIP
           ========================================================================= */}
-      <section id="silent-reality" className="section py-12 sm:py-16 border-b border-slate-200/80 bg-white relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            
-            {/* ──────── COLUMN 1: Visual Showcase (lg:col-span-4) ──────── */}
-            <div className="lg:col-span-4 flex justify-center lg:justify-start pt-2">
-              <div className="relative w-full max-w-[320px]">
-                {/* Dynamic Main looping video element */}
-                <div
-                  onClick={() => setActiveModalMedia(silentRealityMedia)}
-                  className="relative aspect-[4/5] w-full rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-slate-900 group cursor-pointer"
-                  title="Click to view full video"
-                >
-                  {silentRealityMedia.isYouTube && silentRealityMedia.embedUrl ? (
-                    <iframe
-                      src={`${silentRealityMedia.embedUrl}&mute=1&loop=1`}
-                      title={silentRealityMedia.title}
-                      className="size-full border-0 pointer-events-none"
-                      allow="autoplay; encrypted-media"
-                    />
-                  ) : (
-                    <video
-                      key={silentRealityMedia.mediaUrl}
-                      src={silentRealityMedia.mediaUrl}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      className="size-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    >
-                      <source src={silentRealityMedia.mediaUrl} type="video/mp4" />
-                    </video>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+      <section id="the-quiet-journey" className="py-20 sm:py-28 border-b border-cool-grey-250/80 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                  {/* Play Overlay Indicator on Hover */}
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                    <div className="size-12 rounded-[4px] bg-[#0078D4] text-white flex items-center justify-center shadow-md">
-                      <Play className="size-5 fill-white ml-0.5" />
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            {/* Left Column: 4 Realities */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  THE QUIET SIDE OF BUILDING
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0f131a] tracking-tight leading-[1.15]">
+                <span>There is a side of entrepreneurship that</span>{' '}
+                <span className="brand-gradient-text block sm:inline">rarely appears in photographs.</span>
+              </h2>
+
+              <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+                The meetings are visible. The launches are visible. The growth is visible. <br />
+                <strong className="text-slate-900 font-bold">But much of the journey happens quietly:</strong>
+              </p>
+
+              <div className="space-y-3 pt-1">
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/80 flex items-start gap-3.5 shadow-2xs">
+                  <div className="size-2.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                    The decision you have to make when nobody else can make it for you.
+                  </p>
                 </div>
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/80 flex items-start gap-3.5 shadow-2xs">
+                  <div className="size-2.5 rounded-full bg-violet-600 mt-2 shrink-0" />
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                    The problem you cannot discuss with everyone.
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/80 flex items-start gap-3.5 shadow-2xs">
+                  <div className="size-2.5 rounded-full bg-amber-600 mt-2 shrink-0" />
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                    The uncertainty you carry home after a difficult day.
+                  </p>
+                </div>
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/80 flex items-start gap-3.5 shadow-2xs">
+                  <div className="size-2.5 rounded-full bg-rose-600 mt-2 shrink-0" />
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                    The responsibility of being the person others look to—even when you are still figuring things out yourself.
+                  </p>
+                </div>
+              </div>
 
-                {/* Sub-label */}
-                <div className="mt-3 p-3 rounded-md border border-slate-200 bg-slate-50 text-xs text-slate-700">
-                  <span className="font-semibold text-slate-900 block mb-0.5">Real conversations & trust</span>
-                  <span>Structured peer circles for founders navigating critical business inflection points.</span>
+              <div className="pt-2 space-y-3">
+                <p className="text-sm sm:text-base text-cool-grey-600 leading-relaxed font-normal">
+                  Entrepreneurs are often told to become stronger, more resilient and more self-reliant.
+                </p>
+                <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/80">
+                  <p className="text-base sm:text-lg font-bold brand-gradient-text leading-snug">
+                    &ldquo;What if entrepreneurship was never meant to be a journey of doing everything alone?&rdquo;
+                  </p>
+                  <p className="text-xs text-cool-grey-500 mt-1 font-medium">
+                    That question sits at the heart of PEERS GLOBAL.
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* ──────── COLUMN 2: Narrative Storyline (lg:col-span-4) ──────── */}
-            <div className="lg:col-span-4 flex flex-col gap-3">
-              {/* Eyebrow */}
-              <div className="flex items-center gap-2.5 mb-2">
+            {/* Right Card: Reflective Visual Box */}
+            <div className="lg:col-span-5">
+              <div className="relative p-8 sm:p-10 rounded-[32px] bg-gradient-to-br from-[#060D1A] via-[#0B172E] to-[#040812] text-white shadow-2xl border border-slate-800/80 overflow-hidden min-h-[460px] flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="relative z-10 space-y-5">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold tracking-widest uppercase text-amber-300">
+                    THE CORE REALIZATION
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-bold leading-tight tracking-tight text-white">
+                    Beyond the highlight reel of business.
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                    Behind every successful brand, venture, or enterprise is an entrepreneur navigating deep moments of responsibility.
+                  </p>
+
+                  <div className="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md">
+                    <p className="text-xs sm:text-sm text-slate-200 italic leading-relaxed font-medium">
+                      &ldquo;You don’t just need more motivation. You need people who have walked through the fire and can stand beside you.&rdquo;
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative z-10 pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-medium">
+                  <span>Peers Global Philosophy</span>
+                  <span className="font-bold text-white">Trust · Depth · Support</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          3. THE PROBLEM NOBODY TALKS ABOUT
+          ========================================================================= */}
+      <section id="the-problem" className="relative py-20 sm:py-28 border-b border-cool-grey-250/80 bg-[#FAFBFD] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE PROBLEM NOBODY TALKS ABOUT
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
+              <span>Entrepreneurship can be deeply rewarding.</span>{' '}
+              <span className="brand-gradient-text block sm:inline">It can also be deeply isolating.</span>
+            </h2>
+            <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+              You may have employees, customers, suppliers, advisors, friends and family—and still experience moments when you feel that nobody quite understands what it means to carry the responsibility of building something of your own.
+            </p>
+          </div>
+
+          {/* 4 Pillars of Support Needed */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-11 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                  <Lightbulb className="size-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">Advice</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  Objective guidance from founders who don&apos;t have an agenda or commercial interest in your outcome.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-violet-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-11 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                  <Sparkles className="size-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">Experience</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  Real wisdom from someone who has already faced the exact inflection point or mistake you are staring at.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                  <Share2 className="size-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">An Introduction</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  Warm, trusted doors opened by peers whose word carries credibility and genuine respect.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-11 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                  <HeartHandshake className="size-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">“I have been there.”</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  Sometimes the greatest relief is hearing from a fellow founder: <em>“I faced that too, and here is how we survived it.”</em>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Not networking callout banner */}
+          <div className="max-w-4xl mx-auto rounded-[32px] bg-white border border-cool-grey-250 p-8 sm:p-12 shadow-sm text-center space-y-6">
+            <p className="text-base sm:text-lg text-cool-grey-700 leading-relaxed font-medium">
+              That kind of support cannot be created by collecting more contacts. It comes from <strong className="text-slate-900 font-bold">relationships</strong>.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-3 text-xs sm:text-sm font-semibold text-slate-800">
+              <span className="px-4 py-2 rounded-full bg-[#FAFBFD] border border-cool-grey-200">Relationships built over time</span>
+              <span className="px-4 py-2 rounded-full bg-[#FAFBFD] border border-cool-grey-200">Relationships built on trust</span>
+              <span className="px-4 py-2 rounded-full bg-[#FAFBFD] border border-cool-grey-200">Willing not only to ask, but to give</span>
+            </div>
+
+            <p className="text-sm sm:text-base text-slate-600 font-normal italic">
+              &ldquo;Not with networking. Not with another directory of entrepreneurs. Not with another room full of business cards.&rdquo;
+            </p>
+
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/80">
+              <p className="text-lg sm:text-2xl font-bold brand-gradient-text">
+                Entrepreneurs grow differently when they have the right people around them.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          4. WHERE THE IDEA CAME FROM (FOUNDER'S ORIGIN STORY)
+          ========================================================================= */}
+      <section id="origin-story" className="relative py-20 sm:py-28 border-b border-cool-grey-250/80 bg-gradient-to-b from-white via-[#FAFBFD] to-white overflow-hidden">
+        {/* Subtle Background Radial Glow */}
+        <div className="absolute top-1/4 -left-40 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
+
+            {/* Left Narrative */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  WHERE THE IDEA CAME FROM
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#0f131a] leading-[1.15]">
+                <span>A founder&apos;s journey can change the</span>{' '}
+                <span className="brand-gradient-text block sm:inline">way he sees other founders.</span>
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-cool-grey-600 font-normal leading-relaxed">
+                <p>
+                  <strong className="text-slate-900 font-semibold">Dr. Pravin Parmar&apos;s journey began in Botad</strong>, coming from a farmer family. His early education was in a government school. English was not simply a subject to him; at one point, choosing English for higher studies required a deliberate decision and the willingness to work through the process. He completed his studies in English medium and went on to pursue MCA.
+                </p>
+
+                <p>
+                  His professional journey took him through Microsoft, ERP implementation, technology and eventually entrepreneurship. But entrepreneurship brought its own education.
+                </p>
+
+                <p>
+                  As a first-generation entrepreneur, much of the ecosystem was unfamiliar. The structures were still evolving. There were challenges, uncertainty and plenty to learn.
+                </p>
+              </div>
+
+              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 shadow-2xs text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                <p>
+                  He built. He experimented. He created. He struggled. He learned. And eventually, after building a technology venture and developing a cloud-based HRMS product, he reached an exit: <em className="text-[#1D4ED8] font-bold">What next?</em>
+                </p>
+              </div>
+            </div>
+
+            {/* Right Card with Cutout / Media Frame */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-[32px] overflow-hidden border border-slate-800/80 bg-gradient-to-br from-[#060D1A] via-[#0B172E] to-[#040812] p-8 sm:p-10 text-white shadow-2xl min-h-[460px] flex flex-col justify-between">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
+
+                <div className="relative z-10 space-y-5">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold tracking-widest uppercase text-amber-300">
+                    THE UNPUBLISHED STORY THAT SPARKED A MOVEMENT
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-bold leading-tight text-white tracking-tight">
+                    What happens to the stories that never get told?
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                    He wanted his entrepreneurial story to be heard. He shared it with major media platforms including Times of India and Inc42. But the story was not published.
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                    It was a small moment on the surface. Yet moments like this make an entrepreneur think differently:
+                  </p>
+
+                  <div className="space-y-2 p-4 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-sky-200">
+                    <p className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 shrink-0" />
+                      <span>What happens to entrepreneurs building without a large platform behind them?</span>
+                    </p>
+                    <p className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 shrink-0" />
+                      <span>What happens when experience exists—but there is nobody around with whom to share it?</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative z-10 pt-6 mt-6 border-t border-white/10">
+                  <p className="text-sm sm:text-base italic text-white leading-relaxed font-medium">
+                    &ldquo;The answer cannot always be another service. Sometimes, the answer is community.&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* 6 Stage Timeline Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-xs font-bold text-[#1D4ED8]">01</span>
+                <h4 className="text-sm font-bold text-[#0f131a] mt-3 mb-1">Roots in Botad</h4>
+                <p className="text-xs text-cool-grey-600 leading-relaxed">Farmer family heritage, government schooling &amp; core values.</p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-xs font-bold text-[#1D4ED8]">02</span>
+                <h4 className="text-sm font-bold text-[#0f131a] mt-3 mb-1">Tech &amp; Enterprise</h4>
+                <p className="text-xs text-cool-grey-600 leading-relaxed">MCA, Microsoft experience, ERP implementation &amp; cloud systems.</p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-xs font-bold text-[#1D4ED8]">03</span>
+                <h4 className="text-sm font-bold text-[#0f131a] mt-3 mb-1">First Venture &amp; Exit</h4>
+                <p className="text-xs text-cool-grey-600 leading-relaxed">Building cloud HRMS product, navigating uncertainty &amp; successful exit.</p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-rose-50 text-xs font-bold text-[#E11D48]">04</span>
+                <h4 className="text-sm font-bold text-[#0f131a] mt-3 mb-1">Media Turning Point</h4>
+                <p className="text-xs text-cool-grey-600 leading-relaxed">Realizing untold stories of everyday MSMEs and founders across India.</p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-rose-50 text-xs font-bold text-[#E11D48]">05</span>
+                <h4 className="text-sm font-bold text-[#0f131a] mt-3 mb-1">The LSR Model</h4>
+                <p className="text-xs text-cool-grey-600 leading-relaxed">Designing Learning, Sharing and Relationships as core growth engines.</p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-rose-300 transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2 py-0.5 rounded-md bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold">06</span>
+                <h4 className="text-sm font-bold brand-gradient-text mt-3 mb-1">Peers Global</h4>
+                <p className="text-xs text-slate-700 leading-relaxed font-medium">World&apos;s first community of collaboration built to impact 1M founders.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          5. WHAT WE BELIEVE (4 CORE BELIEFS)
+          ========================================================================= */}
+      <section id="what-we-believe" className="relative py-20 sm:py-28 border-b border-cool-grey-250/80 bg-[#FAFBFD] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE CORE PHILOSOPHY
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
+              <span>What we</span>{' '}
+              <span className="brand-gradient-text">believe</span>
+            </h2>
+            <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+              Four fundamental principles that guide every Circle, meeting, and relationship in Peers Global.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition-all group">
+              <div>
+                <div className="size-11 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
+                  01
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">A Journey, Not a Destination</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  We believe entrepreneurship is a journey—not a destination. Growth is continuous, and every stage brings new learning.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#1D4ED8]">Continuous Evolution</span>
+              </div>
+            </div>
+
+            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-violet-200 transition-all group">
+              <div>
+                <div className="size-11 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
+                  02
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">Shared Experience</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  We believe experience becomes more valuable when it is shared. Lessons locked inside one mind help only one business; shared, they elevate many.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-violet-600">Wisdom in Motion</span>
+              </div>
+            </div>
+
+            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-emerald-200 transition-all group">
+              <div>
+                <div className="size-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
+                  03
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">Trust Before Transactions</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  We believe relationships become stronger when trust is built before transactions. Trust is the currency that outlasts any commercial deal.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Enduring Foundations</span>
+              </div>
+            </div>
+
+            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-rose-200 transition-all group">
+              <div>
+                <div className="size-11 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
+                  04
+                </div>
+                <h3 className="text-base font-bold text-[#0f131a] mb-2">Mutual Elevation</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  We believe the growth of one entrepreneur can become the beginning of growth for another. When one rises, the entire circle rises.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#E11D48]">Collective Rise</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-6 sm:p-7 rounded-[28px] bg-gradient-to-r from-[#0B1528] via-[#0F224A] to-[#0B1528] text-white text-center max-w-3xl mx-auto shadow-xl border border-slate-800">
+            <p className="text-lg sm:text-2xl font-bold leading-snug">
+              &ldquo;Give first. Build trust. Deepen the relationship. Grow the business.&rdquo;
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          6. PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE
+          ========================================================================= */}
+      <section id="partners-and-friends" className="py-20 sm:py-28 border-b border-cool-grey-250/80 bg-gradient-to-b from-white via-[#FAFBFD] to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            {/* Left Column Narrative */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE
+                </span>
+              </div>
+
+              <h2 className="font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#0f131a] tracking-tight leading-[1.15]">
+                <span>Peers are Partners in Business</span>{' '}
+                <span className="brand-gradient-text block sm:inline">and Friends in Life</span>
+              </h2>
+
+              <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+                Business relationships often begin with a pragmatic reason:
+              </p>
+
+              {/* Beginning Reasons Pills */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs text-center font-bold text-xs sm:text-sm text-slate-800 hover:border-blue-200 transition-colors">
+                  A referral.
+                </div>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs text-center font-bold text-xs sm:text-sm text-slate-800 hover:border-blue-200 transition-colors">
+                  A meeting.
+                </div>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs text-center font-bold text-xs sm:text-sm text-slate-800 hover:border-blue-200 transition-colors">
+                  A question.
+                </div>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs text-center font-bold text-xs sm:text-sm text-slate-800 hover:border-blue-200 transition-colors">
+                  An introduction.
+                </div>
+              </div>
+
+              <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+                But the most meaningful relationships do not always remain transactional.
+              </p>
+
+              {/* Over Time Card */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white border border-cool-grey-250 shadow-sm space-y-3.5">
+                <p className="font-bold text-[#0f131a] text-sm sm:text-base flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                  Over time, people begin to know:
+                </p>
+                <div className="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
+                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/60 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                    The person behind the business.
+                  </div>
+                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/60 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                    The challenges behind the ambition.
+                  </div>
+                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/60 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                    The family behind the entrepreneur.
+                  </div>
+                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/60 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    The journey behind the achievement.
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <p className="text-sm uppercase tracking-widest font-bold text-slate-400">
+                  THE HUMAN DIMENSION
+                </p>
+                <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+                  That is why <strong className="text-slate-900 font-semibold">Peers Global</strong> is built around a broader idea of relationship: creating space for genuine human conversations alongside commercial growth.
+                </p>
+              </div>
+
+              {/* Room for Badges */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3 rounded-2xl bg-blue-50/80 border border-blue-100 text-blue-900 font-bold text-xs sm:text-sm text-center shadow-2xs">
+                  Room to celebrate.
+                </div>
+                <div className="p-3 rounded-2xl bg-indigo-50/80 border border-indigo-100 text-indigo-900 font-bold text-xs sm:text-sm text-center shadow-2xs">
+                  Room to learn.
+                </div>
+                <div className="p-3 rounded-2xl bg-amber-50/80 border border-amber-100 text-amber-900 font-bold text-xs sm:text-sm text-center shadow-2xs">
+                  Room to ask for help.
+                </div>
+                <div className="p-3 rounded-2xl bg-emerald-50/80 border border-emerald-100 text-emerald-900 font-bold text-xs sm:text-sm text-center shadow-2xs">
+                  Room to give help.
+                </div>
+                <div className="p-3 rounded-2xl bg-rose-50/80 border border-rose-100 text-rose-900 font-bold text-xs sm:text-sm text-center shadow-2xs">
+                  Room for family.
+                </div>
+                <div className="p-3 rounded-2xl bg-sky-50/80 border border-sky-100 text-sky-900 font-bold text-xs sm:text-sm text-center shadow-2xs">
+                  Room for humanity.
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-blue-50/60 border border-blue-100 text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
+                Because an entrepreneur does not leave their human life outside the business. They bring it with them. And when people are respected as whole human beings, relationships have the opportunity to become deeper and more meaningful.
+              </div>
+            </div>
+
+            {/* Right Column: Visual Showcase Card */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="relative p-8 sm:p-10 rounded-[32px] bg-gradient-to-br from-[#060D1A] via-[#0B172E] to-[#040812] text-white shadow-2xl border border-slate-800/80 overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
+
+                <div className="relative z-10 space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold tracking-widest uppercase text-rose-300">
+                    THE HUMAN FOUNDATION
+                  </div>
+
+                  <h3 className="font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight text-white tracking-tight">
+                    Beyond Transactions. <span className="brand-gradient-text block">Into Life.</span>
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                    A community where you are welcomed not only for what you produce or achieve, but for the person you are becoming along the journey.
+                  </p>
+
+                  <div className="p-6 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md space-y-2">
+                    <span className="text-2xl text-rose-400 font-serif leading-none block">&ldquo;</span>
+                    <p className="text-xs sm:text-sm text-slate-200 italic leading-relaxed font-medium">
+                      The person who helped you enter a new market is the one who shows up for your family&apos;s milestones.
+                    </p>
+                  </div>
+
+                  <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-medium">
+                    <span>Family Meetups</span>
+                    <span>•</span>
+                    <span>Confidential Forum</span>
+                    <span>•</span>
+                    <span>Lifelong Ties</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          7. FROM A NETWORK TO A LEADERSHIP ORGANISATION (LSR & INNER BOARD)
+          ========================================================================= */}
+      <section id="what-we-are-building" className="relative py-20 sm:py-28 border-b border-cool-grey-250/80 bg-[#FAFBFD] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                FROM A NETWORK TO A LEADERSHIP ORGANISATION
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
+              <span>How can entrepreneurs</span>{' '}
+              <span className="brand-gradient-text block sm:inline">help one another grow?</span>
+            </h2>
+            <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed font-normal">
+              The answer could have been another networking platform. Instead, PEERS GLOBAL chose to build something broader: a leadership organisation.
+            </p>
+          </div>
+
+          {/* LSR 3 Columns */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+            <div className="p-8 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-12 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                  <BookOpen className="size-6" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#1D4ED8] block mb-1">DIMENSION 01</span>
+                <h3 className="text-xl font-bold text-[#0f131a] mb-2">Learning</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  An entrepreneur who keeps learning can grow. Continuous exposure to fresh insights, methods, and cross-industry frameworks.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-violet-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                  <Sparkles className="size-6" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-violet-600 block mb-1">DIMENSION 02</span>
+                <h3 className="text-xl font-bold text-[#0f131a] mb-2">Sharing</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  An entrepreneur who shares experience can help someone else grow. Turning personal lessons into collective leverage.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                  <HeartHandshake className="size-6" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 block mb-1">DIMENSION 03</span>
+                <h3 className="text-xl font-bold text-[#0f131a] mb-2">Relationships</h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  An entrepreneur who builds trusted relationships creates possibilities that neither person could necessarily create alone.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Your Inner Board & Architecture Overview */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            {/* Left: Your Inner Board */}
+            <div className="lg:col-span-6 p-8 sm:p-10 rounded-[32px] bg-white border border-cool-grey-250 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                    YOUR INNER BOARD
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl text-[#0f131a] font-bold leading-tight">
+                  You should not always have to face decisions alone.
+                </h3>
+                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                  Every entrepreneur makes decisions. Some are easy; others carry immense consequences. A trusted group of fellow entrepreneurs becomes:
+                </p>
+                <div className="grid grid-cols-2 gap-3 text-xs font-semibold text-slate-800 pt-2">
+                  <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                    <span>A sounding board</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-violet-500" />
+                    <span>Source of experience</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>Source of perspective</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                    <span>Source of introductions</span>
+                  </div>
+                </div>
+                <p className="text-xs text-cool-grey-500 italic leading-relaxed pt-2">
+                  &ldquo;Where experience can move from one entrepreneur to another, and where helping someone else can become part of your own growth.&rdquo;
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <Link href="/circles" className="text-xs sm:text-sm font-bold brand-gradient-text inline-flex items-center gap-1.5 hover:underline">
+                  Explore Circles &amp; Inner Boards
+                  <ArrowRight className="size-4 text-[#E11D48]" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Architecture Built Around The Idea */}
+            <div className="lg:col-span-6 p-8 sm:p-10 rounded-[32px] bg-gradient-to-br from-[#060D1A] via-[#0B172E] to-[#040812] text-white shadow-2xl border border-slate-800/80 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 space-y-5">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold tracking-widest uppercase text-amber-300">
+                  WHAT WE ARE BUILDING
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold leading-tight tracking-tight text-white">
+                  The architecture built around the idea.
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                  When people grow together, growth becomes more meaningful. Today, that idea is expressed through:
+                </p>
+
+                <div className="space-y-3 text-xs sm:text-sm">
+                  <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    <span className="size-2 rounded-full bg-blue-400 mt-1.5 shrink-0" />
+                    <p><strong className="text-white">A leadership organisation:</strong> Growing not only as business owners, but also as contributors and leaders.</p>
+                  </div>
+                  <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    <span className="size-2 rounded-full bg-violet-400 mt-1.5 shrink-0" />
+                    <p><strong className="text-white">LSR Growth Model:</strong> Learning, Sharing &amp; Relationships working in unison.</p>
+                  </div>
+                  <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    <span className="size-2 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
+                    <p><strong className="text-white">18 Industry &amp; Goal Circles:</strong> Relevant peers grouped around shared contexts and aspirations.</p>
+                  </div>
+                  <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    <span className="size-2 rounded-full bg-amber-400 mt-1.5 shrink-0" />
+                    <p><strong className="text-white">10 Forms of Collaboration:</strong> Structured ways to create and compound mutual value.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative z-10 pt-4 mt-4 border-t border-white/10 text-xs text-slate-400 font-medium italic">
+                &ldquo;These are not the idea itself. They are the architecture. The idea is people helping people grow.&rdquo;
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          8. WHY COLLABORATION MATTERS
+          ========================================================================= */}
+      <section className="relative py-20 sm:py-28 border-b border-cool-grey-250/80 bg-gradient-to-b from-white via-[#FAFBFD] to-white overflow-hidden">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-blue-500/5 via-rose-500/5 to-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Header */}
+          <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                WHY COLLABORATION MATTERS
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
+              <span>A business can grow through capital,</span>{' '}
+              <span className="brand-gradient-text block sm:inline">technology, systems and talent.</span>
+            </h2>
+
+            <p className="text-base sm:text-xl text-cool-grey-600 max-w-3xl mx-auto leading-relaxed font-normal">
+              But there are moments when what changes the trajectory of a business is simply another human being.
+            </p>
+          </div>
+
+          {/* 5 Dynamic Impact Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-14">
+            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-10 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
+                  01
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Shares an Experience</h3>
+                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                  Real perspective from someone who has navigated the exact storm before.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-10 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
+                  02
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Makes an Introduction</h3>
+                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                  Opening high-trust doors that cold outreach and capital cannot unlock.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
+                  03
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Asks the Unconsidered</h3>
+                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                  Challenging blind spots with care and sharp founder intuition.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
+                  04
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Helps You See Differently</h3>
+                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                  Reframing strategic problems into multi-dimensional opportunities.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-rose-300 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="size-10 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform shadow-sm">
+                  05
+                </div>
+                <h3 className="text-sm sm:text-base font-bold brand-gradient-text mb-1.5">“Let me help.”</h3>
+                <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                  The most powerful phrase in entrepreneurship, offered without transaction.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Core Philosophy Callout Box */}
+          <div className="max-w-3xl mx-auto rounded-[28px] bg-white border border-cool-grey-250 p-8 sm:p-10 shadow-sm text-center space-y-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-cool-grey-500">
+              THE HUMAN FOUNDATION
+            </p>
+            <p className="text-lg sm:text-2xl font-bold text-[#0f131a] leading-snug">
+              That is collaboration at its most human.
+            </p>
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/80">
+              <p className="text-base sm:text-lg font-bold brand-gradient-text">
+                Collaboration is not merely a business mechanism. It is a culture.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          9. THE 1 MILLION MISSION
+          ========================================================================= */}
+      <section
+        id="one-million-mission"
+        className="relative overflow-hidden py-20 sm:py-28 lg:py-32 text-white border-b border-slate-800"
+        style={{ background: 'linear-gradient(135deg, #040812 0%, #071328 45%, #0a1b38 80%, #040812 100%)' }}
+      >
+        {/* Ambient Glowing Blobs */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+          <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-rose-300 to-amber-300">
+                THE 1 MILLION MISSION
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-rose-400 to-blue-400 rounded-full" />
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-white tracking-tight leading-[1.12]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-rose-400 to-amber-300">
+                1M+ entrepreneurs
+              </span>{' '}
+              <span className="block sm:inline">to impact by 2030.</span>
+            </h2>
+
+            <p className="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+              The number is not intended to represent a crowd. It represents a possibility.
+            </p>
+          </div>
+
+          {/* 5 Multiplication Ripple Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-14 text-center">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-blue-400/40 hover:bg-white/[0.08] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-300 text-xs font-bold mb-3 group-hover:scale-105 transition-transform">01</span>
+                <p className="text-sm font-bold text-white mb-1">One Entrepreneur</p>
+                <p className="text-xs text-slate-300 leading-relaxed font-normal">Helped and elevated.</p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-rose-400/40 hover:bg-white/[0.08] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded-md bg-rose-500/20 text-rose-300 text-xs font-bold mb-3 group-hover:scale-105 transition-transform">02</span>
+                <p className="text-sm font-bold text-white mb-1">One Relationship</p>
+                <p className="text-xs text-slate-300 leading-relaxed font-normal">Strengthened for life.</p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-violet-400/40 hover:bg-white/[0.08] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded-md bg-violet-500/20 text-violet-300 text-xs font-bold mb-3 group-hover:scale-105 transition-transform">03</span>
+                <p className="text-sm font-bold text-white mb-1">One Experience</p>
+                <p className="text-xs text-slate-300 leading-relaxed font-normal">Freely shared.</p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-amber-400/40 hover:bg-white/[0.08] transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 text-xs font-bold mb-3 group-hover:scale-105 transition-transform">04</span>
+                <p className="text-sm font-bold text-white mb-1">One Opportunity</p>
+                <p className="text-xs text-slate-300 leading-relaxed font-normal">Unlocked together.</p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-gradient-to-b from-blue-900/40 via-purple-900/30 to-rose-900/40 border border-rose-400/30 backdrop-blur-md hover:border-rose-400/60 transition-all flex flex-col justify-between group">
+              <div>
+                <span className="inline-block px-2.5 py-1 rounded-md bg-gradient-to-r from-blue-500 to-rose-500 text-white text-xs font-bold mb-3 group-hover:scale-105 transition-transform">05</span>
+                <p className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-rose-300 mb-1">One Life</p>
+                <p className="text-xs text-slate-200 leading-relaxed font-medium">Changed forever.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Narrative Callout Block */}
+          <div className="max-w-3xl mx-auto rounded-[32px] bg-white/[0.04] border border-white/10 backdrop-blur-md p-8 sm:p-10 text-center space-y-4 mb-12">
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+              The ambition is to create a model where impact multiplies through people. Because when one entrepreneur helps another grow, the effect does not stop with those two people.
+            </p>
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+              <p className="text-base sm:text-lg font-bold text-white">
+                It reaches employees. Families. Customers. Communities. Future entrepreneurs.
+              </p>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-400 font-medium">
+              That is how one action can become part of something much larger.
+            </p>
+          </div>
+
+          <div className="flex justify-center">
+            <a
+              href="https://unity.peersglobal.com"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-9 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-xl shadow-blue-900/40 hover:shadow-2xl hover:-translate-y-0.5 transition-all group"
+            >
+              <span>Join the 1 Million Mission on Unity</span>
+              <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          10. THE IDEA IN ONE SENTENCE & IF THIS IDEA SPEAKS TO YOU
+          ========================================================================= */}
+      <section className="relative py-20 sm:py-28 lg:py-32 border-b border-cool-grey-250/80 bg-gradient-to-b from-white via-[#FAFBFD] to-white overflow-hidden">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-blue-500/8 via-rose-500/8 to-indigo-500/8 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 lg:space-y-20">
+
+          {/* Top Block: The Idea In One Sentence */}
+          <div className="text-center space-y-8">
+            <div className="inline-flex items-center gap-2.5">
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE IDEA IN ONE SENTENCE
+              </span>
+              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0f131a] leading-[1.12] max-w-4xl mx-auto">
+              <span>Entrepreneurs should not</span>{' '}
+              <span className="brand-gradient-text block sm:inline">have to build alone.</span>
+            </h2>
+
+            <p className="text-base sm:text-xl text-cool-grey-600 max-w-2xl mx-auto font-normal leading-relaxed">
+              They should have people around them who understand the journey from the inside out.
+            </p>
+
+            {/* 4 Feature Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2 text-left">
+              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
+                <div className="size-10 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                  <BookOpen className="size-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">People to learn from</h4>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed">Gain perspective from those who have solved what you are facing.</p>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
+                <div className="size-10 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                  <Sparkles className="size-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">People to contribute to</h4>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed">Turn your own victories and lessons into leverage for other founders.</p>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all flex flex-col justify-between group">
+                <div className="size-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="size-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">People they can trust</h4>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed">High-integrity peer advisory protected by category exclusivity.</p>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group">
+                <div className="size-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+                  <HeartHandshake className="size-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1">Meaningful bonds</h4>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed">Where business relationships transform into lifelong friendships.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-50 via-white to-rose-50 border border-slate-200/90 shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-base sm:text-lg font-bold brand-gradient-text">
+                  And perhaps, over time, people they can call Peers.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Block: If This Idea Speaks To You (Hero Card) */}
+          <div className="relative p-8 sm:p-12 lg:p-14 rounded-[32px] bg-white border border-cool-grey-250 shadow-lg space-y-8 overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500/5 via-rose-500/5 to-transparent rounded-full blur-2xl pointer-events-none" />
+
+            <div className="relative space-y-4">
+              <div className="flex items-center gap-2.5">
                 <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  THE SILENT REALITY
+                  IF THIS IDEA SPEAKS TO YOU
                 </span>
               </div>
 
-              {/* Title */}
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold leading-[1.18] text-slate-900 tracking-tight">
-                The problem nobody talks about.
-              </h2>
-
-              <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                Ask an entrepreneur how business is going and you will almost always get the same answer:
-              </p>
-
-              {/* Quote banner "Business is good." */}
-              <div className="rounded-md bg-slate-50 border border-slate-200 px-4 py-2.5 flex items-center gap-2">
-                <span className="text-base font-semibold text-slate-900">
-                  &ldquo;Business is good.&rdquo;
-                </span>
-              </div>
-
-              <div className="space-y-3 text-sm text-slate-600 leading-relaxed font-normal">
-                <p>
-                  They will say it to their parents. To their friends. To the people at the wedding. Sometimes to their own spouse. And often it is not true.
-                </p>
-
-                <p className="font-semibold text-slate-900">
-                  This is the part of entrepreneurship that never appears in the interviews.
-                </p>
-
-                <p>
-                  An entrepreneur is surrounded by people all day and understood by almost none of them. The team cannot be told that this month is uncertain. The family sees the office and assumes everything is fine.
-                </p>
-
-                <p className="text-sm font-semibold text-slate-900">
-                  So you stop explaining.
-                </p>
-              </div>
-            </div>
-
-            {/* ──────── COLUMN 3: Dark Reflection Card + Light CTA Banner (lg:col-span-4) ──────── */}
-            <div className="lg:col-span-4 flex flex-col gap-4">
-              
-              {/* Executive Card: A Founder's Reflection */}
-              <div className="rounded-lg border border-slate-800 bg-[#0F172A] p-6 text-white shadow-sm flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#38BDF8]">
-                      A Founder&apos;s Reflection
-                    </span>
-                  </div>
-
-                  <p className="text-sm text-slate-200 leading-relaxed font-normal">
-                    You make the biggest decisions of your life at eleven at night with nobody to call. You make mistakes that one honest conversation would have prevented, and you make them in silence. A win you waited three years for arrives, and there is no one in the room who understands what it cost.
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-800">
-                  <p className="text-xs font-semibold text-[#38BDF8] leading-snug">
-                    Entrepreneurs are surrounded by people, but rarely understood.
-                  </p>
-                  <p className="text-xs text-slate-400 mt-1 leading-relaxed font-normal">
-                    They do not need more motivation. They need belonging, trust, and peers who understand the weight they are carrying.
-                  </p>
-                </div>
-              </div>
-
-              {/* Elevated Card: Why Peers Global Exists */}
-              <div className="rounded-lg border border-slate-200 bg-white p-5 flex items-center justify-between gap-3 shadow-2xs hover:border-slate-300 transition-all">
-                <div className="flex items-center gap-3">
-                  <div className="size-9 rounded-[4px] bg-[#0078D4] text-white flex items-center justify-center shrink-0">
-                    <Lightbulb className="size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-900">
-                      Why Peers Global Exists
-                    </span>
-                    <span className="text-xs text-slate-500 font-normal mt-0.5 leading-snug">
-                      This is the silent reason behind many ideas. It is also why Peers Global exists.
-                    </span>
-                  </div>
-                </div>
-                <Link
-                  href="/membership"
-                  aria-label="Why Peers Global Exists"
-                  className="size-8 rounded-[4px] border border-slate-200 flex items-center justify-center text-[#0078D4] hover:bg-slate-50 transition-colors shrink-0"
-                >
-                  <ArrowRight className="size-3.5" />
-                </Link>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          3. WHERE THIS IDEA CAME FROM (SUB-MODULE: ORIGIN STORY)
-          ========================================================================= */}
-      <section id="origin-story" className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#F8FAFC] to-[#FFFFFF] py-12 sm:py-16">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* ──────── COLUMN 1: LEFT CONTENT (lg:col-span-5) ──────── */}
-            <div className="lg:col-span-5 flex flex-col justify-center">
-              
-              {/* Eyebrow */}
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0078D4]">
-                  Origin Story
-                </span>
-              </div>
-
-              {/* H2 Title */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-900 tracking-tight leading-[1.14]">
-                Where this idea came from
-              </h2>
-
-              <p className="text-base sm:text-lg text-slate-800 font-semibold mt-4 leading-relaxed">
-                In the words of our Founder, Dr. Pravin Parmar.
-              </p>
-
-              <p className="text-sm text-slate-600 font-normal mt-3 leading-relaxed max-w-lg">
-                Peers Global was born from real experiences, real people and real challenges. A small village in Botad to mentoring 10,000+ MSME promoters across India, this journey has always been about people, possibilities and a stronger tomorrow — together.
-              </p>
-
-              {/* Dynamic Watch Founder's Message Button */}
-              <div className="flex items-center gap-3.5 mt-7">
-                <button
-                  type="button"
-                  onClick={() => setActiveModalMedia(originStoryMedia)}
-                  aria-label="Watch the Founder's Message"
-                  className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-5 py-2.5 text-sm font-semibold transition-colors cursor-pointer"
-                >
-                  <Play className="size-4 fill-white ml-0.5" />
-                  <span>Watch Founder&apos;s Message</span>
-                </button>
-              </div>
-
-            </div>
-
-              {/* ──────── COLUMN 2: RIGHT UNIFIED HERO VISUAL FRAME (lg:col-span-7) ──────── */}
-              <div className="lg:col-span-7 relative">
-                
-                {/* Outer decorative ambient rings */}
-                <div className="absolute -top-8 -right-8 size-[480px] rounded-full border border-blue-300/40 pointer-events-none hidden xl:block" />
-                <div className="absolute top-10 -right-4 size-[360px] rounded-full border border-sky-400/30 pointer-events-none hidden xl:block" />
-
-                {/* Framed Container: Video Background + Play Button + Cutout Founder Photo + Quote Card */}
-                <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-blue-900/15 bg-[#040e24] shadow-[0_25px_70px_rgba(4,14,36,0.3)] min-h-[400px] sm:min-h-[440px] lg:min-h-[460px] w-full">
-                  
-                  {/* 1. Background Video Layer with Office Background Poster */}
-                  <div className="absolute inset-0 size-full overflow-hidden select-none">
-                    {originStoryMedia.isYouTube && originStoryMedia.embedUrl ? (
-                      <iframe
-                        src={`${originStoryMedia.embedUrl}&mute=1&loop=1`}
-                        title={originStoryMedia.title}
-                        className="size-full border-0 pointer-events-none scale-125 object-cover"
-                        allow="autoplay; encrypted-media"
-                      />
-                    ) : (
-                      <video
-                        key={originStoryMedia.mediaUrl}
-                        src={originStoryMedia.mediaUrl}
-                        poster="/images/origin-story-office-bg.jpg"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                        className="size-full object-cover object-center scale-[1.03]"
-                      >
-                        <source src={originStoryMedia.mediaUrl} type="video/mp4" />
-                      </video>
-                    )}
-
-                    {/* Gradient overlays to ensure seamless composition and contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#040e24]/85 via-[#040e24]/20 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#040e24]/40 via-transparent to-[#040e24]/30" />
-                  </div>
-
-                  {/* 2. Quote Card (Bottom-Left Overlay) */}
-                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20 max-w-[250px] sm:max-w-[290px] rounded-2xl bg-white/95 backdrop-blur-md border border-white p-4 sm:p-5 shadow-2xl text-slate-900">
-                    <span className="text-2xl sm:text-3xl font-black text-[#041E42] leading-none select-none block mb-1">
-                      “
-                    </span>
-                    <p className="text-xs sm:text-[13px] font-semibold text-slate-800 leading-relaxed">
-                      Real progress happens when people come together with purpose.
-                    </p>
-                    <div className="mt-2.5 flex items-center gap-2">
-                      <span className="h-[1px] w-4 bg-slate-400" />
-                      <span className="text-[11px] font-bold text-slate-900 tracking-tight">
-                        Dr. Pravin Parmar
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* 3. Founder Photo Cutout (Right Side, Layered in Foreground) */}
-                  <div className="absolute bottom-0 right-0 sm:right-2 lg:right-4 h-[90%] sm:h-[95%] lg:h-[98%] w-[270px] sm:w-[330px] lg:w-[380px] z-10 flex items-end justify-center pointer-events-none">
-                    <div className="relative size-full">
-                      <Image
-                        src="/images/dr-pravin-cutout.png"
-                        alt="Dr. Pravin Parmar — Founder, Peers Global"
-                        fill
-                        sizes="(max-width: 768px) 300px, (max-width: 1024px) 360px, 420px"
-                        className="object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.7)]"
-                        priority
-                      />
-                    </div>
-                  </div>
-
-                  {/* 4. Executive Tag Badge */}
-                  <div className="absolute top-4 sm:top-5 right-4 sm:right-6 lg:right-7 z-20 select-none pointer-events-none">
-                    <div className="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-right">
-                      <p className="text-[11px] font-bold text-white tracking-widest uppercase">
-                        People · Ideas · Growth
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-        {/* ──────── BOTTOM SECTION: DEEP NAVY BLUE CANVAS WITH 6 WHITE CARDS ──────── */}
-        <div className="relative bg-[#061836] text-white pt-6 pb-6 sm:pb-8">
-          <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
-            {/* 6 Clean White Floating Cards (Grid) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-3.5">
-              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400">01</span>
-                    <Sprout className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="flex items-center justify-between mt-3 mb-1.5">
-                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                      Roots in Botad
-                    </h3>
-                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                  </div>
-                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                    A small village. <br />
-                    Big lessons.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400">02</span>
-                    <BookOpen className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="flex items-center justify-between mt-3 mb-1.5">
-                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                      The Awakening
-                    </h3>
-                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                  </div>
-                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                    Realising the power <br />
-                    of community.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400">03</span>
-                    <Users2 className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="flex items-center justify-between mt-3 mb-1.5">
-                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                      A Bigger Vision
-                    </h3>
-                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                  </div>
-                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                    From local impact <br />
-                    to a global community.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400">04</span>
-                    <TrendingUp className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="flex items-center justify-between mt-3 mb-1.5">
-                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                      Building the Model
-                    </h3>
-                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                  </div>
-                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                    The LSR model for <br />
-                    meaningful collaboration.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400">05</span>
-                    <Award className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="flex items-center justify-between mt-3 mb-1.5">
-                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                      10,000+ Entrepreneurs
-                    </h3>
-                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                  </div>
-                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                    Mentoring and enabling <br />
-                    across India.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white p-4 sm:p-4.5 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-white text-slate-900 group">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400">06</span>
-                    <Globe className="size-5 text-[#0062D2] group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="flex items-center justify-between mt-3 mb-1.5">
-                    <h3 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug">
-                      A Global Community
-                    </h3>
-                    <ChevronRight className="size-3 text-slate-400 group-hover:text-[#0062D2] group-hover:translate-x-0.5 transition-all" />
-                  </div>
-                  <p className="text-[11px] text-slate-500 font-light leading-relaxed">
-                    People. Ideas. Opportunities. <br />
-                    Together.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom branding footer bar */}
-            <div className="pt-5 pb-1 mt-5 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
-              <div className="flex items-center gap-3">
-                <div className="size-7 rounded-full bg-gradient-to-tr from-[#0062D2] to-sky-400 text-white flex items-center justify-center font-serif text-xs font-bold shadow-sm">
-                  N
-                </div>
-                <span>Real People · Real Stories · A Brighter Tomorrow</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span>Peers Global</span>
-                <div className="flex items-center gap-1.5 text-blue-500">
-                  <span className="size-1.5 rounded-full bg-blue-500" />
-                  <span className="size-1.5 rounded-full bg-blue-500" />
-                  <span className="size-1.5 rounded-full bg-blue-500" />
-                  <span className="size-1.5 rounded-full bg-blue-500" />
-                  <span className="size-1.5 rounded-full bg-blue-500" />
-                  <span className="size-1.5 rounded-full bg-blue-500" />
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          4. WHAT WE BELIEVE (SUB-MODULE: THE CORE PHILOSOPHY)
-          ========================================================================= */}
-      <section id="core-philosophy" className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-slate-200">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0078D4]">
-                The Core Philosophy
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-900 tracking-tight leading-tight">
-              What we believe
-            </h2>
-            
-            <p className="text-base text-slate-600 mt-3 font-normal">
-              Peers Global rests on four simple, powerful sentences that guide everything we do.
-            </p>
-          </div>
-        </div>
-
-        {/* ──────── MAIN INTERACTIVE ROW: CARDS ON LEFT + ATTACHED SCREEN-BLEED IMAGE ON RIGHT ──────── */}
-        <div className="relative w-full">
-          <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full lg:w-[480px] xl:w-[540px] 2xl:w-[580px] relative pl-7 sm:pl-10 z-20">
-              <div className="absolute left-[13px] sm:left-[17px] top-8 bottom-8 w-[1.5px] bg-slate-200" />
-
-              <div className="flex flex-col gap-4 sm:gap-5">
-                {/* ── CARD 04: OUTCOME ── */}
-                <div className="relative group">
-                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-[#1D4ED8] ring-4 ring-white shadow-xs z-10" />
-                  <div className="rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50/70 via-blue-50/30 to-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
-                    <div className="size-11 rounded-xl bg-gradient-to-br from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
-                      04
-                    </div>
-                    <div className="size-11 rounded-xl bg-blue-100/70 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                      <BarChart3 className="size-5.5" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#1D4ED8]">
-                        Outcome
-                      </span>
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
-                        Business grows through relationships.
-                      </h3>
-                      <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
-                        Stronger relationships create bigger opportunities for everyone.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── CARD 03: FOUNDATION ── */}
-                <div className="relative group">
-                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-[#1D4ED8] ring-4 ring-white shadow-xs z-10" />
-                  <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
-                    <div className="size-11 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-sm shrink-0">
-                      03
-                    </div>
-                    <div className="size-11 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                      <HeartHandshake className="size-5.5" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                        Foundation
-                      </span>
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
-                        Relationships grow through trust.
-                      </h3>
-                      <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
-                        Consistent presence, honest conversations, and shared values.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── CARD 02: CATALYST ── */}
-                <div className="relative group">
-                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-[#1D4ED8] ring-4 ring-white shadow-xs z-10" />
-                  <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
-                    <div className="size-11 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-sm shrink-0">
-                      02
-                    </div>
-                    <div className="size-11 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                      <ShieldCheck className="size-5.5" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                        Catalyst
-                      </span>
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
-                        Trust grows through giving first.
-                      </h3>
-                      <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
-                        Helping without keeping score. Supporting before asking.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── CARD 01: ORIGIN ── */}
-                <div className="relative group">
-                  <span className="absolute -left-[27px] sm:-left-[31px] top-1/2 -translate-y-1/2 size-3.5 rounded-full bg-[#1D4ED8] ring-4 ring-white shadow-xs z-10" />
-                  <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md transition-all duration-300 flex items-center gap-4 sm:gap-5">
-                    <div className="size-11 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-sm shrink-0">
-                      01
-                    </div>
-                    <div className="size-11 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                      <Lightbulb className="size-5.5" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                        Origin
-                      </span>
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 leading-snug mt-0.5">
-                        Giving starts with showing up.
-                      </h3>
-                      <p className="text-xs text-slate-500 font-normal mt-1 leading-relaxed">
-                        Being in the room, fully present, ready to contribute.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Dynamic Attached-To-Screen Right Panorama Video */}
-          <div className="hidden lg:block absolute top-0 bottom-0 right-0 left-[calc(max(520px,(100vw-1360px)/2+510px))] xl:left-[calc(max(580px,(100vw-1360px)/2+570px))] 2xl:left-[calc(max(620px,(100vw-1360px)/2+610px))] z-10 pointer-events-auto">
-            <div
-              onClick={() => setActiveModalMedia(corePhilosophyMedia)}
-              className="relative size-full rounded-l-full rounded-r-none overflow-hidden shadow-2xl border-y border-l border-slate-200/80 bg-slate-900 cursor-pointer group"
-            >
-              {corePhilosophyMedia.isYouTube && corePhilosophyMedia.embedUrl ? (
-                <iframe
-                  src={`${corePhilosophyMedia.embedUrl}&mute=1&loop=1`}
-                  title={corePhilosophyMedia.title}
-                  className="size-full border-0 pointer-events-none scale-125"
-                  allow="autoplay; encrypted-media"
-                />
-              ) : (
-                <video
-                  key={corePhilosophyMedia.mediaUrl}
-                  src={corePhilosophyMedia.mediaUrl}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="size-full object-cover object-center scale-[1.03] group-hover:scale-105 transition-transform duration-700"
-                />
-              )}
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-black/15 to-transparent pointer-events-none" />
-              <div className="absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-black/35 to-transparent pointer-events-none" />
-
-              <div className="absolute top-8 right-8 xl:right-16 z-10 text-right select-none pointer-events-none">
-                <div className="px-4 py-2 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#60A5FA]">CORE BELIEF</span>
-                  <p className="text-sm font-semibold text-white mt-0.5">People · Ideas · Growth</p>
-                </div>
-              </div>
-
-              <div className="absolute bottom-8 right-8 xl:right-16 z-20 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 p-4 sm:p-5 shadow-2xl max-w-[260px] sm:max-w-[280px] flex items-start gap-3.5">
-                <div className="size-10 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0 shadow-2xs">
-                  <Users2 className="size-5" />
-                </div>
-                <div>
-                  <p className="text-xs sm:text-[13px] font-bold text-slate-900 leading-snug">
-                    A stronger tomorrow starts with what we do today, together.
-                  </p>
-                  <div className="w-10 h-[2px] bg-slate-400 mt-2.5" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Mobile / Tablet Dynamic Fallback */}
-        <div className="lg:hidden mt-8 max-w-[1360px] mx-auto px-4 sm:px-6">
-          <div
-            onClick={() => setActiveModalMedia(corePhilosophyMedia)}
-            className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 cursor-pointer group"
-          >
-            {corePhilosophyMedia.isYouTube && corePhilosophyMedia.embedUrl ? (
-              <iframe
-                src={`${corePhilosophyMedia.embedUrl}&mute=1&loop=1`}
-                title={corePhilosophyMedia.title}
-                className="size-full border-0 pointer-events-none scale-125"
-                allow="autoplay; encrypted-media"
-              />
-            ) : (
-              <video
-                key={corePhilosophyMedia.mediaUrl}
-                src={corePhilosophyMedia.mediaUrl}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="size-full object-cover object-center group-hover:scale-105 transition-transform"
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-black/20 to-transparent pointer-events-none" />
-            
-            <div className="absolute top-6 right-6 z-10 text-right select-none pointer-events-none">
-              <div className="px-3.5 py-1.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/20">
-                <p className="text-xs font-bold text-white tracking-wider uppercase">People · Ideas · Growth</p>
-              </div>
-            </div>
-
-            <div className="absolute bottom-6 left-6 right-6 z-20 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 p-4 shadow-xl flex items-start gap-3.5">
-              <div className="size-10 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0 shadow-2xs">
-                <Users2 className="size-5" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-slate-900 leading-snug">
-                  A stronger tomorrow starts with what we do today, together.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Callout Banner */}
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
-          <div className="rounded-3xl bg-gradient-to-br from-[#021338] via-[#041D4E] to-[#0A2E70] p-6 sm:p-8 text-center text-white relative overflow-hidden shadow-xl">
-            <div className="absolute -right-16 -bottom-16 size-64 rounded-full border border-sky-400/10 pointer-events-none" />
-            <div className="absolute -left-16 -top-16 size-64 rounded-full border border-blue-400/10 pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-sky-300 mb-3">
-                Read Them From The Bottom Up
-              </span>
-              <h3 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-white tracking-tight leading-snug">
-                Give first. Build trust. Deepen the relationship. Grow the business.
+              <h3 className="text-2xl sm:text-4xl lg:text-[40px] font-bold text-[#0f131a] tracking-tight leading-tight">
+                You do not have to arrive with everything figured out.
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-normal mt-3.5 max-w-xl leading-relaxed">
-                Everything in this community exists to make that sequence happen reliably, for thousands of entrepreneurs, again and again.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* =========================================================================
-          5. PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE
-          (SUB-MODULE: PEERS ARE PARTNERS)
-          ========================================================================= */}
-      <section className="py-10 sm:py-12 lg:py-14 border-b border-slate-200/80 bg-[#FBFDFF] relative overflow-hidden">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
-            
-            {/* ──────── LEFT COLUMN: HERO DYNAMIC VIDEO CARD & 3 STAT COUNTERS ──────── */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="relative">
-                <div
-                  className="absolute -top-5 -left-5 size-36 opacity-35 pointer-events-none"
-                  style={{
-                    backgroundImage: 'radial-gradient(#0062D2 1.5px, transparent 1.5px)',
-                    backgroundSize: '16px 16px',
-                  }}
-                />
-
-                {/* Dynamic Main Hero Video Card */}
-                <div
-                  onClick={() => setActiveModalMedia(peersPartnersMedia)}
-                  className="relative aspect-[4/4.3] w-full rounded-[32px] overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-900 group cursor-pointer"
-                >
-                  {peersPartnersMedia.isYouTube && peersPartnersMedia.embedUrl ? (
-                    <iframe
-                      src={`${peersPartnersMedia.embedUrl}&mute=1&loop=1`}
-                      title={peersPartnersMedia.title}
-                      className="size-full border-0 pointer-events-none scale-125"
-                      allow="autoplay; encrypted-media"
-                    />
-                  ) : (
-                    <video
-                      key={peersPartnersMedia.mediaUrl}
-                      src={peersPartnersMedia.mediaUrl}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="size-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-black/20 pointer-events-none" />
-
-                  <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10 select-none pointer-events-none">
-                    <p className="font-[family-name:var(--font-script)] text-3xl sm:text-4xl text-white leading-tight drop-shadow-md rotate-[-6deg]">
-                      More <br />
-                      Than <br />
-                      Business
-                    </p>
-                    <svg className="w-24 h-3 text-white/90 mt-1" viewBox="0 0 100 12" fill="none">
-                      <path d="M2 8 C 30 2, 70 2, 98 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
-
-                  <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10 select-none pointer-events-none">
-                    <div className="px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20">
-                      <p className="text-xs font-bold text-white tracking-widest uppercase">
-                        More Than Business
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 z-10 flex items-end justify-between gap-4">
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight drop-shadow-md">
-                        Standing beside you. <br />
-                        Not above, not across.
-                      </h3>
-                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-300 mt-2.5 block">
-                        Peers for a brighter tomorrow
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-2.5 shrink-0 select-none group/play cursor-pointer">
-                      <div className="size-11 sm:size-12 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shadow-lg ring-4 ring-blue-400/30 transition-all group-hover/play:scale-105">
-                        <Play className="size-4.5 sm:size-5 fill-white text-white translate-x-0.5" />
-                      </div>
-                      <div className="text-left hidden sm:block">
-                        <p className="text-[11px] font-bold text-white leading-tight">
-                          Watch <br />
-                          Our Story
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              {/* 3 Stat Counters Row */}
-              <div className="rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-xs grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 items-center gap-3 sm:gap-0">
-                <div className="flex items-center gap-3 px-1.5 sm:px-3">
-                  <div className="size-9 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                    <Users2 className="size-5" />
-                  </div>
-                  <div>
-                    <div className="font-extrabold text-slate-950 text-base sm:text-lg leading-tight tracking-tight">
-                      10,000+
-                    </div>
-                    <div className="text-[11px] text-slate-500 font-medium mt-0.5">
-                      Entrepreneurs
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 px-1.5 sm:px-3 pl-3 sm:pl-4">
-                  <div className="size-9 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                    <Building2 className="size-5" />
-                  </div>
-                  <div>
-                    <div className="font-extrabold text-slate-950 text-base sm:text-lg leading-tight tracking-tight">
-                      100+
-                    </div>
-                    <div className="text-[11px] text-slate-500 font-medium mt-0.5">
-                      Cities
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 px-1.5 sm:px-3 pl-3 sm:pl-4">
-                  <div className="size-9 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                    <Heart className="size-5" />
-                  </div>
-                  <div>
-                    <div className="font-extrabold text-slate-950 text-base sm:text-lg leading-tight tracking-tight">
-                      Countless
-                    </div>
-                    <div className="text-[11px] text-slate-500 font-medium mt-0.5">
-                      Friendships
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* ──────── RIGHT COLUMN: TITLE & 3 NUMBERED CARDS ──────── */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="h-[1.5px] w-6 bg-[#1D4ED8]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1D4ED8]">
-                  The Relationship
-                </span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-950 tracking-tight leading-[1.12] mb-4">
-                Peers are Partners <br />
-                in Business and <br />
-                Friends in Life.
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mb-5">
-                For an entrepreneur, life and business are not two neatly partitioned lives. When one is under pressure, the other feels it immediately.
+              <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed max-w-3xl font-normal">
+                You do not have to be the biggest entrepreneur in the room. You do not have to know exactly what you need. You simply need to believe that your journey can become stronger when the right people are part of it.
               </p>
 
-              <div className="flex flex-col gap-4">
-                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-blue-100 transition-all duration-300 flex items-center justify-between gap-5 group">
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    <div className="size-12 rounded-2xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                      <Users className="size-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                        Six months later
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mt-1">
-                        It means the Peer who introduces you to a client also asks how it went six months later.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="shrink-0 flex items-center gap-2 text-xs font-bold text-slate-400 select-none pl-2">
-                    <span className="w-6 h-[1.5px] bg-slate-300 hidden sm:inline-block" />
-                    01
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-amber-100 transition-all duration-300 flex items-center justify-between gap-5 group">
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    <div className="size-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                      <Gift className="size-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                        At the daughter&apos;s wedding
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mt-1">
-                        It means the person who helped you enter a new market is the one who shows up at your daughter&apos;s wedding.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="shrink-0 flex items-center gap-2 text-xs font-bold text-slate-400 select-none pl-2">
-                    <span className="w-6 h-[1.5px] bg-slate-300 hidden sm:inline-block" />
-                    02
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-emerald-100 transition-all duration-300 flex items-center justify-between gap-5 group">
-                  <div className="flex items-center gap-4 sm:gap-5">
-                    <div className="size-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                      <TrendingUp className="size-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                        United growth
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mt-1">
-                        It means the business relationship and the human relationship grow together, because for entrepreneurs they were never really separate.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="shrink-0 flex items-center gap-2 text-xs font-bold text-slate-400 select-none pl-2">
-                    <span className="w-6 h-[1.5px] bg-slate-300 hidden sm:inline-block" />
-                    03
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 rounded-2xl bg-gradient-to-r from-blue-50/70 via-blue-50/40 to-sky-50/60 border border-blue-100/90 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-                <div className="flex-1">
-                  <span className="text-3xl sm:text-4xl text-[#1D4ED8] font-black leading-none select-none block mb-1">
-                    “
-                  </span>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                    &ldquo;Peers arrive looking for business. They stay for the friendships. And the business follows, because that is how business has always worked between people who trust each other.&rdquo;
-                  </p>
-                  <div className="flex items-center gap-2 mt-3.5">
-                    <span className="h-[1.5px] w-6 bg-[#1D4ED8]" />
-                    <span className="text-[11px] font-bold tracking-wider text-[#1D4ED8] uppercase">
-                      Peers Global
-                    </span>
-                  </div>
-                </div>
-
-                <div className="shrink-0 text-left sm:text-right select-none pl-1 sm:border-l sm:border-blue-200/60 sm:pl-6">
-                  <div className="px-3 py-1.5 rounded-xl bg-blue-100/80 border border-blue-200">
-                    <p className="text-xs font-bold text-[#1D4ED8] uppercase tracking-wider">
-                      People · Ideas · Growth
-                    </p>
-                  </div>
-                </div>
-              </div>
-
+              <p className="text-base sm:text-lg text-cool-grey-600 leading-relaxed max-w-3xl font-normal">
+                And you need to be willing to become one of those people for someone else.
+              </p>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          6. WHAT WE ARE BUILDING (ARCHITECTURE & LSR MODEL)
-          ========================================================================= */}
-      <section id="lsr-model" className="py-12 sm:py-16 border-b border-slate-200 bg-[#FAFBFD] relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0078D4]">
-                Our Architecture
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-900 tracking-tight leading-tight">
-              What we are building
-            </h2>
-            
-            <p className="text-lg sm:text-xl text-[#0078D4] mt-2.5 font-semibold tracking-tight">
-              Not a networking group. A leadership organisation.
-            </p>
-
-            <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed font-normal max-w-2xl mx-auto">
-              Peers Global is the World&apos;s First Community of Collaboration, built on the LSR Growth Model — Learning, Sales and Resources — with a mission to enhance the lives of one million entrepreneurs.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* ── CARD 01: YOUR INNER BOARD ── */}
-            <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center gap-3.5 mb-5">
-                  <div className="size-11 rounded-[4px] bg-blue-50 text-[#0078D4] flex items-center justify-center shrink-0">
-                    <Users2 className="size-5.5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 tracking-wider">
-                    01
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 leading-snug">
-                  Your Inner Board
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  Eighteen industry and goal-specific Circles. A peer board of 30 to 50 vetted entrepreneurs who challenge your blind spots and celebrate your milestones.
+            {/* Reciprocal Impact Banner */}
+            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 space-y-2 shadow-2xs">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🤝</span>
+                <p className="text-sm sm:text-base font-bold text-slate-900 leading-relaxed">
+                  Your growth can help someone else grow. And someone else&apos;s growth can help you grow.
                 </p>
               </div>
-              <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
-                <Link href="/circles" className="text-xs font-semibold text-[#0078D4] hover:underline">
-                  18 Industry &amp; City Circles
-                </Link>
-                <Link href="/circles" className="size-8 rounded-[4px] bg-slate-50 text-[#0078D4] flex items-center justify-center hover:bg-[#0078D4] hover:text-white transition-colors">
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
+              <p className="text-xs sm:text-sm font-semibold brand-gradient-text pl-7">
+                That is not just collaboration. That is the community. That is the Idea.
+              </p>
             </div>
 
-            {/* ── CARD 02: 10 FORMS OF COLLABORATION ── */}
-            <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center gap-3.5 mb-5">
-                  <div className="size-11 rounded-[4px] bg-blue-50 text-[#0078D4] flex items-center justify-center shrink-0">
-                    <Layers className="size-5.5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 tracking-wider">
-                    02
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 leading-snug">
-                  10 Forms of Collaboration
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  From Strategic Co-Selling and JV Ventures to Knowledge Circles and Resource Pooling. Clear frameworks that turn intent into tangible, measurable outcomes.
-                </p>
-              </div>
-              <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
-                <Link href="/10-forms-of-collaboration" className="text-xs font-semibold text-[#0078D4] hover:underline">
-                  View 10 Frameworks
-                </Link>
-                <Link href="/10-forms-of-collaboration" className="size-8 rounded-[4px] bg-slate-50 text-[#0078D4] flex items-center justify-center hover:bg-[#0078D4] hover:text-white transition-colors">
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
+            {/* Action Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <a
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 sm:px-10 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              >
+                <span>Download the Unity App</span>
+                <ArrowRight className="size-4" />
+              </a>
+              <Link
+                href="/circles"
+                className="inline-flex items-center gap-2 rounded-full border border-cool-grey-250 bg-white hover:bg-slate-50 text-slate-800 px-8 sm:px-10 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-xs hover:border-slate-300"
+              >
+                Explore Circles
+              </Link>
             </div>
-
-            {/* ── CARD 03: ONE ACTION = ONE LIFE ── */}
-            <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center gap-3.5 mb-5">
-                  <div className="size-11 rounded-[4px] bg-blue-50 text-[#0078D4] flex items-center justify-center shrink-0">
-                    <Target className="size-5.5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 tracking-wider">
-                    03
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 leading-snug">
-                  One Action = One Life
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  A transparent recognition system where one action equals one life impacted. Celebrating contribution, active participation, and real MSME empowerment.
-                </p>
-              </div>
-              <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
-                <Link href="/stories" className="text-xs font-semibold text-[#0078D4] hover:underline">
-                  Impact-Driven Ledger
-                </Link>
-                <Link href="/stories" className="size-8 rounded-[4px] bg-slate-50 text-[#0078D4] flex items-center justify-center hover:bg-[#0078D4] hover:text-white transition-colors">
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* ── CARD 04: LEADERSHIP PATHWAY ── */}
-            <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center gap-3.5 mb-5">
-                  <div className="size-11 rounded-[4px] bg-blue-50 text-[#0078D4] flex items-center justify-center shrink-0">
-                    <Award className="size-5.5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 tracking-wider">
-                    04
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 leading-snug">
-                  Leadership Pathway
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  From member to ecosystem owner: Leadership Team (LT), Circle Director (CD), Circle Founder (CF), Industry Director (ID), and Regional Executive Director (RED).
-                </p>
-              </div>
-              <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
-                <Link href="/leadership" className="text-xs font-semibold text-[#0078D4] hover:underline">
-                  5-Stage Progression Ladder
-                </Link>
-                <Link href="/leadership" className="size-8 rounded-[4px] bg-slate-50 text-[#0078D4] flex items-center justify-center hover:bg-[#0078D4] hover:text-white transition-colors">
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* ── CARD 05: LSR GROWTH MODEL ── */}
-            <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center gap-3.5 mb-5">
-                  <div className="size-11 rounded-[4px] bg-blue-50 text-[#0078D4] flex items-center justify-center shrink-0">
-                    <TrendingUp className="size-5.5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 tracking-wider">
-                    05
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 leading-snug">
-                  LSR Growth Model
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  Learning from real operators, Sales through high-trust relationships, and Resources pooled together for collective scale and bargaining power.
-                </p>
-              </div>
-              <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
-                <Link href="/why-peers-global" className="text-xs font-semibold text-[#0078D4] hover:underline">
-                  Learn · Share · Refer
-                </Link>
-                <Link href="/why-peers-global" className="size-8 rounded-[4px] bg-slate-50 text-[#0078D4] flex items-center justify-center hover:bg-[#0078D4] hover:text-white transition-colors">
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* ── CARD 06: UNITY APP PLATFORM ── */}
-            <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center gap-3.5 mb-5">
-                  <div className="size-11 rounded-[4px] bg-blue-50 text-[#0078D4] flex items-center justify-center shrink-0">
-                    <Smartphone className="size-5.5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 tracking-wider">
-                    06
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 leading-snug">
-                  Unity App Platform
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mt-2.5">
-                  The Unity App running every day in between meetings — digital referrals, verified member directory, 1-to-1 matchmaking, and meeting registrations.
-                </p>
-              </div>
-              <div className="mt-7 pt-3 flex items-center justify-between border-t border-slate-100">
-                <Link href="/unity" className="text-xs font-semibold text-[#0078D4] hover:underline">
-                  Available on iOS &amp; Android
-                </Link>
-                <Link href="/unity" className="size-8 rounded-[4px] bg-slate-50 text-[#0078D4] flex items-center justify-center hover:bg-[#0078D4] hover:text-white transition-colors">
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center mt-8 sm:mt-10 relative z-10">
-            <Link
-              href="/circles"
-              className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white px-6 py-2.5 text-sm font-semibold transition-colors"
-            >
-              <span>Explore Our World</span>
-              <ArrowRight className="size-4" />
-            </Link>
           </div>
 
         </div>
       </section>
 
       {/* =========================================================================
-          7. THE 1 MILLION MISSION
+          11. CLOSING SECTION
           ========================================================================= */}
-      <section id="one-million-mission" className="relative overflow-hidden bg-[#0A1128] py-14 sm:py-18 text-white border-b border-slate-800">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-2xl text-left mb-10 sm:mb-12">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#38BDF8]">
-                Mission 2030
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-white tracking-tight leading-[1.12] mb-3">
-              The 1 Million Mission
-            </h2>
-
-            <p className="font-semibold text-lg sm:text-xl text-[#38BDF8] mb-3 tracking-tight">
-              1M+ entrepreneurs impacted by 2030.
-            </p>
-
-            <p className="text-base text-slate-300 font-normal leading-relaxed max-w-xl">
-              We are building the world&apos;s most purposeful community of entrepreneurs — where collaboration creates confidence, visibility and growth for a better tomorrow.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative mb-8">
-            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex items-start gap-4">
-              <div className="size-11 rounded-[4px] bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30">
-                <User className="size-5.5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block">
-                  Phase 01
-                </span>
-                <h3 className="text-base font-semibold text-white leading-snug mt-1">
-                  If one entrepreneur feels less alone.
-                </h3>
-                <p className="text-xs text-slate-400 font-normal mt-1.5 leading-relaxed">
-                  A stronger mindset. A bigger tomorrow.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex items-start gap-4">
-              <div className="size-11 rounded-[4px] bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30">
-                <BarChart3 className="size-5.5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block">
-                  Phase 02
-                </span>
-                <h3 className="text-base font-semibold text-white leading-snug mt-1">
-                  If one business finds clarity.
-                </h3>
-                <p className="text-xs text-slate-400 font-normal mt-1.5 leading-relaxed">
-                  Better decisions. Faster growth.
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 shadow-sm flex items-start gap-4">
-              <div className="size-11 rounded-[4px] bg-blue-600/30 text-sky-300 flex items-center justify-center shrink-0 border border-blue-400/30">
-                <Users2 className="size-5.5" />
-              </div>
-              <div>
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block">
-                  Phase 03
-                </span>
-                <h3 className="text-base font-semibold text-white leading-snug mt-1">
-                  If one founder finds the right peer.
-                </h3>
-                <p className="text-xs text-slate-400 font-normal mt-1.5 leading-relaxed">
-                  New possibilities. Greater impact.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Founder Quote in Dark Box */}
-          <div className="max-w-4xl mx-auto rounded-lg border border-slate-700/80 bg-[#0F172A]/90 p-6 sm:p-7 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
-            <div className="flex items-center gap-5 sm:gap-6 flex-1">
-              <div className="size-18 rounded-full overflow-hidden shrink-0 border-2 border-sky-400/50 shadow-sm relative bg-blue-900">
-                <Image
-                  src="/images/dr-parmar-avatar.jpg"
-                  alt="Dr. Pravin Parmar"
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-
-              <div>
-                <p className="text-white text-base sm:text-lg leading-snug font-semibold">
-                  &ldquo;Success is not just what you earn. It is how many lives you impact.&rdquo;
-                </p>
-                <span className="text-xs font-semibold uppercase tracking-[0.1em] text-sky-300 mt-2 block">
-                  — DR. PRAVIN PARMAR, FOUNDER
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center mb-8">
-            <Link
-              href="/membership"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3 text-sm font-semibold transition-all shadow-md"
-            >
-              <span>Join the 1 Million Mission</span>
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-
-        </div>
-      </section>
+      <ClosingCtaSection
+        eyebrow="BEGIN WITH THE PEOPLE"
+        title="Entrepreneurs should not have to build alone."
+        subtitle="Peers are Partners in Business and Friends in Life."
+        description="Circles, not crowds. Trust, not transactions. Peers, not gurus. Download the Unity App and discover your Circle."
+        primaryButtonText="DOWNLOAD THE UNITY APP"
+        primaryButtonHref="https://unity.peersglobal.com"
+        secondaryButtonText="EXPLORE CIRCLES"
+        secondaryButtonHref="/circles"
+        secondaryButtonIcon={<ChevronRight className="size-4" />}
+      />
 
       {/* =========================================================================
-          8. CLOSING SECTION
-          ========================================================================= */}
-      <ClosingCtaSection />
-
-      {/* =========================================================================
-          9. INTERACTIVE VIDEO PLAYER MODAL
+          12. INTERACTIVE VIDEO PLAYER MODAL
           ========================================================================= */}
       {activeModalMedia && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-200">

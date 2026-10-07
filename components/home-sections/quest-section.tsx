@@ -1,31 +1,71 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
+interface LsrPillar {
+  letter: string
+  pillarNumber: string
+  title: string
+  description: string
+  tag: string
+  // Color configuration
+  activeBg: string
+  activeText: string
+  accentColor: string
+  iconBgInactive: string
+  iconBorderInactive: string
+  iconTextInactive: string
+}
+
+const PILLARS: LsrPillar[] = [
+  {
+    letter: 'L',
+    pillarNumber: 'Pillar One',
+    title: 'Learn',
+    description:
+      'Masterclasses, playbooks, mentorship, and practical knowledge from entrepreneurs who have already built what you are building.',
+    tag: 'Practitioner-Led Knowledge',
+    activeBg: 'bg-gradient-to-br from-[#F59E0B] via-[#EA580C] to-[#D97706]',
+    activeText: 'brand-gradient-text',
+    accentColor: 'bg-amber-500',
+    iconBgInactive: 'bg-gradient-to-br from-amber-500/20 via-orange-500/15 to-amber-500/10',
+    iconBorderInactive: 'border-amber-500/35',
+    iconTextInactive: 'text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600',
+  },
+  {
+    letter: 'S',
+    pillarNumber: 'Pillar Two',
+    title: 'Sales',
+    description:
+      'Referrals, introductions, customer connections and market access — real business from people who understand your business.',
+    tag: 'High-Trust Pipelines',
+    activeBg: 'bg-gradient-to-br from-[#1D4ED8] via-[#3B82F6] to-[#1E40AF]',
+    activeText: 'brand-gradient-text',
+    accentColor: 'bg-blue-500',
+    iconBgInactive: 'bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-blue-500/10',
+    iconBorderInactive: 'border-blue-500/35',
+    iconTextInactive: 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600',
+  },
+  {
+    letter: 'R',
+    pillarNumber: 'Pillar Three',
+    title: 'Resources',
+    description:
+      'Talent, capital, partners, suppliers, technology and expertise, available through the community whenever you need them.',
+    tag: 'Collective Infrastructure',
+    activeBg: 'bg-gradient-to-br from-[#E11D48] via-[#F43F5E] to-[#BE123C]',
+    activeText: 'brand-gradient-text',
+    accentColor: 'bg-rose-500',
+    iconBgInactive: 'bg-gradient-to-br from-rose-500/20 via-pink-500/15 to-rose-500/10',
+    iconBorderInactive: 'border-rose-500/35',
+    iconTextInactive: 'text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600',
+  },
+]
+
 export function QuestSection() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(false)
-
-  const togglePlay = () => {
-    if (!videoRef.current) return
-    if (videoRef.current.paused) {
-      videoRef.current.play()
-      setIsPlaying(true)
-    } else {
-      videoRef.current.pause()
-      setIsPlaying(false)
-    }
-  }
-
-  const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    if (!videoRef.current) return
-    videoRef.current.muted = !videoRef.current.muted
-    setIsMuted(videoRef.current.muted)
-  }
+  const [active, setActive] = useState(0)
 
   return (
     <section className="fd-what-is-mindvalley !py-20 md:!py-28 !px-6 md:!px-12" id="lsr-section">
@@ -134,62 +174,7 @@ export function QuestSection() {
           </div>
         </div>
       </div>
-
-      {/* Cinematic Showcase Video Player matching 'What Peers Global Is' */}
-      <div style={{ position: 'relative', width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-        <div
-          className="relative aspect-[16/9] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-black border border-slate-200/80 cursor-pointer group"
-          onClick={togglePlay}
-        >
-          <video
-            ref={videoRef}
-            src="/videos/leadership-hero-bg.mp4"
-            poster="/images/lsr-city-sunrise.jpg"
-            className="w-full h-full object-cover block"
-            playsInline
-            onEnded={() => setIsPlaying(false)}
-          />
-
-          {/* Play/Pause Button Overlay on Hover */}
-          <div
-            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-              isPlaying ? 'opacity-0 group-hover:opacity-100 bg-black/20' : 'opacity-100 bg-black/35'
-            }`}
-          >
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 text-[#0f131a] flex items-center justify-center shadow-2xl backdrop-blur-md transform transition-transform group-hover:scale-105">
-              {isPlaying ? (
-                <svg className="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24">
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                </svg>
-              ) : (
-                <svg className="w-7 h-7 md:w-9 md:h-9 fill-current ml-1" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              )}
-            </div>
-          </div>
-
-          {/* Sound / Mute Toggle Button */}
-          {isPlaying && (
-            <button
-              type="button"
-              onClick={toggleMute}
-              className="absolute bottom-5 right-5 w-11 h-11 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md hover:bg-black/80 transition-colors z-10"
-              aria-label={isMuted ? 'Unmute' : 'Mute'}
-            >
-              {isMuted ? (
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                </svg>
-              )}
-            </button>
-          )}
-        </div>
-      </div>
     </section>
   )
 }
+

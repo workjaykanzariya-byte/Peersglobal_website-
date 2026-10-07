@@ -137,227 +137,122 @@ export default function TheTerritoryPage() {
       {/* =========================================================================
           1. HERO SECTION (Local to Global with Phone & Progression Pipeline)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F7FAFE] via-white to-white pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 border-b border-slate-100">
-        
-        {/* Soft Ambient Radial Background Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 size-[750px] rounded-full bg-gradient-to-tr from-blue-200/30 via-sky-100/20 to-transparent blur-3xl pointer-events-none -z-10" />
-
-        {/* Dotted World Map Background Vector Overlay on Right Side */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-3/5 h-full pointer-events-none opacity-40 select-none -z-10 overflow-hidden">
-          <svg className="w-full h-full object-cover" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="dotPatternHero" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.5" fill="#3B82F6" fillOpacity="0.25" />
-              </pattern>
-            </defs>
-            <rect width="1000" height="600" fill="url(#dotPatternHero)" />
-            {/* Map pin markers with glowing pulse */}
-            <circle cx="480" cy="240" r="10" fill="#0062D2" fillOpacity="0.15" />
-            <circle cx="480" cy="240" r="4" fill="#0062D2" />
-            <circle cx="720" cy="180" r="10" fill="#0062D2" fillOpacity="0.15" />
-            <circle cx="720" cy="180" r="4" fill="#0062D2" />
-            <circle cx="940" cy="280" r="10" fill="#0062D2" fillOpacity="0.15" />
-            <circle cx="940" cy="280" r="4" fill="#0062D2" />
-            <path d="M480 240 Q 600 150 720 180 T 940 280" stroke="#0062D2" strokeWidth="1.5" strokeDasharray="4 4" strokeOpacity="0.3" fill="none" />
-          </svg>
+      {/* =========================================================================
+          SECTION 1: HERO (Master Full Page Dark Video Banner)
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white pt-6 sm:pt-8 pb-14 sm:pb-20 border-b border-slate-800">
+        {/* Full Bleed Hero Video Background */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
         </div>
 
-        {/* Top-Right Decorative Cursive Script Accent */}
-        <div className="hidden lg:block absolute top-8 right-8 xl:right-16 pointer-events-none select-none text-right z-10">
-          <div className="inline-block transform -rotate-6">
-            <div
-              className="text-[28px] xl:text-[34px] text-[#0062D2]/75 font-serif italic tracking-wide leading-[1.12]"
-              style={{ fontFamily: 'Caveat, "Playfair Display", Georgia, cursive, serif' }}
-            >
-              <div>People</div>
-              <div>Ideas</div>
-              <div>Opportunities</div>
-              <div>Together</div>
-            </div>
-            <svg className="w-40 h-7 ml-auto -mt-1 text-[#0062D2]/60 overflow-visible" viewBox="0 0 140 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M125 5C85 22 35 22 8 16C2 15 1 20 7 21C42 27 100 22 135 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
-            </svg>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Top Breadcrumb */}
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-slate-400">Our World</span>
+            <ChevronRight className="size-3.5 text-slate-500" />
+            <span className="text-white font-semibold">The Territory</span>
           </div>
-        </div>
 
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
-            
-            {/* Left Column: Headline, Pipeline, Buttons, Stats, Quote */}
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              {/* Eyebrow Pill */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200/80 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2] mb-6 shadow-xs self-start">
-                <span className="size-2 rounded-full bg-[#0062D2]" />
-                PILLAR: THE TERRITORY
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
+            {/* Left Content */}
+            <div className="lg:col-span-8 max-w-3xl space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span>PILLAR: THE TERRITORY · LOCAL TO GLOBAL</span>
               </div>
 
-              {/* H1 */}
-              <h1 className="font-serif text-4xl sm:text-6xl lg:text-[66px] font-bold tracking-tight text-[#0B1A38] leading-[1.08] mb-4">
-                Local to{' '}
-                <span className="relative inline-block text-[#0062D2]">
-                  Global
-                  <svg
-                    className="absolute -bottom-2 sm:-bottom-3 left-0 w-full overflow-visible"
-                    height="12"
-                    viewBox="0 0 160 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 8.5C45 2.5 115 2.5 157 8.5"
-                      stroke="#0062D2"
-                      strokeWidth="3.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-              </h1>
+              {/* Main Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
+                  Local to{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                    Global.
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                  Every Peer has a room. Every room connects to the world. A structured hierarchy from Circles, Cities, Districts, States, and Countries to Global.
+                </p>
+              </div>
 
-              {/* Subline */}
-              <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal mb-8 max-w-xl leading-relaxed">
-                Every Peer has a room. Every room connects to the world.
-              </p>
+              {/* CTAs */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/unity"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                >
+                  <Smartphone className="size-4" />
+                  <span>Download Unity App</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
 
-              {/* Clean Horizontal Pipeline Ribbon (Matching Mockup) */}
-              <div className="mb-8 flex items-center justify-between sm:justify-start gap-1.5 sm:gap-3.5 flex-wrap">
+                <Link
+                  href="/circles"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                >
+                  <span>Find Your Circle</span>
+                </Link>
+              </div>
+
+              {/* Stat Band */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-lg pt-6 border-t border-white/15">
                 {[
-                  { label: 'Circle', icon: Users, color: 'text-[#0062D2]', bg: 'bg-blue-50/80', border: 'border-blue-200' },
-                  { label: 'City', icon: Building2, color: 'text-purple-600', bg: 'bg-purple-50/80', border: 'border-purple-200' },
-                  { label: 'District', icon: MapPin, color: 'text-emerald-600', bg: 'bg-emerald-50/80', border: 'border-emerald-200' },
-                  { label: 'State', icon: Compass, color: 'text-amber-600', bg: 'bg-amber-50/80', border: 'border-amber-200' },
-                  { label: 'Country', icon: Award, color: 'text-rose-600', bg: 'bg-rose-50/80', border: 'border-rose-200' },
-                  { label: 'Global', icon: Globe, color: 'text-sky-600', bg: 'bg-sky-50/80', border: 'border-sky-200' },
-                ].map((item, idx, arr) => {
-                  const Icon = item.icon
+                  { icon: Users, value: '100K+', label: 'Entrepreneurs Together' },
+                  { icon: Building2, value: '500+', label: 'Cities in Progress' },
+                  { icon: Globe, value: '25+', label: 'Countries Connected' },
+                ].map((s) => {
+                  const Icon = s.icon
                   return (
-                    <div key={item.label} className="flex items-center gap-1.5 sm:gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className={`size-11 sm:size-13 rounded-2xl ${item.bg} ${item.color} border ${item.border} flex items-center justify-center shadow-xs transition-transform hover:scale-105 mb-1.5`}>
-                          <Icon className="size-5 sm:size-6" />
-                        </div>
-                        <span className="text-[11px] sm:text-xs font-semibold text-slate-700">
-                          {item.label}
-                        </span>
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
+                        <Icon className="size-4" />
                       </div>
-                      {idx < arr.length - 1 && (
-                        <ArrowRight className="size-3.5 sm:size-4 text-slate-300 font-bold -mt-4" />
-                      )}
+                      <div>
+                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
+                      </div>
                     </div>
                   )
                 })}
               </div>
-
-              {/* Action Buttons with Arrows */}
-              <div className="flex flex-wrap items-center gap-3 mb-9">
-                <Link
-                  href="/unity"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-5 sm:px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
-                >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <Link
-                  href="/circles"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-5 sm:px-6 py-3 text-sm font-semibold text-[#0062D2] shadow-xs transition-all hover:border-slate-300"
-                >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <Link
-                  href="/membership"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-5 sm:px-6 py-3 text-sm font-semibold text-[#0062D2] shadow-xs transition-all hover:border-slate-300"
-                >
-                  <span>Start a Circle</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-
-              {/* 3 Metrics Strip (Matching Mockup) */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-100 max-w-lg mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
-                    <Users2 className="size-5" />
-                  </div>
-                  <div>
-                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">100K+</div>
-                    <div className="text-[11px] text-slate-500 font-medium leading-tight">Entrepreneurs Together</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                    <Building2 className="size-5" />
-                  </div>
-                  <div>
-                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">500+</div>
-                    <div className="text-[11px] text-slate-500 font-medium leading-tight">Cities in Progress</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
-                    <Globe className="size-5" />
-                  </div>
-                  <div>
-                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">Global</div>
-                    <div className="text-[11px] text-slate-500 font-medium leading-tight">Expanding Worldwide</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quote Block from Mockup */}
-              <div className="border-l-2 border-[#0062D2] pl-4 py-1 max-w-md">
-                <p className="font-serif italic text-base sm:text-lg text-slate-800 leading-snug">
-                  “Local connections create global opportunities.”
-                </p>
-                <div className="text-[11px] font-bold tracking-wider text-slate-400 uppercase mt-1">
-                  — Peers Global
-                </div>
-              </div>
-
-              {/* Designed in Bharat signature flourish */}
-              <div className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-0.5 bg-[#0062D2]" />
-                <div className="font-serif italic text-xs text-[#0062D2]/80">
-                  Designed in Bharat. Built for the world.
-                </div>
-              </div>
-
             </div>
 
-            {/* Right Column: Dual Phone App Showcase (From user mockup) */}
-            <div className="lg:col-span-6 relative flex items-center justify-center">
-              {/* Soft Aura Glow */}
-              <div className="absolute size-[420px] sm:size-[520px] rounded-full bg-gradient-to-tr from-[#3B82F6]/20 via-[#60A5FA]/15 to-transparent blur-3xl pointer-events-none -z-10" />
-
-              <div className="relative w-full max-w-[540px] xl:max-w-[620px] drop-shadow-[0_25px_50px_rgba(0,98,210,0.18)] transition-transform duration-500 hover:scale-[1.01]">
-                <Image
-                  src="/images/territory/hero-phones.png"
-                  alt="Peers Global Unity Mobile App - Community Feed & Peer Profile"
-                  width={1100}
-                  height={733}
-                  priority
-                  className="w-full h-auto object-contain"
-                />
-
-                {/* Floating Bottom Badge */}
-                <div className="absolute -bottom-2 right-2 sm:right-6 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-100 p-3 shadow-xl flex items-center gap-3 z-10">
-                  <div className="size-8 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs">
-                    🌐
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-slate-900 leading-snug">
-                      A Stronger Tomorrow
-                    </div>
-                    <div className="text-[10px] font-semibold text-[#0062D2]">
-                      Together across 6 layers
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Right Cursive Script Highlights */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+              <p
+                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Local Rooms
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                Global Reach
+              </p>
+              <p
+                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                style={{ fontFamily: 'var(--font-script)' }}
+              >
+                One Community
+              </p>
             </div>
-
           </div>
         </div>
       </section>
@@ -481,8 +376,8 @@ export default function TheTerritoryPage() {
             <div className="lg:col-span-6 flex flex-col justify-center">
               {/* Eyebrow with Dash */}
               <div className="flex items-center gap-2.5 mb-3">
-                <span className="h-[2px] w-8 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Why Structure Matters
                 </span>
               </div>
@@ -493,7 +388,7 @@ export default function TheTerritoryPage() {
               </h2>
               
               {/* Short Blue Accent Underline */}
-              <div className="w-12 h-1 bg-[#0062D2] rounded-full mb-6" />
+              <div className="w-12 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full mb-6" />
 
               <div className="space-y-4 text-slate-600 font-normal text-sm sm:text-base leading-relaxed mb-8">
                 <p>
@@ -555,10 +450,10 @@ export default function TheTerritoryPage() {
               <div className="flex items-center justify-between pt-2">
                 <Link
                   href="/why-peers-global"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-[#0062D2] hover:text-[#0052B4] transition-colors group"
+                  className="inline-flex items-center gap-2 text-sm font-bold transition-colors group"
                 >
-                  <span>Learn More About Our Structure</span>
-                  <div className="size-7 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  <span className="brand-gradient-text">Learn More About Our Structure</span>
+                  <div className="size-7 rounded-full bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 text-[#1D4ED8] flex items-center justify-center group-hover:translate-x-1 transition-transform">
                     <ArrowRight className="size-3.5" />
                   </div>
                 </Link>
@@ -587,7 +482,10 @@ export default function TheTerritoryPage() {
       {/* =========================================================================
           3. 01 THE CIRCLE (Your Home in the Community) - Midnight Premium Theme
           ========================================================================= */}
-      <section className="py-20 sm:py-28 bg-[#061224] text-white border-b border-white/10 relative overflow-hidden">
+      <section
+        className="py-20 sm:py-28 text-white border-b border-white/10 relative overflow-hidden"
+        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+      >
         {/* Deep ambient glow effects */}
         <div className="absolute top-1/4 left-1/4 size-[650px] rounded-full bg-gradient-to-tr from-[#0062D2]/25 via-sky-500/10 to-transparent blur-3xl pointer-events-none -z-10" />
         <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-gradient-to-tr from-blue-600/15 via-transparent to-transparent blur-3xl pointer-events-none -z-10" />
@@ -609,7 +507,7 @@ export default function TheTerritoryPage() {
               {/* H2 Title with Neon Blue Gradient Accent */}
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white leading-[1.12] mb-5">
                 Your home in the{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2987F8] via-[#4CA5FD] to-[#38BDF8]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#1D4ED8] to-[#E11D48]">
                   community
                 </span>
               </h2>
@@ -622,7 +520,7 @@ export default function TheTerritoryPage() {
               <div className="flex flex-wrap items-center gap-3.5 mb-8">
                 <Link
                   href="/circles"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
                 >
                   <span>Explore All Circles</span>
                   <ArrowRight className="size-4" />
@@ -979,7 +877,7 @@ export default function TheTerritoryPage() {
             {/* Headline with Blue Gradient Accent on 'network.' */}
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-[56px] font-bold text-[#0B1A38] tracking-tight leading-[1.1] mb-5">
               Where your Circle becomes a{' '}
-              <span className="text-[#0062D2]">
+              <span className="brand-gradient-text">
                 network.
               </span>
             </h2>
@@ -1262,7 +1160,10 @@ export default function TheTerritoryPage() {
       {/* =========================================================================
           6. 06 GLOBAL (Local roots. Global reach.) - Deep Cosmic Theme
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#020B1C] text-white py-20 sm:py-28 border-b border-white/10">
+      <section
+        className="relative overflow-hidden text-white py-20 sm:py-28 border-b border-white/10"
+        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+      >
         
         {/* Deep ambient galaxy radial light */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[900px] rounded-full bg-gradient-to-tr from-[#0062D2]/20 via-[#0B7DFE]/10 to-transparent blur-3xl pointer-events-none -z-10" />
@@ -1330,7 +1231,7 @@ export default function TheTerritoryPage() {
             {/* Headline with Blue Gradient Accent on 'Global' */}
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-[58px] font-bold text-white tracking-tight leading-[1.08] mb-5">
               Local roots.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2987F8] via-[#4CA5FD] to-[#38BDF8]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#1D4ED8] to-[#E11D48]">
                 Global
               </span>{' '}
               reach.
@@ -1446,7 +1347,7 @@ export default function TheTerritoryPage() {
             <div className="flex items-center gap-4 flex-wrap mb-10">
               <Link
                 href="/circles"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0062D2] to-[#0B7DFE] hover:from-[#0054B8] hover:to-[#006CDD] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
               >
                 <span>Explore Global Community</span>
                 <ArrowRight className="size-4" />
@@ -1502,8 +1403,8 @@ export default function TheTerritoryPage() {
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2.5 mb-3.5">
-                    <span className="h-[2px] w-7 bg-[#0062D2]" />
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    <span className="h-[2px] w-7 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                       Growing the Territory
                     </span>
                   </div>
@@ -1511,9 +1412,9 @@ export default function TheTerritoryPage() {
                   <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1A38] tracking-tight leading-[1.12] mb-5">
                     Be the reason<br />
                     your city is{' '}
-                    <span className="relative inline-block text-[#0062D2] italic font-normal">
+                    <span className="relative inline-block brand-gradient-text italic font-normal">
                       next.
-                      <svg className="absolute -bottom-1.5 left-0 w-full h-3 text-[#0062D2] overflow-visible" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="absolute -bottom-1.5 left-0 w-full h-3 text-[#1D4ED8] overflow-visible" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 8C30 3 70 3 98 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                       </svg>
                     </span>
@@ -1531,7 +1432,7 @@ export default function TheTerritoryPage() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href="/membership"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
                   >
                     <span>Start a Circle</span>
                     <ArrowRight className="size-4" />
