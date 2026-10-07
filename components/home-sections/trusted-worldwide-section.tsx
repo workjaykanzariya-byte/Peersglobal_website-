@@ -39,26 +39,28 @@ export function TrustedWorldwideSection() {
   return (
     <section className="fd-what-is-mindvalley !bg-white !py-20 md:!py-24 !px-6 md:!px-12" id="who-we-are">
       <div className="fd-what-is-mindvalley__inner !mb-12">
-        <div className="fd-what-is-mindvalley__intro !gap-8">
+        <div className="fd-what-is-mindvalley__intro !gap-8 flex flex-col items-center text-center">
           {/* Eyebrow & Titles matching standard Mindvalley typography */}
-          <div className="fd-what-is-mindvalley__titles !gap-6">
+          <div className="fd-what-is-mindvalley__titles !gap-6 flex flex-col items-center">
             <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text">
               THE TRUTH EVERY ENTREPRENEUR KNOWS
             </p>
 
-            <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5">
-              <h2 className="fd-what-is-mindvalley__headline">
+            <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5 flex flex-col items-center text-center">
+              <h2 className="fd-what-is-mindvalley__headline text-center">
                 <span>Building a business can be exciting.</span>{' '}
                 <span>Building one alone can be exhausting.</span>
               </h2>
+            </div>
+          </div>
 
           {/* Subheading / Copy */}
-          <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal">
+          <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal text-center mx-auto">
             Peers Global brings together founders and business leaders from across industries, cities, and countries into one connected, high-trust ecosystem.
           </p>
 
           {/* 3 Core Highlight Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl pt-4 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl pt-4 text-left mx-auto">
             
             {/* Card 1: The Inner Board */}
             <div className="animated-glow-card group" tabIndex={0} role="article">

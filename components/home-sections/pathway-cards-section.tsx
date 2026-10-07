@@ -325,7 +325,7 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--entrepreneur" id="trusted-circles" style={{ '--card-index': 1 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/circle-meeting.png" alt="The 10 Forms of Collaboration" width="461" height="259" loading="lazy" decoding="async" />
+            <img className="fd-pathway-cards__hero" src="/images/section_image/circle-meeting.png" alt="The 10 Forms of Collaboration" width="461" height="259" loading="lazy" decoding="async" />
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">

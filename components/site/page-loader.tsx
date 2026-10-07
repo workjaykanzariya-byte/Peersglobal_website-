@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { usePathname } from 'next/navigation'
-import type { AnimationItem } from 'lottie-web'
 
 export function PageLoader() {
   const pathname = usePathname()
@@ -14,7 +13,7 @@ export function PageLoader() {
   const [isFading, setIsFading] = useState(false)
 
   const containerRef = useRef<HTMLDivElement | null>(null)
-  const animRef = useRef<AnimationItem | null>(null)
+  const animRef = useRef<any>(null)
   const roundsCompletedRef = useRef<number>(0)
   const isPageLoadedRef = useRef<boolean>(false)
   const isClosingRef = useRef<boolean>(false)
@@ -72,11 +71,37 @@ export function PageLoader() {
 
     let isCancelled = false
 
-    import('lottie-web')
-      .then((lottieModule) => {
-        if (isCancelled || !containerRef.current) return
+    const loadLottie = async () => {
+      // 1. Try local node module if available
+      try {
+        const mod = await import('lottie-web')
+        return mod.default || mod
+      } catch {
+        // 2. Fallback to global window.lottie or inject CDN script
+        if (typeof window !== 'undefined' && (window as any).lottie) {
+          return (window as any).lottie
+        }
 
-        const lottie = lottieModule.default || lottieModule
+        return new Promise<any>((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js'
+          script.async = true
+          script.onload = () => {
+            if ((window as any).lottie) {
+              resolve((window as any).lottie)
+            } else {
+              reject(new Error('Lottie not found on window'))
+            }
+          }
+          script.onerror = reject
+          document.head.appendChild(script)
+        })
+      }
+    }
+
+    loadLottie()
+      .then((lottie) => {
+        if (isCancelled || !containerRef.current) return
 
         // Clean up previous instance if any
         if (animRef.current) {
@@ -112,7 +137,7 @@ export function PageLoader() {
         })
       })
       .catch((err) => {
-        console.error('Failed to load splash animation:', err)
+        console.warn('Lottie splash loader fallback triggered:', err)
         triggerExit()
       })
 
