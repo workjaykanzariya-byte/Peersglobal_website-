@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 export function CaseStudiesSection() {
   return (
@@ -31,12 +32,13 @@ export function CaseStudiesSection() {
             .
           </p>
           <div className="fd-case-studies__cta" data-fd-rise="160">
-            <a
-              className="fd-case-studies__btn fd-case-studies__btn--neutral"
-              href="https://stories.mindvalley.com/"
+            <GalaxyButton
+              href="/stories"
+              variant="transparent"
+              size="lg"
             >
               Read Our Stories
-            </a>
+            </GalaxyButton>
           </div>
         </div>
       </div>

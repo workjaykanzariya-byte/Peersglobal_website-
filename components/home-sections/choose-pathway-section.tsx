@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface JourneyStep {
   step: string
@@ -214,24 +215,21 @@ export function ChoosePathwaySection() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <Link
+          <GalaxyButton
             href="/circles/find"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm md:text-base font-semibold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
-            style={{
-              backgroundImage: 'linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%)',
-              boxShadow: '0 4px 16px rgba(29, 78, 216, 0.4), 0 2px 8px rgba(225, 29, 72, 0.3)',
-            }}
+            size="lg"
             aria-label="Find Your Circle"
           >
-            <span>FIND YOUR CIRCLE →</span>
-          </Link>
-          <Link
+            FIND YOUR CIRCLE
+          </GalaxyButton>
+          <GalaxyButton
             href="/why-peers-global"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm md:text-base font-semibold text-white/90 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all shadow-sm cursor-pointer"
+            variant="transparent"
+            size="lg"
             aria-label="Explore Peers Global"
           >
-            <span>EXPLORE PEERS GLOBAL →</span>
-          </Link>
+            EXPLORE PEERS GLOBAL
+          </GalaxyButton>
           <Link
             href="/unity"
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm md:text-base font-semibold text-cyan-300 hover:text-cyan-200 bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/30 transition-all shadow-sm cursor-pointer"
@@ -259,17 +257,13 @@ export function ChoosePathwaySection() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link
+            <GalaxyButton
               href="/circles/find"
-              className="px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold text-white transition-all shadow-md hover:scale-105 shrink-0"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%)',
-                boxShadow: '0 4px 14px rgba(29, 78, 216, 0.35)',
-              }}
+              size="sm"
               aria-label="Find Your Circle"
             >
-              FIND YOUR CIRCLE →
-            </Link>
+              FIND YOUR CIRCLE
+            </GalaxyButton>
           </div>
         </div>
       </div>

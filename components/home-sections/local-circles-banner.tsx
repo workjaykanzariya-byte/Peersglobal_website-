@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 // All 41 extracted Brand Partner logos directly from the presentation
 const BRAND_PARTNERS_ROW_1 = [
@@ -170,13 +171,12 @@ export function LocalCirclesBanner() {
 
       {/* Bottom CTA Button */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12 flex items-center justify-center">
-        <Link
+        <GalaxyButton
           href="/partner"
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold transition-all shadow-sm hover:shadow-md hover:opacity-95 group text-xs uppercase tracking-wider"
+          size="default"
         >
-          <span>Partner With Peers Global</span>
-          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-        </Link>
+          Partner With Peers Global
+        </GalaxyButton>
       </div>
 
       {/* High Performance Infinite Keyframe CSS: Left-To-Right Scrolling */}

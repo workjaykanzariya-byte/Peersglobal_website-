@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -1245,20 +1246,14 @@ export function PartnerPageClient() {
                       <p className="text-[11px] text-slate-500 font-normal">
                         Direct sales pitches without community value will be declined.
                       </p>
-                      <button
+                      <GalaxyButton
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full sm:w-auto px-7 py-3 rounded-xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs uppercase tracking-wider shadow-md transition-all flex items-center justify-center gap-2 shrink-0 disabled:opacity-50 cursor-pointer active:scale-[0.99]"
+                        className="w-full sm:w-auto shrink-0"
+                        icon={<Send className="w-3.5 h-3.5" />}
                       >
-                        {isSubmitting ? (
-                          'Transmitting...'
-                        ) : (
-                          <>
-                            <span>Submit Proposal</span>
-                            <Send className="w-3.5 h-3.5" />
-                          </>
-                        )}
-                      </button>
+                        {isSubmitting ? 'Transmitting...' : 'Submit Proposal'}
+                      </GalaxyButton>
                     </div>
 
                   </form>

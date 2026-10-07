@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   Users,
@@ -194,13 +195,12 @@ export function TrustedWorldwideSection() {
 
           {/* CTA Button */}
           <div className="pt-2">
-            <Link
+            <GalaxyButton
               href="/about"
-              className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-9 py-4 text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all group"
+              size="lg"
             >
-              <span>Explore Peers Global</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              Explore Peers Global
+            </GalaxyButton>
           </div>
         </div>
       </div>

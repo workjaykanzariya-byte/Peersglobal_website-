@@ -13,6 +13,7 @@ import {
   Download,
 } from 'lucide-react'
 import { SITE, ACTIVE_CITIES } from '@/lib/data/site'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 export function SiteFooter() {
   const [emailInput, setEmailInput] = useState('')
@@ -163,44 +164,23 @@ export function SiteFooter() {
 
             {/* Dual CTAs: JOIN PEERS GLOBAL and DOWNLOAD UNITY APP */}
             <div className="flex flex-wrap items-center gap-3.5 pt-1.5">
-              <Link
+              <GalaxyButton
                 href="/membership"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-7 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all uppercase"
+                size="default"
                 aria-label="Join Peers Global"
               >
-                <span>JOIN PEERS GLOBAL</span>
-                <ArrowRight className="size-4" />
-              </Link>
+                JOIN PEERS GLOBAL
+              </GalaxyButton>
 
-              <Link
+              <GalaxyButton
                 href="/unity"
-                className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
+                variant="transparent-light"
+                size="default"
+                icon={<Download className="size-4 text-[#1D4ED8]" />}
                 aria-label="Download Unity App"
-                tabIndex={0}
               >
-                <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="btnGradientStrokeFooter" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#1D4ED8" />
-                      <stop offset="50%" stopColor="#6366F1" />
-                      <stop offset="100%" stopColor="#E11D48" />
-                    </linearGradient>
-                  </defs>
-                  <rect
-                    className="animated-btn-border-path"
-                    stroke="url('#btnGradientStrokeFooter')"
-                    x="1"
-                    y="1"
-                    width="98"
-                    height="46"
-                    rx="23"
-                  />
-                </svg>
-                <div className="px-6 py-3.5 rounded-full bg-transparent border border-slate-300 group-hover:border-transparent group-hover:bg-slate-900/[0.06] transition-all flex items-center gap-2 text-slate-900 text-sm font-semibold">
-                  <Download className="w-4 h-4 text-[#1D4ED8]" />
-                  <span>Download Unity App</span>
-                </div>
-              </Link>
+                Download Unity App
+              </GalaxyButton>
             </div>
 
           </div>
@@ -236,12 +216,13 @@ export function SiteFooter() {
                   placeholder="Enter your business email"
                   className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-[14.5px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-500/15 transition-all"
                 />
-                <button
+                <GalaxyButton
                   type="submit"
-                  className="whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white px-6 py-2.5 text-[14px] font-bold transition-all shrink-0 shadow-sm active:scale-[0.98] cursor-pointer"
+                  size="sm"
+                  className="shrink-0"
                 >
                   Subscribe
-                </button>
+                </GalaxyButton>
               </form>
             )}
 

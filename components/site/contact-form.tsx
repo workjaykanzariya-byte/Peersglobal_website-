@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import { ctaClass } from '@/components/site/ui'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 const INTENTS = [
   { id: 'membership', label: 'Membership Enquiry' },
@@ -169,14 +170,14 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
 
       <input type="hidden" name="intent" value={intent} />
 
-      <button
+      <GalaxyButton
         type="submit"
         disabled={loading}
-        className={ctaClass('primary', 'lg', 'self-start disabled:opacity-70')}
-        style={{ borderRadius: 'var(--btn-radius)' }}
+        size="lg"
+        className="self-start"
       >
         {loading ? 'Sending…' : 'Send message'}
-      </button>
+      </GalaxyButton>
     </form>
   )
 }
