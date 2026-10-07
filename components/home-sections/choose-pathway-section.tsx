@@ -82,13 +82,20 @@ export function ChoosePathwaySection() {
     <section
       ref={sectionRef}
       id="the-journey"
-      className="w-full bg-[#061320] text-white py-24 px-6 md:px-12 relative overflow-hidden font-sans"
-      style={{ fontFamily: "'Google Sans Flex', sans-serif" }}
+      className="w-full text-white py-24 px-6 md:px-12 relative overflow-hidden font-sans"
+      style={{
+        background: 'linear-gradient(90deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+        fontFamily: "'Google Sans Flex', sans-serif",
+      }}
       aria-label="The Journey"
     >
       {/* Background ambient lighting */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-blue-600/10 to-rose-600/10 blur-[120px] rounded-full pointer-events-none"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-r from-[#2e0854]/40 via-[#3b0764]/30 to-[#4c0519]/25 blur-[140px] rounded-full pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(67,16,102,0.25),transparent)] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -118,10 +125,13 @@ export function ChoosePathwaySection() {
               key={item.step}
               href={item.link}
               onMouseEnter={() => setActiveStep(index)}
-              className={`group flex items-center justify-between p-4 md:p-5 rounded-2xl border transition-all duration-300 text-decoration-none ${
+              style={{
+                background: 'linear-gradient(180deg, #f8f9fe 0%, #dde9fd 100%)',
+              }}
+              className={`group flex items-center justify-between p-4 md:p-5 rounded-2xl border transition-all duration-300 text-decoration-none shadow-md ${
                 isActive
-                  ? 'bg-white/[0.08] border-blue-500/60 shadow-lg shadow-blue-900/25 scale-[1.01]'
-                  : 'bg-white/[0.03] border-white/10 hover:border-white/20 hover:bg-white/[0.06]'
+                  ? 'border-blue-500 shadow-xl shadow-black/25 scale-[1.015] ring-2 ring-blue-500/30'
+                  : 'border-white/80 hover:border-white hover:shadow-lg'
               }`}
             >
               <div className="flex items-center gap-4 md:gap-6 min-w-0">
@@ -129,15 +139,15 @@ export function ChoosePathwaySection() {
                 <div
                   className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center font-bold text-sm md:text-base shrink-0 transition-all ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/40'
-                      : 'bg-white/10 text-white/80 group-hover:bg-white/15'
+                      ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md shadow-blue-600/30'
+                      : 'bg-slate-100 text-slate-700 group-hover:bg-slate-200'
                   }`}
                 >
                   {item.step}
                 </div>
 
                 {/* Thumbnail */}
-                <div className="w-16 h-12 md:w-24 md:h-16 rounded-xl overflow-hidden shrink-0 relative border border-white/10">
+                <div className="w-16 h-12 md:w-24 md:h-16 rounded-xl overflow-hidden shrink-0 relative border border-slate-200">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -145,20 +155,19 @@ export function ChoosePathwaySection() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-black/20" />
                 </div>
 
                 {/* Content */}
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs uppercase font-medium tracking-wider text-[#38BDF8]">
+                    <span className="text-xs uppercase font-bold tracking-wider text-blue-600">
                       Step {index + 1}
                     </span>
                   </div>
-                  <h3 className="text-base md:text-xl font-semibold text-white tracking-tight">
+                  <h3 className="text-base md:text-xl font-bold text-slate-900 tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-[#9CA3AF] mt-0.5 group-hover:text-white/80 transition-colors">
+                  <p className="text-xs md:text-sm text-slate-600 mt-0.5 group-hover:text-slate-900 transition-colors">
                     {item.description}
                   </p>
                 </div>
@@ -170,7 +179,7 @@ export function ChoosePathwaySection() {
                   className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
                     isActive
                       ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-transparent text-white shadow-md'
-                      : 'border-white/20 text-white/50 group-hover:border-white/40 group-hover:text-white'
+                      : 'border-slate-200 bg-slate-50 text-slate-500 group-hover:bg-slate-100 group-hover:text-slate-800'
                   }`}
                 >
                   <svg
@@ -219,7 +228,7 @@ export function ChoosePathwaySection() {
 
       {/* Dynamic Sticky Bottom Bar - Appears smoothly when section is active */}
       <div
-        className={`fixed bottom-0 inset-x-0 z-50 bg-[#081827]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${
+        className={`fixed bottom-0 inset-x-0 z-50 bg-[#13071f]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
         }`}
       >

@@ -65,11 +65,32 @@ export function MeditationsSection() {
             Explore Leadership
           </Link>
           <Link
-            className="fd-med-menu__btn fd-med-menu__btn--secondary"
+            className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
             href="/start-a-circle"
             aria-label="Start a Circle"
+            tabIndex={0}
           >
-            Start a Circle
+            <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="btnGradientStrokeMed" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#1D4ED8" />
+                  <stop offset="50%" stopColor="#6366F1" />
+                  <stop offset="100%" stopColor="#E11D48" />
+                </linearGradient>
+              </defs>
+              <rect
+                className="animated-btn-border-path"
+                stroke="url('#btnGradientStrokeMed')"
+                x="1"
+                y="1"
+                width="98"
+                height="46"
+                rx="23"
+              />
+            </svg>
+            <div className="px-6 py-3.5 rounded-full bg-transparent border border-[#1D4ED8]/30 group-hover:border-transparent group-hover:bg-[#1D4ED8]/15 transition-all flex items-center gap-2 text-[#1D4ED8] text-sm font-semibold">
+              <span>Start a Circle</span>
+            </div>
           </Link>
         </div>
       </div>

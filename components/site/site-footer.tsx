@@ -165,11 +165,32 @@ export function SiteFooter() {
 
               <Link
                 href="/unity"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 px-6 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-sm hover:shadow transition-all uppercase"
+                className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
                 aria-label="Download Unity App"
+                tabIndex={0}
               >
-                <Download className="size-4 text-[#1D4ED8]" />
-                <span>DOWNLOAD UNITY APP</span>
+                <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="btnGradientStrokeFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <rect
+                    className="animated-btn-border-path"
+                    stroke="url('#btnGradientStrokeFooter')"
+                    x="1"
+                    y="1"
+                    width="98"
+                    height="46"
+                    rx="23"
+                  />
+                </svg>
+                <div className="px-6 py-3.5 rounded-full bg-transparent border border-slate-300 group-hover:border-transparent group-hover:bg-slate-900/[0.06] transition-all flex items-center gap-2 text-slate-900 text-sm font-semibold">
+                  <Download className="w-4 h-4 text-[#1D4ED8]" />
+                  <span>Download Unity App</span>
+                </div>
               </Link>
             </div>
 

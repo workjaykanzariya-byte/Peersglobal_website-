@@ -232,18 +232,60 @@ export function ClosingCtaSection({
                     href={secondaryButtonHref}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/20 hover:border-white active:scale-[0.98] uppercase"
+                    className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
+                    tabIndex={0}
                   >
-                    {secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
-                    <span>{secondaryButtonText}</span>
+                    <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="btnGradientStrokeCtaExt" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#6366F1" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <rect
+                        className="animated-btn-border-path"
+                        stroke="url('#btnGradientStrokeCtaExt')"
+                        x="1"
+                        y="1"
+                        width="98"
+                        height="46"
+                        rx="23"
+                      />
+                    </svg>
+                    <div className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-transparent px-7 py-3 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs group-hover:border-transparent group-hover:bg-white/10 transition-all uppercase">
+                      {secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
+                      <span>{secondaryButtonText}</span>
+                    </div>
                   </a>
                 ) : (
                   <Link
                     href={secondaryButtonHref}
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/20 hover:border-white active:scale-[0.98] uppercase"
+                    className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
+                    tabIndex={0}
                   >
-                    {secondaryButtonIcon}
-                    <span>{secondaryButtonText}</span>
+                    <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="btnGradientStrokeCta" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#6366F1" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <rect
+                        className="animated-btn-border-path"
+                        stroke="url('#btnGradientStrokeCta')"
+                        x="1"
+                        y="1"
+                        width="98"
+                        height="46"
+                        rx="23"
+                      />
+                    </svg>
+                    <div className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-transparent px-7 py-3 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs group-hover:border-transparent group-hover:bg-white/10 transition-all uppercase">
+                      {secondaryButtonIcon}
+                      <span>{secondaryButtonText}</span>
+                    </div>
                   </Link>
                 )
               )}

@@ -315,7 +315,34 @@ export function PathwayCardsSection() {
               </div>
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a className="fd-pathway-cards__btn" href="/circles/find" aria-label="Find Your Circle">Find Your Circle</a>
-                <a className="fd-pathway-cards__btn fd-pathway-cards__btn--secondary" href="/start-a-circle" aria-label="Start a Circle">Start a Circle</a>
+                <a
+                  className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
+                  href="/start-a-circle"
+                  aria-label="Start a Circle"
+                  tabIndex={0}
+                >
+                  <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="btnGradientStrokePathway" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <rect
+                      className="animated-btn-border-path"
+                      stroke="url('#btnGradientStrokePathway')"
+                      x="1"
+                      y="1"
+                      width="98"
+                      height="46"
+                      rx="23"
+                    />
+                  </svg>
+                  <div className="px-6 py-3.5 rounded-full bg-transparent border border-white/25 group-hover:border-transparent group-hover:bg-white/15 transition-all flex items-center gap-2 text-white text-sm font-semibold">
+                    <span>Start a Circle</span>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
