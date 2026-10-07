@@ -5,6 +5,7 @@ import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import { DesignProvider, DesignScript } from '@/components/design/design-provider'
 import { DesignSwitcher } from '@/components/design/design-switcher'
 import { SiteShell } from '@/components/site/site-shell'
+import { PageLoader } from '@/components/site/page-loader'
 import './globals.css'
 
 const libreFranklin = localFont({
@@ -76,8 +77,10 @@ export default function RootLayout({
     >
       <head>
         <DesignScript />
+        <link rel="preload" href="/animations/splash.json" as="fetch" crossOrigin="anonymous" />
       </head>
       <body className="antialiased">
+        <PageLoader />
         <DesignProvider>
           <a
             href="#main"
