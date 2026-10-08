@@ -102,7 +102,6 @@ function PillarCard({ pillar }: { pillar: UniversePillar }) {
         decoding="async"
       />
       <span className="fd-meet-your-mentors__scrim"></span>
-      <span className="fd-meet-your-mentors__badge">{pillar.badge}</span>
       <h3 className="fd-meet-your-mentors__title">{pillar.title}</h3>
       <p className="fd-meet-your-mentors__role">{pillar.role}</p>
     </article>

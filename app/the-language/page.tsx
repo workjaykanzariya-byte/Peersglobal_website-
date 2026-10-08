@@ -245,6 +245,17 @@ export default function TheLanguagePage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* SVG Definitions for Icons */}
+          <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="heroLangStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#38BDF8" />
+                <stop offset="50%" stopColor="#818CF8" />
+                <stop offset="100%" stopColor="#FB7185" />
+              </linearGradient>
+            </defs>
+          </svg>
+
           {/* Top Breadcrumb */}
           <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
@@ -308,8 +319,8 @@ export default function TheLanguagePage() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-rose-500/20 border border-blue-400/30 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 stroke-[url(#heroLangStatGrad)]" />
                       </div>
                       <div>
                         <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
@@ -336,7 +347,7 @@ export default function TheLanguagePage() {
                 Create
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl font-bold leading-tight brand-gradient-text"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Enduring Impact
@@ -424,10 +435,21 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center">
-                      <Users className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad01" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#langGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <circle cx="9" cy="7" r="4" stroke="url(#langGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="url(#langGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="url(#langGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       01 — PEER
                     </span>
@@ -436,8 +458,8 @@ export default function TheLanguagePage() {
                     A Peer is not simply someone who belongs.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-100 self-start">
-                  Relationship Over Status
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">Relationship Over Status</span>
                 </div>
               </div>
 
@@ -486,10 +508,19 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center">
-                      <Compass className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad02" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <circle cx="12" cy="12" r="10" stroke="url(#langGrad02)" strokeWidth="2" />
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" stroke="url(#langGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       02 — CIRCLE
                     </span>
@@ -498,8 +529,8 @@ export default function TheLanguagePage() {
                     Your Circle. Your Inner Board.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-teal-50 text-teal-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-teal-100 self-start">
-                  The Inner Board
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">The Inner Board</span>
                 </div>
               </div>
 
@@ -509,20 +540,20 @@ export default function TheLanguagePage() {
                 </p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 py-2 text-xs sm:text-sm font-medium text-slate-800">
                   <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-teal-500" />
+                    <span className="size-2 rounded-full bg-[#1D4ED8]" />
                     <span>Experience you can draw upon</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-teal-500" />
+                    <span className="size-2 rounded-full bg-[#1D4ED8]" />
                     <span>Peers you can ask and help</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-teal-500" />
+                    <span className="size-2 rounded-full bg-[#1D4ED8]" />
                     <span>Fresh perspectives on your business</span>
                   </div>
                 </div>
-                <div className="p-5 rounded-2xl bg-teal-50/80 border border-teal-200/80 shadow-2xs">
-                  <p className="text-base sm:text-lg font-bold text-teal-900 text-center">
+                <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 shadow-2xs">
+                  <p className="text-base sm:text-lg font-bold brand-gradient-text text-center">
                     &ldquo;Circles create the environment. Relationships create the value.&rdquo;
                   </p>
                 </div>
@@ -533,10 +564,18 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
-                      <Zap className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad03" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="url(#langGrad03)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       03 — POWERHOUSE
                     </span>
@@ -545,8 +584,8 @@ export default function TheLanguagePage() {
                     Contribution needs people who are willing to step forward.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-indigo-100 self-start">
-                  Contribution in Action
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">Contribution in Action</span>
                 </div>
               </div>
 
@@ -567,10 +606,21 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-rose-50 text-[#E11D48] flex items-center justify-center">
-                      <HeartHandshake className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad04" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke="url(#langGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" stroke="url(#langGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="m18 15-2-2" stroke="url(#langGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="m15 18-2-2" stroke="url(#langGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       04 — GIVE-FIRST
                     </span>
@@ -579,8 +629,8 @@ export default function TheLanguagePage() {
                     Before asking what the community can do for you, ask what you can do for someone in it.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-rose-50 text-[#E11D48] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-rose-100 self-start">
-                  Mindset of Abundance
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">Mindset of Abundance</span>
                 </div>
               </div>
 
@@ -600,10 +650,18 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                      <Sparkles className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad05" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" stroke="url(#langGrad05)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       05 — LIFE IMPACTOR
                     </span>
@@ -612,8 +670,8 @@ export default function TheLanguagePage() {
                     Success becomes more meaningful when it changes something for someone else.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-100 self-start">
-                  1 Action = 1 Life Impacted
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">1 Action = 1 Life Impacted</span>
                 </div>
               </div>
 
@@ -632,10 +690,20 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center">
-                      <BookOpen className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad06" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" stroke="url(#langGrad06)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M6 6h10" stroke="url(#langGrad06)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M6 10h10" stroke="url(#langGrad06)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       06 — LSR
                     </span>
@@ -644,8 +712,8 @@ export default function TheLanguagePage() {
                     Learning. Sharing. Relationships.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-100 self-start">
-                  The Core Model
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">The Core Model</span>
                 </div>
               </div>
 
@@ -675,10 +743,19 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
-                      <Smartphone className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad07" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2" stroke="url(#langGrad07)" strokeWidth="2" />
+                        <path d="M12 18h.01" stroke="url(#langGrad07)" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       07 — UNITY
                     </span>
@@ -687,8 +764,8 @@ export default function TheLanguagePage() {
                     The community does not disappear when the meeting ends.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-sky-50 text-sky-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-sky-100 self-start">
-                  The Digital Home
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">The Digital Home</span>
                 </div>
               </div>
 
@@ -696,8 +773,8 @@ export default function TheLanguagePage() {
                 <p>
                   Unity is the digital home of PEERS GLOBAL, connecting your Circle, conversations, collaborations, events, and impact 24/7.
                 </p>
-                <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white shadow-md space-y-1">
-                  <div className="text-base sm:text-lg font-bold text-sky-300">
+                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#040F24] via-[#0A1A3F] to-[#040F24] border border-blue-500/20 text-white shadow-md space-y-1.5 relative overflow-hidden">
+                  <div className="text-base sm:text-lg font-bold brand-gradient-text tracking-tight">
                     The meeting is an event. The relationship is the experience.
                   </div>
                   <p className="text-xs sm:text-sm text-slate-300 font-normal">
@@ -711,10 +788,22 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
-                      <Share2 className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad08" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <circle cx="18" cy="5" r="3" stroke="url(#langGrad08)" strokeWidth="2" />
+                        <circle cx="6" cy="12" r="3" stroke="url(#langGrad08)" strokeWidth="2" />
+                        <circle cx="18" cy="19" r="3" stroke="url(#langGrad08)" strokeWidth="2" />
+                        <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" stroke="url(#langGrad08)" strokeWidth="2" />
+                        <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" stroke="url(#langGrad08)" strokeWidth="2" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       08 — MINDMELD
                     </span>
@@ -723,8 +812,8 @@ export default function TheLanguagePage() {
                     When different entrepreneurs sit together, new possibilities emerge.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-purple-50 text-purple-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-purple-100 self-start">
-                  Cross-Industry Convergence
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">Cross-Industry Convergence</span>
                 </div>
               </div>
 
@@ -739,10 +828,19 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center">
-                      <Lock className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad09" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2" stroke="url(#langGrad09)" strokeWidth="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="url(#langGrad09)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       09 — CONFIDENTIAL FORUM
                     </span>
@@ -751,8 +849,8 @@ export default function TheLanguagePage() {
                     Some conversations need trust before they need answers.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-rose-50 text-rose-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-rose-100 self-start">
-                  Safe &amp; Discreet Space
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">Safe &amp; Discreet Space</span>
                 </div>
               </div>
 
@@ -767,10 +865,20 @@ export default function TheLanguagePage() {
             <div className="rounded-[32px] border border-cool-grey-250 bg-white p-8 sm:p-12 shadow-xs hover:shadow-lg transition-all">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-100">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center">
-                      <Layers className="size-4" />
-                    </span>
+                  <div className="inline-flex items-center gap-2.5">
+                    <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <svg className="size-4.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="langGrad10" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" stroke="url(#langGrad10)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <polyline points="2 17 12 22 22 17" stroke="url(#langGrad10)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <polyline points="2 12 12 17 22 12" stroke="url(#langGrad10)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       10 — THE 10 FORMS OF COLLABORATION
                     </span>
@@ -779,8 +887,8 @@ export default function TheLanguagePage() {
                     Collaboration can take many forms.
                   </h3>
                 </div>
-                <div className="shrink-0 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-100 self-start">
-                  Beyond Referrals
+                <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
+                  <span className="brand-gradient-text">Beyond Referrals</span>
                 </div>
               </div>
 
@@ -791,26 +899,107 @@ export default function TheLanguagePage() {
 
                 {/* 10 Forms Dynamic Cards Grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                  {TEN_FORMS_OF_COLLABORATION.map((item) => {
+                  {TEN_FORMS_OF_COLLABORATION.map((item, formIdx) => {
                     const IconComponent = item.icon
                     return (
                       <div
                         key={item.id}
-                        className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between space-y-3 group"
+                        className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300/80 transition-all flex flex-col justify-between space-y-3 group"
                       >
                         <div className="flex items-center justify-between">
-                          <div className={`size-10 rounded-xl ${item.bg} ${item.color} flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs`}>
-                            <IconComponent className="size-5" />
+                          <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-2xs">
+                            <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <defs>
+                                <linearGradient id={`formIconGrad${formIdx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" stopColor="#1D4ED8" />
+                                  <stop offset="100%" stopColor="#E11D48" />
+                                </linearGradient>
+                              </defs>
+                              {formIdx === 0 && (
+                                /* Business Referral / Send */
+                                <path d="m22 2-7 20-4-9-9-4Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              )}
+                              {formIdx === 1 && (
+                                /* Mentorship / BookOpen */
+                                <>
+                                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 2 && (
+                                /* Joint Venture / Handshake */
+                                <>
+                                  <path d="m11 17 2 2a1 1 0 0 0 1.42 0l4.24-4.24a1 1 0 0 0 0-1.42l-5.66-5.66a1 1 0 0 0-1.42 0L8 11.34" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="m18 14 2.5-2.5a2.12 2.12 0 0 0 0-3v0a2.12 2.12 0 0 0-3 0L15 11" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="m14 18 2.5-2.5" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="m6 13.34-2.5-2.5a2.12 2.12 0 0 1 0-3v0a2.12 2.12 0 0 1 3 0L9 10.34" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 3 && (
+                                /* Knowledge Sharing / Lightbulb */
+                                <>
+                                  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M9 18h6" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M10 22h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 4 && (
+                                /* Problem Solving / Sparkles */
+                                <>
+                                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 5 && (
+                                /* Vendor Connect / Building2 */
+                                <>
+                                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M10 6h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M10 10h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M10 14h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M10 18h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 6 && (
+                                /* Funding Access / TrendingUp */
+                                <>
+                                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <polyline points="16 7 22 7 22 13" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 7 && (
+                                /* Visibility & PR / Eye */
+                                <>
+                                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <circle cx="12" cy="12" r="3" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 8 && (
+                                /* Emotional Support / Heart */
+                                <>
+                                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                              {formIdx === 9 && (
+                                /* Execution Support / Hammer */
+                                <>
+                                  <path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M17.64 15 22 10.64" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="m20.91 3.26-6.36 6.36" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </>
+                              )}
+                            </svg>
                           </div>
                           <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                             0{item.id}
                           </span>
                         </div>
                         <div>
-                          <h4 className="text-sm font-bold text-[#0f131a] group-hover:text-blue-600 transition-colors">
+                          <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
                             {item.form}
                           </h4>
-                          <p className="text-xs text-cool-grey-600 leading-relaxed font-normal pt-1">
+                          <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
                             {item.meaning}
                           </p>
                         </div>
@@ -864,8 +1053,8 @@ export default function TheLanguagePage() {
                       {row.word}
                     </td>
                     <td className="py-4 pr-6 align-middle">
-                      <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-[#1D4ED8] border border-blue-100">
-                        {row.badge}
+                      <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-blue-200/80 bg-gradient-to-r from-blue-50/90 via-indigo-50/60 to-rose-50/80 shadow-2xs">
+                        <span className="brand-gradient-text">{row.badge}</span>
                       </span>
                     </td>
                     <td className="py-4 leading-relaxed text-cool-grey-600 align-middle font-normal text-xs sm:text-sm">

@@ -1034,7 +1034,7 @@ pre, code {
 
 @keyframes traceBorderOnce {
   0% {
-    stroke-dashoffset: 220;
+    stroke-dashoffset: 0;
     opacity: 0;
   }
   3% {
@@ -1044,7 +1044,7 @@ pre, code {
     opacity: 1;
   }
   100% {
-    stroke-dashoffset: -780;
+    stroke-dashoffset: -1000;
     opacity: 0;
   }
 }
@@ -1079,8 +1079,8 @@ pre, code {
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   pathLength: 1000;
-  stroke-dasharray: 200 1000;
-  stroke-dashoffset: 200;
+  stroke-dasharray: 220 1000;
+  stroke-dashoffset: 0;
   opacity: 0;
 }
 
