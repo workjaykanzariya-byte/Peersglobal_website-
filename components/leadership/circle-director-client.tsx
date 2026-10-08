@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -310,23 +311,23 @@ export function CircleDirectorClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <Link
+                <GalaxyButton
                   href="/contact?intent=leadership"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Apply to Lead
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                  variant="transparent"
+                  size="md"
                 >
-                  <Users className="size-4 text-sky-400" />
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -839,13 +840,13 @@ export function CircleDirectorClient() {
               </div>
 
               <div className="pt-4 border-t border-slate-100">
-                <Link
+                <GalaxyButton
                   href="/contact?intent=leadership"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold shadow-md hover:opacity-95 transition-all uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Express Interest in Leadership</span>
-                  <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Express Interest in Leadership
+                </GalaxyButton>
               </div>
             </div>
 
@@ -936,23 +937,23 @@ export function CircleDirectorClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/contact?intent=leadership"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Apply to Lead
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-bold backdrop-blur-md transition-all uppercase tracking-wider"
+                  variant="transparent"
+                  size="md"
                 >
-                  <Smartphone className="size-4 text-sky-400" />
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 

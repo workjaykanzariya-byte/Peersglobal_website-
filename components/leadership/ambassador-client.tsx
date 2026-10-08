@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -254,22 +255,22 @@ export function AmbassadorClient() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
+              <GalaxyButton
                 href="https://unity.peersglobal.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center gap-2"
+                variant="primary"
+                size="md"
               >
-                <span>Download Unity App</span>
-                <ArrowRight className="size-4" />
-              </a>
-              <Link
+                Download Unity App
+              </GalaxyButton>
+              <GalaxyButton
                 href="/contact?intent=leadership"
-                className="rounded-full border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all inline-flex items-center gap-2 shadow-sm"
+                variant="transparent"
+                size="md"
               >
-                <span>Become an Ambassador</span>
-                <ArrowRight className="size-4" />
-              </Link>
+                Become an Ambassador
+              </GalaxyButton>
             </div>
           </div>
           {/* Floating Stats Bar */}

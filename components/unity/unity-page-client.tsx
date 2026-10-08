@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -341,15 +342,16 @@ export function UnityPageClient() {
                   </div>
                 </a>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Open Web App</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                  Open Web App
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -906,13 +908,14 @@ export function UnityPageClient() {
                   </div>
                 </a>
 
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 backdrop-blur-sm transition-all shadow-sm"
+                  variant="transparent"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
               </div>
 
             </div>

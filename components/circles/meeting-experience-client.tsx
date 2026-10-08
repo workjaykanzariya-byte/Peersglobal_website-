@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -213,22 +214,22 @@ export function MeetingExperienceClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                </a>
-                <Link
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="/circles/find"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Visit as a Guest</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                  Visit as a Guest
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -766,13 +767,15 @@ export function MeetingExperienceClient() {
               <p className="text-base text-slate-500 leading-relaxed mb-6">
                 Everything you need to know before you walk in.
               </p>
-              <Link
-                href="/circles/find"
-                className="rounded-full border border-slate-300 hover:border-[#0062D2] text-slate-700 hover:text-[#0062D2] px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2"
-              >
-                Ask a Circle Director
-                <ArrowRight className="size-4" />
-              </Link>
+              <div className="pt-2">
+                <GalaxyButton
+                  href="/circles/find"
+                  variant="transparent-light"
+                  size="md"
+                >
+                  Ask a Circle Director
+                </GalaxyButton>
+              </div>
             </div>
 
             <div className="lg:col-span-8">

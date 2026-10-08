@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -168,22 +169,24 @@ export function PeerToPeerClient() {
               </div>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200"
+                  size="lg"
+                  className="font-medium"
                 >
-                  <span>Start a Peer-to-Peer Conversation →</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                  Start a Peer-to-Peer Conversation
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
+                  variant="transparent-light"
+                  size="lg"
+                  className="font-medium"
                 >
-                  <span>Member Login →</span>
-                </Link>
+                  Member Login
+                </GalaxyButton>
               </div>
             </div>
 
@@ -350,15 +353,17 @@ export function PeerToPeerClient() {
               </p>
             </div>
 
-            <a
+            <GalaxyButton
               href="https://unity.peersglobal.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0062D2] text-white font-semibold text-xs shadow-md hover:bg-[#0052B4] transition-all shrink-0 self-start sm:self-auto"
+              variant="transparent-light"
+              size="default"
+              icon={<Download className="w-4 h-4" />}
+              className="shrink-0 self-start sm:self-auto font-semibold uppercase"
             >
-              <Download className="w-4 h-4" />
-              <span>DOWNLOAD THE PEER-TO-PEER CHECKLIST →</span>
-            </a>
+              DOWNLOAD THE PEER-TO-PEER CHECKLIST
+            </GalaxyButton>
           </div>
 
         </div>
@@ -671,22 +676,24 @@ export function PeerToPeerClient() {
 
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Start a Peer-to-Peer Conversation</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
+                  Start a Peer-to-Peer Conversation
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                  variant="transparent"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Member Login →</span>
-                </Link>
+                  Member Login
+                </GalaxyButton>
               </div>
             </div>
 

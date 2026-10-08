@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -277,22 +278,22 @@ export function ExecutiveDirectorClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <Link
+                <GalaxyButton
                   href="/contact?intent=leadership"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <a
+                  Apply to Lead
+                </GalaxyButton>
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                  variant="transparent"
+                  size="md"
                 >
-                  <Users className="size-4 text-sky-400" />
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -911,22 +912,22 @@ export function ExecutiveDirectorClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
-                <Link
+                <GalaxyButton
                   href="/contact?intent=leadership"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <a
+                  Apply to Lead
+                </GalaxyButton>
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  variant="transparent"
+                  size="md"
                 >
-                  <Users className="size-4" />
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 

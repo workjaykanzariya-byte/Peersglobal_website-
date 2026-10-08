@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   Lock,
@@ -300,20 +301,22 @@ export default function CultureAndCodePage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Become a Peer</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Become a Peer
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#the-code"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Read The Peers Code</span>
-                </a>
+                  Read The Peers Code
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -1132,13 +1135,13 @@ export default function CultureAndCodePage() {
                   That is culture — eventually owned by the people inside the community.
                 </p>
               </div>
-              <Link
+              <GalaxyButton
                 href="/membership"
-                className="shrink-0 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider shadow-md hover:opacity-95 transition-all"
+                size="sm"
+                className="shrink-0 uppercase tracking-wider font-bold"
               >
-                <span>Join the Culture</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
+                Join the Culture
+              </GalaxyButton>
             </div>
           </div>
 
@@ -1350,22 +1353,23 @@ export default function CultureAndCodePage() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <Link
+                  <GalaxyButton
                     href="/membership"
-                    className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                    size="lg"
+                    className="uppercase tracking-wider font-bold"
                   >
-                    <span>Become a Peer</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                  <a
+                    Become a Peer
+                  </GalaxyButton>
+                  <GalaxyButton
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-cool-grey-250 bg-white hover:bg-slate-50 text-slate-800 px-8 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-xs"
+                    variant="transparent-light"
+                    size="lg"
+                    className="uppercase tracking-wider font-bold"
                   >
-                    <span>Download the Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                    Download Unity App
+                  </GalaxyButton>
                 </div>
               </div>
 

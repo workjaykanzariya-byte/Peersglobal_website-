@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRef, useEffect, useState } from 'react'
 import type * as React from 'react'
 import { ArrowRight, Download } from 'lucide-react'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 export interface ClosingCtaSectionProps {
   eyebrow?: string
@@ -217,86 +218,38 @@ export function ClosingCtaSection({
           ) : (
             <>
               {primaryButtonText && primaryButtonHref && (
-                <Link
+                <GalaxyButton
                   href={primaryButtonHref}
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] uppercase transition-all duration-200"
+                  size="lg"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>{primaryButtonText}</span>
-                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-white" />
-                </Link>
+                  {primaryButtonText}
+                </GalaxyButton>
               )}
 
               {secondaryButtonText && secondaryButtonHref && (
-                isSecondaryExternal ? (
-                  <a
-                    href={secondaryButtonHref}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
-                    tabIndex={0}
-                  >
-                    <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id="btnGradientStrokeCtaExt" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#1D4ED8" />
-                          <stop offset="50%" stopColor="#6366F1" />
-                          <stop offset="100%" stopColor="#E11D48" />
-                        </linearGradient>
-                      </defs>
-                      <rect
-                        className="animated-btn-border-path"
-                        stroke="url('#btnGradientStrokeCtaExt')"
-                        x="1"
-                        y="1"
-                        width="98"
-                        height="46"
-                        rx="23"
-                      />
-                    </svg>
-                    <div className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-transparent px-7 py-3 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs group-hover:border-transparent group-hover:bg-white/10 transition-all uppercase">
-                      {secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
-                      <span>{secondaryButtonText}</span>
-                    </div>
-                  </a>
-                ) : (
-                  <Link
-                    href={secondaryButtonHref}
-                    className="animated-glow-btn group inline-flex p-[1.5px] rounded-full transition-all"
-                    tabIndex={0}
-                  >
-                    <svg className="animated-btn-border-svg" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id="btnGradientStrokeCta" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#1D4ED8" />
-                          <stop offset="50%" stopColor="#6366F1" />
-                          <stop offset="100%" stopColor="#E11D48" />
-                        </linearGradient>
-                      </defs>
-                      <rect
-                        className="animated-btn-border-path"
-                        stroke="url('#btnGradientStrokeCta')"
-                        x="1"
-                        y="1"
-                        width="98"
-                        height="46"
-                        rx="23"
-                      />
-                    </svg>
-                    <div className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-transparent px-7 py-3 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs group-hover:border-transparent group-hover:bg-white/10 transition-all uppercase">
-                      {secondaryButtonIcon}
-                      <span>{secondaryButtonText}</span>
-                    </div>
-                  </Link>
-                )
+                <GalaxyButton
+                  href={secondaryButtonHref}
+                  variant="transparent"
+                  size="lg"
+                  icon={secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
+                  target={isSecondaryExternal ? '_blank' : undefined}
+                  rel={isSecondaryExternal ? 'noreferrer' : undefined}
+                  className="uppercase tracking-wider font-bold"
+                >
+                  {secondaryButtonText}
+                </GalaxyButton>
               )}
 
               {tertiaryButtonText && tertiaryButtonHref && (
-                <Link
+                <GalaxyButton
                   href={tertiaryButtonHref}
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase"
+                  variant="transparent"
+                  size="lg"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>{tertiaryButtonText}</span>
-                </Link>
+                  {tertiaryButtonText}
+                </GalaxyButton>
               )}
             </>
           )}

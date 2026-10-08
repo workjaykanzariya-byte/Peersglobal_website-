@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   HeartHandshake,
@@ -146,22 +147,24 @@ export function TheIdeaClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-blue-500/30 hover:shadow-rose-500/40 hover:-translate-y-0.5 hover:opacity-95 transition-all duration-300 group cursor-pointer uppercase tracking-wider"
+                  size="default"
+                  className="uppercase tracking-wider font-semibold"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+                  Download Unity App
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#the-quiet-journey"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-black/30 hover:bg-black/50 text-white font-medium text-sm backdrop-blur-xs transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Read the Story</span>
-                </a>
+                  Read the Story
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -240,14 +243,15 @@ export function TheIdeaClient() {
           </div>
 
           <div className="hidden md:flex items-center shrink-0 pl-4">
-            <a
+            <GalaxyButton
               href="https://unity.peersglobal.com"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all hover:opacity-95 shadow-xs"
+              size="sm"
+              className="uppercase tracking-wider font-bold"
             >
               Get Unity App
-            </a>
+            </GalaxyButton>
           </div>
         </div>
       </nav>
@@ -1208,15 +1212,15 @@ export function TheIdeaClient() {
           </div>
 
           <div className="flex justify-center">
-            <a
+            <GalaxyButton
               href="https://unity.peersglobal.com"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-9 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-xl shadow-blue-900/40 hover:shadow-2xl hover:-translate-y-0.5 transition-all group"
+              variant="primary"
+              size="md"
             >
-              <span>Join the 1 Million Mission on Unity</span>
-              <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              Join the 1 Million Mission on Unity
+            </GalaxyButton>
           </div>
 
         </div>
@@ -1343,21 +1347,23 @@ export function TheIdeaClient() {
 
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              <a
+              <GalaxyButton
                 href="https://unity.peersglobal.com"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 sm:px-10 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                size="lg"
+                className="uppercase tracking-wider font-bold"
               >
-                <span>Download the Unity App</span>
-                <ArrowRight className="size-4" />
-              </a>
-              <Link
+                Download the Unity App
+              </GalaxyButton>
+              <GalaxyButton
                 href="/circles"
-                className="inline-flex items-center gap-2 rounded-full border border-cool-grey-250 bg-white hover:bg-slate-50 text-slate-800 px-8 sm:px-10 py-4 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all shadow-xs hover:border-slate-300"
+                variant="transparent-light"
+                size="lg"
+                className="uppercase tracking-wider font-bold"
               >
                 Explore Circles
-              </Link>
+              </GalaxyButton>
             </div>
           </div>
 

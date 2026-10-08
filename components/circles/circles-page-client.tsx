@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Factory,
   Building2,
@@ -386,20 +387,22 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
+                <GalaxyButton
                   onClick={() => scrollToExplore()}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Find a Circle Near You</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                  Find a Circle Near You
+                </GalaxyButton>
 
-                <button
+                <GalaxyButton
                   onClick={() => setIsGuestModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300 cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Visit as a Guest</span>
-                </button>
+                  Visit as a Guest
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -1571,22 +1574,24 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <button
+                <GalaxyButton
                   onClick={() => scrollToExplore()}
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                  Find Your Circle
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Download the Unity App</span>
-                </a>
+                  Download the Unity App
+                </GalaxyButton>
               </div>
 
               <div className="pt-2 text-xs text-slate-400">

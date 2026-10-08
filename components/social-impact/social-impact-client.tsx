@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -171,20 +172,21 @@ export function SocialImpactClient() {
                 </div>
 
                 <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                  <Link
+                  <GalaxyButton
                     href="/1-million-mission"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Explore 1M Mission</span>
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                    Explore 1M Mission
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#sdgs"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white font-bold text-xs sm:text-sm transition-all uppercase tracking-wider"
+                    variant="transparent"
+                    size="md"
                   >
-                    <span>Evidenced SDGs</span>
-                  </a>
+                    Evidenced SDGs
+                  </GalaxyButton>
                 </div>
               </div>
 
@@ -421,20 +423,22 @@ export function SocialImpactClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                <Link
+                <GalaxyButton
                   href="/apply"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/1-million-mission"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  variant="transparent"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Explore 1M Mission →</span>
-                </Link>
+                  Explore 1M Mission
+                </GalaxyButton>
               </div>
             </div>
 

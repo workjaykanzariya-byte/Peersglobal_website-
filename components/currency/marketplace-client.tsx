@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -296,23 +297,23 @@ export function MarketplaceClient() {
               </div>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Redeem with Peers Coin →</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                  Redeem with Peers Coin
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/peers-coin"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
+                  variant="transparent-light"
+                  size="md"
                 >
-                  <Coins className="w-4 h-4 text-[#0062D2]" />
-                  <span>See Peers Coin Rules →</span>
-                </Link>
+                  See Peers Coin Rules
+                </GalaxyButton>
               </div>
             </div>
 
@@ -822,22 +823,23 @@ export function MarketplaceClient() {
 
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Open Unity</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
+                  Open Unity
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/peers-coin"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>See Peers Coin →</span>
-                </Link>
+                  See Peers Coin
+                </GalaxyButton>
               </div>
             </div>
 

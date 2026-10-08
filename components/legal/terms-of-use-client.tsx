@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   FileText,
   ChevronRight,
@@ -299,13 +300,14 @@ export function TermsOfUseClient() {
                   <h3 className="text-lg font-serif font-bold text-slate-950">Have questions regarding platform covenants?</h3>
                   <p className="text-xs sm:text-sm text-slate-600 mt-1">Connect with the Peers Global Corporate Legal Secretariat.</p>
                 </div>
-                <Link
+                <GalaxyButton
                   href="mailto:legal@peersglobal.com"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-all shadow-md shrink-0"
+                  variant="primary"
+                  size="sm"
+                  className="shrink-0"
                 >
-                  <span>Contact Legal Desk</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                  Contact Legal Desk
+                </GalaxyButton>
               </div>
             </div>
 

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -299,23 +300,23 @@ export function CircleFounderClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <Link
+                <GalaxyButton
                   href="/start-a-circle"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Apply to Found a Circle</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Apply to Found a Circle
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                  variant="transparent"
+                  size="md"
                 >
-                  <Smartphone className="size-4 text-sky-400" />
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -917,13 +918,13 @@ export function CircleFounderClient() {
             </div>
 
             <div className="shrink-0">
-              <Link
+              <GalaxyButton
                 href="/start-a-circle"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                variant="primary"
+                size="md"
               >
-                <span>Begin the Conversation</span>
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+                Begin the Conversation
+              </GalaxyButton>
             </div>
           </div>
 
@@ -1055,23 +1056,23 @@ export function CircleFounderClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
-                <Link
+                <GalaxyButton
                   href="/start-a-circle"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Apply to Found a Circle</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Apply to Found a Circle
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  variant="transparent"
+                  size="md"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 

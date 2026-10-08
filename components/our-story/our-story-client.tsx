@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -156,20 +157,22 @@ export function OurStoryClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#before-there-was-a-community"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-blue-500/30 hover:shadow-rose-500/40 hover:-translate-y-0.5 hover:opacity-95 transition-all duration-300 group cursor-pointer uppercase tracking-wider"
+                  size="default"
+                  className="uppercase tracking-wider font-semibold"
                 >
-                  <span>Read Full Story</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+                  Read Full Story
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/the-idea"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-xs transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Discover The Idea</span>
-                </Link>
+                  Discover The Idea
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}

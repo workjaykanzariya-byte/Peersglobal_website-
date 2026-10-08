@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -299,23 +300,22 @@ export function FindPageClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <a
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="#find-form"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Submit Your Enquiry</span>
-                  <ChevronDown className="size-4" />
-                </a>
+                  Submit Your Enquiry
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -791,23 +791,14 @@ export function FindPageClient() {
                           <ArrowRight className="size-4" />
                         </button>
                       ) : (
-                        <button
+                        <GalaxyButton
                           type="submit"
                           disabled={submitting}
-                          className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] disabled:opacity-70 text-white px-8 py-3 text-sm font-bold shadow-lg shadow-blue-600/20 transition-all inline-flex items-center gap-2"
+                          variant="primary"
+                          size="md"
                         >
-                          {submitting ? (
-                            <>
-                              <Loader2 className="size-4 animate-spin" />
-                              Submitting...
-                            </>
-                          ) : (
-                            <>
-                              Submit Enquiry
-                              <ArrowRight className="size-4" />
-                            </>
-                          )}
-                        </button>
+                          {submitting ? 'Submitting...' : 'Submit Enquiry'}
+                        </GalaxyButton>
                       )}
                     </div>
                   </div>
@@ -1180,22 +1171,22 @@ export function FindPageClient() {
               </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  variant="primary"
+                  size="md"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                </a>
-                <a
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="#find-form"
-                  className="rounded-full bg-white text-slate-900 hover:bg-slate-100 px-7 py-3.5 text-xs sm:text-sm font-bold transition-all hover:scale-105 inline-flex items-center gap-2 shadow-sm"
+                  variant="transparent-light"
+                  size="md"
                 >
-                  <span>Submit Your Enquiry</span>
-                  <ArrowRight className="size-4" />
-                </a>
+                  Submit Your Enquiry
+                </GalaxyButton>
               </div>
             </div>
 

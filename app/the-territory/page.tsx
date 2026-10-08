@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   Download,
@@ -192,21 +193,23 @@ export default function TheTerritoryPage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="font-semibold"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Download Unity App
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/circles"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Find Your Circle</span>
-                </Link>
+                  Find Your Circle
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -518,19 +521,21 @@ export default function TheTerritoryPage() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 mb-8">
-                <Link
+                <GalaxyButton
                   href="/circles"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Explore All Circles</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <Link
+                  Explore All Circles
+                </GalaxyButton>
+                <GalaxyButton
                   href="/circle-meeting-experience"
-                  className="inline-flex items-center rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/30"
+                  variant="transparent"
+                  size="default"
+                  className="font-semibold"
                 >
                   How a Circle Meeting Works
-                </Link>
+                </GalaxyButton>
               </div>
 
               {/* Quote Glass Card */}
@@ -1345,13 +1350,13 @@ export default function TheTerritoryPage() {
 
             {/* Action Buttons: Explore Global Community + Watch Our Global Story */}
             <div className="flex items-center gap-4 flex-wrap mb-10">
-              <Link
+              <GalaxyButton
                 href="/circles"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                size="default"
+                className="font-semibold"
               >
-                <span>Explore Global Community</span>
-                <ArrowRight className="size-4" />
-              </Link>
+                Explore Global Community
+              </GalaxyButton>
 
               <Link
                 href="/video-stories"
@@ -1430,19 +1435,21 @@ export default function TheTerritoryPage() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Link
+                  <GalaxyButton
                     href="/membership"
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                    size="default"
+                    className="font-semibold"
                   >
-                    <span>Start a Circle</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                  <Link
+                    Start a Circle
+                  </GalaxyButton>
+                  <GalaxyButton
                     href="/contact"
-                    className="inline-flex items-center rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs transition-all hover:border-slate-300"
+                    variant="transparent-light"
+                    size="default"
+                    className="font-semibold"
                   >
                     Bring Peers Global to My City
-                  </Link>
+                  </GalaxyButton>
                 </div>
               </div>
 
