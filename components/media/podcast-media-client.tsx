@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -337,20 +338,22 @@ export function PodcastMediaClient() {
                 </div>
 
                 <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                  <a
+                  <GalaxyButton
                     href="#channels"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Listen &amp; Watch Now</span>
-                    <Play className="size-3.5 fill-current transition-transform group-hover:scale-110" />
-                  </a>
+                    Listen &amp; Watch Now
+                  </GalaxyButton>
 
-                  <button
+                  <GalaxyButton
                     onClick={() => setNominateOpen(true)}
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white font-bold text-xs sm:text-sm transition-all uppercase tracking-wider cursor-pointer"
+                    variant="transparent"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>Nominate an Entrepreneur</span>
-                  </button>
+                    Nominate an Entrepreneur
+                  </GalaxyButton>
                 </div>
               </div>
 
@@ -710,14 +713,13 @@ export function PodcastMediaClient() {
               </div>
 
               <div>
-                <Link
+                <GalaxyButton
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all"
+                  variant="transparent-light"
+                  size="sm"
                 >
-                  <Mail className="size-4 text-[#0062D2]" />
-                  <span>Contact Editorial Team</span>
-                  <ArrowRight className="size-3.5" />
-                </Link>
+                  Contact Editorial Team
+                </GalaxyButton>
               </div>
             </div>
 
@@ -739,14 +741,13 @@ export function PodcastMediaClient() {
               </div>
 
               <div>
-                <button
+                <GalaxyButton
                   onClick={() => setNominateOpen(true)}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+                  variant="primary"
+                  size="sm"
                 >
-                  <Megaphone className="size-4" />
-                  <span>Nominate a Peer Story</span>
-                  <ArrowRight className="size-3.5" />
-                </button>
+                  Nominate a Peer Story
+                </GalaxyButton>
               </div>
             </div>
 
@@ -805,22 +806,23 @@ export function PodcastMediaClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Open Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  Open Unity App
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Apply for Membership →</span>
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
               </div>
             </div>
 

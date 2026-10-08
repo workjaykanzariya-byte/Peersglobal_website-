@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   TrendingUp,
@@ -228,20 +229,22 @@ export default function TheCurrencyPage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Download Unity App
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/stories"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Watch Our Story</span>
-                </Link>
+                  Watch Our Story
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -302,7 +305,6 @@ export default function TheCurrencyPage() {
           
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="brand-gradient-text">OUR BELIEF</span>
           </div>
 
@@ -358,7 +360,6 @@ export default function TheCurrencyPage() {
               
               {/* Eyebrow */}
               <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-4">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">SIMPLE. FAIR. MEANINGFUL.</span>
               </div>
 
@@ -465,7 +466,6 @@ export default function TheCurrencyPage() {
                 {/* Eyebrow */}
                 <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                   <span className="brand-gradient-text">FOUR SIMPLE STEPS</span>
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 </div>
 
                 {/* Headline */}
@@ -547,7 +547,6 @@ export default function TheCurrencyPage() {
           
           {/* Eyebrow */}
           <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="brand-gradient-text">VISIBLE. RECOGNISED. REAL.</span>
           </div>
 
@@ -618,9 +617,7 @@ export default function TheCurrencyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
           <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="brand-gradient-text">MORE THAN A NUMBER</span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-14">
@@ -666,7 +663,6 @@ export default function TheCurrencyPage() {
             <div className="lg:col-span-6 flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="brand-gradient-text">PEER STANDING</span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
@@ -713,7 +709,6 @@ export default function TheCurrencyPage() {
             {/* Right Column: PEERS COIN (6 cols) */}
             <div className="lg:col-span-6 bg-[#F8FAFC] rounded-2xl p-7 sm:p-9 border border-slate-200/80 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">PEERS COIN</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
@@ -893,7 +888,6 @@ export default function TheCurrencyPage() {
             <div className="lg:col-span-8 space-y-5">
               {/* Eyebrow */}
               <div className="flex items-center gap-2.5">
-                <span className="h-[1.5px] w-6 bg-white/70" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   OUR MISSION
                 </span>
@@ -916,19 +910,21 @@ export default function TheCurrencyPage() {
 
               {/* CTAs */}
               <div className="flex flex-wrap items-center gap-4 pt-3">
-                <Link
+                <GalaxyButton
                   href="/1-million-mission"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-8 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-[0_4px_20px_rgba(225,29,72,0.35)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.50)] transition-all uppercase active:scale-95"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>See the 1 Million Mission</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <Link
+                  See the 1 Million Mission
+                </GalaxyButton>
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all uppercase backdrop-blur-sm"
+                  variant="transparent"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Download Unity App</span>
-                </Link>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 

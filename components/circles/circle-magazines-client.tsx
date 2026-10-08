@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -167,20 +168,21 @@ export function CircleMagazinesClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-                <a
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="#directory"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="md"
+                  showIcon={false}
                 >
-                  <BookOpen className="w-4 h-4 text-sky-400" />
-                  <span>Browse Issues</span>
-                </a>
+                  Browse Issues
+                </GalaxyButton>
               </div>
 
               {/* Stat Pill Band */}
@@ -496,13 +498,13 @@ export function CircleMagazinesClient() {
             </div>
 
             <div className="shrink-0 flex flex-col items-center md:items-end gap-2">
-              <Link
+              <GalaxyButton
                 href="/circle-roles"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-300 text-xs sm:text-sm font-semibold text-slate-800 hover:bg-slate-100 transition-colors shadow-2xs"
+                variant="transparent-light"
+                size="sm"
               >
-                <span>See Circle Roles</span>
-                <ArrowRight className="w-4 h-4 text-[#0062D2]" />
-              </Link>
+                See Circle Roles
+              </GalaxyButton>
               <span className="text-[11px] font-serif italic text-[#0062D2]">
                 Our Circles. Their Stories. A Stronger Community.
               </span>
@@ -581,15 +583,15 @@ export function CircleMagazinesClient() {
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-            <a
+            <GalaxyButton
               href="https://unity.peersglobal.com"
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-8 py-4 text-xs sm:text-sm font-bold tracking-wider text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+              variant="primary"
+              size="md"
             >
-              <span>Download Unity App</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
+              Download Unity App
+            </GalaxyButton>
           </div>
         </div>
       </section>

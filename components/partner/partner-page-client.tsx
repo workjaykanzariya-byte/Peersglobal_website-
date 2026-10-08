@@ -325,27 +325,31 @@ export function PartnerPageClient() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-                  <a
+                  <GalaxyButton
                     href="#start-conversation"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                    size="default"
+                    className="uppercase tracking-wider font-bold"
                   >
-                    <span>Start a Conversation</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                    Start a Conversation
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#who-we-partner-with"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                    variant="transparent"
+                    size="default"
+                    className="uppercase tracking-wider font-bold"
                   >
-                    <span>Who We Partner With</span>
-                  </a>
+                    Who We Partner With
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#partners-vs-sponsors"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                    variant="transparent"
+                    size="default"
+                    className="uppercase tracking-wider font-bold"
                   >
-                    <span>Partner vs Sponsor</span>
-                  </a>
+                    Partner vs Sponsor
+                  </GalaxyButton>
                 </div>
 
                 {/* Quick Info Bar */}

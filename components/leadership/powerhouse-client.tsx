@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import { usePageMedia } from '@/lib/hooks/use-page-media'
 import {
   ArrowRight,
@@ -309,22 +310,22 @@ export function PowerhouseClient() {
 
                 {/* Dual CTAs */}
                 <div className="flex flex-wrap items-center gap-4">
-                  <a
+                  <GalaxyButton
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
-                  <Link
+                    Download Unity App
+                  </GalaxyButton>
+                  <GalaxyButton
                     href="/contact?intent=leadership"
-                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-8 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
+                    variant="transparent-light"
+                    size="md"
                   >
-                    <span>Apply to Lead</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
+                    Apply to Lead
+                  </GalaxyButton>
                 </div>
               </div>
             </div>
@@ -673,20 +674,20 @@ export function PowerhouseClient() {
           </div>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link
+            <GalaxyButton
               href="/contact?intent=leadership"
-              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+              variant="primary"
+              size="md"
             >
-              <span>Apply to Lead</span>
-              <ArrowRight className="size-4" />
-            </Link>
-            <Link
+              Apply to Lead
+            </GalaxyButton>
+            <GalaxyButton
               href="/leadership"
-              className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-8 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
+              variant="transparent-light"
+              size="md"
             >
-              <span>Explore the Leadership Pathway</span>
-              <ArrowRight className="size-4" />
-            </Link>
+              Explore the Leadership Pathway
+            </GalaxyButton>
           </div>
         </div>
       </section>
@@ -723,22 +724,22 @@ export function PowerhouseClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
-                <Link
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="/contact?intent=leadership"
-                  className="rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 text-sm font-semibold backdrop-blur-md transition-all inline-flex items-center gap-2"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Apply to Lead</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                  Apply to Lead
+                </GalaxyButton>
               </div>
             </div>
 

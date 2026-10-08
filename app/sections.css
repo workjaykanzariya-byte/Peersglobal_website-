@@ -3776,12 +3776,15 @@ p.body,
     stroke-dashoffset: 220;
     opacity: 0;
   }
+
   3% {
     opacity: 1;
   }
+
   92% {
     opacity: 1;
   }
+
   100% {
     stroke-dashoffset: -780;
     opacity: 0;
@@ -3909,4 +3912,173 @@ p.body,
   background-clip: text !important;
   color: transparent !important;
   display: inline-block;
+}
+
+/* ==========================================================================
+   1 MILLION MISSION — CUSTOM IMPACT CARDS (Distinctive Animation & Effects)
+   ========================================================================== */
+@keyframes missionPulseAura {
+  0%, 100% {
+    box-shadow: 0 4px 20px -2px rgba(29, 78, 216, 0.08), 0 2px 10px -2px rgba(225, 29, 72, 0.06);
+    border-color: rgba(226, 232, 240, 0.9);
+  }
+  50% {
+    box-shadow: 0 12px 30px -4px rgba(225, 29, 72, 0.18), 0 6px 18px -2px rgba(99, 102, 241, 0.16);
+    border-color: rgba(225, 29, 72, 0.35);
+  }
+}
+
+@keyframes missionShimmerGleam {
+  0% {
+    transform: translateX(-120%) rotate(25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(220%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes missionBeaconRing {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes missionCounterFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.mission-impact-card {
+  position: relative;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Subtle ambient backdrop aura that wakes on hover */
+.mission-impact-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 1.25rem;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.15) 0%, rgba(99, 102, 241, 0.2) 50%, rgba(225, 29, 72, 0.2) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+}
+
+/* Diagonal glass light-gleam streak */
+.mission-impact-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(255, 255, 255, 0.02) 60%,
+    transparent 100%
+  );
+  transform: translateX(-120%) rotate(25deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mission-impact-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: transparent;
+  box-shadow: 0 24px 44px -8px rgba(29, 78, 216, 0.16), 0 12px 24px -6px rgba(225, 29, 72, 0.18);
+}
+
+.mission-impact-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, #1D4ED8 0%, #6366F1 50%, #E11D48 100%);
+}
+
+.mission-impact-card:hover::after {
+  animation: missionShimmerGleam 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Feature 1: Multiplier Glow Variant */
+.mission-impact-card--1:hover {
+  box-shadow: 0 22px 42px -6px rgba(29, 78, 216, 0.24), 0 10px 20px -4px rgba(37, 99, 235, 0.16);
+}
+
+/* Feature 2: 1M Centerpiece Hero Highlight */
+.mission-impact-card--hero {
+  border-color: rgba(225, 29, 72, 0.28);
+  background: linear-gradient(180deg, #ffffff 0%, #FFF5F7 100%);
+}
+.mission-impact-card--hero:hover {
+  box-shadow: 0 24px 48px -6px rgba(225, 29, 72, 0.26), 0 12px 26px -4px rgba(244, 63, 94, 0.18);
+}
+
+/* Feature 3: Action Variant */
+.mission-impact-card--3:hover {
+  box-shadow: 0 22px 42px -6px rgba(79, 70, 229, 0.24), 0 10px 20px -4px rgba(99, 102, 241, 0.16);
+}
+
+/* Animated Corner Accent Badge */
+.mission-beacon-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-beacon-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mission-impact-card:hover .mission-beacon-ring {
+  animation: missionBeaconRing 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.mission-stat-pill {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mission-impact-card:hover .mission-stat-pill {
+  animation: missionCounterFloat 2s ease-in-out infinite;
 }

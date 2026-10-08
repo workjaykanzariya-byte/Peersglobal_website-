@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Search,
   ArrowRight,
@@ -324,22 +325,23 @@ export function StoriesPageClient() {
                 </div>
 
                 <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                  <a
+                  <GalaxyButton
                     href="#stories-feed"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Explore Peer Stories</span>
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                  </a>
+                    Explore Peer Stories
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
+                    variant="transparent-light"
+                    size="md"
                   >
-                    <span>Open Unity App</span>
-                  </a>
+                    Open Unity App
+                  </GalaxyButton>
                 </div>
               </div>
 
@@ -908,22 +910,24 @@ export function StoriesPageClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Open Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  Open Unity App
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  variant="transparent"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Apply for Membership →</span>
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
               </div>
             </div>
 

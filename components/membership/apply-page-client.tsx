@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -572,26 +573,28 @@ export function ApplyPageClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
-                <a
+                <GalaxyButton
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download on App Store</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  Download on App Store
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://play.google.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Get it on Google Play</span>
-                </a>
+                  Get it on Google Play
+                </GalaxyButton>
               </div>
             </div>
 

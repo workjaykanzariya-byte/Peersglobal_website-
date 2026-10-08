@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { Sparkles, ArrowRight, Smartphone, ShieldCheck } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
+import { GalaxyButton } from '@/components/ui/galaxy-button'
+
 export function AppFeatureBanner({
   title = 'Run your Circle & Referrals on Unity App',
   description = 'Access verified member directory, real-time referral ledger, meeting attendance logs, and 1-to-1 pairing directly from your mobile device.',
@@ -43,13 +45,14 @@ export function AppFeatureBanner({
         </div>
 
         <div className="flex shrink-0 flex-wrap items-center gap-3">
-          <Link
+          <GalaxyButton
             href="/unity"
-            className="inline-flex items-center gap-2 rounded-full bg-white text-[#1D4ED8] px-6 py-3.5 text-sm font-extrabold hover:bg-slate-100 active:scale-95 transition-all shadow-lg"
+            variant="transparent-light"
+            size="default"
+            className="font-extrabold"
           >
             Explore Unity App
-            <ArrowRight className="size-4" />
-          </Link>
+          </GalaxyButton>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -240,27 +241,31 @@ export function InvestorsPageClient() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-                  <a
+                  <GalaxyButton
                     href="#investor-enquiry"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Investor Enquiry</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                    Investor Enquiry
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#the-model"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                    variant="transparent-light"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>The Model</span>
-                  </a>
+                    The Model
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#investment-principles"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-700 px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase cursor-pointer"
+                    variant="transparent-light"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>Principles</span>
-                  </a>
+                    Principles
+                  </GalaxyButton>
                 </div>
 
                 {/* Quick Info Bar */}
@@ -1004,19 +1009,15 @@ export function InvestorsPageClient() {
                   <p className="text-xs text-slate-500">
                     Confidential &amp; governed disclosure protocol strictly applied.
                   </p>
-                  <button
+                  <GalaxyButton
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 uppercase tracking-wider shrink-0 disabled:opacity-50 cursor-pointer"
+                    variant="primary"
+                    size="md"
+                    className="w-full sm:w-auto"
                   >
-                    {isSubmitting ? (
-                      'Transmitting Enquiry...'
-                    ) : (
-                      <>
-                        Submit Investor Enquiry <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                    {isSubmitting ? 'Transmitting Enquiry...' : 'Submit Investor Enquiry'}
+                  </GalaxyButton>
                 </div>
               </form>
             )}
@@ -1069,31 +1070,35 @@ export function InvestorsPageClient() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider">
-            <a
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
+            <GalaxyButton
               href="#investor-enquiry"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all hover:-translate-y-0.5 active:scale-[0.98]"
+              variant="primary"
+              size="md"
             >
-              Investor Enquiry →
-            </a>
-            <Link
+              Investor Enquiry
+            </GalaxyButton>
+            <GalaxyButton
               href="/initiatives"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
+              variant="transparent"
+              size="md"
             >
-              Explore PEERS GLOBAL →
-            </Link>
-            <Link
+              Explore PEERS GLOBAL
+            </GalaxyButton>
+            <GalaxyButton
               href="/our-story"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
+              variant="transparent"
+              size="md"
             >
-              Read Our Story →
-            </Link>
-            <Link
+              Read Our Story
+            </GalaxyButton>
+            <GalaxyButton
               href="/founder"
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
+              variant="transparent"
+              size="md"
             >
-              Meet the Founder →
-            </Link>
+              Meet the Founder
+            </GalaxyButton>
           </div>
         </div>
       </section>

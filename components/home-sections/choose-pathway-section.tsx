@@ -17,14 +17,14 @@ const JOURNEY_STEPS: JourneyStep[] = [
     step: '01',
     title: 'Looking for business connections?',
     description: 'Find entrepreneurs who understand what you are building and turn relationships into action.',
-    image: '/images/unity-hero-phones.jpg',
+    image: '/images/unity-creatives/Post 2.png',
     link: '/circles/find',
   },
   {
     step: '02',
     title: 'Want to learn & contribute?',
     description: 'Move beyond theory. Learn from lived experience and share what you know with fellow peers.',
-    image: '/images/circle-meeting.png',
+    image: '/images/section_image/circle-meeting.png',
     link: '/circles/find',
   },
   {

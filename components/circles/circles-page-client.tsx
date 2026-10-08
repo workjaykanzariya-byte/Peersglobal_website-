@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Factory,
   Building2,
@@ -386,20 +387,22 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
+                <GalaxyButton
                   onClick={() => scrollToExplore()}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Find a Circle Near You</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                  Find a Circle Near You
+                </GalaxyButton>
 
-                <button
+                <GalaxyButton
                   onClick={() => setIsGuestModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300 cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Visit as a Guest</span>
-                </button>
+                  Visit as a Guest
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -533,7 +536,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="pt-10 border-t border-slate-100">
             <div className="text-left max-w-3xl mb-10">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE 4-PART EXPERIENCE</span>
               </div>
               <h3 className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight leading-tight text-slate-950 mb-3">
@@ -697,7 +699,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           
           {/* Eyebrow: — TRUSTED & FOCUSED — */}
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">TRUSTED & FOCUSED</span>
           </div>
 
@@ -773,7 +774,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND THE RIGHT FIT</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-950 tracking-tight leading-tight">
@@ -870,7 +870,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div>
             <div className="text-left max-w-3xl mb-10">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">PARTICIPATION & RECIPROCITY</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight leading-tight text-slate-950 mb-3">
@@ -955,7 +954,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">GUEST PROTOCOL</span>
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
@@ -996,7 +994,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-rose-50/40 border border-rose-200/80 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-rose-600 rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-rose-700">CIRCLE BOUNDARIES</span>
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
@@ -1050,7 +1047,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 space-y-8">
             <div className="max-w-3xl">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">CONTINUOUS ENGAGEMENT</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
@@ -1173,7 +1169,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
             <div className="text-left max-w-2xl">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">EXPLORE CIRCLES</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-2 text-slate-950">
@@ -1430,7 +1425,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           
           <div className="text-left mb-12">
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT MAKES A CIRCLE DIFFERENT</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-slate-950">
@@ -1552,7 +1546,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             {/* Left Content (8 cols) */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   YOUR NEXT CIRCLE
                 </span>
@@ -1571,22 +1564,24 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <button
+                <GalaxyButton
                   onClick={() => scrollToExplore()}
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                  Find Your Circle
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Download the Unity App</span>
-                </a>
+                  Download the Unity App
+                </GalaxyButton>
               </div>
 
               <div className="pt-2 text-xs text-slate-400">

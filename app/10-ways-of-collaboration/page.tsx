@@ -429,8 +429,7 @@ export default function TenWaysOfCollaborationPage() {
 
             {/* Left Story Column */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="h-[1.5px] w-6 bg-[#0062D2]" />
+              <div className="flex items-center mb-3">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Our Belief
                 </span>
@@ -549,11 +548,9 @@ export default function TenWaysOfCollaborationPage() {
 
           {/* Centered Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14">
-            {/* Eyebrow with horizontal line dashes */}
-            <div className="inline-flex items-center justify-center gap-3 text-xs sm:text-[13px] font-bold tracking-[0.22em] uppercase mb-3">
-              <span className="w-7 h-[1.5px] bg-[#0062D2]/80" />
+            {/* Eyebrow */}
+            <div className="inline-flex items-center justify-center text-xs sm:text-[13px] font-bold tracking-[0.22em] uppercase mb-3">
               <span className="brand-gradient-text">10 WAYS TO COLLABORATE</span>
-              <span className="w-7 h-[1.5px] bg-[#0062D2]/80" />
             </div>
 
             {/* Main Title: Stronger Together with curved blue swoosh */}
@@ -721,8 +718,7 @@ export default function TenWaysOfCollaborationPage() {
 
             {/* Left Headline */}
             <div className="lg:col-span-7">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="h-[1.5px] w-5 bg-sky-400" />
+              <div className="flex items-center mb-3">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   A Stronger Tomorrow
                 </span>
@@ -784,8 +780,7 @@ export default function TenWaysOfCollaborationPage() {
             {/* ──────── LEFT COLUMN: Narrative, CTAs, 3 Metrics & Quote (5 cols) ──────── */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               {/* Eyebrow */}
-              <div className="flex items-center gap-2 mb-3">
-                <span className="h-[1.5px] w-6 bg-[#0062D2]" />
+              <div className="flex items-center mb-3">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Built for Real Entrepreneurs
                 </span>
@@ -1005,12 +1000,10 @@ export default function TenWaysOfCollaborationPage() {
         <div className="absolute top-1/3 right-1/4 size-2 rounded-full bg-white/30 pointer-events-none" />
 
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="h-[1.5px] w-5 bg-white/70" />
+          <div className="flex items-center justify-center mb-4">
             <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
               The Next Step
             </span>
-            <span className="h-[1.5px] w-5 bg-white/70" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight leading-tight">

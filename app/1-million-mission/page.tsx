@@ -232,7 +232,6 @@ export default function OneMillionMissionPage() {
           <div className="space-y-8">
             <div className="max-w-4xl space-y-3">
               <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">THE NUMBER THAT MATTERS</span>
               </div>
 
@@ -330,7 +329,6 @@ export default function OneMillionMissionPage() {
               {/* Left Column: Heading & Core Narrative */}
               <div className="lg:col-span-6 space-y-6">
                 <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="brand-gradient-text">WHY ONE MILLION?</span>
                 </div>
 
@@ -393,9 +391,7 @@ export default function OneMillionMissionPage() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="brand-gradient-text">THE IMPACT PRINCIPLE</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-950 tracking-tight leading-[1.15]">
@@ -451,9 +447,7 @@ export default function OneMillionMissionPage() {
           <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-3">
               <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">THE ARCHITECTURE</span>
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950">
                 How the Mission Is Built
@@ -487,7 +481,6 @@ export default function OneMillionMissionPage() {
           <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 space-y-6 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="brand-gradient-text">COMPOUNDING CONTRIBUTION</span>
             </div>
 
@@ -520,7 +513,6 @@ export default function OneMillionMissionPage() {
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">TRANSFORMATION</span>
               </div>
 
@@ -594,7 +586,6 @@ export default function OneMillionMissionPage() {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">YOUR PART IN IT</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-950">
@@ -629,7 +620,6 @@ export default function OneMillionMissionPage() {
           <div className="space-y-6">
             <div className="max-w-3xl space-y-2.5">
               <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">THE PURPOSE</span>
               </div>
 
@@ -743,7 +733,6 @@ export default function OneMillionMissionPage() {
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">THE COLLECTIVE PLEDGE</span>
               </div>
 
@@ -785,9 +774,7 @@ export default function OneMillionMissionPage() {
             <div className="absolute -bottom-24 -right-24 size-60 rounded-full bg-rose-500/10 blur-3xl pointer-events-none" />
 
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="brand-gradient-text">JOIN THE MOVEMENT</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h3 className="font-serif text-3xl sm:text-5xl font-bold text-slate-950 tracking-tight leading-[1.12]">

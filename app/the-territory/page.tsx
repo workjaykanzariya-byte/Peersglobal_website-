@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   Download,
@@ -133,7 +134,7 @@ const LAYER_MATRIX = [
 export default function TheTerritoryPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
-      
+
       {/* =========================================================================
           1. HERO SECTION (Local to Global with Phone & Progression Pipeline)
           ========================================================================= */}
@@ -192,21 +193,23 @@ export default function TheTerritoryPage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="font-semibold"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Download Unity App
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/circles"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Find Your Circle</span>
-                </Link>
+                  Find Your Circle
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -276,10 +279,10 @@ export default function TheTerritoryPage() {
 
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            
+
             {/* Left Visual: Video Container with Badges, Cursive Text, and Dark Stats Pill */}
             <div className="lg:col-span-6 relative pb-10">
-              
+
               {/* Main Video Frame with Smooth Rounded Corners and Soft Glow */}
               <div className="relative aspect-[16/11] rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-slate-100/80 bg-slate-950">
                 <video
@@ -291,32 +294,6 @@ export default function TheTerritoryPage() {
                 >
                   <source src="/videos/leadership-hero-bg.mp4" type="video/mp4" />
                 </video>
-
-                {/* Top-Left Floating Cursive Accent */}
-                <div className="absolute top-6 left-7 z-10 select-none pointer-events-none transform -rotate-6">
-                  <div
-                    className="text-[26px] sm:text-[32px] text-white/95 leading-[1.08] font-serif italic drop-shadow-md"
-                    style={{ fontFamily: 'Caveat, "Playfair Display", Georgia, cursive, serif' }}
-                  >
-                    <div>Stronger</div>
-                    <div>Tomorrow</div>
-                    <div>Together</div>
-                  </div>
-                  <svg className="w-28 h-5 text-white/80 overflow-visible mt-0.5" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 14C35 4 80 4 115 15" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"/>
-                  </svg>
-                </div>
-
-                {/* Top-Right Spaced Brand Pillar Words */}
-                <div className="absolute top-6 right-7 z-10 select-none pointer-events-none text-right">
-                  <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/80 space-y-1 drop-shadow-xs">
-                    <div>PEOPLE</div>
-                    <div>IDEAS</div>
-                    <div>OPPORTUNITIES</div>
-                    <div>TOGETHER</div>
-                  </div>
-                </div>
-
                 {/* Atmospheric gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -374,9 +351,8 @@ export default function TheTerritoryPage() {
 
             {/* Right Column: Narrative & Clean Pill Feature Cards */}
             <div className="lg:col-span-6 flex flex-col justify-center">
-              {/* Eyebrow with Dash */}
+              {/* Eyebrow */}
               <div className="flex items-center gap-2.5 mb-3">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Why Structure Matters
                 </span>
@@ -386,9 +362,6 @@ export default function TheTerritoryPage() {
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0B1A38] tracking-tight leading-[1.14] mb-3">
                 A community without structure becomes a crowd.
               </h2>
-              
-              {/* Short Blue Accent Underline */}
-              <div className="w-12 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full mb-6" />
 
               <div className="space-y-4 text-slate-600 font-normal text-sm sm:text-base leading-relaxed mb-8">
                 <p>
@@ -408,8 +381,8 @@ export default function TheTerritoryPage() {
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-blue-200 transition-all">
                   <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-3">
                     <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                      <polyline points="9 22 9 12 15 12 15 22"/>
+                      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <polyline points="9 22 9 12 15 12 15 22" />
                     </svg>
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-900">Fixed Home</div>
@@ -420,11 +393,11 @@ export default function TheTerritoryPage() {
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-purple-200 transition-all">
                   <div className="size-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
                     <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                      <line x1="16" x2="16" y1="2" y2="6"/>
-                      <line x1="8" x2="8" y1="2" y2="6"/>
-                      <line x1="3" x2="21" y1="10" y2="10"/>
-                      <path d="m9 16 2 2 4-4"/>
+                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                      <line x1="16" x2="16" y1="2" y2="6" />
+                      <line x1="8" x2="8" y1="2" y2="6" />
+                      <line x1="3" x2="21" y1="10" y2="10" />
+                      <path d="m9 16 2 2 4-4" />
                     </svg>
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-900">Giving Rhythm</div>
@@ -435,10 +408,10 @@ export default function TheTerritoryPage() {
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-emerald-200 transition-all">
                   <div className="size-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
                     <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="15 3 21 3 21 9"/>
-                      <polyline points="9 21 3 21 3 15"/>
-                      <line x1="21" x2="14" y1="3" y2="10"/>
-                      <line x1="3" x2="10" y1="21" y2="14"/>
+                      <polyline points="15 3 21 3 21 9" />
+                      <polyline points="9 21 3 21 3 15" />
+                      <line x1="21" x2="14" y1="3" y2="10" />
+                      <line x1="3" x2="10" y1="21" y2="14" />
                     </svg>
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-slate-900">Open Scale</div>
@@ -446,7 +419,7 @@ export default function TheTerritoryPage() {
                 </div>
               </div>
 
-              {/* Bottom CTA Link & Handwritten Cursive Flourish */}
+              {/* Bottom CTA Link */}
               <div className="flex items-center justify-between pt-2">
                 <Link
                   href="/why-peers-global"
@@ -457,20 +430,6 @@ export default function TheTerritoryPage() {
                     <ArrowRight className="size-3.5" />
                   </div>
                 </Link>
-
-                {/* Right handwritten cursive text from mockup */}
-                <div className="select-none pointer-events-none transform -rotate-6 text-right hidden sm:block">
-                  <div
-                    className="text-[20px] xl:text-[24px] text-[#0062D2]/75 leading-none font-serif italic"
-                    style={{ fontFamily: 'Caveat, "Playfair Display", Georgia, cursive, serif' }}
-                  >
-                    <div>Same People.</div>
-                    <div>Bigger Possibilities.</div>
-                  </div>
-                  <svg className="w-24 h-3 ml-auto text-[#0062D2]/50 overflow-visible mt-0.5" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 8C30 2 65 2 95 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                </div>
               </div>
 
             </div>
@@ -491,18 +450,13 @@ export default function TheTerritoryPage() {
         <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-gradient-to-tr from-blue-600/15 via-transparent to-transparent blur-3xl pointer-events-none -z-10" />
 
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
+
             {/* ──────── COLUMN 1: Headline, Narrative, CTAs & Quote Card (lg:col-span-4) ──────── */}
             <div className="lg:col-span-4 flex flex-col justify-center">
-              {/* Badge 01 THE CIRCLE */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5 self-start backdrop-blur-md">
-                <span className="size-5 rounded-full bg-blue-500/20 text-blue-300 flex items-center justify-center font-bold text-[10px]">
-                  01
-                </span>
-                <span>THE CIRCLE</span>
-              </div>
+              
+
 
               {/* H2 Title with Neon Blue Gradient Accent */}
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white leading-[1.12] mb-5">
@@ -518,19 +472,21 @@ export default function TheTerritoryPage() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 mb-8">
-                <Link
+                <GalaxyButton
                   href="/circles"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Explore All Circles</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <Link
+                  Explore All Circles
+                </GalaxyButton>
+                <GalaxyButton
                   href="/circle-meeting-experience"
-                  className="inline-flex items-center rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:border-white/30"
+                  variant="transparent"
+                  size="default"
+                  className="font-semibold"
                 >
                   How a Circle Meeting Works
-                </Link>
+                </GalaxyButton>
               </div>
 
               {/* Quote Glass Card */}
@@ -594,7 +550,7 @@ export default function TheTerritoryPage() {
 
             {/* ──────── COLUMN 2: Central Video Showcase (lg:col-span-4) ──────── */}
             <div className="lg:col-span-4 relative flex items-center justify-center py-4">
-              
+
               {/* Outer frame container matching user reference */}
               <div className="relative aspect-[3/4] w-full max-w-[420px] rounded-[36px] overflow-hidden border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.5)] bg-slate-900">
                 <video
@@ -606,28 +562,6 @@ export default function TheTerritoryPage() {
                 >
                   <source src="/videos/leadership-hero-bg.mp4" type="video/mp4" />
                 </video>
-
-                {/* Subtle top/bottom dark gradients for readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
-
-                {/* Top-Left Spaced Text: STRONGER TOMORROW TOGETHER */}
-                <div className="absolute top-6 left-6 z-10 select-none pointer-events-none">
-                  <div className="text-[10px] tracking-[0.2em] uppercase font-bold text-white/80 space-y-0.5 drop-shadow-sm">
-                    <div>STRONGER</div>
-                    <div>TOMORROW</div>
-                    <div>TOGETHER</div>
-                  </div>
-                </div>
-
-                {/* Top-Right Spaced Words: PEOPLE / IDEAS / OPPORTUNITIES / TOGETHER */}
-                <div className="absolute top-6 right-6 z-10 select-none pointer-events-none text-right">
-                  <div className="text-[10px] tracking-[0.2em] uppercase font-bold text-white/80 space-y-0.5 drop-shadow-sm">
-                    <div>PEOPLE</div>
-                    <div>IDEAS</div>
-                    <div>OPPORTUNITIES</div>
-                    <div>TOGETHER</div>
-                  </div>
-                </div>
 
                 {/* Floating Bottom Badge: Real Conversations. Real Opportunities. */}
                 <div className="absolute bottom-6 left-6 right-6 z-20 rounded-2xl bg-black/75 backdrop-blur-md p-3.5 border border-white/15 flex items-center justify-between shadow-2xl">
@@ -647,24 +581,11 @@ export default function TheTerritoryPage() {
                   <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
                 </div>
               </div>
-
-              {/* Handwritten Cursive Flourish on Bottom-Right of Video */}
-              <div className="absolute -bottom-6 right-0 z-20 select-none pointer-events-none transform -rotate-6 hidden sm:block">
-                <div
-                  className="text-[26px] text-white/90 leading-none font-serif italic drop-shadow-md"
-                  style={{ fontFamily: 'Caveat, "Playfair Display", Georgia, cursive, serif' }}
-                >
-                  More Than Meetings
-                </div>
-                <svg className="w-28 h-3 text-blue-400/80 overflow-visible mt-0.5" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 8C35 2 85 2 115 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </div>
             </div>
 
             {/* ──────── COLUMN 3: 5 Dark Feature Cards with Hover Effects (lg:col-span-4) ──────── */}
             <div className="lg:col-span-4 flex flex-col gap-3 relative">
-              
+
               {/* Curve line connector decorative element */}
               <div className="hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 w-6 h-full pointer-events-none opacity-20">
                 <svg className="h-full w-6" viewBox="0 0 24 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -674,8 +595,8 @@ export default function TheTerritoryPage() {
               </div>
 
               {/* 1. The Right People */}
-              <div className="p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-blue-500/40 transition-all flex items-center justify-between group cursor-pointer">
-                <div className="flex items-center gap-3.5">
+              <div className="relative rounded-2xl p-4 transition-all flex items-center justify-between group cursor-pointer bg-white/5 border border-white/10 hover:border-blue-500/40 hover:bg-white/10 shadow-md hover:-translate-y-0.5 backdrop-blur-md">
+                <div className="flex items-center gap-3.5 relative z-10">
                   <div className="size-11 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <Users2 className="size-5" />
                   </div>
@@ -688,19 +609,19 @@ export default function TheTerritoryPage() {
                     </div>
                   </div>
                 </div>
-                <ChevronRight className="size-4 text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                <ChevronRight className="size-4 text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all shrink-0 ml-2 relative z-10" />
               </div>
 
               {/* 2. A Fixed Rhythm */}
-              <div className="p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-purple-500/40 transition-all flex items-center justify-between group cursor-pointer">
-                <div className="flex items-center gap-3.5">
+              <div className="relative rounded-2xl p-4 transition-all flex items-center justify-between group cursor-pointer bg-white/5 border border-white/10 hover:border-purple-500/40 hover:bg-white/10 shadow-md hover:-translate-y-0.5 backdrop-blur-md">
+                <div className="flex items-center gap-3.5 relative z-10">
                   <div className="size-11 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                      <line x1="16" x2="16" y1="2" y2="6"/>
-                      <line x1="8" x2="8" y1="2" y2="6"/>
-                      <line x1="3" x2="21" y1="10" y2="10"/>
-                      <path d="m9 16 2 2 4-4"/>
+                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                      <line x1="16" x2="16" y1="2" y2="6" />
+                      <line x1="8" x2="8" y1="2" y2="6" />
+                      <line x1="3" x2="21" y1="10" y2="10" />
+                      <path d="m9 16 2 2 4-4" />
                     </svg>
                   </div>
                   <div>
@@ -712,12 +633,12 @@ export default function TheTerritoryPage() {
                     </div>
                   </div>
                 </div>
-                <ChevronRight className="size-4 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                <ChevronRight className="size-4 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all shrink-0 ml-2 relative z-10" />
               </div>
 
               {/* 3. A Structure for Giving */}
-              <div className="p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-500/40 transition-all flex items-center justify-between group cursor-pointer">
-                <div className="flex items-center gap-3.5">
+              <div className="relative rounded-2xl p-4 transition-all flex items-center justify-between group cursor-pointer bg-white/5 border border-white/10 hover:border-emerald-500/40 hover:bg-white/10 shadow-md hover:-translate-y-0.5 backdrop-blur-md">
+                <div className="flex items-center gap-3.5 relative z-10">
                   <div className="size-11 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <Sparkles className="size-5" />
                   </div>
@@ -730,12 +651,12 @@ export default function TheTerritoryPage() {
                     </div>
                   </div>
                 </div>
-                <ChevronRight className="size-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                <ChevronRight className="size-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all shrink-0 ml-2 relative z-10" />
               </div>
 
               {/* 4. Continuity Inside the Unity App */}
-              <div className="p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-500/40 transition-all flex items-center justify-between group cursor-pointer">
-                <div className="flex items-center gap-3.5">
+              <div className="relative rounded-2xl p-4 transition-all flex items-center justify-between group cursor-pointer bg-white/5 border border-white/10 hover:border-cyan-500/40 hover:bg-white/10 shadow-md hover:-translate-y-0.5 backdrop-blur-md">
+                <div className="flex items-center gap-3.5 relative z-10">
                   <div className="size-11 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <Smartphone className="size-5" />
                   </div>
@@ -748,12 +669,12 @@ export default function TheTerritoryPage() {
                     </div>
                   </div>
                 </div>
-                <ChevronRight className="size-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                <ChevronRight className="size-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0 ml-2 relative z-10" />
               </div>
 
               {/* 5. Leadership from Within */}
-              <div className="p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-amber-500/40 transition-all flex items-center justify-between group cursor-pointer">
-                <div className="flex items-center gap-3.5">
+              <div className="relative rounded-2xl p-4 transition-all flex items-center justify-between group cursor-pointer bg-white/5 border border-white/10 hover:border-amber-500/40 hover:bg-white/10 shadow-md hover:-translate-y-0.5 backdrop-blur-md">
+                <div className="flex items-center gap-3.5 relative z-10">
                   <div className="size-11 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                     <ShieldCheck className="size-5" />
                   </div>
@@ -766,7 +687,7 @@ export default function TheTerritoryPage() {
                     </div>
                   </div>
                 </div>
-                <ChevronRight className="size-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                <ChevronRight className="size-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all shrink-0 ml-2 relative z-10" />
               </div>
 
               {/* Bottom Right World Vector & Tag (From Mockup) */}
@@ -790,7 +711,7 @@ export default function TheTerritoryPage() {
           4. 02 THE CITY (Where your Circle becomes a network) - Full Width Panoramic Fade
           ========================================================================= */}
       <section className="relative overflow-hidden bg-white border-b border-slate-100 py-16 sm:py-24 lg:py-28">
-        
+
         {/* Right Half: Video with Seamless Horizontal White Gradient Fade */}
         <div className="absolute top-0 right-0 bottom-0 w-full lg:w-3/5 h-full z-0 overflow-hidden pointer-events-none select-none">
           {/* Background Video directly without poster banner */}
@@ -809,31 +730,6 @@ export default function TheTerritoryPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 via-20% to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent lg:hidden" />
 
-          {/* Top-Right Handwritten Script: Stronger Cities Together */}
-          <div className="hidden lg:block absolute top-8 right-10 xl:right-16 z-10 select-none text-right transform -rotate-6">
-            <div
-              className="text-[30px] xl:text-[36px] text-white font-serif italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] tracking-wide"
-              style={{ fontFamily: 'Caveat, "Playfair Display", Georgia, cursive, serif' }}
-            >
-              <div>Stronger</div>
-              <div>Cities</div>
-              <div>Together</div>
-            </div>
-            <svg className="w-36 h-5 ml-auto text-blue-500/90 overflow-visible mt-0.5 drop-shadow-sm" viewBox="0 0 140 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 14C45 4 95 4 135 15" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-            </svg>
-          </div>
-
-          {/* Right Pillar Capital Words: PEOPLE / IDEAS / OPPORTUNITIES / GROWTH */}
-          <div className="hidden lg:block absolute top-36 right-10 xl:right-16 z-10 select-none text-right">
-            <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/90 space-y-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-              <div>PEOPLE</div>
-              <div>IDEAS</div>
-              <div>OPPORTUNITIES</div>
-              <div>GROWTH</div>
-            </div>
-          </div>
-
           {/* Floating Ahmedabad City Badge on Right */}
           <div className="hidden md:flex absolute bottom-28 right-8 xl:right-16 z-10 rounded-2xl bg-white/95 backdrop-blur-md p-4 shadow-2xl border border-slate-100 items-center gap-3.5 max-w-[270px] pointer-events-auto hover:scale-105 transition-transform">
             <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
@@ -849,747 +745,692 @@ export default function TheTerritoryPage() {
             </div>
             <ArrowRight className="size-4 text-slate-400" />
           </div>
-
-          {/* Bottom Right Handwritten Script: SAME CITY. BIGGER POSSIBILITIES. */}
-          <div className="hidden lg:block absolute bottom-12 right-12 xl:right-20 z-10 select-none text-right">
-            <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-              SAME CITY.
-            </div>
-            <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] mt-0.5">
-              BIGGER POSSIBILITIES.
-            </div>
-            <div className="w-12 h-0.5 bg-white/90 ml-auto mt-1" />
-          </div>
         </div>
 
         {/* Content Container (Foreground Left Side) */}
         <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-2xl">
-            
-            {/* Badge 02 THE CITY */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200/80 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2] mb-5 shadow-2xs">
-              <span className="size-5 rounded-full bg-blue-100 text-[#0062D2] flex items-center justify-center font-bold text-[10px]">
-                02
-              </span>
-              <span>THE CITY</span>
-            </div>
 
-            {/* Headline with Blue Gradient Accent on 'network.' */}
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-[56px] font-bold text-[#0B1A38] tracking-tight leading-[1.1] mb-5">
-              Where your Circle becomes a{' '}
-              <span className="brand-gradient-text">
-                network.
-              </span>
-            </h2>
-
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8 max-w-xl">
-              One Circle gives you a room. A City gives you a network. As Circles grow within a city, Peers gain access far beyond their own meeting. A manufacturer in one Circle can reach a logistics Peer in another. A Peer entering a new segment can find someone across town who already serves it.
-            </p>
-
-            {/* 2-Column Grid of 5 Features (Matching Mockup) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-9 max-w-xl">
-              
-              {/* Feature 1: Access to Peers across every Circle */}
-              <div className="flex items-start gap-3">
-                <div className="size-10 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
-                  <Users2 className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                    Access to Peers across every Circle
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">
-                    Connect with entrepreneurs in your city
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature 2: Cross-Circle introductions */}
-              <div className="flex items-start gap-3">
-                <div className="size-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 shadow-2xs">
-                  <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="18" cy="5" r="3"/>
-                    <circle cx="6" cy="12" r="3"/>
-                    <circle cx="18" cy="19" r="3"/>
-                    <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
-                    <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                    Cross-Circle introductions
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">
-                    Collaborations and opportunities
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature 3: City-level meetings and events */}
-              <div className="flex items-start gap-3">
-                <div className="size-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 shadow-2xs">
-                  <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                    <line x1="16" x2="16" y1="2" y2="6"/>
-                    <line x1="8" x2="8" y1="2" y2="6"/>
-                    <line x1="3" x2="21" y1="10" y2="10"/>
-                    <path d="m9 16 2 2 4-4"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                    City-level meetings and events
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">
-                    Learning sessions and celebrations
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature 4: Local leadership */}
-              <div className="flex items-start gap-3">
-                <div className="size-10 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 shadow-2xs">
-                  <ShieldCheck className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                    Local leadership
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">
-                    Peers who know your market
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature 5: A route into a new Circle */}
-              <div className="flex items-start gap-3 sm:col-span-2">
-                <div className="size-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs">
-                  <MapPin className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                    A route into a new Circle
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">
-                    As your business changes
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Action Buttons: See Cities + Watch City Stories */}
-            <div className="flex items-center gap-4 flex-wrap">
-              <Link
-                href="/circles"
-                className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
-              >
-                <span>See Cities</span>
-                <ArrowRight className="size-4" />
-              </Link>
-
-              <Link
-                href="/video-stories"
-                className="inline-flex items-center gap-3 px-4 py-2 text-slate-700 hover:text-[#0062D2] transition-colors group"
-              >
-                <div className="size-10 rounded-full border border-blue-200 bg-blue-50/80 text-[#0062D2] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#0062D2] group-hover:text-white transition-all shadow-xs">
-                  <svg className="size-4 ml-0.5 fill-current" viewBox="0 0 24 24">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <div className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                    WATCH
-                  </div>
-                  <div className="text-xs font-bold text-slate-900 group-hover:text-[#0062D2]">
-                    City Stories
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          5. 3-TIER EXPANSION GRID (03 District, 04 State, 05 Country)
-          ========================================================================= */}
-      <section className="py-20 sm:py-28 bg-[#F7FAFE] border-b border-slate-100 relative overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            
-            {/* Card 03: THE DISTRICT */}
-            <div className="rounded-3xl bg-white p-7 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2">
-                    <span className="size-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">
-                      03
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">
-                      THE DISTRICT
-                    </span>
-                  </div>
-                  <div className="size-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                    <MapPin className="size-4" />
-                  </div>
+                {/* Badge 02 THE CITY */}
+                <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200/80 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2] mb-5 shadow-2xs">
+                  <span>THE CITY</span>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3">
-                  Cities that grow together.
-                </h3>
+                {/* Headline with Blue Gradient Accent on 'network.' */}
+                <h2 className="font-serif text-3xl sm:text-5xl lg:text-[56px] font-bold text-[#0B1A38] tracking-tight leading-[1.1] mb-5">
+                  Where your Circle becomes a{' '}
+                  <span className="brand-gradient-text">
+                    network.
+                  </span>
+                </h2>
 
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
-                  Business does not respect city limits. A Peer sells into three cities, sources from a fourth and hires from a fifth. The District exists so the community works the way business already does.
+                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8 max-w-xl">
+                  One Circle gives you a room. A City gives you a network. As Circles grow within a city, Peers gain access far beyond their own meeting. A manufacturer in one Circle can reach a logistics Peer in another. A Peer entering a new segment can find someone across town who already serves it.
                 </p>
 
-                <div className="rounded-xl bg-emerald-50/60 border border-emerald-100/70 p-3 mb-6">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-800">
-                    District Leadership
-                  </div>
-                  <div className="text-[11px] text-emerald-900 mt-0.5 leading-snug">
-                    Led by a District Executive Director, with multiple Area Executive Directors beneath them.
-                  </div>
-                </div>
-              </div>
+                {/* 2-Column Grid of 5 Features (Matching Mockup) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-9 max-w-xl">
 
-              <Link
-                href="/circles"
-                className="inline-flex items-center justify-between w-full rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
-              >
-                <span>Explore Districts</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-            </div>
-
-            {/* Card 04: THE STATE */}
-            <div className="rounded-3xl bg-white p-7 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2">
-                    <span className="size-6 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs">
-                      04
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">
-                      THE STATE
-                    </span>
-                  </div>
-                  <div className="size-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-                    <Compass className="size-4" />
-                  </div>
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3">
-                  Regional scale.
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
-                  State-level retreats, conclaves and gatherings. Access to Peers across every district and city in the state. Expand distribution and unlock statewide cross-industry collaboration.
-                </p>
-
-                <div className="rounded-xl bg-amber-50/60 border border-amber-100/70 p-3 mb-6">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-amber-800">
-                    State Leadership
-                  </div>
-                  <div className="text-[11px] text-amber-900 mt-0.5 leading-snug">
-                    Led by a State Executive Director driving regional alliances.
-                  </div>
-                </div>
-              </div>
-
-              <Link
-                href="/circles"
-                className="inline-flex items-center justify-between w-full rounded-full bg-amber-600 hover:bg-amber-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
-              >
-                <span>Explore States</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-            </div>
-
-            {/* Card 05: THE COUNTRY */}
-            <div className="rounded-3xl bg-white p-7 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2">
-                    <span className="size-6 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-xs">
-                      05
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-rose-600">
-                      THE COUNTRY
-                    </span>
-                  </div>
-                  <div className="size-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
-                    <Award className="size-4" />
-                  </div>
-                </div>
-
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3">
-                  A national community
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
-                  At the country level, Peers Global becomes a national movement. A Country brings together every District, every City and every Circle within one nation. Where scale creates opportunities no single Circle could produce.
-                </p>
-
-                <div className="rounded-xl bg-rose-50/60 border border-rose-100/70 p-3 mb-6">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-rose-800">
-                    National Leadership
-                  </div>
-                  <div className="text-[11px] text-rose-900 mt-0.5 leading-snug">
-                    National leadership that represents the community and protects its culture.
-                  </div>
-                </div>
-              </div>
-
-              <Link
-                href="/circles"
-                className="inline-flex items-center justify-between w-full rounded-full bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
-              >
-                <span>Peers Global India</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          6. 06 GLOBAL (Local roots. Global reach.) - Deep Cosmic Theme
-          ========================================================================= */}
-      <section
-        className="relative overflow-hidden text-white py-20 sm:py-28 border-b border-white/10"
-        style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
-      >
-        
-        {/* Deep ambient galaxy radial light */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[900px] rounded-full bg-gradient-to-tr from-[#0062D2]/20 via-[#0B7DFE]/10 to-transparent blur-3xl pointer-events-none -z-10" />
-
-        {/* Right Half: Earth Globe Visual Container with Connected Network Lines */}
-        <div className="absolute top-0 right-0 bottom-0 w-full lg:w-3/5 h-full z-0 overflow-hidden pointer-events-none select-none">
-          <div className="relative w-full h-full">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover object-center"
-            >
-              <source src="/videos/global-earth-hd.mp4" type="video/mp4" />
-            </video>
-            {/* Seamless dark cosmic gradient fade to the left */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#020B1C] via-[#020B1C]/75 via-25% to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020B1C]/60 via-transparent to-transparent lg:hidden" />
-          </div>
-
-          {/* Top-Right Handwritten Script: People Ideas Opportunities Together */}
-          <div className="hidden lg:block absolute top-8 right-10 xl:right-16 z-10 select-none text-right transform -rotate-6">
-            <div
-              className="text-[28px] xl:text-[34px] text-white/90 font-serif italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] tracking-wide"
-              style={{ fontFamily: 'Caveat, "Playfair Display", Georgia, cursive, serif' }}
-            >
-              <div>People</div>
-              <div>Ideas</div>
-              <div>Opportunities</div>
-              <div>Together</div>
-            </div>
-            <svg className="w-36 h-5 ml-auto text-blue-400/90 overflow-visible mt-0.5 drop-shadow-sm" viewBox="0 0 140 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 14C45 4 95 4 135 15" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-            </svg>
-          </div>
-
-
-
-          {/* Bottom Right Handwritten Script: SAME COMMUNITY. BIGGER POSSIBILITIES. */}
-          <div className="hidden lg:block absolute bottom-12 right-12 xl:right-16 z-10 select-none text-right">
-            <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-              SAME COMMUNITY.
-            </div>
-            <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] mt-0.5">
-              BIGGER POSSIBILITIES.
-            </div>
-            <div className="w-12 h-0.5 bg-white/70 ml-auto mt-1" />
-          </div>
-        </div>
-
-        {/* Foreground Content (Left Column) */}
-        <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-2xl">
-            
-            {/* Badge 06 GLOBAL */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/15 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5 backdrop-blur-md shadow-2xs">
-              <span className="size-5 rounded-full bg-blue-500/20 text-blue-300 flex items-center justify-center font-bold text-[10px]">
-                06
-              </span>
-              <span>GLOBAL</span>
-            </div>
-
-            {/* Headline with Blue Gradient Accent on 'Global' */}
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-[58px] font-bold text-white tracking-tight leading-[1.08] mb-5">
-              Local roots.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#1D4ED8] to-[#E11D48]">
-                Global
-              </span>{' '}
-              reach.
-            </h2>
-
-            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed mb-9 max-w-xl">
-              The final layer connects every country into one community. Peers Global is designed from the start to cross borders, because the entrepreneurs inside it do. A Peer looking to export, source, expand or partner internationally can find someone on the other side who already understands the market.
-            </p>
-
-            {/* 2-Column Grid of 6 Circular Icon Feature Items (Matching Mockup) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 mb-10 max-w-xl">
-              
-              {/* Item 1: Access to Peers across countries */}
-              <div className="flex items-center gap-3.5">
-                <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
-                  <Globe className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-white leading-snug">
-                    Access to Peers across
-                  </div>
-                  <div className="text-[11px] text-slate-400">
-                    countries and continents
-                  </div>
-                </div>
-              </div>
-
-              {/* Item 2: Global events and summit */}
-              <div className="flex items-center gap-3.5">
-                <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
-                  <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                    <line x1="16" x2="16" y1="2" y2="6"/>
-                    <line x1="8" x2="8" y1="2" y2="6"/>
-                    <line x1="3" x2="21" y1="10" y2="10"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-white leading-snug">
-                    Global events
-                  </div>
-                  <div className="text-[11px] text-slate-400">
-                    and the annual summit
-                  </div>
-                </div>
-              </div>
-
-              {/* Item 3: International market entry */}
-              <div className="flex items-center gap-3.5">
-                <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
-                  <Users2 className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-white leading-snug">
-                    International market entry
-                  </div>
-                  <div className="text-[11px] text-slate-400">
-                    through people, not agencies
-                  </div>
-                </div>
-              </div>
-
-              {/* Item 4: Worldwide standard */}
-              <div className="flex items-center gap-3.5">
-                <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
-                  <Star className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-white leading-snug">
-                    A worldwide standard
-                  </div>
-                  <div className="text-[11px] text-slate-400">
-                    of culture, structure and recognition
-                  </div>
-                </div>
-              </div>
-
-              {/* Item 5: Cross-border partnerships */}
-              <div className="flex items-center gap-3.5">
-                <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
-                  <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-white leading-snug">
-                    Cross-border partnerships,
-                  </div>
-                  <div className="text-[11px] text-slate-400">
-                    sourcing and distribution
-                  </div>
-                </div>
-              </div>
-
-              {/* Item 6: Local-to-global opportunity */}
-              <div className="flex items-center gap-3.5">
-                <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
-                  <TrendingUp className="size-5" />
-                </div>
-                <div>
-                  <div className="text-xs sm:text-sm font-bold text-white leading-snug">
-                    Local-to-global opportunity
-                  </div>
-                  <div className="text-[11px] text-slate-400">
-                    for every Peer, in every Circle
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Action Buttons: Explore Global Community + Watch Our Global Story */}
-            <div className="flex items-center gap-4 flex-wrap mb-10">
-              <Link
-                href="/circles"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
-              >
-                <span>Explore Global Community</span>
-                <ArrowRight className="size-4" />
-              </Link>
-
-              <Link
-                href="/video-stories"
-                className="inline-flex items-center gap-3 px-4 py-2 text-slate-200 hover:text-white transition-colors group"
-              >
-                <div className="size-10 rounded-full border border-blue-400/40 bg-blue-500/20 text-blue-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#0062D2] group-hover:text-white transition-all shadow-xs">
-                  <svg className="size-4 ml-0.5 fill-current" viewBox="0 0 24 24">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <div className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                    WATCH
-                  </div>
-                  <div className="text-xs font-bold text-white group-hover:text-blue-400">
-                    Our Global Story
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            {/* Bottom Bar: CONNECTING ENTREPRENEURS WITHOUT BORDERS */}
-            <div className="flex items-center gap-3 pt-6 border-t border-white/10 max-w-lg">
-              <div className="w-10 h-0.5 bg-blue-500" />
-              <div className="text-[10px] uppercase font-bold tracking-[0.25em] text-slate-400">
-                CONNECTING ENTREPRENEURS WITHOUT BORDERS
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* =========================================================================
-          8. GROWING THE TERRITORY (Be the reason your city is next)
-          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFCFF]/60 border-b border-slate-100 relative overflow-hidden">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Main Card Container */}
-          <div className="rounded-[32px] sm:rounded-[40px] bg-white border border-slate-200/80 p-8 sm:p-12 lg:p-16 shadow-[0_10px_40px_rgba(0,0,0,0.03)] relative overflow-hidden">
-            
-            {/* Top Row: Narrative, Watermark, and Quote */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start relative mb-14 lg:mb-16">
-              
-              {/* Left Column (Cols 1-6): Narrative & CTAs */}
-              <div className="lg:col-span-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2.5 mb-3.5">
-                    <span className="h-[2px] w-7 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                      Growing the Territory
-                    </span>
+                  {/* Feature 1: Access to Peers across every Circle */}
+                  <div className="flex items-start gap-3">
+                    <div className="size-10 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
+                      <Users2 className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        Access to Peers across every Circle
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        Connect with entrepreneurs in your city
+                      </div>
+                    </div>
                   </div>
 
-                  <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1A38] tracking-tight leading-[1.12] mb-5">
-                    Be the reason<br />
-                    your city is{' '}
-                    <span className="relative inline-block brand-gradient-text italic font-normal">
-                      next.
-                      <svg className="absolute -bottom-1.5 left-0 w-full h-3 text-[#1D4ED8] overflow-visible" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 8C30 3 70 3 98 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  {/* Feature 2: Cross-Circle introductions */}
+                  <div className="flex items-start gap-3">
+                    <div className="size-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 shadow-2xs">
+                      <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="18" cy="5" r="3" />
+                        <circle cx="6" cy="12" r="3" />
+                        <circle cx="18" cy="19" r="3" />
+                        <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+                        <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
                       </svg>
-                    </span>
-                  </h2>
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        Cross-Circle introductions
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        Collaborations and opportunities
+                      </div>
+                    </div>
+                  </div>
 
-                  <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-4 max-w-xl">
-                    Every Circle that exists today began because one entrepreneur decided to start it. Every city in the community began the same way. That is how Peers Global grows — not by opening branches, but by entrepreneurs choosing to build a room where none existed.
-                  </p>
+                  {/* Feature 3: City-level meetings and events */}
+                  <div className="flex items-start gap-3">
+                    <div className="size-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 shadow-2xs">
+                      <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                        <line x1="16" x2="16" y1="2" y2="6" />
+                        <line x1="8" x2="8" y1="2" y2="6" />
+                        <line x1="3" x2="21" y1="10" y2="10" />
+                        <path d="m9 16 2 2 4-4" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        City-level meetings and events
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        Learning sessions and celebrations
+                      </div>
+                    </div>
+                  </div>
 
-                  <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-8 max-w-xl">
-                    If there is no Circle near you, start one. We provide the structure, the systems, the training, the technology and the support of the wider community. You provide the leadership and the first group of the right people.
-                  </p>
+                  {/* Feature 4: Local leadership */}
+                  <div className="flex items-start gap-3">
+                    <div className="size-10 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 shadow-2xs">
+                      <ShieldCheck className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        Local leadership
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        Peers who know your market
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Feature 5: A route into a new Circle */}
+                  <div className="flex items-start gap-3 sm:col-span-2">
+                    <div className="size-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs">
+                      <MapPin className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        A route into a new Circle
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        As your business changes
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4">
+                {/* Action Buttons: See Cities + Watch City Stories */}
+                <div className="flex items-center gap-4 flex-wrap">
                   <Link
-                    href="/membership"
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                    href="/circles"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
                   >
-                    <span>Start a Circle</span>
+                    <span>See Cities</span>
                     <ArrowRight className="size-4" />
                   </Link>
+
                   <Link
-                    href="/contact"
-                    className="inline-flex items-center rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs transition-all hover:border-slate-300"
+                    href="/video-stories"
+                    className="inline-flex items-center gap-3 px-4 py-2 text-slate-700 hover:text-[#0062D2] transition-colors group"
                   >
-                    Bring Peers Global to My City
+                    <div className="size-10 rounded-full border border-blue-200 bg-blue-50/80 text-[#0062D2] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#0062D2] group-hover:text-white transition-all shadow-xs">
+                      <svg className="size-4 ml-0.5 fill-current" viewBox="0 0 24 24">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
+                    </div>
+                    <div className="text-left">
+                      <div className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
+                        WATCH
+                      </div>
+                      <div className="text-xs font-bold text-slate-900 group-hover:text-[#0062D2]">
+                        City Stories
+                      </div>
+                    </div>
                   </Link>
                 </div>
+
               </div>
+            </div>
+          </section>
 
-              {/* Center Column (Cols 7-9): Giant Watermark Typography */}
-              <div className="hidden lg:flex lg:col-span-3 flex-col items-center justify-center select-none pointer-events-none self-center">
-                <div className="font-serif text-6xl xl:text-[76px] font-light text-blue-400/20 tracking-[0.14em] leading-[0.95] text-center">
-                  <div>CITY</div>
-                  <div>BY</div>
-                  <div>CITY</div>
-                </div>
-              </div>
+          {/* =========================================================================
+          5. 3-TIER EXPANSION GRID (03 District, 04 State, 05 Country)
+          ========================================================================= */}
+          <section className="py-20 sm:py-28 bg-[#F7FAFE] border-b border-slate-100 relative overflow-hidden">
+            <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
 
-              {/* Right Column (Cols 10-12): Quote & Tagline */}
-              <div className="lg:col-span-3 flex flex-col justify-between h-full pt-1">
-                {/* Top Corner 4-Line Label with Blue Left Bar */}
-                <div className="flex items-stretch gap-2.5 lg:justify-end mb-8">
-                  <div className="w-[1.5px] bg-[#0062D2] shrink-0" />
-                  <div className="text-[9px] uppercase font-bold tracking-[0.22em] text-slate-400 leading-tight">
-                    <div>PEOPLE</div>
-                    <div>IDEAS</div>
-                    <div>OPPORTUNITIES</div>
-                    <div>TOGETHER</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+                {/* Card 03: THE DISTRICT */}
+                <div className="rounded-3xl bg-white p-7 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">
+                          THE DISTRICT
+                        </span>
+                      </div>
+                      <div className="size-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                        <MapPin className="size-4" />
+                      </div>
+                    </div>
+
+                    <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3">
+                      Cities that grow together.
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
+                      Business does not respect city limits. A Peer sells into three cities, sources from a fourth and hires from a fifth. The District exists so the community works the way business already does.
+                    </p>
+
+                    <div className="rounded-xl bg-emerald-50/60 border border-emerald-100/70 p-3 mb-6">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-800">
+                        District Leadership
+                      </div>
+                      <div className="text-[11px] text-emerald-900 mt-0.5 leading-snug">
+                        Led by a District Executive Director, with multiple Area Executive Directors beneath them.
+                      </div>
+                    </div>
                   </div>
+
+                  <Link
+                    href="/circles"
+                    className="inline-flex items-center justify-between w-full rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
+                  >
+                    <span>Explore Districts</span>
+                    <ArrowRight className="size-3.5" />
+                  </Link>
                 </div>
 
-                {/* Quote Block */}
-                <div>
-                  <div className="text-3xl font-serif text-[#0062D2] font-bold leading-none mb-2">“</div>
-                  <p className="font-serif italic text-xl sm:text-2xl font-medium text-[#0B1A38] leading-[1.25] mb-5">
-                    The map is not finished. It is being built by Peers, city by city.”
-                  </p>
-                  
-                  <div className="w-10 h-[2px] bg-[#0062D2] mb-5" />
+                {/* Card 04: THE STATE */}
+                <div className="rounded-3xl bg-white p-7 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">
+                          THE STATE
+                        </span>
+                      </div>
+                      <div className="size-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                        <Compass className="size-4" />
+                      </div>
+                    </div>
 
-                  <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-slate-500 leading-relaxed">
-                    NEW CITIES.<br />
-                    STRONGER INDIA.<br />
-                    BIGGER WORLD.
+                    <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3">
+                      Regional scale.
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
+                      State-level retreats, conclaves and gatherings. Access to Peers across every district and city in the state. Expand distribution and unlock statewide cross-industry collaboration.
+                    </p>
+
+                    <div className="rounded-xl bg-amber-50/60 border border-amber-100/70 p-3 mb-6">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-amber-800">
+                        State Leadership
+                      </div>
+                      <div className="text-[11px] text-amber-900 mt-0.5 leading-snug">
+                        Led by a State Executive Director driving regional alliances.
+                      </div>
+                    </div>
                   </div>
+
+                  <Link
+                    href="/circles"
+                    className="inline-flex items-center justify-between w-full rounded-full bg-amber-600 hover:bg-amber-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
+                  >
+                    <span>Explore States</span>
+                    <ArrowRight className="size-3.5" />
+                  </Link>
                 </div>
+
+                {/* Card 05: THE COUNTRY */}
+                <div className="rounded-3xl bg-white p-7 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-rose-600">
+                          THE COUNTRY
+                        </span>
+                      </div>
+                      <div className="size-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
+                        <Award className="size-4" />
+                      </div>
+                    </div>
+
+                    <h3 className="font-serif text-2xl font-bold text-slate-900 mb-3">
+                      A national community
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
+                      At the country level, Peers Global becomes a national movement. A Country brings together every District, every City and every Circle within one nation. Where scale creates opportunities no single Circle could produce.
+                    </p>
+
+                    <div className="rounded-xl bg-rose-50/60 border border-rose-100/70 p-3 mb-6">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-rose-800">
+                        National Leadership
+                      </div>
+                      <div className="text-[11px] text-rose-900 mt-0.5 leading-snug">
+                        National leadership that represents the community and protects its culture.
+                      </div>
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/circles"
+                    className="inline-flex items-center justify-between w-full rounded-full bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 text-xs font-semibold shadow-xs transition-colors"
+                  >
+                    <span>Peers Global India</span>
+                    <ArrowRight className="size-3.5" />
+                  </Link>
+                </div>
+
               </div>
 
             </div>
+          </section>
 
-            {/* Bottom 4-Step Process (01, 02, 03, 04) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 pt-10 border-t border-slate-100">
-              
-              {/* Step 01 */}
-              <div className="relative flex flex-col">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="font-serif text-4xl sm:text-5xl font-light text-blue-200/90 leading-none">
-                    01
-                  </div>
-                  <div className="h-px w-10 bg-slate-200 hidden lg:block mr-2" />
-                </div>
-                <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
-                  Start the room
-                </div>
-                <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
-                  It begins with one entrepreneur who decides to bring people together.
-                </p>
+          {/* =========================================================================
+          6. 06 GLOBAL (Local roots. Global reach.) - Deep Cosmic Theme
+          ========================================================================= */}
+          <section
+            className="relative overflow-hidden text-white py-20 sm:py-28 border-b border-white/10"
+            style={{ background: 'linear-gradient(90deg, #06112c 0%, #13071f 50%, #260513 100%)' }}
+          >
+
+            {/* Deep ambient galaxy radial light */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[900px] rounded-full bg-gradient-to-tr from-[#0062D2]/20 via-[#0B7DFE]/10 to-transparent blur-3xl pointer-events-none -z-10" />
+
+            {/* Right Half: Earth Globe Visual Container with Connected Network Lines */}
+            <div className="absolute top-0 right-0 bottom-0 w-full lg:w-3/5 h-full z-0 overflow-hidden pointer-events-none select-none">
+              <div className="relative w-full h-full">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover object-center"
+                >
+                  <source src="/videos/global-earth-hd.mp4" type="video/mp4" />
+                </video>
+                {/* Seamless dark cosmic gradient fade to the left */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#020B1C] via-[#020B1C]/75 via-25% to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020B1C]/60 via-transparent to-transparent lg:hidden" />
               </div>
 
-              {/* Step 02 */}
-              <div className="relative flex flex-col">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="font-serif text-4xl sm:text-5xl font-light text-blue-200/90 leading-none">
-                    02
-                  </div>
-                  <div className="h-px w-10 bg-slate-200 hidden lg:block mr-2" />
-                </div>
-                <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
-                  Gather the right people
-                </div>
-                <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
-                  Invite entrepreneurs who share the intent to grow, collaborate and create impact.
-                </p>
-              </div>
-
-              {/* Step 03 */}
-              <div className="relative flex flex-col">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="font-serif text-4xl sm:text-5xl font-light text-blue-200/90 leading-none">
-                    03
-                  </div>
-                  <div className="h-px w-10 bg-slate-200 hidden lg:block mr-2" />
-                </div>
-                <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
-                  Build the rhythm
-                </div>
-                <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
-                  With regular meetings, meaningful interactions and local initiatives.
-                </p>
-              </div>
-
-              {/* Step 04 */}
-              <div className="relative flex flex-col">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="font-serif text-4xl sm:text-5xl font-light text-blue-200/90 leading-none">
-                    04
-                  </div>
-                </div>
-                <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
-                  Grow the city
-                </div>
-                <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
-                  A stronger network, more opportunities and a bigger impact for the region.
-                </p>
-              </div>
 
             </div>
 
-            {/* Bottom Edge Footer Bar */}
-            <div className="mt-12 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[1.5px] w-6 bg-[#0062D2]" />
-                <span>ONE COMMUNITY, MANY OPPORTUNITIES.</span>
-              </div>
-              <div>
-                <span>FROM YOUR CITY TO A BRIGHTER TOMORROW.</span>
+            {/* Foreground Content (Left Column) */}
+            <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="max-w-2xl">
+
+                {/* Badge 06 GLOBAL */}
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/15 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5 backdrop-blur-md shadow-2xs">
+                  <span>GLOBAL</span>
+                </div>
+
+                {/* Headline with Blue Gradient Accent on 'Global' */}
+                <h2 className="font-serif text-3xl sm:text-5xl lg:text-[58px] font-bold text-white tracking-tight leading-[1.08] mb-5">
+                  Local roots.{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-[#1D4ED8] to-[#E11D48]">
+                    Global
+                  </span>{' '}
+                  reach.
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed mb-9 max-w-xl">
+                  The final layer connects every country into one community. Peers Global is designed from the start to cross borders, because the entrepreneurs inside it do. A Peer looking to export, source, expand or partner internationally can find someone on the other side who already understands the market.
+                </p>
+
+                {/* 2-Column Grid of 6 Circular Icon Feature Items (Matching Mockup) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 mb-10 max-w-xl">
+
+                  {/* Item 1: Access to Peers across countries */}
+                  <div className="flex items-center gap-3.5">
+                    <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
+                      <Globe className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        Access to Peers across
+                      </div>
+                      <div className="text-[11px] text-slate-400">
+                        countries and continents
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 2: Global events and summit */}
+                  <div className="flex items-center gap-3.5">
+                    <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
+                      <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                        <line x1="16" x2="16" y1="2" y2="6" />
+                        <line x1="8" x2="8" y1="2" y2="6" />
+                        <line x1="3" x2="21" y1="10" y2="10" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        Global events
+                      </div>
+                      <div className="text-[11px] text-slate-400">
+                        and the annual summit
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 3: International market entry */}
+                  <div className="flex items-center gap-3.5">
+                    <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
+                      <Users2 className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        International market entry
+                      </div>
+                      <div className="text-[11px] text-slate-400">
+                        through people, not agencies
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 4: Worldwide standard */}
+                  <div className="flex items-center gap-3.5">
+                    <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
+                      <Star className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        A worldwide standard
+                      </div>
+                      <div className="text-[11px] text-slate-400">
+                        of culture, structure and recognition
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 5: Cross-border partnerships */}
+                  <div className="flex items-center gap-3.5">
+                    <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
+                      <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        Cross-border partnerships,
+                      </div>
+                      <div className="text-[11px] text-slate-400">
+                        sourcing and distribution
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 6: Local-to-global opportunity */}
+                  <div className="flex items-center gap-3.5">
+                    <div className="size-11 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center shrink-0 shadow-xs">
+                      <TrendingUp className="size-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-white leading-snug">
+                        Local-to-global opportunity
+                      </div>
+                      <div className="text-[11px] text-slate-400">
+                        for every Peer, in every Circle
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Action Buttons: Explore Global Community + Watch Our Global Story */}
+                <div className="flex items-center gap-4 flex-wrap mb-10">
+                  <Link
+                    href="/circles"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105"
+                  >
+                    <span>Explore Global Community</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+
+                  <Link
+                    href="/video-stories"
+                    className="inline-flex items-center gap-3 px-4 py-2 text-slate-200 hover:text-white transition-colors group"
+                  >
+                    <div className="size-10 rounded-full border border-blue-400/40 bg-blue-500/20 text-blue-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#0062D2] group-hover:text-white transition-all shadow-xs">
+                      <svg className="size-4 ml-0.5 fill-current" viewBox="0 0 24 24">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
+                    </div>
+                    <div className="text-left">
+                      <div className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
+                        WATCH
+                      </div>
+                      <div className="text-xs font-bold text-white group-hover:text-blue-400">
+                        Our Global Story
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                {/* Bottom Bar: CONNECTING ENTREPRENEURS WITHOUT BORDERS */}
+                <div className="flex items-center gap-3 pt-6 border-t border-white/10 max-w-lg">
+                  <div className="text-[10px] uppercase font-bold tracking-[0.25em] text-slate-400">
+                    CONNECTING ENTREPRENEURS WITHOUT BORDERS
+                  </div>
+                </div>
+
               </div>
             </div>
+          </section>
 
-          </div>
 
-        </div>
-      </section>
 
-      {/* =========================================================================
+          {/* =========================================================================
+          8. GROWING THE TERRITORY (Be the reason your city is next)
+          ========================================================================= */}
+          <section className="py-16 sm:py-24 bg-[#FAFCFF]/60 border-b border-slate-100 relative overflow-hidden">
+            <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+
+              {/* Main Card Container */}
+              <div className="rounded-[32px] sm:rounded-[40px] bg-white border border-slate-200/80 p-8 sm:p-12 lg:p-16 shadow-[0_10px_40px_rgba(0,0,0,0.03)] relative overflow-hidden">
+
+                {/* Top Row: Narrative, Watermark, and Quote */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start relative mb-14 lg:mb-16">
+
+                  {/* Left Column (Cols 1-6): Narrative & CTAs */}
+                  <div className="lg:col-span-6 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-2.5 mb-3.5">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                          Growing the Territory
+                        </span>
+                      </div>
+
+                      <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1A38] tracking-tight leading-[1.12] mb-5">
+                        Be the reason<br />
+                        your city is{' '}
+                        <span className="relative inline-block brand-gradient-text italic font-normal">
+                          next.
+                          <svg className="absolute -bottom-1.5 left-0 w-full h-3 text-[#1D4ED8] overflow-visible" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 8C30 3 70 3 98 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                          </svg>
+                        </span>
+                      </h2>
+
+                      <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-4 max-w-xl">
+                        Every Circle that exists today began because one entrepreneur decided to start it. Every city in the community began the same way. That is how Peers Global grows — not by opening branches, but by entrepreneurs choosing to build a room where none existed.
+                      </p>
+
+                      <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-8 max-w-xl">
+                        If there is no Circle near you, start one. We provide the structure, the systems, the training, the technology and the support of the wider community. You provide the leadership and the first group of the right people.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-4">
+                      <Link
+                        href="/membership"
+                        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:from-[#1E40AF] hover:to-[#BE123C] px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all hover:scale-105"
+                      >
+                        <span>Start a Circle</span>
+                        <ArrowRight className="size-4" />
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center rounded-full border border-slate-200 bg-white hover:bg-slate-50 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-800 shadow-2xs transition-all hover:border-slate-300"
+                      >
+                        Bring Peers Global to My City
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Center Column (Cols 7-9): Giant Watermark Typography */}
+                  <div className="hidden lg:flex lg:col-span-3 flex-col items-center justify-center select-none pointer-events-none self-center">
+                    <div className="font-serif text-6xl xl:text-[76px] font-bold tracking-[0.14em] leading-[0.95] text-center text-transparent bg-clip-text bg-gradient-to-b from-[#1D4ED8]/30 via-[#6366F1]/25 to-[#E11D48]/30">
+                      <div>CITY</div>
+                      <div>BY</div>
+                      <div>CITY</div>
+                    </div>
+                  </div>
+
+                  {/* Right Column (Cols 10-12): Quote & Tagline */}
+                  <div className="lg:col-span-3 flex flex-col justify-between h-full pt-1">
+                    {/* Top Corner 4-Line Label with Blue Left Bar */}
+
+
+                    {/* Quote Block */}
+                    <div>
+                      <div className="text-3xl font-serif text-[#0062D2] font-bold leading-none mb-2">“</div>
+                      <p className="font-serif italic text-xl sm:text-2xl font-medium text-[#0B1A38] leading-[1.25] mb-5">
+                        The map is not finished. It is being built by Peers, city by city.”
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Bottom 4-Step Process (01, 02, 03, 04) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 pt-10 border-t border-slate-100">
+
+                  {/* Step 01 */}
+                  <div className="relative flex flex-col">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="font-serif text-4xl sm:text-5xl font-bold leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]">
+                        01
+                      </div>
+                      <div className="h-px w-10 bg-slate-200 hidden lg:block mr-2" />
+                    </div>
+                    <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
+                      Start the room
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+                      It begins with one entrepreneur who decides to bring people together.
+                    </p>
+                  </div>
+
+                  {/* Step 02 */}
+                  <div className="relative flex flex-col">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="font-serif text-4xl sm:text-5xl font-bold leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]">
+                        02
+                      </div>
+                      <div className="h-px w-10 bg-slate-200 hidden lg:block mr-2" />
+                    </div>
+                    <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
+                      Gather the right people
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+                      Invite entrepreneurs who share the intent to grow, collaborate and create impact.
+                    </p>
+                  </div>
+
+                  {/* Step 03 */}
+                  <div className="relative flex flex-col">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="font-serif text-4xl sm:text-5xl font-bold leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]">
+                        03
+                      </div>
+                      <div className="h-px w-10 bg-slate-200 hidden lg:block mr-2" />
+                    </div>
+                    <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
+                      Build the rhythm
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+                      With regular meetings, meaningful interactions and local initiatives.
+                    </p>
+                  </div>
+
+                  {/* Step 04 */}
+                  <div className="relative flex flex-col">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="font-serif text-4xl sm:text-5xl font-bold leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]">
+                        04
+                      </div>
+                    </div>
+                    <div className="text-sm sm:text-base font-bold text-slate-900 mb-1.5">
+                      Grow the city
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+                      A stronger network, more opportunities and a bigger impact for the region.
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* Bottom Edge Footer Bar */}
+                <div className="mt-12 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                  <div className="flex items-center gap-2.5">
+                    <span>ONE COMMUNITY, MANY OPPORTUNITIES.</span>
+                  </div>
+                  <div>
+                    <span>FROM YOUR CITY TO A BRIGHTER TOMORROW.</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* =========================================================================
           9. CLOSING HERO (Every Peer has a home. Every home connects to the world.)
           ========================================================================= */}
-      <ClosingCtaSection
-        eyebrow="THE TERRITORY"
-        title={
-          <>
-            Every Peer has a home.{' '}
-            <span className="block sm:inline">Every home connects to the world.</span>
-          </>
-        }
-        subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
-        description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
-        primaryButtonText="FIND YOUR CIRCLE"
-        primaryButtonHref="/circles"
-        secondaryButtonText="JOIN PEERS GLOBAL"
-        secondaryButtonHref="/membership"
-      />
+          <ClosingCtaSection
+            eyebrow="THE TERRITORY"
+            title={
+              <>
+                Every Peer has a home.{' '}
+                <span className="block sm:inline">Every home connects to the world.</span>
+              </>
+            }
+            subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
+            description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
+            buttons={
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                <Link
+                  href="/circles"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] uppercase transition-all duration-200"
+                >
+                  <span>FIND YOUR CIRCLE</span>
+                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-white" />
+                </Link>
 
-    </div>
-  )
+                {/* Capsule Button: "JOIN PEERS GLOBAL" */}
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/25 bg-white/[0.04] backdrop-blur-md hover:border-white/50 hover:bg-white/[0.08] transition-all duration-200 shadow-lg cursor-pointer active:scale-[0.98]"
+                >
+                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
+                    JOIN PEERS GLOBAL
+                  </span>
+                </Link>
+              </div>
+            }
+          />
+
+        </div>
+        )
 }

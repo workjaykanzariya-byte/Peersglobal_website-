@@ -40,28 +40,28 @@ export function TrustedWorldwideSection() {
   return (
     <section className="fd-what-is-mindvalley !bg-white !py-20 md:!py-24 !px-6 md:!px-12" id="who-we-are">
       <div className="fd-what-is-mindvalley__inner !mb-12">
-        <div className="fd-what-is-mindvalley__intro !gap-8">
+        <div className="fd-what-is-mindvalley__intro !gap-8 flex flex-col items-center text-center">
           {/* Eyebrow & Titles matching standard Mindvalley typography */}
-          <div className="fd-what-is-mindvalley__titles !gap-6">
+          <div className="fd-what-is-mindvalley__titles !gap-6 flex flex-col items-center">
             <p className="fd-what-is-mindvalley__eyebrow brand-gradient-text">
               THE TRUTH EVERY ENTREPRENEUR KNOWS
             </p>
 
-            <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5">
-              <h2 className="fd-what-is-mindvalley__headline">
+            <div className="fd-what-is-mindvalley__copy !w-full !max-w-[840px] !gap-5 flex flex-col items-center text-center">
+              <h2 className="fd-what-is-mindvalley__headline text-center">
                 <span>Building a business can be exciting.</span>{' '}
                 <span>Building one alone can be exhausting.</span>
               </h2>
-
-              {/* Subheading / Copy */}
-              <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal">
-                Peers Global brings together founders and business leaders from across industries, cities, and countries into one connected, high-trust ecosystem.
-              </p>
             </div>
           </div>
 
+          {/* Subheading / Copy */}
+          <p className="text-base sm:text-lg md:text-xl text-cool-grey-600 max-w-3xl leading-relaxed font-normal text-center mx-auto">
+            Peers Global brings together founders and business leaders from across industries, cities, and countries into one connected, high-trust ecosystem.
+          </p>
+
           {/* 3 Core Highlight Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl pt-4 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl pt-4 text-left mx-auto">
             
             {/* Card 1: The Inner Board */}
             <div className="animated-glow-card group" tabIndex={0} role="article">
@@ -201,33 +201,6 @@ export function TrustedWorldwideSection() {
             >
               Explore Peers Global
             </GalaxyButton>
-          </div>
-        </div>
-      </div>
-
-      {/* Cinematic Media Showcase */}
-      <div className="max-w-[1200px] mx-auto">
-        <div className="relative group/video">
-          {/* Ambient Glowing Gradient Aura */}
-          <div className="pointer-events-none absolute -inset-1.5 md:-inset-2 rounded-2xl md:rounded-[36px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] opacity-0 blur-xl group-hover/video:opacity-40 transition-all duration-700 -z-10" />
-
-          <div
-            className="relative w-full aspect-[16/9] rounded-2xl md:rounded-[32px] overflow-hidden shadow-2xl bg-black cursor-pointer border border-slate-200/80 transition-all duration-500 group-hover/video:-translate-y-1.5 group-hover/video:border-transparent"
-            onClick={togglePlay}
-            tabIndex={0}
-            role="region"
-            aria-label="Community Video Showcase"
-          >
-            <video
-              ref={videoRef}
-              src="/videos/leadership-hero-bg.mp4"
-              poster="/images/who-we-are-boardroom.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </div>

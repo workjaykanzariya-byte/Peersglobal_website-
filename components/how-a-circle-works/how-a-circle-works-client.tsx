@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -65,19 +66,20 @@ export function HowACircleWorksClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-4">
-                <Link
+                <GalaxyButton
                   href="/apply"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all"
+                  variant="primary"
+                  size="md"
                 >
                   Join a Circle
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
+                </GalaxyButton>
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-sm font-semibold transition-all shadow-xs"
+                  variant="transparent-light"
+                  size="md"
                 >
                   Download Unity App
-                </Link>
+                </GalaxyButton>
               </div>
             </div>
 
@@ -589,13 +591,13 @@ export function HowACircleWorksClient() {
                 </div>
 
                 <div className="pt-2">
-                  <Link
+                  <GalaxyButton
                     href="/apply"
-                    className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
+                    variant="primary"
+                    size="md"
                   >
                     Apply for Circle Seat
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </GalaxyButton>
                 </div>
 
                 <p className="font-serif italic text-xs text-slate-300">

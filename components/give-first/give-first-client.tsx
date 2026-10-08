@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -84,19 +85,21 @@ export function GiveFirstClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(225,29,72,0.35)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.50)] transition-all uppercase tracking-wider active:scale-95"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="/circles"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white text-xs sm:text-sm font-semibold border border-white/25 hover:bg-white/20 transition-all uppercase tracking-wider backdrop-blur-sm"
+                  variant="transparent"
+                  size="md"
+                  showIcon={false}
                 >
-                  <span>Explore Circles</span>
-                </Link>
+                  Explore Circles
+                </GalaxyButton>
               </div>
 
               {/* Quick Stat Badges */}
@@ -299,12 +302,13 @@ export function GiveFirstClient() {
               </div>
 
               <div className="pt-2">
-                <Link
+                <GalaxyButton
                   href="/circle-meeting-experience"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold hover:opacity-95 transition-all shadow-xs uppercase tracking-wider"
+                  variant="primary"
+                  size="sm"
                 >
-                  See the Meeting Agenda <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                  See the Meeting Agenda
+                </GalaxyButton>
               </div>
             </div>
 
@@ -485,11 +489,9 @@ export function GiveFirstClient() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="flex items-center justify-center gap-2.5">
-            <span className="h-[1.5px] w-6 bg-white/70" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
               THE PEERS GLOBAL INVITATION
             </span>
-            <span className="h-[1.5px] w-6 bg-white/70" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
@@ -500,19 +502,21 @@ export function GiveFirstClient() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Link
+            <GalaxyButton
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all uppercase tracking-wider active:scale-95"
+              variant="primary"
+              size="md"
             >
-              <span>Download Unity App</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
+              Download Unity App
+            </GalaxyButton>
+            <GalaxyButton
               href="/the-idea"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/[0.08] text-white text-xs sm:text-sm font-bold border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all uppercase tracking-wider backdrop-blur-sm"
+              variant="transparent"
+              size="md"
+              showIcon={false}
             >
-              <span>Explore Our World</span>
-            </Link>
+              Explore Our World
+            </GalaxyButton>
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Truck,
   Rocket,
@@ -386,21 +387,22 @@ export function PurposePageClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#circles-list"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Explore 10 Purpose Circles</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <a
+                  Explore 10 Purpose Circles
+                </GalaxyButton>
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -456,7 +458,6 @@ export function PurposePageClient() {
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PERSPECTIVE BEYOND YOUR SECTOR
                 </span>
@@ -568,11 +569,9 @@ export function PurposePageClient() {
 
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                 TEN PURPOSE &amp; GOAL CIRCLES
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
               The common thread is not the industry. It is the journey.
@@ -907,20 +906,21 @@ export function PurposePageClient() {
               Your business identity is only one part of your entrepreneurial identity. Your ambition is another. That is why PEERS GLOBAL creates both Industry and Purpose pathways.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Link
+            <div className="flex flex-wrap items-center gap-3">
+              <GalaxyButton
                 href="/circles"
-                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-2.5 text-xs font-semibold shadow-sm inline-flex items-center gap-2"
+                variant="primary"
+                size="sm"
               >
-                <span>Browse All Circles</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-              <Link
+                Browse All Circles
+              </GalaxyButton>
+              <GalaxyButton
                 href="/circles/industry"
-                className="rounded-full border border-slate-300 bg-white hover:border-slate-400 text-slate-700 px-6 py-2.5 text-xs font-semibold inline-flex items-center gap-2"
+                variant="transparent-light"
+                size="sm"
               >
                 Browse Industry Circles
-              </Link>
+              </GalaxyButton>
             </div>
           </div>
 
@@ -987,7 +987,6 @@ export function PurposePageClient() {
             {/* Left: Who Belongs In A Purpose Circle? */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   WHO BELONGS IN A PURPOSE CIRCLE?
                 </span>
@@ -1020,7 +1019,6 @@ export function PurposePageClient() {
             {/* Right: Purpose Creates New Conversations */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PURPOSE CREATES NEW CONVERSATIONS
                 </span>
@@ -1065,13 +1063,15 @@ export function PurposePageClient() {
                 <p className="text-xs text-slate-300 leading-relaxed mb-4">
                   Not every entrepreneurial ambition fits neatly into ten categories. Tell us what you are trying to build, what you are trying to achieve, and what kind of entrepreneurs you would like to meet. A future Circle may begin with a purpose you are already carrying.
                 </p>
-                <Link
-                  href="/start-a-circle"
-                  className="text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-full inline-flex items-center gap-1.5 transition-colors"
-                >
-                  Propose or Start a Circle
-                  <ArrowRight className="size-3" />
-                </Link>
+                <div className="pt-2">
+                  <GalaxyButton
+                    href="/start-a-circle"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Propose or Start a Circle
+                  </GalaxyButton>
+                </div>
               </div>
 
             </div>
@@ -1089,11 +1089,9 @@ export function PurposePageClient() {
 
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight">
               Common questions about Purpose Circles
@@ -1153,7 +1151,6 @@ export function PurposePageClient() {
               <div className="lg:col-span-7 space-y-6">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                       THE QUESTION THAT MATTERS
                     </span>

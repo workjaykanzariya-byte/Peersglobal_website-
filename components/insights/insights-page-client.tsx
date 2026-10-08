@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -336,20 +337,22 @@ export function InsightsPageClient() {
               </div>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#articles-feed"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-200 cursor-pointer"
+                  size="lg"
+                  className="font-medium"
                 >
-                  <span>Start Reading</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                  Start Reading
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#five-places"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white text-slate-800 font-medium text-xs sm:text-sm border border-slate-300 shadow-xs hover:bg-slate-50 transition-all duration-200"
+                  variant="transparent-light"
+                  size="lg"
+                  className="font-medium"
                 >
-                  <span>Five Places to Explore ↓</span>
-                </a>
+                  Five Places to Explore
+                </GalaxyButton>
               </div>
             </div>
 
@@ -749,13 +752,13 @@ export function InsightsPageClient() {
           </div>
 
           <div className="pt-2">
-            <Link
+            <GalaxyButton
               href="/events/speak"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
+              size="lg"
+              className="font-semibold"
             >
-              <span>Propose an Insight or Masterclass</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              Propose an Insight or Masterclass
+            </GalaxyButton>
           </div>
         </div>
       </section>
@@ -805,22 +808,24 @@ export function InsightsPageClient() {
 
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-3">
-                <a
+                <GalaxyButton
                   href="#articles-feed"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-[#0062D2] font-semibold text-sm shadow-xl hover:bg-blue-50 transition-all duration-200 group hover:scale-105"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Explore All Insights</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
+                  Explore All Insights
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/40 backdrop-blur-sm transition-all duration-200"
+                  variant="transparent"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Open Unity App</span>
-                </a>
+                  Open Unity App
+                </GalaxyButton>
               </div>
             </div>
 

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import '@/app/sections.css'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   Users,
@@ -195,20 +197,22 @@ export default function TheCitizensPage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Become a Peer</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Become a Peer
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/leadership"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Explore Leadership</span>
-                </Link>
+                  Explore Leadership
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -269,7 +273,6 @@ export default function TheCitizensPage() {
 
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             <span>BUILT BY ENTREPRENEURS, FOR ENTREPRENEURS</span>
           </div>
 
@@ -325,15 +328,26 @@ export default function TheCitizensPage() {
 
             {/* CARD 01: THE PEER */}
             <div className="relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50">
+              {/* Big Watermark Number with Brand Gradient */}
+              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
                 01
               </div>
 
               <div>
-                {/* Icon Badge */}
-                <div className="size-13 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-6 shadow-sm border border-blue-100/60">
-                  <Users className="size-6" />
+                {/* Clean Gradient Icon without Border */}
+                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="iconGrad01" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="9" cy="7" r="4" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
@@ -383,15 +397,26 @@ export default function TheCitizensPage() {
 
             {/* CARD 02: THE CIRCLE FOUNDER */}
             <div className="relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50">
+              {/* Big Watermark Number with Brand Gradient */}
+              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
                 02
               </div>
 
               <div>
-                {/* Icon Badge */}
-                <div className="size-13 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6 shadow-sm border border-indigo-100/60">
-                  <UserPlus className="size-6" />
+                {/* Clean Gradient Icon without Border */}
+                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="iconGrad02" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="9" cy="7" r="4" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <line x1="19" y1="8" x2="19" y2="14" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <line x1="22" y1="11" x2="16" y2="11" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
@@ -440,15 +465,23 @@ export default function TheCitizensPage() {
 
             {/* CARD 03: THE DIRECTORS */}
             <div className="relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50">
+              {/* Big Watermark Number with Brand Gradient */}
+              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
                 03
               </div>
 
               <div>
-                {/* Icon Badge */}
-                <div className="size-13 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-6 shadow-sm border border-sky-100/60">
-                  <Shield className="size-6" />
+                {/* Clean Gradient Icon without Border */}
+                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="iconGrad03" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#iconGrad03)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
@@ -522,15 +555,24 @@ export default function TheCitizensPage() {
 
             {/* CARD 04: THE AMBASSADORS (5 cols) */}
             <div className="lg:col-span-5 relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50">
+              {/* Big Watermark Number with Brand Gradient */}
+              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
                 04
               </div>
 
               <div>
-                {/* Icon Badge */}
-                <div className="size-13 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mb-6 shadow-sm border border-rose-100/60">
-                  <Megaphone className="size-6" />
+                {/* Clean Gradient Icon without Border */}
+                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="iconGrad04" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path d="m3 11 18-5v12L3 14v-3z" stroke="url(#iconGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" stroke="url(#iconGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
@@ -574,15 +616,23 @@ export default function TheCitizensPage() {
 
             {/* CARD 05: THE ADVISORS (7 cols) */}
             <div className="lg:col-span-7 relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50">
+              {/* Big Watermark Number with Brand Gradient */}
+              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
                 05
               </div>
 
               <div>
-                {/* Icon Badge */}
-                <div className="size-13 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6 shadow-sm border border-amber-100/60">
-                  <Star className="size-6" />
+                {/* Clean Gradient Icon without Border */}
+                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="iconGrad05" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="url(#iconGrad05)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
@@ -665,9 +715,7 @@ export default function TheCitizensPage() {
 
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0066FF]" />
             <span>FROM CONTRIBUTION TO LEADERSHIP</span>
-            <span className="w-6 h-[1.5px] bg-[#0066FF]" />
           </div>
 
           {/* Title in Editorial Serif */}
@@ -679,51 +727,113 @@ export default function TheCitizensPage() {
             Nobody arrives here as a Director. Every leadership role is held by someone who first sat in a Circle as a Peer, contributed consistently, and earned the trust of the people around them.
           </p>
 
-          {/* 7-Stage Pipeline Progression Cards */}
+          {/* 7-Stage Pipeline Progression Cards with Exact Signature Animated Border Effect */}
           <div className="relative mb-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 lg:gap-2.5 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3.5 lg:gap-3 items-stretch">
               {LEADERSHIP_PATHWAY.map((item, idx) => {
-                const IconComp = item.icon
                 return (
                   <div key={idx} className="relative flex items-stretch">
 
-                    {/* Node Card */}
-                    <div className="group relative w-full bg-white rounded-2xl p-4 sm:p-4.5 border border-slate-200/90 shadow-xs hover:shadow-md hover:-translate-y-1 hover:border-blue-300 transition-all duration-300 flex flex-col items-center text-center overflow-hidden">
+                    {/* Signature Animated Glow Card Structure */}
+                    <div className="animated-glow-card group w-full" tabIndex={0} role="article">
+                      {/* SVG Animated Tracing Border */}
+                      <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                          <linearGradient id={`citizenCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="50%" stopColor="#6366F1" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          className="animated-border-path"
+                          style={{ stroke: `url(#citizenCardGrad${idx})` }}
+                          d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                        />
+                      </svg>
 
-                      {/* Top-Right Soft Wave Gradient */}
-                      <div
-                        className={`pointer-events-none absolute -top-8 -right-8 size-28 rounded-full bg-gradient-to-bl ${item.cornerWave} blur-lg`}
-                      />
+                      {/* Card Content Interior */}
+                      <div className="p-4 sm:p-5 flex flex-col items-center text-center">
+                        {/* Centered Step Number with Brand Linear Gradient */}
+                        <div className="self-center relative z-10 mb-2.5">
+                          <span className="text-xs font-black tracking-widest bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200 inline-block">
+                            {item.number}
+                          </span>
+                        </div>
 
-                      {/* Top-Left Step Number Badge */}
-                      <div className="self-start relative z-10 mb-2">
-                        <span className={`inline-flex items-center justify-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-tight shadow-2xs ${item.numBg}`}>
-                          {item.number}
-                        </span>
+                        {/* Center Clean Gradient Icon Squircle */}
+                        <div className="relative z-10 size-12 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 flex items-center justify-center mb-3.5 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-blue-500/15">
+                          <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                              <linearGradient id={`pathGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#1D4ED8" />
+                                <stop offset="100%" stopColor="#E11D48" />
+                              </linearGradient>
+                            </defs>
+                            {idx === 0 && (
+                              <>
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <circle cx="12" cy="7" r="4" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </>
+                            )}
+                            {idx === 1 && (
+                              <>
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <circle cx="9" cy="7" r="4" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <line x1="19" y1="8" x2="19" y2="14" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <line x1="22" y1="11" x2="16" y2="11" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </>
+                            )}
+                            {idx === 2 && (
+                              <>
+                                <circle cx="12" cy="8" r="6" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </>
+                            )}
+                            {idx === 3 && (
+                              <>
+                                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10 6h4" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10 10h4" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10 14h4" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10 18h4" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </>
+                            )}
+                            {idx === 4 && (
+                              <>
+                                <polygon points="12 2 2 7 12 12 22 7 12 2" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <polyline points="2 17 12 22 22 17" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <polyline points="2 12 12 17 22 12" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </>
+                            )}
+                            {idx === 5 && (
+                              <>
+                                <path d="m3 11 18-5v12L3 14v-3z" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </>
+                            )}
+                            {idx === 6 && (
+                              <>
+                                <circle cx="12" cy="12" r="10" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" stroke={`url(#pathGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </>
+                            )}
+                          </svg>
+                        </div>
+
+                        {/* Role Title with Hover Gradient Accent */}
+                        <h4 className="relative z-10 text-xs sm:text-[13px] font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-1.5 leading-snug">
+                          {item.role}
+                        </h4>
+
+                        {/* Role Description */}
+                        <p className="relative z-10 text-[11px] text-slate-500 font-normal leading-relaxed mt-auto pt-1">
+                          {item.desc}
+                        </p>
                       </div>
-
-                      {/* Center Icon Circle */}
-                      <div className={`relative z-10 size-13 rounded-full flex items-center justify-center mb-3 shadow-2xs border transition-transform duration-300 group-hover:scale-105 ${item.badgeColor}`}>
-                        <IconComp className="size-5.5" />
-                      </div>
-
-                      {/* Role Title */}
-                      <h4 className="relative z-10 text-xs sm:text-[13px] font-bold text-slate-900 mb-1 leading-snug">
-                        {item.role}
-                      </h4>
-
-                      {/* Role Description */}
-                      <p className="relative z-10 text-[11px] text-slate-500 font-normal leading-relaxed mt-auto pt-1">
-                        {item.desc}
-                      </p>
                     </div>
-
-                    {/* Arrow Connector for Desktop */}
-                    {idx < LEADERSHIP_PATHWAY.length - 1 && (
-                      <div className="hidden lg:flex absolute -right-2 top-1/2 -translate-y-1/2 z-20 text-slate-300 pointer-events-none">
-                        <ChevronRight className="size-4 text-slate-400" />
-                      </div>
-                    )}
                   </div>
                 )
               })}
@@ -745,13 +855,13 @@ export default function TheCitizensPage() {
             </p>
 
             {/* Blue Pill CTA Button */}
-            <Link
+            <GalaxyButton
               href="/leadership"
-              className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-[0_8px_20px_rgba(0,102,255,0.28)] transition-all hover:scale-[1.03] active:scale-[0.98] items-center gap-2"
+              size="default"
+              className="font-semibold"
             >
-              <span>Explore the Leadership Path</span>
-              <ArrowRight className="size-4" />
-            </Link>
+              Explore the Leadership Path
+            </GalaxyButton>
           </div>
 
         </div>
@@ -767,9 +877,7 @@ export default function TheCitizensPage() {
 
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             <span>OUR SHARED STANDARD</span>
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
           </div>
 
           {/* Headline */}
@@ -785,26 +893,93 @@ export default function TheCitizensPage() {
             Whatever a person holds in this community, the same things are expected of them.
           </p>
 
-          {/* 5 Cards Row */}
+          {/* 5 Cards Row with Signature Animated Border Tracing */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
             {SHARED_STANDARDS.map((item, idx) => {
               const IconComp = item.icon
               return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-[0_2px_16px_rgba(0,0,0,0.03)] hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center group"
-                >
-                  <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                    <IconComp className="size-5" />
+                <div key={idx} className="relative flex items-stretch">
+                  <div
+                    className="animated-glow-card group w-full"
+                    tabIndex={0}
+                    role="article"
+                  >
+                    {/* SVG Animated Tracing Border */}
+                    <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`standardCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#6366F1" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path"
+                        style={{ stroke: `url(#standardCardGrad${idx})` }}
+                        d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                      />
+                    </svg>
+
+                    {/* Card Content Interior */}
+                    <div className="p-6 flex flex-col items-center text-center">
+                      <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-blue-500/15 transition-all duration-300">
+                        <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id={`standardIconGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor="#1D4ED8" />
+                              <stop offset="100%" stopColor="#E11D48" />
+                            </linearGradient>
+                          </defs>
+                          {idx === 0 && (
+                            /* Give first (Hand / Contribution) */
+                            <>
+                              <path d="M18 12.5V10a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1.5" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M14 11V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M10 10.5V5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8.5" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M6 11.5a2 2 0 0 0-2 2v1a7 7 0 0 0 7 7h3a7 7 0 0 0 7-7v-3.5a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </>
+                          )}
+                          {idx === 1 && (
+                            /* Show up (Users / Presence) */
+                            <>
+                              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <circle cx="9" cy="7" r="4" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </>
+                          )}
+                          {idx === 2 && (
+                            /* Tell the truth (Message / Authentic dialogue) */
+                            <>
+                              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <line x1="9" y1="10" x2="15" y2="10" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </>
+                          )}
+                          {idx === 3 && (
+                            /* Protect the room (Lock / Confidentiality) */
+                            <>
+                              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </>
+                          )}
+                          {idx === 4 && (
+                            /* Carry the culture (Heart / Responsibility) */
+                            <>
+                              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke={`url(#standardIconGrad${idx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </>
+                          )}
+                        </svg>
+                      </div>
+
+                      <h3 className="text-base font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs text-slate-500 font-normal leading-relaxed mt-auto pt-1">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-
-                  <h3 className="text-base font-bold text-slate-900 mb-2">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-500 font-light leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
               )
             })}

@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -141,21 +142,21 @@ export function PeersCoinClient() {
               </div>
 
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <Link
+                <GalaxyButton
                   href="/how-to-earn-impact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Discover the Impact System</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Discover the Impact System
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/marketplace"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Explore the Marketplace</span>
-                  <ChevronRight className="size-4 text-slate-300" />
-                </Link>
+                  Explore the Marketplace
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -583,20 +584,21 @@ export function PeersCoinClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <Link
+                <GalaxyButton
                   href="/how-to-earn-impact"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Discover Impact System</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Discover Impact System
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/marketplace"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Explore Marketplace</span>
-                </Link>
+                  Explore Marketplace
+                </GalaxyButton>
               </div>
             </div>
 
