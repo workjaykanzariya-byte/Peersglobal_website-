@@ -748,7 +748,7 @@ export default function TheCitizensPage() {
                         <path
                           className="animated-border-path"
                           style={{ stroke: `url(#citizenCardGrad${idx})` }}
-                          d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                          d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                         />
                       </svg>
 
@@ -916,7 +916,7 @@ export default function TheCitizensPage() {
                       <path
                         className="animated-border-path"
                         style={{ stroke: `url(#standardCardGrad${idx})` }}
-                        d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                        d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                       />
                     </svg>
 
