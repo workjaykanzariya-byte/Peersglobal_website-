@@ -180,10 +180,9 @@ export function ClosingCtaSection({
         className="shell relative z-10 flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between"
       >
         <div className="flex max-w-3xl flex-col gap-3.5">
-          {/* Eyebrow with horizontal dash */}
+          {/* Eyebrow */}
           {eyebrow && (
-            <div className="flex items-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-white/70" />
+            <div className="flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 {eyebrow}
               </span>

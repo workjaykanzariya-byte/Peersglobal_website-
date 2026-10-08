@@ -83,10 +83,12 @@ export function MeditationsSection() {
             </svg>
             <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 font-bold flex items-center justify-center text-base border border-blue-200/80 shadow-xs group-hover:scale-110 transition-transform duration-300">
-                  01
+                <div className="mb-1">
+                  <span className="text-xl font-black tracking-widest bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200 inline-block">
+                    01
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:text-blue-700 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
                   Multiplier Effect
                 </h3>
                 <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
@@ -113,10 +115,12 @@ export function MeditationsSection() {
             </svg>
             <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 font-bold flex items-center justify-center text-base border border-rose-200/80 shadow-xs group-hover:scale-110 transition-transform duration-300">
-                  02
+                <div className="mb-1">
+                  <span className="text-xl font-black tracking-widest bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200 inline-block">
+                    02
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:text-rose-600 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
                   1M Entrepreneurs
                 </h3>
                 <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
@@ -143,10 +147,12 @@ export function MeditationsSection() {
             </svg>
             <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-base border border-indigo-200/80 shadow-xs group-hover:scale-110 transition-transform duration-300">
-                  03
+                <div className="mb-1">
+                  <span className="text-xl font-black tracking-widest bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200 inline-block">
+                    03
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:text-indigo-700 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
                   1 Action = 1 Life
                 </h3>
                 <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">

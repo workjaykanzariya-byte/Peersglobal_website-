@@ -262,8 +262,7 @@ export function TheIdeaClient() {
 
             {/* Left Column: 4 Realities */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div className="flex items-center">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE QUIET SIDE OF BUILDING
                 </span>
@@ -364,12 +363,10 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="inline-flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE PROBLEM NOBODY TALKS ABOUT
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
               <span>Entrepreneurship can be deeply rewarding.</span>{' '}
@@ -471,8 +468,7 @@ export function TheIdeaClient() {
 
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div className="flex items-center">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHERE THE IDEA CAME FROM
                 </span>
@@ -610,12 +606,10 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="inline-flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE CORE PHILOSOPHY
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
               <span>What we</span>{' '}
@@ -707,8 +701,7 @@ export function TheIdeaClient() {
 
             {/* Left Column Narrative */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div className="flex items-center">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   PEERS ARE PARTNERS IN BUSINESS AND FRIENDS IN LIFE
                 </span>
@@ -854,12 +847,10 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="inline-flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 FROM A NETWORK TO A LEADERSHIP ORGANISATION
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
               <span>How can entrepreneurs</span>{' '}
@@ -917,8 +908,7 @@ export function TheIdeaClient() {
             {/* Left: Your Inner Board */}
             <div className="lg:col-span-6 p-8 sm:p-10 rounded-[32px] bg-white border border-cool-grey-250 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <div className="flex items-center">
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     YOUR INNER BOARD
                   </span>
@@ -1015,12 +1005,10 @@ export function TheIdeaClient() {
 
           {/* Header */}
           <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
-            <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="inline-flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 WHY COLLABORATION MATTERS
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
@@ -1129,12 +1117,10 @@ export function TheIdeaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
-            <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
+            <div className="inline-flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-rose-300 to-amber-300">
                 THE 1 MILLION MISSION
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-rose-400 to-blue-400 rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-white tracking-tight leading-[1.12]">
@@ -1233,12 +1219,10 @@ export function TheIdeaClient() {
 
           {/* Top Block: The Idea In One Sentence */}
           <div className="text-center space-y-8">
-            <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="inline-flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE IDEA IN ONE SENTENCE
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0f131a] leading-[1.12] max-w-4xl mx-auto">
@@ -1308,8 +1292,7 @@ export function TheIdeaClient() {
             <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-blue-500/5 via-rose-500/5 to-transparent rounded-full blur-2xl pointer-events-none" />
 
             <div className="relative space-y-4">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div className="flex items-center">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   IF THIS IDEA SPEAKS TO YOU
                 </span>

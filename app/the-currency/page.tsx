@@ -302,7 +302,6 @@ export default function TheCurrencyPage() {
           
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="brand-gradient-text">OUR BELIEF</span>
           </div>
 
@@ -358,7 +357,6 @@ export default function TheCurrencyPage() {
               
               {/* Eyebrow */}
               <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-4">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">SIMPLE. FAIR. MEANINGFUL.</span>
               </div>
 
@@ -465,7 +463,6 @@ export default function TheCurrencyPage() {
                 {/* Eyebrow */}
                 <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase mb-2">
                   <span className="brand-gradient-text">FOUR SIMPLE STEPS</span>
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 </div>
 
                 {/* Headline */}
@@ -547,7 +544,6 @@ export default function TheCurrencyPage() {
           
           {/* Eyebrow */}
           <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="brand-gradient-text">VISIBLE. RECOGNISED. REAL.</span>
           </div>
 
@@ -618,9 +614,7 @@ export default function TheCurrencyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
           <div className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase mb-4">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="brand-gradient-text">MORE THAN A NUMBER</span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-14">
@@ -666,7 +660,6 @@ export default function TheCurrencyPage() {
             <div className="lg:col-span-6 flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="brand-gradient-text">PEER STANDING</span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
@@ -713,7 +706,6 @@ export default function TheCurrencyPage() {
             {/* Right Column: PEERS COIN (6 cols) */}
             <div className="lg:col-span-6 bg-[#F8FAFC] rounded-2xl p-7 sm:p-9 border border-slate-200/80 shadow-xs">
               <div className="flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="brand-gradient-text">PEERS COIN</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-slate-900 tracking-tight mb-4">
@@ -893,7 +885,6 @@ export default function TheCurrencyPage() {
             <div className="lg:col-span-8 space-y-5">
               {/* Eyebrow */}
               <div className="flex items-center gap-2.5">
-                <span className="h-[1.5px] w-6 bg-white/70" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   OUR MISSION
                 </span>

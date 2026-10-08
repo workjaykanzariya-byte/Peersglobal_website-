@@ -377,11 +377,9 @@ export default function CultureAndCodePage() {
           <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-4">
               <div className="inline-flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE ARCHITECTURE OF TRUST
                 </span>
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
               </div>
 
               <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-[#0f131a] tracking-tight leading-[1.12]">
@@ -502,7 +500,6 @@ export default function CultureAndCodePage() {
 
             <div className="relative space-y-4">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHY A WRITTEN CODE?
                 </span>
@@ -546,11 +543,9 @@ export default function CultureAndCodePage() {
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE BEHAVIOURAL FOUNDATION
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
@@ -627,7 +622,6 @@ export default function CultureAndCodePage() {
             {/* Left Narrative Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   EVERYDAY BEHAVIOUR
                 </span>
@@ -734,7 +728,6 @@ export default function CultureAndCodePage() {
               {/* Left Column: Heading & Narrative */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     HUMAN DIGNITY
                   </span>
@@ -800,7 +793,6 @@ export default function CultureAndCodePage() {
               {/* Left Column: Heading & Narrative */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     GIVE-FIRST IS A CULTURAL PRACTICE
                   </span>
@@ -867,11 +859,9 @@ export default function CultureAndCodePage() {
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE RITUALS
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold tracking-tight text-[#0f131a] leading-[1.14]">
@@ -942,7 +932,6 @@ export default function CultureAndCodePage() {
               {/* Left Column: Heading & Context */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     HOW STANDARDS ARE UPHELD
                   </span>
@@ -1001,11 +990,9 @@ export default function CultureAndCodePage() {
           <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-4">
               <div className="inline-flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHAT THIS CULTURE PROTECTS
                 </span>
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
               </div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0f131a] tracking-tight leading-snug">
                 Strong culture is defined by what it refuses to allow to disappear.
@@ -1048,11 +1035,9 @@ export default function CultureAndCodePage() {
 
             <div className="relative z-10 max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   CULTURE IS EVERYDAY
                 </span>
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
               </div>
 
               <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0f131a] tracking-tight leading-[1.15]">
@@ -1148,7 +1133,6 @@ export default function CultureAndCodePage() {
             {/* Left Column: Code and Language Harmony */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE HARMONY OF CODE &amp; LANGUAGE
                 </span>
@@ -1243,7 +1227,6 @@ export default function CultureAndCodePage() {
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THIS IS THE STANDARD
                   </span>
@@ -1334,7 +1317,6 @@ export default function CultureAndCodePage() {
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-8 space-y-6">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     EXPERIENCE PEERS GLOBAL
                   </span>

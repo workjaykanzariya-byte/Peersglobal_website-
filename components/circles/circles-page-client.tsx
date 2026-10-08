@@ -533,7 +533,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="pt-10 border-t border-slate-100">
             <div className="text-left max-w-3xl mb-10">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE 4-PART EXPERIENCE</span>
               </div>
               <h3 className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight leading-tight text-slate-950 mb-3">
@@ -697,7 +696,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           
           {/* Eyebrow: — TRUSTED & FOCUSED — */}
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">TRUSTED & FOCUSED</span>
           </div>
 
@@ -773,7 +771,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND THE RIGHT FIT</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-950 tracking-tight leading-tight">
@@ -870,7 +867,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div>
             <div className="text-left max-w-3xl mb-10">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">PARTICIPATION & RECIPROCITY</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold tracking-tight leading-tight text-slate-950 mb-3">
@@ -955,7 +951,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">GUEST PROTOCOL</span>
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
@@ -996,7 +991,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-rose-50/40 border border-rose-200/80 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-rose-600 rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-rose-700">CIRCLE BOUNDARIES</span>
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
@@ -1050,7 +1044,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 space-y-8">
             <div className="max-w-3xl">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">CONTINUOUS ENGAGEMENT</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
@@ -1173,7 +1166,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
             <div className="text-left max-w-2xl">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">EXPLORE CIRCLES</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-2 text-slate-950">
@@ -1430,7 +1422,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           
           <div className="text-left mb-12">
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT MAKES A CIRCLE DIFFERENT</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-slate-950">
@@ -1552,7 +1543,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             {/* Left Content (8 cols) */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   YOUR NEXT CIRCLE
                 </span>

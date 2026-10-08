@@ -204,33 +204,6 @@ export function TrustedWorldwideSection() {
           </div>
         </div>
       </div>
-
-      {/* Cinematic Media Showcase */}
-      <div className="max-w-[1200px] mx-auto">
-        <div className="relative group/video">
-          {/* Ambient Glowing Gradient Aura */}
-          <div className="pointer-events-none absolute -inset-1.5 md:-inset-2 rounded-2xl md:rounded-[36px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] opacity-0 blur-xl group-hover/video:opacity-40 transition-all duration-700 -z-10" />
-
-          <div
-            className="relative w-full aspect-[16/9] rounded-2xl md:rounded-[32px] overflow-hidden shadow-2xl bg-black cursor-pointer border border-slate-200/80 transition-all duration-500 group-hover/video:-translate-y-1.5 group-hover/video:border-transparent"
-            onClick={togglePlay}
-            tabIndex={0}
-            role="region"
-            aria-label="Community Video Showcase"
-          >
-            <video
-              ref={videoRef}
-              src="/videos/leadership-hero-bg.mp4"
-              poster="/images/who-we-are-boardroom.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
     </section>
   )
 }

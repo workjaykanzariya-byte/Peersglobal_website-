@@ -485,11 +485,9 @@ export function GiveFirstClient() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="flex items-center justify-center gap-2.5">
-            <span className="h-[1.5px] w-6 bg-white/70" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
               THE PEERS GLOBAL INVITATION
             </span>
-            <span className="h-[1.5px] w-6 bg-white/70" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">

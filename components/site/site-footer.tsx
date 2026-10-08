@@ -133,9 +133,8 @@ export function SiteFooter() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left: Statement + App Badges */}
           <div className="flex flex-col gap-3.5 max-w-2xl text-left items-start">
-            {/* Eyebrow with gradient bar */}
-            <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            {/* Eyebrow */}
+            <div className="flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 FINAL CALL
               </span>

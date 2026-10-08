@@ -456,7 +456,6 @@ export function PurposePageClient() {
             {/* Left Narrative */}
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PERSPECTIVE BEYOND YOUR SECTOR
                 </span>
@@ -568,11 +567,9 @@ export function PurposePageClient() {
 
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                 TEN PURPOSE &amp; GOAL CIRCLES
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
               The common thread is not the industry. It is the journey.
@@ -987,7 +984,6 @@ export function PurposePageClient() {
             {/* Left: Who Belongs In A Purpose Circle? */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   WHO BELONGS IN A PURPOSE CIRCLE?
                 </span>
@@ -1020,7 +1016,6 @@ export function PurposePageClient() {
             {/* Right: Purpose Creates New Conversations */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PURPOSE CREATES NEW CONVERSATIONS
                 </span>
@@ -1089,11 +1084,9 @@ export function PurposePageClient() {
 
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight">
               Common questions about Purpose Circles
@@ -1153,7 +1146,6 @@ export function PurposePageClient() {
               <div className="lg:col-span-7 space-y-6">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                       THE QUESTION THAT MATTERS
                     </span>

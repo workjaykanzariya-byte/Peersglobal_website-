@@ -351,7 +351,6 @@ export function IndustryPageClient() {
       <section className="py-16 sm:py-20 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHY SECTOR MATTERS</span>
           </div>
 
@@ -407,7 +406,6 @@ export function IndustryPageClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">NINE INDUSTRY CIRCLES</span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight leading-snug text-slate-900">
@@ -482,7 +480,6 @@ export function IndustryPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-left space-y-3">
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT AN INDUSTRY CIRCLE GIVES YOU</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight leading-snug text-slate-900">
@@ -516,7 +513,6 @@ export function IndustryPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">ONE SEAT PER CATEGORY</span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight leading-snug text-slate-900">
@@ -554,7 +550,6 @@ export function IndustryPageClient() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-left space-y-2">
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE INDUSTRY CIRCLE GRID</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight leading-snug text-slate-900">
@@ -601,7 +596,6 @@ export function IndustryPageClient() {
           <div className="space-y-6">
             <div className="text-left space-y-2">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHO JOINS AN INDUSTRY CIRCLE</span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight leading-snug text-slate-900">
@@ -630,7 +624,6 @@ export function IndustryPageClient() {
           <div className="space-y-8 pt-10 border-t border-slate-200">
             <div className="text-left space-y-2">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS INSIDE</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold tracking-tight leading-snug text-slate-900">
@@ -784,9 +777,7 @@ export function IndustryPageClient() {
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center space-y-3">
             <div className="inline-flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FREQUENTLY ASKED QUESTIONS</span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight leading-snug text-slate-900">
               Frequently Asked Questions
@@ -854,9 +845,7 @@ export function IndustryPageClient() {
       <section className="py-16 sm:py-20 bg-[#FAFBFD] border-b border-slate-100 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE REAL VALUE</span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-950">
             The most important thing an Industry Circle gives you <span className="font-semibold text-slate-700">may not be a referral.</span>

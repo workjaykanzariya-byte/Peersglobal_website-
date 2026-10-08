@@ -353,7 +353,6 @@ export default function TheLanguagePage() {
               {/* Left Column: Heading */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     MORE THAN VOCABULARY
                   </span>
@@ -401,11 +400,9 @@ export default function TheLanguagePage() {
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE 10 DEFINING CONCEPTS
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0f131a] tracking-tight leading-[1.14]">
@@ -833,11 +830,9 @@ export default function TheLanguagePage() {
           
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 QUICK LEXICON GUIDE
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0f131a] tracking-tight leading-[1.14]">
@@ -892,7 +887,6 @@ export default function TheLanguagePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE POWER OF LANGUAGE
                   </span>
@@ -937,7 +931,6 @@ export default function TheLanguagePage() {
               {/* Left Column: Heading & Cultural Context */}
               <div className="lg:col-span-5 space-y-4">
                 <div className="inline-flex items-center gap-2.5">
-                  <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     LIVING THE WORDS
                   </span>
