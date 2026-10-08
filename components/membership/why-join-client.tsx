@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -297,22 +298,23 @@ export function WhyJoinClient() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <a
+                  <GalaxyButton
                     href="https://unity.peersglobal.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-7 py-3.5 text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
+                    size="default"
+                    className="font-bold"
                   >
-                    <span>Download Unity App</span>
-                    <ArrowRight className="size-4" />
-                  </a>
-                  <Link
+                    Download Unity App
+                  </GalaxyButton>
+                  <GalaxyButton
                     href="/membership/criteria"
-                    className="rounded-full border border-slate-300 hover:border-[#0062D2] bg-white hover:bg-slate-50 text-slate-800 hover:text-[#0062D2] px-7 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm"
+                    variant="transparent-light"
+                    size="default"
+                    className="font-semibold"
                   >
-                    <span>Apply for Membership</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
+                    Apply for Membership
+                  </GalaxyButton>
                 </div>
 
               </div>
@@ -558,13 +560,13 @@ export function WhyJoinClient() {
 
           {/* Center CTA */}
           <div className="text-center">
-            <Link
+            <GalaxyButton
               href="/culture-and-code"
-              className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-8 py-3.5 text-sm font-bold shadow-md shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+              size="default"
+              className="font-bold"
             >
-              <span>Read the Peers Code</span>
-              <ArrowRight className="size-4" />
-            </Link>
+              Read the Peers Code
+            </GalaxyButton>
           </div>
 
         </div>
@@ -855,13 +857,14 @@ export function WhyJoinClient() {
               </div>
 
               <div>
-                <Link
+                <GalaxyButton
                   href="/who-belongs-here"
-                  className="w-full rounded-full bg-blue-50 hover:bg-blue-100 border border-blue-200 text-[#0062D2] px-6 py-3 text-sm font-bold transition-all text-center inline-flex items-center justify-center gap-2"
+                  variant="transparent-light"
+                  size="default"
+                  className="w-full font-bold"
                 >
-                  <span>See Who Belongs Here</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                  See Who Belongs Here
+                </GalaxyButton>
               </div>
             </div>
 
@@ -889,15 +892,15 @@ export function WhyJoinClient() {
               </div>
 
               <div>
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3.5 text-sm font-bold shadow-md shadow-blue-600/20 transition-all text-center inline-flex items-center justify-center gap-2"
+                  size="default"
+                  className="w-full font-bold"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 
@@ -941,22 +944,24 @@ export function WhyJoinClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-4 text-sm font-bold shadow-lg shadow-blue-600/30 transition-all hover:scale-105 inline-flex items-center gap-2"
+                  size="lg"
+                  className="font-bold"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4" />
-                </a>
-                <Link
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="/membership/criteria"
-                  className="rounded-full border border-white/30 hover:border-white/60 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-8 py-4 text-sm font-semibold transition-all inline-flex items-center gap-2"
+                  variant="transparent"
+                  size="lg"
+                  icon={<UserCheck className="size-4" />}
+                  className="font-semibold"
                 >
-                  <UserCheck className="size-4" />
-                  <span>Apply for Membership</span>
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
               </div>
             </div>
 

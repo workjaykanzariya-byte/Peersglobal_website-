@@ -45,14 +45,6 @@ export function HowItWorksSection() {
             Because the real question is not: <span className="font-semibold text-slate-900">&ldquo;How often did we meet?&rdquo;</span> It is: <span className="font-semibold text-slate-900">&ldquo;What happened because we stayed connected?&rdquo;</span>
           </p>
 
-          <div className="pt-2">
-            <GalaxyButton
-              href="/unity"
-              size="default"
-            >
-              EXPLORE UNITY
-            </GalaxyButton>
-          </div>
         </div>
       </div>
 

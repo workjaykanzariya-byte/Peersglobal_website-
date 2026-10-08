@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -67,13 +68,13 @@ export function HowToEarnImpactClient() {
               </p>
 
               <div className="pt-2">
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-[0_6px_18px_rgba(0,98,210,0.35)] transition-all active:scale-95"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 
@@ -261,13 +262,13 @@ export function HowToEarnImpactClient() {
             Build Your Business. Build Your Relationships. Build Your Circle.
           </h2>
           <div className="pt-2">
-            <Link
+            <GalaxyButton
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-xs sm:text-sm font-bold shadow-lg shadow-black/10 transition-all uppercase tracking-wider active:scale-95"
+              variant="primary"
+              size="md"
             >
-              <span>Download Unity App</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              Download Unity App
+            </GalaxyButton>
           </div>
         </div>
       </section>

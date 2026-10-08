@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -77,19 +78,20 @@ export function CircleRolesClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-4">
-                <Link
+                <GalaxyButton
                   href="/apply"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-sm font-bold shadow-[0_4px_14px_rgba(0,98,210,0.25)] hover:shadow-lg transition-all"
+                  variant="primary"
+                  size="md"
                 >
                   Apply for a Role
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
+                </GalaxyButton>
+                <GalaxyButton
                   href="/unity"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-sm font-semibold transition-all shadow-xs"
+                  variant="transparent-light"
+                  size="md"
                 >
                   Download Unity App
-                </Link>
+                </GalaxyButton>
               </div>
             </div>
 
@@ -476,19 +478,20 @@ export function CircleRolesClient() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Link
+            <GalaxyButton
               href="/apply"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg shadow-black/10 hover:shadow-xl uppercase tracking-wider transition-all"
+              variant="primary"
+              size="md"
             >
               Apply for Circle Role
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
+            </GalaxyButton>
+            <GalaxyButton
               href="/unity"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 text-white text-sm font-semibold border border-white/20 hover:bg-white/15 transition-all uppercase tracking-wider backdrop-blur-sm"
+              variant="transparent"
+              size="md"
             >
               Download Unity App
-            </Link>
+            </GalaxyButton>
           </div>
         </div>
       </section>

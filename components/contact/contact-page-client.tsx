@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
@@ -296,27 +297,31 @@ export function ContactPageClient() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-                  <a
+                  <GalaxyButton
                     href="#send-message"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Send Us a Message</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                    Send Us a Message
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#how-can-we-help"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="transparent"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>The 7 Categories</span>
-                  </a>
+                    The 7 Categories
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#already-a-peer"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="transparent"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>Already a Peer?</span>
-                  </a>
+                    Already a Peer?
+                  </GalaxyButton>
                 </div>
 
                 {/* Quick Info Bar */}
@@ -636,20 +641,15 @@ export function ContactPageClient() {
                   <p className="text-xs text-slate-500 font-medium">
                     Your message will be routed directly to department stewards.
                   </p>
-                  <button
+                  <GalaxyButton
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 uppercase tracking-wider shrink-0 disabled:opacity-50 cursor-pointer hover:scale-105"
+                    variant="primary"
+                    size="md"
+                    className="w-full sm:w-auto"
                   >
-                    {isSubmitting ? (
-                      'Routing Message...'
-                    ) : (
-                      <>
-                        <span>Send Message</span>
-                        <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                    {isSubmitting ? 'Routing Message...' : 'Send Message'}
+                  </GalaxyButton>
                 </div>
               </form>
             )}
@@ -899,21 +899,23 @@ export function ContactPageClient() {
 
             {/* Right Column: Interactive Quick Actions */}
             <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
-              <a
+              <GalaxyButton
                 href="#send-message"
-                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs"
               >
-                <span>Start a Conversation</span>
-                <ArrowRight className="size-3.5" />
-              </a>
+                Start a Conversation
+              </GalaxyButton>
 
-              <Link
+              <GalaxyButton
                 href="/our-story"
-                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold text-xs uppercase tracking-wider transition-all border border-white/20 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                variant="transparent"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs"
               >
-                <span>Read Our Story</span>
-                <ChevronRight className="size-3.5 text-white/60" />
-              </Link>
+                Read Our Story
+              </GalaxyButton>
             </div>
 
           </div>

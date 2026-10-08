@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import '@/app/sections.css'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   Users,
@@ -196,20 +197,22 @@ export default function TheCitizensPage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Become a Peer</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Become a Peer
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/leadership"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Explore Leadership</span>
-                </Link>
+                  Explore Leadership
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -852,13 +855,13 @@ export default function TheCitizensPage() {
             </p>
 
             {/* Blue Pill CTA Button */}
-            <Link
+            <GalaxyButton
               href="/leadership"
-              className="inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3.5 text-sm font-semibold shadow-[0_8px_20px_rgba(0,102,255,0.28)] transition-all hover:scale-[1.03] active:scale-[0.98] items-center gap-2"
+              size="default"
+              className="font-semibold"
             >
-              <span>Explore the Leadership Path</span>
-              <ArrowRight className="size-4" />
-            </Link>
+              Explore the Leadership Path
+            </GalaxyButton>
           </div>
 
         </div>

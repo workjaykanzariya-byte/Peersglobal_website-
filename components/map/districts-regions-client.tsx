@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -331,13 +332,13 @@ export function DistrictsRegionsClient() {
           </h2>
 
           <div className="pt-2">
-            <Link
+            <GalaxyButton
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg shadow-black/10 hover:shadow-xl uppercase tracking-wider transition-all"
+              variant="primary"
+              size="md"
             >
               Download Unity App
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </GalaxyButton>
           </div>
         </div>
       </section>

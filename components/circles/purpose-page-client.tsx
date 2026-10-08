@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Truck,
   Rocket,
@@ -386,21 +387,22 @@ export function PurposePageClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#circles-list"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Explore 10 Purpose Circles</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <a
+                  Explore 10 Purpose Circles
+                </GalaxyButton>
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -904,20 +906,21 @@ export function PurposePageClient() {
               Your business identity is only one part of your entrepreneurial identity. Your ambition is another. That is why PEERS GLOBAL creates both Industry and Purpose pathways.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Link
+            <div className="flex flex-wrap items-center gap-3">
+              <GalaxyButton
                 href="/circles"
-                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-2.5 text-xs font-semibold shadow-sm inline-flex items-center gap-2"
+                variant="primary"
+                size="sm"
               >
-                <span>Browse All Circles</span>
-                <ArrowRight className="size-3.5" />
-              </Link>
-              <Link
+                Browse All Circles
+              </GalaxyButton>
+              <GalaxyButton
                 href="/circles/industry"
-                className="rounded-full border border-slate-300 bg-white hover:border-slate-400 text-slate-700 px-6 py-2.5 text-xs font-semibold inline-flex items-center gap-2"
+                variant="transparent-light"
+                size="sm"
               >
                 Browse Industry Circles
-              </Link>
+              </GalaxyButton>
             </div>
           </div>
 
@@ -1060,13 +1063,15 @@ export function PurposePageClient() {
                 <p className="text-xs text-slate-300 leading-relaxed mb-4">
                   Not every entrepreneurial ambition fits neatly into ten categories. Tell us what you are trying to build, what you are trying to achieve, and what kind of entrepreneurs you would like to meet. A future Circle may begin with a purpose you are already carrying.
                 </p>
-                <Link
-                  href="/start-a-circle"
-                  className="text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-full inline-flex items-center gap-1.5 transition-colors"
-                >
-                  Propose or Start a Circle
-                  <ArrowRight className="size-3" />
-                </Link>
+                <div className="pt-2">
+                  <GalaxyButton
+                    href="/start-a-circle"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Propose or Start a Circle
+                  </GalaxyButton>
+                </div>
               </div>
 
             </div>

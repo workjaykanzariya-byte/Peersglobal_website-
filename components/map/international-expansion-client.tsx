@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -87,19 +88,21 @@ export function InternationalExpansionClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Link
+                <GalaxyButton
                   href="/start-a-circle"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:shadow-lg transition-all shadow-md uppercase tracking-wider"
+                  variant="primary"
+                  size="md"
                 >
                   Start a Circle
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
+                </GalaxyButton>
+                <GalaxyButton
                   href="/bring-to-my-city"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 hover:bg-slate-100 transition-colors"
+                  variant="transparent-light"
+                  size="md"
+                  showIcon={false}
                 >
                   Bring to Your City
-                </Link>
+                </GalaxyButton>
               </div>
             </div>
 
@@ -310,19 +313,21 @@ export function InternationalExpansionClient() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
+              <GalaxyButton
                 href="/start-a-circle"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] text-white text-xs font-bold hover:bg-[#1a42c0] transition-colors uppercase tracking-wider shadow-sm"
+                variant="primary"
+                size="md"
               >
                 Start a Circle
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
+              </GalaxyButton>
+              <GalaxyButton
                 href="/bring-to-my-city"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-800 hover:bg-slate-100 transition-colors"
+                variant="transparent-light"
+                size="md"
+                showIcon={false}
               >
                 Bring to Your City
-              </Link>
+              </GalaxyButton>
             </div>
 
             <div className="pt-4 border-t border-slate-100 text-center">
@@ -367,13 +372,13 @@ export function InternationalExpansionClient() {
           </h2>
 
           <div className="pt-2">
-            <Link
+            <GalaxyButton
               href="/unity"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-[#0062D2] text-sm font-bold shadow-lg shadow-black/10 hover:shadow-xl uppercase tracking-wider transition-all"
+              variant="primary"
+              size="md"
             >
               Download Unity App
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            </GalaxyButton>
           </div>
         </div>
       </section>

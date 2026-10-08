@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Factory,
   Building2,
@@ -282,19 +283,20 @@ export function IndustryPageClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/circles/find"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Find a Circle Near You</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-                <Link
+                  Find a Circle Near You
+                </GalaxyButton>
+                <GalaxyButton
                   href="/circles"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="md"
                 >
-                  <span>Explore All Circles</span>
-                </Link>
+                  Explore All Circles
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -756,13 +758,15 @@ export function IndustryPageClient() {
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
               Tell us about what you build, where you operate, what industry you belong to and what kind of entrepreneurs you would like to meet. Your requirement helps us understand where a future Circle could emerge: <em>&ldquo;Sometimes the Circle you are looking for begins because you were willing to ask for it.&rdquo;</em>
             </p>
-            <Link
-              href="/circles/bring-to-my-city"
-              className="inline-flex items-center gap-2 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/20 transition-all hover:scale-105 mt-2"
-            >
-              <span>Tell Us What You Build</span>
-              <ArrowRight className="size-4" />
-            </Link>
+            <div className="pt-2">
+              <GalaxyButton
+                href="/circles/bring-to-my-city"
+                variant="primary"
+                size="md"
+              >
+                Tell Us What You Build
+              </GalaxyButton>
+            </div>
           </div>
 
         </div>
@@ -826,13 +830,15 @@ export function IndustryPageClient() {
                   Our Circle Advisory team can help determine whether your business fits an existing Industry Circle or an emerging sector cohort.
                 </p>
               </div>
-              <Link
-                href="/circles/find"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-slate-950 hover:bg-sky-50 px-6 py-3 text-xs sm:text-sm font-bold transition-all hover:scale-105 shadow-sm"
-              >
-                <span>Connect with Advisory</span>
-                <ArrowRight className="size-4" />
-              </Link>
+              <div className="pt-2">
+                <GalaxyButton
+                  href="/circles/find"
+                  variant="transparent-light"
+                  size="md"
+                >
+                  Connect with Advisory
+                </GalaxyButton>
+              </div>
             </div>
           </div>
 

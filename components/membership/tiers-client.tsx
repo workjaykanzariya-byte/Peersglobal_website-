@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -150,22 +151,23 @@ export function TiersClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <Link
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="/membership/criteria"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -262,13 +264,13 @@ export function TiersClient() {
                 <p className="text-xs text-slate-700 italic font-light">
                   Many Peers join the platform first, spend months in the community, and request a Circle when the right room is available.
                 </p>
-                <Link
+                <GalaxyButton
                   href="/circles"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs font-bold shadow-sm transition-all uppercase tracking-wider shrink-0"
+                  size="sm"
+                  className="shrink-0 uppercase tracking-wider font-bold"
                 >
-                  <span>Explore Circles</span>
-                  <ArrowRight className="size-3.5" />
-                </Link>
+                  Explore Circles
+                </GalaxyButton>
               </div>
             </div>
 
@@ -399,13 +401,13 @@ export function TiersClient() {
               </div>
 
               <div>
-                <Link
+                <GalaxyButton
                   href="/membership/criteria"
-                  className="w-full rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-blue-600/20 hover:shadow-lg transition-all text-center inline-flex items-center justify-center gap-2 uppercase tracking-wider group"
+                  size="default"
+                  className="w-full uppercase tracking-wider font-bold"
                 >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
               </div>
             </div>
 
@@ -466,13 +468,14 @@ export function TiersClient() {
               </div>
 
               <div>
-                <Link
+                <GalaxyButton
                   href="/membership/criteria"
-                  className="w-full rounded-xl bg-white hover:bg-slate-100 text-[#081226] px-6 py-3.5 text-xs sm:text-sm font-bold shadow-lg transition-all text-center inline-flex items-center justify-center gap-2 uppercase tracking-wider"
+                  variant="transparent-light"
+                  size="default"
+                  className="w-full uppercase tracking-wider font-bold"
                 >
-                  <span>Apply for Charter Membership</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                  Apply for Charter Membership
+                </GalaxyButton>
                 <p className="text-[10px] text-slate-400 text-center mt-3 italic">
                   First priority is a priority of approach, not a guarantee.
                 </p>
@@ -889,22 +892,23 @@ export function TiersClient() {
               </div>
 
               <div className="relative z-10 flex flex-col gap-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  size="default"
+                  className="w-full uppercase tracking-wider font-bold"
                 >
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <Link
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="/membership/criteria"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs"
+                  variant="transparent"
+                  size="default"
+                  className="w-full uppercase tracking-wider font-bold"
                 >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
               </div>
             </div>
 

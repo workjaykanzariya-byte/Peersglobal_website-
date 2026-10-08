@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -192,27 +193,31 @@ export function BringToMyCityClient() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-                  <a
+                  <GalaxyButton
                     href="#registration-form"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Register Your Interest</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                    Register Your Interest
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#two-ways"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase"
+                    variant="transparent-light"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>Two Ways to Bring Peers</span>
-                  </a>
+                    Two Ways to Bring Peers
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#why-someone-local"
-                    className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-700 px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 hover:bg-slate-50 shadow-2xs inline-flex items-center gap-2 uppercase"
+                    variant="transparent-light"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>Why Someone Local</span>
-                  </a>
+                    Why Someone Local
+                  </GalaxyButton>
                 </div>
 
                 {/* Quick Info Bar */}
@@ -717,19 +722,15 @@ export function BringToMyCityClient() {
                   <p className="text-xs text-slate-500">
                     No pressure. No forced commitment. Just the possibility of beginning something meaningful.
                   </p>
-                  <button
+                  <GalaxyButton
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-[#0062D2] hover:bg-[#0051b0] text-white shadow-md transition-all flex items-center justify-center gap-2 uppercase tracking-wider shrink-0 disabled:opacity-50"
+                    variant="primary"
+                    size="md"
+                    className="w-full sm:w-auto"
                   >
-                    {isSubmitting ? (
-                      'Submitting Registration...'
-                    ) : (
-                      <>
-                        Submit <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                    {isSubmitting ? 'Submitting Registration...' : 'Submit'}
+                  </GalaxyButton>
                 </div>
               </form>
             )}
@@ -781,20 +782,22 @@ export function BringToMyCityClient() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 text-xs sm:text-sm font-bold uppercase tracking-wider">
-            <a
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
+            <GalaxyButton
               href="#registration-form"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] transition-all hover:-translate-y-0.5 active:scale-[0.98]"
+              variant="primary"
+              size="md"
             >
-              Register your interest →
-            </a>
-            <a
+              Register your interest
+            </GalaxyButton>
+            <GalaxyButton
               href="#registration-form"
               onClick={() => setFormData((prev) => ({ ...prev, whatBringsYou: 'I would consider founding the first Circle', wouldYouFound: 'Yes' }))}
-              className="px-6 py-3.5 rounded-full bg-white/[0.08] text-white border border-white/40 hover:bg-white/15 hover:border-white/70 transition-all backdrop-blur-sm"
+              variant="transparent"
+              size="md"
             >
-              Ready to explore founding the first Circle? Start the conversation →
-            </a>
+              Explore founding the first Circle
+            </GalaxyButton>
           </div>
         </div>
       </section>

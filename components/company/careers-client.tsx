@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Briefcase,
   ChevronRight,
@@ -247,27 +248,31 @@ export function CareersClient() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <a
+                  <GalaxyButton
                     href="#open-roles"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white px-6 py-3 text-xs font-bold tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>View Open Roles</span>
-                    <ArrowRight className="size-3.5" />
-                  </a>
+                    View Open Roles
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#general-application"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="transparent"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>General Application</span>
-                  </a>
+                    General Application
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#who-we-hire"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="transparent"
+                    size="md"
+                    showIcon={false}
                   >
-                    <span>Who We Hire</span>
-                  </a>
+                    Who We Hire
+                  </GalaxyButton>
                 </div>
 
               </div>
@@ -553,14 +558,15 @@ export function CareersClient() {
                     </div>
                   </div>
 
-                  <a
+                  <GalaxyButton
                     href="#general-application"
                     onClick={() => setFormData((prev) => ({ ...prev, workType: role.title }))}
-                    className="px-6 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-sm hover:shadow-md flex items-center gap-1.5 self-start lg:self-auto cursor-pointer"
+                    variant="primary"
+                    size="sm"
+                    className="self-start lg:self-auto shrink-0"
                   >
-                    <span>Apply for this Role</span>
-                    <ArrowRight className="size-3.5" />
-                  </a>
+                    Apply for this Role
+                  </GalaxyButton>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -922,14 +928,15 @@ export function CareersClient() {
                       <span className="text-[11px] text-slate-500 font-mono">
                         Direct transmission &bull; No automated discard
                       </span>
-                      <button
+                      <GalaxyButton
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                        variant="primary"
+                        size="md"
+                        className="w-full sm:w-auto"
                       >
-                        <span>{isSubmitting ? 'Transmitting Profile...' : 'Submit Application'}</span>
-                        <Send className="size-3.5" />
-                      </button>
+                        {isSubmitting ? 'Transmitting Profile...' : 'Submit Application'}
+                      </GalaxyButton>
                     </div>
 
                   </form>
@@ -1007,20 +1014,21 @@ export function CareersClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                <a
+                <GalaxyButton
                   href="#open-roles"
-                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold shadow-[0_4px_16px_rgba(225,29,72,0.35)] hover:shadow-[0_6px_22px_rgba(225,29,72,0.55)] hover:scale-105 transition-all uppercase tracking-wider group cursor-pointer"
+                  variant="primary"
+                  size="sm"
                 >
-                  <span>View Open Roles</span>
-                  <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  View Open Roles
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#general-application"
-                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all cursor-pointer"
+                  variant="transparent"
+                  size="sm"
                 >
-                  <span>Make a General Application &rarr;</span>
-                </a>
+                  Make a General Application
+                </GalaxyButton>
               </div>
 
               {/* Bottom Quote */}

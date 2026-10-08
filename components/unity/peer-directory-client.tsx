@@ -28,6 +28,7 @@ import {
   RotateCcw,
 } from 'lucide-react'
 import { PeerMemberProfile } from '@/lib/api/members'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 // ─── Stat Pillars ─────────────────────────────────────────────────────────
 const STATS = [
@@ -951,15 +952,15 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
               </div>
 
               <div className="pt-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0062D2] text-white font-bold text-xs shadow-md hover:bg-[#0052B4] transition-all"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Explore the Directory</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                  Explore the Directory
+                </GalaxyButton>
               </div>
             </div>
 
@@ -1336,13 +1337,13 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
                   >
                     Cancel
                   </button>
-                  <button
-                    type="button"
+                  <GalaxyButton
                     onClick={handleSendConnection}
-                    className="px-6 py-2.5 rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white text-xs font-bold shadow-md transition-all active:scale-98 cursor-pointer"
+                    variant="primary"
+                    size="sm"
                   >
                     Send Connection Request
-                  </button>
+                  </GalaxyButton>
                 </div>
               </div>
             )}

@@ -50,11 +50,54 @@ export function Cta({
   size?: CtaSize
   className?: string
 } & Omit<React.ComponentProps<typeof Link>, 'href' | 'className' | 'children'>) {
+  const galaxySize = size === 'sm' ? 'sm' : size === 'lg' ? 'lg' : 'default'
+
   if (variant === 'primary' || variant === 'brand-gradient') {
-    const galaxySize = size === 'sm' ? 'sm' : size === 'lg' ? 'lg' : 'default'
     return (
       <GalaxyButton
         href={href}
+        size={galaxySize}
+        className={className}
+        {...(rest as any)}
+      >
+        {children}
+      </GalaxyButton>
+    )
+  }
+
+  if (variant === 'onDark') {
+    return (
+      <GalaxyButton
+        href={href}
+        variant="transparent"
+        size={galaxySize}
+        className={className}
+        {...(rest as any)}
+      >
+        {children}
+      </GalaxyButton>
+    )
+  }
+
+  if (variant === 'brand-outline' || variant === 'outline') {
+    return (
+      <GalaxyButton
+        href={href}
+        variant="transparent-light"
+        size={galaxySize}
+        className={className}
+        {...(rest as any)}
+      >
+        {children}
+      </GalaxyButton>
+    )
+  }
+
+  if (variant === 'red') {
+    return (
+      <GalaxyButton
+        href={href}
+        variant="gradient"
         size={galaxySize}
         className={className}
         {...(rest as any)}
