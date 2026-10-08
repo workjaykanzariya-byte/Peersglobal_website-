@@ -142,6 +142,7 @@ export const HEADER_NAV: NavItem[] = [
     },
     children: [
       { label: 'The Leadership Ladder', href: '/leadership', desc: 'Pathway from Member to ecosystem owner', phase: 1 },
+      { label: 'Elections & Selection Portal', href: '/leadership/campaigns', desc: 'Active elections, voting, juror reviews & winners', phase: 1 },
       { label: 'Circle Founder', href: '/leadership/circle-founder', desc: 'Convene and launch new Circles', phase: 1 },
       { label: 'Circle Director', href: '/leadership/circle-director', desc: 'Runs the Circle month on month', phase: 1 },
       { label: 'Industry Director', href: '/leadership/industry-director', desc: 'Sector ecosystem owner for the city', phase: 1 },

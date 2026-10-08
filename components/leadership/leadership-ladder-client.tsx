@@ -255,9 +255,17 @@ export function LeadershipLadderClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="/leadership/apply"
+                  href="/leadership/campaigns"
                   variant="primary"
-                  size="md"
+                  size="default"
+                >
+                  Elections & Selection Portal
+                </GalaxyButton>
+
+                <GalaxyButton
+                  href="/leadership/apply"
+                  variant="transparent-light"
+                  size="default"
                 >
                   Apply to Lead
                 </GalaxyButton>
@@ -267,7 +275,7 @@ export function LeadershipLadderClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
                 >
                   Download Unity App
                 </GalaxyButton>
