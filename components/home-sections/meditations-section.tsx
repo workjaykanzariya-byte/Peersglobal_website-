@@ -116,7 +116,7 @@ export function MeditationsSection() {
               </defs>
               <path
                 className="animated-border-path"
-                d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
               />
             </svg>
             <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
@@ -148,7 +148,7 @@ export function MeditationsSection() {
               </defs>
               <path
                 className="animated-border-path animated-border-path-2"
-                d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
               />
             </svg>
             <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
@@ -180,7 +180,7 @@ export function MeditationsSection() {
               </defs>
               <path
                 className="animated-border-path animated-border-path-3"
-                d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
               />
             </svg>
             <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">

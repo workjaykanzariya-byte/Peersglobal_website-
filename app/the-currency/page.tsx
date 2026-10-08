@@ -687,7 +687,7 @@ export default function TheCurrencyPage() {
                     <path
                       className={`animated-border-path ${borderAnimClass}`}
                       style={{ stroke: `url(#whereCardGrad${idx})` }}
-                      d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                     />
                   </svg>
                   <div className="p-6 flex flex-col justify-between h-full bg-[#F8FAFC]">
@@ -760,7 +760,7 @@ export default function TheCurrencyPage() {
                 <path
                   className="animated-border-path animated-border-path-2"
                   style={{ stroke: 'url(#whereCardGradPromo)' }}
-                  d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                 />
               </svg>
               <div className="relative overflow-hidden p-6 text-white shadow-xl flex flex-col justify-between h-full !bg-gradient-to-br !from-[#0D1630] !via-[#1E1B4B] !to-[#4C0519] rounded-[calc(1rem-1.5px)]">
@@ -833,7 +833,7 @@ export default function TheCurrencyPage() {
                     <path
                       className={`animated-border-path ${borderAnimClass}`}
                       style={{ stroke: `url(#unlockCardGrad${idx})` }}
-                      d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                     />
                   </svg>
                   <div className="p-7 flex flex-col items-center text-center justify-between h-full bg-white">
@@ -1160,7 +1160,7 @@ export default function TheCurrencyPage() {
                 </defs>
                 <path
                   className="animated-border-path"
-                  d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                 />
               </svg>
               <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-white">
@@ -1190,7 +1190,7 @@ export default function TheCurrencyPage() {
                 </defs>
                 <path
                   className="animated-border-path animated-border-path-2"
-                  d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                 />
               </svg>
               <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-white">
@@ -1237,7 +1237,7 @@ export default function TheCurrencyPage() {
                 </defs>
                 <path
                   className="animated-border-path animated-border-path-3"
-                  d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                 />
               </svg>
               <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-white">

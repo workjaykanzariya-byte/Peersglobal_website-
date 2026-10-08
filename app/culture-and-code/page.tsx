@@ -268,6 +268,22 @@ export default function CultureAndCodePage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* SVG Definitions for Icons */}
+          <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="cultureStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#38BDF8" />
+                <stop offset="50%" stopColor="#818CF8" />
+                <stop offset="100%" stopColor="#FB7185" />
+              </linearGradient>
+              <linearGradient id="cultureCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1D4ED8" />
+                <stop offset="50%" stopColor="#6366F1" />
+                <stop offset="100%" stopColor="#E11D48" />
+              </linearGradient>
+            </defs>
+          </svg>
+
           <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -329,8 +345,8 @@ export default function CultureAndCodePage() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-rose-500/20 border border-blue-400/30 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 stroke-[url(#cultureStatGrad)]" />
                       </div>
                       <div>
                         <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
@@ -357,7 +373,7 @@ export default function CultureAndCodePage() {
                 Lived Out
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl font-bold leading-tight brand-gradient-text"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Across Every Room
@@ -398,8 +414,8 @@ export default function CultureAndCodePage() {
             {/* 6 Everyday Reality Cards + 1 Spanning Highlight Card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
-                <div className="size-10 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <MessageSquare className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <MessageSquare className="size-5 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-[#0f131a] mb-1">How they speak</h4>
@@ -410,8 +426,8 @@ export default function CultureAndCodePage() {
               </div>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex items-start gap-4 group">
-                <div className="size-10 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <HeartHandshake className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <HeartHandshake className="size-5 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-[#0f131a] mb-1">How they respond</h4>
@@ -422,8 +438,8 @@ export default function CultureAndCodePage() {
               </div>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all flex items-start gap-4 group">
-                <div className="size-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <Lock className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <Lock className="size-5 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-[#0f131a] mb-1">Confidentiality</h4>
@@ -434,8 +450,8 @@ export default function CultureAndCodePage() {
               </div>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-amber-200 transition-all flex items-start gap-4 group">
-                <div className="size-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <UserPlus className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <UserPlus className="size-5 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-[#0f131a] mb-1">How they welcome</h4>
@@ -446,8 +462,8 @@ export default function CultureAndCodePage() {
               </div>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex items-start gap-4 group">
-                <div className="size-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <Trophy className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <Trophy className="size-5 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-[#0f131a] mb-1">Recognise contribution</h4>
@@ -458,8 +474,8 @@ export default function CultureAndCodePage() {
               </div>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-violet-200 transition-all flex items-start gap-4 group">
-                <div className="size-10 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <ShieldCheck className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="size-5 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-[#0f131a] mb-1">Handle disagreement</h4>
@@ -472,8 +488,8 @@ export default function CultureAndCodePage() {
               {/* Full Width / Spanning Golden Principle Card */}
               <div className="sm:col-span-2 lg:col-span-3 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3 text-center sm:text-left">
-                  <div className="size-10 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 shadow-xs">
-                    <Sparkles className="size-5" />
+                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-rose-500/20 border border-blue-500/25 flex items-center justify-center shrink-0 shadow-xs">
+                    <Sparkles className="size-5 stroke-[url(#cultureCardGrad)]" />
                   </div>
                   <div>
                     <h4 className="text-sm sm:text-base font-bold text-slate-900">
@@ -524,7 +540,7 @@ export default function CultureAndCodePage() {
             {/* Shield Protection Banner */}
             <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 shadow-2xs space-y-2">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="size-5 text-[#1D4ED8]" />
+                <ShieldCheck className="size-5 stroke-[url(#cultureCardGrad)]" />
                 <p className="text-sm sm:text-base font-bold text-slate-900 leading-relaxed">
                   The Code protects the quality of the environment.
                 </p>
@@ -566,36 +582,57 @@ export default function CultureAndCodePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {PEERS_CODE_COMMITMENTS.map((item) => {
+            {PEERS_CODE_COMMITMENTS.map((item, idx) => {
               const IconComp = item.icon
               return (
                 <div
                   key={item.id}
                   id={item.id}
-                  className="relative bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-8 border border-cool-grey-250 shadow-xs hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group scroll-mt-28"
+                  className="animated-glow-card group w-full scroll-mt-28"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-slate-200/80 text-xs font-bold text-slate-800">
-                        COMMITMENT {item.num}
-                      </span>
-                      <div className="size-12 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
-                        <IconComp className="size-6" />
+                  {/* SVG Animated Tracing Border */}
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`codeCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#codeCardGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+
+                  {/* Card Interior */}
+                  <div className="p-7 sm:p-8 flex flex-col justify-between h-full space-y-4">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-slate-200/80 text-xs font-bold text-slate-800">
+                          COMMITMENT {item.num}
+                        </span>
+                        <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300 shadow-xs">
+                          <IconComp className="size-6 stroke-[url(#cultureCardGrad)]" />
+                        </div>
                       </div>
-                    </div>
 
-                    <div>
-                      <h3 className="text-2xl font-bold text-[#0f131a] mb-1.5 tracking-tight">
-                        {item.title}
-                      </h3>
+                      <div>
+                        <h3 className="text-2xl font-bold text-[#0f131a] mb-1.5 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                          {item.title}
+                        </h3>
 
-                      <p className="text-xs font-bold tracking-wider uppercase brand-gradient-text mb-3">
-                        {item.essence}
-                      </p>
+                        <p className="text-xs font-bold tracking-wider uppercase brand-gradient-text mb-3">
+                          {item.essence}
+                        </p>
 
-                      <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                        {item.description}
-                      </p>
+                        <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -646,28 +683,28 @@ export default function CultureAndCodePage() {
 
               {/* Behavior Grid Checklist */}
               <div className="grid sm:grid-cols-2 gap-3 p-5 sm:p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 text-xs sm:text-sm text-slate-700 font-medium shadow-2xs">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <div className="flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span>So we listen.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <div className="flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span>We respect.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <div className="flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span>We contribute.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <div className="flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span>We keep our word.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                <div className="flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span>We honour confidentiality.</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                <div className="flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span>We disagree without diminishing.</span>
                 </div>
               </div>
@@ -752,8 +789,8 @@ export default function CultureAndCodePage() {
               {/* Right Column: Equality Pillars & Golden Dignity Banner */}
               <div className="lg:col-span-5 space-y-3.5">
                 <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs flex items-center gap-3.5">
-                  <div className="size-8 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0">
-                    <Users className="size-4" />
+                  <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                    <Users className="size-4 stroke-[url(#cultureCardGrad)]" />
                   </div>
                   <span className="text-xs sm:text-sm font-medium text-slate-800">
                     The large enterprise founder and the first-generation founder.
@@ -761,8 +798,8 @@ export default function CultureAndCodePage() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs flex items-center gap-3.5">
-                  <div className="size-8 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center shrink-0">
-                    <HeartHandshake className="size-4" />
+                  <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                    <HeartHandshake className="size-4 stroke-[url(#cultureCardGrad)]" />
                   </div>
                   <span className="text-xs sm:text-sm font-medium text-slate-800">
                     The person asking for help and the person offering it.
@@ -770,8 +807,8 @@ export default function CultureAndCodePage() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-2xs flex items-center gap-3.5">
-                  <div className="size-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                    <Eye className="size-4" />
+                  <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                    <Eye className="size-4 stroke-[url(#cultureCardGrad)]" />
                   </div>
                   <span className="text-xs sm:text-sm font-medium text-slate-800">
                     The person leading the room and the person quietly listening.
@@ -818,28 +855,28 @@ export default function CultureAndCodePage() {
               {/* Right Column: Give-First Contributions Grid + Banner */}
               <div className="lg:col-span-5 space-y-4">
                 <div className="grid grid-cols-2 gap-3 text-xs sm:text-sm font-medium text-slate-800">
-                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-blue-500" />
+                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                     <span>An introduction</span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-rose-500" />
+                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                     <span>A shared idea</span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-indigo-500" />
+                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                     <span>A hard-won lesson</span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-emerald-500" />
+                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                     <span>A listening ear</span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-amber-500" />
+                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                     <span>A warm connection</span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-violet-500" />
+                  <div className="p-3.5 rounded-xl bg-white border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                     <span>A few minutes</span>
                   </div>
                 </div>
@@ -894,12 +931,14 @@ export default function CultureAndCodePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
 
-                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-xs font-mono font-bold px-3 py-1 rounded-full border border-white/20">
-                      RITUAL {ritual.num}
+                    <div className="absolute top-4 left-4 flex items-center gap-1.5 drop-shadow-md">
+                      <span className="text-xs font-bold font-mono tracking-wider brand-gradient-text uppercase">
+                        RITUAL {ritual.num}
+                      </span>
                     </div>
 
-                    <div className="absolute bottom-4 right-4 size-10 rounded-xl bg-white text-[#1D4ED8] flex items-center justify-center shadow-md">
-                      <RitualIcon className="size-5" />
+                    <div className="absolute bottom-4 right-4 size-10 rounded-xl bg-white/95 backdrop-blur-sm border border-white/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <RitualIcon className="size-5 stroke-[url(#cultureCardGrad)]" />
                     </div>
                   </div>
 
@@ -962,7 +1001,7 @@ export default function CultureAndCodePage() {
                   <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/25 rounded-full blur-2xl pointer-events-none" />
 
                   <div className="relative z-10 flex items-center gap-2.5 text-xs font-bold uppercase tracking-widest text-amber-300">
-                    <Shield className="size-4 text-amber-400" />
+                    <Shield className="size-4 stroke-[url(#cultureStatGrad)]" />
                     <span>THE PURPOSE: PROTECTION</span>
                   </div>
 
@@ -972,15 +1011,15 @@ export default function CultureAndCodePage() {
 
                   <div className="relative z-10 space-y-2 text-xs sm:text-sm text-slate-300 pt-1">
                     <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 border border-white/10">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                      <span className="size-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-rose-400 shrink-0" />
                       <span>Protection of trust &amp; people</span>
                     </div>
                     <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 border border-white/10">
-                      <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
+                      <span className="size-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-rose-400 shrink-0" />
                       <span>Protection of the Circle</span>
                     </div>
                     <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 border border-white/10">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span className="size-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-rose-400 shrink-0" />
                       <span>Protection of culture entered in good faith</span>
                     </div>
                   </div>
@@ -1008,23 +1047,46 @@ export default function CultureAndCodePage() {
                 return (
                   <div
                     key={idx}
-                    className={`p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 space-y-4 ${item.border} shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all group`}
+                    className="animated-glow-card group w-full"
+                    tabIndex={0}
+                    role="article"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className={`size-12 rounded-xl ${item.bg} ${item.color} flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs`}>
-                        <IconComponent className="size-5" />
+                    {/* SVG Animated Tracing Border */}
+                    <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`protectCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#6366F1" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path"
+                        style={{ stroke: `url(#protectCardGrad${idx})` }}
+                        d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                      />
+                    </svg>
+
+                    {/* Card Interior */}
+                    <div className="p-6 sm:p-7 flex flex-col justify-between h-full space-y-4">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                            <IconComponent className="size-5 stroke-[url(#cultureCardGrad)]" />
+                          </div>
+                          <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400">
+                            PILLAR 0{idx + 1}
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-base font-bold text-[#0f131a] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal pt-2">
+                            {item.desc}
+                          </p>
+                        </div>
                       </div>
-                      <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400">
-                        PILLAR 0{idx + 1}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="text-base font-bold text-[#0f131a] group-hover:text-blue-600 transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal pt-2">
-                        {item.desc}
-                      </p>
                     </div>
                   </div>
                 )
@@ -1055,54 +1117,54 @@ export default function CultureAndCodePage() {
 
             {/* Micro-moment Grid Cards */}
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-3">
-                <div className="size-8 rounded-lg bg-blue-50 text-[#1D4ED8] flex items-center justify-center shrink-0 mt-0.5">
-                  <UserPlus className="size-4" />
+              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-3 group">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                  <UserPlus className="size-4 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
                   When someone makes a warm, generous introduction.
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-rose-200 transition-all flex items-start gap-3">
-                <div className="size-8 rounded-lg bg-rose-50 text-[#E11D48] flex items-center justify-center shrink-0 mt-0.5">
-                  <HeartHandshake className="size-4" />
+              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-rose-200 transition-all flex items-start gap-3 group">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                  <HeartHandshake className="size-4 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
                   When someone openly shares a difficult business lesson.
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all flex items-start gap-3">
-                <div className="size-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <Eye className="size-4" />
+              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all flex items-start gap-3 group">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                  <Eye className="size-4 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
                   When someone listens deeply without interrupting.
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-emerald-200 transition-all flex items-start gap-3">
-                <div className="size-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <ShieldCheck className="size-4" />
+              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-emerald-200 transition-all flex items-start gap-3 group">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="size-4 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
                   When confidential discussions remain strictly safe.
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-amber-200 transition-all flex items-start gap-3">
-                <div className="size-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="size-4" />
+              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-amber-200 transition-all flex items-start gap-3 group">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                  <CheckCircle2 className="size-4 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
                   When someone steps up and simply says: &ldquo;I can help.&rdquo;
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-violet-200 transition-all flex items-start gap-3">
-                <div className="size-8 rounded-lg bg-violet-50 text-violet-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <Heart className="size-4" />
+              <div className="p-4 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-violet-200 transition-all flex items-start gap-3 group">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                  <Heart className="size-4 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
                   When someone feels safe enough to say: &ldquo;I need help.&rdquo;
@@ -1151,28 +1213,28 @@ export default function CultureAndCodePage() {
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 font-medium">
-                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span><strong className="text-slate-900 font-bold">Peer</strong> is how we relate.</span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span><strong className="text-slate-900 font-bold">Circle</strong> is where we belong.</span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span><strong className="text-slate-900 font-bold">Give-First</strong> is how we contribute.</span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span><strong className="text-slate-900 font-bold">LSR</strong> is how we grow.</span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span><strong className="text-slate-900 font-bold">Confidentiality</strong> is how we build trust.</span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-violet-500" />
+                <div className="p-3 rounded-xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs flex items-center gap-2.5">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span><strong className="text-slate-900 font-bold">Recognition</strong> is how we appreciate.</span>
                 </div>
               </div>
@@ -1198,16 +1260,16 @@ export default function CultureAndCodePage() {
                   </h3>
 
                   <div className="space-y-2 text-xs sm:text-sm text-slate-300 font-medium">
-                    <p className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+                    <p className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 border border-white/10">
+                      <span className="size-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-rose-400 shrink-0" />
                       <span>Am I learning, sharing and contributing?</span>
                     </p>
-                    <p className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10">
-                      <span className="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
+                    <p className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 border border-white/10">
+                      <span className="size-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-rose-400 shrink-0" />
                       <span>Am I keeping trust and building relationships?</span>
                     </p>
-                    <p className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                    <p className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 border border-white/10">
+                      <span className="size-2 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-rose-400 shrink-0" />
                       <span>Am I making someone else&apos;s journey easier?</span>
                     </p>
                   </div>
@@ -1248,28 +1310,28 @@ export default function CultureAndCodePage() {
               {/* 4 Member Experience Statement Cards in 2x2 Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                 <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-center gap-3 group">
-                  <span className="size-2 rounded-full bg-[#1D4ED8] shrink-0" />
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span className="font-semibold text-xs sm:text-sm text-slate-800 leading-snug">
                     &ldquo;I am respected here.&rdquo;
                   </span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200 shadow-2xs hover:shadow-md hover:border-rose-200 transition-all flex items-center gap-3 group">
-                  <span className="size-2 rounded-full bg-[#E11D48] shrink-0" />
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span className="font-semibold text-xs sm:text-sm text-slate-800 leading-snug">
                     &ldquo;My journey matters here.&rdquo;
                   </span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all flex items-center gap-3 group">
-                  <span className="size-2 rounded-full bg-indigo-600 shrink-0" />
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span className="font-semibold text-xs sm:text-sm text-slate-800 leading-snug">
                     &ldquo;I can contribute here.&rdquo;
                   </span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200 shadow-2xs hover:shadow-md hover:border-emerald-200 transition-all flex items-center gap-3 group">
-                  <span className="size-2 rounded-full bg-emerald-600 shrink-0" />
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0" />
                   <span className="font-semibold text-xs sm:text-sm text-slate-800 leading-snug">
                     &ldquo;I can grow here.&rdquo;
                   </span>
@@ -1357,8 +1419,8 @@ export default function CultureAndCodePage() {
 
               {/* Visual mini feature highlight badge */}
               <div className="lg:col-span-4 p-6 sm:p-8 rounded-2xl bg-white border border-cool-grey-250/90 shadow-md space-y-4">
-                <div className="size-12 rounded-xl bg-gradient-to-br from-blue-600 to-rose-600 text-white flex items-center justify-center shadow-sm">
-                  <ShieldCheck className="size-6" />
+                <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-sm">
+                  <ShieldCheck className="size-6 stroke-[url(#cultureCardGrad)]" />
                 </div>
                 <h4 className="text-lg font-bold text-[#0f131a]">
                   Culture in Action

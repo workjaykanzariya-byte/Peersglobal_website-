@@ -360,18 +360,6 @@ export function SiteFooter() {
             })}
           </div>
 
-          {/* Active Cities Chapter Footnote */}
-          <div className="mt-12 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-x-3 gap-y-2 text-[13.5px] text-slate-600">
-            <span className="font-bold text-slate-900">Active Chapters:</span>
-            {ACTIVE_CITIES.map((city, idx) => (
-              <span key={city} className="flex items-center gap-3">
-                <Link href={`/circles?city=${encodeURIComponent(city)}`} className="hover:text-[#1D4ED8] hover:underline font-medium">
-                  {city}
-                </Link>
-                {idx < ACTIVE_CITIES.length - 1 ? <span className="text-slate-300">·</span> : null}
-              </span>
-            ))}
-          </div>
 
           {/* ======================================================================= */}
           {/* 4. BOTTOM LEGAL BAR                                                    */}
