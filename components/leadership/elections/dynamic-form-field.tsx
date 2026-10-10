@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { FormQuestion } from '@/lib/api/leadership'
-import { Upload, Video, Calendar, CheckSquare } from 'lucide-react'
+import { Video, Calendar } from 'lucide-react'
 
 interface DynamicFormFieldProps {
   question: FormQuestion
@@ -18,10 +18,10 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
     <div className="space-y-1.5">
       <label
         htmlFor={question_key}
-        className="block text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200"
+        className="block text-xs md:text-sm font-bold text-slate-900"
       >
         {label}
-        {is_required && <span className="text-red-500 ml-1 font-bold">*</span>}
+        {is_required && <span className="text-[#E11D48] ml-1 font-bold">*</span>}
       </label>
 
       {/* TEXT / NUMBER / VIDEO URL / DATE */}
@@ -33,7 +33,7 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder || 'Enter your response...'}
           required={is_required}
-          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all placeholder:text-slate-400"
+          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all placeholder:text-slate-400 shadow-xs"
         />
       )}
 
@@ -47,7 +47,7 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
           min={question.validation_rules?.min}
           max={question.validation_rules?.max}
           required={is_required}
-          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all placeholder:text-slate-400"
+          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all placeholder:text-slate-400 shadow-xs"
         />
       )}
 
@@ -60,7 +60,7 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder || 'https://youtube.com/watch?v=...'}
             required={is_required}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all placeholder:text-slate-400"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all placeholder:text-slate-400 shadow-xs"
           />
           <Video className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
         </div>
@@ -74,7 +74,7 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
             value={(value as string) || ''}
             onChange={(e) => onChange(e.target.value)}
             required={is_required}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all shadow-xs"
           />
           <Calendar className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
         </div>
@@ -89,7 +89,7 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder || 'Write your response here...'}
           required={is_required}
-          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all placeholder:text-slate-400"
+          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all placeholder:text-slate-400 shadow-xs"
         />
       )}
 
@@ -100,11 +100,11 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
           value={(value as string) || ''}
           onChange={(e) => onChange(e.target.value)}
           required={is_required}
-          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all"
+          className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all shadow-xs"
         >
           <option value="">-- Select an option --</option>
           {options?.map((opt) => (
-            <option key={opt.value} value={opt.value}>
+            <option key={opt.value} value={opt.value} className="text-slate-900 bg-white">
               {opt.label}
             </option>
           ))}
@@ -113,22 +113,22 @@ export function DynamicFormField({ question, value, onChange, error }: DynamicFo
 
       {/* DECLARATION / CHECKBOX */}
       {field_type === 'declaration' && (
-        <label className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-100 transition-colors">
+        <label className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-300 cursor-pointer hover:bg-slate-50 transition-colors shadow-xs">
           <input
             type="checkbox"
             checked={Boolean(value)}
             onChange={(e) => onChange(e.target.checked)}
             required={is_required}
-            className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 mt-0.5"
+            className="w-4 h-4 rounded border-slate-300 text-[#1D4ED8] accent-[#1D4ED8] focus:ring-[#1D4ED8] mt-0.5"
           />
-          <span className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+          <span className="text-xs font-semibold text-slate-900 leading-relaxed">
             I confirm and endorse this declaration unconditionally.
           </span>
         </label>
       )}
 
-      {help_text && <p className="text-[11px] text-slate-500 dark:text-slate-400">{help_text}</p>}
-      {error && <p className="text-[11px] text-red-500 font-medium">{error}</p>}
+      {help_text && <p className="text-[11px] text-slate-500 font-medium">{help_text}</p>}
+      {error && <p className="text-[11px] text-rose-600 font-semibold">{error}</p>}
     </div>
   )
 }

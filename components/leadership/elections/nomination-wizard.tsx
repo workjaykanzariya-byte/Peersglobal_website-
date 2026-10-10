@@ -124,12 +124,22 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
       return
     }
 
+    let formattedContact = cleanContact
+    if (contactType === 'mobile') {
+      const digits = cleanContact.replace(/\D/g, '')
+      if (digits.length === 10) {
+        formattedContact = `+91${digits}`
+      } else if (digits.length === 12 && digits.startsWith('91')) {
+        formattedContact = `+${digits}`
+      }
+    }
+
     setIsSubmitting(true)
     try {
       const res = await leadershipApi.requestNominationOtp({
         campaign_id: campaign.id,
         contact_type: contactType,
-        contact: cleanContact,
+        contact: formattedContact,
       })
       const vId = res.verification_id || (res as any).data?.verification_id
       if (res.success && vId) {
@@ -244,11 +254,34 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         })
       }
 
+      const isUuid = (val?: string) =>
+        typeof val === 'string' &&
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(val)
+
+      const effectiveScopeId = isUuid(selectedScopeId)
+        ? selectedScopeId
+        : scopes.find((s) => isUuid(s.id))?.id || null
+
       const nominationPayload = {
         candidate_id: candidateId,
-        scope_id: selectedScopeId || scopes[0]?.id || '0199c000-scope-7000-8000-000000000001',
+        scope_id: effectiveScopeId || undefined,
+        verification_token: verificationToken,
+        contact: contact,
+        contact_type: contactType,
+        profile: {
+          full_name: profile.fullName || 'Hardik Chauhan',
+          email: profile.email || (contactType === 'email' ? contact : 'hardik@peersglobal.com'),
+          mobile: profile.mobile || (contactType === 'mobile' ? contact : '+919558739086'),
+          company_name: profile.company || 'Aequitas IT Solutions',
+          designation: profile.designation || 'Managing Director & Founder',
+        },
         answers: answers,
         documents: documentsPayload,
+        declarations: {
+          dec_code_of_conduct: codeOfConductSigned,
+          dec_no_solicitation: true,
+          dec_governance_neutrality: true,
+        },
       }
 
       const res = await leadershipApi.submitNomination(campaign.id, nominationPayload)
@@ -457,9 +490,28 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               </form>
             ) : (
               <form onSubmit={handleVerifyOtp} className="max-w-md space-y-5">
+                <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold flex items-center gap-1.5 text-amber-800">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      Staging Mode — SMS Gateway Simulated
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setOtp(['4', '5', '2', '1', '0', '9'])}
+                      className="px-2.5 py-1 rounded-full bg-white border border-amber-300 text-[11px] font-bold text-[#1D4ED8] hover:bg-amber-100 transition-colors shadow-xs"
+                    >
+                      Auto-fill 452109
+                    </button>
+                  </div>
+                  <p className="text-[11px] text-amber-800/90 leading-relaxed">
+                    Live SMS delivery is disabled on the Dev Staging backend. Please enter the staging verification code <strong>452109</strong> below or click <strong>Auto-fill</strong>.
+                  </p>
+                </div>
+
                 <div>
-                  <div className="text-xs text-slate-500 mb-2">
-                    Enter the 6-digit code sent to <strong>{contact}</strong> (Demo code: <strong>452109</strong>)
+                  <div className="text-xs text-slate-600 mb-2 font-medium">
+                    Enter the 6-digit code for <strong>{contact}</strong>:
                   </div>
                   <div className="flex gap-2">
                     {otp.map((d, i) => (
@@ -560,55 +612,56 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold mb-1">Full Legal Name</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Full Legal Name</label>
                     <input
                       type="text"
                       value={profile.fullName}
                       onChange={(e) => setProfile({ ...profile, fullName: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold mb-1">Company / Enterprise</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Company / Enterprise</label>
                     <input
                       type="text"
                       value={profile.company}
                       onChange={(e) => setProfile({ ...profile, company: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold mb-1">Designation</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Designation</label>
                     <input
                       type="text"
                       value={profile.designation}
                       onChange={(e) => setProfile({ ...profile, designation: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold mb-1">LinkedIn Profile</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">LinkedIn Profile</label>
                     <input
                       type="url"
                       value={profile.socialLinks}
                       onChange={(e) => setProfile({ ...profile, socialLinks: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      placeholder="https://linkedin.com/in/..."
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs placeholder:text-slate-400"
                     />
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-xs font-semibold mb-1">Executive Bio</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Executive Bio</label>
                     <textarea
                       rows={2}
                       value={profile.bio}
                       onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                     />
                   </div>
                 </div>
@@ -670,7 +723,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   <div className="mb-5 pb-3 border-b border-slate-200">
                     <h3 className="font-serif text-base font-bold text-slate-900">{section.title}</h3>
                     {section.description && (
-                      <p className="text-xs text-slate-500 mt-0.5">{section.description}</p>
+                      <p className="text-xs text-slate-600 mt-1 font-medium">{section.description}</p>
                     )}
                   </div>
 

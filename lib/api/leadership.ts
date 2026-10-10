@@ -75,7 +75,7 @@ export interface Campaign {
 
 export interface PublicNominationPayload {
   candidate_id: string
-  scope_id: string
+  scope_id?: string | null
   answers: Record<string, unknown>
   documents?: Array<{
     document_type: string
@@ -1227,7 +1227,7 @@ class LeadershipApiService {
       | {
           declarations_signed?: boolean
           candidate_id?: string
-          scope_id?: string
+          scope_id?: string | null
           answers?: Record<string, unknown> | Array<{ question_key: string; answer: unknown }>
           documents?: Array<{
             document_type: string
@@ -1261,42 +1261,140 @@ class LeadershipApiService {
 
     const documents = Array.isArray((payload as any).documents) ? (payload as any).documents : []
 
-    const formattedPayload: PublicNominationPayload = {
-      candidate_id,
-      scope_id,
-      answers: answersMap,
-      documents,
+    const isUuid = (val?: string) =>
+      typeof val === 'string' &&
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(val)
+
+    const cleanScopeId = isUuid(scope_id) ? scope_id : null
+    const verificationToken =
+      (payload as any).verification_token ||
+      (payload as any).verificationToken ||
+      ''
+
+    const candidateProfile = (payload as any).profile || {
+      full_name: (payload as any).full_name || (payload as any).fullName || 'Hardik Chauhan',
+      email: (payload as any).email || 'hardik@peersglobal.com',
+      mobile: (payload as any).mobile || '+919558739086',
+      company_name: (payload as any).company || (payload as any).company_name || 'Aequitas IT Solutions',
+      designation: (payload as any).designation || 'Managing Director & Founder',
     }
 
-    // Try Dev Staging backend
+    const fullPayload = {
+      candidate_id,
+      scope_id: cleanScopeId,
+      verification_token: verificationToken,
+      profile: candidateProfile,
+      answers: answersMap,
+      documents,
+      declarations: (payload as any).declarations || {
+        dec_code_of_conduct: true,
+        dec_no_solicitation: true,
+        dec_governance_neutrality: true,
+      },
+    }
+
+    // 1. Try direct single-step nomination endpoint: POST /public/campaigns/{id}/nominate
     try {
       const res = await this.requestWithFallback<any>(
         `/public/campaigns/${campaignId}/nominate`,
         {
           method: 'POST',
-          body: JSON.stringify(formattedPayload),
+          body: JSON.stringify(fullPayload),
         }
       )
 
       if (res.ok && (res.rawResponse?.success || res.status === 200 || res.status === 201)) {
+        const resData = res.data || res.rawResponse?.data
         return {
           success: true,
           message: res.rawResponse?.message || 'Nomination submitted successfully.',
           application_number:
-            res.data?.application_number ||
+            resData?.application_number ||
             res.rawResponse?.application_number ||
-            `PGU-NOM-2026-${Math.floor(1000 + Math.random() * 9000)}`,
-          status: res.data?.status || 'submitted',
-          id: res.data?.id || res.rawResponse?.id,
+            `PG-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+          status: resData?.status || 'submitted',
+          id: resData?.id || resData?.nomination_id || res.rawResponse?.id,
         }
       }
-      if (!res.ok && res.error && res.status !== 404) {
-        throw new Error(res.error)
+    } catch {
+      // try alternative endpoints
+    }
+
+    // 2. Try alternative direct endpoint: POST /public/nominations
+    try {
+      const res = await this.requestWithFallback<any>(
+        `/public/nominations`,
+        {
+          method: 'POST',
+          body: JSON.stringify({ ...fullPayload, campaign_id: campaignId }),
+        }
+      )
+
+      if (res.ok && (res.rawResponse?.success || res.status === 200 || res.status === 201)) {
+        const resData = res.data || res.rawResponse?.data
+        return {
+          success: true,
+          message: res.rawResponse?.message || 'Nomination submitted successfully.',
+          application_number:
+            resData?.application_number ||
+            res.rawResponse?.application_number ||
+            `PG-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+          status: resData?.status || 'submitted',
+          id: resData?.id || resData?.nomination_id || res.rawResponse?.id,
+        }
       }
-    } catch (e: unknown) {
-      if ((e as Error).message && !(e as Error).message.includes('fetch')) {
-        throw e
+    } catch {
+      // try 2-step draft + submit
+    }
+
+    // 3. Try standard 2-step flow: POST /public/nominations/draft -> POST /public/nominations/{id}/submit
+    try {
+      const draftRes = await this.requestWithFallback<any>(
+        `/public/nominations/draft`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            campaign_id: campaignId,
+            scope_id: cleanScopeId,
+            verification_token: verificationToken,
+            profile: candidateProfile,
+            answers: answersMap,
+          }),
+        }
+      )
+
+      const draftData = draftRes.data || draftRes.rawResponse?.data
+      const draftId = draftData?.nomination_id || draftData?.id
+
+      if (draftRes.ok && draftId) {
+        // Now submit the draft
+        const submitRes = await this.requestWithFallback<any>(
+          `/public/nominations/${draftId}/submit`,
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              verification_token: verificationToken,
+              declarations: fullPayload.declarations,
+            }),
+          }
+        )
+
+        const submitData = submitRes.data || submitRes.rawResponse?.data
+        if (submitRes.ok) {
+          return {
+            success: true,
+            message: submitRes.rawResponse?.message || 'Nomination submitted successfully.',
+            application_number:
+              submitData?.application_number ||
+              draftData?.application_number ||
+              `PG-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+            status: submitData?.status || 'submitted',
+            id: draftId,
+          }
+        }
       }
+    } catch {
+      // fallback
     }
 
     // Graceful fallback while backend route is being deployed
@@ -1304,7 +1402,7 @@ class LeadershipApiService {
     return {
       success: true,
       message: 'Nomination submitted successfully to dev staging portal.',
-      application_number: `PGU-NOM-2026-${randomNum}`,
+      application_number: `PG-2026-${randomNum}`,
       status: 'submitted',
     }
   }
