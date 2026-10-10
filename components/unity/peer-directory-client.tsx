@@ -413,7 +413,6 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
                 <span className="text-[11px] font-bold tracking-widest uppercase text-slate-400">
                   UNITY COMMUNITY
                 </span>
-                <span className="w-8 h-[1px] bg-slate-300 inline-block" />
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-950 tracking-tight leading-tight">

@@ -309,7 +309,6 @@ export function ApplyToLeadClient() {
               {/* Left Column: Manifesto & Value */}
               <div className="lg:col-span-12 max-w-3xl space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
                     LEADERSHIP APPLICATION
                   </span>
@@ -1311,7 +1310,6 @@ export function ApplyToLeadClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 ROUTING & REVIEW
               </span>
@@ -1391,7 +1389,6 @@ export function ApplyToLeadClient() {
               <div className="lg:col-span-7 space-y-6">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                       NO FIXED ASSUMPTIONS
                     </span>
@@ -1494,7 +1491,6 @@ export function ApplyToLeadClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   PEERS GLOBAL LEADERSHIP
                 </span>

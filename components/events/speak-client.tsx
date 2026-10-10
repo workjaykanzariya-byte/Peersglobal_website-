@@ -172,7 +172,6 @@ export function SpeakClient() {
               {/* Left Column: Manifesto & Value */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
                     CONTRIBUTING FROM THE STAGE
                   </span>
@@ -307,7 +306,6 @@ export function SpeakClient() {
               <div className="lg:col-span-6 space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                       THE PRACTITIONER STANDARD
                     </span>
@@ -383,7 +381,6 @@ export function SpeakClient() {
           
           <div className="max-w-3xl mb-12 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 EDITORIAL CRITERIA
               </span>
@@ -431,7 +428,6 @@ export function SpeakClient() {
           
           <div className="max-w-3xl mb-12 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-rose-600">
                 DELIBERATE SELECTIVITY
               </span>
@@ -486,7 +482,6 @@ export function SpeakClient() {
               <div className="lg:col-span-7 space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                       BEYOND CONVENTIONAL SLIDES
                     </span>
@@ -597,7 +592,6 @@ export function SpeakClient() {
           <div className="bg-white rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-xl space-y-8">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
                   SUBMIT YOUR PROPOSAL
                 </span>
@@ -797,7 +791,6 @@ export function SpeakClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   ONE FINAL THOUGHT
                 </span>

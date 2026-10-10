@@ -251,7 +251,6 @@ export function CriteriaClient() {
           
           <div className="text-left max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 PART ONE · COMMUNITY ACCESS
               </span>
@@ -405,7 +404,6 @@ export function CriteriaClient() {
           
           <div className="text-left max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 PART TWO · INNER BOARD
               </span>
@@ -480,11 +478,9 @@ export function CriteriaClient() {
           
           <div className="text-center space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 COMMON QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
               A Process Built Around Fit
@@ -553,7 +549,6 @@ export function CriteriaClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                   Your Next Step
                 </span>

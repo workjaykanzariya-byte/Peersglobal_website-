@@ -693,7 +693,6 @@ export function PurposePageClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-3">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
                 <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
                   WHAT A PURPOSE CIRCLE GIVES YOU
                 </span>
@@ -799,7 +798,6 @@ export function PurposePageClient() {
             {/* Narrative text */}
             <div className="lg:col-span-6 space-y-5">
               <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-[#0062D2]" />
                 <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
                   PURPOSE CAN CROSS INDUSTRY
                 </span>
@@ -849,11 +847,9 @@ export function PurposePageClient() {
 
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
               <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
                 INDUSTRY OR PURPOSE?
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
               You do not always have to choose between the two ways of belonging.
@@ -935,11 +931,9 @@ export function PurposePageClient() {
 
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
               <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
                 THE PURPOSE & GOAL GRID
               </span>
-              <span className="h-0.5 w-6 bg-[#0062D2]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
               Find the ambition that feels closest to your journey.

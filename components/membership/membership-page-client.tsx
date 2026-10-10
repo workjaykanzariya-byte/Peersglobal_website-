@@ -275,7 +275,6 @@ export function MembershipPageClient() {
           
           <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 The 8 Reasons
               </span>
@@ -341,11 +340,9 @@ export function MembershipPageClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-2">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 The Core Engine
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-slate-900 leading-snug">
@@ -437,7 +434,6 @@ export function MembershipPageClient() {
           
           <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 The Value System
               </span>
@@ -498,7 +494,6 @@ export function MembershipPageClient() {
               {/* Left Column: Heading, intro, and quote */}
               <div className="lg:col-span-6 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                     Individual Relationship
                   </span>
@@ -586,7 +581,6 @@ export function MembershipPageClient() {
           <div className="space-y-6">
             <div className="text-left max-w-3xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Community Code
                 </span>
@@ -652,7 +646,6 @@ export function MembershipPageClient() {
               <div className="lg:col-span-7 space-y-5 flex flex-col justify-between">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                       The Transformation
                     </span>
@@ -780,7 +773,6 @@ export function MembershipPageClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   You Were Never Meant To Build Alone
                 </span>

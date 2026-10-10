@@ -110,7 +110,6 @@ export function FounderClient() {
               {/* Left Column: Manifesto & Details */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
                     FOUNDER PROFILE &amp; VISION
                   </span>
@@ -327,7 +326,6 @@ export function FounderClient() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/80">
             <div className="max-w-3xl space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-sm font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   RESEARCH &amp; BENCHMARKING
                 </span>
@@ -520,7 +518,6 @@ export function FounderClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   CONNECT WITH THE FOUNDER
                 </span>

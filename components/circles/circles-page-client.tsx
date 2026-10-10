@@ -461,7 +461,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           
           {/* Eyebrow */}
           <div className="flex items-center gap-2 mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">YOUR INNER BOARD</span>
           </div>
 

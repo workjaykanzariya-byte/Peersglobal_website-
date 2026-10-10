@@ -323,7 +323,6 @@ export function IndustryDirectorClient() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   STAGE 04 — SECTOR ECOSYSTEM
                 </span>
@@ -456,7 +455,6 @@ export function IndustryDirectorClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-400">
                 THREE DIMENSIONS
               </span>
@@ -506,11 +504,9 @@ export function IndustryDirectorClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 ECOSYSTEM HEALTH
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               What the role carries
@@ -592,7 +588,6 @@ export function IndustryDirectorClient() {
             <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                     PERSPECTIVE EVOLUTION
                   </span>
@@ -674,11 +669,9 @@ export function IndustryDirectorClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 OPERATIONAL SCOPE
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               What an Industry Director does
@@ -736,7 +729,6 @@ export function IndustryDirectorClient() {
               <div className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between w-full space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                       CANDIDACY FIT
                     </span>
@@ -771,7 +763,6 @@ export function IndustryDirectorClient() {
               <div className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between w-full space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                       THE FIELD OF POSSIBILITY
                     </span>
@@ -807,11 +798,9 @@ export function IndustryDirectorClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-center space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
               Frequently asked questions
@@ -868,7 +857,6 @@ export function IndustryDirectorClient() {
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   YOUR INDUSTRY. YOUR CITY. YOUR CONTRIBUTION.
                 </span>

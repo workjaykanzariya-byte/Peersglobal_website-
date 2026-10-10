@@ -351,11 +351,9 @@ export function CommunityGuidelinesClient() {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
           <div className="space-y-4 max-w-3xl mx-auto">
             <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/90">
                 Healthy Rooms &amp; Authentic Culture
               </span>
-              <span className="h-[1.5px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-bold text-white tracking-tight leading-[1.18]">

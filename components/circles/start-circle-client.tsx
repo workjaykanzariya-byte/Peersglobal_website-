@@ -320,7 +320,6 @@ export function StartCircleClient() {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE BEGINNING</span>
                 </div>
 
@@ -465,7 +464,6 @@ export function StartCircleClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE JOURNEY</span>
           </div>
           
@@ -577,7 +575,6 @@ export function StartCircleClient() {
             {/* Left Content (7 cols) */}
             <div className="lg:col-span-7 space-y-5">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIRST 30 DAYS</span>
               </div>
 
@@ -675,7 +672,6 @@ export function StartCircleClient() {
             {/* What We Provide */}
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT WE PROVIDE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
@@ -712,7 +708,6 @@ export function StartCircleClient() {
             {/* What You Bring */}
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT YOU BRING</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
@@ -759,7 +754,6 @@ export function StartCircleClient() {
               
               {/* Top Eyebrow */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-6">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-sky-300">
                   CRITICAL DISTINCTION
                 </span>
@@ -862,7 +856,6 @@ export function StartCircleClient() {
             {/* The Circle Belongs to Its People */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SHARED OWNERSHIP</span>
               </div>
 
@@ -889,7 +882,6 @@ export function StartCircleClient() {
             {/* After Launch Flow */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">POST-LAUNCH</span>
               </div>
 
@@ -933,7 +925,6 @@ export function StartCircleClient() {
             {/* Who Should Start (7 cols) */}
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">PROFILE OF A FOUNDER</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
@@ -1027,7 +1018,6 @@ export function StartCircleClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-5 space-y-5">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">ONE DECISION</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight">
@@ -1059,7 +1049,6 @@ export function StartCircleClient() {
             {/* Right FAQs */}
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
@@ -1149,7 +1138,6 @@ export function StartCircleClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2.5">
-                <span className="h-[1.5px] w-6 bg-white/70" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
                   START SOMETHING THAT OTHERS CAN BELONG TO
                 </span>

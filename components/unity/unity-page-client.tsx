@@ -366,7 +366,6 @@ export function UnityPageClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Purpose-Built Environment
                   </span>
@@ -437,7 +436,6 @@ export function UnityPageClient() {
           
           <div className="max-w-3xl mb-10 sm:mb-12">
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 The 12 Core Modules
               </span>
@@ -647,7 +645,6 @@ export function UnityPageClient() {
               <div className="lg:col-span-7 space-y-6">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
-                    <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                     <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                       The Philosophy of Unity
                     </span>
@@ -825,7 +822,6 @@ export function UnityPageClient() {
               {/* Header & Tag */}
               <div className="space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                     Digital Home
                   </span>

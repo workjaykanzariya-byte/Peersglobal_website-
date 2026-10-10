@@ -611,9 +611,7 @@ export default function LexiconClientPage() {
               
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2.5 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="w-6 h-[1.5px] bg-sky-400" />
                 <span>THE LANGUAGE</span>
-                <span className="w-6 h-[1.5px] bg-sky-400" />
               </div>
 
               {/* Title with italic blue accent */}
@@ -762,7 +760,6 @@ export default function LexiconClientPage() {
               
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="w-6 h-[1.5px] bg-[#0062D2]" />
                 <span>WHY WE DEFINE OUR WORDS</span>
               </div>
 
@@ -817,7 +814,6 @@ export default function LexiconClientPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16 gap-4">
             <div>
               <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
                 <span>THE PEOPLE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-snug">
@@ -891,7 +887,6 @@ export default function LexiconClientPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16 gap-4">
             <div>
               <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
                 <span>THE PLACES</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-snug">
@@ -982,7 +977,6 @@ export default function LexiconClientPage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-16 gap-4">
             <div>
               <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-3">
-                <span className="w-5 h-[1.5px] bg-[#0062D2]" />
                 <span>THE PRACTICE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-snug">
@@ -1083,8 +1077,6 @@ export default function LexiconClientPage() {
               Impact
             </p>
             <div className="mt-1 flex justify-center gap-1 opacity-70">
-              <span className="w-8 h-[1.5px] bg-[#0062D2]" />
-              <span className="w-4 h-[1.5px] bg-[#0062D2]" />
             </div>
           </div>
         </div>
@@ -1136,9 +1128,7 @@ export default function LexiconClientPage() {
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               <span>SEARCHABLE REFERENCE DIRECTORY</span>
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-4">
@@ -1471,9 +1461,7 @@ export default function LexiconClientPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
           <div className="inline-flex items-center gap-2.5 text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase mb-4">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             <span>LINGUISTIC PRECISION</span>
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-8">
@@ -1535,9 +1523,7 @@ export default function LexiconClientPage() {
             
             {/* Top Eyebrow */}
             <div className="inline-flex items-center gap-2 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-6">
-              <span className="w-5 h-[1.5px] bg-sky-400" />
               <span>THE LANGUAGE BUILDS THE FUTURE</span>
-              <span className="w-5 h-[1.5px] bg-sky-400" />
             </div>
 
             {/* Script Text top right on desktop */}

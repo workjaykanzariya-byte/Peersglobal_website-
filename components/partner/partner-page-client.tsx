@@ -296,7 +296,6 @@ export function PartnerPageClient() {
                 
                 {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
                     PARTNER WITH US
                   </span>
@@ -399,7 +398,6 @@ export function PartnerPageClient() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Alignment &amp; Purpose
               </span>
@@ -509,7 +507,6 @@ export function PartnerPageClient() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Engagement Models
               </span>
@@ -646,7 +643,6 @@ export function PartnerPageClient() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Active Collaborators
               </span>
@@ -792,11 +788,9 @@ export function PartnerPageClient() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Clarity Protects Trust
               </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               THE DIFFERENCE BETWEEN A PARTNER AND A SPONSOR
@@ -879,7 +873,6 @@ export function PartnerPageClient() {
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Standards of Collaboration
                   </span>
@@ -910,7 +903,6 @@ export function PartnerPageClient() {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <div className="space-y-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Our Integrity Pledge
                   </span>
@@ -946,11 +938,9 @@ export function PartnerPageClient() {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(29,78,216,0.04),transparent_60%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <div className="flex items-center justify-center gap-2">
-            <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
               The Foundation of True Partnership
             </span>
-            <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
             A BETTER QUESTION
@@ -1001,7 +991,6 @@ export function PartnerPageClient() {
               
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     DIALOGUE &amp; EVALUATION
                   </span>
@@ -1300,7 +1289,6 @@ export function PartnerPageClient() {
             {/* Left Column: Heading, Ethos & Punchline */}
             <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
                   THE PEERS GLOBAL INVITATION
                 </span>

@@ -278,7 +278,6 @@ export function StoriesPageClient() {
               {/* Left Column: Manifesto & Value */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
                     COLLABORATION IN ACTION
                   </span>
@@ -434,7 +433,6 @@ export function StoriesPageClient() {
               <div className="lg:col-span-6 space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                       THE AUTHENTICITY PLEDGE
                     </span>
@@ -520,7 +518,6 @@ export function StoriesPageClient() {
           
           <div className="max-w-3xl mb-12 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 PUBLICATION INTEGRITY
               </span>
@@ -564,7 +561,6 @@ export function StoriesPageClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   VERIFIED EVIDENCE
                 </span>
@@ -755,7 +751,6 @@ export function StoriesPageClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                     BEYOND TRANSACTIONS
                   </span>
@@ -828,7 +823,6 @@ export function StoriesPageClient() {
           
           <div className="max-w-3xl mb-12 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 THE COLLABORATION ARC
               </span>
@@ -886,7 +880,6 @@ export function StoriesPageClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   THE NEXT CHAPTER
                 </span>

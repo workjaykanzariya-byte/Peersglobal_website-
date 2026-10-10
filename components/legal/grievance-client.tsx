@@ -227,7 +227,6 @@ export function GrievanceClient() {
             <div className="lg:col-span-7 p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Jurisdiction &amp; Redressal Scope
                   </span>
@@ -271,7 +270,6 @@ export function GrievanceClient() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Timebound Redressal Protocol
                   </span>
@@ -358,7 +356,6 @@ export function GrievanceClient() {
             {/* Left Col (5 cols): Statement & Authority */}
             <div className="lg:col-span-5 space-y-4 text-left">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
                   Fair Resolution &amp; Trust
                 </span>

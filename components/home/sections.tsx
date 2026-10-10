@@ -514,7 +514,6 @@ export function WhoWeAreSection() {
         {/* Top Header Row */}
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2.5">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
               WHO WE ARE &amp; WHAT PEERS GLOBAL IS
             </span>
@@ -2256,7 +2255,6 @@ export function LsrSection() {
             <div>
               {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-3">
-                <span className="h-[2px] w-6 bg-[#0078D4] rounded-full" />
                 <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0078D4]">
                   THE FRAMEWORK
                 </span>
@@ -3487,7 +3485,6 @@ export function OutcomesSection() {
           <div className="flex flex-col">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1D4ED8]">
                 PRACTICAL IMPACT
               </span>
@@ -3831,11 +3828,9 @@ export function OutcomesSection() {
           </span>
 
           <div className="flex items-center gap-3">
-            <span className="h-[1.5px] w-8 sm:w-12 bg-blue-300 rounded-full" />
             <span className="text-xs text-slate-500 font-medium">
               {SITE.statsAsOf}
             </span>
-            <span className="h-[1.5px] w-8 sm:w-12 bg-blue-300 rounded-full" />
           </div>
         </div>
 
@@ -3931,7 +3926,6 @@ export function MissionSection() {
           <div className="flex flex-col">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-3.5">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full shadow-[0_0_8px_#1D4ED8]" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">
                 THE 1 MILLION MISSION
               </span>
@@ -4595,7 +4589,6 @@ export function LeadershipSection() {
             <div className="max-w-xl flex flex-col gap-5 sm:gap-6">
               {/* Eyebrow */}
               <div className="flex items-center gap-3">
-                <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
                   LEADERSHIP
                 </span>
@@ -4803,7 +4796,6 @@ export function EventsSection() {
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
                 CALENDAR &amp; GATHERINGS
               </span>
@@ -5295,7 +5287,6 @@ export function ClosingSection() {
         <div className="flex max-w-3xl flex-col gap-3.5">
           {/* Eyebrow with horizontal dash */}
           <div className="flex items-center gap-2.5">
-            <span className="h-[1.5px] w-6 bg-white/70" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
               Final Call
             </span>

@@ -106,7 +106,6 @@ export function ImpactConfirmationClient() {
       <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold">
-            <span className="w-6 h-[1.5px] bg-[#0062D2]" />
             Integrity First
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif text-slate-950 font-bold">

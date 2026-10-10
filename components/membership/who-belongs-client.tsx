@@ -277,7 +277,6 @@ export function WhoBelongsClient() {
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-8 space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                     The Essence of Community
                   </span>
@@ -310,7 +309,6 @@ export function WhoBelongsClient() {
           
           <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Character &amp; Commitment
               </span>
@@ -368,7 +366,6 @@ export function WhoBelongsClient() {
 
             <div className="relative z-10 max-w-4xl space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                   The Culture Test
                 </span>
@@ -429,7 +426,6 @@ export function WhoBelongsClient() {
           
           <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Alignment
               </span>
@@ -499,7 +495,6 @@ export function WhoBelongsClient() {
             <div className="rounded-3xl bg-[#FFF8F8] border border-rose-200/90 p-7 sm:p-9 flex flex-col justify-between shadow-2xs">
               <div className="space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-rose-500 rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-rose-600">
                     Honest Non-Fit
                   </span>
@@ -540,7 +535,6 @@ export function WhoBelongsClient() {
             <div className="rounded-3xl bg-[#F4FBF7] border border-emerald-200/90 p-7 sm:p-9 flex flex-col justify-between shadow-2xs">
               <div className="space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-emerald-600 rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">
                     Open To Authenticity
                   </span>
@@ -587,7 +581,6 @@ export function WhoBelongsClient() {
             <div className="lg:col-span-7 space-y-5 p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Community Protection
                   </span>
@@ -625,7 +618,6 @@ export function WhoBelongsClient() {
             <div className="lg:col-span-5 space-y-6 p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                     Start by Exploring
                   </span>
@@ -683,11 +675,9 @@ export function WhoBelongsClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-2">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 The Choice
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-slate-900 leading-snug">
@@ -800,7 +790,6 @@ export function WhoBelongsClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   You Do Not Have To Fit Everywhere
                 </span>

@@ -234,7 +234,6 @@ export function OurStoryClient() {
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BEFORE THERE WAS A COMMUNITY
                 </span>
@@ -332,7 +331,6 @@ export function OurStoryClient() {
             {/* Left Box: The Story Nobody Would Publish */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE REAL HUMAN STORIES
                 </span>
@@ -370,7 +368,6 @@ export function OurStoryClient() {
             {/* Right Box: Why A Community? */}
             <div id="why-a-community" className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BEYOND PLATFORMS
                 </span>
@@ -433,7 +430,6 @@ export function OurStoryClient() {
             {/* Left: Why Peers? */}
             <div className="lg:col-span-5 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE WORD MATTERED
                 </span>
@@ -474,7 +470,6 @@ export function OurStoryClient() {
             {/* Right: What We Built */}
             <div id="what-we-built" className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE ARCHITECTURE
                 </span>
@@ -527,7 +522,6 @@ export function OurStoryClient() {
           
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 ACCURATE MEMORY &amp; MILESTONES
               </span>
@@ -598,7 +592,6 @@ export function OurStoryClient() {
             {/* Where We Are Now */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   CURRENT REALITY
                 </span>
@@ -639,7 +632,6 @@ export function OurStoryClient() {
             {/* What We Are Building Toward */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE HORIZON
                 </span>
@@ -691,7 +683,6 @@ export function OurStoryClient() {
           {/* What Has Not Changed */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-cool-grey-250 shadow-xs space-y-4">
             <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
                 WHAT HAS NOT CHANGED
               </span>
