@@ -268,6 +268,24 @@ export function CampaignDetailClient({
                   'Carries the standard of service and collaboration across appointed chapter circles. Responsible for upholding attendance accountability and bilateral transactions.'}
               </p>
             </div>
+
+            {/* Eligibility Requirements */}
+            {campaign.eligibility_criteria && campaign.eligibility_criteria.length > 0 && (
+              <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
+                <h3 className="font-serif text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  Candidate Eligibility Criteria
+                </h3>
+                <ul className="space-y-2.5 text-xs text-slate-600">
+                  {campaign.eligibility_criteria.map((crit, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1D4ED8] mt-1.5 shrink-0" />
+                      <span>{crit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* Right sidebar */}

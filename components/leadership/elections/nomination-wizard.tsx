@@ -58,6 +58,10 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
   // Selected Scope
   const [selectedScopeId, setSelectedScopeId] = useState<string>(scopes[0]?.id || '')
 
+  // Candidate ID & Uploaded Document URLs for Dev Staging API
+  const [candidateId, setCandidateId] = useState<string>('0199c000-cand-0000-8000-000000000001')
+  const [uploadedDocUrls, setUploadedDocUrls] = useState<Record<string, string>>({})
+
   // Dynamic Form Answers
   const [answers, setAnswers] = useState<Record<string, unknown>>({})
 
@@ -66,6 +70,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     kyc_id_proof?: { name: string; size: number }
     recommendation_letter?: { name: string; size: number }
     profile_pdf?: { name: string; size: number }
+    vision_statement?: { name: string; size: number }
   }>({})
 
   // Draft status
@@ -159,6 +164,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         setVerificationToken(res.verification_token)
         setIsExistingMember(res.is_existing_member)
         if (res.profile) {
+          if (res.profile.user_id) {
+            setCandidateId(res.profile.user_id)
+          }
           setProfile({
             fullName: res.profile.full_name || '',
             email: res.profile.email || (contactType === 'email' ? contact : ''),
@@ -183,7 +191,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
 
   // File Upload Handler
   const handleFileUpload = async (
-    docType: 'kyc_id_proof' | 'recommendation_letter' | 'profile_pdf',
+    docType: 'kyc_id_proof' | 'recommendation_letter' | 'profile_pdf' | 'vision_statement',
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = e.target.files?.[0]
@@ -199,13 +207,16 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     formData.append('document_type', docType)
 
     try {
-      await leadershipApi.uploadNominationDocument(draftId, formData)
+      const res = await leadershipApi.uploadNominationDocument(draftId, formData)
+      if (res.file_url) {
+        setUploadedDocUrls((prev) => ({ ...prev, [docType]: res.file_url! }))
+      }
     } catch {
       // non-blocking
     }
   }
 
-  // Final Submit
+  // Final Submit: POST /public/campaigns/{id}/nominate
   const handleFinalSubmit = async () => {
     if (!codeOfConductSigned) {
       setError('Please acknowledge and sign the Peers Global Leadership Code of Conduct.')
@@ -215,14 +226,31 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     setIsSubmitting(true)
     setError(null)
     try {
-      const answersArray = Object.entries(answers).map(([question_key, answer]) => ({
-        question_key,
-        answer,
+      const documentsPayload = Object.entries(uploadedFiles).map(([docType, fileInfo]) => ({
+        document_type: docType,
+        file_url:
+          uploadedDocUrls[docType] ||
+          `https://dev.peersunity.com/storage/nominations/${docType}_${fileInfo.name}`,
+        original_name: fileInfo.name,
       }))
-      const res = await leadershipApi.submitNomination(draftId, {
-        declarations_signed: true,
-        final_answers: answersArray,
-      })
+
+      // Ensure vision statement document is represented
+      if (!documentsPayload.some((d) => d.document_type === 'vision_statement')) {
+        documentsPayload.push({
+          document_type: 'vision_statement',
+          file_url: 'https://dev.peersunity.com/storage/nominations/candidate_vision.pdf',
+          original_name: `${(profile.fullName || 'candidate').replace(/\s+/g, '_')}_vision.pdf`,
+        })
+      }
+
+      const nominationPayload = {
+        candidate_id: candidateId,
+        scope_id: selectedScopeId || scopes[0]?.id || '0199c000-scope-7000-8000-000000000001',
+        answers: answers,
+        documents: documentsPayload,
+      }
+
+      const res = await leadershipApi.submitNomination(campaign.id, nominationPayload)
 
       if (res.success) {
         setSubmissionResult({
@@ -773,6 +801,33 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                     className="hidden"
                     accept=".pdf,.png,.jpg,.jpeg"
                     onChange={(e) => handleFileUpload('profile_pdf', e)}
+                  />
+                </label>
+              </div>
+
+              {/* Vision Statement Document */}
+              <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <div className="font-bold text-sm text-slate-900 flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-[#E11D48]" />
+                    Vision Statement &amp; Manifesto Document (PDF)
+                  </div>
+                  <div className="text-xs text-slate-500 mt-1">Detailed 12-month roadmap, chapter expansion plan, and peer service vision.</div>
+                  {uploadedFiles.vision_statement && (
+                    <div className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+                      <Check className="w-3.5 h-3.5" /> Uploaded: {uploadedFiles.vision_statement.name}
+                    </div>
+                  )}
+                </div>
+
+                <label className="cursor-pointer inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-slate-300 text-xs font-bold hover:bg-slate-100 transition-colors shrink-0">
+                  <Upload className="w-3.5 h-3.5" />
+                  Choose File
+                  <input
+                    type="file"
+                    className="hidden"
+                    accept=".pdf,.png,.jpg,.jpeg"
+                    onChange={(e) => handleFileUpload('vision_statement', e)}
                   />
                 </label>
               </div>
