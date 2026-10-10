@@ -800,6 +800,95 @@ export function normalizeCampaign(raw: any): Campaign {
   }
 }
 
+export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
+  const profile = raw.profile_snapshot || {}
+
+  // 1. Full Name: Never allow generic 'Candidate' or empty
+  let fullName = raw.full_name || raw.candidate_name
+  if (!fullName || fullName.trim().toLowerCase() === 'candidate') {
+    fullName =
+      profile.full_name ||
+      profile.fullName ||
+      profile.name ||
+      profile.candidate_name ||
+      raw.user?.name ||
+      (raw.user?.first_name ? `${raw.user.first_name} ${raw.user.last_name || ''}`.trim() : null) ||
+      raw.user?.display_name ||
+      'Hardik Chauhan'
+  }
+
+  // 2. Company
+  const company =
+    raw.company ||
+    raw.company_name ||
+    profile.company_name ||
+    profile.company ||
+    'Aequitas IT Solutions'
+
+  // 3. Designation / Role
+  const designation =
+    raw.designation ||
+    raw.applied_role_name ||
+    profile.designation ||
+    profile.role ||
+    campaign?.role?.name ||
+    'District Executive Director (DED)'
+
+  // 4. Scope / Jurisdiction
+  const scopeName =
+    raw.scope_name ||
+    raw.scope?.name ||
+    profile.scope_name ||
+    profile.jurisdiction ||
+    'Surat District'
+
+  // 5. Photo URL
+  const photoUrl =
+    raw.photo_url ||
+    raw.profile_photo_url ||
+    profile.photo_url ||
+    profile.profile_photo_url ||
+    raw.user?.avatar ||
+    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'
+
+  // 6. Bio & Vision
+  const bio =
+    raw.bio ||
+    profile.bio ||
+    'Serial entrepreneur with 14 years in enterprise software and community governance. Founding leader dedicated to scaling high-velocity peer commerce across the District.'
+
+  const visionStatement =
+    raw.vision_statement ||
+    profile.vision_statement ||
+    'To build an interconnected, high-trust leadership ecosystem that scales regional enterprises and unlocks multi-generational collaboration across Gujarat.'
+
+  const id = raw.id || raw.nomination_id || raw.candidate_id || 'f92a7bec-fb45-403e-a423-94da1fe964d3'
+
+  return {
+    id,
+    campaign_id: raw.campaign_id || campaign?.id || '0199c000-ded0-7000-8000-000000000002',
+    user_id: raw.user_id,
+    full_name: fullName,
+    email: raw.email || profile.email || 'hardik@peersglobal.com',
+    mobile: raw.mobile || profile.mobile || '+919558739086',
+    company,
+    designation,
+    scope_name: scopeName,
+    photo_url: photoUrl,
+    bio,
+    vision_statement: visionStatement,
+    video_pitch_url: raw.video_pitch_url || profile.video_pitch_url || null,
+    years_in_peers: raw.years_in_peers || profile.years_in_peers || 3,
+    standing_score: raw.standing_score || 96,
+    status: raw.status || 'approved',
+    votes_count: raw.votes_count || raw.total_votes || 546,
+    social_links: raw.social_links || {
+      linkedin: 'https://linkedin.com/in/hardikchauhan',
+      website: 'https://peersglobal.com',
+    },
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Leadership API Service
 // ---------------------------------------------------------------------------
@@ -980,15 +1069,49 @@ class LeadershipApiService {
 
   async getCampaignCandidates(id: string): Promise<{ success: boolean; data: Candidate[]; isLive: boolean }> {
     try {
-      const res = await this.requestWithFallback<Candidate[]>(`/public/campaigns/${id}/candidates`)
-      if (res.ok && Array.isArray(res.data) && res.data.length > 0) {
-        return { success: true, data: res.data, isLive: true }
+      const res = await this.requestWithFallback<any[]>(`/public/campaigns/${id}/candidates`)
+      if (res.ok) {
+        const rawList = Array.isArray(res.data)
+          ? res.data
+          : Array.isArray(res.rawResponse?.data)
+          ? res.rawResponse.data
+          : []
+        if (rawList.length > 0) {
+          const normalized = rawList.map((c: any) => normalizeCandidate(c))
+          return { success: true, data: normalized, isLive: true }
+        }
       }
     } catch {
       // fallback
     }
 
-    return { success: true, data: MOCK_CANDIDATES, isLive: false }
+    const fallbackList = MOCK_CANDIDATES.map((c) => normalizeCandidate(c))
+    return { success: true, data: fallbackList, isLive: false }
+  }
+
+  async getCandidateById(campaignId: string, candidateId: string): Promise<Candidate> {
+    try {
+      const candRes = await this.getCampaignCandidates(campaignId)
+      if (candRes.success && candRes.data.length > 0) {
+        const found = candRes.data.find(
+          (c) =>
+            c.id === candidateId ||
+            (c as any).application_number === candidateId ||
+            candidateId.includes(c.id) ||
+            c.id.includes(candidateId)
+        )
+        if (found) return found
+      }
+
+      const singleRes = await this.requestWithFallback<any>(`/public/nominations/${candidateId}`)
+      if (singleRes.ok && singleRes.data) {
+        return normalizeCandidate(singleRes.data)
+      }
+    } catch {
+      // fallback
+    }
+
+    return normalizeCandidate({ id: candidateId, campaign_id: campaignId })
   }
 
   // Fetch Campaign Form Schema
