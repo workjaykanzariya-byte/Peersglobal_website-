@@ -366,7 +366,7 @@ export function VoteModal({
         {step === 'otp' && (
           <form onSubmit={handleVerifyOtp}>
             <div className="mb-4">
-              <h3 className="font-serif text-xl font-bold tracking-tight text-slate-900 mb-1">
+              <h3 className="text-xl font-semibold tracking-tight text-slate-900 mb-1">
                 Enter 6-Digit Passcode
               </h3>
               <p className="text-xs text-slate-500">
@@ -418,7 +418,7 @@ export function VoteModal({
             <button
               type="submit"
               disabled={loading || otp.join('').length !== 6}
-              className="w-full py-3.5 px-5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full py-3.5 px-5 rounded-full brand-btn-primary text-white font-semibold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -439,7 +439,7 @@ export function VoteModal({
         {step === 'confirm' && (
           <div>
             <div className="mb-4">
-              <h3 className="font-serif text-xl font-bold tracking-tight text-slate-900 mb-1">
+              <h3 className="text-xl font-semibold tracking-tight text-slate-900 mb-1">
                 Confirm Your Ballot
               </h3>
               <p className="text-xs text-slate-500">
@@ -473,7 +473,7 @@ export function VoteModal({
                 type="button"
                 onClick={handleCastVote}
                 disabled={loading}
-                className="flex-2 py-3 px-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="flex-2 py-3 px-6 rounded-full brand-btn-primary text-white font-semibold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Vote className="w-4 h-4" />
                 Confirm &amp; Cast Ballot
@@ -486,7 +486,7 @@ export function VoteModal({
         {step === 'casting' && (
           <div className="text-center py-8">
             <RefreshCw className="w-10 h-10 text-[#1D4ED8] animate-spin mx-auto mb-4" />
-            <h4 className="font-serif text-base font-bold mb-1">Recording Your Verified Ballot</h4>
+            <h4 className="text-base font-semibold mb-1">Recording Your Verified Ballot</h4>
             <p className="text-xs text-slate-400">Communicating with the Unity Election Ledger...</p>
           </div>
         )}
@@ -498,15 +498,17 @@ export function VoteModal({
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
-            <h3 className="font-serif text-2xl font-bold tracking-tight text-slate-900 mb-1">
-              Ballot Recorded Successfully!
+            <h3 className="text-2xl font-semibold tracking-tight text-slate-900 mb-1">
+              Ballot Recorded Successfully
             </h3>
-            <p className="text-xs text-slate-500 mb-6">
+            <p className="text-xs text-slate-500 mb-6 font-normal">
               Your official vote for <strong>{candidate.full_name}</strong> has been sealed in the election ledger.
             </p>
 
-            {/* Official Digital Receipt Card */}
-            <div className="p-5 rounded-2xl bg-[#040F24] text-white text-left mb-6 border border-slate-800 shadow-inner">
+            {/* Official Digital Receipt Card with Hotstar gradient accent */}
+            <div className="relative overflow-hidden p-5 rounded-2xl bg-[#030914] text-white text-left mb-6 border border-slate-800 shadow-xl">
+              <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
+
               <div className="flex items-center justify-between text-2xs uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 font-bold mb-3 border-b border-slate-800 pb-2">
                 <span>Official Ballot Receipt</span>
                 <span className="flex items-center gap-1 text-emerald-400">

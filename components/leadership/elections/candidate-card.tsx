@@ -62,7 +62,7 @@ export function CandidateCard({ candidate, canVote = true, onVoteClick }: Candid
                 )}
               </div>
 
-              <h4 className="font-serif text-lg font-bold text-white truncate">
+              <h4 className="font-semibold text-lg font-bold text-white truncate">
                 {candidate.full_name}
               </h4>
               <p className="text-xs font-semibold text-sky-400 truncate">
@@ -147,7 +147,7 @@ export function CandidateCard({ candidate, canVote = true, onVoteClick }: Candid
           <div className="relative w-full max-w-2xl rounded-3xl bg-[#040F24] border border-slate-800 p-6 shadow-2xl text-white">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-serif text-lg font-bold">{candidate.full_name} — Candidate Pitch</h3>
+                <h3 className="font-semibold text-lg font-bold">{candidate.full_name} — Candidate Pitch</h3>
                 <p className="text-xs text-slate-400">{candidate.designation}, {candidate.company}</p>
               </div>
               <button

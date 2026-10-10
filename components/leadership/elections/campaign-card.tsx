@@ -54,7 +54,7 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="font-serif text-xl font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors tracking-tight leading-snug mb-2">
+        <h3 className="text-xl font-semibold text-slate-900 group-hover:text-[#1D4ED8] transition-colors tracking-tight leading-snug mb-2">
           <Link href={`/leadership/campaigns/${campaign.id}`} className="focus:outline-none">
             {campaign.name}
           </Link>
