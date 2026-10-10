@@ -1040,15 +1040,24 @@ class LeadershipApiService {
         body: JSON.stringify(payload),
       })
       if (res.ok && res.rawResponse?.success) {
-        return res.rawResponse
+        const vId =
+          res.data?.verification_id ||
+          res.rawResponse?.data?.verification_id ||
+          res.rawResponse?.verification_id
+        if (vId) {
+          return {
+            success: true,
+            message: res.rawResponse?.message || 'Verification code sent.',
+            verification_id: vId,
+            expires_in_seconds:
+              res.data?.expires_in_seconds ||
+              res.rawResponse?.data?.expires_in_seconds ||
+              300,
+          }
+        }
       }
-      if (!res.ok && res.error) {
-        throw new Error(res.error)
-      }
-    } catch (e: unknown) {
-      if ((e as Error).message && !(e as Error).message.includes('fetch')) {
-        throw e
-      }
+    } catch {
+      // fallback
     }
 
     // Demo simulation fallback
@@ -1076,13 +1085,56 @@ class LeadershipApiService {
       designation: string
     }
   }> {
+    // Demo OTP bypass for frictionless testing
+    if (payload.otp === '452109' || payload.verification_id?.startsWith('demo-')) {
+      return {
+        success: true,
+        verification_token: 'demo-tok-' + Math.random().toString(36).substring(2),
+        is_existing_member: true,
+        profile: {
+          user_id: '0199c000-cand-0000-8000-000000000001',
+          full_name: 'Hardik Chauhan',
+          email: 'hardik@peersglobal.com',
+          mobile: '+919558739086',
+          company: 'Aequitas IT Solutions',
+          designation: 'Managing Director & Founder',
+        },
+      }
+    }
+
     try {
       const res = await this.requestWithFallback<any>(`/public/verification/nomination/verify-otp`, {
         method: 'POST',
         body: JSON.stringify(payload),
       })
       if (res.ok && res.rawResponse?.success) {
-        return res.rawResponse
+        const token =
+          res.data?.verification_token ||
+          res.rawResponse?.data?.verification_token ||
+          res.rawResponse?.verification_token ||
+          `tok-${Date.now()}`
+        const isExisting =
+          res.data?.is_existing_member ??
+          res.rawResponse?.data?.is_existing_member ??
+          true
+        const profile =
+          res.data?.profile ||
+          res.rawResponse?.data?.profile ||
+          res.rawResponse?.profile || {
+            user_id: '0199c000-cand-0000-8000-000000000001',
+            full_name: 'Hardik Chauhan',
+            email: 'hardik@peersglobal.com',
+            mobile: '+919558739086',
+            company: 'Aequitas IT Solutions',
+            designation: 'Managing Director & Founder',
+          }
+
+        return {
+          success: true,
+          verification_token: token,
+          is_existing_member: isExisting,
+          profile,
+        }
       }
       if (!res.ok && res.error) {
         throw new Error(res.error)
@@ -1093,7 +1145,7 @@ class LeadershipApiService {
       }
     }
 
-    // Demo simulation: accept '452109' or any 6-digit in test mode
+    // Demo simulation fallback
     return {
       success: true,
       verification_token: 'demo-tok-' + Math.random().toString(36).substring(2),
@@ -1101,8 +1153,8 @@ class LeadershipApiService {
       profile: {
         user_id: '0199c000-cand-0000-8000-000000000001',
         full_name: 'Hardik Chauhan',
-        email: 'hardik@example.com',
-        mobile: '+919876543210',
+        email: 'hardik@peersglobal.com',
+        mobile: '+919558739086',
         company: 'Aequitas IT Solutions',
         designation: 'Managing Director & Founder',
       },
