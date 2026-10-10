@@ -180,7 +180,6 @@ export function InitiativesPageClient() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   THE ECOSYSTEM
                 </span>
@@ -269,7 +268,6 @@ export function InitiativesPageClient() {
           
           <div className="max-w-3xl mb-14">
             <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE 6 PLATFORMS
               </span>
@@ -438,7 +436,6 @@ export function InitiativesPageClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     EVERY BUILDER BELONGS
                   </span>

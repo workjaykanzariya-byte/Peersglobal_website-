@@ -348,7 +348,6 @@ export function CircleMapClient() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   EXPLORE THE MAP
                 </span>
@@ -529,7 +528,6 @@ export function CircleMapClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   CITY DIRECTORY
                 </span>
@@ -597,7 +595,6 @@ export function CircleMapClient() {
             {/* Left Content (7 cols) */}
             <div className="lg:col-span-7 space-y-5">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   GEOGRAPHY &amp; ACCOUNTABILITY
                 </span>
@@ -710,7 +707,6 @@ export function CircleMapClient() {
               {/* Left Column: Narrative & Insights */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-sky-300">
                     EXPAND THE HORIZON
                   </span>
@@ -836,7 +832,6 @@ export function CircleMapClient() {
             
             <div className="flex max-w-3xl flex-col gap-3.5">
               <div className="flex items-center gap-2.5">
-                <span className="h-[1.5px] w-6 bg-white/70" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
                   THE MAP
                 </span>

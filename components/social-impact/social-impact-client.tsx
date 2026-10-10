@@ -127,7 +127,6 @@ export function SocialImpactClient() {
               {/* Left Column: Manifesto & Details */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
                     EVIDENCED SOCIAL IMPACT &amp; FOUNDATION
                   </span>
@@ -269,7 +268,6 @@ export function SocialImpactClient() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2 max-w-2xl">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   GLOBAL STANDARDS
                 </span>
@@ -335,7 +333,6 @@ export function SocialImpactClient() {
           
           <div className="max-w-2xl space-y-2">
             <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 SYSTEMIC PIPELINE
               </span>
@@ -399,7 +396,6 @@ export function SocialImpactClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   THE SOCIAL IMPACT MISSION
                 </span>

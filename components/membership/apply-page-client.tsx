@@ -240,11 +240,9 @@ export function ApplyPageClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 HOW TO JOIN
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               Six steps. One simple beginning.
@@ -307,7 +305,6 @@ export function ApplyPageClient() {
 
             <div className="relative z-10 max-w-4xl space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                   Immediate Onboarding
                 </span>
@@ -355,11 +352,9 @@ export function ApplyPageClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 TRANSPARENCY IS RESPECT
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               Before You Subscribe
@@ -445,7 +440,6 @@ export function ApplyPageClient() {
               <div className="space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       GROWTH AT YOUR PACE
                     </span>
@@ -502,7 +496,6 @@ export function ApplyPageClient() {
               <div className="space-y-6 relative z-10">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
-                    <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                     <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                       No Artificial Urgency
                     </span>
@@ -558,7 +551,6 @@ export function ApplyPageClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BEGIN WITH UNITY
                 </span>

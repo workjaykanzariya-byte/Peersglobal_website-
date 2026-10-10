@@ -370,7 +370,6 @@ export function CircleDirectorClient() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   STAGE 03 — LEAD THE CIRCLE
                 </span>
@@ -457,11 +456,9 @@ export function CircleDirectorClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 LEADERSHIP STRUCTURE
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               You lead the leaders who lead the Circle
@@ -548,11 +545,9 @@ export function CircleDirectorClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 THE SEVEN RESPONSIBILITIES
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               What a Circle Director is responsible for
@@ -649,11 +644,9 @@ export function CircleDirectorClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 CONTINUITY & STEWARDSHIP
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               What the role carries
@@ -703,7 +696,6 @@ export function CircleDirectorClient() {
             <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                     PERSPECTIVE & MATURITY
                   </span>
@@ -862,11 +854,9 @@ export function CircleDirectorClient() {
           
           <div className="text-center space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
               Frequently asked questions
@@ -918,7 +908,6 @@ export function CircleDirectorClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   LEAD WITH RESPONSIBILITY
                 </span>

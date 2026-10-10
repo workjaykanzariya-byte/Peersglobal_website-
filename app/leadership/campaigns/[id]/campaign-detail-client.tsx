@@ -98,7 +98,7 @@ export function CampaignDetailClient({
               </span>
             </div>
 
-            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
+            <h1 className="font-semibold text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
               {campaign.name}
             </h1>
 
@@ -204,7 +204,7 @@ export function CampaignDetailClient({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
             <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-              <h3 className="font-serif text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <h3 className="font-semibold text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-[#1D4ED8]" />
                 Election Milestones &amp; Schedule
               </h3>
@@ -260,7 +260,7 @@ export function CampaignDetailClient({
 
             {/* Mandate */}
             <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-              <h3 className="font-serif text-lg font-bold text-slate-900 mb-2">
+              <h3 className="font-semibold text-lg font-bold text-slate-900 mb-2">
                 About the {campaign.role.name} Mandate
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -272,7 +272,7 @@ export function CampaignDetailClient({
             {/* Eligibility Requirements */}
             {campaign.eligibility_criteria && campaign.eligibility_criteria.length > 0 && (
               <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-                <h3 className="font-serif text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <h3 className="font-semibold text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                   Candidate Eligibility Criteria
                 </h3>
@@ -360,7 +360,7 @@ export function CampaignDetailClient({
                 </span>
                 <span className="text-xs text-slate-400 font-medium">{s.seats_available || 1} Seat</span>
               </div>
-              <h4 className="font-serif text-base font-bold text-slate-900">{s.name}</h4>
+              <h4 className="font-semibold text-base font-bold text-slate-900">{s.name}</h4>
               <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
                 <MapPin className="w-3 h-3 text-slate-400" />
                 {s.state || 'National'}, {s.district || s.name}
@@ -374,7 +374,7 @@ export function CampaignDetailClient({
       {activeTab === 'rules' && (
         <div className="p-6 md:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
           <div>
-            <h3 className="font-serif text-xl font-bold text-slate-900 mb-1">
+            <h3 className="font-semibold text-xl font-bold text-slate-900 mb-1">
               Rules of Governance &amp; Voting Regulations
             </h3>
             <p className="text-xs text-slate-500">

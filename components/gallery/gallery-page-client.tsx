@@ -406,7 +406,6 @@ export function GalleryPageClient() {
               {/* Left Column: Manifesto & Details */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
                     COMMUNITY LIFE &amp; ARCHIVES
                   </span>
@@ -544,7 +543,6 @@ export function GalleryPageClient() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   BROWSE OUR GALLERY
                 </span>
@@ -726,7 +724,6 @@ export function GalleryPageClient() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   EXPLORE BY COLLECTION
                 </span>
@@ -822,7 +819,6 @@ export function GalleryPageClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   WITNESS THE MOVEMENT
                 </span>

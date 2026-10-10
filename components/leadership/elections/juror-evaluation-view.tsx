@@ -75,7 +75,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
       await leadershipApi.submitJurorConflict(assignment.id, token, conflictReason)
       setIsConflictDeclared(true)
       setShowConflictModal(false)
-      setMessage('Conflict of interest officially logged. Assignment recused.')
+      setMessage('Conflict of interest recorded. Assignment recusal confirmed.')
     } catch {
       setIsConflictDeclared(true)
       setShowConflictModal(false)
@@ -135,7 +135,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
     return (
       <div className="max-w-2xl mx-auto p-8 rounded-3xl bg-amber-50 border border-amber-200 text-center">
         <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto mb-3" />
-        <h3 className="font-serif text-xl font-bold text-slate-900 mb-2">Conflict of Interest Declared</h3>
+        <h3 className="font-semibold text-xl font-bold text-slate-900 mb-2">Conflict of Interest Declared</h3>
         <p className="text-xs text-slate-600 max-w-md mx-auto mb-6">
           You have recused yourself from evaluating {candidate.full_name}. This evaluation has been safely reassigned to an alternate juror.
         </p>
@@ -155,7 +155,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
         <div className="w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-500 text-emerald-600 flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="font-serif text-2xl font-bold text-slate-900 mb-2">Jury Evaluation Finalized</h3>
+        <h3 className="font-semibold text-2xl font-bold text-slate-900 mb-2">Jury Evaluation Finalized</h3>
         <p className="text-xs text-slate-600 max-w-md mx-auto mb-4">
           Your evaluation and scoring report for <strong>{candidate.full_name}</strong> have been cryptographically sealed and submitted to the Election Governance Council.
         </p>
@@ -193,7 +193,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
               </span>
               <span className="text-xs text-slate-400">Assignment ID: {assignment.id}</span>
             </div>
-            <h2 className="font-serif text-2xl font-bold text-slate-900 tracking-tight">{candidate.full_name}</h2>
+            <h2 className="font-semibold text-2xl font-bold text-slate-900 tracking-tight">{candidate.full_name}</h2>
             <p className="text-xs font-semibold text-slate-600">
               {candidate.designation} · {candidate.company}
             </p>
@@ -274,7 +274,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
       {activeTab === 'dossier' && (
         <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 space-y-6 shadow-sm">
           <div className="border-b border-slate-100 pb-4">
-            <h3 className="font-serif text-lg font-bold text-slate-900">Candidate Background &amp; Form 1 Filing</h3>
+            <h3 className="font-semibold text-lg font-bold text-slate-900">Candidate Background &amp; Form 1 Filing</h3>
             <p className="text-xs text-slate-500">Verified credentials and declarations submitted during candidate nomination.</p>
           </div>
 
@@ -316,7 +316,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
       {activeTab === 'form2' && (
         <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 space-y-6 shadow-sm">
           <div className="border-b border-slate-100 pb-4">
-            <h3 className="font-serif text-lg font-bold text-slate-900">Form 2: Qualitative Jury Inquiries</h3>
+            <h3 className="font-semibold text-lg font-bold text-slate-900">Form 2: Qualitative Jury Inquiries</h3>
             <p className="text-xs text-slate-500">Provide qualitative observations on governance maturity, mediation skills, and delegation capability.</p>
           </div>
 
@@ -375,12 +375,12 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
         <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 space-y-6 shadow-sm">
           <div className="flex items-center justify-between border-b border-slate-100 pb-4">
             <div>
-              <h3 className="font-serif text-lg font-bold text-slate-900">Weighted Criterion Scoring (1–10)</h3>
+              <h3 className="font-semibold text-lg font-bold text-slate-900">Weighted Criterion Scoring (1–10)</h3>
               <p className="text-xs text-slate-500">Rate candidate across each formal governance criterion.</p>
             </div>
             <div className="text-right">
               <span className="text-[10px] uppercase text-slate-400 font-bold block">Composite Score</span>
-              <span className="font-serif text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+              <span className="font-semibold text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                 {totalWeightedScore.toFixed(1)} / 10.0
               </span>
             </div>
@@ -407,7 +407,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
                       <p className="text-xs text-slate-500 mt-0.5">{crit.description}</p>
                     </div>
 
-                    <div className="font-serif text-xl font-bold text-[#1D4ED8] bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-sm shrink-0">
+                    <div className="font-semibold text-xl font-bold text-[#1D4ED8] bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-sm shrink-0">
                       {currentScore.toFixed(1)}
                     </div>
                   </div>
@@ -474,7 +474,7 @@ export function JurorEvaluationView({ assignment, token }: JurorEvaluationViewPr
       {activeTab === 'report' && (
         <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 space-y-6 shadow-sm">
           <div className="border-b border-slate-100 pb-4">
-            <h3 className="font-serif text-lg font-bold text-slate-900">Jury Recommendation Report</h3>
+            <h3 className="font-semibold text-lg font-bold text-slate-900">Jury Recommendation Report</h3>
             <p className="text-xs text-slate-500">Formally conclude your juror review and endorse your recommendation.</p>
           </div>
 

@@ -151,7 +151,6 @@ export function CircleRolesClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold mb-2">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Executive Stewardship
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
@@ -238,7 +237,6 @@ export function CircleRolesClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold mb-2">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Operational Engine
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">
@@ -399,7 +397,6 @@ export function CircleRolesClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#0062D2] font-bold mb-2">
-              <span className="w-6 h-[1.5px] bg-[#0062D2]" />
               Special Projects
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0D1F47]">

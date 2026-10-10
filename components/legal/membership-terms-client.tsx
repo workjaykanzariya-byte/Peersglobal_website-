@@ -258,11 +258,9 @@ export function MembershipTermsClient() {
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE FOUNDATIONAL COMPACT
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
               The Six Tenets of Membership Protection
@@ -324,7 +322,6 @@ export function MembershipTermsClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200/80">
             <div className="max-w-2xl space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   FORMAL ARTICLES
                 </span>
@@ -436,7 +433,6 @@ export function MembershipTermsClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BUILT ON INTEGRITY
                 </span>

@@ -95,7 +95,6 @@ export function HomeHero() {
 
           {/* Eyebrow */}
           <div className="flex items-center gap-2.5 mb-5">
-            <span className="h-[2px] w-6 bg-[#0078D4] rounded-full" />
             <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">
               World&apos;s First Community of Collaboration
             </span>

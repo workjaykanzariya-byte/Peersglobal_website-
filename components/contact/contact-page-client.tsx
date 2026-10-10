@@ -266,7 +266,6 @@ export function ContactPageClient() {
 
                 {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
                     DIRECT HUMAN SECRETARIAT
                   </span>
@@ -436,11 +435,9 @@ export function ContactPageClient() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="flex flex-col items-center text-center space-y-4">
             <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 INTELLIGENT HUMAN ROUTING
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0f131a] leading-[1.12]">
@@ -529,11 +526,9 @@ export function ContactPageClient() {
           {/* Section Header */}
           <div className="flex flex-col items-center text-center space-y-4">
             <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 DIRECT DESK TRANSMISSION
               </span>
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0f131a] leading-[1.12]">
@@ -664,7 +659,6 @@ export function ContactPageClient() {
             <div className="space-y-6">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     OPEN DOORS
                   </span>
@@ -693,7 +687,6 @@ export function ContactPageClient() {
             {/* COMPANY DETAILS CARD */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider brand-gradient-text">
                   STATUTORY &amp; CORPORATE DETAILS
                 </span>
@@ -735,7 +728,6 @@ export function ContactPageClient() {
           <div className="p-8 sm:p-12 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 max-w-4xl mx-auto space-y-6 shadow-xs">
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   FORMAL GOVERNANCE
                 </span>
@@ -775,7 +767,6 @@ export function ContactPageClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2 border-b border-slate-200/60">
             <div className="max-w-2xl space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   Verified Digital Presence
                 </span>
@@ -882,7 +873,6 @@ export function ContactPageClient() {
             {/* Left Column: Heading, Ethos & Punchline */}
             <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
                   WE ARE LISTENING
                 </span>

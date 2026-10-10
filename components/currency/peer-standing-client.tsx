@@ -270,7 +270,6 @@ export function PeerStandingClient() {
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                   THE TRUE MEASURE
                 </span>
@@ -395,11 +394,9 @@ export function PeerStandingClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
                 ADVANCEMENT TIERS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               Standing Levels
@@ -568,7 +565,6 @@ export function PeerStandingClient() {
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   PEER REPUTATION
                 </span>

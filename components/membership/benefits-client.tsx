@@ -292,7 +292,6 @@ export function BenefitsClient() {
           
           <div className="text-left max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 ANNUAL CALENDAR
               </span>
@@ -367,7 +366,6 @@ export function BenefitsClient() {
 
           <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 GROWTH &amp; WISDOM
               </span>
@@ -490,7 +488,6 @@ export function BenefitsClient() {
           
           <div className="text-left max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 MEDIA ECOSYSTEM
               </span>
@@ -554,7 +551,6 @@ export function BenefitsClient() {
           <div className="space-y-8">
             <div className="text-left max-w-3xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BELONGING
                 </span>
@@ -633,7 +629,6 @@ export function BenefitsClient() {
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-8 space-y-5">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-300">
                     RECOGNITION &amp; LEADERSHIP
                   </span>
@@ -857,7 +852,6 @@ export function BenefitsClient() {
 
               <div className="relative z-10 space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-300">
                     INDIVIDUAL JOURNEYS
                   </span>
@@ -909,7 +903,6 @@ export function BenefitsClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   START YOUR JOURNEY
                 </span>

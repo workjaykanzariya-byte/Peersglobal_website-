@@ -373,7 +373,6 @@ export function FindPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">TWO WAYS TO BEGIN</span>
           </div>
 
@@ -396,8 +395,7 @@ export function FindPageClient() {
             {/* 01 Start With Unity */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#0F172A] text-white flex flex-col">
               <div className="flex items-center gap-3 mb-2">
-                <span className="h-0.5 w-5 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">01 — START WITH UNITY</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">01. START WITH UNITY</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
                 Start With Unity
@@ -446,8 +444,7 @@ export function FindPageClient() {
             {/* 02 Tell Us About Yourself */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col">
               <div className="flex items-center gap-3 mb-2">
-                <span className="h-0.5 w-5 bg-emerald-500" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">02 — TELL US ABOUT YOURSELF</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">02. TELL US ABOUT YOURSELF</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A] mb-4 leading-snug">
                 Tell Us About Yourself
@@ -479,7 +476,6 @@ export function FindPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SIX QUICK QUESTIONS</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -818,7 +814,6 @@ export function FindPageClient() {
 
           <div className="max-w-3xl space-y-3 text-left">
             <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS NEXT</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
@@ -878,9 +873,7 @@ export function FindPageClient() {
       <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">NO PRESSURE</span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
@@ -926,7 +919,6 @@ export function FindPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">START WITH UNITY</span>
           </div>
 
@@ -985,7 +977,6 @@ export function FindPageClient() {
             {/* Left Column: Heading & Narrative */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase text-sky-400">
                   THE PHILOSOPHY
                 </span>
@@ -1081,7 +1072,6 @@ export function FindPageClient() {
             {/* Left */}
             <div className="lg:col-span-5">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
@@ -1148,7 +1138,6 @@ export function FindPageClient() {
             {/* Left Column: Heading, Core Narrative & Actions */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND WHERE YOU BELONG</span>
               </div>
 

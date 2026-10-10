@@ -286,7 +286,6 @@ export function WatchlistClient() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PRACTITIONER TOOLKIT
                 </span>
@@ -376,7 +375,6 @@ export function WatchlistClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE GOLD STANDARD
                   </span>
@@ -463,7 +461,6 @@ export function WatchlistClient() {
           
           <div className="max-w-3xl mb-14">
             <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 CATEGORIES
               </span>
@@ -520,7 +517,6 @@ export function WatchlistClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   A PRACTITIONER'S LIBRARY
                 </span>
@@ -661,7 +657,6 @@ export function WatchlistClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE PROMISE
                   </span>
@@ -737,11 +732,9 @@ export function WatchlistClient() {
       <section id="recommend-tool" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
               CONTRIBUTE TO THE WATCHLIST
             </span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950">

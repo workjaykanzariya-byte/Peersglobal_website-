@@ -271,7 +271,6 @@ export function CircleMagazinesClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10 sm:mb-12">
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Contents &amp; Architecture
               </span>
@@ -318,7 +317,6 @@ export function CircleMagazinesClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10 sm:mb-12">
             <div className="flex items-center gap-2 mb-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Member Benefit
               </span>
@@ -377,7 +375,6 @@ export function CircleMagazinesClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-1.5">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Archival Directory
                 </span>
@@ -486,7 +483,6 @@ export function CircleMagazinesClient() {
           <div className="p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-left">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 Editorial Ownership
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
@@ -564,7 +560,6 @@ export function CircleMagazinesClient() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2.5">
-            <span className="h-[1.5px] w-6 bg-white/70" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
               Peers Global Ecosystem
             </span>

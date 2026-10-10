@@ -217,7 +217,6 @@ export function CareersClient() {
                 
                 {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-2.5 mb-3">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
                     CAREERS AT PEERS GLOBAL
                   </span>
@@ -314,7 +313,6 @@ export function CareersClient() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-4 border-b border-slate-200/80">
             <div className="max-w-2xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   MINDSET &amp; STANDARDS
                 </span>
@@ -443,7 +441,6 @@ export function CareersClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
           <div className="max-w-2xl space-y-2 pb-4 border-b border-slate-200/80">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 ENVIRONMENT &amp; ETHOS
               </span>
@@ -509,7 +506,6 @@ export function CareersClient() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-4 border-b border-slate-200/80">
             <div className="max-w-2xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   CURRENT OPPORTUNITIES
                 </span>
@@ -605,7 +601,6 @@ export function CareersClient() {
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Evolution &amp; Fit
                   </span>
@@ -636,7 +631,6 @@ export function CareersClient() {
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Authenticity Over Polish
                   </span>
@@ -683,7 +677,6 @@ export function CareersClient() {
             <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     APPLICATION DESK
                   </span>
@@ -984,7 +977,6 @@ export function CareersClient() {
               
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2">
-                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
                   THE PEERS GLOBAL INVITATION
                 </span>

@@ -463,7 +463,6 @@ export function MemberFaqClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-100">
             <div className="max-w-2xl space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   COMPLETE DIRECTORY
                 </span>
@@ -688,7 +687,6 @@ export function MemberFaqClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                   Your Informed Decision
                 </span>

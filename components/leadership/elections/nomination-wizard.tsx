@@ -312,72 +312,77 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
   // Receipt view upon successful submission
   if (submissionResult) {
     return (
-      <div className="max-w-2xl mx-auto rounded-3xl bg-white border border-slate-200 p-8 sm:p-10 text-center shadow-sm">
+      <div className="max-w-2xl mx-auto rounded-3xl bg-white border border-slate-200 p-8 sm:p-12 text-center shadow-lg">
         <div className="w-16 h-16 rounded-full bg-emerald-50 border-2 border-emerald-500 text-emerald-600 flex items-center justify-center mx-auto mb-4 shadow-sm">
           <CheckCircle2 className="w-9 h-9" />
         </div>
 
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-2">
-          Nomination Application Submitted!
+        <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-2">
+          Nomination Application Submitted
         </h2>
-        <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto mb-6">
-          Your nomination for <strong>{campaign.role.name}</strong> has been officially logged with the Election Governance Committee.
+        <p className="text-sm text-slate-600 max-w-lg mx-auto mb-7 leading-relaxed font-normal">
+          Your nomination for <strong className="text-slate-900 font-semibold">{campaign.role.name}</strong> has been received and routed to the Election Governance Committee for credential verification.
         </p>
 
-        {/* Official Application Card */}
-        <div className="p-5 rounded-2xl bg-[#040F24] text-white text-left max-w-md mx-auto mb-6 border border-slate-800 shadow-inner">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3 text-2xs uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 font-bold">
-            <span>Official Nomination Filing</span>
-            <span className="flex items-center gap-1 text-emerald-400">
+        {/* Hotstar-style Premium Digital Filing Card */}
+        <div className="relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-[#030914] text-white text-left max-w-lg mx-auto mb-7 border border-slate-800 shadow-xl">
+          {/* Top glowing gradient stripe (Hotstar signature) */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
+
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3.5 mb-4">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-300">
+              Official Filing Record
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
               <ShieldCheck className="w-3.5 h-3.5" /> Under Scrutiny
             </span>
           </div>
 
-          <div className="space-y-3 text-xs">
+          <div className="space-y-4 text-xs">
             <div>
-              <div className="text-slate-400 text-[10px] uppercase font-semibold">Application Number</div>
-              <div className="font-mono text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-amber-300 mt-0.5 tracking-wider">
+              <div className="text-slate-400 text-[10px] uppercase font-semibold tracking-wider">Application Reference</div>
+              <div className="font-mono text-xl sm:text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400 mt-1">
                 {submissionResult.applicationNumber}
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 text-slate-300">
+            <div className="grid grid-cols-2 gap-3 text-slate-300 pt-1 border-t border-slate-800/80">
               <div>
-                <span className="text-slate-400 text-[10px]">Candidate:</span>
-                <div className="font-semibold text-white">{profile.fullName}</div>
+                <span className="text-slate-400 text-[11px] block">Candidate:</span>
+                <div className="font-semibold text-white text-sm mt-0.5">{profile.fullName}</div>
               </div>
               <div>
-                <span className="text-slate-400 text-[10px]">Target Role:</span>
-                <div className="font-semibold text-white">{campaign.role.name}</div>
+                <span className="text-slate-400 text-[11px] block">Target Role:</span>
+                <div className="font-semibold text-white text-sm mt-0.5">{campaign.role.name}</div>
               </div>
               <div>
-                <span className="text-slate-400 text-[10px]">Jurisdiction:</span>
-                <div className="font-semibold text-white">
+                <span className="text-slate-400 text-[11px] block">Jurisdiction:</span>
+                <div className="font-semibold text-white text-sm mt-0.5">
                   {scopes.find((s) => s.id === selectedScopeId)?.name || 'Surat District'}
                 </div>
               </div>
               <div>
-                <span className="text-slate-400 text-[10px]">Submission Time:</span>
-                <div className="font-semibold text-white">{new Date().toLocaleDateString()}</div>
+                <span className="text-slate-400 text-[11px] block">Submission Date:</span>
+                <div className="font-semibold text-white text-sm mt-0.5">{new Date().toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
               </div>
             </div>
           </div>
         </div>
 
-        <p className="text-xs text-slate-500 mb-6 max-w-md mx-auto">
-          The Scrutiny Committee will review your Form 1 responses and KYC credentials. You will be notified via SMS and email prior to voter shortlist publication.
+        <p className="text-xs sm:text-sm text-slate-500 mb-7 max-w-lg mx-auto leading-relaxed font-normal">
+          The Scrutiny Committee verifies all Form 1 responses and KYC credentials in accordance with the Peers Global Charter. Formal notification will be dispatched via SMS and registered email prior to candidate shortlist release.
         </p>
 
-        <div className="flex justify-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
           <Link
             href={`/leadership/campaigns/${campaign.id}`}
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold transition-all shadow-sm"
+            className="brand-btn-primary px-7 py-3 rounded-full text-xs font-semibold text-white shadow-lg transition-all"
           >
             Back to Campaign Overview
           </Link>
           <Link
             href="/leadership/campaigns"
-            className="px-6 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-slate-800 text-xs font-semibold transition-all"
+            className="px-6 py-3 rounded-full border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all"
           >
             Explore All Elections
           </Link>
@@ -431,7 +436,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         {currentStep === 1 && (
           <div>
             <div className="mb-6">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-1.5">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1.5">
                 Step 1: Contact &amp; Membership Verification
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -560,7 +565,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         {currentStep === 2 && (
           <div>
             <div className="mb-6">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-1.5">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1.5">
                 Step 2: Jurisdiction Scope &amp; Candidate Profile
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -695,7 +700,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           <div>
             <div className="flex items-start justify-between mb-6">
               <div>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-1">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1">
                   Step 3: Leadership Questionnaire (Form 1)
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal">
@@ -769,7 +774,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         {currentStep === 4 && (
           <div>
             <div className="mb-6">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-1.5">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1.5">
                 Step 4: Document Verification Uploads
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -913,7 +918,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         {currentStep === 5 && (
           <div>
             <div className="mb-6">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-1.5">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1.5">
                 Step 5: Review &amp; Final Submission
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">

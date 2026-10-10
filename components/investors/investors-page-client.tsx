@@ -198,7 +198,6 @@ export function InvestorsPageClient() {
                 
                 {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     INVESTORS &amp; CAPITAL PARTNERS
                   </span>
@@ -295,7 +294,6 @@ export function InvestorsPageClient() {
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Market Context
                   </span>
@@ -360,7 +358,6 @@ export function InvestorsPageClient() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 System Architecture
               </span>
@@ -411,7 +408,6 @@ export function InvestorsPageClient() {
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Compounding Value
                   </span>
@@ -458,7 +454,6 @@ export function InvestorsPageClient() {
             <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Flywheel Dynamics
                   </span>
@@ -503,11 +498,9 @@ export function InvestorsPageClient() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 LSR Framework
               </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               THE GROWTH ENGINE
@@ -573,7 +566,6 @@ export function InvestorsPageClient() {
           <div className="space-y-8">
             <div className="max-w-3xl space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Trajectory &amp; Governance
                 </span>
@@ -632,7 +624,6 @@ export function InvestorsPageClient() {
           <div className="space-y-8 pt-8 border-t border-slate-200">
             <div className="max-w-3xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Long-Term Lifecycle
                 </span>
@@ -667,7 +658,6 @@ export function InvestorsPageClient() {
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Generational Target
                   </span>
@@ -713,7 +703,6 @@ export function InvestorsPageClient() {
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Strategic Differentiation
                   </span>
@@ -759,7 +748,6 @@ export function InvestorsPageClient() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Governance &amp; Transparency
               </span>
@@ -813,11 +801,9 @@ export function InvestorsPageClient() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
           <div className="max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Mutual Due Diligence
               </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               A CONVERSATION BEFORE A COMMITMENT
@@ -862,11 +848,9 @@ export function InvestorsPageClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Dialogue &amp; Alignment
               </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               FOR PROSPECTIVE INVESTORS
@@ -1055,11 +1039,9 @@ export function InvestorsPageClient() {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-white/70" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
                 INTERESTED IN THE JOURNEY?
               </span>
-              <span className="h-[1.5px] w-6 bg-white/70" />
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
               Build patiently. Build honestly. <br />

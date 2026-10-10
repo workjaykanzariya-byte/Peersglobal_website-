@@ -106,7 +106,7 @@ export function CandidateVotingPoster({
         <div className="relative z-10 px-6 py-4 flex items-center justify-between border-b border-white/10 bg-[#040F24]/80 backdrop-blur-md">
           <div className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#1D4ED8] to-[#E11D48] flex items-center justify-center p-0.5 shadow-sm">
-              <span className="font-serif font-black text-xs text-white">PG</span>
+              <span className="font-semibold font-black text-xs text-white">PG</span>
             </div>
             <div>
               <div className="text-[11px] font-bold tracking-wider uppercase text-white/90">
@@ -196,7 +196,7 @@ export function CandidateVotingPoster({
 
             {/* Candidate Name in Tall Bold Capital Letters */}
             <div className="flex-1 min-w-0">
-              <h1 className="font-serif text-3xl sm:text-4xl font-black uppercase text-white tracking-tight leading-tight drop-shadow-sm">
+              <h1 className="font-semibold text-3xl sm:text-4xl font-black uppercase text-white tracking-tight leading-tight drop-shadow-sm">
                 {candidate.full_name}
               </h1>
               <div className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-400 mt-1">

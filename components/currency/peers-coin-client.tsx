@@ -177,7 +177,6 @@ export function PeersCoinClient() {
 
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       CONTRIBUTION CYCLE
                     </span>
@@ -238,7 +237,6 @@ export function PeersCoinClient() {
 
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       THE MARKETPLACE
                     </span>
@@ -349,7 +347,6 @@ export function PeersCoinClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     ANOTHER LANGUAGE OF APPRECIATION
                   </span>
@@ -534,7 +531,6 @@ export function PeersCoinClient() {
             {/* Left Column: Manifesto & CTAs */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   CONTRIBUTE. EARN. EXPERIENCE.
                 </span>

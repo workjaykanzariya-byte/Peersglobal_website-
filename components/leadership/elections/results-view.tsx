@@ -68,7 +68,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
             <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
             Confidential Candidate Portal
           </div>
-          <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">Real-Time Vote Performance</h1>
+          <h1 className="font-semibold text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">Real-Time Vote Performance</h1>
           <p className="text-xs sm:text-sm text-slate-300 font-normal">
             Secure tracking of verified member ballots cast in your jurisdiction.
           </p>
@@ -101,7 +101,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
                 <span className="text-xs text-[#1D4ED8] font-bold uppercase tracking-wider">
                   {resultData.campaign_name}
                 </span>
-                <h2 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
+                <h2 className="font-semibold text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
                   {resultData.candidate_name}
                 </h2>
                 {resultData.scope_name && (
@@ -122,7 +122,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
                   <span>Verified Ballots Received</span>
                   <Vote className="w-4 h-4" />
                 </div>
-                <div className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                <div className="font-semibold text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
                   {resultData.total_votes_received.toLocaleString()}
                 </div>
                 <div className="text-xs text-slate-500 mt-1">
@@ -135,7 +135,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
                   <span>Current Vote Share</span>
                   <TrendingUp className="w-4 h-4" />
                 </div>
-                <div className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                <div className="font-semibold text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
                   {resultData.vote_percentage}%
                 </div>
                 <div className="text-xs text-slate-500 mt-1">Leading candidate benchmark</div>
@@ -146,7 +146,7 @@ export function ResultsView({ initialToken }: ResultsViewProps) {
                   <span>Current Position</span>
                   <Trophy className="w-4 h-4" />
                 </div>
-                <div className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                <div className="font-semibold text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
                   Rank #{resultData.rank}
                 </div>
                 <div className="text-xs text-slate-500 mt-1">

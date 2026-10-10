@@ -396,11 +396,9 @@ export function SitemapClient() {
 
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 FULL DIRECTORY INDEX
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
               Ecosystem Architecture by Pillar
@@ -504,7 +502,6 @@ export function SitemapClient() {
             {/* Left Col (5 cols): Statement & Authority */}
             <div className="lg:col-span-5 space-y-4 text-left">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
                   Open Ecosystem Map
                 </span>

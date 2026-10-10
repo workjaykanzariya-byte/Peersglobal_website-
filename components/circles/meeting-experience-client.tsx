@@ -264,7 +264,6 @@ export function MeetingExperienceClient() {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">BUILT FOR OUTCOMES</span>
                 </div>
 
@@ -355,7 +354,6 @@ export function MeetingExperienceClient() {
           {/* Section Header */}
           <div className="max-w-3xl mb-12">
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE FOUR-PART AGENDA</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-4">
@@ -490,7 +488,6 @@ export function MeetingExperienceClient() {
 
             <div className="lg:col-span-6">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SAME STRUCTURE, BIGGER POSSIBILITIES</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
@@ -519,7 +516,6 @@ export function MeetingExperienceClient() {
             {/* Right: Between meetings */}
             <div className="lg:col-span-6">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">BETWEEN MEETINGS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
@@ -656,7 +652,6 @@ export function MeetingExperienceClient() {
             <div className="lg:col-span-6 bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-9 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FOR FIRST-TIME VISITORS</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
@@ -705,7 +700,6 @@ export function MeetingExperienceClient() {
             <div className="lg:col-span-6 bg-white rounded-3xl border border-rose-200/80 p-6 sm:p-9 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
                   <span className="text-xs font-bold tracking-[0.22em] uppercase text-rose-600">THE CODE OF THE ROOM</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
@@ -758,7 +752,6 @@ export function MeetingExperienceClient() {
 
             <div className="lg:col-span-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">

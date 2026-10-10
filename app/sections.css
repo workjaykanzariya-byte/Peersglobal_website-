@@ -53,21 +53,21 @@
 }
 
 .title-bold-11 {
-  font-family: 'Sharp Grotesk Cyr Medium 20', 'Google Sans Flex', -apple-system, sans-serif;
+  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .title-9 {
-  font-family: 'Google Sans Flex', sans-serif;
+  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
 .caption-disclaimer {
-  font-family: 'Google Sans Flex', sans-serif;
+  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   font-size: 0.75rem;
   line-height: 1.4;
 }
@@ -609,18 +609,20 @@ p.body,
 .fd-hero__headline {
   margin: 0;
   color: var(--mv-white);
+  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   font-size: 60px;
   font-weight: 600;
-  line-height: 68px;
-  letter-spacing: -.25px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 .fd-hero__sub {
   margin: 0;
   color: var(--mv-grey-300);
+  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   font-size: 24px;
-  font-weight: 500;
-  line-height: 30px;
+  font-weight: 400;
+  line-height: 1.5;
   letter-spacing: 0;
 }
 

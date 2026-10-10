@@ -278,7 +278,6 @@ export function WhyJoinClient() {
 
                 {/* Eyebrow */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     MORE THAN A MEMBERSHIP
                   </span>
@@ -371,7 +370,6 @@ export function WhyJoinClient() {
             {/* Left Column: Narrative */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   WHAT YOU ARE JOINING
                 </span>
@@ -515,11 +513,9 @@ export function WhyJoinClient() {
 
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE VALUE SYSTEM
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight mb-4">
               Beliefs that guide a stronger community
@@ -582,7 +578,6 @@ export function WhyJoinClient() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   EIGHT REASONS
                 </span>
@@ -931,7 +926,6 @@ export function WhyJoinClient() {
             {/* Left Copy */}
             <div className="lg:col-span-8 flex flex-col items-start">
               <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
-                <span className="h-0.5 w-6 bg-sky-400" />
                 <span>YOUR NEXT CHAPTER</span>
               </div>
 

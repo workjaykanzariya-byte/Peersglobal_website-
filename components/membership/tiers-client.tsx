@@ -208,7 +208,6 @@ export function TiersClient() {
 
           <div className="text-left max-w-3xl space-y-2">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 How Membership Works
               </span>
@@ -338,11 +337,9 @@ export function TiersClient() {
 
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <div className="inline-flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Membership Options
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
               Two memberships. One community.
@@ -693,7 +690,6 @@ export function TiersClient() {
             {/* Left Box: What no subscription buys */}
             <div className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-9 shadow-2xs space-y-5">
               <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-rose-500 rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-rose-600">
                   Our Code
                 </span>
@@ -750,7 +746,6 @@ export function TiersClient() {
             {/* Right Box: Fees and terms */}
             <div className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-9 shadow-2xs space-y-5">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Terms &amp; Conditions
                 </span>
@@ -819,7 +814,6 @@ export function TiersClient() {
             <div className="lg:col-span-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-7 sm:p-9 flex flex-col justify-between space-y-6 shadow-2xs">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     The LSR Growth Model
                   </span>
@@ -877,7 +871,6 @@ export function TiersClient() {
 
               <div className="relative z-10 space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
                   <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
                     Get Started
                   </span>

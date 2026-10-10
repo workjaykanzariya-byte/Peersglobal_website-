@@ -288,9 +288,7 @@ export function PowerhouseClient() {
               <div className="max-w-xl flex flex-col items-start">
                 {/* Eyebrow */}
                 <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                   <span className="brand-gradient-text">LEADERSHIP</span>
-                  <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 </div>
 
                 {/* Main Heading */}
@@ -366,7 +364,6 @@ export function PowerhouseClient() {
             {/* Left Column: Narrative */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 <span className="brand-gradient-text">STAGE 02 OF THE PATHWAY</span>
               </div>
 
@@ -433,9 +430,7 @@ export function PowerhouseClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <span className="brand-gradient-text">THE THREE COMMITTEES</span>
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
               Fourteen roles in every Circle.
@@ -640,9 +635,7 @@ export function PowerhouseClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <span className="brand-gradient-text">THE PROCESS</span>
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
               How to join the Powerhouse

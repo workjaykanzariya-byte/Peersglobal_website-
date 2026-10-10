@@ -316,7 +316,6 @@ export function NewsroomPageClient() {
                 
                 {/* Eyebrow with brand gradient bar */}
                 <div className="flex items-center gap-2.5 mb-3.5">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
                     PUBLIC RECORD &amp; PRESS SECRETARIAT
                   </span>
@@ -406,7 +405,6 @@ export function NewsroomPageClient() {
             <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                     LATEST DEVELOPMENTS
                   </span>
@@ -506,7 +504,6 @@ export function NewsroomPageClient() {
             <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                     PRESS RELEASES
                   </span>
@@ -605,7 +602,6 @@ export function NewsroomPageClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-5">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                   IN THE MEDIA
                 </span>
@@ -704,7 +700,6 @@ export function NewsroomPageClient() {
           
           <div className="space-y-2 max-w-3xl">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                 OUR MEDIA ECOSYSTEM
               </span>
@@ -773,7 +768,6 @@ export function NewsroomPageClient() {
           
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                 FACTSHEET &amp; MEDIA KIT
               </span>
@@ -857,7 +851,6 @@ export function NewsroomPageClient() {
             <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-24">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
                     FOR JOURNALISTS &amp; MEDIA
                   </span>
@@ -1196,7 +1189,6 @@ export function NewsroomPageClient() {
             {/* Left Column */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-3.5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
                   FOR THE MEDIA
                 </span>
