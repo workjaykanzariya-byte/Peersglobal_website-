@@ -61,7 +61,7 @@ export function CountdownTimer({ targetDate, label = 'Time Remaining', compact =
 
   if (compact) {
     return (
-      <div className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400">
+      <div className="inline-flex items-center gap-1 text-xs font-bold text-amber-700">
         <Clock className="w-3.5 h-3.5 animate-pulse" />
         <span>
           {timeLeft.days > 0 && `${timeLeft.days}d `}

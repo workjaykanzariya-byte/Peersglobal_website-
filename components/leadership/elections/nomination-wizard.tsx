@@ -254,11 +254,34 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         })
       }
 
+      const isUuid = (val?: string) =>
+        typeof val === 'string' &&
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(val)
+
+      const effectiveScopeId = isUuid(selectedScopeId)
+        ? selectedScopeId
+        : scopes.find((s) => isUuid(s.id))?.id || null
+
       const nominationPayload = {
         candidate_id: candidateId,
-        scope_id: selectedScopeId || scopes[0]?.id || '0199c000-scope-7000-8000-000000000001',
+        scope_id: effectiveScopeId || undefined,
+        verification_token: verificationToken,
+        contact: contact,
+        contact_type: contactType,
+        profile: {
+          full_name: profile.fullName || 'Hardik Chauhan',
+          email: profile.email || (contactType === 'email' ? contact : 'hardik@peersglobal.com'),
+          mobile: profile.mobile || (contactType === 'mobile' ? contact : '+919558739086'),
+          company_name: profile.company || 'Aequitas IT Solutions',
+          designation: profile.designation || 'Managing Director & Founder',
+        },
         answers: answers,
         documents: documentsPayload,
+        declarations: {
+          dec_code_of_conduct: codeOfConductSigned,
+          dec_no_solicitation: true,
+          dec_governance_neutrality: true,
+        },
       }
 
       const res = await leadershipApi.submitNomination(campaign.id, nominationPayload)
@@ -589,55 +612,56 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold mb-1">Full Legal Name</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Full Legal Name</label>
                     <input
                       type="text"
                       value={profile.fullName}
                       onChange={(e) => setProfile({ ...profile, fullName: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold mb-1">Company / Enterprise</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Company / Enterprise</label>
                     <input
                       type="text"
                       value={profile.company}
                       onChange={(e) => setProfile({ ...profile, company: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold mb-1">Designation</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Designation</label>
                     <input
                       type="text"
                       value={profile.designation}
                       onChange={(e) => setProfile({ ...profile, designation: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold mb-1">LinkedIn Profile</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">LinkedIn Profile</label>
                     <input
                       type="url"
                       value={profile.socialLinks}
                       onChange={(e) => setProfile({ ...profile, socialLinks: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      placeholder="https://linkedin.com/in/..."
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs placeholder:text-slate-400"
                     />
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-xs font-semibold mb-1">Executive Bio</label>
+                    <label className="block text-xs font-bold text-slate-800 mb-1.5">Executive Bio</label>
                     <textarea
                       rows={2}
                       value={profile.bio}
                       onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-sm"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-medium text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none shadow-xs"
                     />
                   </div>
                 </div>
@@ -699,7 +723,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   <div className="mb-5 pb-3 border-b border-slate-200">
                     <h3 className="font-serif text-base font-bold text-slate-900">{section.title}</h3>
                     {section.description && (
-                      <p className="text-xs text-slate-500 mt-0.5">{section.description}</p>
+                      <p className="text-xs text-slate-600 mt-1 font-medium">{section.description}</p>
                     )}
                   </div>
 
