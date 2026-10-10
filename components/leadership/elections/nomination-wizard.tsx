@@ -124,12 +124,22 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
       return
     }
 
+    let formattedContact = cleanContact
+    if (contactType === 'mobile') {
+      const digits = cleanContact.replace(/\D/g, '')
+      if (digits.length === 10) {
+        formattedContact = `+91${digits}`
+      } else if (digits.length === 12 && digits.startsWith('91')) {
+        formattedContact = `+${digits}`
+      }
+    }
+
     setIsSubmitting(true)
     try {
       const res = await leadershipApi.requestNominationOtp({
         campaign_id: campaign.id,
         contact_type: contactType,
-        contact: cleanContact,
+        contact: formattedContact,
       })
       const vId = res.verification_id || (res as any).data?.verification_id
       if (res.success && vId) {
@@ -457,9 +467,28 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
               </form>
             ) : (
               <form onSubmit={handleVerifyOtp} className="max-w-md space-y-5">
+                <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold flex items-center gap-1.5 text-amber-800">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      Staging Mode — SMS Gateway Simulated
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setOtp(['4', '5', '2', '1', '0', '9'])}
+                      className="px-2.5 py-1 rounded-full bg-white border border-amber-300 text-[11px] font-bold text-[#1D4ED8] hover:bg-amber-100 transition-colors shadow-xs"
+                    >
+                      Auto-fill 452109
+                    </button>
+                  </div>
+                  <p className="text-[11px] text-amber-800/90 leading-relaxed">
+                    Live SMS delivery is disabled on the Dev Staging backend. Please enter the staging verification code <strong>452109</strong> below or click <strong>Auto-fill</strong>.
+                  </p>
+                </div>
+
                 <div>
-                  <div className="text-xs text-slate-500 mb-2">
-                    Enter the 6-digit code sent to <strong>{contact}</strong> (Demo code: <strong>452109</strong>)
+                  <div className="text-xs text-slate-600 mb-2 font-medium">
+                    Enter the 6-digit code for <strong>{contact}</strong>:
                   </div>
                   <div className="flex gap-2">
                     {otp.map((d, i) => (
