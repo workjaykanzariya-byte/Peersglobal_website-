@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, XCircle, AlertTriangle, ShieldCheck, HelpCircle } from 'lucide-react'
 import { Cta, Eyebrow, SectionHead, ClosingCtaSection } from '@/components/site/ui'
 import { LsrSection } from '@/components/home/sections'
+import { GlowCard } from '@/components/ui/glow-card'
 import { SITE } from '@/lib/data/site'
 
 export const metadata: Metadata = {
@@ -128,11 +129,15 @@ export default function WhyPage() {
                 desc: 'Left alone, a room of business owners will have a pleasant conversation and go home. Every circle has a Director whose job is to make sure introductions actually get made.',
               },
             ].map((item, idx) => (
-              <div key={idx} className="surface p-8 border border-[var(--border)] bg-card rounded-3xl flex flex-col gap-4">
-                <span className="text-xs font-mono font-bold text-primary uppercase">Condition 0{idx + 1}</span>
-                <h3 className="display text-xl font-bold text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
+              <GlowCard key={idx} className="w-full">
+                <div className="p-8 flex flex-col gap-4 justify-between h-full">
+                  <div className="space-y-3">
+                    <span className="text-xs font-mono font-bold text-primary uppercase">Condition 0{idx + 1}</span>
+                    <h3 className="display text-xl font-bold text-foreground group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed font-light">{item.desc}</p>
+                  </div>
+                </div>
+              </GlowCard>
             ))}
           </div>
         </div>
@@ -156,10 +161,15 @@ export default function WhyPage() {
               { title: 'Measured in lives', desc: 'We count lives impacted, not logos on a page. Contribution is the status currency here.' },
               { title: 'Priced for real businesses', desc: '₹18,000 a year. Deliberately within reach of the business owners we were built for.' },
             ].map((diff, idx) => (
-              <div key={idx} className="surface p-6 border border-[var(--border)] bg-card rounded-2xl flex flex-col gap-3">
-                <h4 className="display text-base font-bold text-foreground">{diff.title}</h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">{diff.desc}</p>
-              </div>
+              <GlowCard key={idx} className="w-full">
+                <div className="p-6 flex flex-col gap-3 justify-between h-full">
+                  <div className="space-y-2">
+                    <span className="text-[11px] font-mono font-bold text-primary uppercase">0{idx + 1}</span>
+                    <h4 className="display text-base font-bold text-foreground group-hover:text-primary transition-colors">{diff.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-light">{diff.desc}</p>
+                  </div>
+                </div>
+              </GlowCard>
             ))}
           </div>
         </div>

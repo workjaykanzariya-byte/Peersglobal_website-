@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   Lock,
@@ -582,60 +583,40 @@ export default function CultureAndCodePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {PEERS_CODE_COMMITMENTS.map((item, idx) => {
+            {PEERS_CODE_COMMITMENTS.map((item) => {
               const IconComp = item.icon
               return (
-                <div
+                <GlowCard
                   key={item.id}
                   id={item.id}
-                  className="animated-glow-card group w-full scroll-mt-28"
-                  tabIndex={0}
-                  role="article"
+                  className="w-full scroll-mt-28"
+                  innerClassName="p-7 sm:p-8 flex flex-col justify-between h-full space-y-4"
                 >
-                  {/* SVG Animated Tracing Border */}
-                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                    <defs>
-                      <linearGradient id={`codeCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1D4ED8" />
-                        <stop offset="50%" stopColor="#6366F1" />
-                        <stop offset="100%" stopColor="#E11D48" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      className="animated-border-path"
-                      style={{ stroke: `url(#codeCardGrad${idx})` }}
-                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
-                    />
-                  </svg>
-
-                  {/* Card Interior */}
-                  <div className="p-7 sm:p-8 flex flex-col justify-between h-full space-y-4">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-slate-200/80 text-xs font-bold text-slate-800">
-                          COMMITMENT {item.num}
-                        </span>
-                        <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300 shadow-xs">
-                          <IconComp className="size-6 stroke-[url(#cultureCardGrad)]" />
-                        </div>
-                      </div>
-
-                      <div>
-                        <h3 className="text-2xl font-bold text-[#0f131a] mb-1.5 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                          {item.title}
-                        </h3>
-
-                        <p className="text-xs font-bold tracking-wider uppercase brand-gradient-text mb-3">
-                          {item.essence}
-                        </p>
-
-                        <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                          {item.description}
-                        </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-slate-200/80 text-xs font-bold text-slate-800">
+                        COMMITMENT {item.num}
+                      </span>
+                      <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300 shadow-xs">
+                        <IconComp className="size-6 stroke-[url(#cultureCardGrad)]" />
                       </div>
                     </div>
+
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#0f131a] mb-1.5 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs font-bold tracking-wider uppercase brand-gradient-text mb-3">
+                        {item.essence}
+                      </p>
+
+                      <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </GlowCard>
               )
             })}
           </div>
@@ -1045,50 +1026,30 @@ export default function CultureAndCodePage() {
               {WHAT_WE_PROTECT.map((item, idx) => {
                 const IconComponent = item.icon
                 return (
-                  <div
+                  <GlowCard
                     key={idx}
-                    className="animated-glow-card group w-full"
-                    tabIndex={0}
-                    role="article"
+                    className="w-full"
+                    innerClassName="p-6 sm:p-7 flex flex-col justify-between h-full space-y-4"
                   >
-                    {/* SVG Animated Tracing Border */}
-                    <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id={`protectCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#1D4ED8" />
-                          <stop offset="50%" stopColor="#6366F1" />
-                          <stop offset="100%" stopColor="#E11D48" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        className="animated-border-path"
-                        style={{ stroke: `url(#protectCardGrad${idx})` }}
-                        d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
-                      />
-                    </svg>
-
-                    {/* Card Interior */}
-                    <div className="p-6 sm:p-7 flex flex-col justify-between h-full space-y-4">
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between">
-                          <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
-                            <IconComponent className="size-5 stroke-[url(#cultureCardGrad)]" />
-                          </div>
-                          <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400">
-                            PILLAR 0{idx + 1}
-                          </span>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                          <IconComponent className="size-5 stroke-[url(#cultureCardGrad)]" />
                         </div>
-                        <div>
-                          <h4 className="text-base font-bold text-[#0f131a] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                            {item.title}
-                          </h4>
-                          <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal pt-2">
-                            {item.desc}
-                          </p>
-                        </div>
+                        <span className="text-[10px] font-bold tracking-widest uppercase text-slate-400">
+                          PILLAR 0{idx + 1}
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="text-base font-bold text-[#0f131a] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal pt-2">
+                          {item.desc}
+                        </p>
                       </div>
                     </div>
-                  </div>
+                  </GlowCard>
                 )
               })}
             </div>

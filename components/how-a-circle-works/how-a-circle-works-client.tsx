@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -114,55 +115,57 @@ export function HowACircleWorksClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left: One seat, one business category */}
-            <div className="lg:col-span-4 p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm space-y-5 flex flex-col justify-between">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-serif text-[#0D1F47] font-bold">
-                  One seat, one business category
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-serif italic">
-                  This is the rule everything else depends on.
-                </p>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Each Circle holds one business per category. If you hold the seat for industrial packaging, you are the only industrial packaging business in that room.
-                </p>
+            <GlowCard className="lg:col-span-4 w-full">
+              <div className="p-8 space-y-5 flex flex-col justify-between h-full">
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-serif text-[#0D1F47] font-bold group-hover:text-[#0062D2] transition-colors">
+                    One seat, one business category
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-serif italic">
+                    This is the rule everything else depends on.
+                  </p>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Each Circle holds one business per category. If you hold the seat for industrial packaging, you are the only industrial packaging business in that room.
+                  </p>
 
-                <div className="space-y-3 pt-2">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0">
-                      <Lock className="w-4 h-4" />
+                  <div className="space-y-3 pt-2">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Lock className="w-4 h-4 text-[#1D4ED8]" />
+                      </div>
+                      <div className="text-xs text-slate-700">
+                        <strong className="block text-slate-900 font-bold">You can speak openly</strong>
+                        Nobody is studying your pricing or waiting for you to reveal a client name.
+                      </div>
                     </div>
-                    <div className="text-xs text-slate-700">
-                      <strong className="block text-slate-900 font-bold">You can speak openly</strong>
-                      Nobody is studying your pricing or waiting for you to reveal a client name.
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0">
-                      <Users className="w-4 h-4" />
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Users className="w-4 h-4 text-emerald-600" />
+                      </div>
+                      <div className="text-xs text-slate-700">
+                        <strong className="block text-slate-900 font-bold">You get the full flow</strong>
+                        Every requirement in your category comes to you; there is no one else to send it to.
+                      </div>
                     </div>
-                    <div className="text-xs text-slate-700">
-                      <strong className="block text-slate-900 font-bold">You get the full flow</strong>
-                      Every requirement in your category comes to you; there is no one else to send it to.
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center shrink-0">
-                      <Heart className="w-4 h-4" />
-                    </div>
-                    <div className="text-xs text-slate-700">
-                      <strong className="block text-slate-900 font-bold">Giving costs you nothing</strong>
-                      When there is no competitor in the room, helping another Peer is straightforward.
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Heart className="w-4 h-4 text-[#E11D48]" />
+                      </div>
+                      <div className="text-xs text-slate-700">
+                        <strong className="block text-slate-900 font-bold">Giving costs you nothing</strong>
+                        When there is no competitor in the room, helping another Peer is straightforward.
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-xs font-semibold text-[#0062D2]">
-                A seat is not a subscription. It is a position in a specific room, and there is only one of it.
+                <div className="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-xs font-semibold text-[#0062D2]">
+                  A seat is not a subscription. It is a position in a specific room, and there is only one of it.
+                </div>
               </div>
-            </div>
+            </GlowCard>
 
             {/* Center: A Circle Seat Map Diagram */}
             <div className="lg:col-span-4 p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col items-center justify-between text-center space-y-6">
@@ -216,56 +219,58 @@ export function HowACircleWorksClient() {
             </div>
 
             {/* Right: How a Circle is composed */}
-            <div className="lg:col-span-4 p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-serif text-[#0D1F47] font-bold">
-                  How a Circle is composed
-                </h2>
-                <p className="text-xs text-slate-600 font-serif italic">
-                  Circles are built deliberately, seat by seat.
-                </p>
+            <GlowCard className="lg:col-span-4 w-full">
+              <div className="p-8 space-y-6 flex flex-col justify-between h-full">
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-serif text-[#0D1F47] font-bold group-hover:text-[#0062D2] transition-colors">
+                    How a Circle is composed
+                  </h2>
+                  <p className="text-xs text-slate-600 font-serif italic">
+                    Circles are built deliberately, seat by seat.
+                  </p>
 
-                <div className="space-y-3.5 text-xs text-slate-600">
-                  <div className="flex items-start gap-3">
-                    <Puzzle className="w-5 h-5 text-[#0062D2] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Complementary, never competing</strong>
-                      Businesses that can serve each other&apos;s clients and open markets.
+                  <div className="space-y-3.5 text-xs text-slate-600">
+                    <div className="flex items-start gap-3">
+                      <Puzzle className="w-5 h-5 text-[#0062D2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold">Complementary, never competing</strong>
+                        Businesses that can serve each other&apos;s clients and open markets.
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Target className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Varied by function within shared focus</strong>
-                      An Industry Circle groups a sector but varies the functions inside it.
+                    <div className="flex items-start gap-3">
+                      <Target className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold">Varied by function within shared focus</strong>
+                        An Industry Circle groups a sector but varies the functions inside it.
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Users className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Sized for depth</strong>
-                      Large enough for substance; small enough to genuinely know your business.
+                    <div className="flex items-start gap-3">
+                      <Users className="w-5 h-5 text-amber-600 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold">Sized for depth</strong>
+                        Large enough for substance; small enough to genuinely know your business.
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <FileText className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Reviewed for fit</strong>
-                      Every seat request is assessed by the Circle Director and Committee.
+                    <div className="flex items-start gap-3">
+                      <FileText className="w-5 h-5 text-purple-600 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold">Reviewed for fit</strong>
+                        Every seat request is assessed by the Circle Director and Committee.
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="pt-2">
-                <Link
-                  href="/membership"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
-                >
-                  See Criteria &amp; Process <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="pt-2">
+                  <Link
+                    href="/membership"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
+                  >
+                    See Criteria &amp; Process <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-            </div>
+            </GlowCard>
           </div>
         </div>
       </section>
@@ -355,40 +360,42 @@ export function HowACircleWorksClient() {
             </div>
 
             {/* Right: What happens between meetings */}
-            <div className="lg:col-span-4 p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-serif text-[#0D1F47] font-bold">
-                  What happens between meetings
-                </h2>
-                <p className="text-xs text-slate-600 font-serif italic">
-                  A Circle meets twelve times a year and works all year.
-                </p>
+            <GlowCard className="lg:col-span-4 w-full">
+              <div className="p-8 space-y-6 flex flex-col justify-between h-full">
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-serif text-[#0D1F47] font-bold group-hover:text-[#0062D2] transition-colors">
+                    What happens between meetings
+                  </h2>
+                  <p className="text-xs text-slate-600 font-serif italic">
+                    A Circle meets twelve times a year and works all year.
+                  </p>
 
-                <div className="space-y-3 text-xs text-slate-600">
-                  <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-slate-200">
-                    <strong className="block text-slate-900 font-bold mb-0.5">Peer-to-Peer meetings</strong>
-                    One to one, outside the Circle, to understand each other&apos;s business properly. Most real collaboration begins here.
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-slate-200">
-                    <strong className="block text-slate-900 font-bold mb-0.5">The Unity App</strong>
-                    Requirements shared, introductions made, contributions logged and confirmed, one-to-ones booked.
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-slate-200">
-                    <strong className="block text-slate-900 font-bold mb-0.5">Follow-through</strong>
-                    An introduction promised at a roundtable becomes a call the following week, declared at the next Impact Round.
+                  <div className="space-y-3 text-xs text-slate-600">
+                    <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-slate-200">
+                      <strong className="block text-slate-900 font-bold mb-0.5">Peer-to-Peer meetings</strong>
+                      One to one, outside the Circle, to understand each other&apos;s business properly. Most real collaboration begins here.
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-slate-200">
+                      <strong className="block text-slate-900 font-bold mb-0.5">The Unity App</strong>
+                      Requirements shared, introductions made, contributions logged and confirmed, one-to-ones booked.
+                    </div>
+                    <div className="p-3.5 rounded-2xl bg-[#FAF7F0] border border-slate-200">
+                      <strong className="block text-slate-900 font-bold mb-0.5">Follow-through</strong>
+                      An introduction promised at a roundtable becomes a call the following week, declared at the next Impact Round.
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="pt-2">
-                <Link
-                  href="/peer-to-peer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
-                >
-                  See Peer-to-Peer Meetings <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="pt-2">
+                  <Link
+                    href="/peer-to-peer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
+                  >
+                    See Peer-to-Peer Meetings <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-            </div>
+            </GlowCard>
           </div>
         </div>
       </section>
@@ -398,114 +405,122 @@ export function HowACircleWorksClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Left: Who runs it */}
-            <div className="lg:col-span-4 p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-serif text-[#0D1F47] font-bold">
-                  Who runs it
-                </h2>
-                <div className="space-y-3 text-xs text-slate-600">
-                  <div className="flex items-start gap-3">
-                    <Crown className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-bold">Circle Founder</strong>
-                      The entrepreneur who convened the room and set its standard.
+            <GlowCard className="lg:col-span-4 w-full">
+              <div className="p-8 space-y-6 flex flex-col justify-between h-full">
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-serif text-[#0D1F47] font-bold group-hover:text-[#0062D2] transition-colors">
+                    Who runs it
+                  </h2>
+                  <div className="space-y-3 text-xs text-slate-600">
+                    <div className="flex items-start gap-3">
+                      <Crown className="w-4 h-4 text-amber-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">Circle Founder</strong>
+                        The entrepreneur who convened the room and set its standard.
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <UserCheck className="w-4 h-4 text-[#0062D2] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-bold">Circle Director</strong>
-                      Holds the culture, rhythm and growth, and mentors the Chairs.
+                    <div className="flex items-start gap-3">
+                      <UserCheck className="w-4 h-4 text-[#0062D2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">Circle Director</strong>
+                        Holds the culture, rhythm and growth, and mentors the Chairs.
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Users className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-bold">Chairs and Committees</strong>
-                      Peers who run the working life of the Circle.
+                    <div className="flex items-start gap-3">
+                      <Users className="w-4 h-4 text-purple-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">Chairs and Committees</strong>
+                        Peers who run the working life of the Circle.
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-bold">Membership Experience Committee</strong>
-                      Reviews and approves every request for a seat.
+                    <div className="flex items-start gap-3">
+                      <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">Membership Experience Committee</strong>
+                        Reviews and approves every request for a seat.
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="pt-2">
-                <Link
-                  href="/circle-roles"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
-                >
-                  See Circle Roles <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="pt-2">
+                  <Link
+                    href="/circle-roles"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
+                  >
+                    See Circle Roles <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-            </div>
+            </GlowCard>
 
             {/* Center: How a Circle grows */}
-            <div className="lg:col-span-4 p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm space-y-4">
-              <h2 className="text-2xl font-serif text-[#0D1F47] font-bold">
-                How a Circle grows
-              </h2>
-              <div className="space-y-3.5 text-xs text-slate-600">
-                <div className="flex items-start gap-3">
-                  <TrendingUp className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 font-bold">Seats fill</strong>
-                    Categories that are open get taken, and the room&apos;s coverage widens.
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Leaf className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 font-bold">Relationships deepen</strong>
-                    Year two produces considerably more than year one because members know each other.
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Cog className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 font-bold">Contribution compounds</strong>
-                    Each collaboration makes the next one easier to see.
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Trophy className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 font-bold">The Circle becomes known</strong>
-                    In its city and industry, as a room genuinely worth being in.
+            <GlowCard className="lg:col-span-4 w-full">
+              <div className="p-8 space-y-4 flex flex-col justify-between h-full">
+                <div>
+                  <h2 className="text-2xl font-serif text-[#0D1F47] font-bold group-hover:text-[#0062D2] transition-colors mb-4">
+                    How a Circle grows
+                  </h2>
+                  <div className="space-y-3.5 text-xs text-slate-600">
+                    <div className="flex items-start gap-3">
+                      <TrendingUp className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">Seats fill</strong>
+                        Categories that are open get taken, and the room&apos;s coverage widens.
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Leaf className="w-4 h-4 text-green-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">Relationships deepen</strong>
+                        Year two produces considerably more than year one because members know each other.
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Cog className="w-4 h-4 text-purple-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">Contribution compounds</strong>
+                        Each collaboration makes the next one easier to see.
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Trophy className="w-4 h-4 text-amber-500 shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                      <div>
+                        <strong className="block text-slate-900 font-bold">The Circle becomes known</strong>
+                        In its city and industry, as a room genuinely worth being in.
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </GlowCard>
 
             {/* Right: What keeps a Circle healthy */}
-            <div className="lg:col-span-4 p-8 rounded-3xl bg-[#FAF7F0] border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-serif text-[#0D1F47] font-bold">
-                  What keeps a Circle healthy
-                </h2>
-                <div className="space-y-2.5 text-xs text-slate-600">
-                  <p><strong>Attendance:</strong> Consistency is the foundation. A Peer who stops attending stops mattering to the room.</p>
-                  <p><strong>Contribution:</strong> Every Peer giving, not only the generous few.</p>
-                  <p><strong>Standards:</strong> The Peers Code held by everyone, and enforced by the Director.</p>
-                  <p><strong>Composition:</strong> The right entrepreneurs in the right seats, with honest feedback when fit falters.</p>
-                  <p><strong>Leadership:</strong> A Director who is present, and Chairs who are active.</p>
+            <GlowCard className="lg:col-span-4 w-full">
+              <div className="p-8 space-y-6 flex flex-col justify-between h-full">
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-serif text-[#0D1F47] font-bold group-hover:text-[#0062D2] transition-colors">
+                    What keeps a Circle healthy
+                  </h2>
+                  <div className="space-y-2.5 text-xs text-slate-600">
+                    <p><strong>Attendance:</strong> Consistency is the foundation. A Peer who stops attending stops mattering to the room.</p>
+                    <p><strong>Contribution:</strong> Every Peer giving, not only the generous few.</p>
+                    <p><strong>Standards:</strong> The Peers Code held by everyone, and enforced by the Director.</p>
+                    <p><strong>Composition:</strong> The right entrepreneurs in the right seats, with honest feedback when fit falters.</p>
+                    <p><strong>Leadership:</strong> A Director who is present, and Chairs who are active.</p>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    href="/culture-and-code"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
+                  >
+                    Read the Peers Code <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/culture-and-code"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0062D2] hover:text-[#1a42c0]"
-                >
-                  Read the Peers Code <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
+            </GlowCard>
           </div>
         </div>
       </section>

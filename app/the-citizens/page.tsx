@@ -3,6 +3,7 @@ import Link from 'next/link'
 import '@/app/sections.css'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   Users,
@@ -327,226 +328,232 @@ export default function TheCitizensPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
 
             {/* CARD 01: THE PEER */}
-            <div className="relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number with Brand Gradient */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
-                01
-              </div>
-
-              <div>
-                {/* Clean Gradient Icon without Border */}
-                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
-                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="iconGrad01" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1D4ED8" />
-                        <stop offset="100%" stopColor="#E11D48" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="9" cy="7" r="4" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden">
+                {/* Big Watermark Number with Brand Gradient */}
+                <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
+                  01
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
-                  THE PEER
-                </h3>
-                <div className="text-sm font-semibold text-[#0062D2] mb-4">
-                  The heart of everything
+                <div>
+                  {/* Clean Gradient Icon without Border */}
+                  <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                    <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="iconGrad01" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <circle cx="9" cy="7" r="4" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="url(#iconGrad01)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1 group-hover:text-[#0062D2] transition-colors">
+                    THE PEER
+                  </h3>
+                  <div className="text-sm font-semibold text-[#0062D2] mb-4">
+                    The heart of everything
+                  </div>
+
+                  <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
+                    Everything at Peers Global begins with the Peer. A Peer is an entrepreneur or business leader who believes in building trusted relationships, contributing to others, and growing together.
+                  </p>
+
+                  {/* Bullets */}
+                  <ul className="space-y-2.5 text-sm text-slate-700 mb-8">
+                    {[
+                      'Belongs to a Trusted Circle',
+                      'Gives before asking',
+                      'Shares what they know',
+                      'Makes the introduction',
+                      'Tells the truth',
+                      'Celebrates other Peers',
+                      'Carries the culture',
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
-                  Everything at Peers Global begins with the Peer. A Peer is an entrepreneur or business leader who believes in building trusted relationships, contributing to others, and growing together.
-                </p>
+                <div>
+                  <p className="font-serif italic text-sm text-slate-800 font-medium mb-6 pt-4 border-t border-slate-100">
+                    &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
+                  </p>
 
-                {/* Bullets */}
-                <ul className="space-y-2.5 text-sm text-slate-700 mb-8">
-                  {[
-                    'Belongs to a Trusted Circle',
-                    'Gives before asking',
-                    'Shares what they know',
-                    'Makes the introduction',
-                    'Tells the truth',
-                    'Celebrates other Peers',
-                    'Carries the culture',
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <Link
+                    href="/membership"
+                    className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                  >
+                    <span>Become a Peer</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </div>
               </div>
-
-              <div>
-                <p className="font-serif italic text-sm text-slate-800 font-medium mb-6 pt-4 border-t border-slate-100">
-                  &ldquo;Peers are Partners in Business and Friends in Life.&rdquo;
-                </p>
-
-                <Link
-                  href="/membership"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
-                >
-                  <span>Become a Peer</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
+            </GlowCard>
 
             {/* CARD 02: THE CIRCLE FOUNDER */}
-            <div className="relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number with Brand Gradient */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
-                02
-              </div>
-
-              <div>
-                {/* Clean Gradient Icon without Border */}
-                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
-                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="iconGrad02" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1D4ED8" />
-                        <stop offset="100%" stopColor="#E11D48" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="9" cy="7" r="4" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <line x1="19" y1="8" x2="19" y2="14" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <line x1="22" y1="11" x2="16" y2="11" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden">
+                {/* Big Watermark Number with Brand Gradient */}
+                <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
+                  02
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
-                  THE CIRCLE FOUNDER
-                </h3>
-                <div className="text-sm font-semibold text-[#0062D2] mb-4">
-                  The entrepreneur who builds the room
+                <div>
+                  {/* Clean Gradient Icon without Border */}
+                  <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                    <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="iconGrad02" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <circle cx="9" cy="7" r="4" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <line x1="19" y1="8" x2="19" y2="14" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <line x1="22" y1="11" x2="16" y2="11" stroke="url(#iconGrad02)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1 group-hover:text-[#0062D2] transition-colors">
+                    THE CIRCLE FOUNDER
+                  </h3>
+                  <div className="text-sm font-semibold text-[#0062D2] mb-4">
+                    The entrepreneur who builds the room
+                  </div>
+
+                  <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
+                    Every Circle exists because one person decided to create it. A Circle Founder saw that the right room did not exist in their city or industry, and chose to build it rather than wait for someone else.
+                  </p>
+
+                  {/* Bullets */}
+                  <ul className="space-y-2.5 text-sm text-slate-700 mb-6">
+                    {[
+                      'Starts a Circle where none existed',
+                      'Brings the first group together',
+                      'Sets the culture from day one',
+                      'Composes the Circle deliberately',
+                      'Carries the Peers Global standard',
+                      'Builds something that outlasts them',
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="text-xs text-slate-500 leading-relaxed mb-6 pt-3 border-t border-slate-100">
+                    We provide the structure, systems, training, technology and support. You provide the leadership and the first group of the right people.
+                  </p>
                 </div>
 
-                <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
-                  Every Circle exists because one person decided to create it. A Circle Founder saw that the right room did not exist in their city or industry, and chose to build it rather than wait for someone else.
-                </p>
-
-                {/* Bullets */}
-                <ul className="space-y-2.5 text-sm text-slate-700 mb-6">
-                  {[
-                    'Starts a Circle where none existed',
-                    'Brings the first group together',
-                    'Sets the culture from day one',
-                    'Composes the Circle deliberately',
-                    'Carries the Peers Global standard',
-                    'Builds something that outlasts them',
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="text-xs text-slate-500 leading-relaxed mb-6 pt-3 border-t border-slate-100">
-                  We provide the structure, systems, training, technology and support. You provide the leadership and the first group of the right people.
-                </p>
+                <div>
+                  <Link
+                    href="/leadership"
+                    className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                  >
+                    <span>Start a Circle</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </div>
               </div>
-
-              <div>
-                <Link
-                  href="/leadership"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
-                >
-                  <span>Start a Circle</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
+            </GlowCard>
 
             {/* CARD 03: THE DIRECTORS */}
-            <div className="relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number with Brand Gradient */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
-                03
-              </div>
-
-              <div>
-                {/* Clean Gradient Icon without Border */}
-                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
-                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="iconGrad03" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1D4ED8" />
-                        <stop offset="100%" stopColor="#E11D48" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#iconGrad03)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden">
+                {/* Big Watermark Number with Brand Gradient */}
+                <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
+                  03
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
-                  THE DIRECTORS
-                </h3>
-                <div className="text-sm font-semibold text-[#0062D2] mb-4">
-                  The entrepreneurs who hold the standard
+                <div>
+                  {/* Clean Gradient Icon without Border */}
+                  <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                    <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="iconGrad03" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#iconGrad03)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1 group-hover:text-[#0062D2] transition-colors">
+                    THE DIRECTORS
+                  </h3>
+                  <div className="text-sm font-semibold text-[#0062D2] mb-4">
+                    The entrepreneurs who hold the standard
+                  </div>
+
+                  <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
+                    Directors carry the community. They protect its culture, hold its rhythm, and make sure the promise on this website is the experience a Peer actually has.
+                  </p>
+
+                  {/* Sub-Roles Nested List */}
+                  <div className="space-y-4 mb-8">
+
+                    <div className="flex items-start gap-3">
+                      <div className="size-8 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
+                        <Award className="size-4" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-slate-900">Circle Director</div>
+                        <div className="text-xs text-slate-500 leading-normal">
+                          Runs the life of a Circle, holds meeting rhythm, and supports every Peer.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="size-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <Building2 className="size-4" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-slate-900">Industry Director</div>
+                        <div className="text-xs text-slate-500 leading-normal">
+                          Holds one industry across the community, connects Peers and opens opportunities.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="size-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <Layers className="size-4" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-slate-900">Regional Executive Director</div>
+                        <div className="text-xs text-slate-500 leading-normal">
+                          Carries a territory, supports Circles and cities, and maintains consistency.
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
 
-                <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
-                  Directors carry the community. They protect its culture, hold its rhythm, and make sure the promise on this website is the experience a Peer actually has.
-                </p>
-
-                {/* Sub-Roles Nested List */}
-                <div className="space-y-4 mb-8">
-
-                  <div className="flex items-start gap-3">
-                    <div className="size-8 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
-                      <Award className="size-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-slate-900">Circle Director</div>
-                      <div className="text-xs text-slate-500 leading-normal">
-                        Runs the life of a Circle, holds meeting rhythm, and supports every Peer.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="size-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
-                      <Building2 className="size-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-slate-900">Industry Director</div>
-                      <div className="text-xs text-slate-500 leading-normal">
-                        Holds one industry across the community, connects Peers and opens opportunities.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="size-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 mt-0.5">
-                      <Layers className="size-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-slate-900">Regional Executive Director</div>
-                      <div className="text-xs text-slate-500 leading-normal">
-                        Carries a territory, supports Circles and cities, and maintains consistency.
-                      </div>
-                    </div>
-                  </div>
-
+                <div>
+                  <Link
+                    href="/leadership"
+                    className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                  >
+                    <span>Explore Leadership Roles</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
                 </div>
               </div>
-
-              <div>
-                <Link
-                  href="/leadership"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
-                >
-                  <span>Explore Leadership Roles</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
+            </GlowCard>
 
           </div>
 
@@ -554,137 +561,141 @@ export default function TheCitizensPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
 
             {/* CARD 04: THE AMBASSADORS (5 cols) */}
-            <div className="lg:col-span-5 relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number with Brand Gradient */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
-                04
-              </div>
-
-              <div>
-                {/* Clean Gradient Icon without Border */}
-                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
-                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="iconGrad04" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1D4ED8" />
-                        <stop offset="100%" stopColor="#E11D48" />
-                      </linearGradient>
-                    </defs>
-                    <path d="m3 11 18-5v12L3 14v-3z" stroke="url(#iconGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" stroke="url(#iconGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+            <GlowCard className="lg:col-span-5 w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden">
+                {/* Big Watermark Number with Brand Gradient */}
+                <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
+                  04
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
-                  THE AMBASSADORS
-                </h3>
-                <div className="text-sm font-semibold text-[#0062D2] mb-4">
-                  The entrepreneurs who open doors
+                <div>
+                  {/* Clean Gradient Icon without Border */}
+                  <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                    <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="iconGrad04" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path d="m3 11 18-5v12L3 14v-3z" stroke="url(#iconGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" stroke="url(#iconGrad04)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1 group-hover:text-[#0062D2] transition-colors">
+                    THE AMBASSADORS
+                  </h3>
+                  <div className="text-sm font-semibold text-[#0062D2] mb-4">
+                    The entrepreneurs who open doors
+                  </div>
+
+                  <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
+                    Ambassadors carry Peers Global outward. They represent the community, introduce the right entrepreneurs, and bring in people who will strengthen it.
+                  </p>
+
+                  {/* Bullets */}
+                  <ul className="space-y-2.5 text-sm text-slate-700 mb-8">
+                    {[
+                      'Represents Peers Global',
+                      'Introduces the right entrepreneurs',
+                      'Connects with organisations and partners',
+                      'Carries the culture outward',
+                      'Grows the community by relationship',
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
-                  Ambassadors carry Peers Global outward. They represent the community, introduce the right entrepreneurs, and bring in people who will strengthen it.
-                </p>
-
-                {/* Bullets */}
-                <ul className="space-y-2.5 text-sm text-slate-700 mb-8">
-                  {[
-                    'Represents Peers Global',
-                    'Introduces the right entrepreneurs',
-                    'Connects with organisations and partners',
-                    'Carries the culture outward',
-                    'Grows the community by relationship',
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <Link
+                    href="/leadership"
+                    className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                  >
+                    <span>Become an Ambassador</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </div>
               </div>
-
-              <div>
-                <Link
-                  href="/leadership"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
-                >
-                  <span>Become an Ambassador</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-              </div>
-            </div>
+            </GlowCard>
 
             {/* CARD 05: THE ADVISORS (7 cols) */}
-            <div className="lg:col-span-7 relative bg-white rounded-2xl p-7 sm:p-8 border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-              {/* Big Watermark Number with Brand Gradient */}
-              <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
-                05
-              </div>
-
-              <div>
-                {/* Clean Gradient Icon without Border */}
-                <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
-                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="iconGrad05" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1D4ED8" />
-                        <stop offset="100%" stopColor="#E11D48" />
-                      </linearGradient>
-                    </defs>
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="url(#iconGrad05)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+            <GlowCard className="lg:col-span-7 w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden">
+                {/* Big Watermark Number with Brand Gradient */}
+                <div className="absolute top-4 right-6 text-6xl sm:text-7xl font-extrabold font-sans select-none pointer-events-none text-transparent bg-clip-text bg-gradient-to-br from-[#1D4ED8]/25 to-[#E11D48]/20 transition-all group-hover:from-[#1D4ED8]/40 group-hover:to-[#E11D48]/35">
+                  05
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1">
-                  THE ADVISORS
-                </h3>
-                <div className="text-sm font-semibold text-[#0062D2] mb-4">
-                  The entrepreneurs who guide the whole
-                </div>
-
-                <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
-                  Global Advisers are senior entrepreneurs and business leaders who counsel the community. They do not run a Circle. They guide direction and bring decades of experience to the decisions that shape where Peers Global goes next.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start mb-8">
-                  {/* Bullets (7 cols) */}
-                  <div className="md:col-span-8">
-                    <ul className="space-y-2.5 text-sm text-slate-700">
-                      {[
-                        'Perspective on long-term direction',
-                        'Guidance to Directors and Founders',
-                        'Experience from global markets and industries',
-                        'Mentorship to Peers building something significant',
-                        'A steady hand on culture',
-                      ].map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5">
-                          <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <div>
+                  {/* Clean Gradient Icon without Border */}
+                  <div className="size-13 rounded-2xl bg-gradient-to-br from-blue-500/10 to-rose-500/10 mb-6 flex items-center justify-center">
+                    <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="iconGrad05" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="url(#iconGrad05)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </div>
 
-                  {/* Callout Quote (4 cols) */}
-                  <div className="md:col-span-4 border-l-2 border-[#0062D2] pl-4 py-1">
-                    <p className="text-sm font-semibold text-slate-800 leading-snug">
-                      Experience today. <br />
-                      <span className="text-[#0062D2]">A stronger tomorrow.</span>
-                    </p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1 group-hover:text-[#0062D2] transition-colors">
+                    THE ADVISORS
+                  </h3>
+                  <div className="text-sm font-semibold text-[#0062D2] mb-4">
+                    The entrepreneurs who guide the whole
+                  </div>
+
+                  <p className="text-sm text-slate-600 leading-relaxed font-light mb-6">
+                    Global Advisers are senior entrepreneurs and business leaders who counsel the community. They do not run a Circle. They guide direction and bring decades of experience to the decisions that shape where Peers Global goes next.
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start mb-8">
+                    {/* Bullets (7 cols) */}
+                    <div className="md:col-span-8">
+                      <ul className="space-y-2.5 text-sm text-slate-700">
+                        {[
+                          'Perspective on long-term direction',
+                          'Guidance to Directors and Founders',
+                          'Experience from global markets and industries',
+                          'Mentorship to Peers building something significant',
+                          'A steady hand on culture',
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Callout Quote (4 cols) */}
+                    <div className="md:col-span-4 border-l-2 border-[#0062D2] pl-4 py-1">
+                      <p className="text-sm font-semibold text-slate-800 leading-snug">
+                        Experience today. <br />
+                        <span className="text-[#0062D2]">A stronger tomorrow.</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <Link
-                  href="/leadership"
-                  className="w-full sm:w-auto inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all items-center justify-center gap-2"
-                >
-                  <span>Meet Our Advisors</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+                <div>
+                  <Link
+                    href="/leadership"
+                    className="w-full sm:w-auto inline-flex rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-8 py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all items-center justify-center gap-2"
+                  >
+                    <span>Meet Our Advisors</span>
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </div>
               </div>
-            </div>
+            </GlowCard>
 
           </div>
 

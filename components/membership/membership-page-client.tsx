@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ShieldCheck,
   CheckCircle2,
@@ -356,58 +357,64 @@ export function MembershipPageClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Learning */}
-            <div className="group p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-200/60 text-[#0062D2] flex items-center justify-center font-bold text-lg">
-                  <BookOpen className="size-6" />
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between space-y-4 h-full">
+                <div className="space-y-3">
+                  <div className="size-12 rounded-2xl bg-blue-50 border border-blue-200/60 text-[#0062D2] flex items-center justify-center font-bold text-lg group-hover:scale-110 group-hover:border-blue-300 transition-all duration-300">
+                    <BookOpen className="size-6 text-[#1D4ED8]" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-blue-700 transition-colors">
+                    Learning
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    Learn from people who have built, tested, failed, adapted and succeeded. Not theory alone. Real experience.
+                  </p>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                  Learning
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Learn from people who have built, tested, failed, adapted and succeeded. Not theory alone. Real experience.
-                </p>
+                <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-[#0062D2] flex items-center gap-1.5">
+                  <span>✦</span> Experiential Wisdom
+                </div>
               </div>
-              <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-[#0062D2] flex items-center gap-1.5">
-                <span>✦</span> Experiential Wisdom
-              </div>
-            </div>
+            </GlowCard>
 
             {/* Sharing */}
-            <div className="group p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="size-12 rounded-2xl bg-emerald-50 border border-emerald-200/60 text-emerald-600 flex items-center justify-center font-bold text-lg">
-                  <Share2 className="size-6" />
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between space-y-4 h-full">
+                <div className="space-y-3">
+                  <div className="size-12 rounded-2xl bg-rose-50 border border-rose-200/60 text-[#E11D48] flex items-center justify-center font-bold text-lg group-hover:scale-110 group-hover:border-rose-300 transition-all duration-300">
+                    <Share2 className="size-6 text-[#E11D48]" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-rose-600 transition-colors">
+                    Sharing
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    Share what you know. Share what you have learned. Share the problem you are trying to solve. Share the opportunity you see.
+                  </p>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                  Sharing
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Share what you know. Share what you have learned. Share the problem you are trying to solve. Share the opportunity you see.
-                </p>
+                <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-rose-600 flex items-center gap-1.5">
+                  <span>✦</span> Generous Contribution
+                </div>
               </div>
-              <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-emerald-700 flex items-center gap-1.5">
-                <span>✦</span> Generous Contribution
-              </div>
-            </div>
+            </GlowCard>
 
             {/* Relationships */}
-            <div className="group p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="size-12 rounded-2xl bg-rose-50 border border-rose-200/60 text-rose-600 flex items-center justify-center font-bold text-lg">
-                  <HeartHandshake className="size-6" />
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between space-y-4 h-full">
+                <div className="space-y-3">
+                  <div className="size-12 rounded-2xl bg-indigo-50 border border-indigo-200/60 text-[#6366F1] flex items-center justify-center font-bold text-lg group-hover:scale-110 group-hover:border-indigo-300 transition-all duration-300">
+                    <HeartHandshake className="size-6 text-[#6366F1]" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">
+                    Relationships
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    Because learning and sharing become more valuable when they happen between people who genuinely trust one another.
+                  </p>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                  Relationships
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Because learning and sharing become more valuable when they happen between people who genuinely trust one another.
-                </p>
+                <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-indigo-600 flex items-center gap-1.5">
+                  <span>✦</span> Enduring Trust
+                </div>
               </div>
-              <div className="pt-4 border-t border-slate-200/80 text-xs font-bold text-rose-700 flex items-center gap-1.5">
-                <span>✦</span> Enduring Trust
-              </div>
-            </div>
+            </GlowCard>
           </div>
 
           {/* LSR Cycle Banner */}

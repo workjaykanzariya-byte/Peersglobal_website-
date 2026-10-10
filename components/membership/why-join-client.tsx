@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -778,126 +779,132 @@ export function WhyJoinClient() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
 
             {/* Column 1: Membership is individual, never corporate */}
-            <div className="rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-2xs">
-              <div>
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-6">
-                  <UserCheck className="size-6" />
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <UserCheck className="size-6 text-[#1D4ED8]" />
+                  </div>
+
+                  <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-[#0062D2] transition-colors">
+                    Membership is individual, never corporate
+                  </h3>
+
+                  <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                    Your membership belongs to you, not to your company. It follows the person, not the letterhead.
+                  </p>
+
+                  <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                    Peers Global exists to grow entrepreneurs, not to list companies. The relationships you build are yours. The trust you earn is yours. Contribution is recorded against you personally, and the standing you build is your own.
+                  </p>
+
+                  <p className="text-sm text-slate-900 font-semibold leading-relaxed">
+                    A business does not learn, contribute or lead. A person does.
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 leading-tight">
-                  Membership is individual, never corporate
-                </h3>
-
-                <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  Your membership belongs to you, not to your company. It follows the person, not the letterhead.
-                </p>
-
-                <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  Peers Global exists to grow entrepreneurs, not to list companies. The relationships you build are yours. The trust you earn is yours. Contribution is recorded against you personally, and the standing you build is your own.
-                </p>
-
-                <p className="text-sm text-slate-900 font-semibold leading-relaxed">
-                  A business does not learn, contribute or lead. A person does.
-                </p>
+                <div className="pt-6 mt-6 border-t border-slate-200">
+                  <p className="text-xs text-slate-500 italic">
+                    This is not a membership you renew. It is a relationship you invest in.
+                  </p>
+                </div>
               </div>
-
-              <div className="pt-6 mt-6 border-t border-slate-200">
-                <p className="text-xs text-slate-500 italic">
-                  This is not a membership you renew. It is a relationship you invest in.
-                </p>
-              </div>
-            </div>
+            </GlowCard>
 
             {/* Column 2: What we ask of you */}
-            <div className="rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-2xs">
-              <div>
-                <div className="size-12 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center mb-6">
-                  <ShieldCheck className="size-6" />
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="size-12 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <ShieldCheck className="size-6 text-emerald-600" />
+                  </div>
+
+                  <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-emerald-700 transition-colors">
+                    What we ask of you
+                  </h3>
+
+                  <ul className="space-y-3.5 mb-6 text-sm text-slate-700">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-slate-900">You give first.</strong> Contribution before any ask.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-slate-900">You show up.</strong> Consistently, on the rhythm your Circle sets.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-slate-900">You tell the truth.</strong> Including when it is uncomfortable.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
+                      <span>
+                        <strong className="text-slate-900">You protect the room.</strong> What is shared in a Circle stays there.
+                      </span>
+                    </li>
+                  </ul>
+
+                  <p className="text-xs text-slate-500 italic mb-6">
+                    Entrepreneurs who cannot commit to these four things do not last here.
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 leading-tight">
-                  What we ask of you
-                </h3>
-
-                <ul className="space-y-3.5 mb-6 text-sm text-slate-700">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-slate-900">You give first.</strong> Contribution before any ask.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-slate-900">You show up.</strong> Consistently, on the rhythm your Circle sets.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-slate-900">You tell the truth.</strong> Including when it is uncomfortable.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-slate-900">You protect the room.</strong> What is shared in a Circle stays there.
-                    </span>
-                  </li>
-                </ul>
-
-                <p className="text-xs text-slate-500 italic mb-6">
-                  Entrepreneurs who cannot commit to these four things do not last here.
-                </p>
+                <div>
+                  <GalaxyButton
+                    href="/who-belongs-here"
+                    variant="transparent-light"
+                    size="default"
+                    className="w-full font-bold"
+                  >
+                    See Who Belongs Here
+                  </GalaxyButton>
+                </div>
               </div>
-
-              <div>
-                <GalaxyButton
-                  href="/who-belongs-here"
-                  variant="transparent-light"
-                  size="default"
-                  className="w-full font-bold"
-                >
-                  See Who Belongs Here
-                </GalaxyButton>
-              </div>
-            </div>
+            </GlowCard>
 
             {/* Column 3: How to join */}
-            <div className="rounded-3xl bg-[#FAFBFD] border border-slate-200/90 p-7 sm:p-8 flex flex-col justify-between shadow-2xs">
-              <div>
-                <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-6">
-                  <Target className="size-6" />
-                </div>
+            <GlowCard className="w-full">
+              <div className="p-7 sm:p-8 flex flex-col justify-between h-full">
+                <div>
+                  <div className="size-12 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Target className="size-6 text-[#1D4ED8]" />
+                  </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 leading-tight">
-                  How to join
-                </h3>
+                  <h3 className="font-serif text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-[#0062D2] transition-colors">
+                    How to join
+                  </h3>
 
-                <div className="space-y-3 mb-6">
-                  {JOIN_STEPS.map((step, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <div className="size-7 rounded-full bg-blue-600 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                        {idx + 1}
+                  <div className="space-y-3 mb-6">
+                    {JOIN_STEPS.map((step, idx) => (
+                      <div key={idx} className="flex items-center gap-3">
+                        <div className="size-7 rounded-full bg-blue-600 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0 group-hover:bg-gradient-to-br group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all duration-300">
+                          {idx + 1}
+                        </div>
+                        <span className="text-sm font-medium text-slate-800">{step}</span>
                       </div>
-                      <span className="text-sm font-medium text-slate-800">{step}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <GalaxyButton
+                    href="https://unity.peersglobal.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="default"
+                    className="w-full font-bold"
+                  >
+                    Download Unity App
+                  </GalaxyButton>
                 </div>
               </div>
-
-              <div>
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="default"
-                  className="w-full font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
-              </div>
-            </div>
+            </GlowCard>
 
           </div>
 

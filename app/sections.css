@@ -3794,7 +3794,7 @@ p.body,
   border-radius: 1rem;
   padding: 1.5px;
   background: rgba(226, 232, 240, 0.85);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
   z-index: 1;
   cursor: pointer;
@@ -3837,6 +3837,7 @@ p.body,
 .animated-glow-card:focus {
   transform: translateY(-6px);
   box-shadow: 0 16px 36px -6px rgba(29, 78, 216, 0.20), 0 8px 18px -4px rgba(225, 29, 72, 0.16);
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.5) 0%, rgba(99, 102, 241, 0.5) 50%, rgba(225, 29, 72, 0.5) 100%);
 }
 
 .animated-glow-card:hover .animated-border-path,
@@ -3845,7 +3846,8 @@ p.body,
   animation: traceBorderOnce 1.4s linear 0.1s 1 forwards;
 }
 
-.animated-glow-card>div {
+.animated-glow-card>div,
+.animated-glow-card-inner {
   position: relative;
   z-index: 1;
   height: 100%;

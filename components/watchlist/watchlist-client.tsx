@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -477,17 +478,18 @@ export function WatchlistClient() {
             {CATEGORIES.map((cat) => {
               const Icon = cat.icon
               return (
-                <div
+                <GlowCard
                   key={cat.id}
                   onClick={() => {
                     setSelectedCategory(cat.name)
                     const el = document.getElementById('watchlist-grid')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all cursor-pointer flex flex-col justify-between space-y-4 group"
+                  className="cursor-pointer"
+                  innerClassName="p-7 flex flex-col justify-between space-y-4 h-full"
                 >
                   <div className="space-y-3">
-                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${cat.color}`}>
+                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${cat.color} group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className="font-serif font-bold text-slate-950 text-base group-hover:text-[#0062D2] transition-colors">
@@ -502,7 +504,7 @@ export function WatchlistClient() {
                     <span>Filter entries</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
-                </div>
+                </GlowCard>
               )
             })}
           </div>

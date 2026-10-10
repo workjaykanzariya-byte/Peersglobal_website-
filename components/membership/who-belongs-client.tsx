@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -714,46 +715,45 @@ export function WhoBelongsClient() {
             ].map((card) => {
               const CardIcon = card.icon
               return (
-                <div
-                  key={card.num}
-                  className="group relative p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-5"
-                >
-                  {/* Top Bar: Icon + Number & Tag */}
-                  <div className="flex items-center justify-between">
-                    <div className={`size-10 rounded-2xl flex items-center justify-center border shadow-2xs group-hover:scale-105 transition-transform duration-300 ${card.color}`}>
-                      <CardIcon className="size-5" />
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
-                        {card.tag}
-                      </span>
-                      <span className="font-mono text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-md">
-                        {card.num}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Contrast Stack */}
-                  <div className="space-y-3.5 flex-1 flex flex-col justify-center">
-                    {/* The Old / Avoid State */}
-                    <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs text-slate-500 line-through leading-relaxed flex items-start gap-2">
-                      <span className="text-slate-400 shrink-0 mt-0.5">✕</span>
-                      <span>{card.avoid}</span>
+                <GlowCard key={card.num} className="w-full">
+                  <div className="p-6 sm:p-7 flex flex-col justify-between space-y-5 h-full">
+                    {/* Top Bar: Icon + Number & Tag */}
+                    <div className="flex items-center justify-between">
+                      <div className={`size-10 rounded-2xl flex items-center justify-center border shadow-2xs group-hover:scale-110 transition-transform duration-300 ${card.color}`}>
+                        <CardIcon className="size-5" />
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
+                          {card.tag}
+                        </span>
+                        <span className="font-mono text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-md">
+                          {card.num}
+                        </span>
+                      </div>
                     </div>
 
-                    {/* The Peer Choice / Target State */}
-                    <div className="p-3.5 rounded-xl bg-[#EFF6FF] border border-blue-200/70 text-xs sm:text-[13px] font-bold text-slate-900 leading-relaxed flex items-start gap-2 shadow-2xs group-hover:border-blue-400/80 transition-colors">
-                      <span className="text-[#0062D2] shrink-0 mt-0.5">✦</span>
-                      <span>{card.choose}</span>
+                    {/* Contrast Stack */}
+                    <div className="space-y-3.5 flex-1 flex flex-col justify-center">
+                      {/* The Old / Avoid State */}
+                      <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs text-slate-500 line-through leading-relaxed flex items-start gap-2">
+                        <span className="text-slate-400 shrink-0 mt-0.5">✕</span>
+                        <span>{card.avoid}</span>
+                      </div>
+
+                      {/* The Peer Choice / Target State */}
+                      <div className="p-3.5 rounded-xl bg-[#EFF6FF] border border-blue-200/70 text-xs sm:text-[13px] font-bold text-slate-900 leading-relaxed flex items-start gap-2 shadow-2xs group-hover:border-blue-400/80 transition-colors">
+                        <span className="text-[#0062D2] shrink-0 mt-0.5">✦</span>
+                        <span>{card.choose}</span>
+                      </div>
+                    </div>
+
+                    {/* Card Footer Accent */}
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
+                      <span>The PEERS Standard</span>
+                      <span className="text-[#0062D2] font-semibold group-hover:translate-x-0.5 transition-transform">Selected →</span>
                     </div>
                   </div>
-
-                  {/* Card Footer Accent */}
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
-                    <span>The PEERS Standard</span>
-                    <span className="text-[#0062D2] font-semibold group-hover:translate-x-0.5 transition-transform">Selected →</span>
-                  </div>
-                </div>
+                </GlowCard>
               )
             })}
           </div>

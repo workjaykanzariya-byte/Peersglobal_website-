@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react'
+import { BookOpen, Share2, Users } from 'lucide-react'
+import { GlowCard } from '@/components/ui/glow-card'
 
 export function WhatIsSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -58,37 +60,67 @@ export function WhatIsSection() {
             </div>
           </div>
 
-          {/* 3 Core Pillars (LSR) matching layout */}
-          <div className="fd-what-is-mindvalley__stats !gap-8 md:!gap-12 lg:!gap-16">
+          {/* 3 Core Pillars (LSR) Cards with Glow Effect */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl pt-4 text-left mx-auto">
             {/* Pillar 1 - Learning */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="240">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                L — Learning
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Learning from people who have actually lived the experience.
-              </p>
-            </div>
+            <GlowCard className="w-full">
+              <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4 h-full">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/15 to-indigo-500/10 border border-blue-500/25 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300">
+                    <BookOpen className="w-6 h-6 text-[#1D4ED8]" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold tracking-widest text-[#0062D2] uppercase">Pillar 01</span>
+                    <h3 className="text-lg font-bold text-[#0f131a] tracking-tight group-hover:text-blue-700 transition-colors">
+                      L — Learning
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Learning from people who have actually lived the experience. Practical wisdom over pure theory.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
 
             {/* Pillar 2 - Sharing */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="300">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                S — Sharing
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Sharing knowledge, relationships, opportunities and experience.
-              </p>
-            </div>
+            <GlowCard className="w-full">
+              <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4 h-full">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500/15 to-pink-500/10 border border-rose-500/25 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:border-rose-500/40 transition-all duration-300">
+                    <Share2 className="w-6 h-6 text-[#E11D48]" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold tracking-widest text-[#E11D48] uppercase">Pillar 02</span>
+                    <h3 className="text-lg font-bold text-[#0f131a] tracking-tight group-hover:text-rose-600 transition-colors">
+                      S — Sharing
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Sharing knowledge, relationships, opportunities and experience without friction or competition.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
 
             {/* Pillar 3 - Relationships */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="360">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                R — Relationships
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Building trusted relationships that become stronger over time.
-              </p>
-            </div>
+            <GlowCard className="w-full">
+              <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4 h-full">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/15 to-purple-500/10 border border-indigo-500/25 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:border-indigo-500/40 transition-all duration-300">
+                    <Users className="w-6 h-6 text-[#6366F1]" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold tracking-widest text-[#6366F1] uppercase">Pillar 03</span>
+                    <h3 className="text-lg font-bold text-[#0f131a] tracking-tight group-hover:text-indigo-600 transition-colors">
+                      R — Relationships
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Building trusted relationships that become stronger over time. Partners in business, friends in life.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
           </div>
 
           {/* Closing Highlight */}
