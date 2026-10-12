@@ -101,8 +101,11 @@ export function ClosingCtaSection({
   return (
     <section
       ref={sectionRef}
-      className={`relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-16 sm:py-20 lg:py-24 text-white ${className}`}
+      className={`relative isolate overflow-hidden bg-[#030712] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-900 ${className}`}
     >
+      {/* Deep rich dark backdrop base */}
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,7,18,0.98)_0%,rgba(10,4,20,0.95)_50%,rgba(20,2,10,0.98)_100%)] pointer-events-none" />
+
       {/* Deep celestial radial gradients & luminous brand aura */}
       <div
         aria-hidden="true"
@@ -110,7 +113,7 @@ export function ClosingCtaSection({
           transform: prefersReducedMotion ? 'none' : `translate3d(0, ${bgParallaxY}px, 0)`,
           transition: 'transform 0.1s linear',
         }}
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_85%_50%,rgba(225,29,72,0.14),transparent_50%)]"
       />
       <div
         aria-hidden="true"
@@ -118,7 +121,7 @@ export function ClosingCtaSection({
           transform: prefersReducedMotion ? 'translateY(-50%)' : `translate3d(0, calc(-50% + ${bgParallaxY * 0.8}px), 0)`,
           transition: 'transform 0.1s linear',
         }}
-        className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 rounded-full bg-blue-600/15 blur-3xl"
+        className="pointer-events-none absolute -left-32 top-1/2 h-72 w-72 rounded-full bg-blue-700/15 blur-[100px]"
       />
       <div
         aria-hidden="true"
@@ -126,7 +129,7 @@ export function ClosingCtaSection({
           transform: prefersReducedMotion ? 'none' : `translate3d(0, ${bgParallaxY * -0.6}px, 0)`,
           transition: 'transform 0.1s linear',
         }}
-        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-rose-700/12 blur-[100px]"
       />
 
       {/* Subtle geometric orbital line art with Parallax */}

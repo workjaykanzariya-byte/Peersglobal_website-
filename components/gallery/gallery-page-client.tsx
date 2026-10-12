@@ -3,6 +3,8 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import '@/app/sections.css'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -32,24 +34,47 @@ import {
 // ─── 4 Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
   {
-    icon: Camera,
     value: '5,000+',
     label: 'Captured Moments',
+    svgPath: (
+      <>
+        <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+        <circle cx="12" cy="13" r="3" />
+      </>
+    ),
   },
   {
-    icon: Calendar,
     value: '200+',
     label: 'Conclaves & Events',
+    svgPath: (
+      <>
+        <path d="M8 2v4" />
+        <path d="M16 2v4" />
+        <rect width="18" height="18" x="3" y="4" rx="2" />
+        <path d="M3 10h18" />
+      </>
+    ),
   },
   {
-    icon: MapPin,
     value: '50+',
     label: 'Cities Represented',
+    svgPath: (
+      <>
+        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+        <circle cx="12" cy="10" r="3" />
+      </>
+    ),
   },
   {
-    icon: Globe2,
     value: '10+',
     label: 'Global Regions',
+    svgPath: (
+      <>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+        <path d="M2 12h20" />
+      </>
+    ),
   },
 ]
 
@@ -60,8 +85,14 @@ const COLLECTIONS = [
     title: 'Circle Meetings',
     subtitle: 'The rooms where it happens, month after month.',
     image: '/images/section_image/circle-meeting.png',
-    icon: Users,
-    iconBg: 'bg-blue-50 text-[#0062D2] border-blue-100',
+    svgPath: (
+      <>
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </>
+    ),
     categoryName: 'Circle Meetings',
   },
   {
@@ -69,8 +100,12 @@ const COLLECTIONS = [
     title: 'City Gatherings',
     subtitle: 'Circles coming together across regional chapters.',
     image: '/images/who-we-are-friends.jpg',
-    icon: MapPin,
-    iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+    svgPath: (
+      <>
+        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+        <circle cx="12" cy="10" r="3" />
+      </>
+    ),
     categoryName: 'City Gatherings',
   },
   {
@@ -78,8 +113,13 @@ const COLLECTIONS = [
     title: 'Regional Conclaves',
     subtitle: 'Territories in one high-energy room.',
     image: '/images/section_image/executive-director-conclave.jpg',
-    icon: Layers,
-    iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
+    svgPath: (
+      <>
+        <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+        <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+        <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+      </>
+    ),
     categoryName: 'Regional Conclaves',
   },
   {
@@ -87,8 +127,9 @@ const COLLECTIONS = [
     title: 'The Annual Summit',
     subtitle: 'The grand gala celebrating the whole community.',
     image: '/images/section_image/event_awards_stage.jpg',
-    icon: Star,
-    iconBg: 'bg-amber-50 text-amber-600 border-amber-100',
+    svgPath: (
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    ),
     categoryName: 'Annual Summit',
   },
   {
@@ -96,8 +137,12 @@ const COLLECTIONS = [
     title: 'Recognition & Awards',
     subtitle: 'Public contribution affirmed and celebrated.',
     image: '/images/section_image/event_awards_stage.jpg',
-    icon: Award,
-    iconBg: 'bg-rose-50 text-rose-600 border-rose-100',
+    svgPath: (
+      <>
+        <circle cx="12" cy="8" r="6" />
+        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+      </>
+    ),
     categoryName: 'Recognition & Awards',
   },
   {
@@ -105,8 +150,13 @@ const COLLECTIONS = [
     title: 'Masterclasses',
     subtitle: 'Impact mentors delivering practical wisdom.',
     image: '/images/section_image/circle-roundtable-topdown.jpg',
-    icon: GraduationCap,
-    iconBg: 'bg-purple-50 text-purple-600 border-purple-100',
+    svgPath: (
+      <>
+        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+        <path d="M22 10v6" />
+        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+      </>
+    ),
     categoryName: 'Masterclasses',
   },
 ]
@@ -199,156 +249,158 @@ const INITIAL_PHOTOS: GalleryPhoto[] = [
     title: 'Circle Director of the Year Presentation',
     category: 'Recognition & Awards',
     city: 'Ahmedabad',
-    circle: 'All Circles',
+    circle: 'Leadership Board',
     year: '2026',
-    image: '/images/section_image/event_awards_stage.jpg',
-    caption: 'Honouring the Director who fostered the highest member retention and collaborative impact.',
+    image: '/images/who-we-are-inner-board.jpg',
+    caption: 'Honouring outstanding retention, governance integrity, and regional community expansion.',
   },
   {
     id: 'photo-09',
-    title: 'MindMeld Strategic Problem Solving',
-    category: 'Circle Meetings',
-    city: 'Mumbai',
-    circle: 'Healthcare Circle',
+    title: 'MSME Manufacturing Plant Modernization',
+    category: 'Masterclasses',
+    city: 'Pune',
+    circle: 'Engineering Circle',
     year: '2025',
-    image: '/images/section_image/circle-meeting.png',
-    caption: 'A member presenting their core operational bottleneck to their confidential Inner Advisory Board.',
+    image: '/images/story-priya-karan.jpg',
+    caption: 'Practical session on automation and cost-effective inventory visibility without bloated software.',
   },
   {
     id: 'photo-10',
-    title: 'West India MSME Summit Hall',
-    category: 'Regional Conclaves',
-    city: 'Ahmedabad',
-    circle: 'MSME Circle',
+    title: 'Circle Foundation Day & Charter Signing',
+    category: 'City Gatherings',
+    city: 'Delhi NCR',
+    circle: 'Capital Circle',
     year: '2026',
-    image: '/images/section_image/circles-hero-new.jpg',
-    caption: 'Over 300 business leaders gathered for governed collaboration and institutional growth.',
+    image: '/images/industry-cross-city-handshake.jpg',
+    caption: 'Charter members pledging commitment to zero predatory pitching and transparent mutual support.',
   },
   {
     id: 'photo-11',
-    title: 'Annual Peer Awards Ceremony',
+    title: 'Annual Peer Summit Keynote Hall',
     category: 'Annual Summit',
-    city: 'Goa',
+    city: 'Ahmedabad',
     circle: 'All Circles',
     year: '2025',
     image: '/images/section_image/event_awards_stage.jpg',
-    caption: 'Celebrating verified peer contributions and community milestones on the national stage.',
+    caption: 'Over 800 founders gathered to evaluate the 1 Million Lives by 2030 roadmap.',
   },
   {
     id: 'photo-12',
-    title: 'Informal Fellowship & Morning Coffee',
-    category: 'City Gatherings',
-    city: 'Bengaluru',
-    circle: 'Technology Circle',
+    title: 'Confidential Boardroom Strategy Circle',
+    category: 'Circle Meetings',
+    city: 'Hyderabad',
+    circle: 'Healthcare Circle',
     year: '2026',
-    image: '/images/story-priya-karan.jpg',
-    caption: 'Entrepreneurs exploring joint vendor synergies following a productive morning assembly.',
+    image: '/images/section_image/circle-meeting.png',
+    caption: 'Monthly governed closed-door session reviewing member strategic roadblocks and opportunities.',
   },
 ]
 
+// ─── Extra 6 Photos (Loaded on Demand) ──────────────────────────────────────
 const MORE_PHOTOS: GalleryPhoto[] = [
   {
     id: 'photo-13',
-    title: 'Rooftop Twilight Mixer',
-    category: 'City Gatherings',
+    title: 'Cross-Border MSME Trade Syndicate',
+    category: 'Circle Meetings',
     city: 'Mumbai',
-    circle: 'All Circles',
-    year: '2026',
-    image: '/images/who-we-are-friends.jpg',
-    caption: 'Peers relaxing and deepening friendships after a full day of boardroom strategy sessions.',
+    circle: 'Export Circle',
+    year: '2025',
+    image: '/images/story-amit-sandeep.jpg',
+    caption: 'Direct collaboration between textile manufacturers and international freight operators.',
   },
   {
     id: 'photo-14',
-    title: 'Executive Inner Board Meeting',
-    category: 'Circle Meetings',
-    city: 'Ahmedabad',
-    circle: 'MSME Circle',
-    year: '2025',
-    image: '/images/section_image/circle-roundtable-topdown.jpg',
-    caption: 'Confidential boardroom deliberation on working capital management and vendor contracts.',
+    title: 'Women in Enterprise Leadership Panel',
+    category: 'City Gatherings',
+    city: 'Bengaluru',
+    circle: 'Fempreneur Circle',
+    year: '2026',
+    image: '/images/story-neha-simran.jpg',
+    caption: 'Evaluating funding-free sustainable bootstrap scaling in tier-1 markets.',
   },
   {
     id: 'photo-15',
-    title: 'Founder’s Vision Address',
-    category: 'Recognition & Awards',
+    title: 'Executive Director Regional Strategy Meet',
+    category: 'Regional Conclaves',
     city: 'Ahmedabad',
-    circle: 'All Circles',
-    year: '2026',
-    image: '/images/founder-new.png',
-    caption: 'Dr. Pravin Parmar articulating the institutional roadmap for Governed Collaboration.',
+    circle: 'Leadership Board',
+    year: '2025',
+    image: '/images/section_image/executive-director-conclave.jpg',
+    caption: 'Harmonizing cross-city member introductions and industry roundtable topics.',
   },
   {
     id: 'photo-16',
-    title: 'National Leadership Retreat Session',
-    category: 'Regional Conclaves',
-    city: 'Goa',
-    circle: 'Leadership Circle',
+    title: 'Pillar of Integrity Honour Award',
+    category: 'Recognition & Awards',
+    city: 'Surat',
+    circle: 'All Circles',
+    year: '2026',
+    image: '/images/who-we-are-inner-board.jpg',
+    caption: 'Presented to leaders upholding strict governance and trust verification across chapters.',
+  },
+  {
+    id: 'photo-17',
+    title: 'Mid-Market Working Capital Clinic',
+    category: 'Masterclasses',
+    city: 'Pune',
+    circle: 'Finance Circle',
     year: '2025',
-    image: '/images/section_image/circle-meeting.png',
-    caption: 'Circle Directors and Founders aligning on ecosystem expansion and governance standards.',
+    image: '/images/industry-panel-leaders.jpg',
+    caption: 'Hands-on breakdown of vendor contract structuring and cash cycle protection.',
+  },
+  {
+    id: 'photo-18',
+    title: 'National Gala Closing Fellowship',
+    category: 'Annual Summit',
+    city: 'Ahmedabad',
+    circle: 'All Circles',
+    year: '2026',
+    image: '/images/section_image/event_awards_stage.jpg',
+    caption: 'Celebrating another year of authentic entrepreneurial solidarity and shared growth.',
   },
 ]
 
 export function GalleryPageClient() {
-  const [photosList, setPhotosList] = useState<GalleryPhoto[]>(INITIAL_PHOTOS)
+  const [photos, setPhotos] = useState<GalleryPhoto[]>(INITIAL_PHOTOS)
   const [hasLoadedMore, setHasLoadedMore] = useState(false)
+
+  // Filters State
+  const [selectedCity, setSelectedCity] = useState('All')
+  const [selectedCircle, setSelectedCircle] = useState('All')
+  const [selectedEvent, setSelectedEvent] = useState('All')
+  const [selectedYear, setSelectedYear] = useState('All')
+  const [searchQuery, setSearchQuery] = useState('')
+
+  // Lightbox Modal State
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
-  // Filters
-  const [selectedCity, setSelectedCity] = useState<string>('All')
-  const [selectedCircle, setSelectedCircle] = useState<string>('All')
-  const [selectedEvent, setSelectedEvent] = useState<string>('All')
-  const [selectedYear, setSelectedYear] = useState<string>('All')
-  const [searchQuery, setSearchQuery] = useState<string>('')
+  // Filter Options Extractors
+  const cities = useMemo(() => ['All', ...Array.from(new Set(photos.map((p) => p.city)))], [photos])
+  const circles = useMemo(() => ['All', ...Array.from(new Set(photos.map((p) => p.circle)))], [photos])
+  const events = useMemo(() => ['All', ...Array.from(new Set(photos.map((p) => p.category)))], [photos])
+  const years = useMemo(() => ['All', ...Array.from(new Set(photos.map((p) => p.year)))], [photos])
 
-  const cities = ['All', 'Ahmedabad', 'Mumbai', 'Bengaluru', 'Surat', 'Delhi', 'Goa']
-  const circles = [
-    'All',
-    'Manufacturing & Packaging Circle',
-    'Technology Circle',
-    'Export & Global Trade Circle',
-    'Healthcare Circle',
-    'MSME Circle',
-    'Logistics Circle',
-  ]
-  const events = [
-    'All',
-    'Annual Summit',
-    'Regional Conclaves',
-    'Masterclasses',
-    'Circle Meetings',
-    'City Gatherings',
-    'Recognition & Awards',
-  ]
-  const years = ['All', '2026', '2025', '2024']
-
-  // Filtered List
+  // Filtered Photos
   const filteredPhotos = useMemo(() => {
-    return photosList.filter((item) => {
-      const matchCity = selectedCity === 'All' || item.city.toLowerCase() === selectedCity.toLowerCase()
-      const matchCircle =
-        selectedCircle === 'All' ||
-        item.circle.toLowerCase().includes(selectedCircle.toLowerCase()) ||
-        item.circle === 'All Circles'
-      const matchEvent = selectedEvent === 'All' || item.category.toLowerCase() === selectedEvent.toLowerCase()
-      const matchYear = selectedYear === 'All' || item.year === selectedYear
+    return photos.filter((p) => {
+      const matchCity = selectedCity === 'All' || p.city === selectedCity
+      const matchCircle = selectedCircle === 'All' || p.circle === selectedCircle
+      const matchEvent = selectedEvent === 'All' || p.category === selectedEvent
+      const matchYear = selectedYear === 'All' || p.year === selectedYear
       const matchSearch =
-        !searchQuery.trim() ||
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.caption.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.category.toLowerCase().includes(searchQuery.toLowerCase())
+        searchQuery.trim() === '' ||
+        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.caption.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.circle.toLowerCase().includes(searchQuery.toLowerCase())
 
       return matchCity && matchCircle && matchEvent && matchYear && matchSearch
     })
-  }, [photosList, selectedCity, selectedCircle, selectedEvent, selectedYear, searchQuery])
+  }, [photos, selectedCity, selectedCircle, selectedEvent, selectedYear, searchQuery])
 
   const handleLoadMore = () => {
-    if (!hasLoadedMore) {
-      setPhotosList((prev) => [...prev, ...MORE_PHOTOS])
-      setHasLoadedMore(true)
-    }
+    setPhotos((prev) => [...prev, ...MORE_PHOTOS])
+    setHasLoadedMore(true)
   }
 
   const handleResetFilters = () => {
@@ -359,14 +411,20 @@ export function GalleryPageClient() {
     setSearchQuery('')
   }
 
-  // Lightbox Navigation
-  const openLightbox = (index: number) => setLightboxIndex(index)
-  const closeLightbox = () => setLightboxIndex(null)
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index)
+  }
+
+  const closeLightbox = () => {
+    setLightboxIndex(null)
+  }
+
   const nextPhoto = () => {
     if (lightboxIndex !== null) {
       setLightboxIndex((lightboxIndex + 1) % filteredPhotos.length)
     }
   }
+
   const prevPhoto = () => {
     if (lightboxIndex !== null) {
       setLightboxIndex((lightboxIndex - 1 + filteredPhotos.length) % filteredPhotos.length)
@@ -376,163 +434,138 @@ export function GalleryPageClient() {
   return (
     <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
       
+      {/* Global Gradient Definition for Brand Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#4F46E5" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
+      
       {/* ─── Breadcrumbs ─── */}
-      <div className="border-b border-slate-200/80 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-slate-900 transition-colors">
+      <div className="border-b border-slate-800 bg-[#040F24] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-400 font-medium">
+          <Link href="/" className="hover:text-[#38BDF8] transition-colors">
             Home
           </Link>
-          <ChevronRight className="size-3.5 text-slate-400" />
-          <Link href="/events" className="hover:text-slate-900 transition-colors">
+          <ChevronRight className="size-3.5 text-slate-500" />
+          <Link href="/events" className="hover:text-[#38BDF8] transition-colors">
             Community Life
           </Link>
-          <ChevronRight className="size-3.5 text-slate-400" />
-          <span className="text-slate-900 font-semibold">Gallery</span>
+          <ChevronRight className="size-3.5 text-slate-500" />
+          <span className="text-white font-semibold">Gallery</span>
         </div>
       </div>
 
       {/* ─── SECTION 1: HERO (THE COMMUNITY AS IT ACTUALLY LOOKS) ─── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Master Card Hero Box */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
-            {/* Ambient Background Accents */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="fd-hero">
+        <video
+          className="fd-hero__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        <div className="fd-hero__scrim" aria-hidden="true"></div>
 
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
-              
-              {/* Left Column: Manifesto & Details */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+        <div className="fd-hero__inner">
+          <div className="fd-hero__wrapper !max-w-4xl">
+            <div className="fd-hero__stack">
+              <div className="fd-hero__group">
+                {/* Gradient Pill Label */}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-900/60 via-indigo-900/50 to-rose-900/60 backdrop-blur-md border border-white/20 shadow-lg">
+                  <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] animate-pulse" />
+                  <span className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     COMMUNITY LIFE &amp; ARCHIVES
                   </span>
                 </div>
 
-                <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
-                    Gallery
-                  </h1>
-                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
-                    The community, as it actually looks across rooms, cities, and national conclaves.
-                  </p>
-                </div>
+                {/* Main Headline with Gradient Brand Accent */}
+                <h1 className="fd-hero__headline !text-3xl sm:!text-5xl lg:!text-[52px] !leading-[1.14] font-semibold tracking-tight text-white">
+                  Gallery
+                </h1>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  <p>
-                    Every photo here is a real moment from a real room. <strong className="text-slate-900 font-semibold">Circle boardrooms, masterclasses, regional summits, and lifelong friendships forged in business.</strong>
-                  </p>
+                {/* Subtitle with Gradient Tone */}
+                <p className="fd-hero__sub !text-base sm:!text-xl font-medium leading-relaxed bg-gradient-to-r from-white via-slate-100 to-sky-200 bg-clip-text text-transparent">
+                  The community, as it actually looks across rooms, cities, and national conclaves.
+                </p>
 
-                  {/* 4 Pillar Badges */}
-                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-1">
-                    {[
-                      { text: 'Circle Boardrooms & Roundtables', icon: Users },
-                      { text: 'Annual National Conclaves', icon: Star },
-                      { text: 'Impact Mentor Masterclasses', icon: GraduationCap },
-                      { text: 'Verified Peer Awards & Galas', icon: Award },
-                    ].map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
-                      >
-                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
-                        <span>{item.text}</span>
-                      </div>
-                    ))}
-                  </div>
+                {/* Quote with Brand Accent */}
+                <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3.5 py-0.5 max-w-2xl">
+                  &ldquo;Every photo here is a real moment from a real room. Circle boardrooms, masterclasses, regional summits, and lifelong friendships forged in business.&rdquo;
+                </p>
 
-                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
-                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
-                    <span>Real moments captured across 50+ cities and 200+ community gatherings.</span>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                  <a
-                    href="#gallery-grid"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
-                  >
-                    <span>Browse Gallery</span>
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
-                  >
-                    <span>Open Unity App</span>
-                  </a>
-                </div>
+                {/* Explanatory Context */}
+                <p className="text-xs sm:text-sm text-slate-300/90 leading-relaxed font-normal max-w-2xl pt-1">
+                  Real moments captured across 50+ cities and 200+ community gatherings — verified peer awards, mentor masterclasses, boardroom roundtables, and annual national conclaves.
+                </p>
               </div>
 
-              {/* Right Column: Hero Visual Card */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
-                  <Image
-                    src="/images/section_image/executive-director-conclave.jpg"
-                    alt="Peers Global community leaders gathering on stage at the National Conclave"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-slate-950/30 pointer-events-none" />
+              {/* CTAs matching Home First Section */}
+              <div className="fd-hero__cta flex flex-wrap items-center gap-3.5">
+                <GalaxyButton
+                  href="#gallery-grid"
+                  size="lg"
+                  className="text-xs sm:text-sm uppercase tracking-wider"
+                >
+                  BROWSE GALLERY
+                </GalaxyButton>
+                <GalaxyButton
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="transparent"
+                  size="lg"
+                  className="text-xs sm:text-sm uppercase tracking-wider text-white"
+                >
+                  Open Unity App
+                </GalaxyButton>
+              </div>
 
-                  {/* Top Badges */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold text-sky-300 tracking-widest uppercase backdrop-blur-md">
-                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      NATIONAL CONCLAVE
+              {/* Stats Band */}
+              <div className="w-full pt-5 border-t border-white/15">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-xs sm:text-sm text-slate-300">
+                  <div className="flex items-center gap-2 font-medium text-white">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 font-bold text-base sm:text-lg shrink-0">
+                      5,000+
                     </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
-                      5,000+ PHOTOS
-                    </span>
+                    <span className="text-slate-200">Captured Moments</span>
                   </div>
-
-                  {/* Bottom Highlight */}
-                  <div className="relative z-10 text-white space-y-1">
-                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
-                      Peers Global Institutional Archives
-                    </p>
-                    <p className="text-sm sm:text-base font-bold leading-snug">
-                      Moments that forge lasting trust and collaborative enterprise.
-                    </p>
+                  <div className="flex items-center gap-2 font-medium text-white border-l md:border-l border-white/10 pl-3 md:pl-4">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 font-bold text-base sm:text-lg shrink-0">
+                      200+
+                    </span>
+                    <span className="text-slate-200">Conclaves &amp; Events</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-medium text-white border-l-0 md:border-l border-white/10 md:pl-4">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 font-bold text-base sm:text-lg shrink-0">
+                      50+
+                    </span>
+                    <span className="text-slate-200">Cities Represented</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-medium text-white border-l md:border-l border-white/10 pl-3 md:pl-4">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 font-bold text-base sm:text-lg shrink-0">
+                      10+
+                    </span>
+                    <span className="text-slate-200">Global Regions</span>
                   </div>
                 </div>
               </div>
 
             </div>
           </div>
-
-          {/* Floating Stats Bar */}
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
-            {STATS.map((stat, i) => {
-              const Icon = stat.icon
-              return (
-                <div
-                  key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Icon className="size-5" />
-                  </div>
-                  <div>
-                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
-                      {stat.value}
-                    </div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
-                      {stat.label}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
         </div>
       </section>
 
@@ -542,8 +575,8 @@ export function GalleryPageClient() {
           
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div className="mb-1">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   BROWSE OUR GALLERY
                 </span>
               </div>
@@ -555,10 +588,10 @@ export function GalleryPageClient() {
             <div className="flex items-center gap-2">
               <button
                 onClick={handleResetFilters}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer hover:shadow-xs group"
               >
-                <RotateCcw className="size-3.5" />
-                <span>Reset Filters</span>
+                <RotateCcw className="size-3.5 text-slate-500 group-hover:text-[#1D4ED8] transition-colors" />
+                <span className="group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">Reset Filters</span>
               </button>
             </div>
           </div>
@@ -568,7 +601,7 @@ export function GalleryPageClient() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
               {/* City Filter */}
               <div>
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                <label className="text-[10px] font-extrabold uppercase tracking-wider block mb-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   City
                 </label>
                 <select
@@ -586,7 +619,7 @@ export function GalleryPageClient() {
 
               {/* Circle Filter */}
               <div>
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                <label className="text-[10px] font-extrabold uppercase tracking-wider block mb-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   Circle
                 </label>
                 <select
@@ -604,7 +637,7 @@ export function GalleryPageClient() {
 
               {/* Event Filter */}
               <div>
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                <label className="text-[10px] font-extrabold uppercase tracking-wider block mb-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   Event Category
                 </label>
                 <select
@@ -622,7 +655,7 @@ export function GalleryPageClient() {
 
               {/* Year Filter */}
               <div>
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                <label className="text-[10px] font-extrabold uppercase tracking-wider block mb-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   Year
                 </label>
                 <select
@@ -641,7 +674,12 @@ export function GalleryPageClient() {
 
             {/* Search Input */}
             <div className="relative">
-              <Search className="size-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <svg className="size-4 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <g stroke="url(#brandGrad)">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </g>
+              </svg>
               <input
                 type="text"
                 value={searchQuery}
@@ -670,16 +708,16 @@ export function GalleryPageClient() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
                   
                   <div className="absolute top-3.5 right-3.5">
-                    <span className="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-[10px] font-mono font-bold text-sky-300 border border-white/20 shadow-md">
+                    <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[10px] font-mono font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent border border-white/20 shadow-md">
                       {photo.year}
                     </span>
                   </div>
 
                   <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                    <span className="text-[10px] font-mono text-sky-300 uppercase tracking-widest font-bold block mb-0.5">
+                    <span className="text-[10px] font-mono bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent uppercase tracking-widest font-extrabold block mb-0.5">
                       {photo.category}
                     </span>
-                    <h4 className="text-base font-bold text-white leading-tight">
+                    <h4 className="text-base font-bold text-white leading-tight group-hover:bg-gradient-to-r group-hover:from-[#38BDF8] group-hover:via-[#818CF8] group-hover:to-[#FB7185] group-hover:bg-clip-text group-hover:text-transparent transition-all">
                       {photo.title}
                     </h4>
                   </div>
@@ -691,11 +729,18 @@ export function GalleryPageClient() {
                   </p>
 
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-slate-500 text-[11px] font-medium">
-                    <span className="flex items-center gap-1">
-                      <MapPin className="size-3 text-[#0062D2]" />
-                      {photo.city}
+                    <span className="flex items-center gap-1.5 font-semibold text-slate-700">
+                      <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <g stroke="url(#brandGrad)">
+                          <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                          <circle cx="12" cy="10" r="3" />
+                        </g>
+                      </svg>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-semibold">
+                        {photo.city}
+                      </span>
                     </span>
-                    <span>{photo.circle}</span>
+                    <span className="text-slate-600 font-medium">{photo.circle}</span>
                   </div>
                 </div>
               </div>
@@ -704,13 +749,15 @@ export function GalleryPageClient() {
 
           {/* Load More Button */}
           {!hasLoadedMore && (
-            <div className="pt-6 text-center">
-              <button
+            <div className="pt-8 text-center">
+              <GalaxyButton
                 onClick={handleLoadMore}
-                className="px-8 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer"
+                size="lg"
+                icon={false}
+                className="text-xs font-bold uppercase tracking-wider shadow-lg"
               >
                 Load More Archive Photos
-              </button>
+              </GalaxyButton>
             </div>
           )}
 
@@ -723,8 +770,8 @@ export function GalleryPageClient() {
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div className="mb-1">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   EXPLORE BY COLLECTION
                 </span>
               </div>
@@ -735,58 +782,65 @@ export function GalleryPageClient() {
 
             <button
               onClick={handleResetFilters}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-blue-800 transition-colors uppercase tracking-wider cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent hover:opacity-80 transition-opacity uppercase tracking-wider cursor-pointer"
             >
               <span>View All Collections</span>
-              <ArrowRight className="size-3.5" />
+              <ArrowRight className="size-3.5 text-[#E11D48]" />
             </button>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
-            {COLLECTIONS.map((col) => {
-              const Icon = col.icon
-              return (
-                <div
-                  key={col.id}
-                  onClick={() => {
-                    setSelectedEvent(col.categoryName)
-                    const el = document.getElementById('gallery-grid')
-                    if (el) el.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
-                >
-                  <div>
-                    <div className="relative h-32 w-full overflow-hidden bg-slate-900">
-                      <Image
-                        src={col.image}
-                        alt={col.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                    </div>
-
-                    <div className="p-4 space-y-1.5">
-                      <div className={`size-8 rounded-xl border flex items-center justify-center ${col.iconBg}`}>
-                        <Icon className="size-4" />
-                      </div>
-                      <h3 className="font-bold text-slate-900 text-sm group-hover:text-[#0062D2] transition-colors leading-snug">
-                        {col.title}
-                      </h3>
-                      <p className="text-[11px] text-slate-500 leading-snug font-light">
-                        {col.subtitle}
-                      </p>
-                    </div>
+            {COLLECTIONS.map((col, idx) => (
+              <div
+                key={col.id}
+                onClick={() => {
+                  setSelectedEvent(col.categoryName)
+                  const el = document.getElementById('gallery-grid')
+                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+              >
+                <div>
+                  <div className="relative h-32 w-full overflow-hidden bg-slate-900">
+                    <Image
+                      src={col.image}
+                      alt={col.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   </div>
 
-                  <div className="p-4 pt-0 flex justify-end">
-                    <div className="size-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-[#0062D2] group-hover:text-white group-hover:border-[#0062D2] transition-colors">
-                      <ArrowRight className="size-3.5" />
+                  <div className="p-4 space-y-1.5">
+                    <div className="shrink-0 mb-2">
+                      <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <defs>
+                          <linearGradient id={`colGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <g stroke={`url(#colGrad-${idx})`}>
+                          {col.svgPath}
+                        </g>
+                      </svg>
                     </div>
+                    <h3 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                      {col.title}
+                    </h3>
+                    <p className="text-[11px] text-slate-500 leading-snug font-light">
+                      {col.subtitle}
+                    </p>
                   </div>
                 </div>
-              )
-            })}
+
+                <div className="p-4 pt-0 flex justify-end">
+                  <div className="size-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white group-hover:border-transparent transition-all">
+                    <ArrowRight className="size-3.5" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>
@@ -795,11 +849,15 @@ export function GalleryPageClient() {
       {/* ─── SECTION 4: SIGNATURE LUXURY CLOSING HERO BANNER ─── */}
       <section
         id="download-unity"
-        className="relative py-20 lg:py-28 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-slate-800"
+        className="relative py-20 lg:py-28 text-white overflow-hidden border-t border-slate-800/80"
+        style={{
+          background: 'linear-gradient(135deg, #030712 0%, #07132B 35%, #0B1120 70%, #150618 100%)',
+        }}
       >
         {/* Ambient Glows */}
-        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 bg-rose-600/18 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.08),transparent_60%)] pointer-events-none" />
 
         {/* SVG Orbital Geometric Lines Background */}
         <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
@@ -818,8 +876,8 @@ export function GalleryPageClient() {
             
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div>
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   WITNESS THE MOVEMENT
                 </span>
               </div>
@@ -842,22 +900,24 @@ export function GalleryPageClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
+                <GalaxyButton
+                  href="/membership"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Apply for Membership
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  variant="transparent"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  <span>Open Unity App →</span>
-                </a>
+                  Open Unity App →
+                </GalaxyButton>
               </div>
             </div>
 
@@ -882,7 +942,7 @@ export function GalleryPageClient() {
                 Growth.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 A Stronger Tomorrow.

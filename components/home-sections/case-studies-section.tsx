@@ -106,7 +106,7 @@ export function CaseStudiesSection() {
           {/* Left Collage Columns */}
           <div className="col-span-4 grid grid-cols-2 gap-4 items-center">
             {/* Col 1 */}
-            <div className="flex flex-col gap-4 -translate-y-4 animate-float-slow">
+            <div className="flex flex-col gap-4">
               {leftStories.slice(0, 3).map((story, i) => (
                 <StoryCard
                   key={story.id}
@@ -119,7 +119,7 @@ export function CaseStudiesSection() {
             </div>
 
             {/* Col 2 */}
-            <div className="flex flex-col gap-4 translate-y-6 animate-float-reverse">
+            <div className="flex flex-col gap-4">
               {leftStories.slice(3, 6).map((story, i) => {
                 const actualIdx = i + 3
                 return (
@@ -144,7 +144,10 @@ export function CaseStudiesSection() {
 
             {/* Stat */}
             <h2 className="text-6xl sm:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-3">
-              25,959
+              <span>25,000</span>
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 bg-clip-text text-transparent font-extrabold ml-1">
+                +
+              </span>
             </h2>
 
             {/* Subtitle */}
@@ -173,7 +176,7 @@ export function CaseStudiesSection() {
           {/* Right Collage Columns */}
           <div className="col-span-4 grid grid-cols-2 gap-4 items-center">
             {/* Col 3 */}
-            <div className="flex flex-col gap-4 translate-y-3 animate-float-slow">
+            <div className="flex flex-col gap-4">
               {rightStories.slice(0, 3).map((story, i) => {
                 const actualIdx = half + i
                 return (
@@ -189,7 +192,7 @@ export function CaseStudiesSection() {
             </div>
 
             {/* Col 4 */}
-            <div className="flex flex-col gap-4 -translate-y-6 animate-float-reverse">
+            <div className="flex flex-col gap-4">
               {rightStories.slice(3, 6).map((story, i) => {
                 const actualIdx = half + 3 + i
                 return (
@@ -229,7 +232,10 @@ export function CaseStudiesSection() {
               Verified Member Case Studies
             </span>
             <p className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight mb-2">
-              25,959
+              <span>25,000</span>
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 bg-clip-text text-transparent font-black ml-1">
+                +
+              </span>
             </p>
             <p className="text-xl sm:text-2xl font-semibold text-slate-700 mb-3">
               Global Stories of Success
@@ -389,31 +395,7 @@ export function CaseStudiesSection() {
         </div>
       )}
 
-      {/* Floating animation keyframes */}
-      <style jsx global>{`
-        @keyframes floatSlow {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
-        @keyframes floatReverse {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(8px);
-          }
-        }
-        .animate-float-slow {
-          animation: floatSlow 7s ease-in-out infinite;
-        }
-        .animate-float-reverse {
-          animation: floatReverse 8s ease-in-out infinite;
-        }
-      `}</style>
+      {/* Clean layout */}
     </section>
   )
 }

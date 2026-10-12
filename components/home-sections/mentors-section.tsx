@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface UniversePillar {
-  badge: string
   title: string
   role: string
   image: string
@@ -13,37 +12,31 @@ interface UniversePillar {
 
 const ROW_1_PILLARS: UniversePillar[] = [
   {
-    badge: '01 · COMMUNITY',
     title: 'Community',
     role: 'Entrepreneurs across industries and countries',
     image: '/images/who-we-are-friends.jpg',
   },
   {
-    badge: '02 · CULTURE',
     title: 'Culture',
     role: 'Trust, contribution and friendship',
     image: '/images/give-first-card.jpg',
   },
   {
-    badge: '03 · CIRCLES',
     title: 'Circles',
     role: 'Your home inside the community',
     image: '/images/section_image/circle-meeting.png',
   },
   {
-    badge: '04 · LANGUAGE',
     title: 'Language',
     role: 'The words and ideas we share',
     image: '/images/language-hero-desk.jpg',
   },
   {
-    badge: '05 · LEADERSHIP',
     title: 'Leadership',
     role: 'A structure built and led by entrepreneurs',
     image: '/images/leadership-climbers-hero.jpg',
   },
   {
-    badge: '06 · RECOGNITION',
     title: 'Recognition',
     role: 'Contribution seen and celebrated',
     image: '/images/who-we-are-impact.jpg',
@@ -52,37 +45,31 @@ const ROW_1_PILLARS: UniversePillar[] = [
 
 const ROW_2_PILLARS: UniversePillar[] = [
   {
-    badge: '07 · UNITY APP',
     title: 'Unity App',
     role: 'The digital ecosystem',
     image: '/images/unity-creatives/Post 2.png',
   },
   {
-    badge: '08 · EVENTS',
     title: 'Events',
     role: 'Meetings, conclaves and the global summit',
     image: '/images/section_image/conclave.png',
   },
   {
-    badge: '09 · MEDIA',
     title: 'Media',
     role: 'Stories, podcasts and publications',
     image: '/images/peer-stories-hero.jpg',
   },
   {
-    badge: '10 · LEARNING',
     title: 'Learning',
     role: 'Masterclasses and playbooks',
     image: '/images/who-we-are-boardroom.jpg',
   },
   {
-    badge: '11 · OPPORTUNITIES',
     title: 'Opportunities',
     role: 'Business, partnerships and markets',
     image: '/images/lsr-city-sunrise.jpg',
   },
   {
-    badge: '12 · IMPACT',
     title: 'Impact',
     role: 'The 1 Million Mission',
     image: '/images/climbers-clean.jpg',
@@ -112,9 +99,6 @@ export function MentorsSection() {
   return (
     <section className="fd-meet-your-mentors" id="universe" aria-label="Real People. Real Collaboration.">
       <div className="fd-meet-your-mentors__head">
-        <p className="fd-meet-your-mentors__eyebrow brand-gradient-text" data-fd-rise="0">
-          REAL PEOPLE. REAL COLLABORATION.
-        </p>
         <h2 className="fd-meet-your-mentors__headline" data-fd-rise="80">
           <span>Don&apos;t take our word for it.</span>{' '}
           <span>Look at what happens between Peers.</span>

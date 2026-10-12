@@ -3,7 +3,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
-import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -146,7 +145,22 @@ const DECLINE_FACTORS = [
 
 export function WhoBelongsClient() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
+    <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#EFF6FF] selection:text-[#1D4ED8] font-sans antialiased">
+      {/* Hidden global SVG gradient definitions for icons across the page */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* =========================================================================
           SECTION 1: HERO — WHO BELONGS HERE (Master Full Page Dark Video Banner)
@@ -194,7 +208,7 @@ export function WhoBelongsClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   This community is built for a{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     particular kind of entrepreneur
                   </span>
                 </h1>
@@ -245,25 +259,25 @@ export function WhoBelongsClient() {
               {/* Stat Pill Band */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-white/15">
                 <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                  <div className="flex items-center gap-1.5 text-sky-300 mb-0.5">
-                    <Users className="w-3.5 h-3.5" />
-                    <span className="text-lg font-bold text-white">45+</span>
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <Users className="w-3.5 h-3.5 stroke-[url(#brandStatGrad)] text-sky-300" />
+                    <span className="text-lg font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">45+</span>
                   </div>
                   <span className="text-[11px] text-slate-300 font-medium">Active Cities</span>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                  <div className="flex items-center gap-1.5 text-rose-300 mb-0.5">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    <span className="text-lg font-bold text-white">100%</span>
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <ShieldCheck className="w-3.5 h-3.5 stroke-[url(#brandStatGrad)] text-rose-300" />
+                    <span className="text-lg font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">100%</span>
                   </div>
                   <span className="text-[11px] text-slate-300 font-medium">Verified Peers</span>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                  <div className="flex items-center gap-1.5 text-amber-300 mb-0.5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span className="text-lg font-bold text-white">1M+</span>
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <Sparkles className="w-3.5 h-3.5 stroke-[url(#brandStatGrad)] text-amber-300" />
+                    <span className="text-lg font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">1M+</span>
                   </div>
                   <span className="text-[11px] text-slate-300 font-medium">Lives to Impact</span>
                 </div>
@@ -272,13 +286,13 @@ export function WhoBelongsClient() {
           </div>
 
           {/* Section 1 Sub-Card: The Essence of Community */}
-          <div className="mt-8 relative p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 overflow-hidden">
+          <div className="mt-8 relative p-7 sm:p-9 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white shadow-xl border border-slate-800 overflow-hidden">
             <div className="absolute top-0 right-0 size-72 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-8 space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     The Essence of Community
                   </span>
                 </div>
@@ -328,27 +342,45 @@ export function WhoBelongsClient() {
               return (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-3 group"
+                  className="animated-glow-card group !rounded-2xl cursor-pointer"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className={`size-9 rounded-xl flex items-center justify-center border ${item.color} group-hover:scale-105 transition-transform duration-300 shadow-2xs`}>
-                    <Icon className="size-4.5" />
+                  <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`lookForGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#lookForGrad-${idx})` }}
+                      d="M 1.2 6 Q 1.2 1.2 6 1.2 L 94 1.2 Q 98.8 1.2 98.8 6 L 98.8 94 Q 98.8 98.8 94 98.8 L 6 98.8 Q 1.2 98.8 1.2 94 Z"
+                    />
+                  </svg>
+                  <div className="relative p-5 !rounded-[calc(1rem-1.5px)] bg-white h-full shadow-2xs flex flex-col justify-between space-y-3">
+                    <div className="size-9 rounded-xl flex items-center justify-center bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                      <Icon className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] font-semibold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                      {item.text}
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-[13px] font-semibold text-slate-800 group-hover:text-[#0062D2] transition-colors leading-snug">
-                    {item.text}
-                  </p>
                 </div>
               )
             })}
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-center justify-between flex-col sm:flex-row gap-3 text-center sm:text-left">
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 to-indigo-50/80 border border-blue-100 flex items-center justify-between flex-col sm:flex-row gap-3 text-center sm:text-left shadow-2xs">
             <div className="flex items-center gap-2.5">
-              <span className="text-[#0062D2] font-bold text-base">✦</span>
+              <span className="brand-gradient-text font-bold text-base">✦</span>
               <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
                 You do not have to arrive with all the answers. <span className="text-slate-900 font-bold">You do need to arrive with the willingness to participate.</span>
               </p>
             </div>
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0062D2] shrink-0">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider brand-gradient-text shrink-0">
               Active Participation
             </span>
           </div>
@@ -362,12 +394,12 @@ export function WhoBelongsClient() {
       <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white relative overflow-hidden shadow-2xl border border-slate-800">
+          <div className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white relative overflow-hidden shadow-2xl border border-slate-800">
             <div className="absolute top-0 right-0 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-4xl space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                <span className="text-[11px] font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   The Culture Test
                 </span>
               </div>
@@ -390,15 +422,15 @@ export function WhoBelongsClient() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-5 sm:p-6 rounded-2xl bg-blue-950/40 border border-blue-500/20 space-y-2 backdrop-blur-xs">
-                  <span className="text-[11px] font-mono font-bold text-sky-300 uppercase tracking-wider">Question 01</span>
+                <div className="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2 backdrop-blur-xs">
+                  <span className="text-[11px] font-mono font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent uppercase tracking-wider">Question 01</span>
                   <p className="text-xs sm:text-sm font-bold text-white leading-snug">
                     How many of those 15 would I be willing to introduce to the other people in my Circle?
                   </p>
                 </div>
 
-                <div className="p-5 sm:p-6 rounded-2xl bg-blue-950/40 border border-blue-500/20 space-y-2 backdrop-blur-xs">
-                  <span className="text-[11px] font-mono font-bold text-sky-300 uppercase tracking-wider">Question 02</span>
+                <div className="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2 backdrop-blur-xs">
+                  <span className="text-[11px] font-mono font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent uppercase tracking-wider">Question 02</span>
                   <p className="text-xs sm:text-sm font-bold text-white leading-snug">
                     How many of those 15 would I be willing to help—even if there were no immediate business benefit to me?
                   </p>
@@ -437,43 +469,58 @@ export function WhoBelongsClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {YOU_BELONG_HERE_IF.map((item) => {
+            {YOU_BELONG_HERE_IF.map((item, idx) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.num}
-                  className="group relative p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-[#0062D2]/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-default"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer"
+                  tabIndex={0}
+                  role="article"
                 >
-                  {/* Subtle top glow highlight on hover */}
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#0062D2] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                  <div className="space-y-4 relative z-10">
-                    {/* Header: Icon + Number Badge */}
-                    <div className="flex items-center justify-between">
-                      <div className={`size-11 rounded-xl flex items-center justify-center border shadow-2xs group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300 ${item.color}`}>
-                        <Icon className="size-5" />
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`belongGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#belongGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="relative p-6 sm:p-7 !rounded-[calc(1.5rem-1.5px)] bg-white h-full shadow-2xs flex flex-col justify-between">
+                    <div className="space-y-4">
+                      {/* Header: Icon + Number Badge */}
+                      <div className="flex items-center justify-between">
+                        <div className="size-11 rounded-xl flex items-center justify-center bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="font-mono text-xs font-bold text-slate-500 bg-slate-50 border border-slate-200/70 group-hover:bg-[#EFF6FF] group-hover:text-[#1D4ED8] group-hover:border-blue-200 px-2.5 py-1 rounded-md transition-colors">
+                          {item.num}
+                        </span>
                       </div>
-                      <span className="font-mono text-xs font-bold text-slate-500 bg-slate-50 border border-slate-200/70 group-hover:bg-[#EFF6FF] group-hover:text-[#0062D2] group-hover:border-blue-200 px-2.5 py-1 rounded-md transition-colors">
-                        {item.num}
-                      </span>
+
+                      {/* Title & Description */}
+                      <div className="space-y-2">
+                        <h3 className="text-base sm:text-[17px] font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Title & Description */}
-                    <div className="space-y-2">
-                      <h3 className="text-base sm:text-[17px] font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Takeaway / Highlight Pill */}
-                  <div className="pt-4 mt-4 border-t border-slate-100/90 relative z-10">
-                    <div className="text-[11px] sm:text-xs font-medium text-slate-700 bg-slate-50/80 group-hover:bg-blue-50/70 group-hover:text-slate-900 group-hover:border-blue-100/80 rounded-lg p-2.5 border border-slate-100 leading-relaxed flex items-start gap-1.5 transition-colors">
-                      <span className="text-[#0062D2] font-bold mt-0.5 group-hover:scale-125 transition-transform">✦</span>
-                      <span>{item.highlight}</span>
+                    {/* Takeaway / Highlight Pill */}
+                    <div className="pt-4 mt-4 border-t border-slate-100/90">
+                      <div className="text-[11px] sm:text-xs font-medium text-slate-700 bg-slate-50/80 group-hover:bg-blue-50/70 group-hover:text-slate-900 group-hover:border-blue-100/80 rounded-lg p-2.5 border border-slate-100 leading-relaxed flex items-start gap-1.5 transition-colors">
+                        <span className="text-[#1D4ED8] font-bold mt-0.5 group-hover:scale-125 transition-transform">✦</span>
+                        <span>{item.highlight}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -511,10 +558,19 @@ export function WhoBelongsClient() {
                 </div>
 
                 <div className="space-y-3.5">
+                  {/* Hidden SVG gradient defs */}
+                  <svg width="0" height="0" className="absolute" aria-hidden="true" focusable="false">
+                    <linearGradient id="brand-linear-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#FB7185" />
+                      <stop offset="50%" stopColor="#818CF8" />
+                      <stop offset="100%" stopColor="#38BDF8" />
+                    </linearGradient>
+                  </svg>
+
                   {NOT_FOR_YOU_IF.map((item, idx) => (
                     <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-rose-100/80 shadow-2xs">
-                      <div className="size-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 mt-0.5">
-                        <XCircle className="size-4" />
+                      <div className="shrink-0 mt-0.5">
+                        <XCircle className="size-5 [stroke:url(#brand-linear-gradient)]" />
                       </div>
                       <div className="text-xs sm:text-[13px] text-slate-700 leading-relaxed">
                         <strong className="text-slate-900 font-bold block sm:inline mr-1">
@@ -533,10 +589,10 @@ export function WhoBelongsClient() {
             </div>
 
             {/* Right: What We Do Not Require */}
-            <div className="rounded-3xl bg-[#F4FBF7] border border-emerald-200/90 p-7 sm:p-9 flex flex-col justify-between shadow-2xs">
+            <div className="rounded-3xl bg-[#F8FAFC] border border-slate-200/90 p-7 sm:p-9 flex flex-col justify-between shadow-2xs">
               <div className="space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Open To Authenticity
                   </span>
                 </div>
@@ -552,15 +608,15 @@ export function WhoBelongsClient() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {WHAT_WE_DO_NOT_REQUIRE.map((item, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-white border border-emerald-100/90 shadow-2xs flex items-center gap-2.5">
-                      <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                    <div key={idx} className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex items-center gap-2.5">
+                      <Check className="size-4.5 stroke-[3] shrink-0 [stroke:url(#brand-linear-gradient)]" />
                       <span className="text-xs sm:text-[13px] font-semibold text-slate-800 leading-tight">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-5 border-t border-emerald-200 text-xs text-emerald-800 font-bold mt-6">
+              <div className="pt-5 border-t border-slate-200 text-xs font-bold mt-6 brand-gradient-text">
                 ✦ No pretension. Just honest, real founders building together.
               </div>
             </div>
@@ -597,8 +653,8 @@ export function WhoBelongsClient() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700">
                   {DECLINE_FACTORS.map((factor, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-[#0062D2]" />
+                    <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center gap-2.5 shadow-2xs">
+                      <span className="size-2 rounded-full bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] shrink-0 shadow-xs" />
                       <span className="font-semibold text-slate-800">{factor}</span>
                     </div>
                   ))}
@@ -616,10 +672,10 @@ export function WhoBelongsClient() {
             </div>
 
             {/* Right: You Do Not Have to Be Certain */}
-            <div className="lg:col-span-5 space-y-6 p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 flex flex-col justify-between">
+            <div className="lg:col-span-5 space-y-6 p-7 sm:p-9 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white shadow-xl border border-white/10 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     Start by Exploring
                   </span>
                 </div>
@@ -694,7 +750,6 @@ export function WhoBelongsClient() {
                 avoid: 'A room where people are constantly selling to one another.',
                 choose: 'A room where people know one another well enough to help when help is needed.',
                 icon: Handshake,
-                color: 'text-blue-600 bg-blue-50 border-blue-200/80',
               },
               {
                 num: '02',
@@ -702,7 +757,6 @@ export function WhoBelongsClient() {
                 avoid: 'A room where everyone asks first without giving.',
                 choose: 'A room where people generously contribute and give before they ask.',
                 icon: HeartHandshake,
-                color: 'text-emerald-600 bg-emerald-50 border-emerald-200/80',
               },
               {
                 num: '03',
@@ -710,17 +764,35 @@ export function WhoBelongsClient() {
                 avoid: 'A casual directory full of passive contacts.',
                 choose: 'A trusted Circle full of enduring, high-conviction relationships.',
                 icon: Sparkles,
-                color: 'text-rose-600 bg-rose-50 border-rose-200/80',
               },
-            ].map((card) => {
+            ].map((card, idx) => {
               const CardIcon = card.icon
               return (
-                <GlowCard key={card.num} className="w-full">
-                  <div className="p-6 sm:p-7 flex flex-col justify-between space-y-5 h-full">
+                <div
+                  key={card.num}
+                  className="animated-glow-card group !rounded-3xl cursor-pointer"
+                  tabIndex={0}
+                  role="article"
+                >
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`choiceCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#818CF8" />
+                        <stop offset="100%" stopColor="#FB7185" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className={`animated-border-path ${idx === 1 ? 'animated-border-path-2' : idx === 2 ? 'animated-border-path-3' : ''}`}
+                      style={{ stroke: `url(#choiceCardGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="relative p-6 sm:p-7 rounded-[calc(1.5rem-1.5px)] bg-white h-full shadow-2xs flex flex-col justify-between space-y-5">
                     {/* Top Bar: Icon + Number & Tag */}
                     <div className="flex items-center justify-between">
-                      <div className={`size-10 rounded-2xl flex items-center justify-center border shadow-2xs group-hover:scale-110 transition-transform duration-300 ${card.color}`}>
-                        <CardIcon className="size-5" />
+                      <div className="size-11 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100/80 shadow-2xs group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                        <CardIcon className="size-5 text-[#1D4ED8] group-hover:scale-105 transition-transform" />
                       </div>
                       <div className="flex items-center gap-1.5">
                         <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-md">
@@ -735,14 +807,14 @@ export function WhoBelongsClient() {
                     {/* Contrast Stack */}
                     <div className="space-y-3.5 flex-1 flex flex-col justify-center">
                       {/* The Old / Avoid State */}
-                      <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs text-slate-500 line-through leading-relaxed flex items-start gap-2">
-                        <span className="text-slate-400 shrink-0 mt-0.5">✕</span>
+                      <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200/60 text-xs text-slate-500 line-through leading-relaxed flex items-start gap-2 group-hover:bg-slate-50 transition-colors">
+                        <span className="text-slate-400 shrink-0 mt-0.5 font-bold">✕</span>
                         <span>{card.avoid}</span>
                       </div>
 
                       {/* The Peer Choice / Target State */}
-                      <div className="p-3.5 rounded-xl bg-[#EFF6FF] border border-blue-200/70 text-xs sm:text-[13px] font-bold text-slate-900 leading-relaxed flex items-start gap-2 shadow-2xs group-hover:border-blue-400/80 transition-colors">
-                        <span className="text-[#0062D2] shrink-0 mt-0.5">✦</span>
+                      <div className="p-3.5 rounded-xl bg-[#EFF6FF] border border-blue-200/70 text-xs sm:text-[13px] font-bold text-slate-900 leading-relaxed flex items-start gap-2 shadow-2xs group-hover:border-blue-400 group-hover:bg-blue-50/90 transition-all">
+                        <span className="text-[#1D4ED8] shrink-0 mt-0.5">✦</span>
                         <span>{card.choose}</span>
                       </div>
                     </div>
@@ -750,25 +822,25 @@ export function WhoBelongsClient() {
                     {/* Card Footer Accent */}
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
                       <span>The PEERS Standard</span>
-                      <span className="text-[#0062D2] font-semibold group-hover:translate-x-0.5 transition-transform">Selected →</span>
+                      <span className="brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">Selected →</span>
                     </div>
                   </div>
-                </GlowCard>
+                </div>
               )
             })}
           </div>
 
           {/* Bottom Callout */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#061226] via-[#0A1A38] to-[#040D1E] text-white border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div className="p-4 sm:p-5 rounded-2xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white border border-white/10 shadow-md flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <div className="flex items-center gap-3">
               <div className="size-8 rounded-xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/15 shrink-0">
-                <Sparkles className="size-4" />
+                <Sparkles className="size-4 stroke-[url(#brandStatGrad)]" />
               </div>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
                 The answer tells you more about <strong className="text-white font-semibold">PEERS GLOBAL</strong> than any feature list ever could.
               </p>
             </div>
-            <span className="text-[11px] font-mono uppercase tracking-wider text-sky-300/80 shrink-0">
+            <span className="text-[11px] font-mono uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent shrink-0 font-bold">
               Community Essence
             </span>
           </div>
@@ -779,10 +851,12 @@ export function WhoBelongsClient() {
       {/* =========================================================================
           SECTION 8: CLOSING MANIFESTO BANNER
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-14 sm:py-18 lg:py-22 text-white border-t border-slate-800">
+      <section className="relative isolate overflow-hidden bg-[#030712] py-14 sm:py-18 lg:py-22 text-white border-t border-slate-900">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,7,18,0.98)_0%,rgba(10,4,20,0.96)_50%,rgba(20,2,10,0.98)_100%)] pointer-events-none" />
+
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_85%_50%,rgba(225,29,72,0.14),transparent_50%)]"
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -790,7 +864,7 @@ export function WhoBelongsClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   You Do Not Have To Fit Everywhere
                 </span>
               </div>

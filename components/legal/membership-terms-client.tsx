@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ShieldCheck,
   ChevronRight,
@@ -163,6 +164,22 @@ export function MembershipTermsClient() {
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
       
 
+      {/* SVG Linear Gradient Definitions for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* =========================================================================
           SECTION 1: HERO — MEMBERSHIP TERMS & COVENANT (Master Dark Video Banner)
           ========================================================================= */}
@@ -202,14 +219,16 @@ export function MembershipTermsClient() {
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>MEMBER COVENANT</span>
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  MEMBER COVENANT
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Membership Terms &amp;{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Community Charter
                   </span>
                 </h1>
@@ -230,20 +249,22 @@ export function MembershipTermsClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <a
+                <GalaxyButton
                   href="#covenant"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
-                  <span>Review the 8 Covenants</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  Review the 8 Covenants
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                  variant="transparent"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
-                  <span>Membership Overview</span>
-                </Link>
+                  Membership Overview
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -257,7 +278,7 @@ export function MembershipTermsClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE FOUNDATIONAL COMPACT
               </span>
@@ -276,20 +297,20 @@ export function MembershipTermsClient() {
               return (
                 <div
                   key={idx}
-                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-blue-200 hover:-translate-y-1 hover:bg-white transition-all duration-300"
+                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1.5 transition-all duration-300"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className={`size-12 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 ${pillar.color}`}>
-                        <Icon className="size-5.5" />
+                      <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                        <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-white border border-slate-200/80 text-slate-600 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
                         TENET 0{pillar.num}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text leading-snug cursor-pointer">
                         {pillar.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
@@ -298,9 +319,9 @@ export function MembershipTermsClient() {
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                     <span className="text-slate-400">Guaranteed Covenant</span>
-                    <span className="inline-flex items-center gap-1 text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
+                    <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
                       Protected Seat &rarr;
                     </span>
                   </div>
@@ -315,13 +336,13 @@ export function MembershipTermsClient() {
       {/* =========================================================================
           SECTION 3: FULL CHARTER ARTICLES (Executive 2-Column Matrix)
           ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+      <section id="covenant" className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200/80">
             <div className="max-w-2xl space-y-3">
-              <div className="flex items-center gap-2">
+              <div>
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   FORMAL ARTICLES
                 </span>
@@ -334,42 +355,45 @@ export function MembershipTermsClient() {
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-mono text-slate-600 shadow-2xs shrink-0">
-              <FileText className="size-4 text-[#0062D2]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-xs font-mono text-[#1D4ED8] font-bold shadow-2xs shrink-0">
+              <FileText className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               <span>Version 2.4 · Effective 2026</span>
             </div>
           </div>
 
           {/* 2-Column Articles Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
             {TERMS_ARTICLES.map((article, idx) => {
               const Icon = article.icon
-              const isOpen = openArticle === idx
               return (
                 <div
                   key={article.id}
-                  className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-6"
+                  className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6 h-full"
                 >
                   <div className="space-y-4">
                     {/* Header */}
-                    <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+                    <div className="flex items-start justify-between gap-3 pb-4 border-b border-slate-100 min-h-[64px]">
                       <div className="flex items-center gap-3">
-                        <div className="size-10 rounded-xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center shrink-0">
-                          <Icon className="size-5" />
+                        <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                         </div>
                         <div>
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
                             ARTICLE {article.num} • {article.category}
                           </span>
-                          <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                          <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                             {article.heading}
                           </h3>
                         </div>
                       </div>
+
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs shrink-0 mt-0.5">
+                        Binding
+                      </span>
                     </div>
 
                     {/* Summary */}
-                    <p className="text-xs sm:text-sm font-medium text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <p className="text-xs sm:text-sm font-medium text-slate-700 bg-[#FAFBFD] p-3.5 rounded-2xl border border-slate-200/80">
                       {article.summary}
                     </p>
 
@@ -377,7 +401,7 @@ export function MembershipTermsClient() {
                     <div className="space-y-2.5 pt-2">
                       {article.points.map((point, pIdx) => (
                         <div key={pIdx} className="flex items-start gap-3 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
-                          <span className="size-1.5 rounded-full bg-[#0062D2] mt-2 shrink-0" />
+                          <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] mt-2 shrink-0" />
                           <p>{point}</p>
                         </div>
                       ))}
@@ -387,7 +411,7 @@ export function MembershipTermsClient() {
                   {/* Card Footer Tag */}
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
                     <span>Binding Covenants</span>
-                    <span className="text-[#0062D2] font-semibold">Enforced by Board</span>
+                    <span className="brand-gradient-text font-bold">Enforced by Board</span>
                   </div>
                 </div>
               )
@@ -395,45 +419,46 @@ export function MembershipTermsClient() {
           </div>
 
           {/* Reassurance Callout */}
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-blue-200/60 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3.5">
-              <div className="size-10 rounded-xl bg-[#0062D2] text-white flex items-center justify-center shrink-0">
-                <AlertCircle className="size-5" />
+              <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs text-[#1D4ED8] flex items-center justify-center shrink-0">
+                <AlertCircle className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900">Questions Regarding Specific Terms?</h4>
+                <h4 className="text-sm sm:text-base font-bold text-slate-900">Questions Regarding Specific Terms?</h4>
                 <p className="text-xs text-slate-600 font-light mt-0.5">
                   Our Membership Experience Committee is available to clarify category boundaries and attendance covenants.
                 </p>
               </div>
             </div>
 
-            <Link
+            <GalaxyButton
               href="/contact"
-              className="px-6 py-2.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-xs font-bold uppercase tracking-wider shadow-2xs shrink-0"
+              variant="transparent"
+              size="small"
+              className="font-bold uppercase tracking-wider !text-slate-800 !border-slate-300 hover:!bg-slate-50 shrink-0"
             >
               Contact Committee
-            </Link>
+            </GalaxyButton>
           </div>
 
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 4: CLOSING MANIFESTO BANNER (Exact Homepage Dark Mesh Styling)
+          SECTION 4: CLOSING MANIFESTO BANNER (Signature Dark Brand Gradient)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
+      <section className="relative isolate overflow-hidden !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] py-16 sm:py-20 lg:py-24 text-white border-t border-white/10">
+        <div className="absolute -top-24 -left-24 size-96 rounded-full bg-gradient-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
                   BUILT ON INTEGRITY
                 </span>
               </div>
@@ -447,22 +472,25 @@ export function MembershipTermsClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
-                <Link
+                <GalaxyButton
                   href="/circles/find"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                  Find Your Circle
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 
@@ -473,7 +501,7 @@ export function MembershipTermsClient() {
               >
                 Honor &amp; <br />
                 Mutual <br />
-                <span className="text-[#7DD3FC]">Integrity</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-semibold">Integrity</span>
               </div>
             </div>
 

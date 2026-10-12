@@ -4,7 +4,6 @@ import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
-import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -287,6 +286,7 @@ export function WatchlistClient() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   PRACTITIONER TOOLKIT
                 </span>
@@ -376,6 +376,7 @@ export function WatchlistClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE GOLD STANDARD
                   </span>
@@ -462,6 +463,7 @@ export function WatchlistClient() {
           
           <div className="max-w-3xl mb-14">
             <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 CATEGORIES
               </span>
@@ -478,18 +480,17 @@ export function WatchlistClient() {
             {CATEGORIES.map((cat) => {
               const Icon = cat.icon
               return (
-                <GlowCard
+                <div
                   key={cat.id}
                   onClick={() => {
                     setSelectedCategory(cat.name)
                     const el = document.getElementById('watchlist-grid')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="cursor-pointer"
-                  innerClassName="p-7 flex flex-col justify-between space-y-4 h-full"
+                  className="p-7 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-300 transition-all cursor-pointer flex flex-col justify-between space-y-4 group"
                 >
                   <div className="space-y-3">
-                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${cat.color} group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${cat.color}`}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className="font-serif font-bold text-slate-950 text-base group-hover:text-[#0062D2] transition-colors">
@@ -504,7 +505,7 @@ export function WatchlistClient() {
                     <span>Filter entries</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
-                </GlowCard>
+                </div>
               )
             })}
           </div>
@@ -519,6 +520,7 @@ export function WatchlistClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
               <div className="flex items-center gap-2 mb-1">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   A PRACTITIONER'S LIBRARY
                 </span>
@@ -659,6 +661,7 @@ export function WatchlistClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE PROMISE
                   </span>
@@ -734,9 +737,11 @@ export function WatchlistClient() {
       <section id="recommend-tool" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2">
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
               CONTRIBUTE TO THE WATCHLIST
             </span>
+            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950">

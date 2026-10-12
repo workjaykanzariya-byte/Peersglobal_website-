@@ -190,6 +190,16 @@ export function ContactPageClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* Brand SVG Gradient definition for Lucide icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none opacity-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="contactBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Top Navigation Bar ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
@@ -202,7 +212,7 @@ export function ContactPageClient() {
           </div>
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200">
-              <Headphones className="w-3.5 h-3.5 text-[#1D4ED8]" />
+              <Headphones className="w-3.5 h-3.5 [stroke:url(#contactBrandGrad)]" />
               <span className="brand-gradient-text">Direct Human Secretariat</span>
             </span>
           </div>
@@ -264,9 +274,9 @@ export function ContactPageClient() {
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
 
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
+                {/* Eyebrow without dash bar */}
+                <div className="flex items-center gap-2.5 mb-4">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     DIRECT HUMAN SECRETARIAT
                   </span>
                 </div>
@@ -274,7 +284,7 @@ export function ContactPageClient() {
                 {/* H1 Heading */}
                 <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14] mb-4">
                   We are here <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                  <span className="brand-gradient-text">
                     to listen.
                   </span>
                 </h1>
@@ -326,11 +336,11 @@ export function ContactPageClient() {
                 {/* Quick Info Bar */}
                 <div className="flex items-center gap-6 text-xs text-slate-300 pt-2 border-t border-white/15 w-full max-w-lg">
                   <div className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#contactBrandGrad)]" />
                     <span>24–48h Secretariat SLA</span>
                   </div>
                   <div className="flex items-center gap-1.5 font-medium">
-                    <Sparkles className="w-4 h-4 text-sky-400" />
+                    <Sparkles className="w-4 h-4 [stroke:url(#contactBrandGrad)]" />
                     <span>Direct Human Handling</span>
                   </div>
                 </div>
@@ -375,13 +385,13 @@ export function ContactPageClient() {
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left Column */}
               <div className="lg:col-span-8 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold tracking-wider text-rose-300">
-                  <Smartphone className="w-3.5 h-3.5 text-blue-400" />
-                  <span className="uppercase">Already a Peer?</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold tracking-wider">
+                  <Smartphone className="w-3.5 h-3.5 [stroke:url(#contactBrandGrad)]" />
+                  <span className="uppercase brand-gradient-text font-bold">Already a Peer?</span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight">
-                  Your fastest route is inside <span className="bg-gradient-to-r from-blue-400 via-rose-300 to-rose-400 bg-clip-text text-transparent">Unity</span>.
+                  Your fastest route is inside <span className="brand-gradient-text">Unity</span>.
                 </h2>
 
                 <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
@@ -389,7 +399,7 @@ export function ContactPageClient() {
                 </p>
 
                 <div className="pt-2">
-                  <p className="text-xs uppercase font-bold tracking-wider text-slate-400 mb-2.5">
+                  <p className="text-xs uppercase font-bold tracking-wider brand-gradient-text mb-2.5">
                     Direct Community Channels for:
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -398,7 +408,7 @@ export function ContactPageClient() {
                         key={idx}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/10 text-xs text-slate-200 font-medium transition-colors"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                         {pt}
                       </span>
                     ))}
@@ -412,15 +422,15 @@ export function ContactPageClient() {
 
               {/* Right CTA */}
               <div className="lg:col-span-4 flex flex-col items-center lg:items-end justify-center space-y-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 hover:scale-105 transition-all"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Ask in the Unity App</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                  Ask in the Unity App
+                </GalaxyButton>
                 <span className="text-xs text-slate-400 text-center lg:text-right">
                   For membership, Circle matters &amp; 1-to-1 syncs
                 </span>
@@ -450,7 +460,7 @@ export function ContactPageClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SEVEN_ROUTES.map((route) => {
+            {SEVEN_ROUTES.map((route, idx) => {
               const IconComp = route.icon
               const isSelected = selectedRoute === route.title
 
@@ -462,55 +472,74 @@ export function ContactPageClient() {
                     const el = document.getElementById('send-message')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`group relative p-6 sm:p-7 rounded-2xl bg-white border transition-all duration-300 cursor-pointer flex flex-col justify-between space-y-4 ${isSelected
-                      ? 'border-[#1D4ED8] shadow-lg shadow-blue-500/10 ring-2 ring-blue-500/20 -translate-y-1.5'
-                      : 'border-slate-200 shadow-xs hover:border-[#1D4ED8]/60 hover:shadow-xl hover:shadow-blue-600/10 hover:-translate-y-2'
-                    }`}
+                  className={`animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-xl transition-all ${
+                    isSelected
+                      ? 'ring-2 ring-blue-500/50 shadow-lg shadow-blue-500/15 -translate-y-1.5'
+                      : ''
+                  }`}
+                  tabIndex={0}
+                  role="button"
                 >
-                  <div className="space-y-4">
-                    {/* Top Row: Icon + Route ID + Tag */}
-                    <div className="flex items-center justify-between">
-                      <div className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all duration-300 shadow-2xs group-hover:scale-110 group-hover:shadow-md ${route.iconBg}`}>
-                        <IconComp className="w-5 h-5 transition-transform duration-300" />
+                  <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`routeCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                      style={{ stroke: `url(#routeCardGrad-${idx})` }}
+                      d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                    />
+                  </svg>
+
+                  <div className="p-6 sm:p-7 rounded-2xl bg-white flex flex-col justify-between space-y-4 h-full">
+                    <div className="space-y-4">
+                      {/* Top Row: Icon + Route ID + Tag */}
+                      <div className="flex items-center justify-between">
+                        <div className="w-11 h-11 rounded-xl border border-slate-200/80 bg-gradient-to-br from-blue-50/80 to-rose-50/80 flex items-center justify-center transition-all duration-300 shadow-2xs group-hover:scale-110 group-hover:shadow-md">
+                          <IconComp className="w-5 h-5 [stroke:url(#contactBrandGrad)] transition-transform duration-300" />
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[11px] font-mono font-bold brand-gradient-text bg-gradient-to-br from-blue-50 to-rose-50 px-2 py-0.5 rounded-md border border-slate-200/80">
+                            ROUTE {route.id}
+                          </span>
+                          <span className="text-[11px] font-medium bg-slate-50 px-2.5 py-0.5 rounded-full border border-slate-200/60 text-slate-600 group-hover:border-slate-300 transition-all">
+                            {route.tag}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-[11px] font-mono font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200/80 group-hover:border-slate-300 transition-colors">
-                          ROUTE {route.id}
-                        </span>
-                        <span className="text-[11px] text-slate-600 font-medium bg-slate-50 px-2.5 py-0.5 rounded-full border border-slate-200/60 group-hover:bg-blue-50/70 group-hover:text-[#1D4ED8] group-hover:border-blue-200/80 transition-all">
-                          {route.tag}
-                        </span>
+
+                      {/* Title & Description */}
+                      <div className="space-y-1.5">
+                        <h3 className="text-lg font-bold text-[#0f131a] tracking-tight leading-snug brand-gradient-hover-text transition-colors">
+                          {route.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                          {route.desc}
+                        </p>
                       </div>
                     </div>
 
-                    {/* Title & Description */}
-                    <div className="space-y-1.5">
-                      <h3 className="text-lg font-bold text-[#0f131a] tracking-tight leading-snug group-hover:text-[#1D4ED8] transition-colors">
-                        {route.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        {route.desc}
-                      </p>
-                    </div>
-                  </div>
+                    {/* Bottom Action Footer */}
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                      <div className="flex items-center gap-1.5 text-slate-400 font-mono group-hover:text-slate-600 transition-colors">
+                        <Mail className="w-3.5 h-3.5 [stroke:url(#contactBrandGrad)]" />
+                        <span className="truncate max-w-[150px] sm:max-w-[170px]">{route.email}</span>
+                      </div>
 
-                  {/* Bottom Action Footer */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-1.5 text-slate-400 font-mono group-hover:text-slate-600 transition-colors">
-                      <Mail className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1D4ED8] transition-colors" />
-                      <span className="truncate max-w-[150px] sm:max-w-[170px]">{route.email}</span>
-                    </div>
-
-                    <div className={`inline-flex items-center gap-1 font-bold transition-all duration-300 ${isSelected
-                        ? 'text-[#1D4ED8]'
-                        : 'text-slate-500 group-hover:text-[#1D4ED8]'
-                      }`}>
-                      <span>{isSelected ? 'Selected' : 'Select Route'}</span>
-                      {isSelected ? (
-                        <CheckCircle className="w-4 h-4 text-[#1D4ED8]" />
-                      ) : (
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
-                      )}
+                      <div className={`inline-flex items-center gap-1 font-bold transition-all duration-300 ${isSelected
+                          ? 'brand-gradient-text'
+                          : 'text-slate-500 group-hover:text-[#1D4ED8]'
+                        }`}>
+                        <span>{isSelected ? 'Selected' : 'Select Route'}</span>
+                        {isSelected ? (
+                          <CheckCircle className="w-4 h-4 [stroke:url(#contactBrandGrad)]" />
+                        ) : (
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300 [stroke:url(#contactBrandGrad)]" />
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -544,7 +573,7 @@ export function ContactPageClient() {
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] rounded-full flex items-center justify-center mx-auto shadow-2xs">
-                  <Check className="w-8 h-8 text-[#1D4ED8]" />
+                  <Check className="w-8 h-8 [stroke:url(#contactBrandGrad)]" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#0f131a] tracking-tight">Message Routed Successfully</h3>
                 <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
@@ -677,7 +706,7 @@ export function ContactPageClient() {
                     key={idx}
                     className="p-3.5 rounded-xl bg-white border border-slate-200/90 text-xs font-medium text-slate-800 flex items-center gap-2 shadow-2xs hover:border-slate-300 transition-colors"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#1D4ED8] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#contactBrandGrad)] shrink-0" />
                     <span>{door}</span>
                   </div>
                 ))}
@@ -793,40 +822,55 @@ export function ContactPageClient() {
                 href={soc.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden ${soc.bgLight}`}
+                className="animated-glow-card group !rounded-2xl cursor-pointer shadow-xs hover:shadow-xl transition-all block h-full"
+                tabIndex={0}
+                role="article"
               >
-                {/* Top Subtle Gradient Accent Line */}
-                <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${soc.iconColor} opacity-70 group-hover:opacity-100 transition-opacity`} />
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`socCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                    style={{ stroke: `url(#socCardGrad-${idx})` }}
+                    d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                  />
+                </svg>
 
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className={`inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-tr ${soc.iconColor}`} />
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
-                      {soc.tag}
+                <div className="relative z-10 p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 h-full flex flex-col justify-between overflow-hidden">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className={`inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-tr ${soc.iconColor}`} />
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
+                        {soc.tag}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">
+                        {soc.name}
+                      </h3>
+                      <p className="text-base font-bold text-slate-900 mt-1 tracking-tight brand-gradient-hover-text transition-colors break-words">
+                        {soc.handle}
+                      </p>
+                      <p className="text-xs text-slate-500 mt-1 font-medium">
+                        {soc.category}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#1D4ED8] transition-colors">
+                    <span className="flex items-center gap-1.5 text-emerald-600 font-medium text-[11px]">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      Verified
                     </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-600 transition-colors">
-                      {soc.name}
-                    </h3>
-                    <p className="text-base font-bold text-slate-900 mt-1 tracking-tight group-hover:text-[#1D4ED8] transition-colors break-words">
-                      {soc.handle}
-                    </p>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">
-                      {soc.category}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:text-[#1D4ED8] transition-colors">
-                  <span className="flex items-center gap-1.5 text-emerald-600 font-medium text-[11px]">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    Verified
-                  </span>
-                  <div className="flex items-center gap-1 text-[11px] font-bold">
-                    <span>Visit</span>
-                    <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <div className="flex items-center gap-1 text-[11px] font-bold">
+                      <span className="brand-gradient-text">Visit</span>
+                      <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 [stroke:url(#contactBrandGrad)]" />
+                    </div>
                   </div>
                 </div>
               </a>
@@ -873,13 +917,13 @@ export function ContactPageClient() {
             {/* Left Column: Heading, Ethos & Punchline */}
             <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
               <div className="inline-flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   WE ARE LISTENING
                 </span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
-                Every meaningful relationship begins with a <span className="italic text-cyan-200">conversation.</span>
+                Every meaningful relationship begins with a <span className="italic brand-gradient-text">conversation.</span>
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">

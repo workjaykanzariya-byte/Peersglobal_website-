@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ChevronRight,
   GraduationCap,
@@ -83,15 +84,17 @@ export function LearningPillarClient() {
               
               {/* Left Column: Manifesto & Details */}
               <div className="lg:col-span-12 max-w-3xl space-y-6">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
+                <div>
+                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent inline-block">
                     GROWTH &amp; PRACTITIONER LEARNING
                   </span>
                 </div>
 
                 <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 tracking-tight leading-[1.14]">
-                    Learning
+                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-white tracking-tight leading-[1.14]">
+                    <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                      Learning
+                    </span>
                   </h1>
                   <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
                     From people who built the thing they are teaching. Not theory. What actually works.
@@ -104,47 +107,97 @@ export function LearningPillarClient() {
                   </p>
 
                   {/* 4 Pillar Badges */}
-                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                     {[
-                      { text: '100+ Annual Masterclasses', icon: GraduationCap },
-                      { text: '20-Min Concise Actionable Formats', icon: Clock },
-                      { text: 'Taught Only by Active Founders', icon: Users },
-                      { text: 'Verified Business Playbooks', icon: FileText },
+                      {
+                        text: '100+ Annual Masterclasses',
+                        svgPath: (
+                          <>
+                            <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                            <path d="M22 10v6" />
+                            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                          </>
+                        ),
+                      },
+                      {
+                        text: '20-Min Concise Actionable Formats',
+                        svgPath: (
+                          <>
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                          </>
+                        ),
+                      },
+                      {
+                        text: 'Taught Only by Active Founders',
+                        svgPath: (
+                          <>
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                          </>
+                        ),
+                      },
+                      {
+                        text: 'Verified Business Playbooks',
+                        svgPath: (
+                          <>
+                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                            <path d="M10 9H8" />
+                            <path d="M16 13H8" />
+                            <path d="M16 17H8" />
+                          </>
+                        ),
+                      },
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-sm"
+                        className="p-3 rounded-2xl bg-white/5 border border-white/10 text-xs font-semibold text-white flex items-center gap-2.5 backdrop-blur-sm"
                       >
-                        <item.icon className="size-4 shrink-0 text-sky-400" />
+                        <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <defs>
+                            <linearGradient id={`heroPillGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor="#38BDF8" />
+                              <stop offset="50%" stopColor="#818CF8" />
+                              <stop offset="100%" stopColor="#FB7185" />
+                            </linearGradient>
+                          </defs>
+                          <g stroke={`url(#heroPillGrad-${idx})`}>
+                            {item.svgPath}
+                          </g>
+                        </svg>
                         <span>{item.text}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
-                    <Sparkles className="size-4 shrink-0 text-sky-400" />
+                  <div className="border-l-2 border-[#FB7185] pl-3 py-0.5 text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
+                    <Sparkles className="size-4 shrink-0 text-[#38BDF8]" />
                     <span>&ldquo;A Peer who understands their market makes better decisions and gives better advice to the room.&rdquo;</span>
                   </div>
                 </div>
 
                 <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                  <Link
+                  <GalaxyButton
                     href="/apply"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                    size="lg"
+                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                   >
-                    <span>Join Peers Global</span>
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                    Join Peers Global
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#masterclasses"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white font-bold text-xs sm:text-sm transition-all uppercase tracking-wider"
+                    variant="transparent"
+                    size="lg"
+                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                   >
-                    <span>View Masterclasses</span>
-                  </a>
+                    View Masterclasses
+                  </GalaxyButton>
                 </div>
               </div>
-
 
             </div>
           </div>
@@ -152,31 +205,77 @@ export function LearningPillarClient() {
           {/* Floating Stats Bar */}
           <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
             {[
-              { icon: GraduationCap, number: '100+', label: 'Masterclasses Annually' },
-              { icon: ShieldCheck, number: '100%', label: 'Practitioner Proven' },
-              { icon: Users, number: '18+', label: 'Industry Circles' },
-              { icon: TrendingUp, number: '₹10+ Cr', label: 'Compounded Value' },
-            ].map((stat, i) => {
-              const Icon = stat.icon
-              return (
-                <div
-                  key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Icon className="size-5" />
+              {
+                number: '100+',
+                label: 'Masterclasses Annually',
+                svgPath: (
+                  <>
+                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                    <path d="M22 10v6" />
+                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                  </>
+                ),
+              },
+              {
+                number: '100%',
+                label: 'Practitioner Proven',
+                svgPath: (
+                  <>
+                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </>
+                ),
+              },
+              {
+                number: '18+',
+                label: 'Industry Circles',
+                svgPath: (
+                  <>
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </>
+                ),
+              },
+              {
+                number: '₹10+ Cr',
+                label: 'Compounded Value',
+                svgPath: (
+                  <>
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                    <polyline points="16 7 22 7 22 13" />
+                  </>
+                ),
+              },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300 group"
+              >
+                <div className="shrink-0">
+                  <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <defs>
+                      <linearGradient id={`learnStatGrad-${i}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <g stroke={`url(#learnStatGrad-${i})`}>
+                      {stat.svgPath}
+                    </g>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+                    {stat.number}
                   </div>
-                  <div>
-                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
-                      {stat.number}
-                    </div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
-                      {stat.label}
-                    </div>
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                    {stat.label}
                   </div>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
 
         </div>
@@ -191,8 +290,8 @@ export function LearningPillarClient() {
               {/* Left Narrative */}
               <div className="lg:col-span-7 space-y-5">
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <div className="mb-2">
+                    <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                       THE FOUNDATIONAL PILLAR
                     </span>
                   </div>
@@ -217,13 +316,21 @@ export function LearningPillarClient() {
               {/* Right Quote Card */}
               <div className="lg:col-span-5">
                 <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-md flex flex-col justify-center items-center text-center relative overflow-hidden space-y-3">
-                  <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-2xs">
-                    <Shield className="size-6" />
+                  <div className="shrink-0">
+                    <svg className="size-8" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <defs>
+                        <linearGradient id="shieldQuoteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" stroke="url(#shieldQuoteGrad)" />
+                    </svg>
                   </div>
                   <blockquote className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
                     &ldquo;Learn from practitioners with skin in the game, never from textbook theorists.&rdquo;
                   </blockquote>
-                  <p className="text-xs font-bold uppercase tracking-widest text-[#0062D2]">
+                  <p className="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                     — Peers Global Principle
                   </p>
                 </div>
@@ -240,8 +347,8 @@ export function LearningPillarClient() {
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2 max-w-2xl">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div className="mb-1">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   MONTHLY SESSIONS
                 </span>
               </div>
@@ -254,7 +361,17 @@ export function LearningPillarClient() {
             </div>
 
             <div className="p-3 rounded-2xl bg-white border border-slate-200/90 text-xs text-slate-700 font-semibold shadow-2xs shrink-0 flex items-center gap-2">
-              <Presentation className="size-4 text-[#0062D2]" />
+              <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <defs>
+                  <linearGradient id="presGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path d="M2 3h20" stroke="url(#presGrad)" />
+                <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" stroke="url(#presGrad)" />
+                <path d="m7 21 5-5 5 5" stroke="url(#presGrad)" />
+              </svg>
               <span>Programmed by Skill Development Leaders</span>
             </div>
           </div>
@@ -264,42 +381,95 @@ export function LearningPillarClient() {
               {
                 title: 'Working Capital & Vendor Terms',
                 category: 'Finance & Cashflow',
-                icon: Coins,
+                svgPath: (
+                  <>
+                    <circle cx="8" cy="8" r="6" />
+                    <path d="M18.09 10.37A6 6 0 1 1 10.34 18" />
+                    <path d="M7 6h1v4" />
+                    <path d="m16.71 13.88.7.71-2.82 2.82" />
+                  </>
+                ),
                 desc: 'How to structure vendor contracts and credit cycles without falling into liquidity traps during rapid order expansion.',
                 duration: '20 mins',
               },
               {
                 title: 'Institutional Sales & Enterprise Bidding',
                 category: 'B2B Sales',
-                icon: Building,
+                svgPath: (
+                  <>
+                    <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+                    <path d="M9 22v-4h6v4" />
+                    <path d="M8 6h.01" />
+                    <path d="M16 6h.01" />
+                    <path d="M12 6h.01" />
+                    <path d="M12 10h.01" />
+                    <path d="M12 14h.01" />
+                    <path d="M16 10h.01" />
+                    <path d="M16 14h.01" />
+                    <path d="M8 10h.01" />
+                    <path d="M8 14h.01" />
+                  </>
+                ),
                 desc: 'Bypassing brokers and winning corporate accounts through relationship governance and SLA benchmarks.',
                 duration: '20 mins',
               },
               {
                 title: 'Second-Line Leadership Hiring',
                 category: 'Operations',
-                icon: Workflow,
+                svgPath: (
+                  <>
+                    <rect width="8" height="8" x="3" y="3" rx="2" />
+                    <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+                    <rect width="8" height="8" x="13" y="13" rx="2" />
+                  </>
+                ),
                 desc: 'Transitioning from founder-dependent management to professionalized general managers and division heads.',
                 duration: '20 mins',
               },
               {
                 title: 'Cross-Border MSME Trade Compliance',
                 category: 'Global Trade',
-                icon: Compass,
+                svgPath: (
+                  <>
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                  </>
+                ),
                 desc: 'Navigating export documentation, letter of credit risk, and distributor alignment in Southeast Asia and Middle East.',
                 duration: '20 mins',
               },
               {
                 title: 'Automation & ERP for Mid-Market Plants',
                 category: 'Technology',
-                icon: Cpu,
+                svgPath: (
+                  <>
+                    <rect width="16" height="16" x="4" y="4" rx="2" />
+                    <rect width="6" height="6" x="9" y="9" rx="1" />
+                    <path d="M15 2v2" />
+                    <path d="M15 20v2" />
+                    <path d="M2 15h2" />
+                    <path d="M2 9h2" />
+                    <path d="M20 15h2" />
+                    <path d="M20 9h2" />
+                    <path d="M9 2v2" />
+                    <path d="M9 20v2" />
+                  </>
+                ),
                 desc: 'Deploying cost-effective inventory visibility without overspending on bloated multi-year software packages.',
                 duration: '20 mins',
               },
               {
                 title: 'Brand Moats in Traditional Industries',
                 category: 'Brand & Growth',
-                icon: Sparkles,
+                svgPath: (
+                  <>
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                    <path d="M5 3v4" />
+                    <path d="M19 17v4" />
+                    <path d="M3 5h4" />
+                    <path d="M17 19h4" />
+                  </>
+                ),
                 desc: 'Building premium pricing power in commodity manufacturing through trust certification and storytelling.',
                 duration: '20 mins',
               },
@@ -310,8 +480,18 @@ export function LearningPillarClient() {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-2xs group-hover:scale-110 transition-transform">
-                      <cls.icon className="size-5" />
+                    <div className="shrink-0">
+                      <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <defs>
+                          <linearGradient id={`clsGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#1D4ED8" />
+                            <stop offset="100%" stopColor="#E11D48" />
+                          </linearGradient>
+                        </defs>
+                        <g stroke={`url(#clsGrad-${idx})`}>
+                          {cls.svgPath}
+                        </g>
+                      </svg>
                     </div>
                     <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-[10px] font-mono font-bold text-slate-600">
                       {cls.duration}
@@ -319,10 +499,10 @@ export function LearningPillarClient() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#0062D2] font-bold block">
+                    <span className="text-[10px] font-mono uppercase tracking-widest bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-bold block">
                       {cls.category}
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
                       {cls.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
@@ -331,9 +511,9 @@ export function LearningPillarClient() {
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#0062D2]">
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
                   <span>Included in Membership</span>
-                  <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform text-[#1D4ED8] group-hover:text-[#E11D48]" />
                 </div>
               </div>
             ))}
@@ -345,11 +525,14 @@ export function LearningPillarClient() {
       {/* ─── SECTION 4: SIGNATURE LUXURY CLOSING HERO BANNER ─── */}
       <section
         id="download-unity"
-        className="relative py-20 lg:py-28 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-slate-800"
+        className="relative py-20 lg:py-28 text-white overflow-hidden border-t border-slate-800"
+        style={{
+          background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+        }}
       >
         {/* Ambient Glows */}
-        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
 
         {/* SVG Orbital Geometric Lines Background */}
         <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
@@ -368,8 +551,8 @@ export function LearningPillarClient() {
             
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div>
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   CONTINUOUS LEARNING
                 </span>
               </div>
@@ -392,22 +575,24 @@ export function LearningPillarClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
-                >
-                  <span>Apply for Membership</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  <span>Open Unity App →</span>
-                </a>
+                  Open Unity App
+                </GalaxyButton>
+
+                <GalaxyButton
+                  href="/membership"
+                  variant="transparent"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
+                >
+                  Apply for Membership →
+                </GalaxyButton>
               </div>
             </div>
 
@@ -432,7 +617,7 @@ export function LearningPillarClient() {
                 Scale.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Lead.

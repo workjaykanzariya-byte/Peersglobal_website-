@@ -45,21 +45,18 @@ const ROUTING_STRUCTURE = [
     leader: 'Executive Director',
     desc: 'Local territory & city-level ecosystem stewardship.',
     icon: MapPin,
-    color: 'border-blue-200 bg-blue-50/70 text-[#0062D2]',
   },
   {
     target: 'By Industry',
     leader: 'Industry Director',
     desc: 'Sector-wide ecosystem orchestration & domain expertise.',
     icon: TrendingUp,
-    color: 'border-purple-200 bg-purple-50/70 text-purple-700',
   },
   {
     target: 'Otherwise',
     leader: 'Central Team',
     desc: 'Global strategy, Advisory Board alignment & cross-regional synergy.',
     icon: Globe2,
-    color: 'border-amber-200 bg-amber-50/70 text-amber-700',
   },
 ]
 
@@ -265,7 +262,27 @@ export function ApplyToLeadClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAFBFD] text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#0062D2]">
+    <div className="min-h-screen bg-[#FAFBFD] text-slate-900 font-sans selection:bg-[#EFF6FF] selection:text-[#1D4ED8]">
+      {/* Global Shared SVG Gradient Definition for Brand Icons & Card Borders */}
+      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandIconGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
       
       {/* ─── Breadcrumbs ─── */}
       <div className="border-b border-slate-200/80 bg-white">
@@ -308,15 +325,17 @@ export function ApplyToLeadClient() {
               
               {/* Left Column: Manifesto & Value */}
               <div className="lg:col-span-12 max-w-3xl space-y-6">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
-                    LEADERSHIP APPLICATION
-                  </span>
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#FB7185] animate-pulse" />
+                  <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">LEADERSHIP APPLICATION</span>
                 </div>
 
                 <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 tracking-tight leading-[1.14]">
-                    Apply to Lead
+                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-white tracking-tight leading-[1.14]">
+                    Apply to{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                      Lead
+                    </span>
                   </h1>
                   <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
                     Leadership begins when contribution becomes responsibility.
@@ -351,7 +370,7 @@ export function ApplyToLeadClient() {
                     If you have built something, led something, brought people together, or created meaningful contribution beyond your own business, there is a place for that experience here.
                   </p>
                   <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
-                    <Sparkles className="size-4 shrink-0 text-sky-400" />
+                    <Sparkles className="size-4 shrink-0 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
                     <span>This form is the beginning of that conversation.</span>
                   </div>
                 </div>
@@ -360,7 +379,8 @@ export function ApplyToLeadClient() {
                   <GalaxyButton
                     onClick={handleScrollToForm}
                     variant="primary"
-                    size="md"
+                    size="default"
+                    className="font-bold uppercase tracking-wider"
                   >
                     Begin Application
                   </GalaxyButton>
@@ -370,7 +390,8 @@ export function ApplyToLeadClient() {
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="transparent"
-                    size="md"
+                    size="default"
+                    className="font-bold uppercase tracking-wider"
                   >
                     Open Unity App
                   </GalaxyButton>
@@ -383,42 +404,42 @@ export function ApplyToLeadClient() {
 
           {/* Floating Stats Bar */}
           <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <Users className="size-5" />
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+              <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                <Users className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">6 Roles</div>
+                <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">6 Roles</div>
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Pathway Levels</div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <Building2 className="size-5" />
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+              <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                <Building2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">18 Circles</div>
+                <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">18 Circles</div>
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">City Ecosystems</div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <Award className="size-5" />
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+              <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                <Award className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">100%</div>
+                <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">100%</div>
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Service Driven</div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <Globe2 className="size-5" />
+            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+              <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                <Globe2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">National</div>
+                <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">National</div>
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Network Reach</div>
               </div>
             </div>
@@ -434,7 +455,7 @@ export function ApplyToLeadClient() {
           {submitted ? (
             /* Success State */
             <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl text-center space-y-6">
-              <div className="size-16 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto shadow-sm">
+              <div className="size-16 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center mx-auto shadow-md">
                 <Check className="size-8" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
@@ -445,11 +466,11 @@ export function ApplyToLeadClient() {
                 Your journey begins with a conversation, and our leadership team will review your submission according to your city and industry routing.
               </p>
               
-              <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-100 max-w-md mx-auto text-left space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-900 block">
+              <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 max-w-md mx-auto text-left space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent block">
                   What to expect next:
                 </span>
-                <p className="text-xs text-blue-950/80 leading-relaxed font-light">
+                <p className="text-xs text-slate-700 leading-relaxed font-light">
                   • <strong>City Routing:</strong> Executive Director review<br />
                   • <strong>Industry Routing:</strong> Industry Director review<br />
                   • <strong>Direct Contact:</strong> A conversation within 48-72 hours
@@ -495,7 +516,7 @@ export function ApplyToLeadClient() {
                           isActive
                             ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm'
                             : isPassed
-                            ? 'bg-blue-50 text-[#0062D2] border border-blue-100'
+                            ? 'bg-blue-50 text-[#1D4ED8] border border-blue-100'
                             : 'text-slate-400 hover:text-slate-700 bg-slate-50'
                         }`}
                       >
@@ -509,14 +530,14 @@ export function ApplyToLeadClient() {
               
               {/* ── PART 1: TELL US ABOUT YOURSELF ── */}
               {currentStep === 1 && (
-                <div id="form-step-1" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-slate-300 transition-all duration-300 space-y-6 scroll-mt-24">
+                <div id="form-step-1" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-200 transition-all duration-300 space-y-6 scroll-mt-24">
                   <div className="flex items-start justify-between">
                     <div className="space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="size-6 rounded-full bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center text-xs font-bold font-mono">
+                        <span className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center text-xs font-bold font-mono shadow-2xs">
                           01
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                        <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                           PERSONAL BACKGROUND
                         </span>
                       </div>
@@ -527,8 +548,8 @@ export function ApplyToLeadClient() {
                         We would like to understand the entrepreneur behind the application.
                       </p>
                     </div>
-                    <div className="size-11 rounded-2xl bg-blue-50 border border-blue-100 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
-                      <Users className="size-5" />
+                    <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
+                      <Users className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
                   </div>
 
@@ -546,7 +567,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 ${
                           errors.fullName
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.fullName && (
@@ -569,7 +590,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 ${
                           errors.email
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.email && (
@@ -595,7 +616,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 ${
                           errors.phone
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.phone && (
@@ -618,7 +639,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 ${
                           errors.city
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.city && (
@@ -636,7 +657,7 @@ export function ApplyToLeadClient() {
                     <button
                       type="button"
                       onClick={() => goToNextStep(2)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 02</span>
                       <ArrowRight className="size-3.5" />
@@ -647,14 +668,14 @@ export function ApplyToLeadClient() {
 
               {/* ── PART 2: YOUR BUSINESS ── */}
               {currentStep === 2 && (
-                <div id="form-step-2" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-slate-300 transition-all duration-300 space-y-6 scroll-mt-24">
+                <div id="form-step-2" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-200 transition-all duration-300 space-y-6 scroll-mt-24">
                   <div className="flex items-start justify-between">
                     <div className="space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="size-6 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center text-xs font-bold font-mono">
+                        <span className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center text-xs font-bold font-mono shadow-2xs">
                           02
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">
+                        <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                           ENTERPRISE OVERVIEW
                         </span>
                       </div>
@@ -665,13 +686,13 @@ export function ApplyToLeadClient() {
                         Tell us about the enterprise you have built.
                       </p>
                     </div>
-                    <div className="size-11 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
-                      <Building2 className="size-5" />
+                    <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
+                      <Building2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
                   </div>
 
                   <div className="text-xs text-slate-600 bg-slate-50/80 p-3.5 rounded-2xl border border-slate-200/70 font-light leading-relaxed flex items-center gap-2.5">
-                    <Sparkles className="size-4 text-[#0062D2] shrink-0" />
+                    <Sparkles className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
                     <span>The purpose is not to create a résumé, but to understand the operational wisdom you share with peers.</span>
                   </div>
 
@@ -689,7 +710,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 ${
                           errors.businessName
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.businessName && (
@@ -712,7 +733,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 ${
                           errors.industry
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.industry && (
@@ -735,7 +756,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 font-light ${
                           errors.businessDescription
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.businessDescription && (
@@ -758,7 +779,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 ${
                           errors.yearsBuilding
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.yearsBuilding && (
@@ -780,7 +801,7 @@ export function ApplyToLeadClient() {
                     <button
                       type="button"
                       onClick={() => goToNextStep(3)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 03</span>
                       <ArrowRight className="size-3.5" />
@@ -791,14 +812,14 @@ export function ApplyToLeadClient() {
 
               {/* ── PART 3: YOUR LEADERSHIP EXPERIENCE ── */}
               {currentStep === 3 && (
-                <div id="form-step-3" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-slate-300 transition-all duration-300 space-y-6 scroll-mt-24">
+                <div id="form-step-3" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-200 transition-all duration-300 space-y-6 scroll-mt-24">
                   <div className="flex items-start justify-between">
                     <div className="space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="size-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center text-xs font-bold font-mono">
+                        <span className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center text-xs font-bold font-mono shadow-2xs">
                           03
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
+                        <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                           TRACK RECORD
                         </span>
                       </div>
@@ -809,8 +830,8 @@ export function ApplyToLeadClient() {
                         Leadership takes many forms. Select all that match your journey.
                       </p>
                     </div>
-                    <div className="size-11 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
-                      <Award className="size-5" />
+                    <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
+                      <Award className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
                   </div>
 
@@ -831,7 +852,7 @@ export function ApplyToLeadClient() {
                             onClick={() => toggleLeadershipForm(form)}
                             className={`flex items-start gap-3 p-3.5 rounded-2xl text-left text-xs font-medium transition-all cursor-pointer border ${
                               isChecked
-                                ? 'bg-blue-50/90 border-blue-400 text-[#0062D2] shadow-2xs'
+                                ? 'bg-gradient-to-r from-blue-50 to-indigo-50 border-indigo-300 text-indigo-900 shadow-2xs'
                                 : errors.selectedForms
                                 ? 'bg-rose-50/10 border-rose-200 text-slate-700 hover:border-rose-400'
                                 : 'bg-slate-50/80 border-slate-200/90 text-slate-700 hover:border-slate-300'
@@ -840,7 +861,7 @@ export function ApplyToLeadClient() {
                             <div
                               className={`size-4 rounded-md mt-0.5 flex items-center justify-center shrink-0 border ${
                                 isChecked
-                                  ? 'bg-[#0062D2] border-[#0062D2] text-white'
+                                  ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-transparent text-white'
                                   : 'border-slate-300 bg-white'
                               }`}
                             >
@@ -871,7 +892,7 @@ export function ApplyToLeadClient() {
                       className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 font-light ${
                         errors.leadershipExperienceDetails
                           ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                          : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                          : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                       }`}
                     />
                     {errors.leadershipExperienceDetails && (
@@ -892,7 +913,7 @@ export function ApplyToLeadClient() {
                     <button
                       type="button"
                       onClick={() => goToNextStep(4)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 04</span>
                       <ArrowRight className="size-3.5" />
@@ -903,26 +924,26 @@ export function ApplyToLeadClient() {
 
               {/* ── PART 4: THE QUESTION THAT MATTERS ── */}
               {currentStep === 4 && (
-                <div id="form-step-4" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-white via-white to-blue-50/30 border-2 border-blue-200/90 shadow-sm space-y-6 scroll-mt-24">
+                <div id="form-step-4" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border-2 border-indigo-200/90 shadow-sm space-y-6 scroll-mt-24">
                   <div className="flex items-start justify-between">
                     <div className="space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="size-6 rounded-full bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center text-xs font-bold font-mono">
+                        <span className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center text-xs font-bold font-mono shadow-2xs">
                           04
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-wider text-rose-600">
+                        <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                           CRITICAL REFLECTION
                         </span>
                       </div>
                       <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
                         The Question That Matters
                       </h2>
-                      <p className="text-sm font-semibold text-[#0062D2]">
+                      <p className="text-sm font-semibold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                         Have you built or led something beyond your own business?
                       </p>
                     </div>
-                    <div className="size-11 rounded-2xl bg-rose-50 border border-rose-100 text-rose-600 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
-                      <Quote className="size-5" />
+                    <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
+                      <Quote className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
                   </div>
 
@@ -945,7 +966,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 font-light ${
                           errors.whatYouBuilt
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.whatYouBuilt && (
@@ -968,7 +989,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 font-light ${
                           errors.whatYouLed
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.whatYouLed && (
@@ -991,7 +1012,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 font-light ${
                           errors.whatYouLearned
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.whatYouLearned && (
@@ -1014,7 +1035,7 @@ export function ApplyToLeadClient() {
                         className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all placeholder:text-slate-400 font-light ${
                           errors.peopleLesson
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 bg-rose-50/20'
-                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100'
+                            : 'border-slate-200 bg-slate-50/80 focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100'
                         }`}
                       />
                       {errors.peopleLesson && (
@@ -1025,7 +1046,7 @@ export function ApplyToLeadClient() {
                     </div>
                   </div>
 
-                  <div className="pt-4 flex items-center justify-between border-t border-blue-100">
+                  <div className="pt-4 flex items-center justify-between border-t border-slate-100">
                     <button
                       type="button"
                       onClick={() => goToPrevStep(3)}
@@ -1036,7 +1057,7 @@ export function ApplyToLeadClient() {
                     <button
                       type="button"
                       onClick={() => goToNextStep(5)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 05</span>
                       <ArrowRight className="size-3.5" />
@@ -1047,14 +1068,14 @@ export function ApplyToLeadClient() {
 
               {/* ── PART 5: IF YOU ARE THINKING ABOUT FOUNDING A CIRCLE ── */}
               {currentStep === 5 && (
-                <div id="form-step-5" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-slate-300 transition-all duration-300 space-y-6 scroll-mt-24">
+                <div id="form-step-5" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-200 transition-all duration-300 space-y-6 scroll-mt-24">
                   <div className="flex items-start justify-between">
                     <div className="space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="size-6 rounded-full bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center text-xs font-bold font-mono">
+                        <span className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center text-xs font-bold font-mono shadow-2xs">
                           05
                         </span>
-                        <span className="text-xs font-bold uppercase tracking-wider text-amber-700">
+                        <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                           OPTIONAL PATHWAY
                         </span>
                       </div>
@@ -1065,8 +1086,8 @@ export function ApplyToLeadClient() {
                         Leadership can begin with convening founders in your city or industry.
                       </p>
                     </div>
-                    <div className="size-11 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
-                      <Globe2 className="size-5" />
+                    <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
+                      <Globe2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
                   </div>
 
@@ -1102,10 +1123,10 @@ export function ApplyToLeadClient() {
                     </div>
 
                     {formData.isFoundingCircle === 'Yes' && (
-                      <div className="p-6 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-4 pt-4">
+                      <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 pt-4">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-xs font-semibold text-amber-950 mb-1">
+                            <label className="block text-xs font-semibold text-slate-900 mb-1">
                               City — Where would you like to build the Circle? <span className="text-rose-500">*</span>
                             </label>
                             <input
@@ -1115,7 +1136,7 @@ export function ApplyToLeadClient() {
                               onChange={handleInputChange}
                               placeholder="Target City / Region"
                               className={`w-full px-3.5 py-2.5 rounded-xl bg-white border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all ${
-                                errors.foundingCity ? 'border-rose-500 focus:border-rose-500 ring-2 ring-rose-100' : 'border-amber-200'
+                                errors.foundingCity ? 'border-rose-500 focus:border-rose-500 ring-2 ring-rose-100' : 'border-slate-300'
                               }`}
                             />
                             {errors.foundingCity && (
@@ -1126,7 +1147,7 @@ export function ApplyToLeadClient() {
                           </div>
 
                           <div>
-                            <label className="block text-xs font-semibold text-amber-950 mb-1">
+                            <label className="block text-xs font-semibold text-slate-900 mb-1">
                               Industry — Which community would you bring together? <span className="text-rose-500">*</span>
                             </label>
                             <input
@@ -1136,7 +1157,7 @@ export function ApplyToLeadClient() {
                               onChange={handleInputChange}
                               placeholder="Target Sector or Cross-Industry"
                               className={`w-full px-3.5 py-2.5 rounded-xl bg-white border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all ${
-                                errors.foundingIndustry ? 'border-rose-500 focus:border-rose-500 ring-2 ring-rose-100' : 'border-amber-200'
+                                errors.foundingIndustry ? 'border-rose-500 focus:border-rose-500 ring-2 ring-rose-100' : 'border-slate-300'
                               }`}
                             />
                             {errors.foundingIndustry && (
@@ -1147,7 +1168,7 @@ export function ApplyToLeadClient() {
                           </div>
 
                           <div className="sm:col-span-2">
-                            <label className="block text-xs font-semibold text-amber-950 mb-1">
+                            <label className="block text-xs font-semibold text-slate-900 mb-1">
                               Your Network — How many entrepreneurs could you realistically convene for first conversations? <span className="text-rose-500">*</span>
                             </label>
                             <select
@@ -1155,7 +1176,7 @@ export function ApplyToLeadClient() {
                               value={formData.networkSize}
                               onChange={handleInputChange}
                               className={`w-full px-3.5 py-2.5 rounded-xl bg-white border text-xs sm:text-sm text-slate-900 focus:outline-none transition-all ${
-                                errors.networkSize ? 'border-rose-500 focus:border-rose-500 ring-2 ring-rose-100' : 'border-amber-200'
+                                errors.networkSize ? 'border-rose-500 focus:border-rose-500 ring-2 ring-rose-100' : 'border-slate-300'
                               }`}
                             >
                               <option value="">Select an estimate</option>
@@ -1171,7 +1192,7 @@ export function ApplyToLeadClient() {
                           </div>
                         </div>
 
-                        <p className="text-xs text-amber-900/80 italic font-light pt-1">
+                        <p className="text-xs text-slate-600 italic font-light pt-1">
                           You do not need to have everything figured out today. But you should have a genuine conviction that the right peers can convene.
                         </p>
                       </div>
@@ -1189,7 +1210,7 @@ export function ApplyToLeadClient() {
                     <button
                       type="button"
                       onClick={() => goToNextStep(6)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 06</span>
                       <ArrowRight className="size-3.5" />
@@ -1201,14 +1222,14 @@ export function ApplyToLeadClient() {
               {/* ── PART 6: ANYTHING ELSE & SUBMIT ── */}
               {currentStep === 6 && (
                 <div className="space-y-6 sm:space-y-8">
-                  <div id="form-step-6" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-slate-300 transition-all duration-300 space-y-6 scroll-mt-24">
+                  <div id="form-step-6" className="group relative flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-200 transition-all duration-300 space-y-6 scroll-mt-24">
                     <div className="flex items-start justify-between">
                       <div className="space-y-1.5">
                         <div className="flex items-center gap-2">
-                          <span className="size-6 rounded-full bg-slate-100 text-slate-700 border border-slate-200 flex items-center justify-center text-xs font-bold font-mono">
+                          <span className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center text-xs font-bold font-mono shadow-2xs">
                             06
                           </span>
-                          <span className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                          <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                             ADDITIONAL NOTES
                           </span>
                         </div>
@@ -1219,8 +1240,8 @@ export function ApplyToLeadClient() {
                           Share whatever else defines your leadership purpose.
                         </p>
                       </div>
-                      <div className="size-11 rounded-2xl bg-slate-100 border border-slate-200 text-slate-600 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
-                        <Briefcase className="size-5" />
+                      <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs hidden sm:flex">
+                        <Briefcase className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
                     </div>
 
@@ -1231,7 +1252,7 @@ export function ApplyToLeadClient() {
                         value={formData.anythingElse}
                         onChange={handleInputChange}
                         placeholder="Sometimes the most useful part of an application is what does not fit neatly into a form field..."
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200 text-xs sm:text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-[#0062D2] focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400 font-light"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200 text-xs sm:text-sm text-slate-900 focus:outline-none focus:bg-white focus:border-[#1D4ED8] focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400 font-light"
                       />
                     </div>
 
@@ -1250,27 +1271,34 @@ export function ApplyToLeadClient() {
                   </div>
 
                   {/* ── PART 7: BEFORE YOU SUBMIT REFLECTION CARD ── */}
-                  <div id="form-review-submit" className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white rounded-3xl p-7 sm:p-10 shadow-xl space-y-6 border border-slate-800 scroll-mt-24">
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="size-4 text-amber-400" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-amber-300">
+                  <div
+                    id="form-review-submit"
+                    style={{
+                      background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                    }}
+                    className="text-white rounded-3xl p-7 sm:p-10 shadow-xl space-y-6 border border-white/10 relative overflow-hidden scroll-mt-24"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+                    <div className="relative z-10 flex items-center gap-2">
+                      <Sparkles className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
+                      <span className="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                         BEFORE YOU SUBMIT
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold">
+                    <h3 className="relative z-10 text-lg sm:text-xl font-bold">
                       Please take a moment to consider:
                     </h3>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                       {REFLECTION_QUESTIONS.map((q, idx) => (
                         <div
                           key={q}
                           className={`p-4 rounded-2xl border border-white/10 bg-white/5 flex items-start gap-3 ${
-                            idx === 4 ? 'sm:col-span-2 border-amber-400/30 bg-amber-400/10' : ''
+                            idx === 4 ? 'sm:col-span-2 border-indigo-400/30 bg-indigo-500/10' : ''
                           }`}
                         >
-                          <span className="text-xs font-mono font-bold text-sky-300">{`0${idx + 1}`}</span>
+                          <span className="text-xs font-mono font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">{`0${idx + 1}`}</span>
                           <p className={`text-xs sm:text-sm ${idx === 4 ? 'text-amber-200 font-bold' : 'text-slate-200 font-light'}`}>
                             {q}
                           </p>
@@ -1278,7 +1306,7 @@ export function ApplyToLeadClient() {
                       ))}
                     </div>
 
-                    <div className="pt-4 flex justify-between items-center">
+                    <div className="relative z-10 pt-4 flex justify-between items-center">
                       <button
                         type="button"
                         onClick={() => goToPrevStep(5)}
@@ -1290,7 +1318,8 @@ export function ApplyToLeadClient() {
                         type="submit"
                         disabled={isSubmitting}
                         variant="primary"
-                        size="md"
+                        size="default"
+                        className="font-bold uppercase tracking-wider"
                       >
                         {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
                       </GalaxyButton>
@@ -1309,13 +1338,13 @@ export function ApplyToLeadClient() {
       <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12 space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                 ROUTING & REVIEW
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
-              What happens after you apply?
+              What happens <span className="brand-gradient-text">after you apply?</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
               Your application is reviewed according to where your experience and proposed contribution may best connect within the PEERS GLOBAL ecosystem.
@@ -1329,34 +1358,47 @@ export function ApplyToLeadClient() {
               return (
                 <div
                   key={route.target}
-                  className="group relative flex flex-col justify-between p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-200 hover:-translate-y-1.5 transition-all duration-300"
+                  className="animated-glow-card group !rounded-3xl"
                 >
-                  <div className="space-y-5">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
-                        {route.target}
-                      </span>
-                      <div className="size-11 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-700 group-hover:bg-blue-50 group-hover:text-[#0062D2] group-hover:border-blue-100 transition-colors shadow-2xs">
-                        <Icon className="size-5" />
+                  <svg className="animated-border-svg" aria-hidden="true">
+                    <rect
+                      x="1"
+                      y="1"
+                      width="calc(100% - 2px)"
+                      height="calc(100% - 2px)"
+                      rx="24"
+                      ry="24"
+                      className="animated-border-path"
+                    />
+                  </svg>
+                  <div className="relative flex flex-col justify-between p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full">
+                    <div className="space-y-5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-3 py-1 rounded-full shadow-2xs">
+                          {route.target}
+                        </span>
+                        <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center text-slate-700 group-hover:scale-105 transition-transform shadow-2xs">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <ArrowRight className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] group-hover:translate-x-1 transition-transform" />
+                          <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">
+                            {route.leader}
+                          </h3>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                          {route.desc}
+                        </p>
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <ArrowRight className="size-4 text-[#0062D2] group-hover:translate-x-1 transition-transform" />
-                        <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-                          {route.leader}
-                        </h3>
-                      </div>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                        {route.desc}
-                      </p>
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400 group-hover:text-[#1D4ED8] transition-colors">
+                      <span>Ecosystem Track</span>
+                      <span>0{idx + 1}</span>
                     </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400 group-hover:text-[#0062D2] transition-colors">
-                    <span>Ecosystem Track</span>
-                    <span>0{idx + 1}</span>
                   </div>
                 </div>
               )
@@ -1364,7 +1406,7 @@ export function ApplyToLeadClient() {
           </div>
 
           <div className="mt-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-blue-50/70 via-indigo-50/40 to-slate-50 border border-blue-100 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="size-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
+            <div className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 shadow-md">
               <Sparkles className="size-5" />
             </div>
             <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
@@ -1388,14 +1430,14 @@ export function ApplyToLeadClient() {
               {/* Left Column: Heading & Value Points */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                       NO FIXED ASSUMPTIONS
                     </span>
                   </div>
 
                   <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-tight">
-                    Leadership is a conversation
+                    Leadership is a <span className="brand-gradient-text">conversation</span>
                   </h2>
 
                   <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
@@ -1413,7 +1455,7 @@ export function ApplyToLeadClient() {
                       key={idx}
                       className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:bg-blue-50/40 hover:border-blue-200 transition-all duration-300"
                     >
-                      <div className="size-6 rounded-full bg-blue-100/70 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                      <div className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                         <Check className="size-3.5 stroke-[3]" />
                       </div>
                       <p className="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
@@ -1424,7 +1466,7 @@ export function ApplyToLeadClient() {
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-slate-50 border border-blue-200/70 flex items-center gap-3">
-                  <Sparkles className="size-5 text-[#0062D2] shrink-0" />
+                  <Sparkles className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
                   <p className="font-semibold text-slate-900 text-xs sm:text-sm leading-relaxed">
                     That is enough to begin the conversation. The right role will become clear through dialogue.
                   </p>
@@ -1433,17 +1475,23 @@ export function ApplyToLeadClient() {
 
               {/* Right Column: Spotlight Dialogue Card */}
               <div className="lg:col-span-5">
-                <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white p-7 sm:p-9 shadow-xl border border-slate-800 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div className="size-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-sky-300 flex items-center justify-center shadow-inner">
-                      <Quote className="size-6" />
+                <div
+                  style={{
+                    background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                  }}
+                  className="relative rounded-3xl text-white p-7 sm:p-9 shadow-xl border border-white/10 space-y-6 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+                  <div className="relative z-10 flex items-center justify-between">
+                    <div className="size-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-inner">
+                      <Quote className="size-6 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-sky-300 bg-white/10 px-3 py-1 rounded-full border border-white/10">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent bg-white/10 px-3 py-1 rounded-full border border-white/10">
                       STEWARDSHIP
                     </span>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="relative z-10 space-y-3">
                     <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
                       A Dialogue of Contribution
                     </h3>
@@ -1452,7 +1500,7 @@ export function ApplyToLeadClient() {
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center gap-3">
+                  <div className="relative z-10 pt-4 border-t border-white/10 flex items-center gap-3">
                     <div className="size-9 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] flex items-center justify-center text-white font-bold text-xs shadow-sm">
                       PG
                     </div>
@@ -1471,7 +1519,7 @@ export function ApplyToLeadClient() {
       </section>
 
       {/* ─── SECTION: CLOSING HERO BANNER ─────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28">
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28 border-t border-slate-800">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.18),transparent_50%),radial-gradient(circle_at_82%_12%,rgba(99,102,241,0.15),transparent_50%)]"
@@ -1482,7 +1530,7 @@ export function ApplyToLeadClient() {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-rose-500/10 blur-3xl"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1490,14 +1538,17 @@ export function ApplyToLeadClient() {
             
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   PEERS GLOBAL LEADERSHIP
                 </span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
-                Your leadership journey may begin here.
+                Your leadership journey{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                  may begin here.
+                </span>
               </h2>
 
               <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-2xl">
@@ -1509,7 +1560,8 @@ export function ApplyToLeadClient() {
                 <GalaxyButton
                   onClick={handleScrollToForm}
                   variant="primary"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Apply to Lead
                 </GalaxyButton>
@@ -1519,7 +1571,8 @@ export function ApplyToLeadClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -1547,7 +1600,7 @@ export function ApplyToLeadClient() {
                 Communities.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 A Brighter Tomorrow.
@@ -1561,3 +1614,4 @@ export function ApplyToLeadClient() {
     </div>
   )
 }
+

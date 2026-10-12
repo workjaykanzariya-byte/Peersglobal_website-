@@ -4,7 +4,6 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
-import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -137,6 +136,7 @@ export function PeerToPeerClient() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
+                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   ONE-TO-ONE COLLABORATION
                 </span>
@@ -228,6 +228,7 @@ export function PeerToPeerClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE MECHANISM OF TRUST
                   </span>
@@ -304,6 +305,7 @@ export function PeerToPeerClient() {
           
           <div className="max-w-3xl mb-12">
             <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE FRAMEWORK
               </span>
@@ -375,6 +377,7 @@ export function PeerToPeerClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     DEPTH OVER FRAGMENTS
                   </span>
@@ -447,6 +450,7 @@ export function PeerToPeerClient() {
           
           <div className="max-w-3xl mb-12">
             <div className="flex items-center gap-2 mb-1">
+              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE 6 STAGES
               </span>
@@ -461,21 +465,22 @@ export function PeerToPeerClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {HOW_THEY_WORK_STEPS.map((s) => (
-              <GlowCard key={s.number} className="w-full">
-                <div className="p-6 flex items-start gap-4 h-full">
-                  <span className="w-10 h-10 rounded-2xl bg-[#0062D2] text-white font-mono font-bold text-xs flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all duration-300">
-                    {s.number}
-                  </span>
-                  <div className="space-y-1">
-                    <h3 className="font-serif font-bold text-slate-950 text-base group-hover:text-[#0062D2] transition-colors">
-                      {s.name}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      {s.desc}
-                    </p>
-                  </div>
+              <div
+                key={s.number}
+                className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex items-start gap-4"
+              >
+                <span className="w-10 h-10 rounded-2xl bg-[#0062D2] text-white font-mono font-bold text-xs flex items-center justify-center shrink-0 shadow-xs">
+                  {s.number}
+                </span>
+                <div className="space-y-1">
+                  <h3 className="font-serif font-bold text-slate-950 text-base">
+                    {s.name}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    {s.desc}
+                  </p>
                 </div>
-              </GlowCard>
+              </div>
             ))}
           </div>
 
@@ -492,64 +497,60 @@ export function PeerToPeerClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Box 1: HOW MANY? */}
-            <GlowCard className="w-full">
-              <div className="p-8 sm:p-10 flex flex-col justify-between space-y-6 h-full">
-                <div className="space-y-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 group-hover:scale-110 transition-transform duration-300">
-                    <Clock className="w-5 h-5 text-[#1D4ED8]" />
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
-                    HOW MANY?
-                  </h3>
-                  <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                    <p>
-                      One Peer-to-Peer meeting is an introduction. Repeated conversations can become a relationship.
-                    </p>
-                    <p>
-                      The appropriate frequency and participation model follows the operating protocol established by PEERS GLOBAL.
-                    </p>
-                    <p className="text-slate-900 font-medium pt-1">
-                      What matters is not creating a target number of meetings. What matters is creating meaningful relationships.
-                    </p>
-                  </div>
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100">
+                  <Clock className="w-5 h-5" />
                 </div>
-                <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0062D2]">
-                  Depth over volume • Continuous engagement
+                <h3 className="text-2xl font-serif font-bold text-slate-950">
+                  HOW MANY?
+                </h3>
+                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <p>
+                    One Peer-to-Peer meeting is an introduction. Repeated conversations can become a relationship.
+                  </p>
+                  <p>
+                    The appropriate frequency and participation model follows the operating protocol established by PEERS GLOBAL.
+                  </p>
+                  <p className="text-slate-900 font-medium pt-1">
+                    What matters is not creating a target number of meetings. What matters is creating meaningful relationships.
+                  </p>
                 </div>
               </div>
-            </GlowCard>
+              <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0062D2]">
+                Depth over volume • Continuous engagement
+              </div>
+            </div>
 
             {/* Box 2: BEYOND YOUR OWN CIRCLE */}
-            <GlowCard className="w-full">
-              <div className="p-8 sm:p-10 flex flex-col justify-between space-y-6 h-full">
-                <div className="space-y-4">
-                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100 group-hover:scale-110 transition-transform duration-300">
-                    <Globe2 className="w-5 h-5 text-[#6366F1]" />
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-slate-950 group-hover:text-[#6366F1] transition-colors">
-                    BEYOND YOUR OWN CIRCLE
-                  </h3>
-                  <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                    <p>
-                      Your Circle may be where you begin. It does not have to be where your relationships end.
-                    </p>
-                    <div className="space-y-1 pl-3 border-l-2 border-purple-400 text-xs text-slate-700 font-medium">
-                      <p>• Within your Circle</p>
-                      <p>• Across another Circle</p>
-                      <p>• Across another industry</p>
-                      <p>• Across another city</p>
-                      <p>• Or with someone whose experience is completely different from yours</p>
-                    </div>
-                    <p className="text-slate-900 font-semibold pt-1">
-                      Your Circle is your Inner Board. But your Peer network can become much larger.
-                    </p>
-                  </div>
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100">
+                  <Globe2 className="w-5 h-5" />
                 </div>
-                <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-purple-700">
-                  Cross-city & cross-industry connection engine
+                <h3 className="text-2xl font-serif font-bold text-slate-950">
+                  BEYOND YOUR OWN CIRCLE
+                </h3>
+                <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                  <p>
+                    Your Circle may be where you begin. It does not have to be where your relationships end.
+                  </p>
+                  <div className="space-y-1 pl-3 border-l-2 border-purple-400 text-xs text-slate-700 font-medium">
+                    <p>• Within your Circle</p>
+                    <p>• Across another Circle</p>
+                    <p>• Across another industry</p>
+                    <p>• Across another city</p>
+                    <p>• Or with someone whose experience is completely different from yours</p>
+                  </div>
+                  <p className="text-slate-900 font-semibold pt-1">
+                    Your Circle is your Inner Board. But your Peer network can become much larger.
+                  </p>
                 </div>
               </div>
-            </GlowCard>
+              <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-purple-700">
+                Cross-city & cross-industry connection engine
+              </div>
+            </div>
 
           </div>
         </div>
@@ -564,6 +565,7 @@ export function PeerToPeerClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
+                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     THE CODE OF CONDUCT
                   </span>

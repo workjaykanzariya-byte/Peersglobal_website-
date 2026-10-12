@@ -88,7 +88,46 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <SiteShell>{children}</SiteShell>
+          <SiteShell>
+            {/* Global SVG Gradients for Icons & Cards */}
+            <svg
+              className="absolute w-0 h-0 overflow-hidden pointer-events-none"
+              aria-hidden="true"
+              focusable="false"
+              style={{ position: 'absolute', width: 0, height: 0 }}
+            >
+              <defs>
+                {/* Signature Brand Gradient for Icons (objectBoundingBox default) */}
+                <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#1D4ED8" />
+                  <stop offset="50%" stopColor="#6366F1" />
+                  <stop offset="100%" stopColor="#E11D48" />
+                </linearGradient>
+
+                {/* Hero / Dark Stat Icon Gradient */}
+                <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#38BDF8" />
+                  <stop offset="50%" stopColor="#818CF8" />
+                  <stop offset="100%" stopColor="#FB7185" />
+                </linearGradient>
+
+                {/* Culture & Card Gradient */}
+                <linearGradient id="cultureCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#1D4ED8" />
+                  <stop offset="50%" stopColor="#6366F1" />
+                  <stop offset="100%" stopColor="#E11D48" />
+                </linearGradient>
+
+                {/* Horizontal Brand Gradient */}
+                <linearGradient id="brandGradHorizontal" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#1D4ED8" />
+                  <stop offset="50%" stopColor="#6366F1" />
+                  <stop offset="100%" stopColor="#E11D48" />
+                </linearGradient>
+              </defs>
+            </svg>
+            {children}
+          </SiteShell>
         </DesignProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

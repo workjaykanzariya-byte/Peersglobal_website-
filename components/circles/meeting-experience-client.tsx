@@ -27,6 +27,7 @@ import {
   Sparkles,
   ShieldAlert,
   CalendarCheck,
+  X,
 } from 'lucide-react'
 
 // ─── Four Agenda Segments ──────────────────────────────────────────────────
@@ -160,6 +161,21 @@ export function MeetingExperienceClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
+      {/* Hidden global SVG gradient definitions for icons across the page */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* =================================================================
           SECTION 1: HERO — MASTER FULL PAGE DARK VIDEO BANNER
@@ -203,7 +219,7 @@ export function MeetingExperienceClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Inside a Circle Meeting —{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     The Four-Part Agenda
                   </span>
                 </h1>
@@ -241,7 +257,7 @@ export function MeetingExperienceClient() {
                 ].map((s) => (
                   <div key={s.label} className="flex items-center gap-2.5 p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
                     <div>
-                      <div className="font-bold text-base sm:text-xl text-white leading-none">{s.value}</div>
+                      <div className="font-bold text-base sm:text-xl bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent leading-none">{s.value}</div>
                       <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
                     </div>
                   </div>
@@ -275,7 +291,7 @@ export function MeetingExperienceClient() {
                   <p className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                     Put twelve entrepreneurs in a room without structure and you get a pleasant conversation that produces nothing.
                   </p>
-                  <p className="text-sm sm:text-base font-semibold text-blue-600 mt-2">
+                  <p className="text-sm sm:text-base font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent mt-2">
                     The agenda is what turns goodwill into real business outcomes.
                   </p>
                 </div>
@@ -309,14 +325,14 @@ export function MeetingExperienceClient() {
 
             {/* Right Column: High-Impact Illuminated Quote Card */}
             <div className="lg:col-span-5 flex flex-col">
-              <div className="h-full relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#0B1528] via-slate-900 to-[#0F1E36] text-white shadow-xl flex flex-col justify-between overflow-hidden border border-slate-800">
+              <div className="h-full relative p-8 sm:p-10 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white shadow-xl flex flex-col justify-between overflow-hidden border border-white/10">
                 {/* Glow & Backdrop circles */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/15 rounded-full blur-2xl pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-rose-600/15 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-rose-600/20 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="relative z-10">
-                  <div className="size-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-blue-400 mb-6 shadow-inner">
-                    <Quote className="size-6 -scale-x-100" />
+                  <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-rose-500/20 border border-blue-400/30 flex items-center justify-center mb-6 shadow-inner">
+                    <Quote className="size-6 stroke-[url(#brandStatGrad)] -scale-x-100 text-sky-300" />
                   </div>
 
                   <p className="text-xl sm:text-2xl font-semibold text-slate-100 leading-relaxed mb-6">
@@ -326,16 +342,16 @@ export function MeetingExperienceClient() {
 
                 <div className="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-blue-300">The Peers Principle</p>
+                    <p className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] to-[#FB7185] bg-clip-text text-transparent">The Peers Principle</p>
                     <p className="text-xs text-slate-400">Consistency across 500+ Circles</p>
                   </div>
-                  <Link
+                  <GalaxyButton
                     href="/the-idea"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-bold text-white transition-all"
+                    variant="transparent"
+                    size="sm"
                   >
-                    <span>Read The Idea</span>
-                    <ArrowRight className="size-3.5" />
-                  </Link>
+                    Read The Idea
+                  </GalaxyButton>
                 </div>
               </div>
             </div>
@@ -365,92 +381,149 @@ export function MeetingExperienceClient() {
           </div>
 
           {/* 4-Step Pipeline Flow */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {SEGMENTS.map((seg, i) => {
-              const isSelected = activeSegment === i
-              return (
-                <div
-                  key={seg.num}
-                  onClick={() => setActiveSegment(isSelected ? null : i)}
-                  className={`group relative flex flex-col rounded-3xl bg-white border transition-all duration-300 cursor-pointer overflow-hidden ${
-                    isSelected
-                      ? 'border-blue-500 shadow-xl shadow-blue-500/10 ring-2 ring-blue-500/20'
-                      : 'border-slate-200/90 shadow-sm hover:border-slate-300 hover:shadow-md'
-                  }`}
-                >
-                  {/* Top Status Header */}
-                  <div className={`p-6 pb-5 ${seg.numBg} border-b ${seg.borderColor}/40 relative`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className="inline-flex items-center justify-center size-9 rounded-xl font-bold text-sm text-white shadow-sm"
-                        style={{ backgroundColor: seg.accentColor }}
-                      >
-                        {seg.num}
-                      </span>
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 border border-slate-200/60 text-xs font-semibold text-slate-700 shadow-2xs">
-                        <Clock className="size-3 text-slate-500" />
-                        {seg.time}
-                      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 items-stretch">
+            {SEGMENTS.map((seg, i) => (
+              <div
+                key={seg.num}
+                onClick={() => setActiveSegment(i)}
+                className="group cursor-pointer rounded-2xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 hover:-translate-y-1"
+                tabIndex={0}
+                role="button"
+                aria-haspopup="dialog"
+                aria-label={`View full details for ${seg.title}`}
+              >
+                {/* Top Row: Number Badge & Time */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center justify-center size-10 rounded-2xl font-bold text-sm text-white shadow-sm bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] group-hover:scale-105 transition-transform">
+                      {seg.num}
+                    </span>
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-700 shadow-2xs">
+                      <Clock className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      {seg.time}
                     </div>
+                  </div>
 
-                    <p className="text-base font-bold text-slate-900 leading-snug">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
                       {seg.title}
-                    </p>
-                    <p className="text-xs font-semibold mt-1" style={{ color: seg.accentColor }}>
+                    </h3>
+                    <p className="text-xs font-bold mt-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                       {seg.tagline}
                     </p>
                   </div>
 
-                  {/* Body Info */}
-                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {seg.body.slice(0, 140)}...
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {seg.body.slice(0, 130)}...
+                  </p>
+                </div>
+
+                {/* Footer / Core Signal & Click for Popup */}
+                <div className="space-y-3 pt-4 border-t border-slate-100 mt-5">
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+                      Core Signal
+                    </div>
+                    <p className="text-xs font-semibold text-slate-800 leading-tight">
+                      {seg.signal}
                     </p>
+                  </div>
 
-                    {/* Signal Pill */}
-                    <div className="pt-3 border-t border-slate-100">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                        Core Signal
-                      </div>
-                      <p className="text-xs font-medium text-slate-800 leading-tight">
-                        {seg.signal}
-                      </p>
+                  <div className="pt-2 flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-500 group-hover:text-[#1D4ED8] transition-colors">
+                      View full breakdown
+                    </span>
+                    <div className="size-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all shadow-2xs">
+                      <ChevronRight className="size-3.5" />
                     </div>
-
-                    {/* Expand Detail Drawer */}
-                    {isSelected && (
-                      <div className="pt-3 border-t border-slate-100 space-y-3 animate-in fade-in duration-200 text-left">
-                        {seg.quote && (
-                          <div className={`p-3 rounded-xl ${seg.numBg} ${seg.borderColor} border`}>
-                            <p className="text-xs font-bold leading-snug" style={{ color: seg.accentColor }}>
-                              {seg.quote}
-                            </p>
-                          </div>
-                        )}
-                        <p className="text-xs text-slate-600 leading-relaxed">{seg.body}</p>
-                        <div>
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Why it matters</p>
-                          <p className="text-xs text-slate-600 leading-relaxed">{seg.why}</p>
-                        </div>
-                      </div>
-                    )}
-
-                    <div className="pt-2 flex items-center justify-between">
-                      <span className="text-xs font-bold text-slate-500 group-hover:text-blue-600 transition-colors">
-                        {isSelected ? 'Collapse details' : 'View breakdown'}
-                      </span>
-                      <div
-                        className="size-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-blue-600 group-hover:text-white transition-all"
-                      >
-                        <ChevronRight className={`size-3.5 transition-transform duration-200 ${isSelected ? 'rotate-90' : ''}`} />
-                      </div>
-                    </div>
-
                   </div>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
+
+          {/* =================================================================
+              MODAL POPUP CARD (Shows full detail when a card is clicked)
+              ================================================================= */}
+          {activeSegment !== null && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200"
+              onClick={() => setActiveSegment(null)}
+              role="dialog"
+              aria-modal="true"
+            >
+              <div
+                className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl border border-slate-200 shadow-2xl p-6 sm:p-9 space-y-6 text-left animate-in zoom-in-95 duration-200"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setActiveSegment(null)}
+                  className="absolute top-5 right-5 size-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+                  aria-label="Close dialog"
+                >
+                  <X className="size-5" />
+                </button>
+
+                {/* Pop Card Header */}
+                <div className="flex items-start gap-4 pr-10">
+                  <span className="inline-flex items-center justify-center size-12 rounded-2xl font-bold text-lg text-white shadow-md bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shrink-0">
+                    {SEGMENTS[activeSegment].num}
+                  </span>
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-[#1D4ED8] mb-2">
+                      <Clock className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      {SEGMENTS[activeSegment].time}
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                      {SEGMENTS[activeSegment].title}
+                    </h3>
+                    <p className="text-sm font-bold mt-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                      {SEGMENTS[activeSegment].tagline}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Highlight Quote */}
+                {SEGMENTS[activeSegment].quote && (
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-50/70 to-rose-50/70 border border-blue-100 flex items-start gap-3">
+                    <Quote className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                    <p className="text-sm sm:text-base font-bold leading-relaxed bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
+                      {SEGMENTS[activeSegment].quote}
+                    </p>
+                  </div>
+                )}
+
+                {/* Full Body Narrative */}
+                <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">What Happens in the Room</h4>
+                    <p>{SEGMENTS[activeSegment].body}</p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1.5">Why It Matters</h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{SEGMENTS[activeSegment].why}</p>
+                  </div>
+                </div>
+
+                {/* Core Signal & Action Link */}
+                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">Core Signal</span>
+                    <span className="text-xs sm:text-sm font-semibold text-slate-800">"{SEGMENTS[activeSegment].signal}"</span>
+                  </div>
+                  <GalaxyButton
+                    href={SEGMENTS[activeSegment].ctaHref}
+                    variant="primary"
+                    size="sm"
+                  >
+                    {SEGMENTS[activeSegment].ctaText}
+                  </GalaxyButton>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Quick Summary Strip */}
           <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-sm">
@@ -490,7 +563,7 @@ export function MeetingExperienceClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SAME STRUCTURE, BIGGER POSSIBILITIES</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-4">
                 What you walk away with
               </h2>
               <p className="text-base text-slate-600 leading-relaxed mb-10">
@@ -501,12 +574,12 @@ export function MeetingExperienceClient() {
                 {WALK_AWAY.map((item) => {
                   const Icon = item.icon
                   return (
-                    <div key={item.label} className="flex flex-col items-start p-4 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-                      <div className="size-9 rounded-full bg-white text-[#0062D2] flex items-center justify-center mb-3 shadow-2xs">
-                        <Icon className="size-4" />
+                    <div key={item.label} className="group flex flex-col items-start p-4 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 hover:shadow-md transition-all duration-200">
+                      <div className="size-10 rounded-xl bg-white border border-blue-100 flex items-center justify-center mb-3 shadow-2xs group-hover:scale-105 transition-transform">
+                        <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
-                      <p className="text-sm font-bold text-[#0F172A] mb-0.5">{item.label}</p>
-                      <p className="text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
+                      <p className="text-sm font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-1">{item.label}</p>
+                      <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                     </div>
                   )
                 })}
@@ -518,7 +591,7 @@ export function MeetingExperienceClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">BETWEEN MEETINGS</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-6">
                 The Circle works all month.
               </h2>
 
@@ -537,10 +610,10 @@ export function MeetingExperienceClient() {
                     body: 'An introduction promised at a roundtable becomes a call the following week. A referral becomes a client. And it all gets declared at the next Gratitude & Life Impact Round.',
                   },
                 ].map((item) => (
-                  <div key={item.title} className="flex gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:shadow-md transition-shadow">
-                    <div className="size-2 rounded-full bg-emerald-500 shrink-0 mt-2" />
+                  <div key={item.title} className="group flex gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-md transition-all">
+                    <div className="size-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0 mt-2" />
                     <div>
-                      <p className="text-sm font-bold text-[#0F172A] mb-1">{item.title}</p>
+                      <p className="text-sm font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-1">{item.title}</p>
                       <p className="text-sm text-slate-600 leading-relaxed">{item.body}</p>
                     </div>
                   </div>
@@ -548,13 +621,13 @@ export function MeetingExperienceClient() {
               </div>
 
               <div className="mt-6">
-                <Link
+                <GalaxyButton
                   href="/unity"
-                  className="rounded-full border border-[#0062D2] text-[#0062D2] hover:bg-[#0062D2] hover:text-white px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2"
+                  variant="transparent-light"
+                  size="md"
                 >
                   See How Unity Works
-                  <ArrowRight className="size-4" />
-                </Link>
+                </GalaxyButton>
               </div>
             </div>
 
@@ -565,7 +638,7 @@ export function MeetingExperienceClient() {
       {/* =================================================================
           SECTION 5: TESTIMONIAL CAROUSEL
           ================================================================= */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-900 via-[#0B1528] to-slate-950 text-white relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white relative overflow-hidden border-y border-white/10">
         {/* Background ambient glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-blue-600/15 to-rose-600/15 blur-3xl pointer-events-none rounded-full" />
 
@@ -574,15 +647,15 @@ export function MeetingExperienceClient() {
             
             {/* Top eyebrow pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-8">
-              <Sparkles className="size-3.5 text-blue-400" />
-              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-blue-200">
+              <Sparkles className="size-3.5 stroke-[url(#brandStatGrad)] text-sky-300" />
+              <span className="text-[11px] font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                 PEER VOICES & EXPERIENCES
               </span>
             </div>
 
             {/* Testimonial Card */}
             <div className="w-full bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl relative">
-              <Quote className="size-12 text-blue-400/25 absolute top-6 left-6 -scale-x-100 pointer-events-none" />
+              <Quote className="size-12 stroke-[url(#brandStatGrad)] text-blue-400/25 absolute top-6 left-6 -scale-x-100 pointer-events-none" />
 
               <div className="relative z-10 flex flex-col items-center text-center">
                 <p className="text-xl sm:text-2xl lg:text-[28px] font-medium text-slate-100 leading-relaxed max-w-3xl mb-8">
@@ -590,13 +663,13 @@ export function MeetingExperienceClient() {
                 </p>
 
                 <div className="flex items-center gap-4 pt-6 border-t border-white/10">
-                  <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-500/20">
+                  <div className="size-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-500/20">
                     {TESTIMONIALS[testimonialIdx].name[0]}
                   </div>
                   <div className="text-left">
                     <p className="text-base font-bold text-white tracking-tight">{TESTIMONIALS[testimonialIdx].name}</p>
                     <p className="text-xs sm:text-sm text-slate-400 font-medium">
-                      {TESTIMONIALS[testimonialIdx].role} <span className="text-blue-400">·</span> {TESTIMONIALS[testimonialIdx].circle}
+                      {TESTIMONIALS[testimonialIdx].role} <span className="text-rose-400">·</span> {TESTIMONIALS[testimonialIdx].circle}
                     </p>
                   </div>
                 </div>
@@ -611,7 +684,7 @@ export function MeetingExperienceClient() {
                       onClick={() => setTestimonialIdx(i)}
                       aria-label={`Go to slide ${i + 1}`}
                       className={`h-2 rounded-full transition-all duration-300 ${
-                        i === testimonialIdx ? 'bg-gradient-to-r from-blue-400 to-indigo-400 w-8' : 'bg-white/20 hover:bg-white/40 w-2'
+                        i === testimonialIdx ? 'bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] w-8' : 'bg-white/20 hover:bg-white/40 w-2'
                       }`}
                     />
                   ))}
@@ -670,10 +743,10 @@ export function MeetingExperienceClient() {
                     { icon: '🤝', title: 'No high-pressure selling', text: 'Nobody will pitch or pressure you. You are there to observe the dynamic and culture.' },
                     { icon: '📞', title: 'Single courtesy follow-up', text: 'A Circle Director will call once afterwards simply to hear your genuine feedback.' },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50/70 border border-slate-100 hover:border-blue-100 hover:bg-blue-50/30 transition-all">
+                    <div key={i} className="group flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50/70 border border-slate-100 hover:border-blue-200 hover:bg-gradient-to-br hover:from-blue-50/40 hover:to-rose-50/40 transition-all">
                       <span className="text-xl shrink-0 mt-0.5">{item.icon}</span>
                       <div>
-                        <p className="text-xs sm:text-sm font-bold text-slate-900 mb-0.5">{item.title}</p>
+                        <p className="text-xs sm:text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-0.5">{item.title}</p>
                         <p className="text-xs text-slate-600 leading-relaxed">{item.text}</p>
                       </div>
                     </div>
@@ -685,14 +758,13 @@ export function MeetingExperienceClient() {
                 <p className="text-xs sm:text-sm text-slate-500 italic mb-4">
                   "Most entrepreneurs visit, take a week to reflect, and then apply. That is exactly how it should work."
                 </p>
-                <Link
+                <GalaxyButton
                   href="/circles/find"
-                  className="rounded-xl bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-sm shadow-blue-500/20"
+                  variant="primary"
+                  size="md"
                 >
-                  <CalendarCheck className="size-4" />
                   Visit a Circle as Guest
-                  <ArrowRight className="size-4 ml-1" />
-                </Link>
+                </GalaxyButton>
               </div>
             </div>
 
@@ -700,7 +772,7 @@ export function MeetingExperienceClient() {
             <div className="lg:col-span-6 bg-white rounded-3xl border border-rose-200/80 p-6 sm:p-9 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-rose-600">THE CODE OF THE ROOM</span>
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">THE CODE OF THE ROOM</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
                   What is not allowed
@@ -713,12 +785,12 @@ export function MeetingExperienceClient() {
                   {RULES.map((rule) => {
                     const Icon = rule.icon
                     return (
-                      <div key={rule.rule} className="flex items-start gap-4 p-4 rounded-2xl bg-rose-50/60 border border-rose-100/80 hover:bg-rose-50 transition-all">
-                        <div className="size-10 rounded-xl bg-white border border-rose-200 text-rose-600 flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                          <Icon className="size-5" />
+                      <div key={rule.rule} className="group flex items-start gap-4 p-4 rounded-2xl bg-rose-50/60 border border-rose-100/80 hover:bg-gradient-to-r hover:from-rose-50/80 hover:to-blue-50/60 hover:border-rose-200 transition-all">
+                        <div className="size-10 rounded-xl bg-white border border-rose-200 flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)] text-rose-600" />
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-slate-900 mb-1">{rule.rule}</p>
+                          <p className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-1">{rule.rule}</p>
                           <p className="text-xs text-slate-600 leading-relaxed">{rule.detail}</p>
                         </div>
                       </div>
@@ -728,14 +800,13 @@ export function MeetingExperienceClient() {
               </div>
 
               <div className="pt-4 border-t border-rose-100">
-                <Link
+                <GalaxyButton
                   href="/culture-and-code"
-                  className="rounded-xl border border-rose-300 text-rose-600 hover:bg-rose-50 px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2"
+                  variant="transparent-light"
+                  size="md"
                 >
-                  <ShieldAlert className="size-4" />
                   Read Full Culture & Code
-                  <ArrowRight className="size-4 ml-1" />
-                </Link>
+                </GalaxyButton>
               </div>
             </div>
 
@@ -754,7 +825,7 @@ export function MeetingExperienceClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-4">
                 Frequently asked questions
               </h2>
               <p className="text-base text-slate-500 leading-relaxed mb-6">
@@ -778,14 +849,14 @@ export function MeetingExperienceClient() {
                   return (
                     <div
                       key={i}
-                      className={`rounded-2xl border transition-all ${isOpen ? 'border-[#DCEBFE] bg-[#F0F7FF]' : 'border-slate-200 bg-white'}`}
+                      className={`rounded-2xl border transition-all ${isOpen ? 'border-[#DCEBFE] bg-gradient-to-r from-blue-50/50 via-indigo-50/30 to-rose-50/30' : 'border-slate-200 bg-white hover:border-slate-300'}`}
                     >
                       <button
                         onClick={() => setOpenFaq(isOpen ? null : i)}
-                        className="w-full flex items-center justify-between p-5 text-left gap-4 cursor-pointer"
+                        className="w-full flex items-center justify-between p-5 text-left gap-4 cursor-pointer group"
                       >
-                        <span className={`text-sm font-semibold leading-snug ${isOpen ? 'text-[#0062D2]' : 'text-[#0F172A]'}`}>{faq.q}</span>
-                        <ChevronDown className={`size-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#0062D2]' : 'text-slate-400'}`} />
+                        <span className={`text-sm font-semibold leading-snug transition-all ${isOpen ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-bold' : 'text-[#0F172A] group-hover:text-[#1D4ED8]'}`}>{faq.q}</span>
+                        <ChevronDown className={`size-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 stroke-[url(#brandIconGrad)] text-[#1D4ED8]' : 'text-slate-400'}`} />
                       </button>
                       {isOpen && (
                         <div className="px-5 pb-5">

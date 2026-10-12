@@ -19,6 +19,7 @@ import {
   CheckCircle2,
   XCircle,
   HelpCircle,
+  FileText,
 } from 'lucide-react'
 
 export function GiveFirstClient() {
@@ -73,7 +74,7 @@ export function GiveFirstClient() {
               {/* Main Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tight text-white leading-[1.08]">
                 Give First. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                   Contribute Before You Ask.
                 </span>
               </h1>
@@ -109,11 +110,11 @@ export function GiveFirstClient() {
                   <div className="text-[11px] text-slate-300 font-medium">Founding Rule</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
-                  <div className="text-lg sm:text-xl font-bold text-sky-300">100%</div>
+                  <div className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#818CF8]">100%</div>
                   <div className="text-[11px] text-slate-300 font-medium">Peer Alignment</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
-                  <div className="text-lg sm:text-xl font-bold text-rose-300">Zero</div>
+                  <div className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#818CF8] to-[#FB7185]">Zero</div>
                   <div className="text-[11px] text-slate-300 font-medium">Transaction Pitching</div>
                 </div>
               </div>
@@ -134,7 +135,7 @@ export function GiveFirstClient() {
                 Share · Lift Others
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 That&apos;s How We Grow
@@ -149,8 +150,8 @@ export function GiveFirstClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-4 max-w-4xl">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 border border-[#1D4ED8]/20 flex items-center justify-center text-[#1D4ED8] shrink-0 mt-1">
-                <Handshake className="w-7 h-7" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-1 shadow-2xs">
+                <Handshake className="w-7 h-7 stroke-[url(#brandIconGrad)]" />
               </div>
               <div className="space-y-2">
                 <h2 className="text-xl sm:text-2xl font-serif text-slate-900 font-bold">
@@ -185,7 +186,7 @@ export function GiveFirstClient() {
                 <p className="text-sm text-slate-600 leading-relaxed">
                   The reason is simple. In a room where everyone is waiting to see what they receive, nobody moves. Giving feels risky. Asking feels premature. So people exchange cards, say something polite, and nothing happens.
                 </p>
-                <div className="p-4 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 border border-[#1D4ED8]/20 text-xs font-semibold text-[#1D4ED8] leading-relaxed">
+                <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/50 border border-slate-200 text-xs font-semibold text-[#1D4ED8] leading-relaxed">
                   <strong>Give-First removes the waiting.</strong> When contribution is the entry condition rather than a hoped-for outcome, the first move is already made.
                 </div>
               </div>
@@ -196,7 +197,9 @@ export function GiveFirstClient() {
 
             {/* Center: Dr. Pravin Parmar Quote Card */}
             <div className="lg:col-span-4 p-8 rounded-3xl bg-gradient-to-br from-blue-50/50 via-white to-rose-50/50 border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center space-y-5">
-              <Quote className="w-12 h-12 text-[#1D4ED8]/40" />
+              <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs">
+                <Quote className="w-6 h-6 stroke-[url(#brandIconGrad)]" />
+              </div>
               <p className="text-2xl sm:text-3xl font-serif italic text-slate-900 leading-snug">
                 &ldquo;A community is not built by what we take, but by what we give.&rdquo;
               </p>
@@ -217,8 +220,8 @@ export function GiveFirstClient() {
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 text-[#1D4ED8] border border-[#1D4ED8]/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <Users className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <Users className="w-5 h-5 stroke-[url(#brandIconGrad)]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-serif font-bold text-slate-900">
@@ -231,8 +234,8 @@ export function GiveFirstClient() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 text-[#1D4ED8] border border-[#1D4ED8]/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <ShieldCheck className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <ShieldCheck className="w-5 h-5 stroke-[url(#brandIconGrad)]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-serif font-bold text-slate-900">
@@ -245,8 +248,8 @@ export function GiveFirstClient() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 text-[#1D4ED8] border border-[#1D4ED8]/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <TrendingUp className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <TrendingUp className="w-5 h-5 stroke-[url(#brandIconGrad)]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-serif font-bold text-slate-900">
@@ -274,29 +277,52 @@ export function GiveFirstClient() {
                   How it works in practice
                 </h2>
                 <div className="space-y-3.5 text-xs text-slate-600">
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong className="block text-slate-900 text-sm font-serif font-bold">
-                      In the meeting
-                    </strong>
-                    The Gratitude &amp; Life Impact Round opens every Circle meeting with what people gave, before anyone asks for anything.
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start gap-3 shadow-2xs hover:border-blue-300 transition-all group">
+                    <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Quote className="size-4 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <div>
+                      <strong className="block text-slate-900 text-sm font-serif font-bold mb-0.5 group-hover:text-[#1D4ED8] transition-colors">
+                        In the meeting
+                      </strong>
+                      The Gratitude &amp; Life Impact Round opens every Circle meeting with what people gave, before anyone asks for anything.
+                    </div>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong className="block text-slate-900 text-sm font-serif font-bold">
-                      In the Give and the Ask
-                    </strong>
-                    Every Peer states what they can offer before stating what they need. The order is deliberate and non-negotiable.
+
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start gap-3 shadow-2xs hover:border-blue-300 transition-all group">
+                    <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Handshake className="size-4 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <div>
+                      <strong className="block text-slate-900 text-sm font-serif font-bold mb-0.5 group-hover:text-[#1D4ED8] transition-colors">
+                        In the Give and the Ask
+                      </strong>
+                      Every Peer states what they can offer before stating what they need. The order is deliberate and non-negotiable.
+                    </div>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong className="block text-slate-900 text-sm font-serif font-bold">
-                      In the app
-                    </strong>
-                    Contributions are logged in Unity and confirmed by the Peer who received them. What you gave becomes a verified record.
+
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start gap-3 shadow-2xs hover:border-blue-300 transition-all group">
+                    <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <FileText className="size-4 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <div>
+                      <strong className="block text-slate-900 text-sm font-serif font-bold mb-0.5 group-hover:text-[#1D4ED8] transition-colors">
+                        In the app
+                      </strong>
+                      Contributions are logged in Unity and confirmed by the Peer who received them. What you gave becomes a verified record.
+                    </div>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong className="block text-slate-900 text-sm font-serif font-bold">
-                      In your standing
-                    </strong>
-                    Life Impact Score, Peer Standing and Peers Coin all follow what you gave, never what you asked for.
+
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start gap-3 shadow-2xs hover:border-blue-300 transition-all group">
+                    <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <TrendingUp className="size-4 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <div>
+                      <strong className="block text-slate-900 text-sm font-serif font-bold mb-0.5 group-hover:text-[#1D4ED8] transition-colors">
+                        In your standing
+                      </strong>
+                      Life Impact Score, Peer Standing and Peers Coin all follow what you gave, never what you asked for.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -345,8 +371,10 @@ export function GiveFirstClient() {
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="p-3.5 rounded-2xl bg-rose-50/60 border border-rose-100 flex items-start gap-3">
-                  <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-50/50 via-white to-blue-50/30 border border-rose-100 flex items-start gap-3 shadow-2xs hover:border-rose-200 transition-all">
+                  <div className="size-7 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <XCircle className="w-4 h-4 stroke-[url(#brandIconGrad)]" />
+                  </div>
                   <div className="text-xs text-slate-700 leading-relaxed">
                     <strong className="block text-slate-900 font-bold mb-0.5">
                       It does not mean giving without limit.
@@ -355,8 +383,10 @@ export function GiveFirstClient() {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-rose-50/60 border border-rose-100 flex items-start gap-3">
-                  <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-50/50 via-white to-blue-50/30 border border-rose-100 flex items-start gap-3 shadow-2xs hover:border-rose-200 transition-all">
+                  <div className="size-7 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <XCircle className="w-4 h-4 stroke-[url(#brandIconGrad)]" />
+                  </div>
                   <div className="text-xs text-slate-700 leading-relaxed">
                     <strong className="block text-slate-900 font-bold mb-0.5">
                       It does not mean never asking.
@@ -365,8 +395,10 @@ export function GiveFirstClient() {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-rose-50/60 border border-rose-100 flex items-start gap-3">
-                  <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-50/50 via-white to-blue-50/30 border border-rose-100 flex items-start gap-3 shadow-2xs hover:border-rose-200 transition-all">
+                  <div className="size-7 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <XCircle className="w-4 h-4 stroke-[url(#brandIconGrad)]" />
+                  </div>
                   <div className="text-xs text-slate-700 leading-relaxed">
                     <strong className="block text-slate-900 font-bold mb-0.5">
                       It does not mean keeping score.
@@ -375,8 +407,10 @@ export function GiveFirstClient() {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-rose-50/60 border border-rose-100 flex items-start gap-3">
-                  <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-50/50 via-white to-blue-50/30 border border-rose-100 flex items-start gap-3 shadow-2xs hover:border-rose-200 transition-all">
+                  <div className="size-7 rounded-lg bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <XCircle className="w-4 h-4 stroke-[url(#brandIconGrad)]" />
+                  </div>
                   <div className="text-xs text-slate-700 leading-relaxed">
                     <strong className="block text-slate-900 font-bold mb-0.5">
                       It does not mean every month is equal.
@@ -417,7 +451,9 @@ export function GiveFirstClient() {
 
             {/* Center Quote */}
             <div className="lg:col-span-3 p-8 rounded-3xl bg-gradient-to-br from-blue-50/50 via-white to-rose-50/50 border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center space-y-4">
-              <Quote className="w-10 h-10 text-[#1D4ED8]/40" />
+              <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs">
+                <Quote className="w-6 h-6 stroke-[url(#brandIconGrad)]" />
+              </div>
               <p className="text-xl sm:text-2xl font-serif italic text-slate-900 leading-snug font-medium">
                 &ldquo;When you give first, you don&apos;t just build business. You build belonging.&rdquo;
               </p>

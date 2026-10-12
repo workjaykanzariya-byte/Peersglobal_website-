@@ -45,7 +45,7 @@ export default function HomePage() {
       {/* 7. Meet Your Mentors Section (100+ Teachers Marquee) */}
       <MentorsSection />
 
-      {/* 9. Case Studies of Success (25,959 Stories Collage) */}
+      {/* 9. Case Studies of Success (25000+ Stories Collage) */}
       <CaseStudiesSection />
 
       {/* 10. Choose Your Pathway (Pick a Pathway or Take All Six Pricing Table) */}
