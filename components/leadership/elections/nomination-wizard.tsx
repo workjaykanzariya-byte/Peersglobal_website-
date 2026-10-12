@@ -19,6 +19,9 @@ import {
   Sparkles,
   Save,
   Check,
+  Mail,
+  Phone,
+  Search,
 } from 'lucide-react'
 import {
   Campaign,
@@ -36,12 +39,16 @@ interface NominationWizardProps {
 
 export function NominationWizard({ campaign, scopes, formTemplate }: NominationWizardProps) {
   const [currentStep, setCurrentStep] = useState<number>(1)
-  const [contactType, setContactType] = useState<'mobile' | 'email'>('mobile')
-  const [contact, setContact] = useState('')
-  const [otp, setOtp] = useState(['', '', '', '', '', ''])
-  const [verificationId, setVerificationId] = useState<string | null>(null)
-  const [verificationToken, setVerificationToken] = useState<string | null>(null)
+  const [emailInput, setEmailInput] = useState('')
+  const [phoneInput, setPhoneInput] = useState('')
   const [isExistingMember, setIsExistingMember] = useState(false)
+  const [lookupFeedback, setLookupFeedback] = useState<{
+    status: 'idle' | 'success' | 'not_found'
+    message: string
+    userName?: string
+    company?: string
+  } | null>(null)
+  const [isChecking, setIsChecking] = useState(false)
 
   // Candidate Profile
   const [profile, setProfile] = useState({
@@ -59,7 +66,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
   const [selectedScopeId, setSelectedScopeId] = useState<string>(scopes[0]?.id || '')
 
   // Candidate ID & Uploaded Document URLs for Dev Staging API
-  const [candidateId, setCandidateId] = useState<string>('0199c000-cand-0000-8000-000000000001')
+  const [candidateId, setCandidateId] = useState<string>('0199c000-ca00-0000-8000-000000000001')
   const [uploadedDocUrls, setUploadedDocUrls] = useState<Record<string, string>>({})
 
   // Dynamic Form Answers
@@ -85,10 +92,9 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
   } | null>(null)
 
   const [codeOfConductSigned, setCodeOfConductSigned] = useState(false)
-  const otpInputsRef = useRef<(HTMLInputElement | null)[]>([])
 
   const triggerSaveDraft = async () => {
-    if (!profile.fullName && !contact) return
+    if (!profile.fullName && !emailInput && !phoneInput) return
     setIsSavingDraft(true)
     try {
       const answersArray = Object.entries(answers).map(([question_key, answer]) => ({
@@ -99,8 +105,8 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         campaign_id: campaign.id,
         scope_id: selectedScopeId,
         full_name: profile.fullName || 'Candidate Nominee',
-        email: profile.email || (contactType === 'email' ? contact : ''),
-        mobile: profile.mobile || (contactType === 'mobile' ? contact : ''),
+        email: profile.email || emailInput,
+        mobile: profile.mobile || phoneInput,
         answers: answersArray,
       })
       if (res.success) {
@@ -114,90 +120,80 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     }
   }
 
-  // 1. Request OTP
-  const handleRequestOtp = async (e: React.FormEvent) => {
-    e.preventDefault()
+  // 1. Direct Member Check & Auto-Fill (No OTP Required)
+  const handleCheckMembership = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault()
     setError(null)
-    const cleanContact = contact.trim()
-    if (!cleanContact) {
-      setError(`Please provide your ${contactType === 'mobile' ? 'mobile' : 'email'}`)
+    setLookupFeedback(null)
+
+    const cleanEmail = emailInput.trim()
+    const cleanPhone = phoneInput.trim()
+
+    if (!cleanEmail && !cleanPhone) {
+      setError('Please provide your Email Address and/or Mobile Number.')
       return
     }
 
-    let formattedContact = cleanContact
-    if (contactType === 'mobile') {
-      const digits = cleanContact.replace(/\D/g, '')
-      if (digits.length === 10) {
-        formattedContact = `+91${digits}`
-      } else if (digits.length === 12 && digits.startsWith('91')) {
-        formattedContact = `+${digits}`
-      }
-    }
-
-    setIsSubmitting(true)
+    setIsChecking(true)
     try {
-      const res = await leadershipApi.requestNominationOtp({
+      const res = await leadershipApi.checkMemberProfile({
+        email: cleanEmail,
+        phone: cleanPhone,
         campaign_id: campaign.id,
-        contact_type: contactType,
-        contact: formattedContact,
       })
-      const vId = res.verification_id || (res as any).data?.verification_id
-      if (res.success && vId) {
-        setVerificationId(vId)
+
+      if (res && res.exists && res.profile) {
+        setIsExistingMember(true)
+        if (res.candidate_id || res.user_id) {
+          setCandidateId(res.candidate_id || res.user_id!)
+        }
+        setProfile({
+          fullName: res.profile.fullName || res.profile.full_name || '',
+          email: res.profile.email || cleanEmail,
+          mobile: res.profile.mobile || cleanPhone,
+          company: res.profile.company || res.profile.company_name || '',
+          designation: res.profile.designation || '',
+          bio: res.profile.bio || 'Experienced promoter active in Peers Global community initiatives.',
+          socialLinks: res.profile.socialLinks || '',
+          yearsExperience: res.profile.yearsExperience || 5,
+        })
+        setLookupFeedback({
+          status: 'success',
+          message: res.message || 'Member account verified and credentials pre-filled!',
+          userName: res.profile.fullName || res.profile.full_name,
+          company: res.profile.company || res.profile.company_name,
+        })
+        // Smoothly auto advance to Step 2 after 800ms
+        setTimeout(() => {
+          setCurrentStep(2)
+        }, 850)
       } else {
-        setVerificationId('demo-verif-' + Date.now())
+        setIsExistingMember(false)
+        setProfile((prev) => ({
+          ...prev,
+          email: cleanEmail,
+          mobile: cleanPhone,
+        }))
+        setLookupFeedback({
+          status: 'not_found',
+          message:
+            'No existing registered profile was found with these credentials in our database. You can proceed to complete your nomination profile manually.',
+        })
       }
-    } catch {
-      setVerificationId('demo-verif-' + Date.now())
+    } catch (err: unknown) {
+      setError((err as Error).message || 'Failed to verify membership credentials')
     } finally {
-      setIsSubmitting(false)
+      setIsChecking(false)
     }
   }
 
-  // 2. Verify OTP
-  const handleVerifyOtp = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError(null)
-    const otpCode = otp.join('')
-    if (otpCode.length !== 6) {
-      setError('Please enter all 6 digits of the OTP')
-      return
-    }
-
-    setIsSubmitting(true)
-    try {
-      const res = await leadershipApi.verifyNominationOtp({
-        verification_id: verificationId || 'test-verif',
-        otp: otpCode,
-      })
-
-      if (res.success) {
-        setVerificationToken(res.verification_token)
-        setIsExistingMember(res.is_existing_member)
-        if (res.profile) {
-          if (res.profile.user_id) {
-            setCandidateId(res.profile.user_id)
-          }
-          setProfile({
-            fullName: res.profile.full_name || '',
-            email: res.profile.email || (contactType === 'email' ? contact : ''),
-            mobile: res.profile.mobile || (contactType === 'mobile' ? contact : ''),
-            company: res.profile.company || '',
-            designation: res.profile.designation || '',
-            bio: 'Experienced promoter active in Peers Global community initiatives.',
-            socialLinks: 'https://linkedin.com/in/' + res.profile.full_name.toLowerCase().replace(/\s+/g, ''),
-            yearsExperience: 8,
-          })
-        }
-        setCurrentStep(2)
-      } else {
-        setError('Invalid OTP code')
-      }
-    } catch (err: unknown) {
-      setError((err as Error).message || 'OTP verification failed')
-    } finally {
-      setIsSubmitting(false)
-    }
+  const handleProceedAsNew = () => {
+    setProfile((prev) => ({
+      ...prev,
+      email: emailInput.trim(),
+      mobile: phoneInput.trim(),
+    }))
+    setCurrentStep(2)
   }
 
   // File Upload Handler
@@ -265,13 +261,13 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
       const nominationPayload = {
         candidate_id: candidateId,
         scope_id: effectiveScopeId || undefined,
-        verification_token: verificationToken,
-        contact: contact,
-        contact_type: contactType,
+        contact: profile.mobile || phoneInput || emailInput,
+        email: profile.email || emailInput,
+        mobile: profile.mobile || phoneInput,
         profile: {
           full_name: profile.fullName || 'Hardik Chauhan',
-          email: profile.email || (contactType === 'email' ? contact : 'hardik@peersglobal.com'),
-          mobile: profile.mobile || (contactType === 'mobile' ? contact : '+919558739086'),
+          email: profile.email || emailInput || 'hardik@peersglobal.com',
+          mobile: profile.mobile || phoneInput || '+919558739086',
           company_name: profile.company || 'Aequitas IT Solutions',
           designation: profile.designation || 'Managing Director & Founder',
         },
@@ -432,132 +428,143 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           </div>
         )}
 
-        {/* ---------------- STEP 1: IDENTITY VERIFICATION ---------------- */}
+        {/* ---------------- STEP 1: IDENTITY & MEMBERSHIP VERIFICATION (NO OTP) ---------------- */}
         {currentStep === 1 && (
           <div>
             <div className="mb-6">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-blue-50 text-[#1D4ED8] border border-blue-200 mb-3">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#1D4ED8]" /> Instant Member Check — No Login or OTP Required
+              </div>
               <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1.5">
                 Step 1: Contact &amp; Membership Verification
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                Enter your mobile number or email registered with Peers Global Unity. We will verify your standing and pre-fill your member profile.
+                Enter your registered Email Address and Phone Number. We will verify whether your account exists in our application and automatically pre-fill your nomination credentials.
               </p>
             </div>
 
-            {!verificationId ? (
-              <form onSubmit={handleRequestOtp} className="max-w-md space-y-4">
-                <div className="flex rounded-full bg-slate-100 p-1">
-                  <button
-                    type="button"
-                    onClick={() => setContactType('mobile')}
-                    className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all ${
-                      contactType === 'mobile'
-                        ? 'bg-white text-[#1D4ED8] shadow-sm'
-                        : 'text-slate-500'
-                    }`}
-                  >
-                    Mobile (SMS)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setContactType('email')}
-                    className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all ${
-                      contactType === 'email'
-                        ? 'bg-white text-[#1D4ED8] shadow-sm'
-                        : 'text-slate-500'
-                    }`}
-                  >
-                    Email Address
-                  </button>
-                </div>
+            <form onSubmit={handleCheckMembership} className="max-w-md space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5 flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-slate-500" />
+                    Registered Email Address
+                  </span>
+                  <span className="text-[11px] font-normal text-slate-400">Required</span>
+                </label>
+                <input
+                  type="email"
+                  value={emailInput}
+                  onChange={(e) => {
+                    setEmailInput(e.target.value)
+                    if (lookupFeedback) setLookupFeedback(null)
+                  }}
+                  placeholder="e.g. harsh.vora@demo.unity.com"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all shadow-xs"
+                  required
+                />
+              </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    {contactType === 'mobile' ? 'Mobile Number' : 'Registered Email Address'}
-                  </label>
-                  <input
-                    type={contactType === 'mobile' ? 'tel' : 'email'}
-                    value={contact}
-                    onChange={(e) => setContact(e.target.value)}
-                    placeholder={contactType === 'mobile' ? '+91 98765 43210' : 'hardik@example.com'}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm focus:ring-2 focus:ring-[#1D4ED8] focus:outline-none"
-                    required
-                  />
-                </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5 flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-slate-500" />
+                    Mobile / Phone Number
+                  </span>
+                  <span className="text-[11px] font-normal text-slate-400">Required</span>
+                </label>
+                <input
+                  type="tel"
+                  value={phoneInput}
+                  onChange={(e) => {
+                    setPhoneInput(e.target.value)
+                    if (lookupFeedback) setLookupFeedback(null)
+                  }}
+                  placeholder="e.g. 9800000011 or +91 95587 39086"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1D4ED8] focus:border-[#1D4ED8] focus:outline-none transition-all shadow-xs"
+                  required
+                />
+              </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3 px-5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-2"
-                >
-                  {isSubmitting ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Request Verification OTP'}
-                </button>
-              </form>
-            ) : (
-              <form onSubmit={handleVerifyOtp} className="max-w-md space-y-5">
-                <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold flex items-center gap-1.5 text-amber-800">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                      Staging Mode — SMS Gateway Simulated
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setOtp(['4', '5', '2', '1', '0', '9'])}
-                      className="px-2.5 py-1 rounded-full bg-white border border-amber-300 text-[11px] font-bold text-[#1D4ED8] hover:bg-amber-100 transition-colors shadow-xs"
-                    >
-                      Auto-fill 452109
-                    </button>
+              {/* Status Feedback Banners */}
+              {lookupFeedback?.status === 'success' && (
+                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-1.5 transition-all">
+                  <div className="flex items-center gap-2 font-bold text-xs text-emerald-800">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Existing Member Verified: {lookupFeedback.userName}</span>
                   </div>
-                  <p className="text-[11px] text-amber-800/90 leading-relaxed">
-                    Live SMS delivery is disabled on the Dev Staging backend. Please enter the staging verification code <strong>452109</strong> below or click <strong>Auto-fill</strong>.
+                  <p className="text-[12px] text-emerald-700 leading-relaxed">
+                    {lookupFeedback.company ? `${lookupFeedback.company} · ` : ''}Your membership standing is verified and all nomination details have been automatically filled. Advancing to profile review...
                   </p>
                 </div>
+              )}
 
-                <div>
-                  <div className="text-xs text-slate-600 mb-2 font-medium">
-                    Enter the 6-digit code for <strong>{contact}</strong>:
+              {lookupFeedback?.status === 'not_found' && (
+                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 space-y-3 transition-all">
+                  <div className="flex items-center gap-2 font-bold text-xs text-amber-800">
+                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>No Existing Account Found</span>
                   </div>
-                  <div className="flex gap-2">
-                    {otp.map((d, i) => (
-                      <input
-                        key={i}
-                        ref={(el) => {
-                          otpInputsRef.current[i] = el
-                        }}
-                        type="text"
-                        maxLength={1}
-                        value={d}
-                        onChange={(e) => {
-                          const next = [...otp]
-                          next[i] = e.target.value
-                          setOtp(next)
-                          if (e.target.value && i < 5) otpInputsRef.current[i + 1]?.focus()
-                        }}
-                        className="w-12 h-12 text-center text-xl font-bold rounded-xl border border-slate-300 bg-white focus:ring-2 focus:ring-[#1D4ED8] focus:outline-none"
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex gap-3">
+                  <p className="text-[12px] text-amber-800/90 leading-relaxed">
+                    No active user matched this email and phone in our database. You can still apply as a new candidate and enter your details manually.
+                  </p>
                   <button
                     type="button"
-                    onClick={() => setVerificationId(null)}
-                    className="py-2.5 px-4 rounded-full border border-slate-300 text-xs font-semibold text-slate-600"
+                    onClick={handleProceedAsNew}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-xs transition-colors"
                   >
-                    Change Number
-                  </button>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || otp.join('').length !== 6}
-                    className="flex-1 py-2.5 px-5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Verify & Continue'}
+                    Continue as New Applicant <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-              </form>
-            )}
+              )}
+
+              {/* Action Button */}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isChecking}
+                  className="w-full py-3 px-5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                >
+                  {isChecking ? (
+                    <>
+                      <RefreshCw className="w-4 h-4 animate-spin" /> Verifying Credentials...
+                    </>
+                  ) : (
+                    <>
+                      <ShieldCheck className="w-4 h-4" /> Verify &amp; Continue
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Quick Fill Pills for Testing */}
+              <div className="pt-4 border-t border-slate-100">
+                <div className="text-[11px] uppercase font-bold tracking-wider text-slate-400 mb-2">
+                  Sample Registered Members (Database):
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { name: 'Swati Kulkarni', email: 'swati.kulkarni@demo.unity.com', phone: '9800000018' },
+                    { name: 'Harsh Vora', email: 'harsh.vora@demo.unity.com', phone: '9800000011' },
+                    { name: 'Gaurav Mishra', email: 'gaurav.mishra@demo.unity.com', phone: '9800000021' },
+                    { name: 'Bhavna Mehta', email: 'bhavna.mehta@demo.unity.com', phone: '9800000078' },
+                  ].map((demo) => (
+                    <button
+                      key={demo.email}
+                      type="button"
+                      onClick={() => {
+                        setEmailInput(demo.email)
+                        setPhoneInput(demo.phone)
+                        setLookupFeedback(null)
+                      }}
+                      className="text-[11px] px-3 py-1.5 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1D4ED8] text-slate-600 transition-colors border border-slate-200"
+                    >
+                      {demo.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </form>
           </div>
         )}
 
@@ -565,6 +572,23 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         {currentStep === 2 && (
           <div>
             <div className="mb-6">
+              {isExistingMember && (
+                <div className="mb-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>
+                      <strong>Existing Member Verified:</strong> Pre-filled from Peers Global Unity database ({profile.email} · {profile.mobile})
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentStep(1)}
+                    className="text-[11px] font-semibold text-[#1D4ED8] underline hover:no-underline"
+                  >
+                    Change Credentials
+                  </button>
+                </div>
+              )}
               <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight mb-1.5">
                 Step 2: Jurisdiction Scope &amp; Candidate Profile
               </h2>
