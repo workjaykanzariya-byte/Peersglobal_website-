@@ -220,6 +220,16 @@ export function PartnerPageClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* Brand SVG Gradient definition for Lucide icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none opacity-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="partnerBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
@@ -232,7 +242,7 @@ export function PartnerPageClient() {
           </div>
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200">
-              <Handshake className="w-3.5 h-3.5 text-[#1D4ED8]" />
+              <Handshake className="w-3.5 h-3.5 [stroke:url(#partnerBrandGrad)]" />
               <span className="brand-gradient-text">Ecosystem Alliances</span>
             </span>
           </div>
@@ -263,40 +273,15 @@ export function PartnerPageClient() {
 
               {/* Dark scrim matching the home hero */}
               <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="hidden">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Ecosystem Alliances
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Co-Creation Over Promotion
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Relationships First
-                </p>
-              </div>
-
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="hidden">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    STRATEGIC PARTNERSHIPS
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    PEERS GLOBAL ALLIANCE
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Left Content Area */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
                 
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
+                {/* Eyebrow without dash bar */}
+                <div className="flex items-center gap-2.5 mb-4">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     PARTNER WITH US
                   </span>
                 </div>
@@ -354,11 +339,11 @@ export function PartnerPageClient() {
                 {/* Quick Info Bar */}
                 <div className="flex items-center gap-6 text-xs text-slate-300 pt-2 border-t border-white/15 w-full max-w-lg">
                   <div className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#partnerBrandGrad)]" />
                     <span>Strict Member Privacy Protocol</span>
                   </div>
                   <div className="flex items-center gap-1.5 font-medium">
-                    <Sparkles className="w-4 h-4 text-sky-400" />
+                    <Sparkles className="w-4 h-4 [stroke:url(#partnerBrandGrad)]" />
                     <span>Zero Direct Sales Exploitation</span>
                   </div>
                 </div>
@@ -397,7 +382,7 @@ export function PartnerPageClient() {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_50%_at_20%_20%,rgba(29,78,216,0.03),transparent_60%)]" />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Alignment &amp; Purpose
               </span>
@@ -459,34 +444,52 @@ export function PartnerPageClient() {
               return (
                 <div
                   key={idx}
-                  className="p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 hover:shadow-lg transition-all flex flex-col justify-between space-y-4 group shadow-2xs hover:-translate-y-1"
+                  className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] group-hover:scale-110 transition-transform shadow-2xs">
-                        <Icon className="w-6 h-6" />
+                  <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`partnerCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                      style={{ stroke: `url(#partnerCardGrad-${idx})` }}
+                      d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                    />
+                  </svg>
+
+                  <div className="p-7 rounded-2xl bg-white flex flex-col justify-between space-y-4">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs">
+                          <Icon className="w-6 h-6 [stroke:url(#partnerBrandGrad)]" />
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
+                            {item.tag}
+                          </span>
+                          <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 px-2 py-0.5 rounded-md">
+                            {item.num}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
-                          {item.tag}
-                        </span>
-                        <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 px-2 py-0.5 rounded-md">
-                          {item.num}
-                        </span>
-                      </div>
+
+                      <h3 className="text-lg font-serif font-bold text-slate-950 brand-gradient-hover-text transition-all leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
 
-                    <h3 className="text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                    <span className="font-medium">Strategic Alignment</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#1D4ED8] group-hover:translate-x-1 transition-transform" />
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                      <span className="font-medium">Strategic Alignment</span>
+                      <ArrowRight className="w-3.5 h-3.5 [stroke:url(#partnerBrandGrad)] group-hover:translate-x-1.5 transition-transform" />
+                    </div>
                   </div>
                 </div>
               )
@@ -506,7 +509,7 @@ export function PartnerPageClient() {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_80%_20%,rgba(225,29,72,0.03),transparent_60%)]" />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Engagement Models
               </span>
@@ -525,21 +528,39 @@ export function PartnerPageClient() {
               return (
                 <div
                   key={idx}
-                  className="p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 hover:shadow-md transition-all flex flex-col justify-between space-y-4 group shadow-2xs hover:-translate-y-1"
+                  className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform">
-                        <Icon className="w-6 h-6" />
+                  <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`formCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                      style={{ stroke: `url(#formCardGrad-${idx})` }}
+                      d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                    />
+                  </svg>
+
+                  <div className="p-7 rounded-2xl bg-white flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Icon className="w-6 h-6 [stroke:url(#partnerBrandGrad)]" />
+                        </div>
+                        <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
+                          {form.tag}
+                        </span>
                       </div>
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
-                        {form.tag}
-                      </span>
+                      <h3 className="text-lg font-serif font-bold text-slate-950 brand-gradient-hover-text transition-all">
+                        {form.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 leading-relaxed">{form.desc}</p>
                     </div>
-                    <h3 className="text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors">
-                      {form.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{form.desc}</p>
                   </div>
                 </div>
               )
@@ -547,7 +568,6 @@ export function PartnerPageClient() {
           </div>
 
           <div className="p-8 rounded-2xl bg-white border border-slate-200 text-center max-w-3xl mx-auto shadow-xs space-y-2 relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">
               The Unwavering Standard
             </p>
@@ -642,7 +662,7 @@ export function PartnerPageClient() {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(29,78,216,0.03),transparent_60%)]" />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Active Collaborators
               </span>
@@ -659,43 +679,61 @@ export function PartnerPageClient() {
             {BRAND_PARTNERS.map((partner, idx) => (
               <div
                 key={idx}
-                className="p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 hover:shadow-md transition-all flex flex-col justify-between space-y-5 shadow-2xs hover:-translate-y-1"
+                className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-xl transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="space-y-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8]">
-                    <Building2 className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-serif font-bold text-slate-950">{partner.name}</h3>
-                  <span className="inline-block text-xs font-semibold brand-gradient-text">
-                    {partner.type}
-                  </span>
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`brandPartnerGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                    style={{ stroke: `url(#brandPartnerGrad-${idx})` }}
+                    d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                  />
+                </svg>
 
-                  <div className="space-y-3 pt-3 border-t border-slate-100 text-xs leading-relaxed">
-                    <div>
-                      <span className="font-bold text-slate-900 block mb-0.5">What we are creating together:</span>
-                      <p className="text-slate-600">{partner.coCreation}</p>
+                <div className="p-7 rounded-2xl bg-white flex flex-col justify-between space-y-5">
+                  <div className="space-y-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Building2 className="w-6 h-6 [stroke:url(#partnerBrandGrad)]" />
                     </div>
-                    <div>
-                      <span className="font-bold text-[#1D4ED8] block mb-0.5">How Peers benefit:</span>
-                      <p className="text-slate-600">{partner.peerBenefit}</p>
+                    <h3 className="text-lg font-serif font-bold text-slate-950 brand-gradient-hover-text transition-all">{partner.name}</h3>
+                    <span className="inline-block text-xs font-semibold brand-gradient-text">
+                      {partner.type}
+                    </span>
+
+                    <div className="space-y-3 pt-3 border-t border-slate-100 text-xs leading-relaxed">
+                      <div>
+                        <span className="font-bold text-slate-900 block mb-0.5">What we are creating together:</span>
+                        <p className="text-slate-600">{partner.coCreation}</p>
+                      </div>
+                      <div>
+                        <span className="font-bold brand-gradient-text block mb-0.5">How Peers benefit:</span>
+                        <p className="text-slate-600">{partner.peerBenefit}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="text-slate-500 font-medium">Official Partner</span>
-                  {partner.link !== '#' ? (
-                    <a
-                      href={partner.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-[#1D4ED8] hover:underline flex items-center gap-1"
-                    >
-                      Visit Platform <ExternalLink className="w-3 h-3" />
-                    </a>
-                  ) : (
-                    <span className="text-slate-400">Institutional Charter</span>
-                  )}
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                    <span className="text-slate-500 font-medium">Official Partner</span>
+                    {partner.link !== '#' ? (
+                      <a
+                        href={partner.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold brand-gradient-text hover:underline flex items-center gap-1"
+                      >
+                        Visit Platform <ExternalLink className="w-3 h-3 [stroke:url(#partnerBrandGrad)]" />
+                      </a>
+                    ) : (
+                      <span className="text-slate-400">Institutional Charter</span>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -718,7 +756,7 @@ export function PartnerPageClient() {
             <div className="space-y-6">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200 text-xs font-bold mb-3">
-                  <Gift className="w-4 h-4 text-[#1D4ED8]" />
+                  <Gift className="w-4 h-4 [stroke:url(#partnerBrandGrad)]" />
                   <span className="brand-gradient-text">SPONSORSHIP</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mb-2">
@@ -746,7 +784,7 @@ export function PartnerPageClient() {
             <div className="space-y-6">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200 text-xs font-bold mb-3">
-                  <Megaphone className="w-4 h-4 text-[#1D4ED8]" />
+                  <Megaphone className="w-4 h-4 [stroke:url(#partnerBrandGrad)]" />
                   <span className="brand-gradient-text">ADVERTISE WITH US</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950 mb-2">
@@ -787,7 +825,7 @@ export function PartnerPageClient() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Clarity Protects Trust
               </span>
@@ -802,63 +840,120 @@ export function PartnerPageClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             {/* 01 Partner Card */}
-            <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-400 shadow-xs hover:shadow-lg space-y-4 hover:-translate-y-1 transition-all group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] shadow-2xs group-hover:scale-105 transition-transform">
-                <Handshake className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors">A Partner</h3>
-                  <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 px-2 py-0.5 rounded-md">01</span>
+            <div
+              className="animated-glow-card group !rounded-2xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+              tabIndex={0}
+              role="article"
+            >
+              <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="diffGrad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#diffGrad-1)' }}
+                  d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                />
+              </svg>
+
+              <div className="p-8 rounded-2xl bg-white space-y-4 relative overflow-hidden">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <Handshake className="w-6 h-6 [stroke:url(#partnerBrandGrad)]" />
                 </div>
-                <p className="text-sm font-bold brand-gradient-text">
-                  Helps build something together.
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-serif font-bold text-slate-950 brand-gradient-hover-text transition-all">A Partner</h3>
+                    <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 px-2 py-0.5 rounded-md">01</span>
+                  </div>
+                  <p className="text-sm font-bold brand-gradient-text">
+                    Helps build something together.
+                  </p>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Co-creates programs, tools, or institutional capability that enhances long-term value for the entire entrepreneurial ecosystem.
                 </p>
               </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Co-creates programs, tools, or institutional capability that enhances long-term value for the entire entrepreneurial ecosystem.
-              </p>
             </div>
 
             {/* 02 Sponsor Card */}
-            <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-400 shadow-xs hover:shadow-lg space-y-4 hover:-translate-y-1 transition-all group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-amber-400" />
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/70 flex items-center justify-center text-amber-700 shadow-2xs group-hover:scale-105 transition-transform">
-                <Gift className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-serif font-bold text-slate-950 group-hover:text-amber-800 transition-colors">A Sponsor</h3>
-                  <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md">02</span>
+            <div
+              className="animated-glow-card group !rounded-2xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+              tabIndex={0}
+              role="article"
+            >
+              <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="diffGrad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path animated-border-path-2"
+                  style={{ stroke: 'url(#diffGrad-2)' }}
+                  d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                />
+              </svg>
+
+              <div className="p-8 rounded-2xl bg-white space-y-4 relative overflow-hidden">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <Gift className="w-6 h-6 [stroke:url(#partnerBrandGrad)]" />
                 </div>
-                <p className="text-sm font-bold text-amber-900">
-                  Supports something specific.
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-serif font-bold text-slate-950 brand-gradient-hover-text transition-all">A Sponsor</h3>
+                    <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 px-2 py-0.5 rounded-md">02</span>
+                  </div>
+                  <p className="text-sm font-bold brand-gradient-text">
+                    Supports something specific.
+                  </p>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Underwrites a conclave, research report, or impact fellowship to make large-scale community experiences possible.
                 </p>
               </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Underwrites a conclave, research report, or impact fellowship to make large-scale community experiences possible.
-              </p>
             </div>
 
             {/* 03 Advertiser Card */}
-            <div className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-slate-400 shadow-xs hover:shadow-lg space-y-4 hover:-translate-y-1 transition-all group relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-purple-500" />
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200/70 flex items-center justify-center text-purple-700 shadow-2xs group-hover:scale-105 transition-transform">
-                <Megaphone className="w-6 h-6" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-serif font-bold text-slate-950 group-hover:text-purple-800 transition-colors">An Advertiser</h3>
-                  <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md">03</span>
+            <div
+              className="animated-glow-card group !rounded-2xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+              tabIndex={0}
+              role="article"
+            >
+              <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="diffGrad-3" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path animated-border-path-3"
+                  style={{ stroke: 'url(#diffGrad-3)' }}
+                  d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                />
+              </svg>
+
+              <div className="p-8 rounded-2xl bg-white space-y-4 relative overflow-hidden">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <Megaphone className="w-6 h-6 [stroke:url(#partnerBrandGrad)]" />
                 </div>
-                <p className="text-sm font-bold text-purple-900">
-                  Purchases approved visibility.
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-serif font-bold text-slate-950 brand-gradient-hover-text transition-all">An Advertiser</h3>
+                    <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 px-2 py-0.5 rounded-md">03</span>
+                  </div>
+                  <p className="text-sm font-bold brand-gradient-text">
+                    Purchases approved visibility.
+                  </p>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Places declared public messages across website banners, podcasts, or magazines without accessing private member channels.
                 </p>
               </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Places declared public messages across website banners, podcasts, or magazines without accessing private member channels.
-              </p>
             </div>
           </div>
         </div>
@@ -872,7 +967,7 @@ export function PartnerPageClient() {
             {/* WHAT WE EXPECT */}
             <div className="space-y-6">
               <div>
-                <div className="flex items-center gap-2 mb-2">
+                <div className="mb-2">
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Standards of Collaboration
                   </span>
@@ -887,7 +982,10 @@ export function PartnerPageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {EXPECTATIONS_PARTNERS.map((exp, idx) => (
-                  <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 space-y-1.5 shadow-2xs hover:border-slate-300 hover:shadow-sm transition-all group">
+                  <div
+                    key={idx}
+                    className="p-5 rounded-2xl bg-white border border-slate-200/90 space-y-1.5 shadow-2xs hover:border-slate-300 hover:shadow-sm transition-all group"
+                  >
                     <div className="flex items-center justify-between">
                       <h3 className="text-xs font-bold brand-gradient-text uppercase tracking-wider">{exp.title}</h3>
                       <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -900,9 +998,8 @@ export function PartnerPageClient() {
 
             {/* WHAT PEERS CAN EXPECT */}
             <div className="p-8 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-6 shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <div className="space-y-4">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="mb-2">
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Our Integrity Pledge
                   </span>
@@ -917,7 +1014,7 @@ export function PartnerPageClient() {
                 <ul className="space-y-3">
                   {PROMISES_FROM_US.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-800">
-                      <CheckCircle2 className="w-4 h-4 text-[#1D4ED8] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 [stroke:url(#partnerBrandGrad)] shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -937,7 +1034,7 @@ export function PartnerPageClient() {
       <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#FAFBFD] to-white border-b border-slate-200/80 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(29,78,216,0.04),transparent_60%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <div className="flex items-center justify-center gap-2">
+          <div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
               The Foundation of True Partnership
             </span>
@@ -947,7 +1044,6 @@ export function PartnerPageClient() {
           </h2>
 
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4 relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             <p className="text-slate-600 text-base sm:text-lg">
               Traditional partnership conversations often begin with:
             </p>
@@ -990,7 +1086,7 @@ export function PartnerPageClient() {
             <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-5">
               
               <div className="space-y-3">
-                <div className="flex items-center gap-2">
+                <div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     DIALOGUE &amp; EVALUATION
                   </span>
@@ -1008,11 +1104,11 @@ export function PartnerPageClient() {
               {/* Direct Founder & Ecosystem Review Card */}
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider">
-                    <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Direct Leadership Review
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+                    <span className="flex h-2 w-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] animate-pulse" />
+                    <span className="brand-gradient-text">Direct Leadership Review</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#0062D2] text-[10px] font-bold uppercase tracking-wider">
+                  <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[10px] font-bold uppercase tracking-wider brand-gradient-text shadow-2xs">
                     Tier-1 Priority
                   </span>
                 </div>
@@ -1021,27 +1117,27 @@ export function PartnerPageClient() {
                 </p>
                 <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
                   <span>Secretariat Horizon</span>
-                  <span className="font-bold text-slate-800">48 – 72 Business Hours</span>
+                  <span className="font-bold brand-gradient-text">48 – 72 Business Hours</span>
                 </div>
               </div>
 
               {/* Luxury Dark Value-First Test Card */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-[#040F24] text-white space-y-3 shadow-md relative overflow-hidden">
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#040F24] text-white space-y-3 shadow-md relative overflow-hidden border border-blue-950">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-400">
-                  <ShieldCheck className="w-4 h-4 text-sky-400 shrink-0" />
-                  <span>The Partnership Standard</span>
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-4 h-4 [stroke:url(#partnerBrandGrad)] shrink-0" />
+                  <span className="brand-gradient-text">The Partnership Standard</span>
                 </div>
                 <p className="text-xs italic text-slate-200 leading-relaxed font-medium">
                   &ldquo;Are we bringing genuine capability — or simply looking for access?&rdquo;
                 </p>
                 <ul className="space-y-2 pt-1 text-xs text-slate-300">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 [stroke:url(#partnerBrandGrad)] shrink-0 mt-0.5" />
                     <span>Focus on co-creating tangible value for founders &amp; fellows</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 [stroke:url(#partnerBrandGrad)] shrink-0 mt-0.5" />
                     <span>Long-term strategic ecosystem alignment over one-off promos</span>
                   </li>
                 </ul>
@@ -1050,7 +1146,7 @@ export function PartnerPageClient() {
               {/* Direct Secretariat Contact Note */}
               <p className="text-xs text-slate-500 pt-1">
                 Prefer direct correspondence? Email us at{' '}
-                <a href="mailto:partnerships@peersglobal.com" className="text-[#0062D2] font-semibold hover:underline">
+                <a href="mailto:partnerships@peersglobal.com" className="font-semibold brand-gradient-text hover:underline">
                   partnerships@peersglobal.com
                 </a>
               </p>
@@ -1059,9 +1155,6 @@ export function PartnerPageClient() {
             {/* Right Column: Sleek Form Architecture */}
             <div className="lg:col-span-7">
               <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
-                {/* Top Accent Bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] via-[#0062D2] to-[#E11D48]" />
-
                 {submitted ? (
                   <div className="text-center py-12 space-y-4">
                     <div className="w-16 h-16 bg-blue-50 border border-blue-200 text-[#0062D2] rounded-full flex items-center justify-center mx-auto shadow-sm">
@@ -1288,15 +1381,15 @@ export function PartnerPageClient() {
             
             {/* Left Column: Heading, Ethos & Punchline */}
             <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   THE PEERS GLOBAL INVITATION
                 </span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
                 LET&apos;S BUILD SOMETHING <br className="hidden sm:inline" />
-                <span className="italic text-cyan-200">WORTH BUILDING.</span>
+                <span className="italic bg-gradient-to-r from-blue-300 via-purple-300 to-rose-300 bg-clip-text text-transparent">WORTH BUILDING.</span>
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
@@ -1310,21 +1403,22 @@ export function PartnerPageClient() {
 
             {/* Right Column: Interactive Quick Actions */}
             <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
-              <a
+              <GalaxyButton
                 href="#start-conversation"
-                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                size="default"
+                className="w-full max-w-xs uppercase tracking-wider font-bold"
               >
-                <span>Become a Partner</span>
-                <ArrowRight className="size-3.5" />
-              </a>
+                Become a Partner
+              </GalaxyButton>
 
-              <a
+              <GalaxyButton
                 href="#start-conversation"
-                className="w-full sm:w-auto lg:w-full max-w-xs px-6 py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white font-bold text-xs uppercase tracking-wider transition-all border border-white/20 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                variant="transparent"
+                size="default"
+                className="w-full max-w-xs uppercase tracking-wider font-bold"
               >
-                <span>Explore Sponsorship</span>
-                <ChevronRight className="size-3.5 text-white/60" />
-              </a>
+                Explore Sponsorship
+              </GalaxyButton>
 
               <div className="flex gap-2.5 w-full max-w-xs">
                 <a

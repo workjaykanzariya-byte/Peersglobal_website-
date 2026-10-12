@@ -190,6 +190,22 @@ export function AdvisoryBoardClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
+      {/* Global SVG Gradients for Icons and Card Borders */}
+      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* =========================================================================
           SECTION 1: HERO — THE PEERS BOARD OF ADVISORY (Master Dark Video Banner)
           ========================================================================= */}
@@ -239,14 +255,16 @@ export function AdvisoryBoardClient() {
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>BOARD OF ADVISORY</span>
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  BOARD OF ADVISORY
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   The Peers Board of{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Advisory
                   </span>
                 </h1>
@@ -266,8 +284,8 @@ export function AdvisoryBoardClient() {
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
                   href="#advisors-section"
-                  variant="primary"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Meet the Advisors
                 </GalaxyButton>
@@ -277,7 +295,9 @@ export function AdvisoryBoardClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-bold uppercase tracking-wider"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -292,16 +312,16 @@ export function AdvisoryBoardClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                  className="group rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-2xs hover:shadow-lg hover:border-blue-300/80 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Icon className="size-6" />
+                  <div className="size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                    <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">
+                    <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-none">
                       {stat.value}
                     </div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                    <div className="text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wider mt-1">
                       {stat.label}
                     </div>
                   </div>
@@ -322,8 +342,8 @@ export function AdvisoryBoardClient() {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE POWER OF SHARED WISDOM
                 </span>
               </div>
@@ -340,21 +360,27 @@ export function AdvisoryBoardClient() {
                 {EXPERIENCE_LEARNING_POINTS.map((pt, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-200 hover:bg-blue-50/30 hover:shadow-2xs transition-all duration-200 flex items-start gap-2.5"
+                    className="p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-200 hover:shadow-xs transition-all duration-200 flex items-start gap-2.5 group/item"
                   >
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                    <span className="text-xs text-slate-800 font-medium leading-snug">
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                    <span className="text-xs text-slate-800 group-hover/item:text-slate-950 font-medium leading-snug">
                       {pt}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100 shadow-2xs space-y-1">
-                <p className="text-xs sm:text-sm font-bold text-slate-900">
+              <div
+                className="p-6 rounded-3xl text-white border border-white/10 shadow-xl relative overflow-hidden space-y-1.5"
+                style={{
+                  background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                }}
+              >
+                <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+                <p className="text-xs sm:text-sm font-bold text-white relative z-10">
                   That experience has value. And a community becomes stronger when experience is shared rather than kept within one person&apos;s journey.
                 </p>
-                <p className="text-xs text-slate-600 font-light">
+                <p className="text-xs text-slate-300 font-light relative z-10">
                   The Board of Advisory creates a bridge between experience and the entrepreneurs who may benefit from it.
                 </p>
               </div>
@@ -375,7 +401,7 @@ export function AdvisoryBoardClient() {
                     PERSPECTIVE
                   </p>
                   <p
-                    className="text-lg text-amber-300 font-bold leading-tight"
+                    className="text-lg text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
                     style={{ fontFamily: 'var(--font-script)' }}
                   >
                     Bridge to Possibility
@@ -396,10 +422,10 @@ export function AdvisoryBoardClient() {
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
             
             {/* Left: The Community Has Access */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     ACCESSIBLE PERSPECTIVE
                   </span>
                 </div>
@@ -413,20 +439,20 @@ export function AdvisoryBoardClient() {
                 </p>
 
                 <div className="space-y-2.5 text-xs sm:text-sm text-slate-700">
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center gap-2.5 font-medium">
-                    <span className="size-2 rounded-full bg-[#0062D2] shrink-0" />
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-2.5 font-medium shadow-2xs">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0" />
                     <span>A Peer may have a complex strategic question</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center gap-2.5 font-medium">
-                    <span className="size-2 rounded-full bg-[#0062D2] shrink-0" />
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-2.5 font-medium shadow-2xs">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0" />
                     <span>A Circle may encounter a new industry challenge</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center gap-2.5 font-medium">
-                    <span className="size-2 rounded-full bg-[#0062D2] shrink-0" />
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-2.5 font-medium shadow-2xs">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0" />
                     <span>A leader may need an objective third-party perspective</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center gap-2.5 font-medium">
-                    <span className="size-2 rounded-full bg-[#0062D2] shrink-0" />
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 flex items-center gap-2.5 font-medium shadow-2xs">
+                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0" />
                     <span>A situation may benefit from someone who has navigated it before</span>
                   </div>
                 </div>
@@ -438,10 +464,10 @@ export function AdvisoryBoardClient() {
             </div>
 
             {/* Right: Every Circle Has a Connection */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     LOCAL CONNECTION
                   </span>
                 </div>
@@ -454,21 +480,27 @@ export function AdvisoryBoardClient() {
                   Every Circle has a designated <strong className="text-slate-900 font-semibold">Peers Board of Advisory Leader</strong>. This person creates the vital bridge between the Circle and the senior advisory council.
                 </p>
 
-                <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100 space-y-1.5">
-                  <p className="text-xs sm:text-sm font-bold text-slate-900">
+                <div
+                  className="p-5 sm:p-6 rounded-3xl text-white border border-white/10 shadow-md relative overflow-hidden space-y-1.5"
+                  style={{
+                    background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                  }}
+                >
+                  <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+                  <p className="text-xs sm:text-sm font-bold text-white relative z-10">
                     The principle is simple: Experience should be reachable.
                   </p>
-                  <p className="text-xs text-slate-600 font-light leading-relaxed">
+                  <p className="text-xs text-slate-300 font-light leading-relaxed relative z-10">
                     A Circle should know where to turn when a question would benefit from a senior perspective. The Board of Advisory Leader helps make that relationship seamless.
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70 text-xs text-slate-600 font-medium">
+                <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 text-xs text-slate-700 font-medium">
                   ✦ Through regular touchpoints, masterclasses, and dedicated sessions, senior wisdom flows directly into the room.
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs text-[#0062D2] font-semibold">
+              <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
                 Direct conduit between the inner board and global advisors.
               </div>
             </div>
@@ -478,14 +510,14 @@ export function AdvisoryBoardClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: WHAT THE BOARD BRINGS (5 Dimensions - 5 Interactive Cards)
+          SECTION 4: WHAT THE BOARD BRINGS (5 Dimensions - Animated Cards)
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE FIVE DIMENSIONS
               </span>
             </div>
@@ -503,35 +535,53 @@ export function AdvisoryBoardClient() {
               return (
                 <div
                   key={dim.title}
-                  className={`group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 cursor-default ${
+                  className={`animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300 ${
                     idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
                   }`}
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className={`size-12 rounded-2xl border flex items-center justify-center shrink-0 shadow-2xs ${dim.color}`}>
-                        <Icon className="size-5.5" />
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`dimBorderGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#dimBorderGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="flex flex-col justify-between p-7 sm:p-8 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                          {dim.subtitle}
+                        </span>
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 shadow-2xs">
-                        {dim.subtitle}
+
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text transition-colors leading-snug cursor-pointer">
+                          {dim.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
+                          {dim.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400 font-mono">Dimension 0{idx + 1} of 05</span>
+                      <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
+                        Advisory Pillar &rarr;
                       </span>
                     </div>
-
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
-                        {dim.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
-                        {dim.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span className="text-slate-400 font-mono">Dimension 0{idx + 1} of 05</span>
-                    <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
-                      Advisory Pillar &rarr;
-                    </span>
                   </div>
                 </div>
               )
@@ -550,11 +600,12 @@ export function AdvisoryBoardClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-stretch">
             
             {/* Left Card: Who you become around experience */}
-            <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8">
               <div className="space-y-6">
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                       CONVERSATIONAL ELEVATION
                     </span>
                   </div>
@@ -569,8 +620,8 @@ export function AdvisoryBoardClient() {
                 </div>
 
                 <div className="space-y-3.5">
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70 hover:border-blue-200 hover:bg-blue-50/20 transition-all flex items-start gap-3.5">
-                    <div className="size-6 rounded-full bg-blue-100/70 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70 hover:border-blue-200 hover:bg-blue-50/20 transition-all flex items-start gap-3.5 group/step">
+                    <div className="size-7 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs shadow-2xs">
                       1
                     </div>
                     <div>
@@ -578,13 +629,13 @@ export function AdvisoryBoardClient() {
                         Comfort with candour
                       </p>
                       <p className="text-xs text-slate-600 font-light mt-0.5">
-                        You become comfortable saying: <strong className="text-[#0062D2] font-semibold">“I don&apos;t know.”</strong>
+                        You become comfortable saying: <strong className="brand-gradient-text font-bold">“I don&apos;t know.”</strong>
                       </p>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70 hover:border-blue-200 hover:bg-blue-50/20 transition-all flex items-start gap-3.5">
-                    <div className="size-6 rounded-full bg-blue-100/70 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70 hover:border-blue-200 hover:bg-blue-50/20 transition-all flex items-start gap-3.5 group/step">
+                    <div className="size-7 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs shadow-2xs">
                       2
                     </div>
                     <div>
@@ -597,8 +648,8 @@ export function AdvisoryBoardClient() {
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70 hover:border-blue-200 hover:bg-blue-50/20 transition-all flex items-start gap-3.5">
-                    <div className="size-6 rounded-full bg-blue-100/70 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70 hover:border-blue-200 hover:bg-blue-50/20 transition-all flex items-start gap-3.5 group/step">
+                    <div className="size-7 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs shadow-2xs">
                       3
                     </div>
                     <div>
@@ -613,19 +664,25 @@ export function AdvisoryBoardClient() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#0062D2] font-semibold italic">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold italic brand-gradient-text">
                 <span>✦ &ldquo;Elevated peers create elevated perspectives.&rdquo;</span>
               </div>
             </div>
 
             {/* Right Card: The Advisory Mindset & Decision Framework */}
-            <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 hover:shadow-2xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 size-72 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+            <div
+              className="lg:col-span-6 p-8 sm:p-10 rounded-3xl text-white shadow-xl border border-white/10 hover:shadow-2xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+              }}
+            >
+              <div className="absolute top-0 right-0 size-72 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-3xl pointer-events-none" />
 
               <div className="space-y-6 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
-                    <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                    <span className="text-[11px] font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                       DECISION FRAMEWORK
                     </span>
                   </div>
@@ -642,24 +699,24 @@ export function AdvisoryBoardClient() {
                 {/* Vertical Process Pathway */}
                 <div className="grid grid-cols-5 gap-2 pt-2">
                   {[
-                    { step: '01', label: 'Listen', color: 'border-blue-500/30 bg-blue-500/15 text-sky-200' },
-                    { step: '02', label: 'Consider', color: 'border-blue-500/30 bg-blue-500/15 text-sky-200' },
-                    { step: '03', label: 'Question', color: 'border-blue-500/30 bg-blue-500/15 text-sky-200' },
-                    { step: '04', label: 'Decide', color: 'border-blue-500/30 bg-blue-500/15 text-sky-200' },
-                    { step: '05', label: 'Act', color: 'border-rose-500/40 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-md' },
+                    { step: '01', label: 'Listen' },
+                    { step: '02', label: 'Consider' },
+                    { step: '03', label: 'Question' },
+                    { step: '04', label: 'Decide' },
+                    { step: '05', label: 'Act' },
                   ].map((item, idx) => (
                     <div
                       key={idx}
-                      className={`p-3 rounded-2xl border ${item.color} flex flex-col items-center justify-center text-center backdrop-blur-xs transition-transform hover:scale-105`}
+                      className="p-3 rounded-2xl border border-white/15 bg-white/5 flex flex-col items-center justify-center text-center backdrop-blur-xs transition-transform hover:scale-105 hover:border-white/30"
                     >
-                      <span className="text-[10px] font-mono text-white/60 mb-0.5">{item.step}</span>
-                      <span className="text-xs font-bold">{item.label}</span>
+                      <span className="text-[10px] font-mono text-slate-400 mb-0.5">{item.step}</span>
+                      <span className={`text-xs font-bold ${idx === 4 ? 'bg-gradient-to-r from-[#38BDF8] to-[#FB7185] bg-clip-text text-transparent' : 'text-white'}`}>{item.label}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white/[0.05] border border-white/10 text-xs text-slate-300 font-light leading-relaxed">
-                  <span className="text-sky-300 font-bold mr-1.5">✦ Principle:</span>
+                  <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold mr-1.5">✦ Principle:</span>
                   The advisor questions and opens horizons; the entrepreneur evaluates and executes with full ownership.
                 </div>
               </div>
@@ -674,14 +731,14 @@ export function AdvisoryBoardClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 6: FROM EXPERIENCE TO POSSIBILITY
+          SECTION 6: FROM EXPERIENCE TO POSSIBILITY (With Glow Cards)
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 PATTERN RECOGNITION
               </span>
             </div>
@@ -691,41 +748,64 @@ export function AdvisoryBoardClient() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 sm:gap-7 max-w-5xl mx-auto">
-            <div className="group p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1.5 hover:bg-white transition-all duration-300 flex flex-col justify-between space-y-4">
-              <span className="text-[11px] font-mono uppercase font-bold tracking-wider text-slate-400">PROBLEM VS PATTERN</span>
-              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                A young entrepreneur may see a problem.
-              </p>
-              <p className="text-base font-bold text-[#0062D2] leading-snug">
-                An experienced entrepreneur recognises a pattern.
-              </p>
-            </div>
-
-            <div className="group p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1.5 hover:bg-white transition-all duration-300 flex flex-col justify-between space-y-4">
-              <span className="text-[11px] font-mono uppercase font-bold tracking-wider text-slate-400">OBSTACLE VS ROUTE</span>
-              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                A business owner may see an obstacle.
-              </p>
-              <p className="text-base font-bold text-[#0062D2] leading-snug">
-                Someone who faced it before sees another route.
-              </p>
-            </div>
-
-            <div className="group p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1.5 hover:bg-white transition-all duration-300 flex flex-col justify-between space-y-4">
-              <span className="text-[11px] font-mono uppercase font-bold tracking-wider text-slate-400">ONE VS MULTIPLE</span>
-              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                A leader may see one possibility.
-              </p>
-              <p className="text-base font-bold text-[#0062D2] leading-snug">
-                Another perspective may reveal three.
-              </p>
-            </div>
+            {[
+              {
+                label: 'PROBLEM VS PATTERN',
+                text1: 'A young entrepreneur may see a problem.',
+                text2: 'An experienced entrepreneur recognises a pattern.',
+              },
+              {
+                label: 'OBSTACLE VS ROUTE',
+                text1: 'A business owner may see an obstacle.',
+                text2: 'Someone who faced it before sees another route.',
+              },
+              {
+                label: 'ONE VS MULTIPLE',
+                text1: 'A leader may see one possibility.',
+                text2: 'Another perspective may reveal three.',
+              },
+            ].map((card, cIdx) => (
+              <div
+                key={cIdx}
+                className="animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300"
+                tabIndex={0}
+                role="article"
+              >
+                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#cardGradientStroke)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-7 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full flex flex-col justify-between space-y-4">
+                  <span className="text-[11px] font-mono uppercase font-bold tracking-wider brand-gradient-text">
+                    {card.label}
+                  </span>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    {card.text1}
+                  </p>
+                  <p className="text-base font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-snug">
+                    {card.text2}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-blue-200/60 shadow-2xs text-center max-w-2xl mx-auto text-xs sm:text-sm font-medium text-slate-800">
-            <span>
-              This is where the value of the Board lies: <strong className="text-slate-900 font-bold">Not in having all the answers, but in helping the community see more possibilities.</strong>
-            </span>
+          <div
+            className="p-6 sm:p-7 rounded-3xl text-white border border-white/10 shadow-xl relative overflow-hidden text-center max-w-3xl mx-auto space-y-1.5"
+            style={{
+              background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+          >
+            <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+            <p className="text-xs sm:text-sm text-slate-300 font-light relative z-10">
+              This is where the value of the Board lies:
+            </p>
+            <p className="text-base sm:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] leading-snug relative z-10">
+              Not in having all the answers, but in helping the community see more possibilities.
+            </p>
           </div>
 
         </div>
@@ -738,8 +818,8 @@ export function AdvisoryBoardClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE ADVISORY COUNCIL
               </span>
             </div>
@@ -787,7 +867,7 @@ export function AdvisoryBoardClient() {
 
                   <div className="p-6 sm:p-7 space-y-4">
                     <div className="space-y-2">
-                      <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-[#0062D2] px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 shadow-2xs">
+                      <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-3 py-1 rounded-full shadow-2xs">
                         {advisor.tag}
                       </span>
                       <p className="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed">
@@ -804,7 +884,7 @@ export function AdvisoryBoardClient() {
 
                 <div className="px-6 sm:px-7 pb-6 pt-2 flex items-center justify-between text-xs text-slate-500 font-medium border-t border-slate-100">
                   <span className="text-slate-400 font-mono">Senior Advisor 0{idx + 1}</span>
-                  <span className="inline-flex items-center gap-1.5 text-slate-700 font-semibold">
+                  <span className="inline-flex items-center gap-1.5 brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">
                     <span>Advisory Voice</span>
                     <span>&rarr;</span>
                   </span>
@@ -813,11 +893,17 @@ export function AdvisoryBoardClient() {
             ))}
           </div>
 
-          <div className="p-5 rounded-2xl bg-white border border-slate-200/80 text-center max-w-2xl mx-auto shadow-2xs">
-            <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1">
+          <div
+            className="p-6 sm:p-7 rounded-3xl text-white border border-white/10 shadow-xl relative overflow-hidden text-center max-w-3xl mx-auto space-y-1.5"
+            style={{
+              background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+          >
+            <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+            <h4 className="text-base sm:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] leading-snug relative z-10">
               For the entrepreneur seeking perspective:
             </h4>
-            <p className="text-xs text-slate-600 font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed relative z-10">
               Come prepared. Ask honestly. Listen carefully. Consider thoughtfully. And then make your own decision. That is how experience becomes useful.
             </p>
           </div>
@@ -832,8 +918,8 @@ export function AdvisoryBoardClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 FREQUENTLY ASKED QUESTIONS
               </span>
             </div>
@@ -852,12 +938,12 @@ export function AdvisoryBoardClient() {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full text-left px-6 py-4.5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-slate-900 hover:text-[#0062D2] transition-colors"
+                    className="w-full text-left px-6 py-4.5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-slate-900 hover:text-[#1D4ED8] transition-colors cursor-pointer"
                   >
-                    <span>{item.q}</span>
+                    <span className={isOpen ? 'brand-gradient-text' : ''}>{item.q}</span>
                     <ChevronDown
                       className={`size-4.5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-[#0062D2]' : ''
+                        isOpen ? 'rotate-180 text-[#1D4ED8]' : ''
                       }`}
                     />
                   </button>
@@ -932,8 +1018,9 @@ export function AdvisoryBoardClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
                   LEGACY THROUGH CONTRIBUTION
                 </span>
               </div>
@@ -950,7 +1037,8 @@ export function AdvisoryBoardClient() {
                 <GalaxyButton
                   href="/membership"
                   variant="primary"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Explore Membership
                 </GalaxyButton>
@@ -960,7 +1048,9 @@ export function AdvisoryBoardClient() {
                   target="_blank"
                   rel="noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-bold uppercase tracking-wider"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -974,7 +1064,9 @@ export function AdvisoryBoardClient() {
               >
                 Experience <br />
                 Earned. <br />
-                <span className="text-[#7DD3FC]">Perspective Shared</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                  Perspective Shared
+                </span>
               </div>
             </div>
 

@@ -53,21 +53,21 @@
 }
 
 .title-bold-11 {
-  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: 'Sharp Grotesk Cyr Medium 20', 'Google Sans Flex', -apple-system, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .title-9 {
-  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: 'Google Sans Flex', sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
 .caption-disclaimer {
-  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: 'Google Sans Flex', sans-serif;
   font-size: 0.75rem;
   line-height: 1.4;
 }
@@ -609,20 +609,18 @@ p.body,
 .fd-hero__headline {
   margin: 0;
   color: var(--mv-white);
-  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   font-size: 60px;
   font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  line-height: 68px;
+  letter-spacing: -.25px;
 }
 
 .fd-hero__sub {
   margin: 0;
   color: var(--mv-grey-300);
-  font-family: 'Segoe UI', SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   font-size: 24px;
-  font-weight: 400;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 30px;
   letter-spacing: 0;
 }
 
@@ -3776,13 +3774,14 @@ p.body,
 @keyframes traceBorderOnce {
   0% {
     stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  4% {
     opacity: 1;
   }
-
-  92% {
+  96% {
     opacity: 1;
   }
-
   100% {
     stroke-dashoffset: -1000;
     opacity: 0;
@@ -3791,11 +3790,10 @@ p.body,
 
 .animated-glow-card {
   position: relative;
-  border-radius: 1rem;
-  padding: 1.5px;
-  background: rgba(226, 232, 240, 0.85);
+  border-radius: 1.5rem;
+  background: transparent;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
+  overflow: visible;
   z-index: 1;
   cursor: pointer;
   outline: none;
@@ -3806,9 +3804,9 @@ p.body,
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   pointer-events: none;
-  z-index: 2;
+  z-index: 20;
   overflow: visible;
 }
 
@@ -3819,7 +3817,7 @@ p.body,
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   pathLength: 1000;
-  stroke-dasharray: 220 1000;
+  stroke-dasharray: 280 1000;
   stroke-dashoffset: 0;
   opacity: 0;
 }

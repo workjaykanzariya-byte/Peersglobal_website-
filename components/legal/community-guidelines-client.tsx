@@ -14,6 +14,7 @@ import {
   MessageSquare,
   Ban,
   ArrowRight,
+  ArrowUpRight,
 } from 'lucide-react'
 
 const GUIDELINES = [
@@ -64,6 +65,16 @@ const GUIDELINES = [
 export function CommunityGuidelinesClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* ── Global SVG Gradient Definition ── */}
+      <svg width="0" height="0" className="absolute pointer-events-none opacity-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="guideBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
@@ -79,9 +90,9 @@ export function CommunityGuidelinesClient() {
             <span className="font-bold brand-gradient-text">Community Guidelines</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1D4ED8] border border-blue-200">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Sanctity of Rooms</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-slate-200 shadow-2xs">
+              <ShieldCheck className="w-3.5 h-3.5 [stroke:url(#guideBrandGrad)]" />
+              <span className="brand-gradient-text">Sanctity of Rooms</span>
             </span>
           </div>
         </div>
@@ -112,14 +123,13 @@ export function CommunityGuidelinesClient() {
             {/* Left Content */}
             <div className="lg:col-span-8 max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>CONDUCT &amp; PARTICIPATION STANDARDS</span>
+                <span className="brand-gradient-text font-bold">CONDUCT &amp; PARTICIPATION STANDARDS</span>
               </div>
 
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
                   Community{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="brand-gradient-text">
                     Guidelines.
                   </span>
                 </h1>
@@ -133,20 +143,21 @@ export function CommunityGuidelinesClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#guidelines-index"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Read Guidelines</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+                  Read Guidelines
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="secondary"
+                  size="md"
                 >
-                  <span>Become a Peer</span>
-                </Link>
+                  Become a Peer
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -162,11 +173,11 @@ export function CommunityGuidelinesClient() {
                       key={s.label}
                       className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all"
                     >
-                      <div className="size-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
-                        <Icon className="size-5" />
+                      <div className="size-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0 shadow-xs">
+                        <Icon className="size-5 [stroke:url(#guideBrandGrad)]" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                        <div className="font-bold text-sm sm:text-base brand-gradient-text tracking-tight leading-tight whitespace-nowrap">
                           {s.value}
                         </div>
                         <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
@@ -194,7 +205,7 @@ export function CommunityGuidelinesClient() {
                 Mutual Respect
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl brand-gradient-text font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Uncompromising Standards
@@ -205,7 +216,7 @@ export function CommunityGuidelinesClient() {
       </section>
 
       {/* ── Guidelines Sections with Sticky Navigation ── */}
-      <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+      <section id="guidelines-index" className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
@@ -215,7 +226,7 @@ export function CommunityGuidelinesClient() {
               {/* Table of Contents Card */}
               <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-xs space-y-4">
                 <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-                  <FileCheck className="w-4 h-4 text-[#1D4ED8]" />
+                  <FileCheck className="w-4 h-4 [stroke:url(#guideBrandGrad)]" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Guidelines Index
                   </span>
@@ -232,7 +243,7 @@ export function CommunityGuidelinesClient() {
                         <span className="font-mono text-[11px] text-slate-400 group-hover:text-[#1D4ED8]">
                           {item.num}.
                         </span>
-                        <span className="truncate max-w-[190px] sm:max-w-none">{item.title}</span>
+                        <span className="truncate max-w-[190px] sm:max-w-none group-hover:text-[#1D4ED8]">{item.title}</span>
                       </div>
                       <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#1D4ED8] group-hover:translate-x-0.5 transition-all" />
                     </a>
@@ -243,8 +254,8 @@ export function CommunityGuidelinesClient() {
               {/* Confidential Reporting Card */}
               <div className="p-6 rounded-3xl bg-gradient-to-br from-blue-50/70 to-rose-50/40 border border-blue-100/80 shadow-2xs space-y-4">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span className="text-xs font-mono font-bold uppercase text-slate-900">
+                  <ShieldCheck className="w-4 h-4 [stroke:url(#guideBrandGrad)]" />
+                  <span className="text-xs font-mono font-bold uppercase brand-gradient-text">
                     Confidential Ethics Line
                   </span>
                 </div>
@@ -252,13 +263,14 @@ export function CommunityGuidelinesClient() {
                   Notice an aggressive sales pitch or confidentiality violation? Report directly to the Membership Experience Committee.
                 </p>
                 <div className="pt-2">
-                  <a
+                  <GalaxyButton
                     href="mailto:grievance@peersglobal.com"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-900 text-white text-xs font-bold transition-all shadow-2xs"
+                    variant="primary"
+                    size="sm"
+                    className="w-full justify-center"
                   >
-                    <span>grievance@peersglobal.com</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                    grievance@peersglobal.com
+                  </GalaxyButton>
                 </div>
               </div>
 
@@ -272,12 +284,12 @@ export function CommunityGuidelinesClient() {
                   <div
                     id={`rule-${item.num}`}
                     key={item.title}
-                    className="group p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-slate-300 transition-all duration-300 space-y-4 scroll-mt-24"
+                    className="brand-gradient-border-card group p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg transition-all duration-300 space-y-4 scroll-mt-24"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center text-[#1D4ED8] shrink-0 group-hover:scale-105 transition-transform">
-                          <IconComponent className="w-4 h-4" />
+                        <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <IconComponent className="w-4 h-4 [stroke:url(#guideBrandGrad)]" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
@@ -288,7 +300,7 @@ export function CommunityGuidelinesClient() {
                               • {item.tag}
                             </span>
                           </div>
-                          <h2 className="text-lg sm:text-xl font-serif font-bold text-slate-950 tracking-tight mt-0.5">
+                          <h2 className="text-lg sm:text-xl font-serif font-bold text-slate-950 brand-gradient-hover-text tracking-tight mt-0.5">
                             {item.title}
                           </h2>
                         </div>
@@ -348,65 +360,80 @@ export function CommunityGuidelinesClient() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
-          <div className="space-y-4 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/90">
-                Healthy Rooms &amp; Authentic Culture
-              </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Headings & Governance Links */}
+            <div className="lg:col-span-7 space-y-4 text-left">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  HEALTHY ROOMS &amp; AUTHENTIC CULTURE
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Vetted founders. Protected rooms. <br className="hidden sm:inline" />
+                <span className="italic brand-gradient-text font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+                  Where collaboration flourishes.
+                </span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                PEERS GLOBAL — Building enduring business relationships and category integrity across Bharat.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                {[
+                  { title: 'The Peers Code', href: '/peers-code' },
+                  { title: 'Terms of Use', href: '/terms-of-use' },
+                  { title: 'Grievance Redressal', href: '/grievance' }
+                ].map((item, idx) => (
+                  <Link
+                    key={idx}
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-colors"
+                  >
+                    <span>{item.title}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-bold text-white tracking-tight leading-[1.18]">
-              Vetted founders. Protected rooms. <br className="hidden sm:inline" />
-              <span className="italic text-amber-300 font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                Where collaboration flourishes.
-              </span>
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-mono tracking-wider pt-2">
-              PEERS GLOBAL — Building enduring business relationships across Bharat.
-            </p>
-          </div>
-
-          {/* Quick Links Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-2">
-            {[
-              {
-                title: 'The Peers Code',
-                desc: 'The foundational philosophy & 10 pillars',
-                href: '/peers-code'
-              },
-              {
-                title: 'Terms of Use',
-                desc: 'Statutory platform agreements & rights',
-                href: '/terms-of-use'
-              },
-              {
-                title: 'Grievance Redressal',
-                desc: 'Designated legal & grievance officer',
-                href: '/grievance'
-              }
-            ].map((item, idx) => (
-              <Link
-                key={idx}
-                href={item.href}
-                className="group p-5 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-white/30 transition-all duration-300 text-left backdrop-blur-md flex flex-col justify-between space-y-3"
+            {/* Right Column: Action Buttons */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <GalaxyButton
+                href="mailto:grievance@peersglobal.com"
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
               >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-amber-300/90 font-semibold">
-                      Charter 0{idx + 1}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-amber-300 group-hover:translate-x-1 transition-all" />
-                  </div>
-                  <h3 className="text-sm font-bold text-white mt-2 group-hover:text-amber-200 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
+                Submit Code Grievance
+              </GalaxyButton>
+
+              <GalaxyButton
+                href="/membership"
+                variant="secondary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
+              >
+                Apply for Membership
+              </GalaxyButton>
+
+              <div className="flex gap-2.5 w-full max-w-xs">
+                <Link
+                  href="/contact"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Contact Desk
+                </Link>
+                <Link
+                  href="/privacy-policy"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Privacy
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

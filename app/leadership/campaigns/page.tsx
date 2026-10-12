@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { leadershipApi } from '@/lib/api/leadership'
 import { CampaignsClient } from './campaigns-client'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export const metadata: Metadata = {
   title: 'Leadership Selection & Elections | Peers Global',
   description:

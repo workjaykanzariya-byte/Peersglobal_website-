@@ -272,7 +272,7 @@ export function IndustryPageClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   A Room Where Nobody Needs{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="brand-gradient-text">
                     Your Business Explained.
                   </span>
                 </h1>
@@ -309,8 +309,8 @@ export function IndustryPageClient() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-rose-500/20 border border-blue-400/30 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 stroke-[url(#brandStatGrad)]" />
                       </div>
                       <div>
                         <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
@@ -323,21 +323,21 @@ export function IndustryPageClient() {
             </div>
 
             {/* Right Cursive Script Highlights */}
-            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-xl space-y-1">
               <p
-                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                className="text-2xl sm:text-3xl text-white/90 leading-tight font-medium drop-shadow"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Different Industries
               </p>
               <p
-                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
+                className="text-3xl sm:text-4xl text-white leading-tight font-bold drop-shadow"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Same Purpose
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] drop-shadow-md"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Greater Impact
@@ -362,7 +362,7 @@ export function IndustryPageClient() {
                 Why sector matters
               </h2>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                Every entrepreneur is different. But entrepreneurs working within the same sector often understand something immediately: <strong className="text-slate-900 font-bold">the context behind the problem</strong>.
+                Every entrepreneur is different. But entrepreneurs working within the same sector often understand something immediately: <strong className="brand-gradient-text font-bold">the context behind the problem</strong>.
               </p>
               <p className="text-base sm:text-lg text-slate-800 font-semibold leading-relaxed">
                 The market may be different. The business may be different. The scale may be different. But the questions can sound remarkably familiar:
@@ -380,18 +380,20 @@ export function IndustryPageClient() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="relative p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] text-slate-900 shadow-sm overflow-hidden">
-                <div className="absolute top-1/2 -right-12 -translate-y-1/2 w-36 h-36 rounded-full border border-dashed border-[#0062D2]/30 pointer-events-none" />
-                <div className="absolute top-6 right-6 size-2.5 rounded-full bg-[#0062D2]/40 pointer-events-none" />
-                <div className="absolute bottom-6 left-6 size-2 rounded-full bg-[#0062D2]/40 pointer-events-none" />
+              <div className="relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white shadow-xl overflow-hidden border border-white/10">
+                <div className="absolute top-1/2 -right-12 -translate-y-1/2 w-48 h-48 rounded-full bg-blue-500/20 blur-[60px] pointer-events-none" />
+                <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-rose-500/20 blur-[50px] pointer-events-none" />
                 <div className="relative z-10">
-                  <span className="font-serif text-5xl sm:text-6xl text-[#0062D2] leading-none block mb-2">“</span>
-                  <p className="text-xl sm:text-2xl text-[#0F172A] font-bold leading-snug mb-6">
+                  <span className="font-serif text-5xl sm:text-6xl brand-gradient-text leading-none block mb-2">“</span>
+                  <p className="text-xl sm:text-2xl text-white font-bold leading-snug mb-6">
                     You spend less time explaining what your business is—and more time discussing what you can do next.
                   </p>
-                  <Link href="/the-idea" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0062D2] hover:text-[#0052B4] tracking-wider uppercase">
+                  <Link
+                    href="/the-idea"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-xs font-bold tracking-wider uppercase shadow-md shadow-rose-950/40 hover:scale-105 hover:shadow-lg transition-all duration-200 whitespace-nowrap"
+                  >
                     <span>THE PEERS IDEA</span>
-                    <ArrowRight className="size-4" />
+                    <ArrowRight className="size-3.5 text-white" />
                   </Link>
                 </div>
               </div>
@@ -418,7 +420,7 @@ export function IndustryPageClient() {
               </p>
             </div>
             <div className="text-right shrink-0">
-              <div className="text-[#0062D2] text-2xl sm:text-3xl font-bold leading-tight select-none pointer-events-none" style={{ fontFamily: 'var(--font-script, cursive)' }}>
+              <div className="brand-gradient-text text-2xl sm:text-3xl font-bold leading-tight select-none pointer-events-none" style={{ fontFamily: 'var(--font-script, cursive)' }}>
                 Shared context.<br />
                 Deeper relationships.
               </div>
@@ -431,23 +433,23 @@ export function IndustryPageClient() {
               return (
                 <div
                   key={circle.slug}
-                  className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all flex flex-col justify-between group"
+                  className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#0062D2]/40 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-[#0062D2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                      <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
                         {circle.num}
                       </span>
-                      <div className={`size-11 rounded-2xl ${circle.bg} ${circle.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                        <IconComp className="size-5" />
+                      <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                        <IconComp className="size-5 stroke-[url(#brandIconGrad)]" />
                       </div>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                       {circle.name}
                     </h3>
 
-                    <p className="text-xs sm:text-sm font-bold text-[#0062D2]">
+                    <p className="text-xs sm:text-sm font-bold brand-gradient-text">
                       {circle.tagline}
                     </p>
 
@@ -456,16 +458,16 @@ export function IndustryPageClient() {
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs text-slate-500 font-medium truncate max-w-[170px]">
+                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <span className="text-xs text-slate-500 font-medium truncate max-w-[150px]">
                       {circle.context}
                     </span>
                     <Link
                       href={`/circles/find?type=industry&circle=${circle.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0062D2] hover:text-[#0052B4]"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-xs font-semibold tracking-wide whitespace-nowrap shadow-xs hover:shadow-md hover:scale-105 transition-all duration-200"
                     >
                       <span>Find Circle</span>
-                      <ArrowRight className="size-3.5" />
+                      <ArrowRight className="size-3 text-white" />
                     </Link>
                   </div>
                 </div>
@@ -490,19 +492,43 @@ export function IndustryPageClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {WHAT_IT_GIVES_YOU.map((item) => (
-              <div key={item.title} className="rounded-3xl border border-slate-200 bg-[#FAFBFD] p-7 shadow-2xs space-y-2.5">
-                <h3 className="text-base sm:text-lg font-bold text-[#0F172A]">{item.title}</h3>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{item.body}</p>
+            {WHAT_IT_GIVES_YOU.map((item, idx) => (
+              <div
+                key={item.title}
+                className="animated-glow-card group"
+                tabIndex={0}
+                role="article"
+              >
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`whatGivesGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: `url(#whatGivesGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="rounded-[calc(1.5rem-1.5px)] bg-white p-7 h-full space-y-2.5 transition-all duration-300">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">{item.title}</h3>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{item.body}</p>
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#061836] text-white space-y-2.5">
-            <h4 className="text-xl sm:text-2xl text-sky-300 font-bold">That is the deeper purpose of an Industry Circle.</h4>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              You do not enter only to receive value. You enter with the possibility of creating value for someone else.
-            </p>
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white space-y-2.5 shadow-xl border border-white/10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/15 rounded-full blur-[90px] pointer-events-none" />
+            <div className="relative z-10 space-y-2.5">
+              <h4 className="text-xl sm:text-2xl brand-gradient-text font-bold">That is the deeper purpose of an Industry Circle.</h4>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                You do not enter only to receive value. You enter with the possibility of creating value for someone else.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -524,7 +550,7 @@ export function IndustryPageClient() {
                 A Circle becomes more useful when every entrepreneur has room to contribute. That is why PEERS GLOBAL follows a one-seat-per-category approach within the Circle.
               </p>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-                The principle is simple: <strong className="text-slate-900 font-bold">Your expertise should have a place in the room.</strong> It reduces unnecessary direct competition within the Circle and makes it easier for entrepreneurs to understand who brings what capability.
+                The principle is simple: <strong className="brand-gradient-text font-bold">Your expertise should have a place in the room.</strong> It reduces unnecessary direct competition within the Circle and makes it easier for entrepreneurs to understand who brings what capability.
               </p>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 But the real value goes beyond exclusivity. It creates clarity: <em>Who can I learn from? Who can I introduce? Who can I collaborate with? Who might need what I know?</em> Every Peer has a distinct place to contribute.
@@ -532,12 +558,12 @@ export function IndustryPageClient() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm space-y-4">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">Clarity &amp; Value</p>
+              <div className="rounded-3xl border border-slate-200/90 bg-white p-8 shadow-sm space-y-4">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">Clarity &amp; Value</p>
                 <ul className="space-y-3 text-sm sm:text-base text-slate-700">
-                  <li className="flex items-start gap-3"><CheckCircle2 className="size-4.5 text-[#0062D2] mt-0.5 shrink-0" />Your category is respected and protected in the room.</li>
-                  <li className="flex items-start gap-3"><CheckCircle2 className="size-4.5 text-[#0062D2] mt-0.5 shrink-0" />Your expertise becomes memorable and identifiable.</li>
-                  <li className="flex items-start gap-3"><CheckCircle2 className="size-4.5 text-[#0062D2] mt-0.5 shrink-0" />Collaboration becomes intentional rather than competitive.</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] mt-0.5 shrink-0" />Your category is respected and protected in the room.</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] mt-0.5 shrink-0" />Your expertise becomes memorable and identifiable.</li>
+                  <li className="flex items-start gap-3"><CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] mt-0.5 shrink-0" />Collaboration becomes intentional rather than competitive.</li>
                 </ul>
               </div>
             </div>
@@ -569,8 +595,8 @@ export function IndustryPageClient() {
               </thead>
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 {NINE_INDUSTRY_CIRCLES.map((c) => (
-                  <tr key={c.slug} className="hover:bg-white transition-colors">
-                    <td className="py-4 px-6 font-semibold text-slate-900">
+                  <tr key={c.slug} className="hover:bg-white transition-colors group">
+                    <td className="py-4 px-6 font-semibold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
                       {c.name}
                     </td>
                     <td className="py-4 px-6 text-slate-600 text-xs sm:text-sm">
@@ -610,8 +636,8 @@ export function IndustryPageClient() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
               {WHO_JOINS_LIST.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4">
-                  <CheckCircle2 className="mt-0.5 size-4.5 text-[#0062D2] shrink-0" />
+                <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-2xs hover:shadow-xs transition-shadow">
+                  <CheckCircle2 className="mt-0.5 size-4.5 stroke-[url(#brandIconGrad)] shrink-0" />
                   <p className="text-sm sm:text-base text-slate-800 font-semibold">{item}</p>
                 </div>
               ))}
@@ -648,16 +674,16 @@ export function IndustryPageClient() {
               ].map((item, idx) => (
                 <div
                   key={item.title}
-                  className="relative rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between space-y-3 group"
+                  className="relative rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 shadow-2xs hover:shadow-md hover:border-blue-400/40 transition-all flex flex-col justify-between space-y-3 group"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold text-[#0062D2] bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">
+                    <span className="text-[11px] font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2 py-0.5 rounded-md border border-blue-500/20">
                       {item.step}
                     </span>
-                    <span className="size-2 rounded-full bg-slate-300 group-hover:bg-[#0062D2] transition-colors" />
+                    <span className="size-2 rounded-full bg-slate-300 group-hover:bg-[#E11D48] transition-colors" />
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
                       {item.title}
                     </h4>
                     <p className="text-xs text-slate-500 mt-1 font-normal leading-relaxed">{item.desc}</p>
@@ -666,55 +692,132 @@ export function IndustryPageClient() {
               ))}
             </div>
 
-            {/* Crossover Opportunities 2x2 Grid */}
+            {/* Crossover Opportunities 4 Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-              <div className="rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all space-y-2.5">
-                <div className="size-9 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <Factory className="size-4.5" />
+              {/* Card 1 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="crossGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#crossGrad1)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="rounded-[calc(1.5rem-1.5px)] bg-white p-5 sm:p-6 h-full space-y-2.5 transition-all duration-300">
+                  <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Factory className="size-5 stroke-[url(#brandIconGrad)]" />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                    A manufacturing entrepreneur
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    may discover a technology capability for automated production.
+                  </p>
                 </div>
-                <h4 className="text-sm sm:text-base font-bold text-[#0F172A]">A manufacturing entrepreneur</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  may discover a technology capability for automated production.
-                </p>
               </div>
 
-              <div className="rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all space-y-2.5">
-                <div className="size-9 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center">
-                  <Laptop className="size-4.5" />
+              {/* Card 2 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="crossGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#crossGrad2)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="rounded-[calc(1.5rem-1.5px)] bg-white p-5 sm:p-6 h-full space-y-2.5 transition-all duration-300">
+                  <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Laptop className="size-5 stroke-[url(#brandIconGrad)]" />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                    A technology entrepreneur
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    may find a specialized implementation and scaling partner.
+                  </p>
                 </div>
-                <h4 className="text-sm sm:text-base font-bold text-[#0F172A]">A technology entrepreneur</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  may find a specialized implementation and scaling partner.
-                </p>
               </div>
 
-              <div className="rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all space-y-2.5">
-                <div className="size-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                  <ShieldPlus className="size-4.5" />
+              {/* Card 3 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="crossGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#crossGrad3)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="rounded-[calc(1.5rem-1.5px)] bg-white p-5 sm:p-6 h-full space-y-2.5 transition-all duration-300">
+                  <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <ShieldPlus className="size-5 stroke-[url(#brandIconGrad)]" />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                    A healthcare entrepreneur
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    may discover a vetted, trusted clinical supplier.
+                  </p>
                 </div>
-                <h4 className="text-sm sm:text-base font-bold text-[#0F172A]">A healthcare entrepreneur</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  may discover a vetted, trusted clinical supplier.
-                </p>
               </div>
 
-              <div className="rounded-2xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all space-y-2.5">
-                <div className="size-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                  <Building2 className="size-4.5" />
+              {/* Card 4 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="crossGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#crossGrad4)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="rounded-[calc(1.5rem-1.5px)] bg-white p-5 sm:p-6 h-full space-y-2.5 transition-all duration-300">
+                  <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Building2 className="size-5 stroke-[url(#brandIconGrad)]" />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                    A family business leader
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    may find a mentor who has successfully navigated generational succession.
+                  </p>
                 </div>
-                <h4 className="text-sm sm:text-base font-bold text-[#0F172A]">A family business leader</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  may find a mentor who has successfully navigated generational succession.
-                </p>
               </div>
             </div>
           </div>
 
           {/* Your industry is your starting point—not your limit */}
-          <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-[#061836] p-8 sm:p-12 text-white shadow-lg space-y-6">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] p-8 sm:p-12 text-white shadow-xl space-y-6">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/15 rounded-full blur-3xl pointer-events-none" />
             <div className="relative z-10 max-w-3xl space-y-4">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-sky-400 bg-sky-950/60 px-3 py-1 rounded-full border border-sky-400/20 inline-block">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-rose-500/15 px-3.5 py-1 rounded-full border border-blue-500/25 inline-block">
                 STARTING POINT NOT LIMIT
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
@@ -724,18 +827,18 @@ export function IndustryPageClient() {
                 The reason for an Industry Circle is not to keep you inside your industry. It is to give you a place where your professional identity is understood from the beginning. From there, relationships extend across:
               </p>
               
-              <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-sky-300">
-                <span>Industry</span>
-                <ArrowRight className="size-3.5 text-slate-400" />
-                <span>Purpose</span>
-                <ArrowRight className="size-3.5 text-slate-400" />
-                <span>City</span>
-                <ArrowRight className="size-3.5 text-slate-400" />
-                <span>Region</span>
-                <ArrowRight className="size-3.5 text-slate-400" />
-                <span>Country</span>
-                <ArrowRight className="size-3.5 text-slate-400" />
-                <span className="text-amber-300 font-bold">Global Movement</span>
+              <div className="flex flex-wrap items-center gap-2.5 p-3 sm:p-4 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md">
+                {['Industry', 'Purpose', 'City', 'Region', 'Country'].map((name) => (
+                  <div key={name} className="inline-flex items-center gap-2.5">
+                    <span className="px-3.5 py-1.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-white shadow-2xs">
+                      {name}
+                    </span>
+                    <ArrowRight className="size-3 text-slate-400" />
+                  </div>
+                ))}
+                <span className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-xs font-bold text-white shadow-md shadow-rose-950/40">
+                  Global Movement
+                </span>
               </div>
 
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal pt-1">
@@ -745,8 +848,8 @@ export function IndustryPageClient() {
           </div>
 
           {/* If your industry has no circle */}
-          <div className="p-7 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-100 inline-block">
+          <div className="p-7 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-3 py-1 rounded-full border border-blue-500/20 inline-block">
               EMERGING SECTORS
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
@@ -796,18 +899,18 @@ export function IndustryPageClient() {
             {FAQS.map((faq, index) => (
               <div
                 key={faq.q}
-                className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between group space-y-4"
+                className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-lg hover:border-[#0062D2]/40 transition-all duration-300 flex flex-col justify-between group space-y-4"
               >
                 <div className="space-y-3.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-[#0062D2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                    <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
                       Q 0{index + 1}
                     </span>
-                    <div className="size-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-[#0062D2] transition-colors">
-                      <HelpCircle className="size-4" />
+                    <div className="size-8 rounded-full bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 flex items-center justify-center text-slate-400 group-hover:scale-110 transition-transform">
+                      <HelpCircle className="size-4 stroke-[url(#brandIconGrad)]" />
                     </div>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                     {faq.q}
                   </h3>
                   <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
@@ -818,9 +921,10 @@ export function IndustryPageClient() {
             ))}
 
             {/* Final Contact / Advisory Box inside grid */}
-            <div className="rounded-3xl border border-blue-200 bg-gradient-to-br from-[#061836] to-[#0A2558] p-7 sm:p-8 text-white flex flex-col justify-between shadow-sm space-y-5">
-              <div className="space-y-3">
-                <span className="text-[11px] uppercase font-bold tracking-widest text-sky-400 bg-white/10 px-3 py-1 rounded-full border border-white/15 inline-block">
+            <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] p-7 sm:p-8 text-white flex flex-col justify-between shadow-xl space-y-5 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-60 h-60 bg-blue-500/15 rounded-full blur-[80px] pointer-events-none" />
+              <div className="space-y-3 relative z-10">
+                <span className="text-[11px] uppercase font-bold tracking-widest brand-gradient-text bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-rose-500/15 px-3 py-1 rounded-full border border-blue-500/25 inline-block">
                   NEED GUIDANCE?
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
@@ -830,7 +934,7 @@ export function IndustryPageClient() {
                   Our Circle Advisory team can help determine whether your business fits an existing Industry Circle or an emerging sector cohort.
                 </p>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 relative z-10">
                 <GalaxyButton
                   href="/circles/find"
                   variant="transparent-light"

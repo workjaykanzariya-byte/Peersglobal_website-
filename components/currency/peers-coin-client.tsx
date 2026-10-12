@@ -176,7 +176,7 @@ export function PeersCoinClient() {
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="mb-1">
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       CONTRIBUTION CYCLE
                     </span>
@@ -236,7 +236,7 @@ export function PeersCoinClient() {
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="mb-1">
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       THE MARKETPLACE
                     </span>
@@ -346,7 +346,7 @@ export function PeersCoinClient() {
             {/* Left: WHY IT EXISTS */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="mb-1">
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     ANOTHER LANGUAGE OF APPRECIATION
                   </span>
@@ -530,7 +530,7 @@ export function PeersCoinClient() {
             
             {/* Left Column: Manifesto & CTAs */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
-              <div className="inline-flex items-center gap-2">
+              <div>
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   CONTRIBUTE. EARN. EXPERIENCE.
                 </span>

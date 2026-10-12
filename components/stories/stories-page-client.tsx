@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import '@/app/sections.css'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   Search,
@@ -264,163 +265,130 @@ export function StoriesPageClient() {
       </div>
 
       {/* ─── SECTION 1: HERO (WHAT ENTREPRENEURS BUILD WHEN THEY STOP BUILDING ALONE) ─── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-5 sm:pt-6 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Master Card Hero Box */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 shadow-lg min-h-[480px] lg:min-h-[520px] p-6 sm:p-10 lg:p-12 flex items-center">
-            {/* Ambient Background Accents */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+      <section className="fd-hero">
+        <video
+          className="fd-hero__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          src="/videos/homepage-hero-bg.mp4"
+        />
+        <div className="fd-hero__scrim" aria-hidden="true"></div>
 
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
-              
-              {/* Left Column: Manifesto & Value */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+        <div className="fd-hero__inner">
+          <div className="fd-hero__wrapper !max-w-3xl">
+            <div className="fd-hero__stack">
+              <div className="fd-hero__group">
+                {/* Gradient Pill Label */}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-900/60 via-indigo-900/50 to-rose-900/60 backdrop-blur-md border border-white/20 shadow-lg">
+                  <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] animate-pulse" />
+                  <span className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     COLLABORATION IN ACTION
                   </span>
                 </div>
 
-                <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-tight">
-                    Peer Stories
-                  </h1>
-                  <p className="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
-                    What entrepreneurs build when they stop building alone.
+                {/* Main Headline with Gradient Brand Accent */}
+                <h1 className="fd-hero__headline !text-3xl sm:!text-5xl lg:!text-[54px] !leading-[1.12] font-bold tracking-tight text-white">
+                  Peer{' '}
+                  <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                    Stories
+                  </span>
+                </h1>
+
+                {/* Subtitle with Gradient Underline / Tone */}
+                <p className="fd-hero__sub !text-base sm:!text-xl font-medium leading-relaxed bg-gradient-to-r from-white via-slate-100 to-sky-200 bg-clip-text text-transparent">
+                  What entrepreneurs build when they stop building alone.
+                </p>
+
+                {/* Quote with Gradient Left Border */}
+                <div className="relative pl-4 py-1 border-l-4 border-transparent [border-image:linear-gradient(to_bottom,#38BDF8,#818CF8,#FB7185)_1]">
+                  <p className="text-sm sm:text-base text-white/95 font-medium italic">
+                    &quot;Two entrepreneurs. One relationship. Something changed.&quot;
                   </p>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  <p>
-                    Business growth can be measured in numbers. But the most enduring growth begins with something simpler: <strong className="text-slate-900 font-semibold">Two entrepreneurs choosing to help each other succeed.</strong>
-                  </p>
-
-                  {/* 6 Catalyst Pills */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
-                    {[
-                      'A conversation',
-                      'An introduction',
-                      'A problem understood',
-                      'An opportunity shared',
-                      'A relationship built',
-                      'A collaboration',
-                    ].map((pill) => (
-                      <div
-                        key={pill}
-                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
-                      >
-                        <span className="size-1.5 rounded-full bg-[#0062D2]" />
-                        <span>{pill}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
-                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
-                    <span>These are the authentic stories of what happens when entrepreneurs stop building alone.</span>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                  <GalaxyButton
-                    href="#stories-feed"
-                    variant="primary"
-                    size="md"
-                  >
-                    Explore Peer Stories
-                  </GalaxyButton>
-
-                  <GalaxyButton
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="transparent-light"
-                    size="md"
-                  >
-                    Open Unity App
-                  </GalaxyButton>
-                </div>
+                {/* Body Text */}
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal max-w-2xl pt-1">
+                  Business growth can be measured in numbers. But the most enduring growth begins with something simpler:{' '}
+                  <strong className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#FB7185] font-bold">
+                    Two entrepreneurs choosing to help each other succeed.
+                  </strong>{' '}
+                  These are the authentic, verified stories of what happens when entrepreneurs connect, collaborate, and grow together inside Circles.
+                </p>
               </div>
 
-              {/* Right Column: Hero Visual Card */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900">
-                  <Image
-                    src="/images/industry-cross-city-handshake.jpg"
-                    alt="Two entrepreneurs shaking hands in meaningful business collaboration"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
-                  
-                  <div className="absolute top-4 right-4 text-right select-none pointer-events-none drop-shadow-md">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 border border-white/20 text-[10px] font-bold text-white tracking-widest uppercase backdrop-blur-md">
-                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      AUTHENTIC EVIDENCE
-                    </span>
+              {/* Buttons matching Home Page Hero button style */}
+              <div className="fd-hero__cta flex flex-wrap items-center gap-3.5">
+                <GalaxyButton
+                  href="#stories-feed"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold"
+                >
+                  EXPLORE PEER STORIES
+                </GalaxyButton>
+                <GalaxyButton
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="transparent"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold"
+                >
+                  Open Unity App ↗
+                </GalaxyButton>
+              </div>
+
+              {/* Counter / Stats Grid in Sleek Frosted Glass Boxes */}
+              <div className="w-full pt-6">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5">
+                  <div className="group p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Users className="size-4 text-[#38BDF8] group-hover:scale-110 transition-transform" />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-extrabold text-base sm:text-lg">
+                        100%
+                      </span>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-slate-200 font-medium">Verified Peers</p>
                   </div>
 
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
-                      Real Collaborations
-                    </span>
-                    <p className="text-sm sm:text-base font-bold leading-snug">
-                      &quot;Two entrepreneurs. One relationship. Something changed.&quot;
-                    </p>
+                  <div className="group p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-1">
+                      <TrendingUp className="size-4 text-[#818CF8] group-hover:scale-110 transition-transform" />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-extrabold text-base sm:text-lg">
+                        ₹10+ Cr
+                      </span>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-slate-200 font-medium">Peer Value</p>
+                  </div>
+
+                  <div className="group p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-1">
+                      <ShieldCheck className="size-4 text-[#FB7185] group-hover:scale-110 transition-transform" />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-extrabold text-base sm:text-lg">
+                        Zero
+                      </span>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-slate-200 font-medium">Fictional Stories</p>
+                  </div>
+
+                  <div className="group p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Award className="size-4 text-amber-400 group-hover:scale-110 transition-transform" />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-extrabold text-base sm:text-lg">
+                        7
+                      </span>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-slate-200 font-medium">Guardrails Integrity</p>
                   </div>
                 </div>
               </div>
 
             </div>
           </div>
-
-          {/* Floating Stats Bar */}
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <Users className="size-5" />
-              </div>
-              <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">100%</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Verified Peers</div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <Handshake className="size-5" />
-              </div>
-              <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">₹10+ Cr</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Peer Value</div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <ShieldCheck className="size-5" />
-              </div>
-              <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">Zero</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Fictional Stories</div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300">
-              <div className="size-10 rounded-xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center shrink-0 shadow-2xs">
-                <Award className="size-5" />
-              </div>
-              <div>
-                <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">7 Guardrails</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Integrity Standard</div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -432,8 +400,9 @@ export function StoriesPageClient() {
               
               <div className="lg:col-span-6 space-y-6">
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-3">
+                    <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] animate-pulse" />
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent">
                       THE AUTHENTICITY PLEDGE
                     </span>
                   </div>
@@ -461,48 +430,64 @@ export function StoriesPageClient() {
               </div>
 
               {/* Right: 4 Anatomy Blocks */}
-              <div className="lg:col-span-6 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
-                  EVERY STORY HAS A HUMAN BEGINNING
-                </span>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1 hover:border-blue-200 transition-colors">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[#0062D2]">
-                    <span className="size-5 rounded-full bg-blue-50 flex items-center justify-center text-[11px] font-mono border border-blue-100">1</span>
-                    <span>Before — The Need & Challenge</span>
+              <div className="lg:col-span-6 space-y-3.5">
+                {/* Step 1 */}
+                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
+                      1
+                    </span>
+                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                      Before — The Need &amp; Challenge
+                    </span>
                   </div>
-                  <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
                     What did each entrepreneur do? What challenge, opportunity or need existed before they connected?
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1 hover:border-purple-200 transition-colors">
-                  <div className="flex items-center gap-2 text-xs font-bold text-purple-700">
-                    <span className="size-5 rounded-full bg-purple-50 flex items-center justify-center text-[11px] font-mono border border-purple-100">2</span>
-                    <span>The Connection — The 10 Forms of Collaboration</span>
+                {/* Step 2 */}
+                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
+                      2
+                    </span>
+                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                      The Connection — The 10 Forms of Collaboration
+                    </span>
                   </div>
-                  <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
                     Which Form of Collaboration created the connection? An introduction, referral, alliance, mentorship or new market?
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1 hover:border-emerald-200 transition-colors">
-                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-700">
-                    <span className="size-5 rounded-full bg-emerald-50 flex items-center justify-center text-[11px] font-mono border border-emerald-100">3</span>
-                    <span>The Change — Measurable Outcomes</span>
+                {/* Step 3 */}
+                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
+                      3
+                    </span>
+                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                      The Change — Measurable Outcomes
+                    </span>
                   </div>
-                  <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
                     What happened next? What was created, solved, introduced or expanded — with a real, verifiable number.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1 hover:border-amber-200 transition-colors">
-                  <div className="flex items-center gap-2 text-xs font-bold text-amber-700">
-                    <span className="size-5 rounded-full bg-amber-50 flex items-center justify-center text-[11px] font-mono border border-amber-100">4</span>
-                    <span>The Relationship — What Exists Today</span>
+                {/* Step 4 */}
+                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
+                      4
+                    </span>
+                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                      The Relationship — What Exists Today
+                    </span>
                   </div>
-                  <p className="text-xs text-slate-600 pl-7 leading-relaxed font-light">
-                    The lasting bond: <em>“What relationship exists today that did not exist before?”</em>
+                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                    The lasting bond: <em className="text-slate-800 font-medium">“What relationship exists today that did not exist before?”</em>
                   </p>
                 </div>
               </div>
@@ -517,8 +502,9 @@ export function StoriesPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12 space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80">
+              <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] animate-pulse" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent">
                 PUBLICATION INTEGRITY
               </span>
             </div>
@@ -530,22 +516,47 @@ export function StoriesPageClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {INTEGRITY_GUARDRAILS.map((item, idx) => (
               <div
                 key={item.title}
-                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between space-y-3"
+                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div>
-                  <span className="text-xs font-mono font-bold text-[#0062D2] block mb-2">
-                    0{idx + 1}
-                  </span>
-                  <h3 className="font-bold text-slate-900 text-base mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    {item.desc}
-                  </p>
+                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`guardrailCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#4F46E5" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                    style={{ stroke: `url(#guardrailCardGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+
+                <div className="relative z-10 flex flex-col justify-between p-6 bg-white border border-slate-200/80 !rounded-[calc(1.5rem-1.5px)] h-full space-y-4 shadow-2xs">
+                  <div>
+                    <div className="flex items-center justify-between mb-3.5">
+                      <span className="text-[11px] font-mono font-extrabold tracking-wider uppercase px-3 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white border border-transparent shadow-xs transition-all duration-300 group-hover:!bg-white group-hover:!border-indigo-200 group-hover:!text-transparent group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:shadow-2xs">
+                        0{idx + 1}
+                      </span>
+                      <div className="size-7 rounded-full bg-gradient-to-br from-blue-50 via-indigo-50/60 to-rose-50 flex items-center justify-center border border-indigo-200/80 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] transition-all shadow-2xs group-hover:scale-110">
+                        <Check className="size-3.5 text-[#1D4ED8] group-hover:text-white stroke-[2.5] transition-colors" />
+                      </div>
+                    </div>
+
+                    <h3 className="font-bold text-slate-900 text-base mb-1.5 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light group-hover:text-slate-800 transition-colors">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -560,8 +571,9 @@ export function StoriesPageClient() {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80">
+                <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent">
                   VERIFIED EVIDENCE
                 </span>
               </div>
@@ -655,31 +667,94 @@ export function StoriesPageClient() {
 
                 {/* 3 Columns: The Situation, The Connection, What Happened */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
-                  <div className="space-y-2 p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
-                      The Situation
-                    </span>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                      {story.situation}
-                    </p>
+                  {/* The Situation */}
+                  <div
+                    className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-lg transition-all"
+                    tabIndex={0}
+                    role="article"
+                  >
+                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`sitGrad-${story.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#4F46E5" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path"
+                        style={{ stroke: `url(#sitGrad-${story.id})` }}
+                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                      />
+                    </svg>
+                    <div className="relative z-10 flex flex-col justify-start p-5 bg-white border border-slate-200/80 rounded-2xl h-full space-y-2.5">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 block">
+                        The Situation
+                      </span>
+                      <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-800 leading-relaxed font-light transition-colors">
+                        {story.situation}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="space-y-2 p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
-                      The Connection
-                    </span>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                      {story.connection}
-                    </p>
+                  {/* The Connection */}
+                  <div
+                    className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-lg transition-all"
+                    tabIndex={0}
+                    role="article"
+                  >
+                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`connGrad-${story.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#4F46E5" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path animated-border-path-2"
+                        style={{ stroke: `url(#connGrad-${story.id})` }}
+                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                      />
+                    </svg>
+                    <div className="relative z-10 flex flex-col justify-start p-5 bg-white border border-slate-200/80 rounded-2xl h-full space-y-2.5">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 block">
+                        The Connection
+                      </span>
+                      <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-800 leading-relaxed font-light transition-colors">
+                        {story.connection}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="space-y-2 p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/70">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
-                      What Happened
-                    </span>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                      {story.whatHappened}
-                    </p>
+                  {/* What Happened */}
+                  <div
+                    className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-lg transition-all"
+                    tabIndex={0}
+                    role="article"
+                  >
+                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`whGrad-${story.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#4F46E5" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path animated-border-path-3"
+                        style={{ stroke: `url(#whGrad-${story.id})` }}
+                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                      />
+                    </svg>
+                    <div className="relative z-10 flex flex-col justify-start p-5 bg-white border border-slate-200/80 rounded-2xl h-full space-y-2.5">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 block">
+                        What Happened
+                      </span>
+                      <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-800 leading-relaxed font-light transition-colors">
+                        {story.whatHappened}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -750,8 +825,9 @@ export function StoriesPageClient() {
             {/* Left: MORE THAN BUSINESS */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 mb-3">
+                  <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] animate-pulse" />
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent">
                     BEYOND TRANSACTIONS
                   </span>
                 </div>
@@ -764,13 +840,22 @@ export function StoriesPageClient() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {BEYOND_BUSINESS_ITEMS.map((item) => (
+                {BEYOND_BUSINESS_ITEMS.map((item, idx) => (
                   <div
                     key={item}
-                    className="p-3.5 rounded-2xl bg-white border border-slate-200/90 text-xs font-semibold text-slate-800 flex items-center gap-2.5 shadow-2xs hover:border-blue-200 transition-colors"
+                    className="p-3.5 rounded-2xl bg-white border border-slate-200/90 text-xs sm:text-sm font-semibold text-slate-800 flex items-center gap-2.5 shadow-2xs hover:border-blue-300 hover:shadow-xs transition-all duration-200 group"
                   >
-                    <Check className="size-3.5 text-[#0062D2] shrink-0 stroke-[3]" />
-                    <span>{item}</span>
+                    <svg className="size-4 shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <defs>
+                        <linearGradient id={`checkGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#4F46E5" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <polyline points="20 6 9 17 4 12" stroke={`url(#checkGrad-${idx})`} />
+                    </svg>
+                    <span className="group-hover:text-slate-900 transition-colors">{item}</span>
                   </div>
                 ))}
               </div>
@@ -782,11 +867,11 @@ export function StoriesPageClient() {
 
             {/* Right: WHY WE SHOW THE NUMBERS & NO FICTION */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-                <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-2xs">
+              <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-4 hover:border-blue-200 hover:shadow-md transition-all duration-300 group">
+                <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform">
                   <TrendingUp className="size-5" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   Why we show the numbers
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
@@ -797,14 +882,20 @@ export function StoriesPageClient() {
                 </p>
               </div>
 
-              <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white shadow-xl border border-slate-800 space-y-4">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-sky-300 bg-white/10 px-3 py-1 rounded-full border border-white/10 inline-block">
+              <div
+                className="p-7 sm:p-8 rounded-3xl text-white shadow-2xl border border-white/10 space-y-4 relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                }}
+              >
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-r from-[#2e0854]/40 to-[#4c0519]/30 rounded-full blur-2xl pointer-events-none" />
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent bg-white/10 px-3 py-1 rounded-full border border-white/15 inline-block relative z-10">
                   NO COMPOSITES. NO FICTION.
                 </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-light relative z-10">
                   A community built on relationships must protect the credibility of those relationships.
                 </p>
-                <div className="space-y-1.5 pl-3 border-l-2 border-sky-400 text-xs text-sky-100 font-medium">
+                <div className="space-y-1.5 pl-3.5 border-l-2 border-[#38BDF8] text-xs text-slate-300 font-medium relative z-10">
                   <p>• Three real stories are better than twelve invented ones.</p>
                   <p>• Every story belongs to real, verified Peers.</p>
                   <p>• Every result is attributable to the collaboration.</p>
@@ -822,8 +913,9 @@ export function StoriesPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12 space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80">
+              <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] animate-pulse" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent">
                 THE COLLABORATION ARC
               </span>
             </div>
@@ -839,16 +931,16 @@ export function StoriesPageClient() {
             {JOURNEY_STEPS.map((step, idx) => (
               <div
                 key={step.step}
-                className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 text-center flex flex-col justify-between space-y-2 hover:border-blue-300 hover:shadow-2xs transition-all"
+                className="group p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 text-center flex flex-col justify-between space-y-3 hover:border-blue-300 hover:bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
               >
-                <span className="size-6 rounded-full bg-[#0062D2] text-white font-mono font-bold text-[10px] flex items-center justify-center mx-auto shadow-2xs">
-                  {idx + 1}
-                </span>
+                <div className="font-mono font-black text-xl sm:text-2xl bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent mx-auto group-hover:scale-125 transition-transform duration-300 select-none">
+                  0{idx + 1}
+                </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-sm">
+                  <h4 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                     {step.step}
                   </h4>
-                  <p className="text-[11px] text-slate-500 leading-tight mt-1 font-light">
+                  <p className="text-[11px] text-slate-500 group-hover:text-slate-700 leading-tight mt-1 font-light transition-colors">
                     {step.desc}
                   </p>
                 </div>
@@ -863,15 +955,15 @@ export function StoriesPageClient() {
       <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.18),transparent_50%),radial-gradient(circle_at_82%_12%,rgba(99,102,241,0.15),transparent_50%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(56,189,248,0.18),transparent_50%),radial-gradient(circle_at_82%_12%,rgba(251,113,133,0.15),transparent_50%)]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-sky-600/15 blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-rose-500/15 blur-3xl"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -879,22 +971,27 @@ export function StoriesPageClient() {
             
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+                <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   THE NEXT CHAPTER
                 </span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
-                What could your relationships make possible?
+                What could your relationships make{' '}
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                  possible
+                </span>
+                ?
               </h2>
 
               <div className="space-y-3.5 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl">
                 <p>
                   You may not know yet. That is perfectly fine. The next collaboration may come from your Circle, another city, or an entrepreneur from an entirely different industry.
                 </p>
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
-                  <p className="text-sky-200 font-medium text-xs sm:text-sm">
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5">
+                  <p className="bg-gradient-to-r from-sky-200 via-indigo-200 to-rose-200 bg-clip-text text-transparent font-medium text-xs sm:text-sm">
                     • A conversation · An introduction · A willingness to help · A relationship.
                   </p>
                   <p className="text-white font-bold text-xs sm:text-sm">And then — something becomes possible.</p>
@@ -945,7 +1042,7 @@ export function StoriesPageClient() {
                 Collaborate.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-sky-300 font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Impact.

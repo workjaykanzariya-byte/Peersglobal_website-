@@ -208,6 +208,21 @@ export function StartCircleClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
+      {/* Hidden global SVG gradient definitions for icons across the page */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* =================================================================
           SECTION 1: HERO — MASTER FULL PAGE DARK VIDEO BANNER
@@ -251,7 +266,7 @@ export function StartCircleClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Build the Room Your{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Business Ecosystem Is Missing
                   </span>
                 </h1>
@@ -275,7 +290,7 @@ export function StartCircleClient() {
                   rel="noopener noreferrer"
                   variant="transparent"
                   size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  icon={<Smartphone className="size-4 stroke-[url(#brandStatGrad)] text-sky-400" />}
                   className="font-medium"
                 >
                   Download Unity App
@@ -292,11 +307,11 @@ export function StartCircleClient() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 stroke-[url(#brandStatGrad)] text-sky-300" />
                       </div>
                       <div>
-                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="font-bold text-base sm:text-lg bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent leading-none">{s.value}</div>
                         <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
                       </div>
                     </div>
@@ -354,13 +369,13 @@ export function StartCircleClient() {
                     return (
                       <div
                         key={i}
-                        className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:bg-blue-50/30 hover:border-blue-200/80 transition-all group"
+                        className="group flex items-start gap-4 p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:bg-gradient-to-br hover:from-blue-50/40 hover:to-rose-50/40 hover:border-blue-200 transition-all"
                       >
-                        <div className="size-10 rounded-xl bg-white border border-slate-200 text-blue-600 flex items-center justify-center shrink-0 shadow-2xs group-hover:border-blue-300">
-                          <Icon className="size-5" />
+                        <div className="size-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)] text-blue-600" />
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-slate-900 mb-0.5">{trigger.title}</p>
+                          <p className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-0.5">{trigger.title}</p>
                           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{trigger.desc}</p>
                         </div>
                       </div>
@@ -372,9 +387,9 @@ export function StartCircleClient() {
               {/* Bottom Insight Pill */}
               <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/90 border border-blue-100 flex items-center justify-between gap-4">
                 <p className="text-sm sm:text-base font-bold text-slate-900">
-                  That is where a Circle begins. <span className="text-blue-600">Not with a number. With a person.</span>
+                  That is where a Circle begins. <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-bold">Not with a number. With a person.</span>
                 </p>
-                <div className="size-8 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <div className="size-8 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 shadow-sm">
                   <ArrowRight className="size-4" />
                 </div>
               </div>
@@ -387,8 +402,8 @@ export function StartCircleClient() {
                 <div>
                   {/* Top Badge */}
                   <div className="flex items-center justify-between mb-5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 text-[#0062D2] text-xs font-bold uppercase tracking-wider">
-                      <Sparkles className="size-3.5" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                      <Sparkles className="size-3.5 stroke-[url(#brandIconGrad)] text-blue-600" />
                       Day 1 Framework
                     </span>
                     <span className="text-xs text-slate-400 font-semibold">Founding Phase</span>
@@ -405,15 +420,15 @@ export function StartCircleClient() {
                   {/* Step Progression */}
                   <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-white border border-slate-200/80 mb-5 text-center">
                     <div className="p-2 rounded-xl bg-blue-50/50">
-                      <div className="text-xs font-bold text-blue-600">1st</div>
+                      <div className="text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">1st</div>
                       <div className="text-[11px] text-slate-600 mt-0.5">The Founder</div>
                     </div>
                     <div className="p-2 rounded-xl bg-blue-50/50">
-                      <div className="text-xs font-bold text-blue-600">2nd</div>
+                      <div className="text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">2nd</div>
                       <div className="text-[11px] text-slate-600 mt-0.5">First Peer</div>
                     </div>
                     <div className="p-2 rounded-xl bg-blue-50/50">
-                      <div className="text-xs font-bold text-blue-600">3rd</div>
+                      <div className="text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">3rd</div>
                       <div className="text-[11px] text-slate-600 mt-0.5">Core Triad</div>
                     </div>
                   </div>
@@ -435,7 +450,7 @@ export function StartCircleClient() {
                       'A structured framework for lasting relationships',
                     ].map((item, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-xs text-slate-700">
-                        <CheckCircle2 className="size-3.5 text-blue-600 shrink-0" />
+                        <CheckCircle2 className="size-3.5 stroke-[url(#brandIconGrad)] text-blue-600 shrink-0" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -476,40 +491,48 @@ export function StartCircleClient() {
             </p>
           </div>
 
-          {/* 6 Stage Executive Roadmap Grid */}
+          {/* 6 Stage Executive Roadmap Grid with Animated Glow Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {SIX_STAGES.map((s, idx) => {
-              const stageColors = [
-                { badge: 'bg-blue-50 text-blue-700 border-blue-200', numBg: 'bg-blue-600 text-white', accent: 'border-l-blue-600' },
-                { badge: 'bg-sky-50 text-sky-700 border-sky-200', numBg: 'bg-sky-600 text-white', accent: 'border-l-sky-600' },
-                { badge: 'bg-indigo-50 text-indigo-700 border-indigo-200', numBg: 'bg-indigo-600 text-white', accent: 'border-l-indigo-600' },
-                { badge: 'bg-amber-50 text-amber-700 border-amber-200', numBg: 'bg-amber-600 text-white', accent: 'border-l-amber-600' },
-                { badge: 'bg-emerald-50 text-emerald-700 border-emerald-200', numBg: 'bg-emerald-600 text-white', accent: 'border-l-emerald-600' },
-                { badge: 'bg-rose-50 text-rose-700 border-rose-200', numBg: 'bg-rose-600 text-white', accent: 'border-l-rose-600' },
-              ][idx] || { badge: 'bg-slate-100 text-slate-700 border-slate-200', numBg: 'bg-slate-800 text-white', accent: 'border-l-blue-600' }
+            {SIX_STAGES.map((s, idx) => (
+              <div
+                key={s.step}
+                className="animated-glow-card group"
+                tabIndex={0}
+                role="article"
+              >
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`stageGrad${s.step}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: `url(#stageGrad${s.step})` }}
+                    d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                  />
+                </svg>
 
-              return (
-                <div
-                  key={s.step}
-                  className={`group p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between relative overflow-hidden border-l-[5px] ${stageColors.accent}`}
-                >
+                <div className="p-6 sm:p-7 rounded-[calc(1rem-1.5px)] bg-white flex flex-col justify-between h-full space-y-5">
                   <div>
                     {/* Top Step Header */}
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-2.5">
-                        <span className={`size-8 rounded-xl ${stageColors.numBg} flex items-center justify-center font-bold text-xs shadow-xs`}>
+                        <span className="size-8 rounded-xl bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white flex items-center justify-center font-bold text-xs shadow-xs group-hover:scale-105 transition-transform">
                           {s.step}
                         </span>
                         <span className="text-xs font-bold text-slate-400 tracking-wider">
                           STAGE {idx + 1}
                         </span>
                       </div>
-                      <span className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${stageColors.badge}`}>
+                      <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-blue-100 bg-blue-50/50 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                         {s.tag}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
                       {s.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -518,29 +541,29 @@ export function StartCircleClient() {
                   </div>
 
                   {/* Progress Milestone Line */}
-                  <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                  <div className="pt-5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
                     <span className="font-semibold text-slate-500">Milestone {idx + 1} of 6</span>
                     <div className="flex items-center gap-1">
                       {[...Array(6)].map((_, dotIdx) => (
                         <span
                           key={dotIdx}
                           className={`size-1.5 rounded-full ${
-                            dotIdx <= idx ? 'bg-blue-600' : 'bg-slate-200'
+                            dotIdx <= idx ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]' : 'bg-slate-200'
                           }`}
                         />
                       ))}
                     </div>
                   </div>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
 
           {/* Bottom Objective Banner */}
-          <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#040F24] via-slate-900 to-[#0B1B38] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg border border-slate-800">
+          <div className="p-6 sm:p-7 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg border border-white/10">
             <div className="flex items-center gap-4 text-center sm:text-left">
-              <div className="size-11 rounded-2xl bg-white/10 text-sky-400 flex items-center justify-center shrink-0">
-                <Target className="size-6" />
+              <div className="size-11 rounded-2xl bg-white/10 text-sky-400 flex items-center justify-center shrink-0 border border-white/15">
+                <Target className="size-6 stroke-[url(#brandStatGrad)] text-sky-400" />
               </div>
               <div>
                 <p className="text-sm sm:text-base font-bold text-white">
@@ -582,7 +605,7 @@ export function StartCircleClient() {
                 Your First Month
               </h2>
 
-              <p className="text-base sm:text-lg font-bold text-[#0062D2]">
+              <p className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                 Start with the people you already know.
               </p>
 
@@ -590,14 +613,14 @@ export function StartCircleClient() {
                 You do not need a database of hundreds of entrepreneurs. You need to begin with relationships.
               </p>
 
-              <div className="p-6 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] space-y-3">
-                <h4 className="font-serif text-lg font-bold text-slate-900">
+              <div className="p-6 rounded-3xl bg-gradient-to-br from-blue-50/60 to-rose-50/40 border border-blue-100 space-y-3">
+                <h4 className="text-lg font-bold text-slate-900">
                   The 15 → 5 Method
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   Think of <strong>15 names</strong> — people whose businesses, experience, ambition or character could add meaning to the Circle. Then ask yourself:
                 </p>
-                <div className="p-3.5 rounded-2xl bg-white border border-blue-200 text-xs sm:text-sm font-semibold text-[#0062D2]">
+                <div className="p-3.5 rounded-2xl bg-white border border-blue-200 text-xs sm:text-sm font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   &ldquo;Who are the five people I should speak to first?&rdquo;
                 </div>
               </div>
@@ -613,15 +636,15 @@ export function StartCircleClient() {
 
             {/* Right Card Graphic (5 cols) */}
             <div className="lg:col-span-5">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#040F24] text-white shadow-xl relative overflow-hidden space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white shadow-xl relative overflow-hidden space-y-6 border border-white/10">
                 <div className="absolute -right-12 -top-12 size-48 rounded-full bg-blue-600/20 blur-2xl pointer-events-none" />
                 
                 <div className="relative z-10 space-y-4">
-                  <div className="size-12 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center">
-                    <PhoneCall className="size-6" />
+                  <div className="size-12 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/15">
+                    <PhoneCall className="size-6 stroke-[url(#brandStatGrad)] text-sky-300" />
                   </div>
 
-                  <h3 className="font-serif text-2xl font-bold text-white leading-snug">
+                  <h3 className="text-2xl font-bold text-white leading-snug">
                     Meaningful Conversations, Not Sales Pitches
                   </h3>
 
@@ -674,14 +697,14 @@ export function StartCircleClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT WE PROVIDE</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
                 You do not build alone.
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                 Peers Global provides the framework through which your Circle can take shape: structure, community model and operating principles.
               </p>
 
-              <div className="p-4 rounded-2xl bg-white border border-blue-200 mb-6 text-xs font-bold text-[#0062D2] space-y-1">
+              <div className="p-4 rounded-2xl bg-white border border-blue-200 mb-6 text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent space-y-1">
                 <div>• Circles, not crowds.</div>
                 <div>• Trust, not transactions.</div>
                 <div>• Peers, not gurus.</div>
@@ -691,12 +714,12 @@ export function StartCircleClient() {
                 {WHAT_WE_PROVIDE.map((item) => {
                   const Icon = item.icon
                   return (
-                    <div key={item.title} className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200/90 hover:shadow-sm transition-shadow">
-                      <div className="size-9 rounded-full bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
-                        <Icon className="size-4" />
+                    <div key={item.title} className="group flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 hover:shadow-sm transition-all">
+                      <div className="size-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <Icon className="size-5 stroke-[url(#brandIconGrad)] text-blue-600" />
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-[#0F172A]">{item.title}</p>
+                        <p className="text-sm font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">{item.title}</p>
                         <p className="text-xs text-slate-500 leading-relaxed mt-0.5">{item.desc}</p>
                       </div>
                     </div>
@@ -710,7 +733,7 @@ export function StartCircleClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT YOU BRING</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-3">
                 The willingness to begin.
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -721,12 +744,12 @@ export function StartCircleClient() {
                 {WHAT_YOU_BRING.map((item) => {
                   const Icon = item.icon
                   return (
-                    <div key={item.title} className="flex items-start gap-4 p-4 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] hover:shadow-sm transition-shadow">
-                      <div className="size-9 rounded-full bg-white text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
-                        <Icon className="size-4" />
+                    <div key={item.title} className="group flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-[#DCEBFE] hover:shadow-sm transition-all">
+                      <div className="size-10 rounded-xl bg-white border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                        <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#0062D2]" />
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-[#0F172A]">{item.title}</p>
+                        <p className="text-sm font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">{item.title}</p>
                         <p className="text-xs text-slate-600 leading-relaxed mt-0.5">{item.desc}</p>
                       </div>
                     </div>
@@ -745,7 +768,7 @@ export function StartCircleClient() {
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1832] to-[#040C1A] text-white relative overflow-hidden shadow-2xl border border-slate-800">
+          <div className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white relative overflow-hidden shadow-2xl border border-white/10">
             {/* Ambient blur accents */}
             <div className="absolute top-0 right-0 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 size-80 rounded-full bg-rose-600/10 blur-3xl pointer-events-none" />
@@ -754,7 +777,7 @@ export function StartCircleClient() {
               
               {/* Top Eyebrow */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-6">
-                <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-sky-300">
+                <span className="text-[11px] font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   CRITICAL DISTINCTION
                 </span>
               </div>
@@ -835,7 +858,7 @@ export function StartCircleClient() {
                 <p className="text-xs sm:text-sm text-sky-200 font-medium">
                   ✦ <span className="font-semibold text-white">That mindset shift</span> is the true beginning of Powerhouse leadership.
                 </p>
-                <span className="text-xs text-slate-400 font-medium tracking-wide">
+                <span className="text-xs bg-gradient-to-r from-[#38BDF8] to-[#FB7185] bg-clip-text text-transparent font-bold tracking-wide">
                   Peers Global Founder Standard
                 </span>
               </div>
@@ -859,7 +882,7 @@ export function StartCircleClient() {
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SHARED OWNERSHIP</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
                 The Circle Belongs to Its People
               </h3>
 
@@ -868,10 +891,10 @@ export function StartCircleClient() {
               </p>
 
               <div className="grid grid-cols-2 gap-3 text-xs font-medium text-slate-800 pt-2">
-                <div className="p-3 rounded-xl bg-[#F0F7FF] border border-[#DCEBFE]">• Members contribute ideas</div>
-                <div className="p-3 rounded-xl bg-[#F0F7FF] border border-[#DCEBFE]">• Peers build relationships</div>
-                <div className="p-3 rounded-xl bg-[#F0F7FF] border border-[#DCEBFE]">• Powerhouses take responsibility</div>
-                <div className="p-3 rounded-xl bg-[#F0F7FF] border border-[#DCEBFE]">• Collaborations emerge</div>
+                <div className="p-3 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-[#DCEBFE]">• Members contribute ideas</div>
+                <div className="p-3 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-[#DCEBFE]">• Peers build relationships</div>
+                <div className="p-3 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-[#DCEBFE]">• Powerhouses take responsibility</div>
+                <div className="p-3 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-[#DCEBFE]">• Collaborations emerge</div>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-2">
@@ -885,7 +908,7 @@ export function StartCircleClient() {
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">POST-LAUNCH</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
                 After Launch
               </h3>
 
@@ -896,7 +919,7 @@ export function StartCircleClient() {
               {/* Rhythm pills */}
               <div className="flex flex-wrap gap-2 pt-1 pb-1">
                 {['Meet', 'Learn', 'Share', 'Connect', 'Collaborate', 'Recognise', 'Repeat'].map((r, i) => (
-                  <span key={r} className="px-3 py-1 rounded-full bg-[#EFF6FF] text-[#0062D2] text-xs font-bold">
+                  <span key={r} className="px-3 py-1 rounded-full bg-[#EFF6FF] border border-blue-100 text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                     {r} {i < 6 ? '→' : '↺'}
                   </span>
                 ))}
@@ -927,7 +950,7 @@ export function StartCircleClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">PROFILE OF A FOUNDER</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight mb-6">
                 Who Should Start a Circle?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -936,14 +959,14 @@ export function StartCircleClient() {
 
               <div className="space-y-2.5 mb-6">
                 {WHO_SHOULD_START.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">{item}</p>
+                  <div key={i} className="group flex items-start gap-3 p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200 hover:border-blue-200 hover:bg-blue-50/20 transition-all">
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#0062D2] shrink-0 mt-0.5" />
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium group-hover:text-slate-900">{item}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200 text-xs sm:text-sm font-semibold text-[#0062D2]">
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-200 text-xs sm:text-sm font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                 You do not need to be the loudest person in the room. You need to be willing to create the room.
               </div>
             </div>
@@ -951,11 +974,11 @@ export function StartCircleClient() {
             {/* The First Circle in Your City (5 cols) */}
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div className="p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 space-y-4">
-                <div className="size-10 rounded-2xl bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center font-bold">
-                  <MapPin className="size-5" />
+                <div className="size-10 rounded-2xl bg-[#EFF6FF] border border-blue-100 flex items-center justify-center font-bold">
+                  <MapPin className="size-5 stroke-[url(#brandIconGrad)] text-[#0062D2]" />
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 leading-tight">
+                <h3 className="text-2xl font-bold text-slate-900 leading-tight">
                   The First Circle in Your City
                 </h3>
 
@@ -967,7 +990,7 @@ export function StartCircleClient() {
                   That does not necessarily mean there is no need. It may mean someone has not started the conversation yet.
                 </p>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-slate-900">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   Maybe that someone could be you.
                 </div>
 
@@ -978,7 +1001,7 @@ export function StartCircleClient() {
 
               {/* Testimonial mini-card */}
               <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm mt-6">
-                <p className="font-serif text-xs sm:text-sm text-[#0F172A] leading-relaxed italic mb-3">
+                <p className="text-xs sm:text-sm text-[#0F172A] leading-relaxed italic mb-3">
                   &ldquo;{TESTIMONIALS[testimonialIdx].quote}&rdquo;
                 </p>
                 <div className="flex items-center justify-between">
@@ -1020,7 +1043,7 @@ export function StartCircleClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">ONE DECISION</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-tight">
                 A Circle Begins With One Decision
               </h2>
               <div className="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -1030,7 +1053,7 @@ export function StartCircleClient() {
               </div>
               <p className="text-xs sm:text-sm text-slate-700 font-semibold leading-relaxed">
                 And every meaningful beginning required someone to say: <br />
-                <span className="text-[#0062D2] text-base font-bold">&ldquo;Let&apos;s bring the right people together.&rdquo;</span>
+                <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent text-base font-bold">&ldquo;Let&apos;s bring the right people together.&rdquo;</span>
               </p>
               <p className="text-xs sm:text-sm text-slate-600">
                 Maybe your Circle begins with that decision.
@@ -1051,7 +1074,7 @@ export function StartCircleClient() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#0F172A] tracking-tight leading-tight mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
                 Frequently Asked Questions
               </h3>
 
@@ -1059,13 +1082,13 @@ export function StartCircleClient() {
                 {FAQS.map((faq, i) => {
                   const isOpen = openFaq === i
                   return (
-                    <div key={i} className={`rounded-2xl border transition-all ${isOpen ? 'border-[#DCEBFE] bg-[#F0F7FF]' : 'border-slate-200 bg-white'}`}>
+                    <div key={i} className={`rounded-2xl border transition-all ${isOpen ? 'border-[#DCEBFE] bg-gradient-to-r from-blue-50/50 via-indigo-50/30 to-rose-50/30' : 'border-slate-200 bg-white hover:border-slate-300'}`}>
                       <button
                         onClick={() => setOpenFaq(isOpen ? null : i)}
-                        className="w-full flex items-center justify-between p-4 sm:p-5 text-left gap-4 cursor-pointer"
+                        className="w-full flex items-center justify-between p-4 sm:p-5 text-left gap-4 cursor-pointer group"
                       >
-                        <span className={`text-xs sm:text-sm font-semibold leading-snug ${isOpen ? 'text-[#0062D2]' : 'text-[#0F172A]'}`}>{faq.q}</span>
-                        <ChevronDown className={`size-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#0062D2]' : 'text-slate-400'}`} />
+                        <span className={`text-xs sm:text-sm font-semibold leading-snug transition-all ${isOpen ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-bold' : 'text-[#0F172A] group-hover:text-[#1D4ED8]'}`}>{faq.q}</span>
+                        <ChevronDown className={`size-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 stroke-[url(#brandIconGrad)] text-[#1D4ED8]' : 'text-slate-400'}`} />
                       </button>
                       {isOpen && (
                         <div className="px-4 sm:px-5 pb-4 sm:pb-5">
@@ -1138,6 +1161,7 @@ export function StartCircleClient() {
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2.5">
+                <span className="h-[1.5px] w-6 bg-white/70" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
                   START SOMETHING THAT OTHERS CAN BELONG TO
                 </span>

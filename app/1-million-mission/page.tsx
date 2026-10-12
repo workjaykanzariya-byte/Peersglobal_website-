@@ -180,8 +180,8 @@ export default function OneMillionMissionPage() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-rose-500/20 border border-white/20 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 stroke-[url(#brandStatGrad)]" />
                       </div>
                       <div>
                         <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
@@ -289,8 +289,8 @@ export default function OneMillionMissionPage() {
                       item.spanFull ? 'md:col-span-2' : ''
                     }`}
                   >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] group-hover:scale-110 transition-transform shrink-0 shadow-2xs">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shrink-0 shadow-2xs">
+                      <Icon className="w-6 h-6 stroke-[url(#brandIconGrad)]" />
                     </div>
                     <div className="space-y-1 flex-1">
                       <div className="flex items-center justify-between">
@@ -362,8 +362,8 @@ export default function OneMillionMissionPage() {
                     className={`p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-slate-400 flex items-center justify-between gap-3 shadow-2xs hover:shadow-md transition-all group ${ripple.border}`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`size-8 rounded-xl ${ripple.bg} ${ripple.color} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform font-bold text-xs`}>
-                        <CheckCircle2 className="size-4" />
+                      <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform font-bold text-xs">
+                        <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)]" />
                       </div>
                       <span className="text-xs sm:text-sm font-medium text-slate-900 group-hover:text-slate-950 transition-colors">
                         {ripple.text}
@@ -413,8 +413,8 @@ export default function OneMillionMissionPage() {
                   <span className="font-serif text-3xl font-bold brand-gradient-text">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
-                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs">
-                    <Sparkles className="size-5" />
+                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                    <Sparkles className="size-5 stroke-[url(#brandIconGrad)]" />
                   </div>
                 </div>
                 <p className="text-base font-semibold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
@@ -424,12 +424,24 @@ export default function OneMillionMissionPage() {
             ))}
           </div>
 
-          <div className="rounded-3xl border border-slate-800 bg-[#050C1A] p-8 sm:p-12 text-white text-center max-w-4xl mx-auto space-y-3 relative overflow-hidden shadow-xl">
-            <div className="pointer-events-none absolute -top-10 -right-10 h-48 w-48 rounded-full bg-blue-600/20 blur-3xl" />
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-sky-400">
+          <div
+            style={{
+              background: 'linear-gradient(90deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+            className="rounded-3xl border border-white/15 p-8 sm:p-12 text-white text-center max-w-4xl mx-auto space-y-3 relative overflow-hidden shadow-xl"
+          >
+            <div
+              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gradient-to-r from-[#2e0854]/40 via-[#3b0764]/30 to-[#4c0519]/25 blur-[100px] rounded-full pointer-events-none"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(67,16,102,0.25),transparent)] pointer-events-none"
+              aria-hidden="true"
+            />
+            <p className="text-xs font-semibold tracking-wider uppercase brand-gradient-text relative z-10">
               THE HUMAN VALUE BEHIND IT
             </p>
-            <p className="font-serif text-2xl sm:text-3xl text-white leading-relaxed">
+            <p className="font-serif text-2xl sm:text-3xl text-white leading-relaxed relative z-10">
               The form of contribution may change. The human value behind it does not. Someone helped someone else move forward. That is worth recognising.
             </p>
           </div>
@@ -596,7 +608,7 @@ export default function OneMillionMissionPage() {
             <div className="grid sm:grid-cols-2 gap-3 text-slate-700 text-sm sm:text-base">
               {HOW_TO_IMPACT.map((action, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 p-3.5 rounded-xl bg-gradient-to-r from-[#FAFBFD] to-white border border-slate-200/80 shadow-2xs hover:border-slate-300 transition-all">
-                  <CheckCircle2 className="size-4 text-[#1D4ED8] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] shrink-0 mt-0.5" />
                   <span className="text-slate-900 font-medium">{action}</span>
                 </div>
               ))}
@@ -677,8 +689,8 @@ export default function OneMillionMissionPage() {
                     key={idx}
                     className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md transition-all flex items-start gap-3.5 group"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-blue-50/80 text-[#1D4ED8] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 border border-blue-100/60 shadow-2xs">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-105 group-hover:border-blue-500/40 transition-all shrink-0 shadow-2xs">
+                      <Icon className="w-5 h-5 stroke-[url(#brandIconGrad)]" />
                     </div>
                     <div className="space-y-1 flex-1">
                       <div className="flex items-center justify-between">
@@ -706,11 +718,24 @@ export default function OneMillionMissionPage() {
           </div>
 
           {/* One Million is not the destination & The mission belongs to all of us */}
-          <div className="rounded-3xl border border-slate-800 bg-[#050C1A] p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden space-y-6">
-            <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full bg-blue-600/20 blur-[90px]" />
+          <div
+            style={{
+              background: 'linear-gradient(90deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+            className="rounded-3xl border border-white/15 p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden space-y-6"
+          >
+            {/* Background ambient lighting matching THE THRESHOLD */}
+            <div
+              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-r from-[#2e0854]/40 via-[#3b0764]/30 to-[#4c0519]/25 blur-[120px] rounded-full pointer-events-none"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(67,16,102,0.25),transparent)] pointer-events-none"
+              aria-hidden="true"
+            />
             
             <div className="relative z-10 space-y-4">
-              <div className="inline-flex items-center gap-2 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase brand-gradient-text">
                 <span>ONE MILLION IS NOT THE DESTINATION</span>
               </div>
               
@@ -755,8 +780,8 @@ export default function OneMillionMissionPage() {
                 'I can impact another life.'
               ].map((pledge, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-gradient-to-r from-[#FAFBFD] to-white border border-slate-200/90 flex items-center gap-3 shadow-2xs hover:border-slate-300 transition-all">
-                  <div className="size-6 rounded-full bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] shrink-0">
-                    <CheckCircle2 className="size-3.5 text-[#1D4ED8]" />
+                  <div className="size-6 rounded-full bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="size-3.5 stroke-[url(#brandIconGrad)]" />
                   </div>
                   <span>{pledge}</span>
                 </div>

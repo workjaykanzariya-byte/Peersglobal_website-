@@ -376,7 +376,7 @@ export function PurposePageClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   What Are You Trying To Build?{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="brand-gradient-text">
                     Purpose Defines Where You Go.
                   </span>
                 </h1>
@@ -415,8 +415,8 @@ export function PurposePageClient() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-rose-500/20 border border-blue-400/30 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 stroke-[url(#brandStatGrad)]" />
                       </div>
                       <div>
                         <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
@@ -429,15 +429,15 @@ export function PurposePageClient() {
             </div>
 
             {/* Right Cursive Script Highlights */}
-            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-xl space-y-1">
               <p
-                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                className="text-2xl sm:text-3xl text-white/90 leading-tight font-medium drop-shadow"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Your Industry Tells What You Do
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] drop-shadow-md"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Your Purpose Tells Where You Go
@@ -472,28 +472,28 @@ export function PurposePageClient() {
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-slate-200/80 flex items-start gap-3">
-                  <div className="size-2 rounded-full bg-blue-600 mt-2 shrink-0" />
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all flex items-start gap-3.5 group">
+                  <div className="size-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] mt-1.5 shrink-0 shadow-xs shadow-indigo-500/30" />
                   <p className="text-sm text-slate-700 leading-relaxed">
-                    <strong className="text-slate-900">A founder preparing for an IPO</strong> may learn from someone who has already built for scale.
+                    <strong className="text-slate-900 font-bold group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">A founder preparing for an IPO</strong> may learn from someone who has already built for scale.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-slate-200/80 flex items-start gap-3">
-                  <div className="size-2 rounded-full bg-violet-600 mt-2 shrink-0" />
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all flex items-start gap-3.5 group">
+                  <div className="size-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] mt-1.5 shrink-0 shadow-xs shadow-indigo-500/30" />
                   <p className="text-sm text-slate-700 leading-relaxed">
-                    <strong className="text-slate-900">An entrepreneur expanding internationally</strong> may benefit from someone who has already crossed borders.
+                    <strong className="text-slate-900 font-bold group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">An entrepreneur expanding internationally</strong> may benefit from someone who has already crossed borders.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-slate-200/80 flex items-start gap-3">
-                  <div className="size-2 rounded-full bg-rose-600 mt-2 shrink-0" />
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all flex items-start gap-3.5 group">
+                  <div className="size-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] mt-1.5 shrink-0 shadow-xs shadow-indigo-500/30" />
                   <p className="text-sm text-slate-700 leading-relaxed">
-                    <strong className="text-slate-900">A family-business leader</strong> may find perspective from another entrepreneur navigating succession and transformation.
+                    <strong className="text-slate-900 font-bold group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">A family-business leader</strong> may find perspective from another entrepreneur navigating succession and transformation.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-[#FAFBFD] border border-slate-200/80 flex items-start gap-3">
-                  <div className="size-2 rounded-full bg-emerald-600 mt-2 shrink-0" />
+                <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xs hover:border-blue-300 transition-all flex items-start gap-3.5 group">
+                  <div className="size-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] mt-1.5 shrink-0 shadow-xs shadow-indigo-500/30" />
                   <p className="text-sm text-slate-700 leading-relaxed">
-                    <strong className="text-slate-900">A young entrepreneur</strong> may need experience that has taken decades to develop.
+                    <strong className="text-slate-900 font-bold group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">A young entrepreneur</strong> may need experience that has taken decades to develop.
                   </p>
                 </div>
               </div>
@@ -501,10 +501,11 @@ export function PurposePageClient() {
 
             {/* Right Card: The Ambition You Share */}
             <div className="lg:col-span-5">
-              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white shadow-xl overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="relative p-8 rounded-3xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white shadow-xl overflow-hidden border border-white/10">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/20 rounded-full blur-[60px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-rose-500/20 rounded-full blur-[50px] pointer-events-none" />
                 <div className="relative z-10">
-                  <span className="text-[11px] uppercase tracking-widest text-amber-300 font-bold block mb-2">
+                  <span className="text-[11px] uppercase tracking-widest brand-gradient-text font-bold block mb-2">
                     THE AMBITION YOU SHARE
                   </span>
                   <h3 className="font-serif text-2xl sm:text-3xl font-normal leading-snug mb-4">
@@ -514,42 +515,25 @@ export function PurposePageClient() {
                     Entrepreneurs do not only identify themselves by their businesses. They also identify themselves by what they are trying to achieve. You may be building for:
                   </p>
 
-                  <div className="grid grid-cols-2 gap-2 text-xs mb-6 font-medium">
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-blue-400" />
-                      Global expansion
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-violet-400" />
-                      A new venture
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-emerald-400" />
-                      An IPO
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-amber-400" />
-                      Investment & Scale
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-indigo-400" />
-                      Leadership transformation
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-rose-400" />
-                      Family-business continuity
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-orange-400" />
-                      A stronger MSME
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-200">
-                      <span className="size-1.5 rounded-full bg-teal-400" />
-                      A sustainable future
-                    </div>
+                  <div className="grid grid-cols-2 gap-2.5 text-xs mb-6 font-medium">
+                    {[
+                      'Global expansion',
+                      'A new venture',
+                      'An IPO',
+                      'Investment & Scale',
+                      'Leadership transformation',
+                      'Family-business continuity',
+                      'A stronger MSME',
+                      'A sustainable future',
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-2 text-slate-200">
+                        <span className="size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
 
-                  <p className="text-xs text-slate-300 italic border-t border-slate-700/80 pt-4 leading-relaxed">
+                  <p className="text-xs text-slate-300 italic border-t border-white/10 pt-4 leading-relaxed">
                     “And sometimes the person who can help you most is not the person who does what you do. It is the person who is trying to achieve something similar.”
                   </p>
                 </div>
@@ -590,20 +574,20 @@ export function PurposePageClient() {
                 <div
                   key={circle.slug}
                   onClick={() => setActiveCircle(isSelected ? null : circle.slug)}
-                  className={`group p-6 sm:p-8 rounded-3xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
+                  className={`group p-6 sm:p-8 rounded-3xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                     isSelected
-                      ? 'bg-white border-[#0062D2] shadow-xl ring-2 ring-[#0062D2]/20'
-                      : 'bg-white border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300'
+                       ? 'bg-white border-[#0062D2] shadow-xl ring-2 ring-[#0062D2]/20'
+                       : 'bg-white border-slate-200/90 shadow-xs hover:shadow-xl hover:border-blue-400/50'
                   }`}
                 >
                   <div>
                     {/* Header: Num + Icon */}
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className={`size-11 rounded-2xl flex items-center justify-center ${circle.bg} ${circle.color}`}>
-                          <Icon className="size-5" />
+                        <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)]" />
                         </div>
-                        <span className="text-xs font-mono font-bold tracking-widest text-slate-400">
+                        <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
                           {circle.num}
                         </span>
                       </div>
@@ -617,10 +601,10 @@ export function PurposePageClient() {
                     </div>
 
                     {/* Title & Headline */}
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0F172A] mb-1.5">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0F172A] mb-1.5 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                       {circle.name}
                     </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-[#0062D2] mb-3">
+                    <p className="text-xs sm:text-sm font-bold brand-gradient-text mb-3">
                       {circle.headline}
                     </p>
 
@@ -670,10 +654,10 @@ export function PurposePageClient() {
                       href="https://unity.peersglobal.com"
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xs font-bold text-[#0062D2] hover:text-[#0052B4] inline-flex items-center gap-1"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-xs font-semibold tracking-wide whitespace-nowrap shadow-xs hover:shadow-md hover:scale-105 transition-all duration-200"
                     >
                       <span>Join in Unity App</span>
-                      <ArrowRight className="size-3.5" />
+                      <ArrowRight className="size-3 text-white" />
                     </a>
                   </div>
                 </div>
@@ -693,14 +677,14 @@ export function PurposePageClient() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+                <span className="text-xs font-bold tracking-[0.25em] uppercase brand-gradient-text">
                   WHAT A PURPOSE CIRCLE GIVES YOU
                 </span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
                 A Purpose Circle begins with a question:
               </h2>
-              <p className="text-xl sm:text-2xl text-[#0062D2] font-semibold">
+              <p className="text-xl sm:text-2xl brand-gradient-text font-bold">
                 “What are you trying to achieve?”
               </p>
               <p className="text-sm text-slate-600 mt-2">
@@ -709,7 +693,7 @@ export function PurposePageClient() {
             </div>
             <div className="text-right shrink-0">
               <div
-                className="text-[#0062D2] text-2xl sm:text-3xl font-normal leading-tight select-none pointer-events-none"
+                className="brand-gradient-text text-2xl sm:text-3xl font-bold leading-tight select-none pointer-events-none"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Intentional<br />Relationships
@@ -718,30 +702,72 @@ export function PurposePageClient() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-            {PURPOSE_BENEFITS.slice(0, 4).map((item) => {
+            {PURPOSE_BENEFITS.slice(0, 4).map((item, idx) => {
               const Icon = item.icon
               return (
-                <div key={item.title} className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
-                  <div className={`size-10 rounded-2xl ${item.bg} ${item.color} flex items-center justify-center mb-4`}>
-                    <Icon className="size-5" />
+                <div
+                  key={item.title}
+                  className="animated-glow-card group"
+                  tabIndex={0}
+                  role="article"
+                >
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`purpBenGrad1-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#purpBenGrad1-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="p-6 rounded-[calc(1.5rem-1.5px)] bg-white h-full flex flex-col items-start transition-all duration-300">
+                    <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-2xs">
+                      <Icon className="size-5 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">{item.title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.body}</p>
                   </div>
-                  <h3 className="text-base font-bold text-[#0F172A] mb-2">{item.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.body}</p>
                 </div>
               )
             })}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
-            {PURPOSE_BENEFITS.slice(4).map((item) => {
+            {PURPOSE_BENEFITS.slice(4).map((item, idx) => {
               const Icon = item.icon
               return (
-                <div key={item.title} className="p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md transition-shadow">
-                  <div className={`size-10 rounded-2xl ${item.bg} ${item.color} flex items-center justify-center mb-4`}>
-                    <Icon className="size-5" />
+                <div
+                  key={item.title}
+                  className="animated-glow-card group"
+                  tabIndex={0}
+                  role="article"
+                >
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`purpBenGrad2-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#purpBenGrad2-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="p-6 rounded-[calc(1.5rem-1.5px)] bg-white h-full flex flex-col items-start transition-all duration-300">
+                    <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-2xs">
+                      <Icon className="size-5 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">{item.title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.body}</p>
                   </div>
-                  <h3 className="text-base font-bold text-[#0F172A] mb-2">{item.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.body}</p>
                 </div>
               )
             })}
@@ -750,7 +776,7 @@ export function PurposePageClient() {
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center max-w-2xl mx-auto">
             <p className="text-xs sm:text-sm text-slate-700 font-medium">
               The purpose of the Circle is not to make everyone the same. <br className="hidden sm:block" />
-              <strong className="text-slate-900">It is to bring people together around something they genuinely share.</strong>
+              <strong className="brand-gradient-text font-bold">It is to bring people together around something they genuinely share.</strong>
             </p>
           </div>
 
@@ -770,7 +796,7 @@ export function PurposePageClient() {
               <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-lg relative overflow-hidden">
                 <div className="absolute top-0 right-0 h-32 w-32 bg-blue-50 rounded-full blur-2xl pointer-events-none" />
 
-                <span className="text-[10px] uppercase font-bold tracking-widest text-[#0062D2] block mb-3">
+                <span className="text-[10px] uppercase font-bold tracking-widest brand-gradient-text block mb-3">
                   THOUGHT EXPERIMENT
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 font-normal leading-tight mb-4">
@@ -780,17 +806,21 @@ export function PurposePageClient() {
                 <div className="space-y-2 mb-6">
                   {['A technology entrepreneur', 'A manufacturing entrepreneur', 'A healthcare entrepreneur', 'A real-estate entrepreneur', 'A professional-services entrepreneur'].map((person, i) => (
                     <div key={i} className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs sm:text-sm font-medium text-slate-700">
-                      <span className="size-2 rounded-full bg-blue-600 shrink-0" />
+                      <span className="size-2 rounded-full bg-gradient-to-r from-blue-600 to-rose-600 shrink-0" />
                       {person}
                     </div>
                   ))}
                 </div>
 
-                <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md">
-                  <p className="text-xs text-blue-100 uppercase tracking-wider font-semibold mb-1">Then someone asks:</p>
-                  <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
-                    “Who here is planning to expand internationally?”
-                  </p>
+                <div className="relative p-6 rounded-2xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white shadow-xl border border-white/10 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/20 rounded-full blur-[40px] pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-rose-500/20 rounded-full blur-[40px] pointer-events-none" />
+                  <div className="relative z-10">
+                    <p className="text-[11px] uppercase tracking-wider font-bold brand-gradient-text mb-1.5">Then someone asks:</p>
+                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug text-white">
+                      “Who here is planning to expand internationally?”
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -798,7 +828,7 @@ export function PurposePageClient() {
             {/* Narrative text */}
             <div className="lg:col-span-6 space-y-5">
               <div className="flex items-center gap-2">
-                <span className="text-[#0062D2] text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="text-xs font-bold tracking-[0.2em] uppercase brand-gradient-text">
                   PURPOSE CAN CROSS INDUSTRY
                 </span>
               </div>
@@ -811,10 +841,10 @@ export function PurposePageClient() {
                 They may have almost nothing in common at first glance. But the moment shared ambition is spoken aloud, the room shifts.
               </p>
 
-              <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200/80">
+              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-200/80">
                 <p className="text-base sm:text-lg font-serif text-blue-950 leading-relaxed">
                   The industry differences remain. <br />
-                  <strong className="text-blue-700">But a shared purpose has appeared.</strong>
+                  <strong className="brand-gradient-text font-bold">But a shared purpose has appeared.</strong>
                 </p>
               </div>
 
@@ -822,14 +852,14 @@ export function PurposePageClient() {
                 That is the power of a Purpose Circle.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 flex-1">
-                  <p className="text-[11px] uppercase font-bold text-slate-400">Industry</p>
-                  <p className="text-sm font-bold text-slate-900 mt-0.5">Creates relevance</p>
+              <div className="flex flex-col sm:flex-row gap-3.5 pt-2">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 flex-1 shadow-2xs">
+                  <div className="text-[11px] uppercase tracking-wider font-bold text-slate-400">Industry</div>
+                  <div className="text-sm font-bold text-slate-900 mt-1">Creates relevance</div>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 flex-1">
-                  <p className="text-[11px] uppercase font-bold text-[#0062D2]">Purpose</p>
-                  <p className="text-sm font-bold text-[#0062D2] mt-0.5">Creates alignment</p>
+                <div className="p-4 rounded-2xl bg-white border border-blue-200/80 flex-1 shadow-2xs">
+                  <div className="text-[11px] uppercase tracking-wider font-bold brand-gradient-text">Purpose</div>
+                  <div className="text-sm font-bold brand-gradient-text mt-1">Creates alignment</div>
                 </div>
               </div>
             </div>
@@ -847,7 +877,7 @@ export function PurposePageClient() {
 
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
+              <span className="text-xs font-bold tracking-[0.25em] uppercase brand-gradient-text">
                 INDUSTRY OR PURPOSE?
               </span>
             </div>
@@ -863,8 +893,8 @@ export function PurposePageClient() {
           <div className="max-w-4xl mx-auto rounded-3xl border border-slate-200 overflow-hidden shadow-sm mb-12">
             <div className="grid grid-cols-12 bg-slate-50 border-b border-slate-200 p-4 sm:p-5 font-bold text-xs uppercase tracking-wider text-slate-500">
               <div className="col-span-4 sm:col-span-4">Dimension</div>
-              <div className="col-span-4 sm:col-span-4 text-[#0062D2]">Industry Circle</div>
-              <div className="col-span-4 sm:col-span-4 text-emerald-700">Purpose & Goal Circle</div>
+              <div className="col-span-4 sm:col-span-4 text-blue-700">Industry Circle</div>
+              <div className="col-span-4 sm:col-span-4 brand-gradient-text font-bold">Purpose &amp; Goal Circle</div>
             </div>
 
             {COMPARISON_ROWS.map((row, idx) => (
@@ -888,35 +918,38 @@ export function PurposePageClient() {
           </div>
 
           {/* "You Are More Than Your Industry" Callout */}
-          <div className="max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE]">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-[#0062D2] block mb-2">
-              EXPAND YOUR PERSPECTIVE
-            </span>
-            <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 font-normal leading-snug mb-4">
-              You are more than your industry.
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-4">
-              An entrepreneur can be a <strong>technology founder</strong> and a <strong>startup founder</strong>. A <strong>manufacturing entrepreneur</strong> and an <strong>investor</strong>. A <strong>family-business leader</strong> and someone pursuing <strong>global expansion</strong>. An <strong>MSME entrepreneur</strong> and a leader focused on <strong>transformation</strong>.
-            </p>
-            <p className="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed mb-6">
-              Your business identity is only one part of your entrepreneurial identity. Your ambition is another. That is why PEERS GLOBAL creates both Industry and Purpose pathways.
-            </p>
+          <div className="max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white border border-white/10 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/15 rounded-full blur-[80px] pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-[10px] uppercase font-bold tracking-widest brand-gradient-text block mb-2">
+                EXPAND YOUR PERSPECTIVE
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal leading-snug mb-4">
+                You are more than your industry.
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
+                An entrepreneur can be a <strong>technology founder</strong> and a <strong>startup founder</strong>. A <strong>manufacturing entrepreneur</strong> and an <strong>investor</strong>. A <strong>family-business leader</strong> and someone pursuing <strong>global expansion</strong>. An <strong>MSME entrepreneur</strong> and a leader focused on <strong>transformation</strong>.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 font-semibold leading-relaxed mb-6">
+                Your business identity is only one part of your entrepreneurial identity. Your ambition is another. That is why PEERS GLOBAL creates both Industry and Purpose pathways.
+              </p>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <GalaxyButton
-                href="/circles"
-                variant="primary"
-                size="sm"
-              >
-                Browse All Circles
-              </GalaxyButton>
-              <GalaxyButton
-                href="/circles/industry"
-                variant="transparent-light"
-                size="sm"
-              >
-                Browse Industry Circles
-              </GalaxyButton>
+              <div className="flex flex-wrap items-center gap-3">
+                <GalaxyButton
+                  href="/circles"
+                  variant="primary"
+                  size="sm"
+                >
+                  Browse All Circles
+                </GalaxyButton>
+                <GalaxyButton
+                  href="/circles/industry"
+                  variant="transparent-light"
+                  size="sm"
+                >
+                  Browse Industry Circles
+                </GalaxyButton>
+              </div>
             </div>
           </div>
 
@@ -931,8 +964,8 @@ export function PurposePageClient() {
 
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-[#0062D2] text-xs font-bold tracking-[0.25em] uppercase">
-                THE PURPOSE & GOAL GRID
+              <span className="text-xs font-bold tracking-[0.25em] uppercase brand-gradient-text">
+                THE PURPOSE &amp; GOAL GRID
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-3">
@@ -946,7 +979,7 @@ export function PurposePageClient() {
           {/* Grid Table */}
           <div className="max-w-4xl mx-auto rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm">
             <div className="grid grid-cols-12 bg-slate-50 border-b border-slate-200 p-4 sm:p-5 font-bold text-xs uppercase tracking-wider text-slate-500">
-              <div className="col-span-5 sm:col-span-5 text-[#0062D2]">Purpose & Goal Circle</div>
+              <div className="col-span-5 sm:col-span-5 brand-gradient-text font-bold">Purpose &amp; Goal Circle</div>
               <div className="col-span-7 sm:col-span-7">Shared Ambition</div>
             </div>
 
@@ -991,19 +1024,19 @@ export function PurposePageClient() {
               </h2>
 
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                You need a <strong className="text-slate-900">genuine connection with the purpose</strong>. You may be:
+                You need a <strong className="brand-gradient-text font-bold">genuine connection with the purpose</strong>. You may be:
               </p>
 
               <div className="space-y-2.5">
                 {WHO_BELONGS_POINTS.map((pt, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-[#FAFBFD] border border-slate-200/80">
-                    <CheckCircle2 className="size-4 text-[#0062D2] mt-0.5 shrink-0" />
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs">
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] mt-0.5 shrink-0" />
                     <span className="text-xs sm:text-sm text-slate-700 font-medium">{pt}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-950 text-xs sm:text-sm">
+              <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-amber-950 text-xs sm:text-sm">
                 <p className="font-bold mb-1">The important question is not:</p>
                 <p className="italic text-amber-800 line-through mb-1">“What do you sell?”</p>
                 <p className="font-bold text-amber-900">It is: “What are you trying to build?”</p>
@@ -1028,7 +1061,7 @@ export function PurposePageClient() {
                   <p className="font-serif text-base font-semibold text-slate-800">“Tell me about your business.”</p>
                 </div>
                 <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-blue-700 mb-1">Purpose Circle starts with</p>
+                  <p className="text-[11px] font-bold uppercase tracking-wider brand-gradient-text mb-1">Purpose Circle starts with</p>
                   <p className="font-serif text-base font-semibold text-blue-900">“Tell me about the goal you are pursuing.”</p>
                 </div>
               </div>
@@ -1040,31 +1073,34 @@ export function PurposePageClient() {
               <div className="grid grid-cols-2 gap-2 text-xs font-medium">
                 {['What they are working toward', 'What they are learning', 'Where they are uncertain', 'Where they need help', 'Where they can contribute', 'Why the journey matters to them'].map((item, i) => (
                   <div key={i} className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70 text-slate-700 flex items-center gap-2">
-                    <span className="size-1.5 rounded-full bg-blue-600 shrink-0" />
+                    <span className="size-1.5 rounded-full bg-gradient-to-r from-blue-600 to-rose-600 shrink-0" />
                     {item}
                   </div>
                 ))}
               </div>
 
               {/* If Your Purpose is Not Listed */}
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-[#0F172A] text-white">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-amber-300 block mb-1">
-                  IF YOUR PURPOSE IS NOT LISTED
-                </span>
-                <h4 className="font-serif text-lg font-normal mb-2">
-                  Every Circle begins with people who have something meaningful in common.
-                </h4>
-                <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                  Not every entrepreneurial ambition fits neatly into ten categories. Tell us what you are trying to build, what you are trying to achieve, and what kind of entrepreneurs you would like to meet. A future Circle may begin with a purpose you are already carrying.
-                </p>
-                <div className="pt-2">
-                  <GalaxyButton
-                    href="/start-a-circle"
-                    variant="primary"
-                    size="sm"
-                  >
-                    Propose or Start a Circle
-                  </GalaxyButton>
+              <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white border border-white/10 shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-60 h-60 bg-rose-500/15 rounded-full blur-[70px] pointer-events-none" />
+                <div className="relative z-10">
+                  <span className="text-[10px] font-bold uppercase tracking-widest brand-gradient-text block mb-1">
+                    IF YOUR PURPOSE IS NOT LISTED
+                  </span>
+                  <h4 className="font-serif text-lg font-normal mb-2">
+                    Every Circle begins with people who have something meaningful in common.
+                  </h4>
+                  <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                    Not every entrepreneurial ambition fits neatly into ten categories. Tell us what you are trying to build, what you are trying to achieve, and what kind of entrepreneurs you would like to meet. A future Circle may begin with a purpose you are already carrying.
+                  </p>
+                  <div className="pt-2">
+                    <GalaxyButton
+                      href="/start-a-circle"
+                      variant="primary"
+                      size="sm"
+                    >
+                      Propose or Start a Circle
+                    </GalaxyButton>
+                  </div>
                 </div>
               </div>
 
@@ -1092,30 +1128,30 @@ export function PurposePageClient() {
             </h2>
           </div>
 
-          <div className="space-y-3 mb-10">
+          <div className="space-y-3.5 mb-10">
             {FAQS.map((faq, i) => {
               const isOpen = openFaq === i
               return (
                 <div
                   key={i}
-                  className={`rounded-2xl border transition-all ${
-                    isOpen ? 'border-[#DCEBFE] bg-[#F0F7FF]' : 'border-slate-200 bg-white hover:border-slate-300'
+                  className={`rounded-2xl border transition-all shadow-2xs ${
+                    isOpen ? 'border-blue-200 bg-blue-50/50' : 'border-slate-200/90 bg-white hover:border-blue-300'
                   }`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : i)}
                     className="w-full flex items-center justify-between p-5 sm:p-6 text-left gap-4 cursor-pointer"
                   >
-                    <span className={`text-sm sm:text-base font-semibold leading-snug ${isOpen ? 'text-[#0062D2]' : 'text-[#0F172A]'}`}>
+                    <span className={`text-base sm:text-lg font-bold leading-snug ${isOpen ? 'brand-gradient-text' : 'text-slate-900 hover:text-[#0062D2]'}`}>
                       {faq.q}
                     </span>
                     <ChevronDown
-                      className={`size-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#0062D2]' : 'text-slate-400'}`}
+                      className={`size-5 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 stroke-[url(#brandIconGrad)]' : 'text-slate-500'}`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-blue-100/60">
-                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">{faq.a}</p>
+                    <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-blue-100">
+                      <p className="text-sm sm:text-base text-slate-800 font-medium leading-relaxed">{faq.a}</p>
                     </div>
                   )}
                 </div>
@@ -1198,22 +1234,23 @@ export function PurposePageClient() {
 
               {/* Right Column: Key Philosophy Quote Card */}
               <div className="lg:col-span-5">
-                <div className="relative p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#061836] to-[#0D244D] text-white shadow-xl space-y-6 overflow-hidden border border-blue-900/40">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-xl pointer-events-none" />
+                <div className="relative p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#06112C] via-[#13071F] to-[#260513] text-white shadow-xl space-y-6 overflow-hidden border border-white/10">
+                  <div className="absolute top-0 right-0 w-44 h-44 bg-blue-500/20 rounded-full blur-[50px] pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-36 h-36 bg-rose-500/20 rounded-full blur-[50px] pointer-events-none" />
                   
-                  <span className="font-serif text-5xl sm:text-6xl text-sky-400/50 leading-none block -mb-4">“</span>
+                  <span className="font-serif text-5xl sm:text-6xl brand-gradient-text leading-none block -mb-4">“</span>
                   
-                  <p className="text-lg sm:text-xl font-medium leading-snug text-slate-100">
+                  <p className="text-lg sm:text-xl font-medium leading-snug text-slate-100 relative z-10">
                     Sometimes the right people are not the people doing what you do. They are the people going where you are trying to go.
                   </p>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                  <div className="pt-4 border-t border-white/10 flex items-center justify-between relative z-10">
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-sky-300">The Peers Principle</p>
-                      <p className="text-[11px] text-slate-400 mt-0.5">Shared destination over shared title</p>
+                      <p className="text-xs font-bold uppercase tracking-wider brand-gradient-text">The Peers Principle</p>
+                      <p className="text-[11px] text-slate-300 mt-0.5">Shared destination over shared title</p>
                     </div>
-                    <div className="size-8 rounded-full bg-white/10 flex items-center justify-center text-sky-300">
-                      <Compass className="size-4" />
+                    <div className="size-9 rounded-2xl bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-rose-500/20 border border-blue-400/30 flex items-center justify-center shadow-2xs">
+                      <Compass className="size-4.5 stroke-[url(#brandIconGrad)]" />
                     </div>
                   </div>
                 </div>

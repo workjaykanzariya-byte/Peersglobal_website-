@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
 import {
   Vote,
@@ -17,7 +17,7 @@ import {
   SlidersHorizontal,
   Flame,
 } from 'lucide-react'
-import { Campaign, calculateCampaignPhase, CampaignPhase } from '@/lib/api/leadership'
+import { Campaign, calculateCampaignPhase, CampaignPhase, leadershipApi } from '@/lib/api/leadership'
 import { CampaignCard } from '@/components/leadership/elections/campaign-card'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 
@@ -27,15 +27,40 @@ interface CampaignsClientProps {
 }
 
 export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientProps) {
+  const [campaigns, setCampaigns] = useState<Campaign[]>(initialCampaigns)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedYear, setSelectedYear] = useState<string>('all')
   const [selectedRole, setSelectedRole] = useState<string>('all')
   const [selectedScope, setSelectedScope] = useState<string>('all')
   const [selectedPhase, setSelectedPhase] = useState<string>('all')
 
+  // Keep state in sync with initial props if they update
+  useEffect(() => {
+    if (initialCampaigns && initialCampaigns.length > 0) {
+      setCampaigns(initialCampaigns)
+    }
+  }, [initialCampaigns])
+
+  // Immediately query fresh campaigns on client mount to bypass any stale server cache
+  useEffect(() => {
+    let isSubscribed = true
+    leadershipApi
+      .getCampaigns({ status: 'active' })
+      .then((res) => {
+        if (isSubscribed && res.success && res.data.length > 0) {
+          setCampaigns(res.data)
+        }
+      })
+      .catch(() => {})
+
+    return () => {
+      isSubscribed = false
+    }
+  }, [])
+
   // Filter campaigns
   const filteredCampaigns = useMemo(() => {
-    return initialCampaigns.filter((c) => {
+    return campaigns.filter((c) => {
       // Search
       if (searchQuery) {
         const query = searchQuery.toLowerCase()
@@ -71,16 +96,16 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
 
       return true
     })
-  }, [initialCampaigns, searchQuery, selectedYear, selectedRole, selectedScope, selectedPhase])
+  }, [campaigns, searchQuery, selectedYear, selectedRole, selectedScope, selectedPhase])
 
   // Aggregate stats
   const totalVotes = useMemo(() => {
-    return initialCampaigns.reduce((acc, c) => acc + (c.total_votes || 0), 0)
-  }, [initialCampaigns])
+    return campaigns.reduce((acc, c) => acc + (c.total_votes || 0), 0)
+  }, [campaigns])
 
   const totalCandidates = useMemo(() => {
-    return initialCampaigns.reduce((acc, c) => acc + (c.total_candidates || 0), 0)
-  }, [initialCampaigns])
+    return campaigns.reduce((acc, c) => acc + (c.total_candidates || 0), 0)
+  }, [campaigns])
 
   return (
     <div className="space-y-8">

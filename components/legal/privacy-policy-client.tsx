@@ -129,6 +129,16 @@ const PRIVACY_SECTIONS = [
 export function PrivacyPolicyClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* Global Brand Gradient Definition for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <linearGradient id="privacyBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
@@ -144,9 +154,9 @@ export function PrivacyPolicyClient() {
             <span className="font-bold brand-gradient-text">Privacy Policy</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>DPDP Act 2023 Compliant</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200">
+              <ShieldCheck className="w-3.5 h-3.5 [stroke:url(#privacyBrandGrad)]" />
+              <span className="brand-gradient-text">DPDP Act 2023 Compliant</span>
             </span>
           </div>
         </div>
@@ -176,40 +186,15 @@ export function PrivacyPolicyClient() {
 
               {/* Dark scrim matching the home hero */}
               <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="hidden">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Zero Dark Patterns
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Absolute Discretion
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Data Sovereignty
-                </p>
-              </div>
-
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="hidden">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    DATA PRIVACY CHARTER
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    DPDP ACT 2023 COMPLIANT
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Left Content Area */}
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
 
-                {/* Eyebrow with brand gradient bar */}
+                {/* Eyebrow with brand gradient bar removed */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     DATA PROTECTION &amp; SOVEREIGNTY
                   </span>
                 </div>
@@ -217,7 +202,7 @@ export function PrivacyPolicyClient() {
                 {/* H1 Heading */}
                 <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14] mb-4">
                   Privacy &amp; Data <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                  <span className="brand-gradient-text">
                     Protection Charter.
                   </span>
                 </h1>
@@ -239,37 +224,41 @@ export function PrivacyPolicyClient() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-                  <a
+                  <GalaxyButton
                     href="#clauses"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider shadow-lg shadow-blue-600/20 transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="primary"
+                    size="md"
                   >
-                    <span>Read Policy Clauses</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                    Read Policy Clauses
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#unity-app-privacy"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="secondary"
+                    size="md"
+                    icon={false}
                   >
-                    <span>Unity App Security</span>
-                  </a>
+                    Unity App Security
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="mailto:privacy@peersglobal.com"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase"
+                    variant="secondary"
+                    size="md"
+                    icon={false}
                   >
-                    <span>Contact DPO</span>
-                  </a>
+                    Contact DPO
+                  </GalaxyButton>
                 </div>
 
                 {/* Quick Info Bar */}
                 <div className="flex items-center gap-6 text-xs text-slate-300 pt-2 border-t border-white/15 w-full max-w-lg">
                   <div className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#privacyBrandGrad)]" />
                     <span>Last Revised: September 2026</span>
                   </div>
                   <div className="flex items-center gap-1.5 font-medium">
-                    <Sparkles className="w-4 h-4 text-sky-400" />
+                    <Sparkles className="w-4 h-4 [stroke:url(#privacyBrandGrad)]" />
                     <span>Ahmedabad Jurisdiction</span>
                   </div>
                 </div>
@@ -285,13 +274,13 @@ export function PrivacyPolicyClient() {
               { val: 'DPDP 2023', label: 'Statutory Compliance', sub: 'Consent-based data framework' },
               { val: 'AES-256', label: 'Enterprise Encryption', sub: 'Encrypted in transit & at rest' },
               { val: 'Zero Ads', label: 'No Data Brokering', sub: 'Strictly internal ecosystem' },
-              { val: '< 48h DPO', label: 'Statutory Redressal', sub: 'Dedicated Grievance Officer' },
+              { val: '48h DPO', label: 'Statutory Redressal', sub: 'Dedicated Grievance Officer' },
             ].map((stat, idx) => (
               <div
                 key={idx}
                 className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                <div className="font-serif text-lg sm:text-xl font-bold brand-gradient-text">
                   {stat.val}
                 </div>
                 <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
@@ -313,49 +302,49 @@ export function PrivacyPolicyClient() {
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-blue-500/10 border border-blue-400/20 text-sky-400">
-                  <Smartphone className="w-3.5 h-3.5" />
-                  <span>MOBILE DATA PRIVACY</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 backdrop-blur-md border border-white/15">
+                  <Smartphone className="w-3.5 h-3.5 [stroke:url(#privacyBrandGrad)]" />
+                  <span className="brand-gradient-text font-bold uppercase">MOBILE DATA PRIVACY</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
-                  Unity App Member Directory Privacy
+                  Unity App Member Directory <span className="brand-gradient-text">Privacy</span>
                 </h2>
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
-                  Your profile and contact coordinates are visible <span className="text-amber-300 font-semibold">only to verified fellow members</span> within the authenticated Unity App. You can toggle direct message permissions, adjust phone number visibility, or manage directory indexing instantly in your profile settings.
+                  Your profile and contact coordinates are visible <span className="brand-gradient-text font-bold">only to verified fellow members</span> within the authenticated Unity App. You can toggle direct message permissions, adjust phone number visibility, or manage directory indexing instantly in your profile settings.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-300">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#privacyBrandGrad)] shrink-0" />
                     <span>Biometric App Lock</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#privacyBrandGrad)] shrink-0" />
                     <span>Granular Privacy Toggles</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#privacyBrandGrad)] shrink-0" />
                     <span>One-Tap Data Export</span>
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
-                <Link
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-xs uppercase tracking-wider transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                  variant="primary"
+                  size="md"
                 >
-                  <Download className="w-4 h-4" />
-                  <span>Download Unity App</span>
-                </Link>
-                <Link
+                  Download Unity App
+                </GalaxyButton>
+                <GalaxyButton
                   href="/membership"
-                  className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-bold text-xs uppercase tracking-wider transition-all border border-white/20 flex items-center justify-center gap-2"
+                  variant="secondary"
+                  size="md"
                 >
-                  <span>Explore Membership</span>
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
+                  Explore Membership
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -366,16 +355,16 @@ export function PrivacyPolicyClient() {
       <section id="clauses" className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="flex items-center justify-center gap-2 mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="flex items-center justify-center">
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 COMPLETE LEGAL ARTICLES
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight">
-              Statutory Privacy &amp; Data Provisions
+              Statutory Privacy &amp; <span className="brand-gradient-text">Data Provisions</span>
             </h2>
-            <p className="text-sm text-slate-600 mt-3">
+            <p className="text-sm text-slate-600 font-normal">
               Clear, transparent clauses structured with zero obfuscation or hidden dark patterns.
             </p>
           </div>
@@ -388,7 +377,7 @@ export function PrivacyPolicyClient() {
               {/* Table of Contents Card */}
               <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-xs space-y-4">
                 <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-                  <FileText className="w-4 h-4 text-[#1D4ED8]" />
+                  <FileText className="w-4 h-4 [stroke:url(#privacyBrandGrad)]" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Charter Navigation
                   </span>
@@ -396,7 +385,6 @@ export function PrivacyPolicyClient() {
 
                 <nav className="space-y-1">
                   {PRIVACY_SECTIONS.map((sec) => {
-                    const IconComp = sec.icon
                     return (
                       <a
                         key={sec.num}
@@ -407,7 +395,7 @@ export function PrivacyPolicyClient() {
                           <span className="font-mono text-[11px] text-slate-400 group-hover:text-[#1D4ED8]">
                             {sec.num}.
                           </span>
-                          <span className="truncate max-w-[190px] sm:max-w-none">{sec.heading}</span>
+                          <span className="truncate max-w-[190px] sm:max-w-none group-hover:text-[#1D4ED8]">{sec.heading}</span>
                         </div>
                         <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#1D4ED8] group-hover:translate-x-0.5 transition-all" />
                       </a>
@@ -419,39 +407,40 @@ export function PrivacyPolicyClient() {
               {/* DPO Quick Card */}
               <div className="p-6 rounded-3xl bg-gradient-to-br from-blue-50/70 to-rose-50/40 border border-blue-100/80 shadow-2xs space-y-4">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span className="text-xs font-mono font-bold uppercase text-slate-900">
+                  <ShieldCheck className="w-4 h-4 [stroke:url(#privacyBrandGrad)]" />
+                  <span className="text-xs font-mono font-bold uppercase brand-gradient-text">
                     Direct Grievance Channel
                   </span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   Have inquiries regarding DPDP Act 2023 provisions or your directory visibility?
                 </p>
                 <div className="pt-2">
-                  <a
+                  <GalaxyButton
                     href="mailto:privacy@peersglobal.com"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-900 text-white text-xs font-bold transition-all shadow-2xs"
+                    variant="primary"
+                    size="sm"
+                    className="w-full justify-center"
                   >
-                    <span>privacy@peersglobal.com</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                    privacy@peersglobal.com
+                  </GalaxyButton>
                 </div>
               </div>
 
               {/* Legal Jurisdiction Card */}
               <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-xs space-y-2 text-xs text-slate-600">
                 <div className="flex items-center gap-2 font-bold text-slate-900">
-                  <Server className="w-4 h-4 text-[#1D4ED8]" />
-                  <span>Sovereign Data Storage</span>
+                  <Server className="w-4 h-4 [stroke:url(#privacyBrandGrad)]" />
+                  <span className="brand-gradient-text font-bold">Sovereign Data Storage</span>
                 </div>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 leading-relaxed font-normal">
                   All databases and backups are hosted in ISO/IEC 27001 certified data centers within Ahmedabad and Mumbai, Bharat.
                 </p>
               </div>
 
             </div>
 
-            {/* Right Column: Structured Clause Cards with Homepage-Style Dynamic Hover */}
+            {/* Right Column: Structured Clause Cards */}
             <div className="lg:col-span-8 space-y-6">
               {PRIVACY_SECTIONS.map((sec) => {
                 const IconComponent = sec.icon
@@ -459,37 +448,37 @@ export function PrivacyPolicyClient() {
                   <div
                     id={`clause-${sec.num}`}
                     key={sec.heading}
-                    className="group relative p-7 sm:p-9 rounded-3xl bg-white border border-slate-200 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#1D4ED8]/60 space-y-4 scroll-mt-24"
+                    className="brand-gradient-border-card group p-7 sm:p-9 rounded-3xl shadow-xs space-y-4 scroll-mt-24 cursor-pointer"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
                       <div className="flex items-center gap-3">
-                        <div className={`w-11 h-11 rounded-2xl ${sec.pastelBg} ${sec.pastelBorder} border flex items-center justify-center ${sec.iconColor} shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-2xs`}>
-                          <IconComponent className="w-5 h-5" />
+                        <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                          <IconComponent className="w-5 h-5 [stroke:url(#privacyBrandGrad)] transition-transform duration-300" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
                             <span className="text-xs font-mono font-bold brand-gradient-text">
                               CLAUSE {sec.num}
                             </span>
-                            <span className="text-[11px] font-semibold text-slate-400">
-                              • {sec.tag}
+                            <span className="text-[11px] font-semibold text-slate-500">
+                              {sec.tag}
                             </span>
                           </div>
-                          <h3 className="text-lg sm:text-xl font-serif font-bold text-slate-950 tracking-tight mt-0.5 group-hover:text-[#1D4ED8] transition-colors">
+                          <h3 className="text-lg sm:text-xl font-serif font-bold text-slate-950 tracking-tight mt-0.5 brand-gradient-hover-text transition-colors duration-300">
                             {sec.heading}
                           </h3>
                         </div>
                       </div>
 
                       <div className="shrink-0 hidden sm:block">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
-                          <Check className="w-3 h-3" />
-                          <span>Active Policy</span>
+                        <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-700 bg-gradient-to-r from-blue-50/80 to-rose-50/80 px-2.5 py-1 rounded-full border border-slate-200 group-hover:border-blue-300 transition-colors">
+                          <Check className="w-3 h-3 [stroke:url(#privacyBrandGrad)]" />
+                          <span className="brand-gradient-text font-bold">Active Policy</span>
                         </span>
                       </div>
                     </div>
 
-                    <div className="space-y-3 text-sm text-slate-600 leading-relaxed whitespace-pre-line font-normal">
+                    <div className="space-y-3 text-sm text-slate-600 group-hover:text-slate-700 leading-relaxed whitespace-pre-line font-normal transition-colors">
                       {sec.body.map((para, i) => (
                         <p key={i}>{para}</p>
                       ))}
@@ -502,7 +491,7 @@ export function PrivacyPolicyClient() {
               <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
                 <div>
                   <h3 className="text-lg font-serif font-bold text-slate-950">Need clarification on your personal data?</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1">Reach out directly to our Data Protection Officer and Compliance Secretariat.</p>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 font-normal">Reach out directly to our Data Protection Officer and Compliance Secretariat.</p>
                 </div>
                 <GalaxyButton
                   href="mailto:privacy@peersglobal.com"
@@ -520,7 +509,7 @@ export function PrivacyPolicyClient() {
       </section>
 
       {/* ── Signature Celestial Master Closing Banner ── */}
-      <section className="relative py-16 sm:py-24 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
+      <section className="relative py-14 sm:py-18 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
         {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
@@ -544,65 +533,82 @@ export function PrivacyPolicyClient() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
-          <div className="space-y-4 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/90">
-                Statutory Governance &amp; Trust
-              </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left Column: Heading, Ethos & Punchline */}
+            <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  STATUTORY GOVERNANCE &amp; TRUST
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Protected data. Transparent governance. <br className="hidden sm:inline" />
+                <span className="italic brand-gradient-text font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+                  Built on enduring founder trust.
+                </span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                PEERS GLOBAL operates under strict DPDP Act 2023 statutory compliance and ISO 27001 sovereign infrastructure across Bharat.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                {[
+                  { title: 'Terms of Use', href: '/terms-of-use' },
+                  { title: 'Community Guidelines', href: '/community-guidelines' },
+                  { title: 'Grievance Redressal', href: '/grievance' }
+                ].map((item, idx) => (
+                  <Link
+                    key={idx}
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-colors"
+                  >
+                    <span>{item.title}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-bold text-white tracking-tight leading-[1.18]">
-              Protected data. Transparent governance. <br className="hidden sm:inline" />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                Built on enduring founder trust.
-              </span>
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-mono tracking-wider pt-2">
-              PEERS GLOBAL — Operating with unyielding compliance standards across Bharat.
-            </p>
-          </div>
-
-          {/* Quick Links Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-2">
-            {[
-              {
-                title: 'Terms of Use',
-                desc: 'Statutory platform agreements & rights',
-                href: '/terms-of-use',
-              },
-              {
-                title: 'Community Guidelines',
-                desc: 'Peer conduct & relationship protocols',
-                href: '/community-guidelines',
-              },
-              {
-                title: 'Grievance Redressal',
-                desc: 'Designated legal & grievance officer',
-                href: '/grievance',
-              },
-            ].map((item, idx) => (
-              <Link
-                key={idx}
-                href={item.href}
-                className="group p-5 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-white/30 transition-all duration-300 text-left backdrop-blur-md flex flex-col justify-between space-y-3"
+            {/* Right Column: Action Buttons */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <GalaxyButton
+                href="mailto:privacy@peersglobal.com"
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
               >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-amber-300/90 font-semibold">
-                      Charter 0{idx + 1}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-amber-300 group-hover:translate-x-1 transition-all" />
-                  </div>
-                  <h3 className="text-sm font-bold text-white mt-2 group-hover:text-amber-200 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
+                Contact Data Protection Officer
+              </GalaxyButton>
+
+              <GalaxyButton
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noreferrer"
+                variant="secondary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
+              >
+                Open Unity App Security
+              </GalaxyButton>
+
+              <div className="flex gap-2.5 w-full max-w-xs">
+                <Link
+                  href="/contact"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Contact Desk
+                </Link>
+                <Link
+                  href="/membership"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Membership
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

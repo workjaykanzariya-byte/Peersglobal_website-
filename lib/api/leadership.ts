@@ -7,11 +7,11 @@
 
 export const PRIMARY_LEADERSHIP_API_BASE_URL =
   process.env.NEXT_PUBLIC_LEADERSHIP_API_BASE_URL ||
-  'https://dev.fempreneur.club/api/v1/leadership'
+  'https://dev.peersunity.com/api/v1/leadership'
 
 export const FALLBACK_LEADERSHIP_API_BASE_URL =
   process.env.NEXT_PUBLIC_FALLBACK_LEADERSHIP_API_BASE_URL ||
-  'https://dev.peersunity.com/api/v1/leadership'
+  'https://dev.fempreneur.club/api/v1/leadership'
 
 export const LEADERSHIP_API_BASE_URL = PRIMARY_LEADERSHIP_API_BASE_URL
 
@@ -926,13 +926,16 @@ class LeadershipApiService {
 
     const cleanPath = path.startsWith('/') ? path : `/${path}`
 
-    // 1. Try Primary base URL: https://dev.fempreneur.club/api/v1/leadership
+    const fetchConfig: RequestInit = {
+      cache: 'no-store',
+      ...options,
+      headers: mergedHeaders,
+    }
+
+    // 1. Try Primary base URL (dev.peersunity.com)
     try {
       const primaryUrl = `${this.primaryBaseUrl}${cleanPath}`
-      const res = await fetch(primaryUrl, {
-        ...options,
-        headers: mergedHeaders,
-      })
+      const res = await fetch(primaryUrl, fetchConfig)
       if (res.ok) {
         const json = await res.json()
         return { ok: true, status: res.status, data: json?.data ?? json, rawResponse: json }
@@ -942,13 +945,10 @@ class LeadershipApiService {
       // network error, continue to fallback
     }
 
-    // 2. Try Fallback base URL: https://dev.peersunity.com/api/v1/leadership
+    // 2. Try Fallback base URL (dev.fempreneur.club)
     try {
       const fallbackUrl = `${this.fallbackBaseUrl}${cleanPath}`
-      const res = await fetch(fallbackUrl, {
-        ...options,
-        headers: mergedHeaders,
-      })
+      const res = await fetch(fallbackUrl, fetchConfig)
       if (res.ok) {
         const json = await res.json()
         return { ok: true, status: res.status, data: json?.data ?? json, rawResponse: json }
@@ -985,11 +985,13 @@ class LeadershipApiService {
       const path = `/public/campaigns?${queryParams.toString()}`
       const res = await this.requestWithFallback<Campaign[]>(path)
 
-      if (res.ok && res.rawResponse?.success) {
+      if (res.ok && (res.rawResponse?.success || Array.isArray(res.data) || Array.isArray(res.rawResponse))) {
         const rawList = Array.isArray(res.data)
           ? res.data
           : Array.isArray(res.rawResponse?.data)
           ? res.rawResponse.data
+          : Array.isArray(res.rawResponse)
+          ? res.rawResponse
           : []
         if (rawList.length > 0) {
           const normalized = rawList.map(normalizeCampaign)
