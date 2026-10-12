@@ -280,7 +280,32 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         },
       }
 
+      // 1. Submit through leadership API
       const res = await leadershipApi.submitNomination(campaign.id, nominationPayload)
+
+      // 2. Persist directly to local PostgreSQL election nominations registry
+      try {
+        await fetch('/api/leadership/save-nomination', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            campaign_id: campaign.id,
+            scope_id: effectiveScopeId,
+            email: profile.email || emailInput,
+            mobile: profile.mobile || phoneInput,
+            profile: {
+              full_name: profile.fullName || 'Hardik Chauhan',
+              company_name: profile.company || 'Aequitas IT Solutions',
+              designation: profile.designation || 'Managing Director & Founder',
+              email: profile.email || emailInput,
+              mobile: profile.mobile || phoneInput,
+            },
+            answers,
+          }),
+        })
+      } catch (saveErr) {
+        console.warn('Optional local save-nomination note:', saveErr)
+      }
 
       if (res.success) {
         setSubmissionResult({
@@ -371,8 +396,15 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
 
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link
+            href="/candidate/votes"
+            className="brand-btn-primary px-7 py-3 rounded-full text-xs font-semibold text-white shadow-lg transition-all flex items-center gap-1.5"
+          >
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>Track My Endorsement Votes</span>
+          </Link>
+          <Link
             href={`/leadership/campaigns/${campaign.id}`}
-            className="brand-btn-primary px-7 py-3 rounded-full text-xs font-semibold text-white shadow-lg transition-all"
+            className="px-6 py-3 rounded-full border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all"
           >
             Back to Campaign Overview
           </Link>

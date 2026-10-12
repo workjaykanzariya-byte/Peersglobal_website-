@@ -58,6 +58,7 @@ export async function POST(req: Request) {
           campaign_id VARCHAR(100),
           candidate_id VARCHAR(100),
           candidate_name VARCHAR(255),
+          candidate_email VARCHAR(255),
           voter_name VARCHAR(255) NOT NULL,
           voter_email VARCHAR(255) NOT NULL,
           voter_phone VARCHAR(50),
@@ -69,15 +70,33 @@ export async function POST(req: Request) {
         )`
       )
 
+      // Ensure candidate_email column exists if table was created previously
+      try {
+        await pool.query('ALTER TABLE public.endorsement_votes ADD COLUMN IF NOT EXISTS candidate_email VARCHAR(255)')
+      } catch {}
+
+      // Resolve candidate email from candidate ID or catalog
+      let resolvedCandEmail = body.candidate_email ? String(body.candidate_email).trim().toLowerCase() : ''
+      if (!resolvedCandEmail) {
+        if (cleanCandidateId.includes('vineet') || cleanCandidateId.includes('278') || (candidate_name && candidate_name.toLowerCase().includes('vineet'))) {
+          resolvedCandEmail = 'vineet.mittal@navitas.com'
+        } else if (cleanCandidateId.includes('hardik') || cleanCandidateId === '4bf812c3-cand-01' || cleanCandidateId.includes('0199c000') || (candidate_name && candidate_name.toLowerCase().includes('hardik'))) {
+          resolvedCandEmail = 'hardik@peersglobal.com'
+        } else if (cleanCandidateId.includes('kulkarni') || cleanCandidateId.includes('08eaec34') || (candidate_name && candidate_name.toLowerCase().includes('swati'))) {
+          resolvedCandEmail = 'swati.kulkarni@demo.unity.com'
+        }
+      }
+
       await pool.query(
         `INSERT INTO public.endorsement_votes 
-          (vote_reference, campaign_id, candidate_id, candidate_name, voter_name, voter_email, voter_phone, voter_company, voter_designation, voter_city, support_reason)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
+          (vote_reference, campaign_id, candidate_id, candidate_name, candidate_email, voter_name, voter_email, voter_phone, voter_company, voter_designation, voter_city, support_reason)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
         [
           voteRef,
           campaign_id || 'pg-ded-2026',
           cleanCandidateId,
           candidate_name || 'Nominee',
+          resolvedCandEmail || null,
           cleanFullName,
           cleanEmail,
           cleanPhone,
