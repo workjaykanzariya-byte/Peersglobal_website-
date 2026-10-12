@@ -5,6 +5,9 @@ import { ChevronLeft } from 'lucide-react'
 import { leadershipApi } from '@/lib/api/leadership'
 import { VoteClient } from './vote-client'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 interface PageProps {
   params: Promise<{ id: string }>
   searchParams?: Promise<{ candidate?: string }>
