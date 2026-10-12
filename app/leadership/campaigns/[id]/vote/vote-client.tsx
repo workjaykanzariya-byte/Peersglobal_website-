@@ -21,6 +21,7 @@ import {
 import { Campaign, CampaignScope, Candidate, normalizeCandidate } from '@/lib/api/leadership'
 import { CandidateCard } from '@/components/leadership/elections/candidate-card'
 import { CandidateVotingPoster } from '@/components/leadership/elections/candidate-voting-poster'
+import { CandidateEndorsementVoteCard } from '@/components/leadership/elections/candidate-endorsement-vote-card'
 import { VoteModal } from '@/components/leadership/elections/vote-modal'
 import { CountdownTimer } from '@/components/leadership/elections/countdown-timer'
 
@@ -90,72 +91,26 @@ export function VoteClient({
 
   const handleVoteClick = (candidate: Candidate) => {
     setSelectedCandidate(candidate)
-    setIsVoteModalOpen(true)
+    setDirectMode(true)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
+
+  const effectiveCandidate = selectedCandidate || directCandidate
 
   return (
     <div className="space-y-8">
-      {/* DIRECT CANDIDATE VOTING MODE (When direct candidate link is opened) */}
-      {directMode && directCandidate ? (
+      {/* DIRECT CANDIDATE VOTING MODE (When direct candidate link is opened or nominee selected) */}
+      {directMode && effectiveCandidate ? (
         <div className="py-4 space-y-6">
-          {/* Focused Candidate Header */}
-          <div className="relative rounded-3xl bg-[#040F24] text-white p-6 sm:p-8 border border-slate-800 shadow-xl overflow-hidden">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#1D4ED8]/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#E11D48]/15 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="max-w-2xl space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-bold tracking-[0.2em] uppercase">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
-                    EXCLUSIVE CANDIDATE VOTING BALLOT
-                  </span>
-                </div>
-
-                <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight">
-                  Direct Ballot for {directCandidate.full_name}
-                </h1>
-
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  You are voting in the <strong>{campaign.name}</strong>. This verified voting booth allows you to review {directCandidate.full_name}&rsquo;s credentials and cast your secure, OTP-verified ballot.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3 pt-1">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-slate-200">
-                    <Lock className="w-3.5 h-3.5 text-emerald-400" />
-                    1 Vote Per Verified Member
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => setDirectMode(false)}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
-                  >
-                    <span>View all nominees in this race</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Countdown Timer */}
-              <div className="w-full md:w-64 shrink-0">
-                <CountdownTimer
-                  targetDate={campaign.voting_ends_at}
-                  label="Voting Window Closes In"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Dedicated Candidate Voting Poster Card (Image 5 Style) */}
+          {/* Centered Endorsement & Voting Form Card (Greenpreneur Reference Style) */}
           <div className="pt-2 flex justify-center">
-            <CandidateVotingPoster
-              candidate={directCandidate}
+            <CandidateEndorsementVoteCard
+              candidate={effectiveCandidate}
               campaign={campaign}
-              onVoteClick={handleVoteClick}
-              showFullRosterToggle={true}
-              onToggleFullRoster={() => setDirectMode(false)}
+              showBackToggle={true}
+              onBackToRoster={() => setDirectMode(false)}
             />
           </div>
         </div>

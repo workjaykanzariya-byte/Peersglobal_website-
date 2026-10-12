@@ -464,6 +464,25 @@ export const MOCK_CANDIDATES: Candidate[] = [
     status: 'shortlisted',
     votes_count: 392,
   },
+  {
+    id: '278-vineet-mittal',
+    campaign_id: '0199c000-ded0-7000-8000-000000000001',
+    full_name: 'Vineet Mittal',
+    company: 'Navitas Solar Private Limited',
+    designation: 'Director & Co-Founder',
+    scope_name: 'Surat District',
+    photo_url: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80',
+    bio: 'Vineet Mittal is a pioneering clean energy entrepreneur driving India\'s renewable energy transition through high-efficiency solar module manufacturing and sustainability governance.',
+    vision_statement:
+      'Empowering regional manufacturing clusters with clean energy adoption, green financing access, and cross-district industrial sustainability.',
+    years_in_peers: 3,
+    standing_score: 96,
+    status: 'shortlisted',
+    votes_count: 0,
+    social_links: {
+      linkedin: 'https://linkedin.com/in/vineetmittal',
+    },
+  },
 ]
 
 export const MOCK_NOMINATION_FORM: NominationFormTemplate = {
