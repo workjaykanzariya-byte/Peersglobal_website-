@@ -97,6 +97,11 @@ export function CandidateEndorsementVoteCard({
           campaign_id: campaign?.id || candidate.campaign_id || 'pg-ded-2026',
           candidate_id: candidate.id,
           candidate_name: candidate.full_name,
+          candidate_email:
+            (candidate as any).email ||
+            (candidate as any).profile?.email ||
+            (candidate as any).profile_snapshot?.email ||
+            '',
           full_name: fullName.trim(),
           email: email.trim(),
           business: business.trim(),
