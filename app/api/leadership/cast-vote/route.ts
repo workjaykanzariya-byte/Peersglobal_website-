@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import pool from '@/lib/db'
+import { KNOWN_CANDIDATES, IN_MEMORY_VOTES } from '@/lib/candidate-auth'
 
 export const dynamic = 'force-dynamic'
 
@@ -84,6 +85,16 @@ export async function POST(req: Request) {
           resolvedCandEmail = 'hardik@peersglobal.com'
         } else if (cleanCandidateId.includes('kulkarni') || cleanCandidateId.includes('08eaec34') || (candidate_name && candidate_name.toLowerCase().includes('swati'))) {
           resolvedCandEmail = 'swati.kulkarni@demo.unity.com'
+        } else if (cleanCandidateId.includes('aa4b') || cleanCandidateId.includes('aa1b') || (candidate_name && candidate_name.toLowerCase().includes('wdq'))) {
+          resolvedCandEmail = 'rashi.khandelwal@demo.unity.com'
+        } else {
+          // Check known candidates catalog
+          const knownMatch = KNOWN_CANDIDATES.find(
+            (k) => k.id === cleanCandidateId || (candidate_name && k.full_name.toLowerCase() === candidate_name.toLowerCase())
+          )
+          if (knownMatch) {
+            resolvedCandEmail = knownMatch.email
+          }
         }
       }
 
@@ -109,6 +120,35 @@ export async function POST(req: Request) {
     } catch (dbErr) {
       console.warn('Optional vote DB recording note:', dbErr)
     }
+
+    // Always buffer vote into IN_MEMORY_VOTES for high availability
+    let resolvedEmailForBuffer = body.candidate_email ? String(body.candidate_email).trim().toLowerCase() : ''
+    if (!resolvedEmailForBuffer) {
+      if (cleanCandidateId.includes('aa4b') || cleanCandidateId.includes('aa1b') || (candidate_name && candidate_name.toLowerCase().includes('wdq'))) {
+        resolvedEmailForBuffer = 'rashi.khandelwal@demo.unity.com'
+      } else if (cleanCandidateId.includes('vineet') || cleanCandidateId.includes('278')) {
+        resolvedEmailForBuffer = 'vineet.mittal@navitas.com'
+      } else if (cleanCandidateId.includes('hardik')) {
+        resolvedEmailForBuffer = 'hardik@peersglobal.com'
+      }
+    }
+
+    IN_MEMORY_VOTES.push({
+      id: `vote-${Date.now()}`,
+      vote_reference: voteRef,
+      campaign_id: campaign_id || '0199c000-ded0-7000-8000-000000000002',
+      candidate_id: cleanCandidateId,
+      candidate_name: candidate_name || 'Nominee',
+      candidate_email: resolvedEmailForBuffer || undefined,
+      voter_name: cleanFullName,
+      voter_email: cleanEmail,
+      voter_phone: cleanPhone,
+      voter_company: company || business || undefined,
+      voter_designation: designation || undefined,
+      voter_city: cleanCity,
+      support_reason: support_reason || undefined,
+      created_at: nowIso,
+    })
 
     return NextResponse.json({
       success: true,

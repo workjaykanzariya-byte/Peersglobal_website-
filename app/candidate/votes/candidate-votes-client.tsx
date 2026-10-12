@@ -70,6 +70,12 @@ interface SummaryData {
 // Quick-fill test candidates to streamline user evaluation
 const DEMO_NOMINEES = [
   {
+    name: 'Rashi Khandelwal',
+    email: 'rashi.khandelwal@demo.unity.com',
+    company: 'qdqd',
+    role: 'District Executive Director (DED)',
+  },
+  {
     name: 'Vineet Mittal',
     email: 'vineet.mittal@navitas.com',
     company: 'Navitas Solar',
