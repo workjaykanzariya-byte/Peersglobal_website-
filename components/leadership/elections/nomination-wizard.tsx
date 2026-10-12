@@ -576,6 +576,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {[
+                    { name: 'Harsh Chauhan', email: 'harshchauhan9724@gmail.com', phone: '9724636800' },
                     { name: 'Swati Kulkarni', email: 'swati.kulkarni@demo.unity.com', phone: '9800000018' },
                     { name: 'Harsh Vora', email: 'harsh.vora@demo.unity.com', phone: '9800000011' },
                     { name: 'Gaurav Mishra', email: 'gaurav.mishra@demo.unity.com', phone: '9800000021' },
