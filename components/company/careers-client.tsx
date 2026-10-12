@@ -133,24 +133,34 @@ export function CareersClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-[#0062D2]">
+      {/* Global SVG Gradient for Icons */}
+      <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="careerBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
           <div className="flex items-center gap-2 text-slate-500 font-medium">
-            <Link href="/" className="hover:text-[#0062D2] transition-colors">
+            <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
               Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link href="/about" className="hover:text-[#0062D2] transition-colors">
+            <Link href="/about" className="hover:text-[#1D4ED8] transition-colors">
               About
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-900 font-bold">Careers</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#0062D2] border border-blue-200">
-              <Briefcase className="w-3.5 h-3.5" />
-              Join the Ecosystem
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-200/80 shadow-2xs">
+              <Briefcase className="w-3.5 h-3.5 [stroke:url(#careerBrandGrad)]" />
+              <span className="brand-gradient-text font-bold">Join the Ecosystem</span>
             </span>
           </div>
         </div>
@@ -184,41 +194,15 @@ export function CareersClient() {
 
               {/* Dark scrim matching the home hero */}
               <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)] pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="hidden">
-                <p className="text-lg sm:text-xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Build With Purpose
-                </p>
-                <p className="text-lg sm:text-xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Lead With Impact
-                </p>
-                <p className="text-xl sm:text-2xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Shape The Future
-                </p>
-              </div>
-
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="hidden">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    JOIN THE ECOSYSTEM
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    CAREERS AT PEERS GLOBAL
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Left Content Area */}
             <div className="relative z-10 w-full p-6 sm:p-8 lg:p-10">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
                 
-                {/* Eyebrow with brand gradient bar */}
+                {/* Eyebrow label without dash line */}
                 <div className="flex items-center gap-2.5 mb-3">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     CAREERS AT PEERS GLOBAL
                   </span>
                 </div>
@@ -226,7 +210,7 @@ export function CareersClient() {
                 {/* H1 Heading */}
                 <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-semibold text-white tracking-tight leading-[1.14] mb-3">
                   Build something that helps <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                  <span className="brand-gradient-text">
                     other people build.
                   </span>
                 </h1>
@@ -260,7 +244,6 @@ export function CareersClient() {
                     href="#general-application"
                     variant="transparent"
                     size="md"
-                    showIcon={false}
                   >
                     General Application
                   </GalaxyButton>
@@ -269,7 +252,6 @@ export function CareersClient() {
                     href="#who-we-hire"
                     variant="transparent"
                     size="md"
-                    showIcon={false}
                   >
                     Who We Hire
                   </GalaxyButton>
@@ -290,13 +272,31 @@ export function CareersClient() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 p-3 sm:p-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-md transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="font-serif text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                  {stat.val}
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`statGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                    style={{ stroke: `url(#statGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+
+                <div className="relative z-10 p-3 sm:p-3.5 bg-white border border-slate-200/80 rounded-2xl h-full">
+                  <div className="font-serif text-base sm:text-lg font-bold brand-gradient-text">
+                    {stat.val}
+                  </div>
+                  <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                  <div className="text-[10px] text-slate-500 font-normal">{stat.sub}</div>
                 </div>
-                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
-                <div className="text-[10px] text-slate-500 font-normal">{stat.sub}</div>
               </div>
             ))}
           </div>
@@ -314,7 +314,6 @@ export function CareersClient() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-4 border-b border-slate-200/80">
             <div className="max-w-2xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   MINDSET &amp; STANDARDS
                 </span>
@@ -329,8 +328,8 @@ export function CareersClient() {
 
             {/* Quick summary badge */}
             <div className="flex items-center gap-2.5 bg-slate-50 p-2 rounded-2xl border border-slate-200/90 shadow-2xs self-start lg:self-auto">
-              <div className="px-4 py-2 rounded-xl bg-blue-50 border border-blue-100 text-center">
-                <span className="block font-serif text-base sm:text-lg font-bold text-[#1D4ED8]">6 Pillars</span>
+              <div className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-100 text-center">
+                <span className="block font-serif text-base sm:text-lg font-bold brand-gradient-text">6 Pillars</span>
                 <span className="text-[10px] uppercase font-bold text-slate-600 tracking-wider">Human DNA</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-white border border-slate-200/80 text-center">
@@ -347,86 +346,92 @@ export function CareersClient() {
                 desc: 'You want to understand before you assume. You dive deep into the real human problems entrepreneurs face.',
                 tag: 'Deep Inquiry',
                 icon: Search,
-                color: 'text-blue-600 bg-blue-50 border-blue-100',
-                glow: 'group-hover:bg-blue-500/10',
               },
               {
                 title: 'Ownership',
                 desc: 'You take radical responsibility for what you have committed to. No excuses, only proactive solutions.',
                 tag: 'Accountability',
                 icon: ShieldCheck,
-                color: 'text-indigo-600 bg-indigo-50 border-indigo-100',
-                glow: 'group-hover:bg-indigo-500/10',
               },
               {
                 title: 'Respect',
                 desc: 'You understand that every person brings a different story, experience, and background worthy of dignity.',
                 tag: 'Human First',
                 icon: HeartHandshake,
-                color: 'text-rose-600 bg-rose-50 border-rose-100',
-                glow: 'group-hover:bg-rose-500/10',
               },
               {
                 title: 'Learning',
                 desc: 'You remain eager to learn — even when you already know something. Humility powers continuous growth.',
                 tag: 'Beginner Mindset',
                 icon: BookOpen,
-                color: 'text-amber-600 bg-amber-50 border-amber-100',
-                glow: 'group-hover:bg-amber-500/10',
               },
               {
                 title: 'Contribution',
                 desc: 'You do not ask only, “What do I get?” You also ask, “What can I make better for the entire room?”',
                 tag: 'Value Multiplier',
                 icon: Sparkles,
-                color: 'text-purple-600 bg-purple-50 border-purple-100',
-                glow: 'group-hover:bg-purple-500/10',
               },
               {
                 title: 'Possibility',
                 desc: 'You can see what something could become without losing sight of the operational rigor required today.',
                 tag: 'Visionary Execution',
                 icon: Compass,
-                color: 'text-cyan-600 bg-cyan-50 border-cyan-100',
-                glow: 'group-hover:bg-cyan-500/10',
               },
             ].map((val, idx) => {
               const Icon = val.icon
               return (
                 <div
                   key={idx}
-                  className="group relative p-5 sm:p-6 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  {/* Hover Ambient Glow */}
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-transparent rounded-full blur-2xl ${val.glow} transition-colors pointer-events-none`} />
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`valueGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                      style={{ stroke: `url(#valueGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
 
-                  <div className="space-y-3 relative z-10">
-                    <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
-                      <div className={`size-10 rounded-xl border flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform ${val.color}`}>
-                        <Icon className="size-4.5" />
+                  <div className="relative z-10 p-5 sm:p-6 bg-[#FAFBFD] border border-slate-200/80 rounded-3xl h-full flex flex-col justify-between overflow-hidden shadow-2xs">
+                    {/* Hover Ambient Glow */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-transparent rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors pointer-events-none" />
+
+                    <div className="space-y-3 relative z-10">
+                      <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                        <div className="size-10 rounded-xl border border-blue-100/80 bg-gradient-to-br from-blue-50 to-rose-50/50 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                          <Icon className="size-4.5 [stroke:url(#careerBrandGrad)]" />
+                        </div>
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700">
+                          {val.tag}
+                        </span>
                       </div>
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700">
-                        {val.tag}
+
+                      <div className="space-y-1.5">
+                        <h3 className="text-base sm:text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
+                          {val.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                          {val.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Bottom Takeaway */}
+                    <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs relative z-10">
+                      <span className="font-semibold text-slate-800 flex items-center gap-1.5">
+                        <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                        Core Mindset Standard
                       </span>
+                      <ChevronRight className="size-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
                     </div>
-
-                    <div className="space-y-1.5">
-                      <h3 className="text-base sm:text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
-                        {val.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                        {val.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Bottom Takeaway */}
-                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs relative z-10">
-                    <span className="font-semibold text-slate-800 flex items-center gap-1.5">
-                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      Core Mindset Standard
-                    </span>
-                    <ChevronRight className="size-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
               )
@@ -436,14 +441,13 @@ export function CareersClient() {
       </section>
 
       {/* ── WORKING HERE (OUR CULTURE) ── */}
-      <section className="py-14 sm:py-18 bg-[#F8FAFD] border-b border-slate-200/80 relative overflow-hidden">
+      <section id="working-here" className="py-14 sm:py-18 bg-[#F8FAFD] border-b border-slate-200/80 relative overflow-hidden">
         {/* Ambient background blur */}
         <div className="absolute top-1/3 -left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10">
           <div className="max-w-2xl space-y-2 pb-4 border-b border-slate-200/80">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 ENVIRONMENT &amp; ETHOS
               </span>
@@ -460,33 +464,51 @@ export function CareersClient() {
             {CULTURE_POINTS.map((pt, idx) => (
               <div
                 key={idx}
-                className="group relative p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <span className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 text-[#1D4ED8] border border-blue-100 flex items-center justify-center font-mono font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform">
-                      0{idx + 1}
-                    </span>
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400">
-                      ETHOS PILLAR
-                    </span>
-                  </div>
-                  <div className="space-y-1.5">
-                    <h3 className="text-base sm:text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
-                      {pt.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                      {pt.desc}
-                    </p>
-                  </div>
-                </div>
+                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`cultureGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                    style={{ stroke: `url(#cultureGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
 
-                <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-800 relative z-10">
-                  <span className="flex items-center gap-1.5">
-                    <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                    Non-Negotiable Value
-                  </span>
-                  <ChevronRight className="size-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                <div className="relative z-10 p-6 sm:p-7 bg-white border border-slate-200/80 !rounded-[calc(1.5rem-1.5px)] h-full flex flex-col justify-between overflow-hidden shadow-2xs">
+                  <div className="space-y-4 relative z-10">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <span className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50/50 text-[#1D4ED8] border border-blue-100 flex items-center justify-center font-mono font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform brand-gradient-text">
+                        0{idx + 1}
+                      </span>
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400">
+                        ETHOS PILLAR
+                      </span>
+                    </div>
+                    <div className="space-y-1.5">
+                      <h3 className="text-base sm:text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
+                        {pt.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                        {pt.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-800 relative z-10">
+                    <span className="flex items-center gap-1.5">
+                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                      Non-Negotiable Value
+                    </span>
+                    <ChevronRight className="size-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                  </div>
                 </div>
               </div>
             ))}
@@ -495,7 +517,7 @@ export function CareersClient() {
           <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-blue-50/90 via-white to-rose-50/70 border border-blue-200/80 text-center max-w-3xl mx-auto shadow-sm space-y-1.5">
             <p className="text-xs sm:text-sm text-slate-800 font-serif italic leading-relaxed">
               “A colleague is not simply a resource. A member is not simply a user. An entrepreneur is not simply a customer. <br />
-              <strong className="text-slate-950 not-italic font-bold block pt-1.5 text-sm sm:text-base">
+              <strong className="not-italic font-bold block pt-1.5 text-sm sm:text-base brand-gradient-text">
                 The way we see people shapes the way we build.”
               </strong>
             </p>
@@ -509,7 +531,6 @@ export function CareersClient() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-4 border-b border-slate-200/80">
             <div className="max-w-2xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   CURRENT OPPORTUNITIES
                 </span>
@@ -536,8 +557,8 @@ export function CareersClient() {
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-100">
-                        {role.team}
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-100">
+                        <span className="brand-gradient-text">{role.team}</span>
                       </span>
                       <span className="text-xs font-mono font-semibold text-slate-400">
                         OPPORTUNITY #{String(idx + 1).padStart(2, '0')}
@@ -548,7 +569,7 @@ export function CareersClient() {
                     </h3>
                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-600">
                       <span className="flex items-center gap-1 font-semibold text-slate-800">
-                        <MapPin className="size-3.5 text-[#1D4ED8]" />
+                        <MapPin className="size-3.5 [stroke:url(#careerBrandGrad)]" />
                         {role.location}
                       </span>
                       <span>&bull;</span>
@@ -578,7 +599,7 @@ export function CareersClient() {
                   </div>
 
                   <div className="p-4 rounded-2xl bg-white border border-slate-200/80 space-y-1.5 shadow-2xs">
-                    <span className="text-[11px] font-mono font-bold text-blue-700 uppercase tracking-wider block border-b border-slate-100 pb-1.5">
+                    <span className="text-[11px] font-mono font-bold brand-gradient-text uppercase tracking-wider block border-b border-slate-100 pb-1.5">
                       What we are looking for:
                     </span>
                     <p className="text-slate-600 leading-relaxed font-normal">{role.lookingFor}</p>
@@ -605,7 +626,6 @@ export function CareersClient() {
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Evolution &amp; Fit
                   </span>
@@ -627,7 +647,7 @@ export function CareersClient() {
                   className="text-xs font-bold brand-gradient-text hover:opacity-80 flex items-center gap-1.5 uppercase tracking-wider"
                 >
                   <span>Submit General Application</span>
-                  <ArrowRight className="size-3.5" />
+                  <ArrowRight className="size-3.5 [stroke:url(#careerBrandGrad)]" />
                 </a>
               </div>
             </div>
@@ -636,7 +656,6 @@ export function CareersClient() {
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Authenticity Over Polish
                   </span>
@@ -658,7 +677,7 @@ export function CareersClient() {
                     'Why this mission matters to you',
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-100">
-                      <CheckCircle2 className="size-3.5 text-emerald-600 shrink-0" />
+                      <CheckCircle2 className="size-3.5 [stroke:url(#careerBrandGrad)] shrink-0" />
                       <span className="font-semibold">{item}</span>
                     </li>
                   ))}
@@ -683,7 +702,6 @@ export function CareersClient() {
             <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     APPLICATION DESK
                   </span>
@@ -701,7 +719,7 @@ export function CareersClient() {
               {/* Direct Review Guarantee Card */}
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
                 <div className="flex items-center gap-2.5 text-xs font-bold text-slate-900 uppercase tracking-wider">
-                  <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="flex h-2 w-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] animate-pulse" />
                   Direct Founder &amp; Steward Review
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
@@ -714,21 +732,29 @@ export function CareersClient() {
               </div>
 
               {/* Quick Application Checklist */}
-              <div className="p-5 rounded-2xl bg-[#040F24] text-white space-y-3 shadow-sm">
-                <div className="text-xs font-bold uppercase tracking-wider text-sky-400">
+              <div
+                className="p-5 rounded-2xl text-white space-y-3 shadow-md border border-slate-800/80 relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #030712 0%, #07132B 45%, #0B1120 75%, #150618 100%)',
+                }}
+              >
+                <div className="absolute top-0 right-0 w-36 h-36 bg-blue-600/15 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-36 h-36 bg-rose-600/15 rounded-full blur-2xl pointer-events-none" />
+
+                <div className="relative z-10 text-xs font-bold uppercase tracking-wider brand-gradient-text">
                   What We Value Most
                 </div>
-                <ul className="space-y-2 text-xs text-slate-300">
+                <ul className="relative z-10 space-y-2 text-xs text-slate-200">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-sky-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 [stroke:url(#careerBrandGrad)] shrink-0 mt-0.5" />
                     <span>Clarity on what you have actually built or shipped</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-sky-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 [stroke:url(#careerBrandGrad)] shrink-0 mt-0.5" />
                     <span>Real alignment with our collaborative ecosystem mission</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-sky-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 [stroke:url(#careerBrandGrad)] shrink-0 mt-0.5" />
                     <span>Honest self-awareness of current strengths and learning areas</span>
                   </li>
                 </ul>
@@ -737,7 +763,7 @@ export function CareersClient() {
               {/* Quick Direct Email note */}
               <p className="text-xs text-slate-500">
                 Prefer email? Write directly to{' '}
-                <a href="mailto:careers@peersglobal.com" className="text-[#0062D2] font-semibold hover:underline">
+                <a href="mailto:careers@peersglobal.com" className="brand-gradient-text font-semibold hover:underline">
                   careers@peersglobal.com
                 </a>
               </p>
@@ -748,12 +774,12 @@ export function CareersClient() {
               <div className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-lg relative overflow-hidden">
                 
                 {/* Subtle top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1D4ED8] via-[#0062D2] to-[#E11D48]" />
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
 
                 {submitted ? (
                   <div className="text-center py-12 space-y-4">
-                    <div className="size-16 bg-blue-50 border border-blue-200 text-[#0062D2] rounded-full flex items-center justify-center mx-auto shadow-sm">
-                      <Check className="size-8" />
+                    <div className="size-16 bg-blue-50 border border-blue-200 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                      <Check className="size-8 [stroke:url(#careerBrandGrad)]" />
                     </div>
                     <h3 className="text-2xl font-serif font-bold text-slate-950">Application Transmitted</h3>
                     <p className="text-slate-600 max-w-md mx-auto text-xs sm:text-sm leading-relaxed">
@@ -792,7 +818,7 @@ export function CareersClient() {
                           placeholder="e.g. Pooja Dave"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                         />
                       </div>
 
@@ -804,7 +830,7 @@ export function CareersClient() {
                           placeholder="pooja@example.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                         />
                       </div>
                     </div>
@@ -822,7 +848,7 @@ export function CareersClient() {
                           placeholder="9876543210"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                         />
                       </div>
 
@@ -834,7 +860,7 @@ export function CareersClient() {
                           placeholder="e.g. Product Lead"
                           value={formData.currentRole}
                           onChange={(e) => setFormData({ ...formData, currentRole: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                         />
                       </div>
 
@@ -846,7 +872,7 @@ export function CareersClient() {
                           placeholder="e.g. Ahmedabad, Surat"
                           value={formData.location}
                           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                         />
                       </div>
                     </div>
@@ -858,7 +884,7 @@ export function CareersClient() {
                         <select
                           value={formData.experienceArea}
                           onChange={(e) => setFormData({ ...formData, experienceArea: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                         >
                           <option value="Community & Operations">Community &amp; Operations</option>
                           <option value="Software & Mobile Engineering">Software &amp; Mobile Engineering</option>
@@ -878,7 +904,7 @@ export function CareersClient() {
                           placeholder="e.g. Mobile Engineer or Specific Role"
                           value={formData.workType}
                           onChange={(e) => setFormData({ ...formData, workType: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                         />
                       </div>
                     </div>
@@ -893,7 +919,7 @@ export function CareersClient() {
                           placeholder="What draws you to building this community?"
                           value={formData.whyPeers}
                           onChange={(e) => setFormData({ ...formData, whyPeers: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all resize-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all resize-none"
                         />
                       </div>
 
@@ -905,7 +931,7 @@ export function CareersClient() {
                           placeholder="Highlight skills, experience, or unique perspectives you bring."
                           value={formData.contribution}
                           onChange={(e) => setFormData({ ...formData, contribution: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all resize-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all resize-none"
                         />
                       </div>
                     </div>
@@ -919,7 +945,7 @@ export function CareersClient() {
                         placeholder="https://linkedin.com/in/yourprofile or https://github.com/..."
                         value={formData.portfolioOrLinkedin}
                         onChange={(e) => setFormData({ ...formData, portfolioOrLinkedin: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm transition-all"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/70 border border-slate-200 focus:bg-white focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm transition-all"
                       />
                     </div>
 
@@ -984,8 +1010,7 @@ export function CareersClient() {
               
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2">
-                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   THE PEERS GLOBAL INVITATION
                 </span>
               </div>
@@ -1000,7 +1025,7 @@ export function CareersClient() {
                 <p>If you believe entrepreneurs should not have to build alone —</p>
                 <p>If you believe relationships can create more value than transactions —</p>
                 <p>If you believe communities become stronger when people contribute —</p>
-                <p className="text-sky-300 font-bold text-xs sm:text-sm pt-0.5">
+                <p className="font-bold text-xs sm:text-sm pt-0.5 brand-gradient-text">
                   We would like to hear from you.
                 </p>
               </div>
@@ -1008,7 +1033,7 @@ export function CareersClient() {
               {/* Key Highlights Pill */}
               <div className="py-2 px-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <p className="text-slate-300 text-xs font-medium">
-                  <span className="text-sky-300 font-bold">1 Action = 1 Life Impacted</span> &bull; High-Autonomy &bull; Direct Founder Mentorship
+                  <span className="brand-gradient-text font-bold">1 Action = 1 Life Impacted</span> &bull; High-Autonomy &bull; Direct Founder Mentorship
                 </p>
               </div>
 

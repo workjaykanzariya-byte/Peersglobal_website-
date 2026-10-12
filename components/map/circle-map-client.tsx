@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -163,7 +164,6 @@ const LIVE_CITIES: CityMapInfo[] = [
 export function CircleMapClient() {
   const [activeRegionTab, setActiveRegionTab] = useState<'all' | 'india' | 'international'>('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCity, setSelectedCity] = useState<CityMapInfo>(LIVE_CITIES[0])
 
   // Filtered live cities
   const filteredCities = useMemo(() => {
@@ -184,9 +184,22 @@ export function CircleMapClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#0062D2] selection:text-white antialiased">
-      {/* =========================================================================
-          SECTION 1: HERO (THE SIGNATURE MAP HERO WITH VIDEO BACKDROP)
-          ========================================================================= */}
+      {/* Hidden global SVG gradient definitions for icons across the page */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* =========================================================================
           SECTION 1: HERO (MASTER FULL PAGE DARK VIDEO BANNER)
           ========================================================================= */}
@@ -229,7 +242,7 @@ export function CircleMapClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Where This Community Meets{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Across Cities &amp; Countries
                   </span>
                 </h1>
@@ -240,19 +253,21 @@ export function CircleMapClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/circles/find"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-                <Link
+                  Find Your Circle
+                </GalaxyButton>
+                <GalaxyButton
                   href="/start-a-circle"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Start a Circle</span>
-                </Link>
+                  Start a Circle
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -265,11 +280,11 @@ export function CircleMapClient() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+                        <Icon className="size-4 stroke-[url(#brandStatGrad)] text-sky-300" />
                       </div>
                       <div>
-                        <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
+                        <div className="font-bold text-base sm:text-lg bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent leading-none">{s.value}</div>
                         <div className="text-[10px] text-slate-300 font-medium mt-1 leading-tight">{s.label}</div>
                       </div>
                     </div>
@@ -293,7 +308,7 @@ export function CircleMapClient() {
                 We Are
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl font-bold leading-tight bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Right Now
@@ -319,16 +334,16 @@ export function CircleMapClient() {
               return (
                 <div
                   key={idx}
-                  className="p-4 sm:p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-center gap-3.5 group"
+                  className="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all flex items-center gap-3.5 group cursor-pointer"
                 >
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 group-hover:bg-[#0062D2] group-hover:text-white transition-colors">
-                    <Icon className="size-5" />
+                  <div className="size-10 rounded-xl bg-white border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 group-hover:border-blue-200 transition-all">
+                    <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <div>
-                    <span className="block text-sm sm:text-base font-bold text-slate-900 leading-tight">
+                    <span className="block text-sm sm:text-base font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 leading-tight">
                       {pillar.title}
                     </span>
-                    <span className="text-xs text-slate-500 font-medium mt-0.5 block">
+                    <span className="text-xs text-slate-600 font-medium mt-0.5 block group-hover:text-slate-800 transition-colors">
                       {pillar.subtitle}
                     </span>
                   </div>
@@ -340,35 +355,37 @@ export function CircleMapClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 2: INTERACTIVE MAP & EXPLORER
+          SECTION 2: FIND YOUR CITY (CITY DIRECTORY WITH LIVE DATA PRINCIPLES)
           ========================================================================= */}
-      <section id="explore-map" className="py-12 sm:py-16 border-b border-slate-200 bg-[#FAFBFD]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="py-16 sm:py-24 border-b border-slate-200 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl space-y-2">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  EXPLORE THE MAP
+                  CITY DIRECTORY
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">
-                Live Circles on the Map
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+                Find Your City
               </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                A community becomes real when you can see where its people gather. Explore the cities where Peers Global Circles are active.
+              </p>
             </div>
 
             {/* Controls: Region Tabs + Search */}
             <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex p-1 rounded-xl bg-slate-200/70 border border-slate-300/60">
+              <div className="inline-flex p-1 rounded-2xl bg-slate-100 border border-slate-200/80 shadow-2xs">
                 {(['all', 'india', 'international'] as const).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveRegionTab(tab)}
-                    className={`px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold capitalize transition-all cursor-pointer ${
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold capitalize transition-all cursor-pointer ${
                       activeRegionTab === tab
-                        ? 'bg-[#0062D2] text-white shadow-sm'
-                        : 'text-slate-700 hover:text-slate-900'
+                        ? 'bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white shadow-md shadow-blue-500/25'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                     }`}
                   >
                     {tab === 'all' ? 'All Locations' : tab === 'india' ? 'India' : 'International'}
@@ -376,208 +393,70 @@ export function CircleMapClient() {
                 ))}
               </div>
 
-              <div className="relative w-64">
+              <div className="relative w-full sm:w-64">
                 <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Search city or state..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-1.5 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0062D2]"
+                  className="w-full pl-9 pr-4 py-2 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1D4ED8] focus:ring-1 focus:ring-[#1D4ED8]"
                 />
               </div>
             </div>
           </div>
 
-          {/* Interactive Map Canvas with Active Pins */}
-          <div className="relative w-full h-[480px] sm:h-[560px] rounded-3xl bg-[#EAF2F8] border border-slate-200 overflow-hidden shadow-inner flex items-center justify-center">
-            {/* Background Atmosphere */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E2EDF8] via-[#D5E6F5] to-[#C9E0F3]" />
-
-            {/* Vector Map Silhouette */}
-            <svg
-              className="absolute inset-0 w-full h-full opacity-65 pointer-events-none"
-              viewBox="0 0 1000 600"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M 280 180 Q 320 140 370 170 Q 420 160 450 210 Q 430 280 390 320 Q 360 420 330 460 Q 300 380 270 320 Q 250 250 280 180 Z"
-                fill="#FAFBFD"
-                stroke="#CBD5E1"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M 120 120 Q 220 90 280 140 Q 260 220 200 240 Q 130 200 120 120 Z"
-                fill="#FAFBFD"
-                stroke="#CBD5E1"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M 520 160 Q 640 120 720 180 Q 750 260 680 340 Q 580 320 520 260 Z"
-                fill="#FAFBFD"
-                stroke="#CBD5E1"
-                strokeWidth="1.5"
-              />
-            </svg>
-
-            {/* Pin dots */}
-            {[
-              { x: '35%', y: '40%', city: LIVE_CITIES[3] }, // Delhi
-              { x: '32%', y: '48%', city: LIVE_CITIES[0] }, // Ahmedabad
-              { x: '33%', y: '56%', city: LIVE_CITIES[1] }, // Mumbai
-              { x: '37%', y: '68%', city: LIVE_CITIES[2] }, // Bengaluru
-              { x: '38%', y: '58%', city: LIVE_CITIES[5] }, // Hyderabad
-              { x: '34%', y: '59%', city: LIVE_CITIES[4] }, // Pune
-              { x: '31%', y: '50%', city: LIVE_CITIES[6] }, // Surat
-              { x: '33%', y: '49%', city: LIVE_CITIES[7] }, // Vadodara
-              { x: '30%', y: '49%', city: LIVE_CITIES[8] }, // Rajkot
-              { x: '29%', y: '32%', city: LIVE_CITIES[9] }, // Dubai
-              { x: '24%', y: '26%', city: LIVE_CITIES[10] }, // London
-              { x: '68%', y: '62%', city: LIVE_CITIES[11] }, // Singapore
-            ].map((pin, i) => {
-              const isSelected = selectedCity.name === pin.city.name
-              return (
-                <button
-                  key={i}
-                  style={{ left: pin.x, top: pin.y }}
-                  onClick={() => setSelectedCity(pin.city)}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 group z-10 focus:outline-none cursor-pointer"
-                >
-                  <span className="relative flex h-6 w-6 items-center justify-center">
-                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isSelected ? 'bg-rose-400' : 'bg-blue-400'}`} />
-                    <span className={`relative inline-flex rounded-full h-3.5 w-3.5 border-2 border-white shadow-md ${isSelected ? 'bg-[#E11D48] scale-125' : 'bg-[#0062D2]'}`} />
-                  </span>
-                  <span className="absolute top-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/90 border border-slate-200 shadow-sm text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    {pin.city.name}
-                  </span>
-                </button>
-              )
-            })}
-
-            {/* Selected City Detail Card Overlay */}
-            <div className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-80 sm:w-96 rounded-3xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl p-5 z-20 space-y-4">
-              <div className="relative h-32 w-full rounded-2xl overflow-hidden">
-                <Image
-                  src={selectedCity.image}
-                  alt={selectedCity.name}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-3 left-3 text-white">
-                  <span className="text-[10px] uppercase tracking-wider font-bold text-sky-300">
-                    Live Chapter
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-serif font-bold text-slate-900">
-                    {selectedCity.name}
-                  </h3>
-                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    {selectedCity.status}
-                  </span>
-                </div>
-                <p className="text-xs text-slate-500 font-medium">
-                  {selectedCity.state}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 py-2 border-y border-slate-200 text-center">
-                <div className="p-2 rounded-xl bg-slate-50">
-                  <span className="block text-base font-bold text-slate-900">
-                    {selectedCity.circles} Active Circles
-                  </span>
-                  <span className="text-[10px] text-slate-500">Live Chapters</span>
-                </div>
-                <div className="p-2 rounded-xl bg-slate-50">
-                  <span className="block text-base font-bold text-slate-900">
-                    {selectedCity.members}+ Peers
-                  </span>
-                  <span className="text-[10px] text-slate-500">In City</span>
-                </div>
-              </div>
-
-              {selectedCity.nextMeetingDate && (
-                <div className="p-3 rounded-xl bg-blue-50/80 border border-blue-100 flex items-center gap-2.5 text-xs text-slate-700">
-                  <Calendar className="size-4 text-[#0062D2] shrink-0" />
-                  <span><strong>Rhythm:</strong> {selectedCity.nextMeetingDate}</span>
-                </div>
-              )}
-
-              <Link
-                href={`/circles?city=${encodeURIComponent(selectedCity.name)}`}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold hover:opacity-95 transition-opacity uppercase tracking-wider shadow-sm"
-              >
-                <span>Explore {selectedCity.name} Circles</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 3: FIND YOUR CITY (CITY DIRECTORY WITH LIVE DATA PRINCIPLES)
-          ========================================================================= */}
-      <section className="py-16 sm:py-24 border-b border-slate-200 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  CITY DIRECTORY
-                </span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900">
-                Find Your City
-              </h2>
-              <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-                A community becomes real when you can see where its people gather. Explore the cities where Peers Global Circles are active.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-xs text-slate-700 max-w-md">
-              <strong>Data Accuracy Rule:</strong> The city directory reflects the same live data as the map. If a city has no live Circle, it is not presented as though one is already operating there.
-            </div>
+          <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-100 text-xs text-slate-700 max-w-xl">
+            <strong className="bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent font-bold">Data Accuracy Rule:</strong> The city directory reflects live data only. If a city has no live Circle, it is not presented as though one is already operating there.
           </div>
 
-          {/* Directory Grid */}
+          {/* Directory Grid with Animated Glow Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {filteredCities.map((city) => (
+            {filteredCities.map((city, idx) => (
               <div
                 key={city.name}
-                onClick={() => {
-                  setSelectedCity(city)
-                  const el = document.getElementById('explore-map')
-                  if (el) el.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="group p-5 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 hover:border-[#0062D2]/50 shadow-2xs hover:shadow-lg transition-all cursor-pointer flex flex-col justify-between"
+                className="animated-glow-card group !rounded-3xl cursor-pointer"
+                tabIndex={0}
+                role="article"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-bold text-[#0062D2] bg-blue-50 px-2.5 py-0.5 rounded-full">
-                      {city.circles} Live Circles
-                    </span>
-                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`cityGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: `url(#cityGrad${idx})` }}
+                    d="M 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 L 0.8 6 Q 0.8 0.8 6 0.8 Z"
+                  />
+                </svg>
+
+                <div className="p-5 sm:p-6 rounded-[calc(1.5rem-1.5px)] bg-[#FAFBFD] group-hover:bg-white transition-colors flex flex-col justify-between h-full min-h-[160px]">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[11px] font-bold text-[#1D4ED8] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent bg-gradient-to-r from-blue-50/90 via-indigo-50/70 to-rose-50/90 border border-blue-200/80 px-3 py-1 rounded-full shadow-2xs transition-all">
+                        {city.circles} Live Circles
+                      </span>
+                      <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                    </div>
+
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                      {city.name}
+                    </h3>
+                    <p className="text-xs text-slate-500 group-hover:text-slate-700 transition-colors mt-0.5">{city.state}</p>
                   </div>
 
-                  <h3 className="font-serif text-lg font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors">
-                    {city.name}
-                  </h3>
-                  <p className="text-xs text-slate-500">{city.state}</p>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-200/80 flex items-center justify-between text-xs">
-                  <span className="text-slate-600 font-medium">{city.members}+ Active Members</span>
-                  <span className="text-[#0062D2] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center">
-                    <ArrowRight className="size-3.5" />
-                  </span>
+                  <div className="pt-4 mt-4 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                    <span className="text-slate-600 font-medium group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent group-hover:font-semibold transition-all">
+                      {city.members}+ Active Members
+                    </span>
+                    <span className="text-[#1D4ED8] font-bold inline-flex items-center group-hover:scale-110 transition-transform">
+                      <CheckCircle2 className="size-3.5 stroke-[url(#brandIconGrad)]" />
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -597,13 +476,12 @@ export function CircleMapClient() {
             {/* Left Content (7 cols) */}
             <div className="lg:col-span-7 space-y-5">
               <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   GEOGRAPHY &amp; ACCOUNTABILITY
                 </span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
                 <span className="brand-gradient-text">From City to Region</span>
               </h2>
 
@@ -611,8 +489,8 @@ export function CircleMapClient() {
                 Circles connect entrepreneurs locally. The wider structure helps those local relationships connect across a larger geography.
               </p>
 
-              <div className="p-6 rounded-3xl bg-white border border-slate-200 space-y-3">
-                <h3 className="font-serif text-xl font-bold text-slate-900">
+              <div className="p-6 rounded-3xl bg-white border border-slate-200 space-y-3 group hover:border-blue-300 transition-all">
+                <h3 className="text-xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
                   Districts and Regions
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -624,36 +502,38 @@ export function CircleMapClient() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Link
+                <GalaxyButton
                   href="/the-territory"
-                  className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-6 py-3 text-xs font-semibold inline-flex items-center gap-2 shadow-sm"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Explore the Territory</span>
-                  <ArrowRight className="size-3.5" />
-                </Link>
-                <Link
+                  Explore the Territory
+                </GalaxyButton>
+                <GalaxyButton
                   href="/leadership"
-                  className="rounded-full border border-slate-300 hover:border-slate-400 bg-white text-slate-800 px-6 py-3 text-xs font-semibold shadow-2xs"
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>See Executive Directors</span>
-                </Link>
+                  See Executive Directors
+                </GalaxyButton>
               </div>
             </div>
 
             {/* Right Card: Local to Global (5 cols) */}
             <div className="lg:col-span-5">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#040F24] text-white space-y-6 shadow-xl relative overflow-hidden">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white space-y-6 shadow-xl relative overflow-hidden border border-white/10">
                 <div className="absolute right-0 top-0 size-48 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
 
                 <div className="relative z-10 space-y-4">
                   <div className="flex items-center gap-2">
-                    <Globe className="size-5 text-sky-300" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-sky-300">
+                    <Globe className="size-5 stroke-[url(#brandStatGrad)] text-sky-300" />
+                    <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] to-[#FB7185] bg-clip-text text-transparent">
                       LOCAL TO GLOBAL
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-bold text-white leading-tight">
+                  <h3 className="text-2xl font-bold text-white leading-tight">
                     How the Connection Scales
                   </h3>
 
@@ -700,7 +580,7 @@ export function CircleMapClient() {
       <section className="py-16 sm:py-24 border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1832] to-[#040C1A] text-white p-8 sm:p-12 lg:p-14 shadow-2xl border border-slate-800 relative overflow-hidden">
+          <div className="rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white p-8 sm:p-12 lg:p-14 shadow-2xl border border-white/10 relative overflow-hidden">
             {/* Ambient radial glows */}
             <div className="absolute top-0 right-0 size-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 size-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -710,8 +590,7 @@ export function CircleMapClient() {
               {/* Left Column: Narrative & Insights */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                  <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-sky-300">
+                  <span className="text-[11px] font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     EXPAND THE HORIZON
                   </span>
                 </div>
@@ -737,7 +616,7 @@ export function CircleMapClient() {
 
                 <div className="pt-2">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500/20 border border-blue-400/30 text-xs font-semibold text-sky-200">
-                    <Sparkles className="size-3.5 text-sky-300" />
+                    <Sparkles className="size-3.5 stroke-[url(#brandStatGrad)] text-sky-300" />
                     <span>A community grows because someone is willing to begin.</span>
                   </div>
                 </div>
@@ -751,13 +630,13 @@ export function CircleMapClient() {
                     <p className="text-xs text-slate-400">Signal interest for future chapter rollout in your area.</p>
                   </div>
 
-                  <Link
+                  <GalaxyButton
                     href="/bring-to-my-city"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-600/25 hover:opacity-95 transition-opacity"
+                    size="default"
+                    className="w-full font-semibold"
                   >
-                    <span>Bring a Circle to My City</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
+                    Bring a Circle to My City
+                  </GalaxyButton>
 
                   <div className="relative flex py-1 items-center">
                     <div className="flex-grow border-t border-white/10"></div>
@@ -765,12 +644,14 @@ export function CircleMapClient() {
                     <div className="flex-grow border-t border-white/10"></div>
                   </div>
 
-                  <Link
+                  <GalaxyButton
                     href="/start-a-circle"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 text-xs font-bold uppercase tracking-wider transition-all"
+                    variant="transparent"
+                    size="default"
+                    className="w-full font-medium"
                   >
-                    <span>Start a Circle as Founder</span>
-                  </Link>
+                    Start a Circle as Founder
+                  </GalaxyButton>
                 </div>
               </div>
 
@@ -783,23 +664,26 @@ export function CircleMapClient() {
       {/* =========================================================================
           SECTION 6: CLOSING BANNER (FIND YOUR CIRCLE)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-16 sm:py-20 lg:py-24 text-white">
-        {/* Deep celestial radial gradients & luminous aura */}
+      <section className="relative isolate overflow-hidden bg-[#030712] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-900">
+        {/* Deep rich dark backdrop base */}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,7,18,0.98)_0%,rgba(10,4,20,0.95)_50%,rgba(20,2,10,0.98)_100%)] pointer-events-none" />
+        
+        {/* Subtle, refined dark celestial radial gradients */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(29,78,216,0.18),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(99,102,241,0.15),transparent_50%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(29,78,216,0.18),transparent_55%),radial-gradient(circle_at_85%_50%,rgba(225,29,72,0.14),transparent_55%)]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/15 blur-3xl"
+          className="pointer-events-none absolute -left-32 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-blue-700/15 blur-[100px]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-rose-700/12 blur-[100px]"
         />
 
         {/* Subtle geometric orbital line art */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-20">
           <svg
             viewBox="0 0 760 520"
             fill="none"
@@ -836,8 +720,7 @@ export function CircleMapClient() {
             
             <div className="flex max-w-3xl flex-col gap-3.5">
               <div className="flex items-center gap-2.5">
-                <span className="h-[1.5px] w-6 bg-white/70" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   THE MAP
                 </span>
               </div>
@@ -859,20 +742,22 @@ export function CircleMapClient() {
             </div>
 
             <div className="flex shrink-0 flex-wrap items-center gap-4">
-              <Link
+              <GalaxyButton
                 href="/circles/find"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-8 py-4 text-xs sm:text-sm font-bold tracking-wider text-white shadow-[0_4px_20px_rgba(225,29,72,0.40)] transition-all duration-200 hover:from-[#1E40AF] hover:to-[#BE123C] hover:shadow-[0_8px_28px_rgba(225,29,72,0.60)] hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                size="default"
+                className="font-semibold"
               >
-                <span>Find Your Circle</span>
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+                Find Your Circle
+              </GalaxyButton>
 
-              <Link
+              <GalaxyButton
                 href="/start-a-circle"
-                className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/[0.08] px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/15 hover:border-white/70 active:scale-[0.98] uppercase cursor-pointer"
+                variant="transparent"
+                size="default"
+                className="font-medium"
               >
-                <span>Start a Circle</span>
-              </Link>
+                Start a Circle
+              </GalaxyButton>
             </div>
 
           </div>

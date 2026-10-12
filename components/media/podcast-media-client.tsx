@@ -292,16 +292,18 @@ export function PodcastMediaClient() {
               
               {/* Left Column: Manifesto & Details */}
               <div className="lg:col-span-12 max-w-3xl space-y-6">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-white/90">
+                <div>
+                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent inline-block">
                     COMMUNITY LIFE &amp; MEDIA
                   </span>
                 </div>
 
                 <div className="space-y-2.5">
-                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400 tracking-tight leading-[1.14]">
-                    Podcast &amp; Media
+                  <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-white tracking-tight leading-[1.14]">
+                    Podcast &amp;{' '}
+                    <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                      Media
+                    </span>
                   </h1>
                   <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
                     Every honest business story deserves visibility.
@@ -314,24 +316,70 @@ export function PodcastMediaClient() {
                   </p>
 
                   {/* 4 Media Feature Pills */}
-                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 pt-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                     {[
-                      { text: 'Unscripted Founder Interviews', icon: Mic },
-                      { text: 'Vyapaar Jagat TV Broadcasts', icon: Tv },
-                      { text: 'Circle Annual Magazines', icon: BookOpen },
-                      { text: 'National Press & Newsroom', icon: Newspaper },
+                      {
+                        text: 'Unscripted Founder Interviews',
+                        svgPath: (
+                          <>
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                            <line x1="12" x2="12" y1="19" y2="22" />
+                          </>
+                        ),
+                      },
+                      {
+                        text: 'Vyapaar Jagat TV Broadcasts',
+                        svgPath: (
+                          <>
+                            <rect width="20" height="15" x="2" y="7" rx="2" />
+                            <polyline points="17 2 12 7 7 2" />
+                          </>
+                        ),
+                      },
+                      {
+                        text: 'Circle Annual Magazines',
+                        svgPath: (
+                          <>
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                          </>
+                        ),
+                      },
+                      {
+                        text: 'National Press & Newsroom',
+                        svgPath: (
+                          <>
+                            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+                            <path d="M18 14h-8" />
+                            <path d="M15 18h-5" />
+                            <path d="M10 6h8v4h-8V6Z" />
+                          </>
+                        ),
+                      },
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-sm"
+                        className="group p-3 rounded-2xl bg-white/10 border border-white/15 text-xs font-semibold text-white flex items-center gap-2.5 backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300"
                       >
-                        <item.icon className="size-4 shrink-0 text-sky-400" />
-                        <span>{item.text}</span>
+                        <svg className="size-4.5 shrink-0 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <defs>
+                            <linearGradient id={`mediaPillGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor="#38BDF8" />
+                              <stop offset="50%" stopColor="#818CF8" />
+                              <stop offset="100%" stopColor="#FB7185" />
+                            </linearGradient>
+                          </defs>
+                          <g stroke={`url(#mediaPillGrad-${idx})`}>
+                            {item.svgPath}
+                          </g>
+                        </svg>
+                        <span className="text-slate-200 group-hover:text-white transition-colors">{item.text}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="border-l-2 border-[#E11D48] pl-3 py-0.5 text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
+                  <div className="relative pl-4 py-1 border-l-4 border-transparent [border-image:linear-gradient(to_bottom,#38BDF8,#818CF8,#FB7185)_1] text-xs sm:text-sm font-medium text-white/95 italic flex items-center gap-2">
                     <Sparkles className="size-4 shrink-0 text-sky-400" />
                     <span>&ldquo;Even if a business shuts down, its story should never die.&rdquo;</span>
                   </div>
@@ -340,8 +388,8 @@ export function PodcastMediaClient() {
                 <div className="pt-2 flex flex-wrap items-center gap-3.5">
                   <GalaxyButton
                     href="#channels"
-                    variant="primary"
-                    size="md"
+                    size="lg"
+                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                   >
                     Listen &amp; Watch Now
                   </GalaxyButton>
@@ -349,7 +397,8 @@ export function PodcastMediaClient() {
                   <GalaxyButton
                     onClick={() => setNominateOpen(true)}
                     variant="transparent"
-                    size="md"
+                    size="lg"
+                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                     showIcon={false}
                   >
                     Nominate an Entrepreneur
@@ -368,16 +417,28 @@ export function PodcastMediaClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                  className="group rounded-2xl bg-white border border-slate-200/90 p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Icon className="size-5" />
+                  <div className="relative flex items-center justify-center">
+                    <svg className="size-0 absolute" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`statMediaGrad-${i}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <Icon
+                      className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300"
+                      style={{ stroke: `url(#statMediaGrad-${i})` }}
+                      strokeWidth={2}
+                    />
                   </div>
                   <div>
-                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+                    <div className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                       {stat.number}
                     </div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
                       {stat.label}
                     </div>
                   </div>
@@ -397,10 +458,9 @@ export function PodcastMediaClient() {
               
               {/* Left Narrative */}
               <div className="lg:col-span-6 space-y-5">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                       WHY WE BUILT A MEDIA PLATFORM
                     </span>
                   </div>
@@ -487,9 +547,8 @@ export function PodcastMediaClient() {
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2 max-w-xl">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div>
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   WHAT WE PUBLISH
                 </span>
               </div>
@@ -501,15 +560,15 @@ export function PodcastMediaClient() {
               </p>
             </div>
 
-            <div className="p-3 rounded-2xl bg-white border border-slate-200/90 text-xs text-slate-700 font-semibold shadow-2xs shrink-0 flex items-center gap-2">
-              <Sparkles className="size-4 text-[#0062D2]" />
-              <span>Multi-Channel Ecosystem</span>
+            <div className="p-2.5 px-3.5 rounded-2xl bg-white border border-slate-200/90 text-xs font-bold shadow-2xs shrink-0 flex items-center gap-2">
+              <Sparkles className="size-4 text-blue-600" />
+              <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">Multi-Channel Ecosystem</span>
             </div>
           </div>
 
           {/* 5 Format Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-            {FORMAT_CARDS.map((item) => {
+            {FORMAT_CARDS.map((item, idx) => {
               const Icon = item.icon
               return (
                 <div
@@ -527,7 +586,7 @@ export function PodcastMediaClient() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                       <div className="absolute top-3 left-3">
-                        <span className="px-2.5 py-0.5 rounded-full bg-slate-950/75 backdrop-blur-md text-[10px] font-mono font-bold text-sky-300 border border-white/20">
+                        <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-[10px] font-mono font-bold text-white shadow-sm">
                           {item.tag}
                         </span>
                       </div>
@@ -536,10 +595,22 @@ export function PodcastMediaClient() {
                     {/* Content */}
                     <div className="p-5 space-y-2.5">
                       <div className="flex items-center gap-2.5">
-                        <div className="size-8 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 border border-blue-100 group-hover:scale-110 transition-transform">
-                          <Icon className="size-4" />
+                        <div className="relative flex items-center justify-center">
+                          <svg className="size-0 absolute" aria-hidden="true">
+                            <defs>
+                              <linearGradient id={`formatIconGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#1D4ED8" />
+                                <stop offset="100%" stopColor="#E11D48" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <Icon
+                            className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300"
+                            style={{ stroke: `url(#formatIconGrad-${idx})` }}
+                            strokeWidth={2}
+                          />
                         </div>
-                        <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:text-[#0062D2] transition-colors">
+                        <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                           {item.title}
                         </h3>
                       </div>
@@ -557,18 +628,18 @@ export function PodcastMediaClient() {
                         href={item.ctaHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-blue-800 transition-colors uppercase tracking-wider"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group-hover:opacity-90 transition-opacity"
                       >
-                        <span>{item.ctaText}</span>
-                        <ExternalLink className="size-3.5" />
+                        <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">{item.ctaText}</span>
+                        <ExternalLink className="size-3.5 text-[#E11D48]" />
                       </a>
                     ) : (
                       <a
                         href={item.ctaHref}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-blue-800 transition-colors uppercase tracking-wider group-hover:translate-x-0.5"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
                       >
-                        <span>{item.ctaText}</span>
-                        <ArrowRight className="size-3.5" />
+                        <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">{item.ctaText}</span>
+                        <ArrowRight className="size-3.5 text-[#E11D48]" />
                       </a>
                     )}
                   </div>
@@ -586,9 +657,8 @@ export function PodcastMediaClient() {
           
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div>
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   FEATURED EPISODES
                 </span>
               </div>
@@ -620,7 +690,7 @@ export function PodcastMediaClient() {
                   setSelectedEpisode(ep)
                   setIsPlaying(true)
                 }}
-                className="bg-[#FAFBFD] rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   {/* Video Still with Play Overlay & Duration */}
@@ -635,13 +705,13 @@ export function PodcastMediaClient() {
 
                     {/* Topic Badge on Top Left */}
                     <div className="absolute top-3.5 left-3.5 max-w-[170px]">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-300 bg-slate-950/80 px-2.5 py-1 rounded-full border border-white/20 line-clamp-1 backdrop-blur-md">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-1 rounded-full shadow-md line-clamp-1">
                         {ep.tag}
                       </span>
                     </div>
 
                     {/* Duration Badge on Top Right */}
-                    <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-black/60 text-white backdrop-blur-md border border-white/10">
+                    <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/75 text-white backdrop-blur-md border border-white/10">
                       {ep.duration}
                     </span>
 
@@ -655,7 +725,7 @@ export function PodcastMediaClient() {
 
                   {/* Card Body */}
                   <div className="p-5 space-y-2">
-                    <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:text-[#0062D2] transition-colors line-clamp-2">
+                    <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-2">
                       {ep.title}
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-2">
@@ -675,7 +745,7 @@ export function PodcastMediaClient() {
                     />
                   </div>
                   <div className="leading-tight">
-                    <span className="text-xs font-bold text-slate-900 block">
+                    <span className="text-xs font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
                       {ep.guest.name}
                     </span>
                     <span className="text-[10px] text-slate-500 block truncate max-w-[170px]">
@@ -698,9 +768,8 @@ export function PodcastMediaClient() {
             {/* Left Card: Media Enquiries */}
             <div className="bg-white rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-3">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <div>
+                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                     MEDIA &amp; EDITORIAL ENQUIRIES
                   </span>
                 </div>
@@ -726,9 +795,8 @@ export function PodcastMediaClient() {
             {/* Right Card: Nominate a Peer */}
             <div className="bg-white rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-3">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                <div>
+                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                     NOMINATE AN ENTREPRENEUR
                   </span>
                 </div>
@@ -758,11 +826,14 @@ export function PodcastMediaClient() {
       {/* ─── SECTION 6: SIGNATURE LUXURY CLOSING HERO BANNER ─── */}
       <section
         id="download-unity"
-        className="relative py-20 lg:py-28 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t border-slate-800"
+        className="relative py-20 lg:py-28 text-white overflow-hidden border-t border-slate-800"
+        style={{
+          background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+        }}
       >
         {/* Ambient Glows */}
-        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
 
         {/* SVG Orbital Geometric Lines Background */}
         <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
@@ -781,9 +852,8 @@ export function PodcastMediaClient() {
             
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div>
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   AMPLIFY YOUR VOICE
                 </span>
               </div>
@@ -810,8 +880,8 @@ export function PodcastMediaClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="primary"
-                  size="md"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
                   Open Unity App
                 </GalaxyButton>
@@ -819,9 +889,10 @@ export function PodcastMediaClient() {
                 <GalaxyButton
                   href="/membership"
                   variant="transparent"
-                  size="md"
+                  size="lg"
+                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  Apply for Membership
+                  Apply for Membership →
                 </GalaxyButton>
               </div>
             </div>
@@ -847,7 +918,7 @@ export function PodcastMediaClient() {
                 Communities.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 A Brighter Tomorrow.

@@ -177,6 +177,21 @@ const INFLUENCE_POINTS = [
 export function LeadershipLadderClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
+      {/* Global SVG Gradients for Icons and Card Borders */}
+      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* ─── Breadcrumb ────────────────────────────────────────────────── */}
       <div className="bg-white border-b border-slate-100 sticky top-0 z-30">
@@ -226,14 +241,16 @@ export function LeadershipLadderClient() {
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>LEADERSHIP AT PEERS GLOBAL</span>
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  LEADERSHIP AT PEERS GLOBAL
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Leading the{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Leaders
                   </span>
                 </h1>
@@ -248,7 +265,10 @@ export function LeadershipLadderClient() {
                   Leadership at PEERS GLOBAL is not about having a title. It is about taking responsibility for people, for relationships, for Circles—and eventually for the wider ecosystem.
                 </p>
                 <p className="font-semibold text-slate-200">
-                  Entrepreneurs enter leadership here not because they need authority, but because they want to create <span className="text-sky-300">influence without authority</span>.
+                  Entrepreneurs enter leadership here not because they need authority, but because they want to create{' '}
+                  <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                    influence without authority
+                  </span>.
                 </p>
               </div>
 
@@ -256,8 +276,8 @@ export function LeadershipLadderClient() {
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
                   href="/leadership/apply"
-                  variant="primary"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Apply to Lead
                 </GalaxyButton>
@@ -267,7 +287,9 @@ export function LeadershipLadderClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-bold uppercase tracking-wider"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -285,12 +307,14 @@ export function LeadershipLadderClient() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                className="group rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-lg hover:border-blue-300/80 hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                <div className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                   {stat.val}
                 </div>
-                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                <div className="text-xs font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors mt-0.5">
+                  {stat.label}
+                </div>
                 <div className="text-[11px] text-slate-500 font-normal">{stat.sub}</div>
               </div>
             ))}
@@ -306,12 +330,10 @@ export function LeadershipLadderClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 DEVELOPMENT &amp; GROWTH
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               What Leadership Here Develops
@@ -327,43 +349,62 @@ export function LeadershipLadderClient() {
               return (
                 <div
                   key={idx}
-                  className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl hover:border-blue-400/80 hover:-translate-y-2 hover:bg-gradient-to-b hover:from-white hover:to-slate-50/50 transition-all duration-300 cursor-default overflow-hidden"
+                  className="animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300"
+                  tabIndex={0}
+                  role="article"
                 >
-                  {/* Subtle top glow highlight on hover */}
-                  <div
-                    className="absolute top-0 inset-x-0 h-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{
-                      background: `linear-gradient(90deg, transparent 0%, ${point.accentColor} 50%, transparent 100%)`,
-                    }}
-                  />
-
-                  <div className="space-y-4 relative z-10">
-                    <div className="flex items-center justify-between">
-                      <div className={`size-11 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-2xs ${point.color}`}>
-                        <Icon className="size-5" />
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`devBorderGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#devBorderGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="flex flex-col justify-between p-6 sm:p-7 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                          0{idx + 1}
+                        </span>
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 group-hover:bg-blue-50 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors shadow-2xs">
-                        0{idx + 1}
-                      </span>
+
+                      <p className="text-xs sm:text-sm font-semibold text-slate-800 brand-gradient-hover-text transition-colors duration-300 leading-snug">
+                        {point.text}
+                      </p>
                     </div>
 
-                    <p className="text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-[#0062D2] transition-colors duration-300 leading-snug">
-                      {point.text}
-                    </p>
-                  </div>
-
-                  <div className="mt-5 pt-3 border-t border-slate-100 group-hover:border-slate-200/90 flex items-center justify-between text-[11px] text-slate-400 font-medium relative z-10 transition-colors">
-                    <span>Capability 0{idx + 1}</span>
-                    <span className="text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Mastered &rarr;</span>
+                    <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+                      <span>Capability 0{idx + 1}</span>
+                      <span className="brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 font-semibold">Mastered &rarr;</span>
+                    </div>
                   </div>
                 </div>
               )
             })}
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-blue-200/60 shadow-2xs flex items-center justify-center text-center text-xs sm:text-sm font-medium text-slate-800">
-            <span>
-              Your business remains your primary responsibility. <strong className="text-slate-900 font-bold">Your leadership becomes your opportunity to contribute beyond it.</strong>
+          <div
+            className="p-5 sm:p-6 rounded-3xl text-white border border-white/10 shadow-xl flex items-center justify-center text-center text-xs sm:text-sm font-medium relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+          >
+            <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+            <span className="relative z-10 text-slate-200">
+              Your business remains your primary responsibility.{' '}
+              <strong className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold">
+                Your leadership becomes your opportunity to contribute beyond it.
+              </strong>
             </span>
           </div>
 
@@ -377,12 +418,10 @@ export function LeadershipLadderClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE SIX STAGES
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               The Leadership Pathway
@@ -396,51 +435,67 @@ export function LeadershipLadderClient() {
             {LEADERSHIP_PATHWAY.map((stage) => (
               <div
                 key={stage.num}
-                className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl hover:border-blue-400/80 hover:-translate-y-2 hover:bg-gradient-to-b hover:from-white hover:to-slate-50/50 transition-all duration-300 cursor-default overflow-hidden"
+                className="animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300"
+                tabIndex={0}
+                role="article"
               >
-                {/* Subtle top glow highlight on hover */}
-                <div
-                  className="absolute top-0 inset-x-0 h-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{
-                    background: `linear-gradient(90deg, transparent 0%, ${stage.accentColor} 50%, transparent 100%)`,
-                  }}
-                />
+                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`stageBorderGrad${stage.num}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: `url(#stageBorderGrad${stage.num})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="flex flex-col justify-between p-7 sm:p-8 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-[#1D4ED8] font-mono font-bold text-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                        {stage.num}
+                      </span>
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                        {stage.tag}
+                      </span>
+                    </div>
 
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-center justify-between">
-                    <span className="size-11 rounded-2xl bg-blue-50 border border-blue-200/70 text-[#0062D2] font-mono font-bold text-xs flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-2xs">
-                      {stage.num}
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 group-hover:bg-blue-50 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors shadow-2xs">
-                      {stage.tag}
-                    </span>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text transition-colors duration-300 leading-snug cursor-pointer">
+                        {stage.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
+                        {stage.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors duration-300 leading-snug">
-                      {stage.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-700 font-light leading-relaxed mt-2.5 transition-colors">
-                      {stage.desc}
-                    </p>
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span className="text-slate-400 font-mono">Stage 0{stage.num} of 06</span>
+                    <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
+                      Explore Stage &rarr;
+                    </span>
                   </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-100 group-hover:border-slate-200/90 flex items-center justify-between text-[11px] text-slate-500 font-medium relative z-10 transition-colors">
-                  <span className="text-slate-400 font-mono group-hover:text-slate-600 transition-colors">Stage 0{stage.num} of 06</span>
-                  <span className="inline-flex items-center gap-1 text-[#0062D2] opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
-                    Explore Stage &rarr;
-                  </span>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="p-6 rounded-2xl bg-blue-50/70 border border-blue-200 text-center space-y-1.5 max-w-3xl mx-auto shadow-2xs">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+          <div
+            className="p-6 rounded-3xl text-white border border-white/10 text-center space-y-1.5 max-w-3xl mx-auto shadow-xl relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+          >
+            <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+            <p className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent relative z-10">
               LEADERSHIP FOLLOWS CONTRIBUTION
             </p>
-            <p className="text-xs sm:text-sm font-semibold text-slate-900">
+            <p className="text-xs sm:text-sm font-semibold text-slate-200 relative z-10">
               Lead by serving. Grow by contributing. Influence by earning trust.
             </p>
           </div>
@@ -456,33 +511,35 @@ export function LeadershipLadderClient() {
           
           {/* Part A: How a Circle is Actually Led (Founder vs Director) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <div className="group p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 space-y-5">
-              <div className="size-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200/70 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
-                <Sprout className="size-6" />
+            <div className="group p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 space-y-5">
+              <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
+                <Sprout className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 brand-gradient-hover-text transition-colors">
                 The Circle Founder
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                 The Founder brings a new Circle into existence. The Founder convenes the industry, creates the initial room, invites leaders and helps establish the Circle from Day 1.
               </p>
-              <div className="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-100 text-xs font-bold text-emerald-800">
-                ✦ Responsible for creating the possibility.
+              <div className="p-3.5 rounded-2xl bg-[#f8f9fe] border border-blue-100/80 text-xs font-bold text-slate-800">
+                <span className="brand-gradient-text mr-1.5">✦</span>
+                Responsible for creating the possibility.
               </div>
             </div>
 
-            <div className="group p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 space-y-5">
-              <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] border border-blue-200/70 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
-                <UserCheck className="size-6" />
+            <div className="group p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 space-y-5">
+              <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
+                <UserCheck className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 brand-gradient-hover-text transition-colors">
                 The Circle Director
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                 The Director runs the Circle, month on month. The Director develops the leadership team, maintains the rhythm of the Circle and helps the entrepreneurs inside it grow.
               </p>
-              <div className="p-3.5 rounded-xl bg-blue-50/60 border border-blue-100 text-xs font-bold text-[#0062D2]">
-                ✦ Responsible for growing the Circle.
+              <div className="p-3.5 rounded-2xl bg-[#f8f9fe] border border-blue-100/80 text-xs font-bold text-slate-800">
+                <span className="brand-gradient-text mr-1.5">✦</span>
+                Responsible for growing the Circle.
               </div>
             </div>
           </div>
@@ -490,12 +547,10 @@ export function LeadershipLadderClient() {
           {/* Part B: The 5 Core Roles in the System */}
           <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-3">
-              <div className="flex items-center justify-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE SYSTEM OF RESPONSIBILITY
                 </span>
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
               </div>
               <h3 className="text-3xl sm:text-4xl font-bold text-slate-900">
                 The Roles
@@ -508,40 +563,50 @@ export function LeadershipLadderClient() {
                 return (
                   <div
                     key={idx}
-                    className={`group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl ${role.hoverBorder} hover:-translate-y-2 hover:bg-gradient-to-b hover:from-white hover:to-slate-50/50 transition-all duration-300 cursor-default overflow-hidden`}
+                    className="animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300"
+                    tabIndex={0}
+                    role="article"
                   >
-                    {/* Subtle top glow highlight on hover */}
-                    <div
-                      className="absolute top-0 inset-x-0 h-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                      style={{
-                        background: `linear-gradient(90deg, transparent 0%, ${role.accentColor} 50%, transparent 100%)`,
-                      }}
-                    />
-
-                    <div className="space-y-4 relative z-10">
-                      <div className="flex items-center justify-between">
-                        <div className={`size-12 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-2xs ${role.color}`}>
-                          <Icon className="size-5.5" />
+                    <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`roleBorderGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#6366F1" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path"
+                        style={{ stroke: `url(#roleBorderGrad${idx})` }}
+                        d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                      />
+                    </svg>
+                    <div className="flex flex-col justify-between p-7 sm:p-8 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                            <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                          </div>
+                          <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                            {role.badge}
+                          </span>
                         </div>
-                        <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 group-hover:bg-blue-50 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors shadow-2xs">
-                          {role.badge}
+                        <div>
+                          <h4 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text transition-colors leading-snug">
+                            {role.title}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
+                            {role.desc}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                        <span className="text-slate-400 font-mono">Role 0{idx + 1} of 05</span>
+                        <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
+                          Role Profile &rarr;
                         </span>
                       </div>
-                      <div>
-                        <h4 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
-                          {role.title}
-                        </h4>
-                        <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-700 font-light leading-relaxed mt-2.5 transition-colors">
-                          {role.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-slate-100 group-hover:border-slate-200/90 flex items-center justify-between text-[11px] text-slate-500 font-medium relative z-10 transition-colors">
-                      <span className="text-slate-400 font-mono">Role 0{idx + 1} of 05</span>
-                      <span className="inline-flex items-center gap-1 text-[#0062D2] opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
-                        Role Profile &rarr;
-                      </span>
                     </div>
                   </div>
                 )
@@ -553,22 +618,27 @@ export function LeadershipLadderClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 5: WHAT EVERY LEADER SHARES & WHAT IT WILL COST YOU (Asymmetric 7:5 Grid)
+          SECTION 5: WHAT EVERY LEADER SHARES & WHAT IT WILL COST YOU (Asymmetric Grid)
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
-            {/* Left: What Every Leader Shares (Dark Mesh Card) */}
-            <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 hover:shadow-2xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+            {/* Left: What Every Leader Shares (Deep Signature Dark Card) */}
+            <div
+              className="lg:col-span-6 p-8 sm:p-10 rounded-3xl text-white shadow-xl border border-white/10 hover:shadow-2xl hover:border-rose-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+              }}
+            >
+              <div className="absolute top-0 right-0 size-72 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-3xl pointer-events-none" />
 
               <div className="space-y-6 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
-                    <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                    <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                    <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
                       SHARED PRINCIPLES
                     </span>
                   </div>
@@ -590,25 +660,24 @@ export function LeadershipLadderClient() {
                     'Leadership is service.',
                   ].map((tenet, idx) => (
                     <div key={idx} className="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 text-xs sm:text-sm text-slate-200 font-medium flex items-center gap-2.5 hover:bg-white/[0.09] transition-colors">
-                      <span className="text-sky-400 font-bold">✦</span>
+                      <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">✦</span>
                       <span>{tenet}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-5 border-t border-white/10 relative z-10 text-xs font-semibold text-amber-300 italic">
+              <div className="pt-5 border-t border-white/10 relative z-10 text-xs font-semibold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent italic">
                 Moral authority earned through contribution.
               </div>
             </div>
 
             {/* Right: What It Will Cost You */}
-            <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8">
               <div className="space-y-6">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+                  <div className="mb-3">
+                    <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       HONEST REALITY
                     </span>
                   </div>
@@ -624,8 +693,8 @@ export function LeadershipLadderClient() {
 
                 <div className="space-y-2">
                   {WHAT_IT_COSTS.map((cost, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center gap-2.5 text-xs sm:text-[13px] text-slate-700">
-                      <span className="size-1.5 rounded-full bg-[#0062D2] shrink-0" />
+                    <div key={idx} className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-center gap-2.5 text-xs sm:text-[13px] text-slate-700">
+                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0" />
                       <span>{cost}</span>
                     </div>
                   ))}
@@ -649,12 +718,10 @@ export function LeadershipLadderClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE ENDURING RETURN
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               The Influence You Build Here
@@ -670,34 +737,63 @@ export function LeadershipLadderClient() {
               return (
                 <div
                   key={idx}
-                  className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1.5 hover:bg-white transition-all duration-300 cursor-default"
+                  className="animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className={`size-11 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs ${inf.color}`}>
-                        <Icon className="size-5" />
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`infBorderGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#infBorderGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="flex flex-col justify-between p-6 sm:p-7 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                          Influence 0{idx + 1}
+                        </span>
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-white border border-slate-200/80 text-slate-600 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors shadow-2xs">
-                        Influence 0{idx + 1}
-                      </span>
+
+                      <p className="text-xs sm:text-sm font-semibold text-slate-800 brand-gradient-hover-text transition-colors duration-300 leading-snug">
+                        {inf.text}
+                      </p>
                     </div>
 
-                    <p className="text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-[#0062D2] transition-colors duration-300 leading-snug">
-                      {inf.text}
-                    </p>
-                  </div>
-
-                  <div className="mt-5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-400 font-medium">
-                    <span>Impact Outcome</span>
-                    <span className="text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Realized &rarr;</span>
+                    <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+                      <span>Impact Outcome</span>
+                      <span className="brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 font-semibold">Realized &rarr;</span>
+                    </div>
                   </div>
                 </div>
               )
             })}
           </div>
 
-          <div className="p-6 rounded-2xl bg-[#EFF6FF] border border-blue-200 text-center text-xs sm:text-sm font-semibold text-slate-800 max-w-2xl mx-auto shadow-2xs">
-            Not influence over people. <strong className="text-[#0062D2] font-bold">Influence through people.</strong>
+          <div
+            className="p-6 rounded-3xl text-white border border-white/10 text-center text-xs sm:text-sm font-semibold max-w-2xl mx-auto shadow-xl relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+          >
+            <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+            <span className="relative z-10 text-slate-200">
+              Not influence over people.{' '}
+              <strong className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold">
+                Influence through people.
+              </strong>
+            </span>
           </div>
 
         </div>
@@ -706,7 +802,12 @@ export function LeadershipLadderClient() {
       {/* =========================================================================
           SECTION 7: CLOSING MANIFESTO BANNER (Exact Homepage Dark Mesh Styling)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
+      <section
+        className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800"
+        style={{
+          background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+        }}
+      >
         {/* Deep celestial radial gradients & luminous brand aura */}
         <div
           aria-hidden="true"
@@ -718,7 +819,7 @@ export function LeadershipLadderClient() {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-rose-500/15 blur-3xl"
         />
 
         {/* Subtle geometric orbital line art */}
@@ -761,9 +862,9 @@ export function LeadershipLadderClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
                   LEADERSHIP IS A JOURNEY
                 </span>
               </div>
@@ -779,8 +880,8 @@ export function LeadershipLadderClient() {
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <GalaxyButton
                   href="/leadership/apply"
-                  variant="primary"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Apply to Lead
                 </GalaxyButton>
@@ -790,7 +891,9 @@ export function LeadershipLadderClient() {
                   target="_blank"
                   rel="noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-bold uppercase tracking-wider"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -804,7 +907,7 @@ export function LeadershipLadderClient() {
               >
                 Lead by <br />
                 Serving <br />
-                <span className="text-[#7DD3FC]">Others</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">Others</span>
               </div>
             </div>
 

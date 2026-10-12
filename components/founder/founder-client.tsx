@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -82,16 +83,26 @@ export function FounderClient() {
   return (
     <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
       
+      {/* Global Gradient Definition for Brand Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <linearGradient id="founderBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ─── Breadcrumbs ─── */}
       <div className="border-b border-slate-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-slate-900 transition-colors">
+          <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
             Home
           </Link>
           <ChevronRight className="size-3.5 text-slate-400" />
           <span>About</span>
           <ChevronRight className="size-3.5 text-slate-400" />
-          <span className="text-slate-900 font-semibold">Dr. Pravin Parmar</span>
+          <span className="brand-gradient-text font-bold">Dr. Pravin Parmar</span>
         </div>
       </div>
 
@@ -110,8 +121,7 @@ export function FounderClient() {
               {/* Left Column: Manifesto & Details */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#0062D2]">
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                     FOUNDER PROFILE &amp; VISION
                   </span>
                 </div>
@@ -140,24 +150,24 @@ export function FounderClient() {
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs"
+                        className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-2xs hover:border-blue-200 transition-colors"
                       >
-                        <item.icon className="size-4 shrink-0 text-[#0062D2]" />
-                        <span>{item.text}</span>
+                        <item.icon className="size-4 shrink-0 [stroke:url(#founderBrandGrad)]" />
+                        <span className="brand-gradient-text font-bold">{item.text}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-blue-50 text-xs font-semibold text-[#0062D2] border border-blue-200/60 flex items-center gap-2">
-                    <Sparkles className="size-4 shrink-0 text-[#0062D2]" />
-                    <span>&ldquo;You were never meant to build alone. The right people change everything.&rdquo;</span>
+                  <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-50/50 via-white to-rose-50/50 text-xs font-semibold border border-slate-200/90 flex items-center gap-2 shadow-2xs">
+                    <Sparkles className="size-4 shrink-0 [stroke:url(#founderBrandGrad)]" />
+                    <span className="brand-gradient-text font-bold">&ldquo;You were never meant to build alone. The right people change everything.&rdquo;</span>
                   </div>
                 </div>
 
                 <div className="pt-2 flex flex-wrap items-center gap-3.5">
                   <Link
                     href="/our-story"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
                   >
                     <span>Read Our Story</span>
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -165,7 +175,7 @@ export function FounderClient() {
 
                   <Link
                     href="/the-idea"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-700 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:bg-slate-50 transition-all uppercase tracking-wider"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:border-[#1D4ED8] hover:brand-gradient-text transition-all uppercase tracking-wider"
                   >
                     <span>Explore The Idea</span>
                   </Link>
@@ -187,7 +197,7 @@ export function FounderClient() {
 
                   {/* Top Badges */}
                   <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold text-sky-300 tracking-widest uppercase backdrop-blur-md">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold tracking-widest uppercase backdrop-blur-md brand-gradient-text">
                       <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                       FOUNDER &amp; VISIONARY
                     </span>
@@ -198,7 +208,7 @@ export function FounderClient() {
 
                   {/* Bottom Highlight */}
                   <div className="relative z-10 text-white space-y-1">
-                    <p className="text-xs font-mono uppercase tracking-wider text-sky-300 font-bold">
+                    <p className="text-xs font-mono uppercase tracking-wider brand-gradient-text font-bold">
                       Founder, Peers Global
                     </p>
                     <p className="text-sm sm:text-base font-bold leading-snug">
@@ -223,10 +233,10 @@ export function FounderClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300 group"
                 >
-                  <div className="size-10 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Icon className="size-5" />
+                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                    <Icon className="size-5 [stroke:url(#founderBrandGrad)]" />
                   </div>
                   <div>
                     <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
@@ -250,13 +260,13 @@ export function FounderClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             
             {/* Box 1: BOTAD */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:border-blue-200 transition-all group">
               <div className="space-y-4">
-                <div className="size-11 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100 shadow-2xs">
-                  <Sprout className="size-5" />
+                <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-50 to-rose-50 flex items-center justify-center border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                  <Sprout className="size-5 [stroke:url(#founderBrandGrad)]" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider brand-gradient-text block mb-1">
                     ROOTS &amp; PHILOSOPHY
                   </span>
                   <h3 className="text-2xl font-bold text-slate-950">
@@ -267,27 +277,27 @@ export function FounderClient() {
                   <p>
                     A farmer understands compounding investment: You prepare the soil, you plant the seed, you nurture it patiently through harsh weather, and you trust the harvest.
                   </p>
-                  <div className="p-4 rounded-2xl bg-white border border-amber-200/60 text-slate-800 space-y-1 font-medium">
-                    <p className="text-amber-900 font-bold text-xs uppercase tracking-wider">Give-First Architecture</p>
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200/80 text-slate-800 space-y-1 font-medium shadow-2xs">
+                    <p className="brand-gradient-text font-bold text-xs uppercase tracking-wider">Give-First Architecture</p>
                     <p className="text-xs text-slate-600 font-light">
                       The same patient soil philosophy governs Peers Global: You do not demand business from people you just met. You sow value, build trust, and harvest enduring collaborative success.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="pt-4 border-t border-slate-200 text-xs font-bold text-amber-700 uppercase tracking-wider">
+              <div className="pt-4 border-t border-slate-200 text-xs font-bold brand-gradient-text uppercase tracking-wider">
                 Patience, Nurturing &amp; Compounding
               </div>
             </div>
 
             {/* Box 2: EARLY BUILDING & EXITS */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:border-blue-200 transition-all group">
               <div className="space-y-4">
-                <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center border border-blue-100 shadow-2xs">
-                  <Compass className="size-5" />
+                <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-50 to-rose-50 flex items-center justify-center border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+                  <Compass className="size-5 [stroke:url(#founderBrandGrad)]" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] block mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider brand-gradient-text block mb-1">
                     LESSONS OF THE CLIMB
                   </span>
                   <h3 className="text-2xl font-bold text-slate-950">
@@ -298,15 +308,15 @@ export function FounderClient() {
                   <p>
                     Over 15 years building HRMS cloud tools, digital marketing platforms, and media ventures, Dr. Parmar experienced firsthand the loneliness of first-generation entrepreneurship.
                   </p>
-                  <div className="p-4 rounded-2xl bg-white border border-blue-200/60 text-slate-800 space-y-1 font-medium">
-                    <p className="text-[#0062D2] font-bold text-xs uppercase tracking-wider">The Hospital Corridor Turning Point</p>
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200/80 text-slate-800 space-y-1 font-medium shadow-2xs">
+                    <p className="brand-gradient-text font-bold text-xs uppercase tracking-wider">The Hospital Corridor Turning Point</p>
                     <p className="text-xs text-slate-600 font-light">
                       Watching an entrepreneur struggle in complete isolation ignited the conviction: What if entrepreneurs had structured peer inner boards so they never had to build alone?
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="pt-4 border-t border-slate-200 text-xs font-bold text-[#0062D2] uppercase tracking-wider">
+              <div className="pt-4 border-t border-slate-200 text-xs font-bold brand-gradient-text uppercase tracking-wider">
                 From Personal Struggle to Institutional Community
               </div>
             </div>
@@ -327,7 +337,6 @@ export function FounderClient() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/80">
             <div className="max-w-3xl space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-sm font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   RESEARCH &amp; BENCHMARKING
                 </span>
@@ -342,22 +351,22 @@ export function FounderClient() {
 
             {/* Quick Benchmark Stats Pill */}
             <div className="flex items-center gap-3 bg-white p-2.5 rounded-2xl border border-slate-200/90 shadow-2xs self-start lg:self-auto">
-              <div className="px-5 py-2.5 rounded-xl bg-blue-50 border border-blue-100 text-center">
-                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#1D4ED8]">9 Models</span>
+              <div className="px-5 py-2.5 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 text-center">
+                <span className="block font-serif text-xl sm:text-2xl font-bold brand-gradient-text">9 Models</span>
                 <span className="text-xs uppercase font-bold text-slate-600 tracking-wider">Synthesised</span>
               </div>
               <div className="px-5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
                 <span className="block font-serif text-xl sm:text-2xl font-bold text-slate-900">100+ Yrs</span>
                 <span className="text-xs uppercase font-bold text-slate-600 tracking-wider">Collective History</span>
               </div>
-              <div className="px-5 py-2.5 rounded-xl bg-rose-50 border border-rose-100 text-center">
-                <span className="block font-serif text-xl sm:text-2xl font-bold text-[#E11D48]">100% Peer</span>
+              <div className="px-5 py-2.5 rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 border border-rose-100 text-center">
+                <span className="block font-serif text-xl sm:text-2xl font-bold brand-gradient-text">100% Peer</span>
                 <span className="text-xs uppercase font-bold text-slate-600 tracking-wider">Architecture</span>
               </div>
             </div>
           </div>
 
-          {/* Rich 3-Column Luxury Benchmark Grid */}
+            {/* Rich 3-Column Luxury Benchmark Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
@@ -366,8 +375,6 @@ export function FounderClient() {
                 focus: 'Tech Mentorship & Angel Networks',
                 insight: 'Pioneered structured diaspora founder mentoring and cross-border investor ecosystems.',
                 tag: 'Mentorship Architecture',
-                badgeBg: 'bg-blue-50 text-blue-700 border-blue-100',
-                accentGlow: 'group-hover:bg-blue-500/10',
               },
               {
                 name: 'BNI (Business Network Int.)',
@@ -375,8 +382,6 @@ export function FounderClient() {
                 focus: 'Referral Dynamics & Weekly Cadence',
                 insight: 'Demonstrated the power of weekly operational discipline, seat exclusivity, and structured tracking.',
                 tag: 'Referral Cadence',
-                badgeBg: 'bg-rose-50 text-rose-700 border-rose-100',
-                accentGlow: 'group-hover:bg-rose-500/10',
               },
               {
                 name: 'Rotary International',
@@ -384,8 +389,6 @@ export function FounderClient() {
                 focus: 'Service Fellowship & Enduring Tradition',
                 insight: 'Proved that a higher social purpose beyond personal profit keeps business leaders committed across decades.',
                 tag: 'Service Fellowship',
-                badgeBg: 'bg-amber-50 text-amber-700 border-amber-100',
-                accentGlow: 'group-hover:bg-amber-500/10',
               },
               {
                 name: 'Lions Clubs International',
@@ -393,8 +396,6 @@ export function FounderClient() {
                 focus: 'Civic Impact & Grassroots Presence',
                 insight: 'Exceptional deep grassroots reach across Tier 2, Tier 3, and regional industrial hubs.',
                 tag: 'Grassroots Reach',
-                badgeBg: 'bg-orange-50 text-orange-700 border-orange-100',
-                accentGlow: 'group-hover:bg-orange-500/10',
               },
               {
                 name: 'EO (Entrepreneurs\' Org)',
@@ -402,8 +403,6 @@ export function FounderClient() {
                 focus: 'Forum Gestalt Protocol & Confidentiality',
                 insight: 'Pioneered safe-space peer forums where founders share experiences without giving unsolicited advice.',
                 tag: 'Forum Protocol',
-                badgeBg: 'bg-indigo-50 text-indigo-700 border-indigo-100',
-                accentGlow: 'group-hover:bg-indigo-500/10',
               },
               {
                 name: 'YPO (Young Presidents\' Org)',
@@ -411,8 +410,6 @@ export function FounderClient() {
                 focus: 'Whole-Life Leadership & Peer Roundtables',
                 insight: 'Addressed the emotional isolation of top enterprise leaders with confidential lifetime peer advisory boards.',
                 tag: 'Executive Peer Board',
-                badgeBg: 'bg-slate-100 text-slate-800 border-slate-200',
-                accentGlow: 'group-hover:bg-slate-500/10',
               },
               {
                 name: 'Vistage Worldwide',
@@ -420,8 +417,6 @@ export function FounderClient() {
                 focus: 'Executive Coaching & Advisory Chairs',
                 insight: 'Combined professional chair facilitation with small, high-accountability peer advisory groups.',
                 tag: 'Facilitated Advisory',
-                badgeBg: 'bg-emerald-50 text-emerald-700 border-emerald-100',
-                accentGlow: 'group-hover:bg-emerald-500/10',
               },
               {
                 name: 'The Argonauts',
@@ -429,8 +424,6 @@ export function FounderClient() {
                 focus: 'Cross-Border Collaboration & Impact',
                 insight: 'Showcased borderless peer collaboration for impact-driven founders and global innovators.',
                 tag: 'Cross-Border Trust',
-                badgeBg: 'bg-purple-50 text-purple-700 border-purple-100',
-                accentGlow: 'group-hover:bg-purple-500/10',
               },
               {
                 name: 'Round Tables International',
@@ -438,53 +431,66 @@ export function FounderClient() {
                 focus: 'Young Promoters & Active Fellowship',
                 insight: 'Created high-energy community bonds for next-generation rising business owners and promoters.',
                 tag: 'Rising Generation',
-                badgeBg: 'bg-cyan-50 text-cyan-700 border-cyan-100',
-                accentGlow: 'group-hover:bg-cyan-500/10',
               },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="group relative p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-2xl hover:border-blue-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+                tabIndex={0}
+                role="article"
               >
-                {/* Subtle Hover Ambient Glow */}
-                <div className={`absolute top-0 right-0 w-36 h-36 bg-transparent rounded-full blur-2xl ${item.accentGlow} transition-colors pointer-events-none`} />
+                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`modelCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                    style={{ stroke: `url(#modelCardGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
 
-                <div className="space-y-4 relative z-10">
-                  {/* Card Header Tag */}
-                  <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3.5">
-                    <span className={`text-xs font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full border ${item.badgeBg}`}>
-                      {item.tag}
-                    </span>
-                    <span className="text-xs sm:text-sm font-mono font-bold text-slate-400">
-                      MODEL #{String(idx + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-
-                  {/* Title & Origin */}
-                  <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl lg:text-[26px] font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
-                      {item.name}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm font-mono text-slate-500">
-                      <span>{item.origin}</span>
-                      <span>&bull;</span>
-                      <span className="text-slate-800 font-semibold">{item.focus}</span>
+                <div className="relative z-10 flex flex-col justify-between p-7 sm:p-8 bg-white border border-slate-200/80 !rounded-[calc(1.5rem-1.5px)] h-full space-y-6 shadow-2xs">
+                  <div className="space-y-4">
+                    {/* Card Header Tag */}
+                    <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3.5">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full border border-slate-200/80 bg-gradient-to-r from-blue-50 to-rose-50 brand-gradient-text shadow-2xs">
+                        {item.tag}
+                      </span>
+                      <span className="text-xs sm:text-sm font-mono font-bold text-slate-400">
+                        MODEL #{String(idx + 1).padStart(2, '0')}
+                      </span>
                     </div>
+
+                    {/* Title & Origin */}
+                    <div className="space-y-2">
+                      <h3 className="text-xl sm:text-2xl lg:text-[26px] font-serif font-bold text-slate-950 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-snug">
+                        {item.name}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm font-mono text-slate-500">
+                        <span>{item.origin}</span>
+                        <span>&bull;</span>
+                        <span className="text-slate-800 font-semibold">{item.focus}</span>
+                      </div>
+                    </div>
+
+                    {/* Insight Text */}
+                    <p className="text-sm sm:text-base text-slate-700 font-normal leading-relaxed pt-1">
+                      {item.insight}
+                    </p>
                   </div>
 
-                  {/* Insight Text */}
-                  <p className="text-sm sm:text-base text-slate-700 font-normal leading-relaxed pt-1">
-                    {item.insight}
-                  </p>
-                </div>
-
-                {/* Bottom Takeaway */}
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm relative z-10">
-                  <span className="font-bold text-slate-900 flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                    Synthesised into Peers Global
-                  </span>
-                  <ChevronRight className="size-4 sm:size-5 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                  {/* Bottom Takeaway */}
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm">
+                    <span className="font-bold text-slate-900 flex items-center gap-2 group-hover:brand-gradient-text transition-colors">
+                      <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                      <span className="brand-gradient-text font-bold">Synthesised into Peers Global</span>
+                    </span>
+                    <ChevronRight className="size-4 sm:size-5 text-slate-400 group-hover:text-[#E11D48] group-hover:translate-x-1.5 transition-all duration-300" />
+                  </div>
                 </div>
               </div>
             ))}
@@ -520,8 +526,7 @@ export function FounderClient() {
             {/* Left Manifesto */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   CONNECT WITH THE FOUNDER
                 </span>
               </div>
@@ -544,22 +549,24 @@ export function FounderClient() {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                <Link
+                <GalaxyButton
                   href="/apply"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105 uppercase tracking-wider group cursor-pointer"
+                  size="lg"
+                  icon={false}
+                  className="text-xs sm:text-sm font-bold tracking-wider uppercase"
                 >
-                  <span>Apply to Join Peers</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  APPLY TO JOIN PEERS
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://www.linkedin.com/in/drpravinparmar/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                  variant="transparent"
+                  size="lg"
+                  icon={false}
+                  className="text-xs sm:text-sm font-bold tracking-wider uppercase"
                 >
-                  <span>LinkedIn Profile →</span>
-                </a>
+                  LINKEDIN PROFILE →
+                </GalaxyButton>
               </div>
             </div>
 
@@ -584,7 +591,7 @@ export function FounderClient() {
                 Founder.
               </p>
               <p
-                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
+                className="text-2xl sm:text-3xl font-bold leading-tight brand-gradient-text"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Servant Leader.

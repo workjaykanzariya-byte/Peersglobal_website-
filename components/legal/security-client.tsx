@@ -162,15 +162,17 @@ export function SecurityClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
             {/* Left Content */}
             <div className="lg:col-span-8 max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>INFRASTRUCTURE &amp; TRUST ARCHITECTURE</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-[#1D4ED8]/20 via-purple-600/20 to-[#E11D48]/20 px-4 py-1.5 text-xs font-semibold tracking-wider text-white backdrop-blur-md uppercase shadow-inner">
+                <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] animate-pulse" />
+                <span className="bg-gradient-to-r from-blue-400 via-purple-300 to-rose-400 bg-clip-text text-transparent font-bold">
+                  INFRASTRUCTURE &amp; TRUST ARCHITECTURE
+                </span>
               </div>
 
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
                   Security &amp; Data{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] via-purple-400 to-[#E11D48]">
                     Protection.
                   </span>
                 </h1>
@@ -179,17 +181,13 @@ export function SecurityClient() {
                 </p>
               </div>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-light">
-                How we protect founder credentials, commercial ledgers, and communication privacy across the Peers Global digital infrastructure.
-              </p>
-
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
                   href="#security-pillars"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-purple-600 to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-rose-500/20 hover:shadow-rose-500/40 hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group cursor-pointer border border-white/20"
                 >
-                  <span>Explore Security Pillars</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                  <span className="font-bold tracking-wide">Explore Security Pillars</span>
+                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform text-white" />
                 </a>
 
                 <a
@@ -211,10 +209,10 @@ export function SecurityClient() {
                   return (
                     <div
                       key={s.label}
-                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all"
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all group"
                     >
-                      <div className="size-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
-                        <Icon className="size-5" />
+                      <div className="size-10 rounded-xl bg-gradient-to-br from-[#1D4ED8]/30 via-purple-600/30 to-[#E11D48]/30 border border-white/20 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                        <Icon className="size-5 text-rose-300 group-hover:text-white transition-colors" />
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
@@ -245,7 +243,7 @@ export function SecurityClient() {
                 Indian Residency
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl bg-gradient-to-r from-blue-400 via-purple-300 to-rose-400 bg-clip-text text-transparent font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Zero Breach Standard

@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -361,7 +362,21 @@ export function MemberFaqClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
-
+      {/* SVG Linear Gradient Definitions for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* =========================================================================
           SECTION 1: HERO — MEMBER FAQ (Master Dark Video Banner)
@@ -402,14 +417,16 @@ export function MemberFaqClient() {
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>MEMBER FAQ</span>
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  MEMBER FAQ
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   The questions people naturally ask before{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     becoming a Peer
                   </span>
                 </h1>
@@ -430,23 +447,25 @@ export function MemberFaqClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="font-bold uppercase tracking-wider"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  Download Unity App
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/membership/criteria"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                  variant="transparent"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
-                  <span>Joining Criteria</span>
-                </Link>
+                  Joining Criteria
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -462,8 +481,7 @@ export function MemberFaqClient() {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-100">
             <div className="max-w-2xl space-y-3">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div>
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   COMPLETE DIRECTORY
                 </span>
@@ -530,42 +548,39 @@ export function MemberFaqClient() {
               </p>
               <button
                 onClick={() => { setSearchQuery(''); setSelectedTopic('All') }}
-                className="px-5 py-2 rounded-full bg-[#0062D2] text-white text-xs font-bold shadow-xs hover:bg-blue-700 cursor-pointer"
+                className="px-5 py-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold shadow-xs hover:opacity-95 cursor-pointer"
               >
                 Reset Search &amp; Filters
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
               {filteredCategories.map((cat) => {
                 const Icon = cat.icon
                 return (
                   <div
                     key={cat.id}
-                    className="p-6 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 space-y-6 flex flex-col justify-between"
+                    className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full"
                   >
-                    <div>
+                    <div className="space-y-5">
                       {/* Card Header with icon, category badge, and title */}
-                      <div className="flex items-center justify-between pb-5 border-b border-slate-200/80 mb-5">
+                      <div className="flex items-start justify-between gap-3 pb-5 border-b border-slate-100 min-h-[72px]">
                         <div className="flex items-center gap-3.5">
-                          <div
-                            className="size-11 rounded-2xl flex items-center justify-center shrink-0 shadow-2xs"
-                            style={{ backgroundColor: cat.bg, border: `1px solid ${cat.border}` }}
-                          >
-                            <Icon className="size-5" style={{ color: cat.color }} />
+                          <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0">
+                            <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                           </div>
                           <div>
-                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block font-mono">
+                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block font-mono mb-0.5">
                               SECTION 0{cat.num} • {cat.topic}
                             </span>
-                            <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                            <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                               {cat.title}
                             </h3>
                           </div>
                         </div>
 
-                        <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-medium text-slate-500 bg-white border border-slate-200 shrink-0">
-                          0{cat.items.length}
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs shrink-0 mt-0.5">
+                          0{cat.items.length} Questions
                         </span>
                       </div>
 
@@ -579,31 +594,33 @@ export function MemberFaqClient() {
                               key={idx}
                               className={`rounded-2xl border transition-all duration-200 bg-white overflow-hidden ${
                                 isOpen
-                                  ? 'border-[#0062D2] shadow-sm ring-1 ring-blue-500/10'
-                                  : 'border-slate-200/90 hover:border-slate-300 shadow-2xs'
+                                  ? 'border-blue-200/80 shadow-sm ring-1 ring-blue-500/10'
+                                  : 'border-slate-200/80 hover:border-slate-300 shadow-2xs'
                               }`}
                             >
                               <button
                                 onClick={() => toggleItem(itemKey)}
-                                className="w-full p-4 text-left flex items-center justify-between gap-3 cursor-pointer"
+                                className="w-full p-4 text-left flex items-center justify-between gap-3 cursor-pointer select-none"
                                 aria-expanded={isOpen}
                               >
                                 <span className={`text-xs sm:text-sm font-bold transition-colors leading-snug ${
-                                  isOpen ? 'text-[#0062D2]' : 'text-slate-800 hover:text-[#0062D2]'
+                                  isOpen ? 'brand-gradient-text' : 'text-slate-900 hover:text-[#1D4ED8]'
                                 }`}>
                                   {item.q}
                                 </span>
-                                <div
-                                  className={`size-6 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                                    isOpen ? 'bg-[#0062D2] text-white' : 'bg-slate-100 text-slate-500'
-                                  }`}
-                                >
-                                  {isOpen ? <Minus className="size-3.5" /> : <Plus className="size-3.5" />}
+                                <div className="size-6 rounded-full flex items-center justify-center shrink-0 transition-all duration-300">
+                                  <ChevronDown
+                                    className={`size-4 transition-transform duration-300 ${
+                                      isOpen
+                                        ? 'rotate-180 stroke-[url(#brandIconGrad)] text-[#1D4ED8] stroke-[2.5]'
+                                        : 'text-slate-400 group-hover:text-slate-700 stroke-[2]'
+                                    }`}
+                                  />
                                 </div>
                               </button>
 
                               {isOpen && (
-                                <div className="px-4 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-light bg-[#FCFDFE]">
+                                <div className="px-4 pb-4 text-xs sm:text-[13px] text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-light bg-[#FCFDFE]">
                                   {item.a}
                                 </div>
                               )}
@@ -614,9 +631,9 @@ export function MemberFaqClient() {
                     </div>
 
                     {/* Footer link / hint */}
-                    <div className="pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                       <span>{cat.items.length} {cat.items.length === 1 ? 'Question' : 'Questions'} answered</span>
-                      <span className="text-[#0062D2] font-semibold">PEERS GLOBAL Standards</span>
+                      <span className="brand-gradient-text font-bold">PEERS GLOBAL Standards</span>
                     </div>
 
                   </div>
@@ -634,12 +651,15 @@ export function MemberFaqClient() {
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-sm text-center space-y-6">
-            <div className="size-14 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mx-auto border border-blue-100">
-              <Headphones className="size-7" />
+          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-2xs text-center space-y-6">
+            <div className="size-14 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs text-[#1D4ED8] flex items-center justify-center mx-auto">
+              <Headphones className="size-7 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
             </div>
 
             <div className="space-y-2">
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                WE ARE HERE TO HELP
+              </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
                 Still Have a Question?
               </h3>
@@ -649,21 +669,25 @@ export function MemberFaqClient() {
             </div>
 
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-              <a
+              <GalaxyButton
                 href="https://unity.peersglobal.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md hover:opacity-95"
+                size="default"
+                icon={<Smartphone className="size-4" />}
+                className="font-bold uppercase tracking-wider"
               >
-                <span>Download Unity App</span>
-              </a>
+                Download Unity App
+              </GalaxyButton>
 
-              <Link
+              <GalaxyButton
                 href="/contact"
-                className="px-8 py-3.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-2xs"
+                variant="transparent"
+                size="default"
+                className="font-bold uppercase tracking-wider !text-slate-800 !border-slate-300 hover:!bg-slate-50"
               >
-                <span>Contact Desk</span>
-              </Link>
+                Contact Desk
+              </GalaxyButton>
             </div>
           </div>
 
@@ -671,26 +695,20 @@ export function MemberFaqClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: CLOSING MANIFESTO BANNER (Homepage Styling)
+          SECTION 4: CLOSING MANIFESTO BANNER (Signature Dark Brand Gradient)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,98,210,0.3),transparent),radial-gradient(ellipse_60%_50%_at_90%_100%,rgba(225,29,72,0.15),transparent)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[360px] bg-gradient-to-r from-blue-600/15 via-indigo-600/10 to-rose-600/15 blur-[120px] rounded-full"
-        />
+      <section className="relative isolate overflow-hidden !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] py-16 sm:py-20 lg:py-24 text-white border-t border-white/10">
+        <div className="absolute -top-24 -left-24 size-96 rounded-full bg-gradient-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
-                  Your Informed Decision
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  YOUR INFORMED DECISION
                 </span>
               </div>
 
@@ -703,23 +721,25 @@ export function MemberFaqClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download Unity App</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  Download Unity App
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/circles/find"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  className="uppercase tracking-wider font-bold"
                 >
-                  <span>Explore Circles</span>
-                </Link>
+                  Explore Circles
+                </GalaxyButton>
               </div>
             </div>
 
@@ -730,7 +750,7 @@ export function MemberFaqClient() {
               >
                 Informed <br />
                 Decisions &amp; <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-200 font-semibold">Confidence</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-semibold">Confidence</span>
               </div>
             </div>
 

@@ -261,8 +261,7 @@ export function MarketplaceClient() {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div>
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   COMMUNITY REDEMPTION
                 </span>
@@ -358,8 +357,7 @@ export function MarketplaceClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="mb-1">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE MECHANISM
               </span>
@@ -496,8 +494,7 @@ export function MarketplaceClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="mb-1">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE 5 DEPARTMENTS
               </span>
@@ -708,8 +705,7 @@ export function MarketplaceClient() {
             {/* Left: THE MARKETPLACE SHOULD EARN YOUR ATTENTION */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                <div className="mb-1">
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     INTEGRITY OVER NOISE
                   </span>

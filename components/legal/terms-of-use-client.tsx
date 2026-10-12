@@ -80,6 +80,16 @@ const TERMS_SECTIONS = [
 export function TermsOfUseClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* Global Brand Gradient Definition for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <linearGradient id="termsBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
@@ -95,9 +105,9 @@ export function TermsOfUseClient() {
             <span className="font-bold brand-gradient-text">Terms of Use</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1D4ED8] border border-blue-200">
-              <Scale className="w-3.5 h-3.5" />
-              <span>Statutory Governance</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200">
+              <Scale className="w-3.5 h-3.5 [stroke:url(#termsBrandGrad)]" />
+              <span className="brand-gradient-text font-bold">Statutory Governance</span>
             </span>
           </div>
         </div>
@@ -128,15 +138,14 @@ export function TermsOfUseClient() {
           <div className="min-h-[480px] lg:min-h-[540px] flex items-center py-14 sm:py-20">
             <div className="max-w-3xl flex flex-col items-start text-left">
               <div className="flex items-center gap-3 mb-4">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   LEGAL AGREEMENT &amp; GOVERNANCE
                 </span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14] mb-4">
                 Platform Terms{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                <span className="brand-gradient-text">
                   of Use.
                 </span>
               </h1>
@@ -160,8 +169,6 @@ export function TermsOfUseClient() {
             </div>
           </div>
 
-
-
           {/* 4-Item Floating Stats Bar */}
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -172,15 +179,15 @@ export function TermsOfUseClient() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-2xl bg-white border border-slate-200/90 p-5 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all duration-300 overflow-hidden"
+                className="group relative rounded-2xl bg-white border border-slate-200/90 p-5 shadow-xs hover:shadow-lg hover:border-blue-300 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-100">
+                  <span className="text-[10px] font-mono uppercase tracking-wider brand-gradient-text font-semibold px-2 py-0.5 rounded-md bg-gradient-to-r from-blue-50/80 to-rose-50/80 border border-slate-200">
                     {stat.tag}
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-blue-500" />
+                  <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 </div>
-                <div className="font-serif text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                <div className="font-serif text-2xl font-bold brand-gradient-text">
                   {stat.val}
                 </div>
                 <div className="text-sm font-bold text-slate-900 mt-1">{stat.label}</div>
@@ -203,7 +210,7 @@ export function TermsOfUseClient() {
               {/* Table of Contents Card */}
               <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-xs space-y-4">
                 <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-                  <FileText className="w-4 h-4 text-[#1D4ED8]" />
+                  <FileText className="w-4 h-4 [stroke:url(#termsBrandGrad)]" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Terms Index
                   </span>
@@ -220,7 +227,7 @@ export function TermsOfUseClient() {
                         <span className="font-mono text-[11px] text-slate-400 group-hover:text-[#1D4ED8]">
                           {sec.num}.
                         </span>
-                        <span className="truncate max-w-[190px] sm:max-w-none">{sec.heading}</span>
+                        <span className="truncate max-w-[190px] sm:max-w-none group-hover:text-[#1D4ED8]">{sec.heading}</span>
                       </div>
                       <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#1D4ED8] group-hover:translate-x-0.5 transition-all" />
                     </a>
@@ -231,8 +238,8 @@ export function TermsOfUseClient() {
               {/* Corporate Identity Box */}
               <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
                 <div className="flex items-center gap-2">
-                  <Building className="w-4 h-4 text-[#1D4ED8]" />
-                  <span className="text-xs font-mono font-bold uppercase text-slate-900">
+                  <Building className="w-4 h-4 [stroke:url(#termsBrandGrad)]" />
+                  <span className="text-xs font-mono font-bold uppercase brand-gradient-text">
                     Corporate Entity
                   </span>
                 </div>
@@ -262,30 +269,30 @@ export function TermsOfUseClient() {
                   <div
                     id={`terms-${sec.num}`}
                     key={sec.heading}
-                    className="group p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-slate-300 transition-all duration-300 space-y-4 scroll-mt-24"
+                    className="brand-gradient-border-card group p-7 sm:p-9 rounded-3xl shadow-xs space-y-4 scroll-mt-24 cursor-pointer"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center text-[#1D4ED8] shrink-0 group-hover:scale-105 transition-transform">
-                          <IconComponent className="w-4 h-4" />
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:shadow-md transition-all">
+                          <IconComponent className="w-5 h-5 [stroke:url(#termsBrandGrad)]" />
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
                             <span className="text-xs font-mono font-bold brand-gradient-text">
                               SECTION {sec.num}
                             </span>
-                            <span className="text-[11px] font-semibold text-slate-400">
-                              • {sec.tag}
+                            <span className="text-[11px] font-semibold text-slate-500">
+                              {sec.tag}
                             </span>
                           </div>
-                          <h2 className="text-lg sm:text-xl font-serif font-bold text-slate-950 tracking-tight mt-0.5">
+                          <h2 className="text-lg sm:text-xl font-serif font-bold text-slate-950 tracking-tight mt-0.5 brand-gradient-hover-text transition-colors">
                             {sec.heading}
                           </h2>
                         </div>
                       </div>
                     </div>
 
-                    <div className="space-y-3 text-sm text-slate-600 leading-relaxed font-normal">
+                    <div className="space-y-3 text-sm text-slate-600 group-hover:text-slate-700 leading-relaxed font-normal transition-colors">
                       {sec.body.map((para, i) => (
                         <p key={i}>{para}</p>
                       ))}
@@ -298,7 +305,7 @@ export function TermsOfUseClient() {
               <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
                 <div>
                   <h3 className="text-lg font-serif font-bold text-slate-950">Have questions regarding platform covenants?</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1">Connect with the Peers Global Corporate Legal Secretariat.</p>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 font-normal">Connect with the Peers Global Corporate Legal Secretariat.</p>
                 </div>
                 <GalaxyButton
                   href="mailto:legal@peersglobal.com"
@@ -316,7 +323,7 @@ export function TermsOfUseClient() {
       </section>
 
       {/* ── Signature Celestial Master Closing Banner ── */}
-      <section className="relative py-16 sm:py-24 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
+      <section className="relative py-14 sm:py-18 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
         {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
@@ -340,67 +347,80 @@ export function TermsOfUseClient() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
-          <div className="space-y-4 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/90">
-                Statutory Governance &amp; Trust
-              </span>
-              <span className="h-[1.5px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left Column: Heading, Ethos & Punchline */}
+            <div className="lg:col-span-7 flex flex-col items-start space-y-3.5">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  STATUTORY GOVERNANCE &amp; TRUST
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Responsible conduct. Protected boundaries. <br className="hidden sm:inline" />
+                <span className="italic brand-gradient-text font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+                  Guaranteed by statutory covenant.
+                </span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                PEERS GLOBAL operates under unyielding compliance standards and structured agreements across Bharat.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                {[
+                  { title: 'Privacy Policy', href: '/privacy-policy' },
+                  { title: 'Community Guidelines', href: '/community-guidelines' },
+                  { title: 'Grievance Redressal', href: '/grievance' }
+                ].map((item, idx) => (
+                  <Link
+                    key={idx}
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-colors"
+                  >
+                    <span>{item.title}</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-bold text-white tracking-tight leading-[1.18]">
-              Responsible conduct. Protected boundaries. <br className="hidden sm:inline" />
-              <span className="italic text-amber-300 font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                Guaranteed by statutory covenant.
-              </span>
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-mono tracking-wider pt-2">
-              PEERS GLOBAL — Operating with unyielding compliance standards across Bharat.
-            </p>
-          </div>
-
-          {/* Quick Links Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-2">
-            {[
-              {
-                title: 'Privacy Policy',
-                desc: 'DPDP Act 2023 compliance & data rights',
-                href: '/privacy-policy'
-              },
-              {
-                title: 'Community Guidelines',
-                desc: 'Peer conduct & relationship protocols',
-                href: '/community-guidelines'
-              },
-              {
-                title: 'Grievance Redressal',
-                desc: 'Designated legal & grievance officer',
-                href: '/grievance'
-              }
-            ].map((item, idx) => (
-              <Link
-                key={idx}
-                href={item.href}
-                className="group p-5 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-white/30 transition-all duration-300 text-left backdrop-blur-md flex flex-col justify-between space-y-3"
+            {/* Right Column: Action Buttons */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <GalaxyButton
+                href="mailto:legal@peersglobal.com"
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
               >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-amber-300/90 font-semibold">
-                      Charter 0{idx + 1}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-amber-300 group-hover:translate-x-1 transition-all" />
-                  </div>
-                  <h3 className="text-sm font-bold text-white mt-2 group-hover:text-amber-200 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
+                Contact Legal Secretariat
+              </GalaxyButton>
+
+              <GalaxyButton
+                href="/membership"
+                variant="secondary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
+              >
+                Explore Membership Terms
+              </GalaxyButton>
+
+              <div className="flex gap-2.5 w-full max-w-xs">
+                <Link
+                  href="/contact"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Contact Desk
+                </Link>
+                <Link
+                  href="/grievance"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Grievance Desk
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

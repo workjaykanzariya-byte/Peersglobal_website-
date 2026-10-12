@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   RotateCcw,
   ChevronRight,
@@ -10,6 +11,7 @@ import {
   Calendar,
   CheckCircle2,
   ArrowRight,
+  ArrowUpRight,
 } from 'lucide-react'
 
 const REFUND_SECTIONS = [
@@ -48,6 +50,16 @@ const REFUND_SECTIONS = [
 export function RefundPolicyClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* ── Global SVG Gradient Definition ── */}
+      <svg width="0" height="0" className="absolute pointer-events-none opacity-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="refundBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
@@ -63,9 +75,9 @@ export function RefundPolicyClient() {
             <span className="font-bold brand-gradient-text">Refund Policy</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
-              <RotateCcw className="w-3.5 h-3.5 text-amber-600" />
-              <span>Seat Commitment Policy</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-slate-200 shadow-2xs">
+              <RotateCcw className="w-3.5 h-3.5 [stroke:url(#refundBrandGrad)]" />
+              <span className="brand-gradient-text">Seat Commitment Policy</span>
             </span>
           </div>
         </div>
@@ -95,46 +107,48 @@ export function RefundPolicyClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center min-h-[440px] lg:min-h-[480px]">
             {/* Left Content */}
             <div className="lg:col-span-8 max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>FINANCIAL &amp; SEAT COMMITMENT POLICY</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-white backdrop-blur-md uppercase">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-rose-300 font-bold">
+                  FINANCIAL &amp; SEAT COMMITMENT POLICY
+                </span>
               </div>
 
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
                   Refund &amp; Seat{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400 font-bold">
                     Commitment Policy.
                   </span>
                 </h1>
-                <p className="text-base sm:text-lg font-medium text-slate-200 leading-snug">
+                <p className="text-base sm:text-lg font-medium text-slate-100 leading-snug">
                   Clear guidelines on category exclusivity, event passes, and duplicate transaction protection.
                 </p>
               </div>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-light">
+              <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl font-normal">
                 When a seat is confirmed, that business category is locked across the chapter and denied to all other applicants to protect room value and collaboration integrity.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#policy-details"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Read Full Policy</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+                  Read Full Policy
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="secondary"
+                  size="md"
                 >
-                  <span>Become a Peer</span>
-                </Link>
+                  Become a Peer
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/15">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/20">
                 {[
                   { icon: RotateCcw, value: 'Locked Seat', label: 'Category Exclusivity' },
                   { icon: Calendar, value: '48h Notice', label: 'Event Proxy Transfer' },
@@ -144,16 +158,16 @@ export function RefundPolicyClient() {
                   return (
                     <div
                       key={s.label}
-                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all"
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.12] hover:bg-white/[0.18] border border-white/20 backdrop-blur-md transition-all"
                     >
-                      <div className="size-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
-                        <Icon className="size-5" />
+                      <div className="size-10 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center shrink-0 shadow-xs">
+                        <Icon className="size-5 text-sky-300" />
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
                           {s.value}
                         </div>
-                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                        <div className="text-xs text-slate-200 font-medium mt-0.5 leading-snug truncate">
                           {s.label}
                         </div>
                       </div>
@@ -166,7 +180,7 @@ export function RefundPolicyClient() {
             {/* Right Cursive Script Highlights */}
             <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
               <p
-                className="text-2xl sm:text-3xl text-white/80 leading-tight font-medium"
+                className="text-2xl sm:text-3xl text-white/90 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Category Exclusivity
@@ -194,8 +208,10 @@ export function RefundPolicyClient() {
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-semibold uppercase tracking-wider brand-gradient-text">
-              <span>Statutory Framework</span>
+            <div className="inline-flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                STATUTORY FRAMEWORK
+              </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight">
               Constitutional Clauses &amp; Protection
@@ -217,21 +233,15 @@ export function RefundPolicyClient() {
                 <div
                   id={`refund-${sec.num}`}
                   key={sec.heading}
-                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 hover:-translate-y-1"
+                  className="brand-gradient-border-card group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300"
                 >
                   <div className="space-y-6">
                     {/* Card Header & Badge */}
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-50 via-sky-50 to-rose-50 border border-blue-100/80 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform shadow-2xs">
-                        <IconComponent className="w-6 h-6" />
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
+                        <IconComponent className="w-6 h-6 [stroke:url(#refundBrandGrad)]" />
                       </div>
-                      <span className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-tight border ${
-                        isNonRefundable
-                          ? 'bg-rose-50 text-rose-700 border-rose-200/80'
-                          : isTransferable
-                          ? 'bg-amber-50 text-amber-700 border-amber-200/80'
-                          : 'bg-emerald-50 text-emerald-700 border-emerald-200/80'
-                      }`}>
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-tight border border-slate-200/80 bg-white shadow-2xs brand-gradient-text">
                         {isNonRefundable ? 'Non-Refundable' : isTransferable ? 'Transferable (48h)' : '100% Reversal'}
                       </span>
                     </div>
@@ -246,7 +256,7 @@ export function RefundPolicyClient() {
                           • {sec.tag}
                         </span>
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-slate-950 tracking-tight mt-1">
+                      <h3 className="text-xl font-serif font-bold text-slate-950 brand-gradient-hover-text tracking-tight mt-1 transition-colors">
                         {sec.heading}
                       </h3>
                     </div>
@@ -262,7 +272,7 @@ export function RefundPolicyClient() {
                   {/* Bottom Feature Pill */}
                   <div className="pt-6 mt-6 border-t border-slate-100">
                     <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-100 flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 [stroke:url(#refundBrandGrad)] shrink-0 mt-0.5" />
                       <div className="text-[11px] text-slate-700 leading-relaxed font-medium">
                         {isNonRefundable && <span>Category locked for 12 months across chapter upon formal approval.</span>}
                         {isTransferable && <span>Send senior executive proxy by notifying operations 48h prior.</span>}
@@ -286,7 +296,7 @@ export function RefundPolicyClient() {
                   How Refund &amp; Reconciliation Requests Are Processed
                 </h3>
               </div>
-              <span className="self-start sm:self-auto px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-blue-50 text-[#1D4ED8] border border-blue-100">
+              <span className="self-start sm:self-auto px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-white border border-slate-200 shadow-2xs brand-gradient-text">
                 SLA: 7-10 Business Days
               </span>
             </div>
@@ -299,7 +309,7 @@ export function RefundPolicyClient() {
                 { step: '04', title: 'Direct Reversal', desc: '100% amount credited back to originating source instrument.' },
               ].map((st) => (
                 <div key={st.step} className="p-4 rounded-2xl bg-slate-50/70 border border-slate-100 space-y-1.5">
-                  <div className="text-xs font-mono font-bold text-[#1D4ED8]">STEP {st.step}</div>
+                  <div className="text-xs font-mono font-bold brand-gradient-text">STEP {st.step}</div>
                   <div className="text-sm font-bold text-slate-900">{st.title}</div>
                   <p className="text-xs text-slate-600 leading-relaxed">{st.desc}</p>
                 </div>
@@ -313,112 +323,118 @@ export function RefundPolicyClient() {
               <h3 className="text-xl font-serif font-bold text-slate-950">Experiencing a billing anomaly or duplicate transaction?</h3>
               <p className="text-sm text-slate-600">Connect with the Accounts and Billing Secretariat for priority resolution.</p>
             </div>
-            <Link
+            <GalaxyButton
               href="mailto:accounts@peersglobal.com"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 transition-all shadow-md shrink-0"
+              variant="primary"
+              size="md"
+              className="shrink-0"
             >
-              <span>Contact Accounts</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              Contact Accounts
+            </GalaxyButton>
           </div>
 
         </div>
       </section>
 
-      {/* ── Executive Governance Ribbon (Redesigned Compact Layout) ── */}
-      <section className="relative py-14 sm:py-18 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
-        {/* Subtle luminous ambient glows */}
+      {/* ── Signature Celestial Master Closing Banner ── */}
+      <section className="relative py-16 sm:py-24 bg-[#040F24] text-white overflow-hidden border-t border-slate-800">
+        {/* Deep celestial radial gradients & luminous aura */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(0,98,210,0.2),transparent_50%),radial-gradient(circle_at_85%_50%,rgba(225,29,72,0.15),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(0,98,210,0.25),transparent_55%),radial-gradient(circle_at_85%_30%,rgba(225,29,72,0.18),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
         />
 
         {/* Ambient Glows */}
-        <div className="absolute top-1/2 left-4 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-4 -translate-y-1/2 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/15 rounded-full blur-3xl pointer-events-none" />
+
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-16 -top-16 bottom-0 pointer-events-none w-[360px] sm:w-[480px] lg:w-[620px] opacity-25 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="3" fill="#38BDF8" />
+            <circle cx="380" cy="120" r="4" fill="#FB7185" />
+            <circle cx="450" cy="190" r="2.5" fill="#FBBF24" />
+          </svg>
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
-            {/* Left Col (5 cols): Statement & Authority */}
-            <div className="lg:col-span-5 space-y-4 text-left">
-              <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
-                  Financial Transparency
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Headings & Governance Links */}
+            <div className="lg:col-span-7 space-y-4 text-left">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  FINANCIAL TRANSPARENCY
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-serif font-bold text-white tracking-tight leading-[1.2]">
-                Clear terms. <br />
-                <span className="italic text-amber-300 font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Clear terms. <br className="hidden sm:inline" />
+                <span className="italic brand-gradient-text font-medium" style={{ fontFamily: 'var(--font-script)' }}>
                   Uncompromising transparency.
                 </span>
               </h2>
 
-              <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed max-w-md">
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
                 All transactions, category commitments, and seat guarantees operate under strict constitutional governance across Bharat.
               </p>
 
-              <div className="pt-1 flex items-center gap-2 text-[11px] font-mono text-slate-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Statutory Accounts Secretariat • Ahmedabad</span>
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                {[
+                  { title: 'Terms of Use', href: '/terms-of-use' },
+                  { title: 'Privacy Policy', href: '/privacy-policy' },
+                  { title: 'Grievance Redressal', href: '/grievance' }
+                ].map((item, idx) => (
+                  <Link
+                    key={idx}
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-colors"
+                  >
+                    <span>{item.title}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
+                  </Link>
+                ))}
               </div>
             </div>
 
-            {/* Right Col (7 cols): Horizontal Compact Governance Navigation Cards */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-              {[
-                {
-                  code: 'CHARTER 01',
-                  title: 'Terms of Use',
-                  desc: 'Statutory platform agreements & rights',
-                  href: '/terms-of-use',
-                  tag: 'Statutory'
-                },
-                {
-                  code: 'CHARTER 02',
-                  title: 'Privacy Policy',
-                  desc: 'DPDP Act 2023 compliance & data rights',
-                  href: '/privacy-policy',
-                  tag: 'DPDP 2023'
-                },
-                {
-                  code: 'CHARTER 03',
-                  title: 'Grievance Redressal',
-                  desc: 'Designated legal & grievance officer',
-                  href: '/grievance',
-                  tag: 'Officer Desk'
-                }
-              ].map((item, idx) => (
+            {/* Right Column: Action Buttons */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <GalaxyButton
+                href="mailto:accounts@peersglobal.com"
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
+              >
+                Contact Accounts Desk
+              </GalaxyButton>
+
+              <GalaxyButton
+                href="/membership"
+                variant="secondary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
+              >
+                Explore Membership
+              </GalaxyButton>
+
+              <div className="flex gap-2.5 w-full max-w-xs">
                 <Link
-                  key={idx}
-                  href={item.href}
-                  className="group relative p-4 sm:p-5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between space-y-3 backdrop-blur-md hover:-translate-y-0.5 shadow-sm"
+                  href="/contact"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold tracking-wider text-amber-300/90 px-2 py-0.5 rounded-md bg-white/[0.06] border border-white/10">
-                      {item.tag}
-                    </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-white/50 group-hover:text-amber-300 group-hover:translate-x-1 transition-all" />
-                  </div>
-
-                  <div>
-                    <h3 className="text-sm font-bold text-white group-hover:text-amber-200 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed font-normal">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-white/[0.08] text-[10px] font-mono text-slate-400 group-hover:text-white transition-colors">
-                    {item.code} →
-                  </div>
+                  Contact Desk
                 </Link>
-              ))}
+                <Link
+                  href="/terms-of-use"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Terms
+                </Link>
+              </div>
             </div>
-
           </div>
         </div>
       </section>

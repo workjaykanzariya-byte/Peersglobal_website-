@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ShieldCheck,
   ChevronRight,
@@ -12,6 +13,7 @@ import {
   Users,
   Sparkles,
   ArrowRight,
+  ArrowUpRight,
   Scale,
 } from 'lucide-react'
 
@@ -23,8 +25,6 @@ const COMMITMENTS = [
     desc: 'Contribution comes before any ask. We help before we are asked, and without calculating the return. An introduction, a piece of hard-won knowledge, an honest assessment — given freely to the room.',
     quote: '“We help before we are asked, without calculating return.”',
     icon: HeartHandshake,
-    gradient: 'from-blue-600 to-indigo-600',
-    borderLight: 'border-blue-100 hover:border-blue-300'
   },
   {
     num: '02',
@@ -33,8 +33,6 @@ const COMMITMENTS = [
     desc: 'Trust is built by the same people meeting the same people, consistently, over time. Empty chairs do not collaborate. You honour the room by being in it every month.',
     quote: '“Empty chairs do not collaborate. You honour the room by presence.”',
     icon: Clock,
-    gradient: 'from-indigo-600 to-purple-600',
-    borderLight: 'border-indigo-100 hover:border-indigo-300'
   },
   {
     num: '03',
@@ -43,8 +41,6 @@ const COMMITMENTS = [
     desc: 'Especially when it is uncomfortable. A Peer who only agrees with you is of no use to your business. We offer candid, respectful, and actionable truth in every interaction.',
     quote: '“A Peer who only agrees with you is of no use to your business.”',
     icon: MessageSquare,
-    gradient: 'from-purple-600 to-rose-600',
-    borderLight: 'border-purple-100 hover:border-purple-300'
   },
   {
     num: '04',
@@ -53,8 +49,6 @@ const COMMITMENTS = [
     desc: 'What is shared inside a Circle stays inside it. Commercial vulnerabilities, financial realities, and private struggles disclosed in confidence must remain confidential forever.',
     quote: '“Disclosed in confidence, protected forever.”',
     icon: Lock,
-    gradient: 'from-rose-600 to-pink-600',
-    borderLight: 'border-rose-100 hover:border-rose-300'
   },
   {
     num: '05',
@@ -63,8 +57,6 @@ const COMMITMENTS = [
     desc: 'Regardless of the size of their business, the length of their membership, or the language they speak. The founder doing ₹2 Cr turnover receives the exact same dignity as the founder doing ₹200 Cr.',
     quote: '“The ₹2 Cr founder receives the exact same dignity as the ₹200 Cr founder.”',
     icon: Users,
-    gradient: 'from-amber-600 to-orange-600',
-    borderLight: 'border-amber-100 hover:border-amber-300'
   },
   {
     num: '06',
@@ -73,14 +65,22 @@ const COMMITMENTS = [
     desc: 'Every Peer is responsible for the experience of every other Peer. Culture is not maintained by rules alone — it is maintained by how we welcome newcomers, listen to seniors, and handle disagreements.',
     quote: '“Culture is maintained by how we welcome, listen, and disagree.”',
     icon: Sparkles,
-    gradient: 'from-emerald-600 to-teal-600',
-    borderLight: 'border-emerald-100 hover:border-emerald-300'
   },
 ]
 
 export function PeersCodeClient() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
+      {/* ── Global SVG Gradient Definition ── */}
+      <svg width="0" height="0" className="absolute pointer-events-none opacity-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="codeBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
@@ -96,9 +96,9 @@ export function PeersCodeClient() {
             <span className="font-bold brand-gradient-text">The Peers Code</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-[#E11D48] border border-rose-200">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Constitutional Covenant</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-slate-200 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 [stroke:url(#codeBrandGrad)]" />
+              <span className="brand-gradient-text">Constitutional Covenant</span>
             </span>
           </div>
         </div>
@@ -129,14 +129,13 @@ export function PeersCodeClient() {
             {/* Left Content */}
             <div className="lg:col-span-8 max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>CONSTITUTIONAL COVENANT</span>
+                <span className="brand-gradient-text font-bold">CONSTITUTIONAL COVENANT</span>
               </div>
 
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white font-serif">
                   The Peers{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="brand-gradient-text">
                     Code of Honour.
                   </span>
                 </h1>
@@ -150,20 +149,21 @@ export function PeersCodeClient() {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#code-index"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  variant="primary"
+                  size="md"
                 >
-                  <span>Read The 6 Commitments</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+                  Read The 6 Commitments
+                </GalaxyButton>
 
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="secondary"
+                  size="md"
                 >
-                  <span>Become a Peer</span>
-                </Link>
+                  Become a Peer
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -179,11 +179,11 @@ export function PeersCodeClient() {
                       key={s.label}
                       className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md transition-all"
                     >
-                      <div className="size-10 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
-                        <Icon className="size-5" />
+                      <div className="size-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0 shadow-xs">
+                        <Icon className="size-5 [stroke:url(#codeBrandGrad)]" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                        <div className="font-bold text-sm sm:text-base brand-gradient-text tracking-tight leading-tight whitespace-nowrap">
                           {s.value}
                         </div>
                         <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
@@ -211,7 +211,7 @@ export function PeersCodeClient() {
                 Tell The Truth
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl brand-gradient-text font-bold leading-tight"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Carry The Culture
@@ -227,9 +227,10 @@ export function PeersCodeClient() {
           
           {/* Section Heading & Context */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-semibold uppercase tracking-wider brand-gradient-text">
-              <Sparkles className="w-3.5 h-3.5 text-[#E11D48]" />
-              <span>The Constitutional Covenant</span>
+            <div className="inline-flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                THE CONSTITUTIONAL COVENANT
+              </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight">
               The 6 Oaths of Peer Collaboration
@@ -241,48 +242,61 @@ export function PeersCodeClient() {
 
           {/* 3-Column Grid of 6 Oaths */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {COMMITMENTS.map((item) => {
+            {COMMITMENTS.map((item, idx) => {
               const IconComponent = item.icon
               return (
                 <div
                   id={`code-${item.num}`}
                   key={item.title}
-                  className={`group relative p-7 sm:p-8 rounded-3xl bg-white border ${item.borderLight} shadow-xs hover:shadow-2xl transition-all duration-300 flex flex-col justify-between space-y-6 overflow-hidden hover:-translate-y-1`}
+                  className="animated-glow-card group !rounded-3xl shadow-xs hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
                 >
-                  {/* Top Gradient Accent Bar */}
-                  <div className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r ${item.gradient} opacity-80 group-hover:opacity-100 transition-opacity`} />
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`codeCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                      style={{ stroke: `url(#codeCardGrad-${idx})` }}
+                      d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                    />
+                  </svg>
 
-                  <div className="space-y-4">
-                    {/* Header: Icon & Oath Pill */}
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-50 to-blue-50/80 border border-slate-200/80 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform shadow-2xs">
-                        <IconComponent className="w-6 h-6 text-[#1D4ED8]" />
+                  <div className="p-7 sm:p-8 rounded-3xl bg-white flex flex-col justify-between space-y-6 h-full w-full">
+                    <div className="space-y-4">
+                      {/* Header: Icon & Oath Pill */}
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
+                          <IconComponent className="w-6 h-6 [stroke:url(#codeBrandGrad)]" />
+                        </div>
+                        <span className="text-xs font-mono font-bold brand-gradient-text px-3.5 py-1 rounded-full border border-slate-200/80 bg-white shadow-2xs">
+                          OATH {item.num}
+                        </span>
                       </div>
-                      <span className="text-xs font-mono font-bold bg-slate-100/90 text-slate-700 px-3.5 py-1 rounded-full border border-slate-200/80">
-                        OATH {item.num}
-                      </span>
+
+                      {/* Title & Tag */}
+                      <div>
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                          {item.tag}
+                        </div>
+                        <h3 className="text-xl font-serif font-bold text-slate-950 tracking-tight mt-1 brand-gradient-hover-text transition-colors">
+                          {item.title}
+                        </h3>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        {item.desc}
+                      </p>
                     </div>
 
-                    {/* Title & Tag */}
-                    <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                        {item.tag}
+                    {/* Highlight Quote Box */}
+                    <div className="pt-4 border-t border-slate-100">
+                      <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/40 via-slate-50/50 to-rose-50/30 border border-slate-100 text-xs italic font-serif text-slate-800 leading-relaxed">
+                        {item.quote}
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-slate-950 tracking-tight mt-1 group-hover:text-[#1D4ED8] transition-colors">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  {/* Highlight Quote Box */}
-                  <div className="pt-4 border-t border-slate-100">
-                    <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/40 via-slate-50/50 to-rose-50/30 border border-slate-100 text-xs italic font-serif text-slate-800 leading-relaxed">
-                      {item.quote}
                     </div>
                   </div>
                 </div>
@@ -294,8 +308,8 @@ export function PeersCodeClient() {
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-xs space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1D4ED8] shrink-0">
-                  <Scale className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0">
+                  <Scale className="w-5 h-5 [stroke:url(#codeBrandGrad)]" />
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-serif font-bold text-slate-950">Statutory Covenant &amp; Governance Standing</h3>
@@ -307,35 +321,53 @@ export function PeersCodeClient() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Link
                 href="/terms-of-use"
-                className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 transition-all flex items-center justify-between"
+                className="group p-5 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md transition-all duration-300 flex items-center justify-between"
               >
-                <div>
-                  <div className="text-xs font-mono font-bold text-[#1D4ED8]">CHARTER 01</div>
-                  <div className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8]">Terms of Use</div>
+                <div className="flex flex-col items-start gap-1">
+                  <span className="block text-[11px] font-mono font-bold tracking-wider brand-gradient-text uppercase leading-none">
+                    CHARTER 01
+                  </span>
+                  <span className="block text-sm font-bold text-slate-900 brand-gradient-hover-text leading-tight mt-0.5">
+                    Terms of Use
+                  </span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                <div className="size-8 rounded-xl bg-white border border-slate-200/60 group-hover:border-slate-300 flex items-center justify-center shrink-0 shadow-2xs transition-colors">
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-0.5 transition-all" />
+                </div>
               </Link>
 
               <Link
                 href="/community-guidelines"
-                className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 transition-all flex items-center justify-between"
+                className="group p-5 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md transition-all duration-300 flex items-center justify-between"
               >
-                <div>
-                  <div className="text-xs font-mono font-bold text-[#1D4ED8]">CHARTER 02</div>
-                  <div className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8]">Community Guidelines</div>
+                <div className="flex flex-col items-start gap-1">
+                  <span className="block text-[11px] font-mono font-bold tracking-wider brand-gradient-text uppercase leading-none">
+                    CHARTER 02
+                  </span>
+                  <span className="block text-sm font-bold text-slate-900 brand-gradient-hover-text leading-tight mt-0.5">
+                    Community Guidelines
+                  </span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                <div className="size-8 rounded-xl bg-white border border-slate-200/60 group-hover:border-slate-300 flex items-center justify-center shrink-0 shadow-2xs transition-colors">
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-0.5 transition-all" />
+                </div>
               </Link>
 
               <Link
                 href="/refund-policy"
-                className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-200/80 hover:border-blue-200 transition-all flex items-center justify-between"
+                className="group p-5 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md transition-all duration-300 flex items-center justify-between"
               >
-                <div>
-                  <div className="text-xs font-mono font-bold text-[#1D4ED8]">CHARTER 03</div>
-                  <div className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8]">Seat Commitment &amp; Refund</div>
+                <div className="flex flex-col items-start gap-1">
+                  <span className="block text-[11px] font-mono font-bold tracking-wider brand-gradient-text uppercase leading-none">
+                    CHARTER 03
+                  </span>
+                  <span className="block text-sm font-bold text-slate-900 brand-gradient-hover-text leading-tight mt-0.5">
+                    Seat Commitment &amp; Refund
+                  </span>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                <div className="size-8 rounded-xl bg-white border border-slate-200/60 group-hover:border-slate-300 flex items-center justify-center shrink-0 shadow-2xs transition-colors">
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-0.5 transition-all" />
+                </div>
               </Link>
             </div>
           </div>
@@ -346,13 +378,14 @@ export function PeersCodeClient() {
               <h3 className="text-xl font-serif font-bold text-slate-950">Ready to uphold the Code of Honour?</h3>
               <p className="text-sm text-slate-600">Join the verified peer collaboration network of visionary founders across Bharat.</p>
             </div>
-            <Link
+            <GalaxyButton
               href="/membership"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold uppercase tracking-wider hover:opacity-95 transition-all shadow-md shrink-0"
+              variant="primary"
+              size="md"
+              className="shrink-0"
             >
-              <span>Explore Membership</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              Explore Membership
+            </GalaxyButton>
           </div>
 
         </div>
@@ -383,67 +416,80 @@ export function PeersCodeClient() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
-          <div className="space-y-4 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/90">
-                Constitutional Covenant
-              </span>
-              <span className="h-[1.5px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Headings & Governance Links */}
+            <div className="lg:col-span-7 space-y-4 text-left">
+              <div className="inline-flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  CONSTITUTIONAL COVENANT
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+                Give first. Tell the truth. <br className="hidden sm:inline" />
+                <span className="italic brand-gradient-text font-medium" style={{ fontFamily: 'var(--font-script)' }}>
+                  Carry the culture together.
+                </span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                PEERS GLOBAL — Designed in Bharat. Built for the World.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                {[
+                  { title: 'Community Guidelines', href: '/community-guidelines' },
+                  { title: 'Terms of Use', href: '/terms-of-use' },
+                  { title: 'Explore Membership', href: '/membership' }
+                ].map((item, idx) => (
+                  <Link
+                    key={idx}
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-xs font-semibold text-slate-200 hover:text-white transition-colors"
+                  >
+                    <span>{item.title}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-bold text-white tracking-tight leading-[1.18]">
-              Give first. Tell the truth. <br className="hidden sm:inline" />
-              <span className="italic text-amber-300 font-medium" style={{ fontFamily: 'var(--font-script)' }}>
-                Carry the culture together.
-              </span>
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-mono tracking-wider pt-2">
-              PEERS GLOBAL — Designed in Bharat. Built for the World.
-            </p>
-          </div>
-
-          {/* Quick Links Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-2">
-            {[
-              {
-                title: 'Community Guidelines',
-                desc: 'Sanctity of rooms & non-solicitation rules',
-                href: '/community-guidelines'
-              },
-              {
-                title: 'Terms of Use',
-                desc: 'Statutory platform agreements & rights',
-                href: '/terms-of-use'
-              },
-              {
-                title: 'Explore Membership',
-                desc: 'Category eligibility & Circle placement',
-                href: '/membership'
-              }
-            ].map((item, idx) => (
-              <Link
-                key={idx}
-                href={item.href}
-                className="group p-5 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-white/30 transition-all duration-300 text-left backdrop-blur-md flex flex-col justify-between space-y-3"
+            {/* Right Column: Action Buttons */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end lg:items-end w-full">
+              <GalaxyButton
+                href="/membership"
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
               >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-amber-300/90 font-semibold">
-                      Charter 0{idx + 1}
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-amber-300 group-hover:translate-x-1 transition-all" />
-                  </div>
-                  <h3 className="text-sm font-bold text-white mt-2 group-hover:text-amber-200 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </Link>
-            ))}
+                Apply for Membership
+              </GalaxyButton>
+
+              <GalaxyButton
+                href="/community-guidelines"
+                variant="secondary"
+                size="md"
+                className="w-full sm:w-auto lg:w-full max-w-xs uppercase tracking-wider font-bold"
+              >
+                View Community Guidelines
+              </GalaxyButton>
+
+              <div className="flex gap-2.5 w-full max-w-xs">
+                <Link
+                  href="/contact"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Contact Desk
+                </Link>
+                <Link
+                  href="/terms-of-use"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.10] text-slate-200 hover:text-white font-semibold text-[11px] uppercase tracking-wider transition-all border border-white/10 text-center"
+                >
+                  Terms
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

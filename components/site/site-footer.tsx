@@ -175,7 +175,7 @@ export function SiteFooter() {
                 href="/unity"
                 variant="transparent-light"
                 size="default"
-                icon={<Download className="size-4 text-[#1D4ED8]" />}
+                icon={<Download className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />}
                 aria-label="Download Unity App"
               >
                 Download Unity App
@@ -187,8 +187,8 @@ export function SiteFooter() {
           {/* Right: Modern Newsletter Card */}
           <div className="w-full lg:w-auto min-w-[320px] sm:min-w-[420px] lg:min-w-[460px] flex flex-col gap-3.5 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm">
             <div className="flex items-start gap-3.5">
-              <div className="size-11 rounded-xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 text-[#1D4ED8] flex items-center justify-center shrink-0 border border-[#1D4ED8]/20">
-                <Mail className="size-5 text-[#1D4ED8]" />
+              <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 shadow-2xs">
+                <Mail className="size-5 stroke-[url(#brandIconGrad)]" />
               </div>
               <div className="flex flex-col gap-0.5">
                 <h3 className="text-base font-bold text-slate-900 leading-snug">

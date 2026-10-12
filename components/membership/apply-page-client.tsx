@@ -139,6 +139,22 @@ export function ApplyPageClient() {
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
 
 
+      {/* SVG Linear Gradient Definitions for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* =========================================================================
           SECTION 1: HERO — JOIN PEERS GLOBAL (Master Dark Video Banner)
           ========================================================================= */}
@@ -178,14 +194,16 @@ export function ApplyPageClient() {
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>JOIN PEERS GLOBAL</span>
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  JOIN PEERS GLOBAL
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Everything begins in the{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Unity App
                   </span>
                 </h1>
@@ -200,32 +218,37 @@ export function ApplyPageClient() {
                   You have read the story. You have explored the Circles. You have understood the investment, the process, and what membership asks of you.
                 </p>
                 <p className="font-semibold text-slate-200">
-                  Now there is only one simple question: <span className="text-sky-300">Would you like to experience the community for yourself?</span>
+                  Now there is only one simple question:{' '}
+                  <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                    Would you like to experience the community for yourself?
+                  </span>
                 </p>
               </div>
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <a
+                <GalaxyButton
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all uppercase tracking-wider group"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="font-bold uppercase tracking-wider"
                 >
-                  <Smartphone className="size-4" />
-                  <span>Download on App Store</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                  Download on App Store
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs backdrop-blur-sm"
+                  variant="transparent"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-bold uppercase tracking-wider"
                 >
-                  <Smartphone className="size-4 text-sky-400" />
-                  <span>Get it on Google Play</span>
-                </a>
+                  Get it on Google Play
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -239,12 +262,10 @@ export function ApplyPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 HOW TO JOIN
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               Six steps. One simple beginning.
@@ -258,36 +279,51 @@ export function ApplyPageClient() {
             {HOW_TO_JOIN_STEPS.map((step) => (
               <div
                 key={step.num}
-                className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl hover:border-blue-400/80 hover:-translate-y-2 hover:bg-gradient-to-b hover:from-white hover:to-blue-50/20 transition-all duration-300 overflow-hidden cursor-default"
+                className="animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300"
+                tabIndex={0}
+                role="article"
               >
-                {/* Top glow accent on hover */}
-                <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#0062D2] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`stepBorderGrad${step.num}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: `url(#stepBorderGrad${step.num})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="flex flex-col justify-between p-7 sm:p-8 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-[#1D4ED8] font-mono font-bold text-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                        {step.num}
+                      </span>
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                        STEP 0{step.num}
+                      </span>
+                    </div>
 
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-center justify-between">
-                    <span className="size-11 rounded-2xl bg-blue-50 border border-blue-200/70 text-[#0062D2] font-mono font-bold text-xs flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-2xs">
-                      {step.num}
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 group-hover:bg-blue-50 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors shadow-2xs">
-                      STEP 0{step.num}
-                    </span>
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 brand-gradient-hover-text transition-colors duration-300 leading-snug cursor-pointer">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
+                        {step.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors duration-300 leading-snug">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-700 font-light leading-relaxed mt-2.5 transition-colors">
-                      {step.desc}
-                    </p>
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span className="text-slate-400">Phase 0{step.num} of 06</span>
+                    <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
+                      Explore Details &rarr;
+                    </span>
                   </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-100 group-hover:border-slate-200/90 flex items-center justify-between text-[11px] text-slate-500 font-medium relative z-10 transition-colors">
-                  <span className="text-slate-400 group-hover:text-slate-600 transition-colors">Phase 0{step.num} of 06</span>
-                  <span className="inline-flex items-center gap-1 text-[#0062D2] opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
-                    Explore Details &rarr;
-                  </span>
                 </div>
               </div>
             ))}
@@ -306,10 +342,10 @@ export function ApplyPageClient() {
             <div className="absolute top-0 right-0 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-4xl space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
-                  Immediate Onboarding
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  IMMEDIATE ONBOARDING
                 </span>
               </div>
 
@@ -323,17 +359,17 @@ export function ApplyPageClient() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-1.5 hover:bg-white/[0.07] transition-all">
-                  <h4 className="text-xs font-bold text-sky-300 uppercase tracking-wider">Learning</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] to-[#818CF8] bg-clip-text text-transparent">Learning</h4>
                   <p className="text-xs text-slate-300 font-light leading-relaxed">Access masterclasses, real founder playbooks, and peer discussions.</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-1.5 hover:bg-white/[0.07] transition-all">
-                  <h4 className="text-xs font-bold text-sky-300 uppercase tracking-wider">Sharing</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Sharing</h4>
                   <p className="text-xs text-slate-300 font-light leading-relaxed">Offer your expertise, contribute insights, and support other entrepreneurs.</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-1.5 hover:bg-white/[0.07] transition-all">
-                  <h4 className="text-xs font-bold text-sky-300 uppercase tracking-wider">Relationships</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Relationships</h4>
                   <p className="text-xs text-slate-300 font-light leading-relaxed">Connect with founders across industries, cities, and countries in Unity.</p>
                 </div>
               </div>
@@ -354,12 +390,10 @@ export function ApplyPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 TRANSPARENCY IS RESPECT
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               Before You Subscribe
@@ -375,46 +409,56 @@ export function ApplyPageClient() {
               return (
                 <div
                   key={idx}
-                  className={`group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl ${item.hoverBorder} hover:-translate-y-2 hover:bg-gradient-to-b hover:from-white hover:to-slate-50/50 transition-all duration-300 cursor-default overflow-hidden`}
+                  className="animated-glow-card group !rounded-3xl shadow-2xs hover:shadow-xl transition-all duration-300"
+                  tabIndex={0}
+                  role="article"
                 >
-                  {/* Subtle top glow highlight on hover matching category accent */}
-                  <div
-                    className="absolute top-0 inset-x-0 h-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{
-                      background: `linear-gradient(90deg, transparent 0%, ${item.accentColor} 50%, transparent 100%)`,
-                    }}
-                  />
-
-                  <div className="space-y-4 relative z-10">
-                    {/* Header with Icon and Tag Pill */}
-                    <div className="flex items-center justify-between">
-                      <div className={`size-12 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-2xs ${item.color}`}>
-                        <Icon className="size-5.5" />
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`subscribeBorderGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#subscribeBorderGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="flex flex-col justify-between p-7 sm:p-8 rounded-[calc(1.5rem-1.5px)] bg-white border border-slate-200/90 relative z-10 h-full">
+                    <div className="space-y-4">
+                      {/* Header with Icon and Tag Pill */}
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                          <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                          {item.tag}
+                        </span>
                       </div>
-                      <span className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 ${item.pillHover} transition-all duration-300 shadow-2xs`}>
-                        {item.tag}
+
+                      {/* Title & Description */}
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text leading-snug cursor-pointer">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card Footer Tag with hover indicator */}
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400 font-mono">
+                        Tenet {item.num} of 06
+                      </span>
+                      <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
+                        Clear Covenant &rarr;
                       </span>
                     </div>
-
-                    {/* Title & Description */}
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors duration-300 leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-700 font-light leading-relaxed mt-2.5 transition-colors">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Card Footer Tag with hover indicator */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 group-hover:border-slate-200/90 flex items-center justify-between text-[11px] text-slate-500 font-medium relative z-10 transition-colors">
-                    <span className="text-slate-400 font-mono group-hover:text-slate-600 transition-colors">
-                      Tenet {item.num} of 06
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-[#0062D2] opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300 font-semibold">
-                      Clear Covenant &rarr;
-                    </span>
                   </div>
                 </div>
               )
@@ -422,9 +466,9 @@ export function ApplyPageClient() {
           </div>
 
           {/* Bottom Reassurance Banner */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-blue-200/60 shadow-2xs flex items-center justify-center text-center text-xs sm:text-sm font-medium text-slate-800">
+          <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex items-center justify-center text-center text-xs sm:text-sm font-medium text-slate-800">
             <span>
-              <strong className="text-slate-900 font-bold uppercase tracking-wider text-xs block sm:inline mr-2 text-[#0062D2]">Mutual Commitment:</strong>
+              <strong className="text-slate-900 font-bold uppercase tracking-wider text-xs block sm:inline mr-2 brand-gradient-text">Mutual Commitment:</strong>
               No surprises, no hidden renewals, and no transaction fees. A community built on genuine mutual respect.
             </span>
           </div>
@@ -441,11 +485,10 @@ export function ApplyPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
             {/* Left: What happens after you join? (7 cols) */}
-            <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8">
               <div className="space-y-6">
                 <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+                  <div className="mb-3">
                     <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                       GROWTH AT YOUR PACE
                     </span>
@@ -463,20 +506,20 @@ export function ApplyPageClient() {
                 {/* Interactive progression steps */}
                 <div className="space-y-2.5">
                   {[
-                    { step: '01', text: 'Start by meeting people across open discussions and local gatherings.', icon: Users2, color: 'text-blue-600 bg-blue-50 border-blue-200/60' },
-                    { step: '02', text: 'Listen, observe, and learn from experienced founders.', icon: Sparkles, color: 'text-indigo-600 bg-indigo-50 border-indigo-200/60' },
-                    { step: '03', text: 'Share what you know and contribute real perspectives.', icon: Share2, color: 'text-purple-600 bg-purple-50 border-purple-200/60' },
-                    { step: '04', text: 'Ask when you need help, and offer help when you can.', icon: HeartHandshake, color: 'text-emerald-600 bg-emerald-50 border-emerald-200/60' },
-                    { step: '05', text: 'Discover your Circle and become part of your Inner Board.', icon: ShieldCheck, color: 'text-rose-600 bg-rose-50 border-rose-200/60' },
+                    { step: '01', text: 'Start by meeting people across open discussions and local gatherings.', icon: Users2 },
+                    { step: '02', text: 'Listen, observe, and learn from experienced founders.', icon: Sparkles },
+                    { step: '03', text: 'Share what you know and contribute real perspectives.', icon: Share2 },
+                    { step: '04', text: 'Ask when you need help, and offer help when you can.', icon: HeartHandshake },
+                    { step: '05', text: 'Discover your Circle and become part of your Inner Board.', icon: ShieldCheck },
                   ].map((item, idx) => {
                     const StepIcon = item.icon
                     return (
                       <div
                         key={idx}
-                        className="group/item flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-200 hover:bg-blue-50/30 hover:shadow-2xs transition-all duration-200"
+                        className="group/item flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-200/80 hover:shadow-xs transition-all duration-200"
                       >
-                        <div className={`size-9 rounded-xl border flex items-center justify-center shrink-0 shadow-2xs group-hover/item:scale-105 transition-transform duration-200 ${item.color}`}>
-                          <StepIcon className="size-4" />
+                        <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover/item:scale-105 transition-transform duration-200">
+                          <StepIcon className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                         </div>
                         <span className="text-xs sm:text-[13.5px] font-medium text-slate-800 leading-snug">
                           {item.text}
@@ -488,7 +531,7 @@ export function ApplyPageClient() {
               </div>
 
               <div className="pt-5 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm">
-                <span className="font-semibold text-[#0062D2] italic">
+                <span className="font-semibold brand-gradient-text italic">
                   &ldquo;You arrive as an entrepreneur. You grow as a Peer.&rdquo;
                 </span>
                 <span className="text-slate-400 text-xs hidden sm:inline">Organic Evolution</span>
@@ -496,15 +539,20 @@ export function ApplyPageClient() {
             </div>
 
             {/* Right: Not Ready Yet? & Still Have Questions? (5 cols) */}
-            <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 hover:shadow-2xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+            <div
+              className="lg:col-span-5 p-8 sm:p-10 rounded-3xl text-white shadow-xl border border-white/10 hover:shadow-2xl hover:border-rose-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-8 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+              }}
+            >
+              <div className="absolute top-0 right-0 size-72 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-3xl pointer-events-none" />
 
               <div className="space-y-6 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-3">
-                    <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                    <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
-                      No Artificial Urgency
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                    <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                      NO ARTIFICIAL URGENCY
                     </span>
                   </div>
 
@@ -519,8 +567,8 @@ export function ApplyPageClient() {
 
                 <div className="p-5 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-xs space-y-2 hover:bg-white/[0.09] transition-colors">
                   <div className="flex items-center gap-2 text-sky-300">
-                    <HelpCircle className="size-4 shrink-0" />
-                    <h4 className="text-xs font-bold uppercase tracking-wider">Still Have Questions?</h4>
+                    <HelpCircle className="size-4 shrink-0 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Still Have Questions?</h4>
                   </div>
                   <p className="text-xs text-slate-300 font-light leading-relaxed">
                     Review our detailed member handbook on Circle structures, meeting frequencies, guest policies, and leadership.
@@ -529,13 +577,13 @@ export function ApplyPageClient() {
               </div>
 
               <div className="pt-6 border-t border-white/10 relative z-10 flex flex-col gap-3">
-                <Link
+                <GalaxyButton
                   href="/membership/faq"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 group"
+                  size="default"
+                  className="font-bold uppercase tracking-wider w-full justify-center text-center"
                 >
-                  <span>Read Member FAQ</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Read Member FAQ
+                </GalaxyButton>
               </div>
             </div>
 
@@ -545,21 +593,19 @@ export function ApplyPageClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 6: CLOSING MANIFESTO BANNER (Exact Homepage Dark Mesh Styling)
+          SECTION 6: CLOSING MANIFESTO BANNER (Signature Dark Brand Gradient)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
+      <section className="relative isolate overflow-hidden !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] py-16 sm:py-20 lg:py-24 text-white border-t border-white/10">
+        <div className="absolute -top-24 -left-24 size-96 rounded-full bg-gradient-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
                   BEGIN WITH UNITY
                 </span>
               </div>
@@ -590,7 +636,7 @@ export function ApplyPageClient() {
                   rel="noreferrer"
                   variant="transparent"
                   size="default"
-                  icon={<Smartphone className="size-4" />}
+                  icon={<Smartphone className="size-4 text-sky-400" />}
                   className="uppercase tracking-wider font-bold"
                 >
                   Get it on Google Play
@@ -605,7 +651,7 @@ export function ApplyPageClient() {
               >
                 Experience <br />
                 The <br />
-                <span className="text-[#7DD3FC]">Community</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-semibold">Community</span>
               </div>
             </div>
 

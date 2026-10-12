@@ -94,25 +94,25 @@ const WHAT_HAPPENS = [
     step: '1',
     icon: CheckCircle2,
     title: 'We understand your journey.',
-    desc: 'The enquiry is intentionally simple. We look at the person behind the business — not just another profile.',
+    desc: 'We look at the person behind the business — not just another profile.',
   },
   {
     step: '2',
     icon: Phone,
     title: 'A real conversation begins.',
-    desc: 'You speak with a Circle Director. Not a sales pitch — an authentic conversation about your ambition and where you want to go.',
+    desc: 'An authentic conversation about your ambition and where you want to go.',
   },
   {
     step: '3',
     icon: Target,
     title: 'Finding where you belong.',
-    desc: 'The objective is not to place you anywhere, but where your presence can truly contribute and thrive.',
+    desc: 'Understanding where your presence can truly contribute and thrive.',
   },
   {
     step: '4',
     icon: Users,
     title: 'Experience the room.',
-    desc: 'Visit a meeting, experience the trust and energy in person, and meet the room before deciding.',
+    desc: 'Experience the trust and energy in person before deciding.',
   },
 ]
 
@@ -161,8 +161,8 @@ function PillButton({
       onClick={onClick}
       className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium border transition-all cursor-pointer text-left ${
         selected
-          ? 'bg-[#0062D2] border-[#0062D2] text-white shadow-md shadow-blue-600/20'
-          : 'bg-white border-slate-200 text-slate-700 hover:border-[#0062D2] hover:text-[#0062D2]'
+          ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] border-transparent text-white shadow-md shadow-blue-600/20'
+          : 'bg-white border-slate-200 text-slate-700 hover:border-[#1D4ED8]/60 hover:text-[#1D4ED8]'
       }`}
     >
       {multi && (
@@ -171,7 +171,7 @@ function PillButton({
             selected ? 'bg-white border-white' : 'border-slate-300'
           }`}
         >
-          {selected && <Check className="size-3 text-[#0062D2]" />}
+          {selected && <Check className="size-3 text-[#1D4ED8]" />}
         </span>
       )}
       {children}
@@ -207,6 +207,12 @@ export function FindPageClient() {
   const updateField = (key: keyof typeof form, value: string) =>
     setForm((f) => ({ ...f, [key]: value }))
 
+  const handleMobileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Only allow digits and cap at maximum 10 digits
+    const cleaned = e.target.value.replace(/\D/g, '').slice(0, 10)
+    setForm((f) => ({ ...f, mobile: cleaned }))
+  }
+
   const toggleMulti = (key: 'lookingFor' | 'circlePrefs', value: string, max?: number) => {
     setForm((f) => {
       const arr = f[key]
@@ -217,7 +223,7 @@ export function FindPageClient() {
   }
 
   const canNext = () => {
-    if (step === 1) return form.fullName && form.mobile && form.email && form.city
+    if (step === 1) return form.fullName.trim() && form.mobile.length === 10 && form.email.trim() && form.city.trim()
     if (step === 2) return form.businessName && form.role && form.industry && form.duration
     if (step === 3) return form.lookingFor.length > 0
     if (step === 4) return form.circlePrefs.length > 0
@@ -328,8 +334,8 @@ export function FindPageClient() {
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-rose-500/20 border border-blue-400/30 flex items-center justify-center shrink-0 shadow-2xs">
+                        <Icon className="size-4 stroke-[url(#brandStatGrad)] text-sky-300" />
                       </div>
                       <div>
                         <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
@@ -356,7 +362,7 @@ export function FindPageClient() {
                 Bigger Opportunities
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl leading-tight font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent drop-shadow-md"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 A Stronger Tomorrow
@@ -373,7 +379,6 @@ export function FindPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">TWO WAYS TO BEGIN</span>
           </div>
 
@@ -383,7 +388,7 @@ export function FindPageClient() {
             </h2>
             <div className="text-right shrink-0">
               <div
-                className="text-[#0062D2] text-2xl sm:text-3xl font-normal leading-tight select-none pointer-events-none"
+                className="text-2xl sm:text-3xl font-normal leading-tight select-none pointer-events-none bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 A Stronger<br />Tomorrow Together
@@ -394,21 +399,24 @@ export function FindPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
             {/* 01 Start With Unity */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0F172A] text-white flex flex-col">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="h-0.5 w-5 bg-[#0062D2]" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#60A5FA]">01 — START WITH UNITY</span>
+            <div className="relative isolate overflow-hidden p-8 sm:p-10 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white flex flex-col border border-white/10 shadow-lg">
+              {/* Subtle ambient light blurs */}
+              <div className="absolute -top-20 -right-20 w-48 h-48 bg-rose-600/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+              <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+
+              <div className="relative z-10 flex items-center gap-3 mb-2">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#38BDF8] to-[#FB7185] bg-clip-text text-transparent">01 — START WITH UNITY</span>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
+              <h3 className="relative z-10 font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
                 Start With Unity
               </h3>
-              <p className="text-sm text-white/80 leading-relaxed mb-4">
+              <p className="relative z-10 text-sm text-white/80 leading-relaxed mb-4">
                 The simplest way to explore PEERS GLOBAL is through the Unity App. Unity is your digital home inside the community.
               </p>
-              <p className="text-sm text-white/70 leading-relaxed mb-8">
+              <p className="relative z-10 text-sm text-white/70 leading-relaxed mb-8">
                 It gives you a way to understand the PEERS GLOBAL ecosystem, discover the community, explore relevant opportunities and begin building relationships.
               </p>
-              <div className="flex flex-wrap gap-3 mt-auto">
+              <div className="relative z-10 flex flex-wrap gap-3 mt-auto">
                 <a
                   href={SITE.appStoreUrl}
                   target="_blank"
@@ -446,8 +454,7 @@ export function FindPageClient() {
             {/* 02 Tell Us About Yourself */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col">
               <div className="flex items-center gap-3 mb-2">
-                <span className="h-0.5 w-5 bg-emerald-500" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600">02 — TELL US ABOUT YOURSELF</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">02 — TELL US ABOUT YOURSELF</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A] mb-4 leading-snug">
                 Tell Us About Yourself
@@ -459,13 +466,13 @@ export function FindPageClient() {
                 You do not need to have everything figured out. You simply need to tell us enough for us to understand what you are looking for.
               </p>
 
-              <a
+              <GalaxyButton
                 href="#find-form"
-                className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3.5 text-sm font-semibold transition-all inline-flex items-center gap-2 w-fit shadow-md shadow-blue-600/20"
+                size="md"
+                className="w-fit"
               >
                 Submit Your Enquiry
-                <ArrowRight className="size-4" />
-              </a>
+              </GalaxyButton>
             </div>
 
           </div>
@@ -479,7 +486,6 @@ export function FindPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">SIX QUICK QUESTIONS</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -510,12 +516,12 @@ export function FindPageClient() {
                       }`}
                     >
                       <div className={`size-7 rounded-full flex items-center justify-center shrink-0 font-bold text-xs transition-all ${
-                        isDone ? 'bg-emerald-500 text-white' : isActive ? 'bg-[#0062D2] text-white' : 'bg-slate-200 text-slate-500'
+                        isDone ? 'bg-emerald-500 text-white' : isActive ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white' : 'bg-slate-200 text-slate-500'
                       }`}>
                         {isDone ? <Check className="size-3.5" /> : stepNum}
                       </div>
                       <div>
-                        <p className={`text-xs font-bold ${isActive ? 'text-[#0062D2]' : isDone ? 'text-slate-700' : 'text-slate-400'}`}>
+                        <p className={`text-xs font-bold ${isActive ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent' : isDone ? 'text-slate-700' : 'text-slate-400'}`}>
                           Step {stepNum} of {totalSteps}
                         </p>
                         <p className={`text-sm font-semibold ${isActive ? 'text-[#0F172A]' : 'text-slate-500'}`}>{label}</p>
@@ -526,7 +532,7 @@ export function FindPageClient() {
 
                 {/* Quote */}
                 <div className="pt-6 mt-6 border-t border-slate-200">
-                  <p className="font-serif text-xl text-[#0062D2] leading-snug mb-2">
+                  <p className="font-serif text-xl leading-snug mb-2 bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent font-medium">
                     "The right people can change the trajectory of your business."
                   </p>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Peers Global</p>
@@ -610,13 +616,21 @@ export function FindPageClient() {
                               <div className="px-3 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-600 font-semibold shrink-0">+91</div>
                               <input
                                 type="tel"
-                                placeholder="Enter mobile number"
+                                inputMode="numeric"
+                                pattern="[0-9]{10}"
+                                maxLength={10}
+                                placeholder="Enter 10-digit mobile number"
                                 value={form.mobile}
-                                onChange={(e) => updateField('mobile', e.target.value)}
-                                className="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:border-[#0062D2] focus:ring-2 focus:ring-[#0062D2]/10 outline-none text-sm transition-all"
+                                onChange={handleMobileChange}
+                                className="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:border-[#1D4ED8] focus:ring-2 focus:ring-[#1D4ED8]/10 outline-none text-sm transition-all"
                                 required
                               />
                             </div>
+                            {form.mobile && form.mobile.length < 10 && (
+                              <p className="text-[11px] text-amber-600 mt-1">
+                                Please enter all 10 digits ({form.mobile.length}/10)
+                              </p>
+                            )}
                           </div>
                           <div>
                             <label className="block text-xs font-bold text-slate-600 mb-1.5">Email address <span className="text-red-500">*</span></label>
@@ -818,7 +832,6 @@ export function FindPageClient() {
 
           <div className="max-w-3xl space-y-3 text-left">
             <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">WHAT HAPPENS NEXT</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
@@ -832,37 +845,55 @@ export function FindPageClient() {
             </p>
           </div>
 
-          {/* Connected 4-Step Pipeline */}
+          {/* Connected 4-Step Pipeline with Animated Glow Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {WHAT_HAPPENS.map((item, i) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.step}
-                  className="relative rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all flex flex-col justify-between group space-y-5"
+                  className="animated-glow-card group"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center group-hover:scale-105 group-hover:bg-[#0062D2] group-hover:text-white transition-all shadow-2xs">
-                        <Icon className="size-5.5" />
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`whatHappensGrad${item.step}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#whatHappensGrad${item.step})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="p-6 sm:p-7 rounded-[calc(1rem-1.5px)] bg-white flex flex-col justify-between h-full space-y-5">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="text-2xl font-mono font-bold text-slate-300 group-hover:text-[#1D4ED8] transition-colors">
+                          0{item.step}
+                        </span>
                       </div>
-                      <span className="text-2xl font-mono font-bold text-slate-300 group-hover:text-[#0062D2] transition-colors">
-                        0{item.step}
-                      </span>
+
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        {item.desc}
+                      </p>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:text-[#0062D2] transition-colors">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 group-hover:text-[#0062D2] transition-colors">
-                    <span>Phase 0{item.step}</span>
-                    <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
+                    <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 group-hover:text-[#1D4ED8] transition-colors">
+                      <span>Phase 0{item.step}</span>
+                      <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
               )
@@ -878,9 +909,7 @@ export function FindPageClient() {
       <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">NO PRESSURE</span>
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
@@ -888,7 +917,7 @@ export function FindPageClient() {
           </h2>
 
           <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-sm max-w-3xl mx-auto mt-6 text-left">
-            <p className="text-lg text-[#0062D2] font-serif italic mb-4">
+            <p className="text-lg font-serif italic mb-4 bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent font-medium">
               &ldquo;I am interested, but I don&apos;t know which Circle is right for me.&rdquo;
             </p>
             <p className="text-base text-slate-700 font-semibold mb-4">
@@ -896,19 +925,19 @@ export function FindPageClient() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600 mb-6">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-emerald-600 shrink-0" />
                 <span>Start with your business.</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-emerald-600 shrink-0" />
                 <span>Start with your ambition.</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-emerald-600 shrink-0" />
                 <span>Start with what you need.</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-emerald-600 shrink-0" />
                 <span>Start with what you can contribute.</span>
               </div>
             </div>
@@ -926,7 +955,6 @@ export function FindPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">START WITH UNITY</span>
           </div>
 
@@ -957,11 +985,11 @@ export function FindPageClient() {
                 ].map((item) => {
                   const Icon = item.icon
                   return (
-                    <div key={item.text} className="flex items-start gap-3.5 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200 hover:border-[#0062D2]/30 hover:shadow-md transition-all">
-                      <div className="size-9 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
-                        <Icon className="size-4" />
+                    <div key={item.text} className="flex items-start gap-3.5 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200 hover:border-blue-400/40 hover:shadow-md transition-all group">
+                      <div className="size-9 rounded-full bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                        <Icon className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
-                      <p className="text-sm text-[#0F172A] font-medium leading-relaxed">{item.text}</p>
+                      <p className="text-sm text-[#0F172A] font-medium leading-relaxed group-hover:text-slate-900">{item.text}</p>
                     </div>
                   )
                 })}
@@ -975,9 +1003,9 @@ export function FindPageClient() {
       {/* =================================================================
           SECTION 5.5: A CIRCLE IS MORE THAN A CATEGORY (Executive Philosophy Showcase)
           ================================================================= */}
-      <section className="py-20 sm:py-28 bg-[#061836] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-rose-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <section className="py-20 sm:py-28 bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-rose-600/15 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -985,7 +1013,6 @@ export function FindPageClient() {
             {/* Left Column: Heading & Narrative */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase text-sky-400">
                   THE PHILOSOPHY
                 </span>
@@ -1015,54 +1042,37 @@ export function FindPageClient() {
                 {
                   label: 'Experience is shared',
                   desc: 'Real challenges spoken without hesitation.',
-                  color: 'text-emerald-400',
-                  bg: 'bg-emerald-500/10 border-emerald-500/20',
-                  dot: 'bg-emerald-400',
                 },
                 {
                   label: 'Introductions become relationships',
                   desc: 'Moving beyond transactional contact into genuine trust.',
-                  color: 'text-sky-400',
-                  bg: 'bg-sky-500/10 border-sky-500/20',
-                  dot: 'bg-sky-400',
                 },
                 {
                   label: 'Relationships become collaboration',
                   desc: 'Discovering complementary capabilities and new markets.',
-                  color: 'text-purple-400',
-                  bg: 'bg-purple-500/10 border-purple-500/20',
-                  dot: 'bg-purple-400',
                 },
                 {
                   label: 'Collaboration creates contribution',
                   desc: 'Creating tangible value for peers and their ecosystem.',
-                  color: 'text-amber-400',
-                  bg: 'bg-amber-500/10 border-amber-500/20',
-                  dot: 'bg-amber-400',
                 },
                 {
                   label: 'Contribution creates impact',
                   desc: 'Transforming businesses, families, and communities.',
-                  color: 'text-rose-400',
-                  bg: 'bg-rose-500/10 border-rose-500/20',
-                  dot: 'bg-rose-400',
                 },
               ].map((item, idx) => (
                 <div
                   key={item.label}
-                  className={`flex items-start gap-4 p-4 sm:p-5 rounded-2xl border ${item.bg} backdrop-blur-sm transition-all hover:translate-x-1`}
+                  style={{
+                    background: 'linear-gradient(180deg, #f8f9fe 0%, #dde9fd 100%)',
+                  }}
+                  className="group flex flex-col p-4 sm:p-5 rounded-2xl border border-white/90 shadow-md hover:shadow-xl hover:scale-[1.015] hover:border-blue-400/80 transition-all duration-300 space-y-1"
                 >
-                  <div className="mt-1 flex items-center justify-center">
-                    <span className={`size-2 rounded-full ${item.dot} shrink-0 ring-4 ring-white/5`} />
-                  </div>
-                  <div className="space-y-0.5">
-                    <h4 className={`text-sm sm:text-base font-bold ${item.color}`}>
-                      When {item.label}.
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                    When {item.label}.
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-900 leading-relaxed transition-colors">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -1081,7 +1091,6 @@ export function FindPageClient() {
             {/* Left */}
             <div className="lg:col-span-5">
               <div className="flex items-center gap-2 mb-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">COMMON QUESTIONS</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#0F172A] tracking-tight leading-tight mb-4">
@@ -1113,10 +1122,10 @@ export function FindPageClient() {
                         onClick={() => setOpenFaq(isOpen ? null : i)}
                         className="w-full flex items-center justify-between p-5 text-left gap-4 cursor-pointer"
                       >
-                        <span className={`text-sm font-semibold leading-snug ${isOpen ? 'text-[#0062D2]' : 'text-[#0F172A]'}`}>
+                        <span className={`text-sm font-semibold leading-snug ${isOpen ? 'bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent' : 'text-[#0F172A]'}`}>
                           {faq.q}
                         </span>
-                        <ChevronDown className={`size-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#0062D2]' : 'text-slate-400'}`} />
+                        <ChevronDown className={`size-4 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#1D4ED8]' : 'text-slate-400'}`} />
                       </button>
                       {isOpen && (
                         <div className="px-5 pb-5">
@@ -1136,9 +1145,9 @@ export function FindPageClient() {
       {/* =================================================================
           SECTION 7: FIND WHERE YOU BELONG - CLOSING HERO (Executive 2-Column Split)
           ================================================================= */}
-      <section className="relative overflow-hidden py-20 sm:py-28 bg-[#061320] text-white">
+      <section className="relative overflow-hidden py-20 sm:py-28 bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-blue-600/15 via-rose-600/10 to-blue-600/15 blur-[140px] rounded-full pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-[140px] rounded-full pointer-events-none"
           aria-hidden="true"
         />
 
@@ -1148,7 +1157,6 @@ export function FindPageClient() {
             {/* Left Column: Heading, Core Narrative & Actions */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">FIND WHERE YOU BELONG</span>
               </div>
 

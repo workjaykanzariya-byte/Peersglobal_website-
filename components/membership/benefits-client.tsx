@@ -193,6 +193,21 @@ const RECOGNITION_CHANNELS = [
 export function BenefitsClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
+      {/* SVG Linear Gradient Definitions for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* =========================================================================
           SECTION 1: HERO — WHAT YOU GET (Master Full Page Dark Video Banner)
@@ -240,7 +255,7 @@ export function BenefitsClient() {
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Membership is an ongoing journey,{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     not one monthly meeting
                   </span>
                 </h1>
@@ -260,24 +275,26 @@ export function BenefitsClient() {
               </div>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <GalaxyButton
                   href="/circles/find"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Find Your Circle
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-medium"
                 >
-                  <Smartphone className="size-4 text-sky-400" />
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
           </div>
@@ -291,8 +308,7 @@ export function BenefitsClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-left max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 ANNUAL CALENDAR
               </span>
@@ -310,38 +326,51 @@ export function BenefitsClient() {
             {ANNUAL_EXPERIENCES.map((exp, idx) => {
               const Icon = exp.icon
               return (
-                <div
-                  key={idx}
-                  className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-blue-200 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div>
-                    {/* Header: Icon + Frequency Badge */}
-                    <div className="flex items-center justify-between mb-5">
-                      <div className={`size-12 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 ${exp.color}`}>
-                        <Icon className="size-5.5" />
+                <div key={idx} className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`annualCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#annualCardGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="relative flex flex-col justify-between p-6 sm:p-7 !rounded-[calc(1.5rem-1.5px)] bg-white h-full shadow-2xs">
+                    <div>
+                      {/* Header: Icon + Frequency Badge */}
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 shadow-2xs group-hover:border-blue-300 transition-all">
+                          <span className="brand-gradient-text">{exp.frequency}</span>
+                        </span>
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-200/70 group-hover:bg-blue-50 group-hover:text-[#0062D2] group-hover:border-blue-200 transition-colors">
-                        {exp.frequency}
-                      </span>
+
+                      {/* Title */}
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 brand-gradient-hover-text cursor-pointer leading-snug">
+                        {exp.title}
+                      </h3>
+
+                      {/* Outcome Description */}
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                        {exp.outcome}
+                      </p>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover:text-[#0062D2] transition-colors leading-snug">
-                      {exp.title}
-                    </h3>
-
-                    {/* Outcome Description */}
-                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                      {exp.outcome}
-                    </p>
-                  </div>
-
-                  {/* Card Footer Tag */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span className="text-slate-400">Experience #{idx < 9 ? `0${idx + 1}` : idx + 1}</span>
-                    <span className="inline-flex items-center gap-1 text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
-                      Explore Format &rarr;
-                    </span>
+                    {/* Card Footer Tag */}
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400">Experience #{idx < 9 ? `0${idx + 1}` : idx + 1}</span>
+                      <span className="inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all font-bold brand-gradient-text">
+                        Explore Format &rarr;
+                      </span>
+                    </div>
                   </div>
                 </div>
               )
@@ -349,10 +378,11 @@ export function BenefitsClient() {
           </div>
 
           {/* Bottom Highlight Callout */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-blue-200/60 shadow-2xs flex items-center justify-center text-center text-xs sm:text-sm font-medium text-slate-800">
-            <span>
+          <div className="p-5 sm:p-6 rounded-2xl !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] border border-white/10 shadow-xl flex items-center justify-center text-center text-xs sm:text-sm font-medium text-slate-200 relative overflow-hidden">
+            <div className="absolute -top-10 -right-10 size-40 rounded-full bg-linear-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-xl pointer-events-none" />
+            <span className="relative z-10 leading-relaxed">
               Your year is not built around one meeting. It is built around{' '}
-              <strong className="text-[#0062D2] font-bold">multiple curated avenues to participate, lead, and grow.</strong>
+              <strong className="font-bold bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">multiple curated avenues to participate, lead, and grow.</strong>
             </span>
           </div>
 
@@ -366,8 +396,7 @@ export function BenefitsClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
           <div className="text-left max-w-3xl space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 GROWTH &amp; WISDOM
               </span>
@@ -383,12 +412,12 @@ export function BenefitsClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
             
             {/* Column A: Business Growth */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-6">
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-6 group">
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#0062D2]" />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0062D2]">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-slate-200/80 shadow-2xs">
+                    <span className="size-1.5 rounded-full bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]" />
+                    <span className="text-[11px] font-bold uppercase tracking-[0.18em] brand-gradient-text">
                       Opportunity
                     </span>
                   </div>
@@ -398,7 +427,7 @@ export function BenefitsClient() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] hover:bg-clip-text hover:text-transparent transition-all duration-300 inline-block brand-gradient-hover-text cursor-pointer">
                     Business Growth
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-1">
@@ -410,12 +439,12 @@ export function BenefitsClient() {
                   {BUSINESS_GROWTH_ITEMS.map((item, idx) => (
                     <div
                       key={idx}
-                      className="group p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-2xs transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-800"
+                      className="group/item p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-2xs transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-800"
                     >
-                      <div className="size-6 rounded-lg bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 group-hover:bg-[#0062D2] group-hover:text-white transition-colors">
-                        <Check className="size-3.5" />
+                      <div className="size-6 rounded-lg bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
+                        <Check className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
-                      <span className="font-normal text-slate-700 group-hover:text-slate-900 transition-colors">
+                      <span className="font-normal text-slate-700 group-hover/item:text-slate-900 group-hover/item:font-medium transition-all">
                         {item}
                       </span>
                     </div>
@@ -426,18 +455,18 @@ export function BenefitsClient() {
               <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
                 <p className="text-[11px] uppercase font-bold tracking-wider text-slate-400">Our Core Philosophy</p>
                 <p className="text-xs sm:text-sm font-semibold text-slate-900">
-                  Relationships first <span className="text-[#0062D2] font-bold">&rarr;</span> Collaboration next <span className="text-[#0062D2] font-bold">&rarr;</span> Business impact follows.
+                  Relationships first <span className="brand-gradient-text font-bold">&rarr;</span> Collaboration next <span className="brand-gradient-text font-bold">&rarr;</span> Business impact follows.
                 </p>
               </div>
             </div>
 
             {/* Column B: Learning */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-6">
+            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-6 group">
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-slate-200/80 shadow-2xs">
+                    <span className="size-1.5 rounded-full bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]" />
+                    <span className="text-[11px] font-bold uppercase tracking-[0.18em] brand-gradient-text">
                       Experience
                     </span>
                   </div>
@@ -447,7 +476,7 @@ export function BenefitsClient() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] hover:bg-clip-text hover:text-transparent transition-all duration-300 inline-block brand-gradient-hover-text cursor-pointer">
                     Experiential Learning
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-1">
@@ -459,12 +488,12 @@ export function BenefitsClient() {
                   {LEARNING_CHANNELS.map((channel, idx) => (
                     <div
                       key={idx}
-                      className="group p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-emerald-300 hover:shadow-2xs transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-800"
+                      className="group/item p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-2xs transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-800"
                     >
-                      <div className="size-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                        <BookOpen className="size-3.5" />
+                      <div className="size-6 rounded-lg bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
+                        <BookOpen className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
-                      <span className="font-normal text-slate-700 group-hover:text-slate-900 transition-colors">
+                      <span className="font-normal text-slate-700 group-hover/item:text-slate-900 group-hover/item:font-medium transition-all">
                         {channel}
                       </span>
                     </div>
@@ -472,7 +501,7 @@ export function BenefitsClient() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-100/90 text-xs text-slate-800 leading-relaxed italic">
+              <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs text-xs text-slate-800 leading-relaxed italic">
                 &ldquo;Sometimes the most useful lesson is not a formal presentation. It is one Peer saying: <strong className="text-slate-900 not-italic font-semibold">&lsquo;I faced something similar. Here is what I learned.&rsquo;</strong>&rdquo;
               </div>
             </div>
@@ -489,8 +518,7 @@ export function BenefitsClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-left max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 MEDIA ECOSYSTEM
               </span>
@@ -507,35 +535,51 @@ export function BenefitsClient() {
             {MEDIA_OFFERINGS.map((media, idx) => {
               const Icon = media.icon
               return (
-                <div
-                  key={idx}
-                  className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-[#0062D2]/40 transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-3">
-                    <div className="size-11 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center">
-                      <Icon className="size-5" />
+                <div key={idx} className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`mediaCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#mediaCardGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="relative p-7 !rounded-[calc(1.5rem-1.5px)] bg-white shadow-2xs h-full flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                        {media.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                        {media.desc}
+                      </p>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-                      {media.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {media.desc}
-                    </p>
                   </div>
                 </div>
               )
             })}
 
             {/* 6th Card: Philosophy of Visibility */}
-            <div className="p-7 rounded-3xl bg-[#040F24] text-white shadow-xl flex flex-col justify-between space-y-4">
-              <div className="space-y-2">
-                <span className="text-xs uppercase font-bold text-sky-300 tracking-wider">THE PURPOSE</span>
+            <div className="p-7 rounded-3xl !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white shadow-xl border border-white/10 relative overflow-hidden flex flex-col justify-between space-y-4">
+              <div className="absolute -top-10 -right-10 size-40 rounded-full bg-linear-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-xl pointer-events-none" />
+              <div className="space-y-2 relative z-10">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                  THE PURPOSE
+                </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white">Known for Meaning</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                   Visibility is not simply about being seen. It is about being known for something meaningful.
                 </p>
               </div>
-              <div className="text-xs font-semibold text-sky-200 italic pt-2 border-t border-white/10">
+              <div className="text-xs font-semibold text-slate-200 italic pt-3 border-t border-white/10 relative z-10">
                 Stories of real grit and leadership.
               </div>
             </div>
@@ -553,8 +597,7 @@ export function BenefitsClient() {
           {/* Part A: Community & Belonging */}
           <div className="space-y-8">
             <div className="text-left max-w-3xl space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div>
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BELONGING
                 </span>
@@ -572,32 +615,45 @@ export function BenefitsClient() {
               {COMMUNITY_FORMATS.map((fmt, idx) => {
                 const Icon = fmt.icon
                 return (
-                  <div
-                    key={idx}
-                    className="group flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-blue-200 hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div className={`size-11 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 ${fmt.color}`}>
-                          <Icon className="size-5" />
+                  <div key={idx} className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+                    <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`communityCardGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="50%" stopColor="#6366F1" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path"
+                        style={{ stroke: `url(#communityCardGrad${idx})` }}
+                        d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                      />
+                    </svg>
+                    <div className="relative flex flex-col justify-between p-6 sm:p-7 !rounded-[calc(1.5rem-1.5px)] bg-[#FAFBFD] hover:bg-white h-full shadow-2xs">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                            <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                          </div>
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200/80 text-slate-600">
+                            {fmt.tag}
+                          </span>
                         </div>
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200/80 text-slate-600">
-                          {fmt.tag}
-                        </span>
+
+                        <div>
+                          <h3 className="text-base sm:text-lg font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                            {fmt.title}
+                          </h3>
+                          <p className="text-xs text-slate-600 font-light leading-relaxed mt-2">
+                            {fmt.desc}
+                          </p>
+                        </div>
                       </div>
 
-                      <div>
-                        <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors">
-                          {fmt.title}
-                        </h3>
-                        <p className="text-xs text-slate-600 font-light leading-relaxed mt-2">
-                          {fmt.desc}
-                        </p>
+                      <div className="mt-6 pt-3 border-t border-slate-200/60 text-[11px] font-mono text-slate-400">
+                        Format 0{idx + 1}
                       </div>
-                    </div>
-
-                    <div className="mt-6 pt-3 border-t border-slate-200/60 text-[11px] font-mono text-slate-400">
-                      Format 0{idx + 1}
                     </div>
                   </div>
                 )
@@ -627,14 +683,14 @@ export function BenefitsClient() {
           </div>
 
           {/* Part B: Recognition & Leadership */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white relative overflow-hidden shadow-xl border border-slate-800">
-            <div className="absolute -top-10 -right-10 size-80 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+          <div className="p-8 sm:p-12 rounded-3xl !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white relative overflow-hidden shadow-2xl border border-white/10">
+            <div className="absolute -top-10 -right-10 size-80 rounded-full bg-linear-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 size-60 rounded-full bg-blue-600/15 blur-2xl pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-8 space-y-5">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-300">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     RECOGNITION &amp; LEADERSHIP
                   </span>
                 </div>
@@ -656,8 +712,8 @@ export function BenefitsClient() {
                         key={idx}
                         className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-3 text-xs text-slate-200"
                       >
-                        <div className="size-7 rounded-lg bg-sky-400/20 text-sky-300 flex items-center justify-center shrink-0">
-                          <Icon className="size-3.5" />
+                        <div className="size-7 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+                          <Icon className="size-3.5 stroke-[url(#brandStatGrad)] text-sky-400" />
                         </div>
                         <span className="font-medium">{rc.text}</span>
                       </div>
@@ -699,9 +755,8 @@ export function BenefitsClient() {
           
           {/* Part A: The LSR Growth Model */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 mb-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0062D2]" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0062D2]">
+            <div className="mb-1">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 The Core Engine
               </span>
             </div>
@@ -719,98 +774,146 @@ export function BenefitsClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* 1. Learning */}
-            <div className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] border border-blue-100/80 flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
-                    <BookOpen className="size-6" />
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+              <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lsrCardGrad0" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#lsrCardGrad0)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="relative flex flex-col justify-between p-7 sm:p-8 !rounded-[calc(1.5rem-1.5px)] bg-white h-full shadow-2xs">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
+                      <BookOpen className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+                      Pillar 01
+                    </span>
                   </div>
-                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                    Pillar 01
-                  </span>
-                </div>
 
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors">
-                    Learning
-                  </h3>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#0062D2] mt-0.5">
-                    Grow What You Know
+                  <div className="flex flex-col space-y-1">
+                    <h3 className="text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug w-fit">
+                      Learning
+                    </h3>
+                    <p className="text-xs font-semibold uppercase tracking-wider brand-gradient-text w-fit">
+                      Grow What You Know
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    Gain practical insights from entrepreneurs who have built through the exact fires and challenges you currently navigate.
                   </p>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  Gain practical insights from entrepreneurs who have built through the exact fires and challenges you currently navigate.
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                <span className="size-1.5 rounded-full bg-[#0062D2]" />
-                <span>Experiential playbooks &amp; roundtables</span>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                  <span className="size-1.5 rounded-full bg-[#1D4ED8]" />
+                  <span>Experiential playbooks &amp; roundtables</span>
+                </div>
               </div>
             </div>
 
             {/* 2. Sharing */}
-            <div className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="size-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100/80 flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
-                    <Share2 className="size-6" />
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+              <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lsrCardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#lsrCardGrad1)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="relative flex flex-col justify-between p-7 sm:p-8 !rounded-[calc(1.5rem-1.5px)] bg-white h-full shadow-2xs">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
+                      <Share2 className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+                      Pillar 02
+                    </span>
                   </div>
-                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                    Pillar 02
-                  </span>
-                </div>
 
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                    Sharing
-                  </h3>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-emerald-600 mt-0.5">
-                    Give What You Know
+                  <div className="flex flex-col space-y-1">
+                    <h3 className="text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug w-fit">
+                      Sharing
+                    </h3>
+                    <p className="text-xs font-semibold uppercase tracking-wider brand-gradient-text w-fit">
+                      Give What You Know
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    Your hard-won wisdom gains true value when shared freely to unblock a fellow founder or open a closed door.
                   </p>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  Your hard-won wisdom gains true value when shared freely to unblock a fellow founder or open a closed door.
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                <span className="size-1.5 rounded-full bg-emerald-600" />
-                <span>Mentorship, warm intros &amp; resources</span>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                  <span className="size-1.5 rounded-full bg-emerald-600" />
+                  <span>Mentorship, warm intros &amp; resources</span>
+                </div>
               </div>
             </div>
 
             {/* 3. Relationships */}
-            <div className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-rose-300 hover:-translate-y-1 transition-all duration-300">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="size-12 rounded-2xl bg-rose-50 text-rose-600 border border-rose-100/80 flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
-                    <HeartHandshake className="size-6" />
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+              <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lsrCardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#lsrCardGrad2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="relative flex flex-col justify-between p-7 sm:p-8 !rounded-[calc(1.5rem-1.5px)] bg-white h-full shadow-2xs">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
+                      <HeartHandshake className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+                      Pillar 03
+                    </span>
                   </div>
-                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                    Pillar 03
-                  </span>
-                </div>
 
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-rose-700 transition-colors">
-                    Relationships
-                  </h3>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-rose-600 mt-0.5">
-                    Grow Who You Know
+                  <div className="flex flex-col space-y-1">
+                    <h3 className="text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug w-fit">
+                      Relationships
+                    </h3>
+                    <p className="text-xs font-semibold uppercase tracking-wider brand-gradient-text w-fit">
+                      Grow Who You Know
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    Depth precedes speed. Long-term mutual trust lays the fertile ground where multi-year partnerships flourish.
                   </p>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  Depth precedes speed. Long-term mutual trust lays the fertile ground where multi-year partnerships flourish.
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                <span className="size-1.5 rounded-full bg-rose-600" />
-                <span>Lifelong bonds &amp; joint ventures</span>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                  <span className="size-1.5 rounded-full bg-rose-600" />
+                  <span>Lifelong bonds &amp; joint ventures</span>
+                </div>
               </div>
             </div>
 
@@ -820,45 +923,48 @@ export function BenefitsClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
             
             {/* Left 6 Cols: Philosophy Checklist */}
-            <div className="lg:col-span-6 p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-5">
+            <div className="lg:col-span-6 p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-5 group">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/70 text-slate-700 text-[11px] font-bold uppercase tracking-wider">
-                  Mindset Shift
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-slate-200/80 shadow-2xs">
+                  <span className="size-1.5 rounded-full bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] brand-gradient-text">
+                    Mindset Shift
+                  </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug brand-gradient-hover-text cursor-pointer">
                   Your Membership Is Not a Checklist
                 </h3>
 
                 <div className="space-y-3 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="text-[#0062D2] font-bold mt-0.5">✦</span>
-                    <p>You can attend every event and still remain a stranger. Or you can have <strong>one honest conversation</strong> that permanently pivots your venture.</p>
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50/80 border border-slate-100/90 hover:border-blue-200 hover:bg-white transition-all">
+                    <span className="brand-gradient-text font-bold text-base mt-[-2px]">✦</span>
+                    <p>You can attend every event and still remain a stranger. Or you can have <strong className="text-slate-900 font-semibold">one honest conversation</strong> that permanently pivots your venture.</p>
                   </div>
-                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="text-[#0062D2] font-bold mt-0.5">✦</span>
-                    <p>You can hoard contacts on a phone. Or you can <strong>build genuine relationships</strong> that protect you during downturns.</p>
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50/80 border border-slate-100/90 hover:border-blue-200 hover:bg-white transition-all">
+                    <span className="brand-gradient-text font-bold text-base mt-[-2px]">✦</span>
+                    <p>You can hoard contacts on a phone. Or you can <strong className="text-slate-900 font-semibold">build genuine relationships</strong> that protect you during downturns.</p>
                   </div>
-                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="text-[#0062D2] font-bold mt-0.5">✦</span>
-                    <p>You can consume passively. Or you can <strong>contribute generously</strong> so that other founders remember your impact for decades.</p>
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50/80 border border-slate-100/90 hover:border-blue-200 hover:bg-white transition-all">
+                    <span className="brand-gradient-text font-bold text-base mt-[-2px]">✦</span>
+                    <p>You can consume passively. Or you can <strong className="text-slate-900 font-semibold">contribute generously</strong> so that other founders remember your impact for decades.</p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-slate-100 text-xs sm:text-sm font-semibold text-slate-900">
-                PEERS GLOBAL does not ask &ldquo;What did you attend?&rdquo; &mdash; but <span className="text-[#0062D2]">&ldquo;What did you make possible?&rdquo;</span>
+                PEERS GLOBAL does not ask &ldquo;What did you attend?&rdquo; &mdash; but <span className="brand-gradient-text font-bold">&ldquo;What did you make possible?&rdquo;</span>
               </div>
             </div>
 
             {/* Right 6 Cols: Individual Journeys Dark Banner */}
-            <div className="lg:col-span-6 p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 space-y-6 flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
+            <div className="lg:col-span-6 p-7 sm:p-9 rounded-3xl !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white shadow-2xl border border-white/10 space-y-6 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute -top-10 -right-10 size-64 rounded-full bg-linear-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 size-48 rounded-full bg-blue-600/15 blur-2xl pointer-events-none" />
 
               <div className="relative z-10 space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-300">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     INDIVIDUAL JOURNEYS
                   </span>
                 </div>
@@ -898,19 +1004,17 @@ export function BenefitsClient() {
       {/* =========================================================================
           SECTION 7: CLOSING MANIFESTO BANNER
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
+      <section className="relative isolate overflow-hidden !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] py-16 sm:py-20 lg:py-24 text-white border-t border-white/10">
+        <div className="absolute -top-24 -left-24 size-96 rounded-full bg-linear-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   START YOUR JOURNEY
                 </span>
               </div>
@@ -923,23 +1027,26 @@ export function BenefitsClient() {
                 Your knowledge, experience, relationships, and contribution become part of the collective experience. You do not simply join a community—you become part of what the community can make possible.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                <GalaxyButton
                   href="/circles/find"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] uppercase cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Find Your Circle</span>
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                  Find Your Circle
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="https://unity.peersglobal.com"
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-white/50 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-xs transition-all duration-200 hover:bg-white/10 hover:border-white active:scale-[0.98] uppercase cursor-pointer"
+                  rel="noopener noreferrer"
+                  variant="transparent"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-medium"
                 >
-                  <span>Download Unity App</span>
-                </a>
+                  Download Unity App
+                </GalaxyButton>
               </div>
             </div>
 

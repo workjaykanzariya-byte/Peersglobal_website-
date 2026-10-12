@@ -285,7 +285,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
   }
 
   // Helper to render colored circle icon badges
-  const renderCategoryIcon = (iconName: string, className = 'size-7 sm:size-8 text-white') => {
+  const renderCategoryIcon = (iconName: string, className = 'size-8 sm:size-9 stroke-[url(#brandIconGrad)]') => {
     switch (iconName) {
       case 'Factory':
         return <Factory className={className} />
@@ -376,7 +376,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Your Circle.{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Your Inner Board.
                   </span>
                 </h1>
@@ -415,8 +415,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                   const Icon = s.icon
                   return (
                     <div key={s.label} className="flex items-center gap-2.5 p-3 sm:p-3.5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                      <div className="size-9 rounded-full bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-sky-300 shrink-0">
-                        <Icon className="size-4" />
+                      <div className="size-9 rounded-xl bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-rose-500/20 border border-blue-400/30 flex items-center justify-center shrink-0 shadow-2xs">
+                        <Icon className="size-4 stroke-[url(#brandStatGrad)]" />
                       </div>
                       <div>
                         <div className="font-bold text-base sm:text-lg text-white leading-none">{s.value}</div>
@@ -443,7 +443,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 Same Purpose
               </p>
               <p
-                className="text-3xl sm:text-4xl text-sky-400 font-bold leading-tight"
+                className="text-3xl sm:text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Greater Impact
@@ -468,10 +468,13 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16">
             <div className="lg:col-span-7 space-y-5">
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-950 tracking-tight leading-tight">
-                Your Circle. Your Inner Board.
+                Your Circle.{' '}
+                <span className="brand-gradient-text">
+                  Your Inner Board.
+                </span>
               </h2>
 
-              <p className="text-base sm:text-lg font-bold text-[#0062D2] leading-snug">
+              <p className="text-base sm:text-lg font-bold brand-gradient-text leading-snug">
                 Four parts. One purpose. Every Circle, every city, every month.
               </p>
 
@@ -485,19 +488,19 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
                 <div className="p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-center">
-                  <span className="text-xs font-bold text-[#0062D2] block">A place to speak</span>
+                  <span className="text-xs font-bold brand-gradient-text block">A place to speak</span>
                 </div>
                 <div className="p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-center">
-                  <span className="text-xs font-bold text-[#0062D2] block">A place to listen</span>
+                  <span className="text-xs font-bold brand-gradient-text block">A place to listen</span>
                 </div>
                 <div className="p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-center">
-                  <span className="text-xs font-bold text-[#0062D2] block">A place to ask</span>
+                  <span className="text-xs font-bold brand-gradient-text block">A place to ask</span>
                 </div>
                 <div className="p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-center">
-                  <span className="text-xs font-bold text-[#0062D2] block">A place to contribute</span>
+                  <span className="text-xs font-bold brand-gradient-text block">A place to contribute</span>
                 </div>
                 <div className="p-3.5 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE] text-center col-span-2 sm:col-span-2">
-                  <span className="text-xs font-bold text-[#0062D2] block">A place to move something forward</span>
+                  <span className="text-xs font-bold brand-gradient-text block">A place to move something forward</span>
                 </div>
               </div>
             </div>
@@ -509,7 +512,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 <div className="absolute bottom-6 left-6 size-2 rounded-full bg-[#0062D2]/40 pointer-events-none" />
 
                 <div className="relative z-10">
-                  <span className="font-serif text-5xl sm:text-6xl text-[#0062D2] leading-none block mb-2">
+                  <span className="font-serif text-5xl sm:text-6xl brand-gradient-text leading-none block mb-2">
                     “
                   </span>
                   <p className="font-serif text-xl sm:text-2xl text-[#0F172A] font-bold leading-snug mb-4">
@@ -520,10 +523,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                   </p>
                   <Link
                     href="/the-idea"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0062D2] hover:text-[#0052B4] tracking-wider uppercase"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold brand-gradient-text hover:opacity-80 tracking-wider uppercase"
                   >
                     <span>EXPLORE THE IDEA</span>
-                    <ArrowRight className="size-3.5" />
+                    <ArrowRight className="size-3.5 stroke-[url(#brandIconGrad)]" />
                   </Link>
                 </div>
               </div>
@@ -550,13 +553,13 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               {/* Part 1 */}
               <div className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between hover:shadow-md transition-all">
                 <div>
-                  <span className="inline-block text-[11px] font-bold text-[#0062D2] bg-blue-50 px-3 py-1 rounded-full mb-4">
+                  <span className="inline-block text-[11px] font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 px-3 py-1 rounded-full mb-4">
                     PART 01
                   </span>
                   <h4 className="text-lg font-bold text-slate-900 mb-1">
                     The Circle
                   </h4>
-                  <p className="text-xs font-semibold text-[#0062D2] mb-3">
+                  <p className="text-xs font-bold brand-gradient-text mb-3">
                     Start with the people.
                   </p>
                   <p className="text-xs text-slate-600 leading-relaxed space-y-2">
@@ -576,13 +579,13 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               {/* Part 2 */}
               <div className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between hover:shadow-md transition-all">
                 <div>
-                  <span className="inline-block text-[11px] font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full mb-4">
+                  <span className="inline-block text-[11px] font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 px-3 py-1 rounded-full mb-4">
                     PART 02
                   </span>
                   <h4 className="text-lg font-bold text-slate-900 mb-1">
                     Learning
                   </h4>
-                  <p className="text-xs font-semibold text-emerald-700 mb-3">
+                  <p className="text-xs font-bold brand-gradient-text mb-3">
                     Learn from experience, not just information.
                   </p>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -602,13 +605,13 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               {/* Part 3 */}
               <div className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between hover:shadow-md transition-all">
                 <div>
-                  <span className="inline-block text-[11px] font-bold text-purple-700 bg-purple-50 px-3 py-1 rounded-full mb-4">
+                  <span className="inline-block text-[11px] font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 px-3 py-1 rounded-full mb-4">
                     PART 03
                   </span>
                   <h4 className="text-lg font-bold text-slate-900 mb-1">
                     Sharing &amp; Collaboration
                   </h4>
-                  <p className="text-xs font-semibold text-purple-700 mb-3">
+                  <p className="text-xs font-bold brand-gradient-text mb-3">
                     Turn relationships into possibilities.
                   </p>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -628,13 +631,13 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               {/* Part 4 */}
               <div className="p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between hover:shadow-md transition-all">
                 <div>
-                  <span className="inline-block text-[11px] font-bold text-pink-700 bg-pink-50 px-3 py-1 rounded-full mb-4">
+                  <span className="inline-block text-[11px] font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 px-3 py-1 rounded-full mb-4">
                     PART 04
                   </span>
                   <h4 className="text-lg font-bold text-slate-900 mb-1">
                     Impact &amp; Recognition
                   </h4>
-                  <p className="text-xs font-semibold text-pink-700 mb-3">
+                  <p className="text-xs font-bold brand-gradient-text mb-3">
                     End by recognising what matters.
                   </p>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -654,35 +657,49 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           </div>
 
           {/* =========================================================================
-              THE CIRCLE MINI-CONFERENCE CALLOUT
+              THE CIRCLE MINI-CONFERENCE CALLOUT (THE THRESHOLD CINEMATIC GRADIENT)
               ========================================================================= */}
-          <div className="mt-12 p-8 sm:p-10 rounded-3xl bg-[#061836] text-white relative overflow-hidden">
-            <div className="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
+          <div
+            style={{
+              background: 'linear-gradient(90deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+            className="mt-12 p-8 sm:p-10 lg:p-12 rounded-3xl text-white relative overflow-hidden border border-white/15 shadow-2xl"
+          >
+            {/* Ambient blur lighting */}
+            <div
+              className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gradient-to-r from-[#2e0854]/40 via-[#3b0764]/30 to-[#4c0519]/25 blur-[100px] rounded-full pointer-events-none"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(67,16,102,0.25),transparent)] pointer-events-none"
+              aria-hidden="true"
+            />
+
             <div className="relative z-10 max-w-4xl space-y-4">
-              <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 text-sky-300 text-xs font-bold uppercase tracking-wider">
+              <span className="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider brand-gradient-text backdrop-blur-md">
                 DEEPER LEARNING FORMAT
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
                 The Circle Mini-Conference
               </h3>
               <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
                 A Circle meeting can also become a deeper learning and collaboration experience through a Circle Mini-Conference.
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 text-xs font-medium text-slate-300">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2 text-xs font-medium text-slate-200">
+                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/25 transition-colors">
                   • Bring meaningful subjects
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/25 transition-colors">
                   • Bring relevant experience
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/25 transition-colors">
                   • Bring entrepreneurs together
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/25 transition-colors">
                   • Space beyond routine exchange
                 </div>
               </div>
-              <p className="text-xs text-sky-200 pt-2">
+              <p className="text-xs text-slate-300 pt-2 font-medium">
                 The Mini-Conference allows the Circle to explore a subject with greater depth while keeping the experience connected to the real challenges entrepreneurs face.
               </p>
             </div>
@@ -706,7 +723,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             Why category exclusivity matters
           </h2>
 
-          <p className="text-lg font-bold text-[#0062D2] mb-3">
+          <p className="text-lg font-bold brand-gradient-text mb-3">
             A Circle is designed around meaningful participation.
           </p>
 
@@ -715,47 +732,104 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
-              <div className="size-11 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center mb-5">
-                <MessageSquare className="size-5" />
+            {/* Card 1 */}
+            <div className="animated-glow-card group" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="exclusivityGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#exclusivityGrad1)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 rounded-[calc(1rem-1.5px)] bg-white flex flex-col items-start h-full justify-between">
+                <div>
+                  <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                    <MessageSquare className="size-5 stroke-[url(#brandIconGrad)]" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                    1. You can speak openly about your business.
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    You are not entering every conversation wondering whether the room contains a direct competitor. You can explain your challenges, ambitions and opportunities with greater confidence.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                1. You can speak openly about your business.
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                You are not entering every conversation wondering whether the room contains a direct competitor. You can explain your challenges, ambitions and opportunities with greater confidence.
-              </p>
             </div>
 
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
-              <div className="size-11 rounded-full bg-[#ECFDF5] text-emerald-600 flex items-center justify-center mb-5">
-                <Users className="size-5" />
+            {/* Card 2 */}
+            <div className="animated-glow-card group" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="exclusivityGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#exclusivityGrad2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 rounded-[calc(1rem-1.5px)] bg-white flex flex-col items-start h-full justify-between">
+                <div>
+                  <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                    <Users className="size-5 stroke-[url(#brandIconGrad)]" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                    2. Your expertise has a clear place.
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    When someone in the Circle needs your category, they know whom to approach. Your presence becomes easier to understand. Your experience becomes easier to remember.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                2. Your expertise has a clear place.
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                When someone in the Circle needs your category, they know whom to approach. Your presence becomes easier to understand. Your experience becomes easier to remember.
-              </p>
             </div>
 
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
-              <div className="size-11 rounded-full bg-[#FDF2F8] text-pink-600 flex items-center justify-center mb-5">
-                <Heart className="size-5" />
+            {/* Card 3 */}
+            <div className="animated-glow-card group" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="exclusivityGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#exclusivityGrad3)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 rounded-[calc(1rem-1.5px)] bg-white flex flex-col items-start h-full justify-between">
+                <div>
+                  <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                    <Heart className="size-5 stroke-[url(#brandIconGrad)]" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#0F172A] group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                    3. Collaboration becomes more intentional.
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Instead of competing for the same space inside the room, entrepreneurs can explore how different capabilities can work together. The purpose is not to create separation—it is to create enough trust and clarity for collaboration to happen.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                3. Collaboration becomes more intentional.
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Instead of competing for the same space inside the room, entrepreneurs can explore how different capabilities can work together. The purpose is not to create separation—it is to create enough trust and clarity for collaboration to happen.
-              </p>
             </div>
           </div>
 
           {/* Full-width Capsule Banner */}
           <div className="p-4 sm:p-5 rounded-2xl sm:rounded-full bg-white border border-[#DCEBFE] shadow-2xs flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-            <div className="size-10 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center shrink-0">
-              <Users className="size-5" />
+            <div className="size-10 rounded-full bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+              <Users className="size-5 stroke-[url(#brandIconGrad)]" />
             </div>
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
               At <strong>20–40 curated entrepreneurs</strong>, a Circle covers a wide spectrum of capabilities — creating enough intimacy for trust and enough breadth for collaboration.
@@ -783,7 +857,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
             <div className="text-right">
               <div
-                className="text-[#0062D2] text-2xl sm:text-3xl font-normal leading-tight select-none pointer-events-none"
+                className="brand-gradient-text text-2xl sm:text-3xl font-bold leading-tight select-none pointer-events-none"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Different Circles. <br />
@@ -793,10 +867,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all group">
               <div>
-                <div className="size-12 rounded-full bg-white text-[#0062D2] flex items-center justify-center shadow-2xs mb-6">
-                  <Layers className="size-6" />
+                <div className="size-14 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-6 group-hover:scale-110 transition-transform">
+                  <Layers className="size-7 stroke-[url(#brandIconGrad)]" />
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
@@ -821,10 +895,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               </button>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all group">
               <div>
-                <div className="size-12 rounded-full bg-white text-emerald-600 flex items-center justify-center shadow-2xs mb-6">
-                  <Target className="size-6" />
+                <div className="size-14 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-6 group-hover:scale-110 transition-transform">
+                  <Target className="size-7 stroke-[url(#brandIconGrad)]" />
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
@@ -882,67 +956,157 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
               {/* ASK */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between">
-                <div>
-                  <div className="size-10 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center font-bold text-xs mb-4">
-                    ASK
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="shareGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#shareGrad1)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white flex flex-col justify-between h-full">
+                  <div>
+                    <div className="inline-flex items-center px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 mb-4 shadow-2xs group-hover:scale-105 transition-transform">
+                      <span className="brand-gradient-text font-bold text-xs tracking-wider uppercase">ASK</span>
+                    </div>
+                    <h4 className="text-base font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                      Bring a Question
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      A challenge you are facing, a key decision you are considering, or a complex problem you have not yet solved.
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 mb-2">Bring a Question</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    A challenge you are facing, a key decision you are considering, or a complex problem you have not yet solved.
-                  </p>
                 </div>
               </div>
 
               {/* GIVE */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between">
-                <div>
-                  <div className="size-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs mb-4">
-                    GIVE
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="shareGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#shareGrad2)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white flex flex-col justify-between h-full">
+                  <div>
+                    <div className="inline-flex items-center px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 mb-4 shadow-2xs group-hover:scale-105 transition-transform">
+                      <span className="brand-gradient-text font-bold text-xs tracking-wider uppercase">GIVE</span>
+                    </div>
+                    <h4 className="text-base font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                      Share Experience
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Offer an introduction, recommend a trusted resource, and help another Peer think through a situation.
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 mb-2">Share Experience</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Offer an introduction, recommend a trusted resource, and help another Peer think through a situation.
-                  </p>
                 </div>
               </div>
 
               {/* LEARN */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between">
-                <div>
-                  <div className="size-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs mb-4">
-                    LEARN
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="shareGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#shareGrad3)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white flex flex-col justify-between h-full">
+                  <div>
+                    <div className="inline-flex items-center px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 mb-4 shadow-2xs group-hover:scale-105 transition-transform">
+                      <span className="brand-gradient-text font-bold text-xs tracking-wider uppercase">LEARN</span>
+                    </div>
+                    <h4 className="text-base font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                      Listen to Peers
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Discover a different approach and learn from real-world experience you have not yet lived yourself.
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 mb-2">Listen to Peers</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Discover a different approach and learn from real-world experience you have not yet lived yourself.
-                  </p>
                 </div>
               </div>
 
               {/* CONNECT */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between">
-                <div>
-                  <div className="size-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xs mb-4">
-                    CONNECT
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="shareGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#shareGrad4)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white flex flex-col justify-between h-full">
+                  <div>
+                    <div className="inline-flex items-center px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 mb-4 shadow-2xs group-hover:scale-105 transition-transform">
+                      <span className="brand-gradient-text font-bold text-xs tracking-wider uppercase">CONNECT</span>
+                    </div>
+                    <h4 className="text-base font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                      Build Bridges
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Introduce people who should know one another, build relationships beyond meetings, and create collaboration.
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 mb-2">Build Bridges</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Introduce people who should know one another, build relationships beyond meetings, and create collaboration.
-                  </p>
                 </div>
               </div>
 
               {/* RECOGNISE */}
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between sm:col-span-2 lg:col-span-1">
-                <div>
-                  <div className="size-10 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center font-bold text-xs mb-4">
-                    RECOGNISE
+              <div className="animated-glow-card group sm:col-span-2 lg:col-span-1" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="shareGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#shareGrad5)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white flex flex-col justify-between h-full">
+                  <div>
+                    <div className="inline-flex items-center px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 mb-4 shadow-2xs group-hover:scale-105 transition-transform">
+                      <span className="brand-gradient-text font-bold text-xs tracking-wider uppercase">RECOGNISE</span>
+                    </div>
+                    <h4 className="text-base font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200 mb-2">
+                      Acknowledge Impact
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Notice another Peer’s contribution and celebrate progress. Community becomes stronger when people feel seen.
+                    </p>
                   </div>
-                  <h4 className="text-base font-bold text-slate-900 mb-2">Acknowledge Impact</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Notice another Peer’s contribution and celebrate progress. Community becomes stronger when people feel seen.
-                  </p>
                 </div>
               </div>
             </div>
@@ -965,26 +1129,26 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#F0F7FF] text-xs font-semibold text-slate-800">
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0" />
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] shrink-0" />
                     <span>See entrepreneurs talking openly without posturing</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#F0F7FF] text-xs font-semibold text-slate-800">
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0" />
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] shrink-0" />
                     <span>Observe how people listen with genuine intent</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#F0F7FF] text-xs font-semibold text-slate-800">
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0" />
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] shrink-0" />
                     <span>Understand how meaningful collaboration happens</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#F0F7FF] text-xs font-semibold text-slate-800">
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0" />
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] shrink-0" />
                     <span>Sense if this is a community where they can contribute and belong</span>
                   </div>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-slate-100">
-                <p className="text-xs font-semibold text-[#0062D2] italic">
+                <p className="text-xs font-semibold brand-gradient-text italic">
                   A guest is not simply being shown a product. They are being introduced to a culture. That distinction matters.
                 </p>
               </div>
@@ -1004,32 +1168,46 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6 text-xs text-slate-700">
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 border border-rose-100">
-                    <X className="size-3.5 text-rose-500 shrink-0" />
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-rose-100/90 shadow-2xs">
+                    <div className="size-5 rounded-md bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <X className="size-3 stroke-[url(#brandIconGrad)]" />
+                    </div>
                     <span>Aggressive selling</span>
                   </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 border border-rose-100">
-                    <X className="size-3.5 text-rose-500 shrink-0" />
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-rose-100/90 shadow-2xs">
+                    <div className="size-5 rounded-md bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <X className="size-3 stroke-[url(#brandIconGrad)]" />
+                    </div>
                     <span>Pressure solicitation</span>
                   </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 border border-rose-100">
-                    <X className="size-3.5 text-rose-500 shrink-0" />
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-rose-100/90 shadow-2xs">
+                    <div className="size-5 rounded-md bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <X className="size-3 stroke-[url(#brandIconGrad)]" />
+                    </div>
                     <span>Disrespectful behaviour</span>
                   </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 border border-rose-100">
-                    <X className="size-3.5 text-rose-500 shrink-0" />
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-rose-100/90 shadow-2xs">
+                    <div className="size-5 rounded-md bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <X className="size-3 stroke-[url(#brandIconGrad)]" />
+                    </div>
                     <span>Breaking confidentiality</span>
                   </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 border border-rose-100">
-                    <X className="size-3.5 text-rose-500 shrink-0" />
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-rose-100/90 shadow-2xs">
+                    <div className="size-5 rounded-md bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <X className="size-3 stroke-[url(#brandIconGrad)]" />
+                    </div>
                     <span>Using relationships carelessly</span>
                   </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 border border-rose-100">
-                    <X className="size-3.5 text-rose-500 shrink-0" />
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-rose-100/90 shadow-2xs">
+                    <div className="size-5 rounded-md bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <X className="size-3 stroke-[url(#brandIconGrad)]" />
+                    </div>
                     <span>Treating peers merely as prospects</span>
                   </div>
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/80 border border-rose-100 sm:col-span-2">
-                    <X className="size-3.5 text-rose-500 shrink-0" />
+                  <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/90 border border-rose-100/90 shadow-2xs sm:col-span-2">
+                    <div className="size-5 rounded-md bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0">
+                      <X className="size-3 stroke-[url(#brandIconGrad)]" />
+                    </div>
                     <span>Creating an environment where people feel uncomfortable saying no</span>
                   </div>
                 </div>
@@ -1058,81 +1236,165 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 space-y-2">
-                <div className="size-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
-                  <Lock className="size-4" />
+              {/* Card 1 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="engageGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#engageGrad1)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white space-y-2 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                      <Lock className="size-5 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                      Confidential Forum
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed mt-1">
+                      A trusted space for conversations that require discretion, vulnerability and maturity.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-sm font-bold text-slate-900">Confidential Forum</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  A trusted space for conversations that require discretion, vulnerability and maturity.
-                </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 space-y-2">
-                <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-3">
-                  <Users className="size-4" />
+              {/* Card 2 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="engageGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#engageGrad2)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white space-y-2 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                      <Users className="size-5 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                      One-to-One Connections
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed mt-1">
+                      Because some of the most meaningful conversations happen when two entrepreneurs sit together and talk.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-sm font-bold text-slate-900">One-to-One Connections</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Because some of the most meaningful conversations happen when two entrepreneurs sit together and talk.
-                </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 space-y-2">
-                <div className="size-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
-                  <Laptop className="size-4" />
+              {/* Card 3 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="engageGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#engageGrad3)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white space-y-2 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                      <Laptop className="size-5 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                      Unity App
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed mt-1">
+                      The digital environment that helps the community remain connected beyond the physical meeting.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-sm font-bold text-slate-900">Unity App</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  The digital environment that helps the community remain connected beyond the physical meeting.
-                </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 space-y-2">
-                <div className="size-9 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center mb-3">
-                  <HeartHandshake className="size-4" />
+              {/* Card 4 */}
+              <div className="animated-glow-card group" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="engageGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#engageGrad4)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 rounded-[calc(1rem-1.5px)] bg-white space-y-2 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                      <HeartHandshake className="size-5 stroke-[url(#brandIconGrad)]" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                      Collaboration
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed mt-1">
+                      The real test: when an intro becomes a conversation, an opportunity, and creates enduring value.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-sm font-bold text-slate-900">Collaboration</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  The real test: when an intro becomes a conversation, an opportunity, and creates enduring value.
-                </p>
               </div>
             </div>
 
             {/* Step Ladder: Meeting -> Relationship -> Trust -> Collaboration -> Contribution -> Impact */}
             <div className="p-6 rounded-2xl bg-[#F0F7FF] border border-[#DCEBFE]">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-3">
+              <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text mb-3">
                 FROM A MEETING TO A RELATIONSHIP
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
-                <div className="p-3 bg-white rounded-xl border border-blue-100">
+                <div className="p-3 bg-white rounded-xl border border-blue-100 hover:border-blue-300 transition-colors shadow-2xs">
                   <span className="text-[11px] font-bold text-slate-700 block">Meeting</span>
                   <span className="text-[10px] text-slate-500">Introduces you</span>
                 </div>
-                <div className="p-3 bg-white rounded-xl border border-blue-100">
+                <div className="p-3 bg-white rounded-xl border border-blue-100 hover:border-blue-300 transition-colors shadow-2xs">
                   <span className="text-[11px] font-bold text-slate-700 block">Relationship</span>
                   <span className="text-[10px] text-slate-500">Helps understand</span>
                 </div>
-                <div className="p-3 bg-white rounded-xl border border-blue-100">
+                <div className="p-3 bg-white rounded-xl border border-blue-100 hover:border-blue-300 transition-colors shadow-2xs">
                   <span className="text-[11px] font-bold text-slate-700 block">Trust</span>
                   <span className="text-[10px] text-slate-500">Allows depend on</span>
                 </div>
-                <div className="p-3 bg-white rounded-xl border border-blue-100">
+                <div className="p-3 bg-white rounded-xl border border-blue-100 hover:border-blue-300 transition-colors shadow-2xs">
                   <span className="text-[11px] font-bold text-slate-700 block">Collaboration</span>
                   <span className="text-[10px] text-slate-500">Gives purpose</span>
                 </div>
-                <div className="p-3 bg-white rounded-xl border border-blue-100">
+                <div className="p-3 bg-white rounded-xl border border-blue-100 hover:border-blue-300 transition-colors shadow-2xs">
                   <span className="text-[11px] font-bold text-slate-700 block">Contribution</span>
                   <span className="text-[10px] text-slate-500">Gives meaning</span>
                 </div>
-                <div className="p-3 bg-white rounded-xl border border-blue-100">
-                  <span className="text-[11px] font-bold text-[#0062D2] block">Impact</span>
+                <div className="p-3 bg-white rounded-xl border border-blue-100 hover:border-blue-300 transition-colors shadow-2xs">
+                  <span className="text-[11px] font-bold brand-gradient-text block">Impact</span>
                   <span className="text-[10px] text-slate-500">Reason to continue</span>
                 </div>
               </div>
               <div className="mt-4 pt-3 border-t border-blue-200/50 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-700 gap-2">
                 <span>We do not simply ask: <em>&ldquo;Did you attend the meeting?&rdquo;</em></span>
-                <span className="font-bold text-[#0062D2]">The deeper question is: &ldquo;What happened because we came together?&rdquo;</span>
+                <span className="font-bold brand-gradient-text">The deeper question is: &ldquo;What happened because we came together?&rdquo;</span>
               </div>
             </div>
           </div>
@@ -1146,7 +1408,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 You may arrive one month needing an answer. The next month, you may have the answer for someone else. One month you may make an introduction. Another month someone may introduce you to the person you needed to meet. One month you may learn. Another month you may teach.
               </p>
-              <p className="text-xs sm:text-sm font-bold text-[#0062D2] pt-1">
+              <p className="text-xs sm:text-sm font-bold brand-gradient-text pt-1">
                 That is how community becomes reciprocal: You receive. You contribute. You grow.
               </p>
             </div>
@@ -1263,8 +1525,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <div className="mb-14">
               {/* Category Subheader */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="size-9 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shadow-2xs">
-                  <Briefcase className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs">
+                  <Briefcase className="size-5 stroke-[url(#brandIconGrad)]" />
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
@@ -1304,21 +1566,23 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
                       {/* Centered Circular Icon Badge */}
                       <div
-                        className={`size-16 sm:size-18 rounded-full ${category.bgColor} text-white flex items-center justify-center shadow-md mb-4 group-hover:scale-110 transition-transform duration-300`}
+                        className="size-16 sm:size-18 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300"
                       >
-                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 text-white')}
+                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 stroke-[url(#brandIconGrad)]')}
                       </div>
 
                       {/* Category Title */}
-                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-1 group-hover:text-[#0062D2] transition-colors">
+                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                         {category.name}
                       </h4>
 
-                      {/* Hover Pill Cue */}
-                      <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span>Select State & City</span>
-                        <ArrowRight className="size-3" />
-                      </span>
+                      {/* Hover Pill Button (Solid Gradient, Crisp & No Wrap) */}
+                      <div className="h-7 mt-3 flex items-center justify-center">
+                        <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-[11px] font-semibold tracking-wide whitespace-nowrap shadow-sm shadow-indigo-500/25 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                          <span>Explore Circles</span>
+                          <ArrowRight className="size-3 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </span>
+                      </div>
                     </div>
                   )
                 })}
@@ -1333,8 +1597,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             <div>
               {/* Category Subheader */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="size-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shadow-2xs">
-                  <Shapes className="size-5" />
+                <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs">
+                  <Shapes className="size-5 stroke-[url(#brandIconGrad)]" />
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
@@ -1374,21 +1638,23 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
                       {/* Centered Circular Icon Badge */}
                       <div
-                        className={`size-16 sm:size-18 rounded-full ${category.bgColor} text-white flex items-center justify-center shadow-md mb-4 group-hover:scale-110 transition-transform duration-300`}
+                        className="size-16 sm:size-18 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300"
                       >
-                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 text-white')}
+                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 stroke-[url(#brandIconGrad)]')}
                       </div>
 
                       {/* Category Title */}
-                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-1 group-hover:text-[#0062D2] transition-colors">
+                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                         {category.name}
                       </h4>
 
-                      {/* Hover Pill Cue */}
-                      <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span>Select State & City</span>
-                        <ArrowRight className="size-3" />
-                      </span>
+                      {/* Hover Pill Button (Solid Gradient, Crisp & No Wrap) */}
+                      <div className="h-7 mt-3 flex items-center justify-center">
+                        <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-[11px] font-semibold tracking-wide whitespace-nowrap shadow-sm shadow-indigo-500/25 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                          <span>Explore Circles</span>
+                          <ArrowRight className="size-3 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </span>
+                      </div>
                     </div>
                   )
                 })}
@@ -1416,55 +1682,119 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1 */}
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
-              <div className="size-11 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center mb-5">
-                <GraduationCap className="size-5" />
+            <div className="animated-glow-card group" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="diffCardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#diffCardGrad1)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 rounded-[calc(1.5rem-1.5px)] bg-white h-full flex flex-col items-start transition-all duration-300">
+                <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <GraduationCap className="size-5 stroke-[url(#brandIconGrad)]" />
+                </div>
+                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                  Monthly Circle Mini-Conferences
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Knowledge sessions, industry panels, case studies and collaboration discussions. Not routine meets.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                Monthly Circle Mini-Conferences
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Knowledge sessions, industry panels, case studies and collaboration discussions. Not routine meets.
-              </p>
             </div>
 
             {/* Card 2 */}
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
-              <div className="size-11 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center mb-5">
-                <HeartHandshake className="size-5" />
+            <div className="animated-glow-card group" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="diffCardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#diffCardGrad2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 rounded-[calc(1.5rem-1.5px)] bg-white h-full flex flex-col items-start transition-all duration-300">
+                <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <HeartHandshake className="size-5 stroke-[url(#brandIconGrad)]" />
+                </div>
+                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                  Trusted Collaborations
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Members actively share requirements, partnerships, opportunities and resources.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                Trusted Collaborations
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Members actively share requirements, partnerships, opportunities and resources.
-              </p>
             </div>
 
             {/* Card 3 */}
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
-              <div className="size-11 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center mb-5">
-                <Users className="size-5" />
+            <div className="animated-glow-card group" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="diffCardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#diffCardGrad3)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 rounded-[calc(1.5rem-1.5px)] bg-white h-full flex flex-col items-start transition-all duration-300">
+                <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Users className="size-5 stroke-[url(#brandIconGrad)]" />
+                </div>
+                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                  Diverse Perspectives
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Different industries, experiences and markets in one room.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                Diverse Perspectives
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Different industries, experiences and markets in one room.
-              </p>
             </div>
 
             {/* Card 4 */}
-            <div className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col items-start">
-              <div className="size-11 rounded-full bg-[#EFF6FF] text-[#0062D2] flex items-center justify-center mb-5">
-                <Star className="size-5" />
+            <div className="animated-glow-card group" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="diffCardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#diffCardGrad4)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 rounded-[calc(1.5rem-1.5px)] bg-white h-full flex flex-col items-start transition-all duration-300">
+                <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Star className="size-5 stroke-[url(#brandIconGrad)]" />
+                </div>
+                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                  Real-World Impact
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Businesses grow, markets open, problems get solved, and lives are changed.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] mb-2">
-                Real-World Impact
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Businesses grow, markets open, problems get solved, and lives are changed.
-              </p>
             </div>
           </div>
 
@@ -1579,7 +1909,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
               >
                 Circles <br />
                 Create <br />
-                <span className="text-[#7DD3FC]">Impact</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold">Impact</span>
               </div>
             </div>
 
@@ -1606,9 +1936,9 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             {/* Header: Category Badge + Title */}
             <div className="flex items-start gap-4 pr-8">
               <div
-                className={`size-14 sm:size-16 rounded-2xl ${selectedCategoryForModal.bgColor} text-white flex items-center justify-center shadow-md shrink-0`}
+                className="size-14 sm:size-16 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs shrink-0"
               >
-                {renderCategoryIcon(selectedCategoryForModal.iconName, 'size-7 sm:size-8 text-white')}
+                {renderCategoryIcon(selectedCategoryForModal.iconName, 'size-7 sm:size-8 stroke-[url(#brandIconGrad)]')}
               </div>
               <div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-[#0062D2] mb-1">

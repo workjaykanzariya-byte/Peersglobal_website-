@@ -226,6 +226,22 @@ export function CircleFounderClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
+      {/* Global SVG Gradients for Icons and Card Borders */}
+      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* =========================================================================
           SECTION 1: HERO — CIRCLE FOUNDER (Master Dark Video Banner)
           ========================================================================= */}
@@ -275,14 +291,16 @@ export function CircleFounderClient() {
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>CIRCLE FOUNDER</span>
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  CIRCLE FOUNDER
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Circle{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     Founder
                   </span>
                 </h1>
@@ -302,8 +320,8 @@ export function CircleFounderClient() {
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
                   href="/start-a-circle"
-                  variant="primary"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Apply to Found a Circle
                 </GalaxyButton>
@@ -313,7 +331,9 @@ export function CircleFounderClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-bold uppercase tracking-wider"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -328,16 +348,16 @@ export function CircleFounderClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                  className="group rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-2xs hover:shadow-lg hover:border-blue-300/80 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 shadow-2xs">
-                    <Icon className="size-6" />
+                  <div className="size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                    <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">
+                    <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-none">
                       {stat.value}
                     </div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                    <div className="text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wider mt-1">
                       {stat.label}
                     </div>
                   </div>
@@ -358,9 +378,8 @@ export function CircleFounderClient() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE VISION
                 </span>
               </div>
@@ -373,22 +392,28 @@ export function CircleFounderClient() {
                 Every city has entrepreneurs who could learn from one another. Every industry has experiences that deserve to be shared. Every growing business owner reaches moments where the right conversation, introduction or relationship could change what becomes possible.
               </p>
 
-              <div className="p-6 rounded-2xl bg-white border border-blue-100 shadow-2xs space-y-2">
-                <p className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+              <div
+                className="p-6 rounded-3xl text-white border border-white/10 shadow-xl relative overflow-hidden space-y-1.5"
+                style={{
+                  background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                }}
+              >
+                <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+                <p className="text-sm sm:text-base font-bold text-white leading-snug relative z-10">
                   But sometimes that Circle does not exist yet. That is where the Founder comes in.
                 </p>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal">
+                <p className="text-xs sm:text-sm text-slate-300 font-light relative z-10">
                   The Founder sees the room before the room exists — and takes the initiative to build it.
                 </p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-blue-50 text-[#0062D2] border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <Compass className="size-5.5" />
+                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <Compass className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">See The Opportunity</h4>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors">See The Opportunity</h4>
                     <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
                       Identify the missing ecosystem in your city or industry where accomplished founders can connect.
                     </p>
@@ -396,11 +421,11 @@ export function CircleFounderClient() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <Sparkles className="size-5.5" />
+                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">Create The Possibility</h4>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors">Create The Possibility</h4>
                     <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
                       Turn an empty space into a vibrant home for collaboration, peer learning, and shared growth.
                     </p>
@@ -425,7 +450,7 @@ export function CircleFounderClient() {
                     STAGE 01
                   </span>
                   <p
-                    className="text-lg sm:text-xl text-amber-300 font-bold leading-tight mt-1.5"
+                    className="text-lg sm:text-xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight mt-1.5"
                     style={{ fontFamily: 'var(--font-script)' }}
                   >
                     Build The Room
@@ -445,12 +470,10 @@ export function CircleFounderClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE GROWTH SEQUENCE
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               Circle starts from Day 1
@@ -468,16 +491,16 @@ export function CircleFounderClient() {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="size-11 rounded-2xl bg-blue-50 border border-blue-200/70 text-[#0062D2] font-mono font-bold text-xs flex items-center justify-center shadow-2xs">
+                    <span className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-mono font-bold text-xs flex items-center justify-center shadow-2xs">
                       {item.stage}
                     </span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 shadow-2xs">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
                       Stage {item.stage}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#1D4ED8] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
@@ -488,7 +511,7 @@ export function CircleFounderClient() {
 
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                   <span className="text-slate-400 font-mono">Stage 0{item.stage} of 06</span>
-                  <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
+                  <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">
                     Milestone &rarr;
                   </span>
                 </div>
@@ -496,10 +519,19 @@ export function CircleFounderClient() {
             ))}
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-rose-50/80 border border-blue-200/60 shadow-2xs flex items-center justify-center text-center text-xs sm:text-sm font-medium text-slate-800">
-            <span>
-              The Founder starts the journey. <strong className="text-slate-900 font-bold">The community eventually carries it forward.</strong>
-            </span>
+          <div
+            className="p-6 sm:p-7 rounded-3xl text-white border border-white/10 shadow-xl relative overflow-hidden text-center max-w-3xl mx-auto space-y-1.5"
+            style={{
+              background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+            }}
+          >
+            <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+            <p className="text-xs sm:text-sm text-slate-300 font-light relative z-10">
+              The Founder starts the journey.
+            </p>
+            <p className="text-base sm:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] leading-snug relative z-10">
+              The community eventually carries it forward.
+            </p>
           </div>
 
         </div>
@@ -512,12 +544,10 @@ export function CircleFounderClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 FIVE DIMENSIONS OF RESPONSIBILITY
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-slate-900">
               What the role carries
@@ -539,16 +569,16 @@ export function CircleFounderClient() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="size-12 rounded-2xl border border-blue-200/70 bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
-                        <Icon className="size-5.5" />
+                      <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs">
+                        <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 shadow-2xs">
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
                         Dimension {dim.number}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#1D4ED8] transition-colors">
                         {dim.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed mt-1.5">
@@ -562,7 +592,7 @@ export function CircleFounderClient() {
 
                   <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                     <span className="text-slate-400 font-mono">Pillar 0{idx + 1} of 05</span>
-                    <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
+                    <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">
                       Role Dimension &rarr;
                     </span>
                   </div>
@@ -585,9 +615,8 @@ export function CircleFounderClient() {
             {/* Left Column: Evolutionary Steps */}
             <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     DISTRIBUTED LEADERSHIP
                   </span>
                 </div>
@@ -602,47 +631,52 @@ export function CircleFounderClient() {
 
                 <div className="grid sm:grid-cols-2 gap-3.5 pt-1">
                   <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold text-[#0062D2] font-mono">Stage 01</span>
+                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 01</span>
                     <h4 className="text-sm font-bold text-slate-900 mt-1">One Founder</h4>
                     <p className="text-xs text-slate-600 font-light mt-0.5">Sees the vision and convenes the initial room.</p>
                   </div>
                   <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold text-[#0062D2] font-mono">Stage 02</span>
+                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 02</span>
                     <h4 className="text-sm font-bold text-slate-900 mt-1">A Powerhouse</h4>
                     <p className="text-xs text-slate-600 font-light mt-0.5">14 active committees take functional ownership.</p>
                   </div>
                   <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold text-[#0062D2] font-mono">Stage 03</span>
+                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 03</span>
                     <h4 className="text-sm font-bold text-slate-900 mt-1">Circle Director &amp; Team</h4>
                     <p className="text-xs text-slate-600 font-light mt-0.5">Holds month-on-month operational rhythm.</p>
                   </div>
                   <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold text-[#0062D2] font-mono">Stage 04</span>
+                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 04</span>
                     <h4 className="text-sm font-bold text-slate-900 mt-1">Self-Sustaining Community</h4>
                     <p className="text-xs text-slate-600 font-light mt-0.5">Thrives and outgrows any individual effort.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs font-semibold text-[#0062D2] italic">
+              <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text italic">
                 ✦ &ldquo;True leadership builds what can outgrow the leader.&rdquo;
               </div>
             </div>
 
             {/* Right Column: The Founder's Legacy Card */}
-            <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] text-white shadow-xl border border-slate-800 hover:shadow-2xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 size-64 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
+            <div
+              className="lg:col-span-5 p-8 sm:p-10 rounded-3xl text-white shadow-xl border border-white/10 hover:shadow-2xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+              }}
+            >
+              <div className="absolute top-0 right-0 size-64 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-3xl pointer-events-none" />
 
               <div className="space-y-5 relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                  <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                  <span className="text-[11px] font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                     THE FOUNDER&apos;S LEGACY
                   </span>
                 </div>
 
                 <div className="size-11 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/10">
-                  <Quote className="size-5" />
+                  <Quote className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                 </div>
 
                 <blockquote className="text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight">
@@ -672,9 +706,8 @@ export function CircleFounderClient() {
             
             {/* Left: What a Founder Does */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE INITIATOR
                 </span>
               </div>
@@ -693,7 +726,7 @@ export function CircleFounderClient() {
                     key={idx}
                     className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-200 hover:bg-blue-50/20 hover:shadow-2xs transition-all flex items-start gap-2.5"
                   >
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
                     <span className="text-xs text-slate-800 font-medium capitalize">
                       {item}
                     </span>
@@ -701,11 +734,17 @@ export function CircleFounderClient() {
                 ))}
               </div>
 
-              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-100 shadow-2xs space-y-1">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+              <div
+                className="p-6 rounded-3xl text-white border border-white/10 shadow-xl relative overflow-hidden space-y-1.5"
+                style={{
+                  background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                }}
+              >
+                <div className="absolute top-0 right-0 size-48 rounded-full bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-rose-600/20 blur-2xl pointer-events-none" />
+                <p className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent relative z-10">
                   UNDERNEATH IT ALL
                 </p>
-                <p className="text-xs sm:text-sm font-bold text-slate-900">
+                <p className="text-xs sm:text-sm font-bold text-white relative z-10">
                   Bring the right people together and help them discover what they can build together.
                 </p>
               </div>
@@ -715,7 +754,7 @@ export function CircleFounderClient() {
             <div className="lg:col-span-5">
               <div className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 space-y-6">
                 <div className="space-y-2">
-                  <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                  <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
                     FOUNDER PROFILE
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">
@@ -729,13 +768,13 @@ export function CircleFounderClient() {
                 <div className="space-y-3">
                   {WHO_THIS_IS_FOR.map((item, i) => (
                     <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
-                      <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
                       <span className="text-xs sm:text-sm font-medium text-slate-800 capitalize">{item}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
                   ✦ You do not have to know everyone. You need to be willing to begin.
                 </div>
               </div>
@@ -755,7 +794,7 @@ export function CircleFounderClient() {
             {/* Left: What PEERS GLOBAL provides */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
                   THE FOUNDATION
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
@@ -768,7 +807,7 @@ export function CircleFounderClient() {
                 <div className="space-y-3 pt-2">
                   {WHAT_PEERS_GLOBAL_PROVIDES.map((item, idx) => (
                     <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-start gap-3">
-                      <CheckCircle2 className="size-4.5 text-[#0062D2] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
                       <div>
                         <h4 className="text-xs sm:text-sm font-bold text-slate-900">
                           {item.title}
@@ -782,7 +821,7 @@ export function CircleFounderClient() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs font-semibold text-slate-700">
+              <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
                 The structure is provided. The community is built together.
               </div>
             </div>
@@ -790,7 +829,7 @@ export function CircleFounderClient() {
             {/* Right: What You Bring */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#0062D2]">
+                <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
                   THE CATALYST
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
@@ -803,7 +842,7 @@ export function CircleFounderClient() {
                 <div className="space-y-3 pt-2">
                   {WHAT_YOU_BRING_POINTS.map((item, idx) => (
                     <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-start gap-3">
-                      <CheckCircle2 className="size-4.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
                       <div>
                         <h4 className="text-xs sm:text-sm font-bold text-slate-900">
                           {item.title}
@@ -817,7 +856,7 @@ export function CircleFounderClient() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs text-slate-600 font-medium">
+              <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
                 Your role is not to persuade everyone. It is to find the people for whom the Circle could genuinely matter.
               </div>
             </div>
@@ -833,12 +872,10 @@ export function CircleFounderClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE FIRST STEP
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
               How to become a Circle Founder
@@ -877,16 +914,16 @@ export function CircleFounderClient() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="size-12 rounded-2xl bg-blue-50 border border-blue-200/70 text-[#0062D2] flex items-center justify-center shrink-0 shadow-2xs">
-                        <Icon className="size-5.5" />
+                      <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs">
+                        <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-50 border border-slate-200/80 text-slate-600 shadow-2xs">
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
                         Step 0{idx + 1}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#1D4ED8] transition-colors">
                         {titles[idx]}
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
@@ -897,7 +934,7 @@ export function CircleFounderClient() {
 
                   <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                     <span className="text-slate-400 font-mono">Dimension 0{idx + 1} of 06</span>
-                    <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
+                    <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">
                       Evaluate &rarr;
                     </span>
                   </div>
@@ -921,7 +958,8 @@ export function CircleFounderClient() {
               <GalaxyButton
                 href="/start-a-circle"
                 variant="primary"
-                size="md"
+                size="default"
+                className="font-bold uppercase tracking-wider"
               >
                 Begin the Conversation
               </GalaxyButton>
@@ -938,12 +976,10 @@ export function CircleFounderClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#0062D2]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
               Frequently asked questions
@@ -960,12 +996,12 @@ export function CircleFounderClient() {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full text-left px-6 py-4.5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-slate-900 hover:text-[#0062D2] transition-colors"
+                    className="w-full text-left px-6 py-4.5 flex items-center justify-between gap-4 text-sm sm:text-base font-bold text-slate-900 hover:text-[#1D4ED8] transition-colors cursor-pointer"
                   >
-                    <span>{item.q}</span>
+                    <span className={isOpen ? 'brand-gradient-text' : ''}>{item.q}</span>
                     <ChevronDown
                       className={`size-4.5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-[#0062D2]' : ''
+                        isOpen ? 'rotate-180 text-[#1D4ED8]' : ''
                       }`}
                     />
                   </button>
@@ -1040,9 +1076,9 @@ export function CircleFounderClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
                   START WITH ONE ENTREPRENEUR
                 </span>
               </div>
@@ -1059,7 +1095,8 @@ export function CircleFounderClient() {
                 <GalaxyButton
                   href="/start-a-circle"
                   variant="primary"
-                  size="md"
+                  size="default"
+                  className="font-bold uppercase tracking-wider"
                 >
                   Apply to Found a Circle
                 </GalaxyButton>
@@ -1069,7 +1106,9 @@ export function CircleFounderClient() {
                   target="_blank"
                   rel="noreferrer"
                   variant="transparent"
-                  size="md"
+                  size="default"
+                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  className="font-bold uppercase tracking-wider"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -1083,7 +1122,9 @@ export function CircleFounderClient() {
               >
                 Start With One. <br />
                 Build With Trust. <br />
-                <span className="text-[#7DD3FC]">Create A Circle.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                  Create A Circle.
+                </span>
               </div>
             </div>
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
   ChevronRight,
@@ -233,6 +234,16 @@ export function NewsroomPageClient() {
 
   return (
     <div className="min-h-screen bg-[#FDFDFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-[#0062D2]">
+      {/* Brand SVG Gradient definition for Lucide icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none opacity-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="newsBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ─── Top Breadcrumb Navigation ─── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
@@ -314,10 +325,9 @@ export function NewsroomPageClient() {
             <div className="relative z-10 w-full p-6 sm:p-10 lg:p-12">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
                 
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-2.5 mb-3.5">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
+                {/* Eyebrow label without dash */}
+                <div className="mb-3.5">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     PUBLIC RECORD &amp; PRESS SECRETARIAT
                   </span>
                 </div>
@@ -325,7 +335,7 @@ export function NewsroomPageClient() {
                 {/* H1 Heading */}
                 <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-semibold text-white tracking-tight leading-[1.14] mb-3.5">
                   What is happening at{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]">
                     PEERS GLOBAL.
                   </span>
                 </h1>
@@ -344,27 +354,33 @@ export function NewsroomPageClient() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <a
+                  <GalaxyButton
                     href="#latest"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white px-6 py-3 text-xs sm:text-sm font-bold tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                    size="lg"
+                    className="text-xs sm:text-sm"
                   >
-                    <span>Explore Latest</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                    EXPLORE LATEST
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#press-releases"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                    variant="transparent"
+                    size="lg"
+                    icon={false}
+                    className="text-xs sm:text-sm"
                   >
-                    <span>Press Releases</span>
-                  </a>
+                    Press Releases
+                  </GalaxyButton>
 
-                  <a
+                  <GalaxyButton
                     href="#media-kit"
-                    className="rounded-full border border-white/25 hover:bg-white/20 bg-transparent text-white px-5 py-3 text-xs sm:text-sm font-bold tracking-wider transition-all hover:scale-105 inline-flex items-center gap-2 uppercase cursor-pointer"
+                    variant="transparent"
+                    size="lg"
+                    icon={false}
+                    className="text-xs sm:text-sm"
                   >
-                    <span>Media Kit</span>
-                  </a>
+                    Media Kit
+                  </GalaxyButton>
                 </div>
 
               </div>
@@ -382,13 +398,31 @@ export function NewsroomPageClient() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-md transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                  {stat.val}
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`newsStatGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                    style={{ stroke: `url(#newsStatGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+
+                <div className="relative z-10 p-3.5 sm:p-4 bg-white border border-slate-200/80 !rounded-[calc(1rem-1.5px)] h-full">
+                  <div className="text-xl sm:text-2xl font-bold font-serif brand-gradient-text">
+                    {stat.val}
+                  </div>
+                  <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                  <div className="text-[11px] text-slate-500 font-normal">{stat.sub}</div>
                 </div>
-                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
-                <div className="text-[11px] text-slate-500 font-normal">{stat.sub}</div>
               </div>
             ))}
           </div>
@@ -405,9 +439,8 @@ export function NewsroomPageClient() {
             {/* Left Context & Category Scope */}
             <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
               <div className="space-y-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     LATEST DEVELOPMENTS
                   </span>
                 </div>
@@ -434,7 +467,7 @@ export function NewsroomPageClient() {
                     'Bilateral Collaborations',
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-2 p-1.5 rounded-lg bg-white border border-slate-100">
-                      <CheckCircle2 className="size-3.5 text-[#0062D2] shrink-0" />
+                      <CheckCircle2 className="size-3.5 [stroke:url(#newsBrandGrad)] shrink-0" />
                       <span className="font-medium text-slate-800">{item}</span>
                     </div>
                   ))}
@@ -457,34 +490,52 @@ export function NewsroomPageClient() {
                 {LATEST_STORIES.map((story, idx) => (
                   <div
                     key={story.headline}
-                    className="p-5 sm:p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:bg-white hover:border-[#0062D2] hover:shadow-md transition-all flex flex-col justify-between space-y-3.5 group"
+                    className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-md transition-all"
+                    tabIndex={0}
+                    role="article"
                   >
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between text-xs font-mono">
-                        <span className="px-2.5 py-0.5 rounded-md bg-blue-50 text-[#0062D2] font-bold border border-blue-100 text-[11px]">
-                          {story.category}
-                        </span>
-                        <span className="text-slate-500 text-[11px]">{story.date}</span>
+                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`latestGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                        style={{ stroke: `url(#latestGrad-${idx})` }}
+                        d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                      />
+                    </svg>
+
+                    <div className="relative z-10 p-5 sm:p-6 bg-white border border-slate-200/80 rounded-2xl h-full flex flex-col justify-between space-y-3.5">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between text-xs font-mono">
+                          <span className="px-2.5 py-0.5 rounded-md bg-blue-50/80 font-bold border border-blue-100 text-[11px] brand-gradient-text">
+                            {story.category}
+                          </span>
+                          <span className="text-slate-500 text-[11px]">{story.date}</span>
+                        </div>
+
+                        <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover-gradient-text transition-colors leading-snug">
+                          {story.headline}
+                        </h3>
+
+                        <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                          {story.summary}
+                        </p>
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors leading-snug">
-                        {story.headline}
-                      </h3>
-
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                        {story.summary}
-                      </p>
-                    </div>
-
-                    <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs">
-                      <span className="font-mono text-slate-400 text-[11px]">Item #{idx + 1}</span>
-                      <a
-                        href={story.readMoreUrl}
-                        className="inline-flex items-center gap-1 font-bold text-[#0062D2] hover:underline uppercase tracking-wider text-[11px]"
-                      >
-                        <span>Details</span>
-                        <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
-                      </a>
+                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                        <span className="font-mono text-slate-400 text-[11px]">Item #{idx + 1}</span>
+                        <a
+                          href={story.readMoreUrl}
+                          className="inline-flex items-center gap-1.5 font-bold hover:opacity-80 uppercase tracking-wider text-[11px] whitespace-nowrap shrink-0 group/btn"
+                        >
+                          <span className="brand-gradient-text">DETAILS</span>
+                          <ArrowRight className="size-3.5 group-hover/btn:translate-x-1 transition-transform [stroke:url(#newsBrandGrad)] shrink-0 inline-block align-middle" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -505,9 +556,8 @@ export function NewsroomPageClient() {
             {/* Left Column: Context & Covered Areas */}
             <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
               <div className="space-y-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     PRESS RELEASES
                   </span>
                 </div>
@@ -534,7 +584,7 @@ export function NewsroomPageClient() {
                     'Annual Summits',
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50 border border-slate-100 text-[11px]">
-                      <CheckCircle2 className="size-3 text-[#0062D2] shrink-0" />
+                      <CheckCircle2 className="size-3 [stroke:url(#newsBrandGrad)] shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -557,18 +607,18 @@ export function NewsroomPageClient() {
                 {PRESS_RELEASES.map((pr) => (
                   <div
                     key={pr.headline}
-                    className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-blue-50/20 transition-colors"
+                    className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-blue-50/20 transition-colors group"
                   >
                     <div className="space-y-1.5 max-w-xl">
                       <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                        <span className="px-2.5 py-0.5 rounded bg-blue-50 text-[#0062D2] font-bold border border-blue-200 text-[11px]">
+                        <span className="px-2.5 py-0.5 rounded bg-blue-50/80 font-bold border border-blue-200 text-[11px] brand-gradient-text">
                           {pr.type}
                         </span>
                         <span className="text-slate-400">•</span>
                         <span className="text-slate-600 font-semibold text-[11px]">{pr.date}</span>
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-bold text-slate-950 leading-snug">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover-gradient-text transition-colors leading-snug">
                         {pr.headline}
                       </h3>
 
@@ -577,17 +627,21 @@ export function NewsroomPageClient() {
                       </p>
 
                       <div className="text-[11px] text-slate-500 font-mono pt-1">
-                        Contact: <a href={`mailto:${pr.mediaContact}`} className="text-[#0062D2] font-semibold hover:underline">{pr.mediaContact}</a>
+                        Contact: <a href={`mailto:${pr.mediaContact}`} className="font-semibold brand-gradient-text hover:underline">{pr.mediaContact}</a>
                       </div>
                     </div>
 
-                    <a
+                    <GalaxyButton
                       href="#media-enquiry"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-50 hover:bg-[#0062D2] hover:text-white text-slate-700 text-xs font-bold border border-slate-200 hover:border-[#0062D2] transition-all shrink-0 self-start uppercase tracking-wider"
+                      size="sm"
+                      icon={false}
+                      className="text-xs shrink-0 self-start whitespace-nowrap"
                     >
-                      <span>Official PDF</span>
-                      <Download className="size-3.5" />
-                    </a>
+                      <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                        <span>Official PDF</span>
+                        <Download className="size-3.5" />
+                      </span>
+                    </GalaxyButton>
                   </div>
                 ))}
               </div>
@@ -604,9 +658,8 @@ export function NewsroomPageClient() {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-5">
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   IN THE MEDIA
                 </span>
               </div>
@@ -629,50 +682,72 @@ export function NewsroomPageClient() {
 
           {/* Coverage Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {VERIFIED_MEDIA_COVERAGE.map((item) => (
+            {VERIFIED_MEDIA_COVERAGE.map((item, idx) => (
               <div
                 key={item.headline}
-                className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:border-[#0062D2] hover:bg-white hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+                className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-md transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-[#0062D2] font-bold border border-blue-100 uppercase text-[11px]">
-                      {item.publication}
-                    </span>
-                    <span className="text-slate-500 text-[11px]">{item.date}</span>
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`mediaGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                    style={{ stroke: `url(#mediaGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+
+                <div className="relative z-10 p-6 bg-white border border-slate-200/80 !rounded-[calc(1rem-1.5px)] h-full flex flex-col justify-between space-y-4">
+                  <div className="space-y-2.5">
+                    <div className="flex items-center justify-between text-xs font-mono">
+                      <span className="px-2.5 py-0.5 rounded-full bg-blue-50/80 font-bold border border-blue-100 uppercase text-[11px] brand-gradient-text">
+                        {item.publication}
+                      </span>
+                      <span className="text-slate-500 text-[11px]">{item.date}</span>
+                    </div>
+
+                    <h3 className="text-base font-bold text-slate-950 group-hover-gradient-text transition-colors leading-snug">
+                      &ldquo;{item.headline}&rdquo;
+                    </h3>
+
+                    <div className="space-y-1 text-xs text-slate-600 font-sans">
+                      <div><strong className="text-slate-900 font-bold">Subject:</strong> {item.subject}</div>
+                      <div><strong className="text-slate-900 font-bold">Source:</strong> {item.source}</div>
+                    </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-950 leading-snug">
-                    &ldquo;{item.headline}&rdquo;
-                  </h3>
-
-                  <div className="space-y-1 text-xs text-slate-600 font-sans">
-                    <div><strong className="text-slate-900 font-bold">Subject:</strong> {item.subject}</div>
-                    <div><strong className="text-slate-900 font-bold">Source:</strong> {item.source}</div>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+                    <span className="text-slate-400 text-[11px]">Verified Editorial</span>
+                    <a
+                      href="#media-enquiry"
+                      className="inline-flex items-center gap-1.5 font-bold hover:underline uppercase tracking-wider text-[11px] whitespace-nowrap shrink-0 group/btn"
+                    >
+                      <span className="brand-gradient-text">Press Details</span>
+                      <ExternalLink className="size-3.5 [stroke:url(#newsBrandGrad)] shrink-0 inline-block align-middle" />
+                    </a>
                   </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-mono">
-                  <span className="text-slate-400 text-[11px]">Verified Editorial</span>
-                  <a
-                    href="#media-enquiry"
-                    className="inline-flex items-center gap-1 font-bold text-[#0062D2] hover:underline uppercase tracking-wider text-[11px]"
-                  >
-                    <span>Press Details</span>
-                    <ExternalLink className="size-3" />
-                  </a>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Editorial Integrity Box */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#040F24] border border-slate-800 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-2 font-bold text-xs sm:text-sm text-white">
-              <ShieldCheck className="size-4.5 text-sky-400 shrink-0" />
+          <div className="relative overflow-hidden p-4 sm:p-5 rounded-2xl bg-[#040F24] border border-blue-900/40 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(0,98,210,0.18),transparent_55%),radial-gradient(circle_at_85%_30%,rgba(225,29,72,0.12),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
+            />
+            <div className="relative z-10 flex items-center gap-2 font-bold text-xs sm:text-sm text-white">
+              <ShieldCheck className="size-4.5 [stroke:url(#newsBrandGrad)] shrink-0" />
               <span>Editorial Integrity Rule: Zero paid promotions presented as earned media.</span>
             </div>
-            <span className="text-[11px] font-mono text-slate-300">
+            <span className="relative z-10 text-[11px] font-mono text-slate-300">
               Only verified editorial features are archived.
             </span>
           </div>
@@ -681,20 +756,75 @@ export function NewsroomPageClient() {
       </section>
 
       {/* ─── Section 4: THE MEDIA STORY ─── */}
-      <section className="py-12 sm:py-16 bg-[#040F24] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-cyan-200 text-[11px] font-mono uppercase tracking-widest border border-white/15">
-            THE MEDIA STORY
+      <section className="relative py-16 sm:py-24 bg-[#040F24] text-white overflow-hidden border-t border-b border-slate-800">
+        {/* Deep celestial radial gradients & luminous aura */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(0,98,210,0.25),transparent_55%),radial-gradient(circle_at_85%_35%,rgba(225,29,72,0.18),transparent_50%),linear-gradient(115deg,#020817_0%,#071a3d_50%,#040f24_100%)]"
+        />
+
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* SVG Orbital Geometric Lines Background */}
+        <div className="absolute -right-20 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[540px] lg:w-[650px] opacity-20 overflow-hidden flex items-center justify-center">
+          <svg viewBox="0 0 600 600" fill="none" className="w-full h-full text-white/30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
+            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
+            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Eyebrow + Core Belief Statement */}
+            <div className="lg:col-span-6 space-y-5 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-[11px] font-mono uppercase tracking-widest border border-white/15 brand-gradient-text backdrop-blur-sm">
+                THE MEDIA STORY
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-white tracking-tight">
+                PEERS GLOBAL was created around a simple belief:
+              </h2>
+
+              <blockquote className="text-xl sm:text-2xl lg:text-3xl font-semibold italic bg-gradient-to-r from-blue-200 via-purple-200 to-rose-200 bg-clip-text text-transparent leading-snug border-l-2 border-blue-500/50 pl-4 py-1">
+                “Every honest entrepreneurial story deserves visibility.”
+              </blockquote>
+            </div>
+
+            {/* Right Column: Mission Narrative & Impact Cards */}
+            <div className="lg:col-span-6 space-y-6">
+              <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
+                Entrepreneurs build businesses that employ people, solve problems, create products, and serve communities. Yet many of their stories remain unseen. The Newsroom is where those journeys become part of the public record.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 backdrop-blur-md space-y-1 hover:border-blue-500/30 transition-colors">
+                  <div className="text-xs font-bold text-white tracking-wide uppercase font-mono brand-gradient-text">
+                    Earned Visibility
+                  </div>
+                  <p className="text-[12px] text-slate-300 font-light leading-relaxed">
+                    Giving builders and enterprises genuine, merit-based coverage without paywalls.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 backdrop-blur-md space-y-1 hover:border-rose-500/30 transition-colors">
+                  <div className="text-xs font-bold text-white tracking-wide uppercase font-mono brand-gradient-text">
+                    Public Record
+                  </div>
+                  <p className="text-[12px] text-slate-300 font-light leading-relaxed">
+                    Preserving entrepreneurial milestones for investors, customers, and industry history.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-white">
-            PEERS GLOBAL was created around a simple belief: <br />
-            <span className="italic text-cyan-200">Every honest entrepreneurial story deserves visibility.</span>
-          </h2>
-
-          <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
-            Entrepreneurs build businesses that employ people, solve problems, create products, and serve communities. Yet many of their stories remain unseen. The Newsroom is where those journeys become part of the public record.
-          </p>
         </div>
       </section>
 
@@ -703,9 +833,8 @@ export function NewsroomPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           <div className="space-y-2 max-w-3xl">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 OUR MEDIA ECOSYSTEM
               </span>
             </div>
@@ -718,46 +847,64 @@ export function NewsroomPageClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {MEDIA_ECOSYSTEM.map((eco) => {
+            {MEDIA_ECOSYSTEM.map((eco, idx) => {
               const IconComp = eco.icon
               return (
                 <div
                   key={eco.title}
-                  className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:bg-white hover:border-[#0062D2] hover:shadow-md transition-all flex flex-col justify-between space-y-4 group"
+                  className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-md transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="size-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
-                        <IconComp className="size-5" />
-                      </div>
-                      <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 uppercase tracking-wider">
-                        {eco.tag}
-                      </span>
-                    </div>
+                  <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`ecoGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                      style={{ stroke: `url(#ecoGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
 
-                    <div className="space-y-1">
-                      <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
-                        {eco.title}
-                      </h3>
-                      <p className="text-xs font-semibold text-slate-800 leading-snug">
-                        {eco.desc}
+                  <div className="relative z-10 p-6 bg-white border border-slate-200/80 !rounded-[calc(1rem-1.5px)] h-full flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center">
+                          <IconComp className="size-5 [stroke:url(#newsBrandGrad)]" />
+                        </div>
+                        <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 uppercase tracking-wider">
+                          {eco.tag}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1">
+                        <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover-gradient-text transition-colors">
+                          {eco.title}
+                        </h3>
+                        <p className="text-xs font-semibold text-slate-800 leading-snug">
+                          {eco.desc}
+                        </p>
+                      </div>
+
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal pt-2 border-t border-slate-100">
+                        {eco.status}
                       </p>
                     </div>
 
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal pt-2 border-t border-slate-200/60">
-                      {eco.status}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 flex items-center justify-between text-xs">
-                    <span className="text-[11px] font-mono text-slate-400">Verified Format</span>
-                    <a
-                      href="#media-enquiry"
-                      className="inline-flex items-center gap-1 font-bold text-[#0062D2] hover:underline uppercase tracking-wider text-[11px]"
-                    >
-                      <span>Participate / Pitch</span>
-                      <ChevronRight className="size-3" />
-                    </a>
+                    <div className="pt-2 flex items-center justify-between text-xs">
+                      <span className="text-[11px] font-mono text-slate-400">Verified Format</span>
+                      <a
+                        href="#media-enquiry"
+                        className="inline-flex items-center gap-1.5 font-bold hover:opacity-80 uppercase tracking-wider text-[11px] whitespace-nowrap shrink-0 group/btn"
+                      >
+                        <span className="brand-gradient-text">Participate / Pitch</span>
+                        <ChevronRight className="size-3.5 group-hover/btn:translate-x-1 transition-transform [stroke:url(#newsBrandGrad)] shrink-0 inline-block align-middle" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               )
@@ -772,9 +919,8 @@ export function NewsroomPageClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 FACTSHEET &amp; MEDIA KIT
               </span>
             </div>
@@ -787,32 +933,50 @@ export function NewsroomPageClient() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {MEDIA_KIT_DOWNLOADS.map((item) => (
+            {MEDIA_KIT_DOWNLOADS.map((item, idx) => (
               <div
                 key={item.name}
-                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-4 hover:border-[#0062D2] hover:shadow-md transition-all group"
+                className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-md transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="space-y-2.5">
-                  <div className="size-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#0062D2]">
-                    <FileText className="size-5" />
-                  </div>
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
-                    {item.name}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
-                </div>
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`kitGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                    style={{ stroke: `url(#kitGrad-${idx})` }}
+                    d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                  />
+                </svg>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-slate-500 font-semibold">{item.format}</span>
-                  <a
-                    href="#media-enquiry"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#0062D2] hover:text-[#0052b3] uppercase tracking-wider"
-                  >
-                    <span>Request Kit</span>
-                    <Download className="size-3.5" />
-                  </a>
+                <div className="relative z-10 p-6 bg-white border border-slate-200/80 rounded-2xl h-full flex flex-col justify-between space-y-4">
+                  <div className="space-y-2.5">
+                    <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center">
+                      <FileText className="size-5 [stroke:url(#newsBrandGrad)]" />
+                    </div>
+                    <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover-gradient-text transition-colors leading-snug">
+                      {item.name}
+                    </h3>
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-slate-500 font-semibold">{item.format}</span>
+                    <a
+                      href="#media-enquiry"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold hover:opacity-80 uppercase tracking-wider whitespace-nowrap shrink-0 group/btn"
+                    >
+                      <span className="brand-gradient-text">Request Kit</span>
+                      <Download className="size-3.5 [stroke:url(#newsBrandGrad)] shrink-0 inline-block align-middle" />
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -822,7 +986,7 @@ export function NewsroomPageClient() {
           <div className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0062D2] block">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider brand-gradient-text block">
                   THE OFFICIAL BOILERPLATE
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-950">
@@ -832,14 +996,14 @@ export function NewsroomPageClient() {
               <button
                 type="button"
                 onClick={copyBoilerplate}
-                className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full bg-blue-50 text-[#0062D2] border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer self-start sm:self-auto shrink-0 uppercase tracking-wider"
+                className="inline-flex items-center gap-2 text-xs font-bold px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white hover:opacity-95 transition-all cursor-pointer self-start sm:self-auto shrink-0 uppercase tracking-wider shadow-xs hover:scale-105"
               >
-                {copied ? <Check className="size-3.5 text-emerald-600" /> : <Copy className="size-3.5" />}
+                {copied ? <Check className="size-3.5 text-white" /> : <Copy className="size-3.5 text-white" />}
                 <span>{copied ? 'Copied to Clipboard!' : 'Copy Boilerplate'}</span>
               </button>
             </div>
 
-            <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed italic border-l-4 border-[#0062D2] pl-4 py-1.5 bg-slate-50/70 rounded-r-xl">
+            <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed italic border-l-4 border-[#1D4ED8] pl-4 py-1.5 bg-slate-50/70 rounded-r-xl">
               &ldquo;{officialBoilerplateText}&rdquo;
             </blockquote>
           </div>
@@ -856,9 +1020,8 @@ export function NewsroomPageClient() {
             {/* Left Column: Context & Welcomed Topics */}
             <div className="lg:col-span-5 space-y-5 lg:sticky lg:top-24">
               <div className="space-y-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-6 bg-[#0062D2] rounded-full" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0062D2]">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     FOR JOURNALISTS &amp; MEDIA
                   </span>
                 </div>
@@ -889,11 +1052,11 @@ export function NewsroomPageClient() {
                 ))}
               </div>
 
-              <div className="p-5 rounded-2xl bg-blue-50/70 border border-blue-200/80 space-y-2">
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-50/70 to-rose-50/50 border border-blue-200/80 space-y-2">
                 <p className="text-xs sm:text-sm italic text-slate-900 font-medium">
                   &ldquo;If your story is relevant to our world, tell us what you are working on.&rdquo;
                 </p>
-                <div className="text-[11px] font-bold uppercase tracking-wider text-[#0062D2]">
+                <div className="text-[11px] font-bold uppercase tracking-wider brand-gradient-text">
                   Direct Secretariat SLA: Under 24 Business Hours
                 </div>
               </div>
@@ -934,7 +1097,7 @@ export function NewsroomPageClient() {
                           contact: '',
                         })
                       }}
-                      className="mt-2 text-xs font-bold text-emerald-700 underline uppercase tracking-wider cursor-pointer"
+                      className="mt-2 text-xs font-bold brand-gradient-text underline uppercase tracking-wider cursor-pointer"
                     >
                       Submit another enquiry
                     </button>
@@ -952,7 +1115,7 @@ export function NewsroomPageClient() {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="e.g. Aditi Sharma"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
 
@@ -966,7 +1129,7 @@ export function NewsroomPageClient() {
                           value={formData.organisation}
                           onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
                           placeholder="e.g. Financial Express / LiveMint"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
                     </div>
@@ -982,7 +1145,7 @@ export function NewsroomPageClient() {
                           value={formData.role}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                           placeholder="e.g. Senior Editor"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
 
@@ -996,7 +1159,7 @@ export function NewsroomPageClient() {
                           value={formData.deadline}
                           onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                           placeholder="e.g. Oct 15, 2026 / 48 Hours"
-                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm"
                         />
                       </div>
                     </div>
@@ -1011,7 +1174,7 @@ export function NewsroomPageClient() {
                         value={formData.topic}
                         onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                         placeholder="e.g. Story on tier-2 manufacturing founder ecosystems"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm"
                       />
                     </div>
 
@@ -1025,7 +1188,7 @@ export function NewsroomPageClient() {
                         value={formData.needs}
                         onChange={(e) => setFormData({ ...formData, needs: e.target.value })}
                         placeholder="e.g. Founder interview with Dr. Pravin Parmar, case study data, high-res photos"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm resize-none"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm resize-none"
                       />
                     </div>
 
@@ -1039,7 +1202,7 @@ export function NewsroomPageClient() {
                         value={formData.contact}
                         onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                         placeholder="e.g. journalist@publication.com | +91 98765 43210"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#0062D2] text-slate-900 text-xs sm:text-sm"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 focus:outline-none focus:border-[#1D4ED8] text-slate-900 text-xs sm:text-sm"
                       />
                     </div>
 
@@ -1072,9 +1235,9 @@ export function NewsroomPageClient() {
               
               {/* Left Column: Charter & Philosophy */}
               <div className="lg:col-span-5 space-y-4 text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[#0062D2] text-xs font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  STANDARDS &amp; GOVERNANCE
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-200/80 text-xs font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-3.5 h-3.5 [stroke:url(#newsBrandGrad)]" />
+                  <span className="brand-gradient-text">STANDARDS &amp; GOVERNANCE</span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
@@ -1087,8 +1250,8 @@ export function NewsroomPageClient() {
 
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900">
-                    <CheckCircle2 className="w-4 h-4 text-[#0062D2]" />
-                    Institutional Stand
+                    <CheckCircle2 className="w-4 h-4 [stroke:url(#newsBrandGrad)]" />
+                    <span>Institutional Stand</span>
                   </div>
                   <p className="text-xs text-slate-700 leading-relaxed font-medium">
                     &ldquo;And claims should be supportable. If we publish it, we should be able to stand behind it.&rdquo;
@@ -1100,8 +1263,8 @@ export function NewsroomPageClient() {
               <div className="lg:col-span-7">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-blue-100/70 text-[#0062D2] flex items-center justify-center shrink-0 mt-0.5">
-                      <Calendar className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/60 flex items-center justify-center shrink-0 mt-0.5">
+                      <Calendar className="w-4 h-4 [stroke:url(#newsBrandGrad)]" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900">Chronological Rigour</h4>
@@ -1110,8 +1273,8 @@ export function NewsroomPageClient() {
                   </div>
 
                   <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-purple-100/70 text-purple-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <User className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/60 flex items-center justify-center shrink-0 mt-0.5">
+                      <User className="w-4 h-4 [stroke:url(#newsBrandGrad)]" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900">Identity & Attribution</h4>
@@ -1120,8 +1283,8 @@ export function NewsroomPageClient() {
                   </div>
 
                   <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-100/70 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/60 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 [stroke:url(#newsBrandGrad)]" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900">Verified Metrics</h4>
@@ -1130,8 +1293,8 @@ export function NewsroomPageClient() {
                   </div>
 
                   <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-amber-100/70 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <Mic className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/60 flex items-center justify-center shrink-0 mt-0.5">
+                      <Mic className="w-4 h-4 [stroke:url(#newsBrandGrad)]" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900">Authentic Quotations</h4>
@@ -1140,8 +1303,8 @@ export function NewsroomPageClient() {
                   </div>
 
                   <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-indigo-100/70 text-indigo-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <ExternalLink className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/60 flex items-center justify-center shrink-0 mt-0.5">
+                      <ExternalLink className="w-4 h-4 [stroke:url(#newsBrandGrad)]" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900">Source Traceability</h4>
@@ -1150,8 +1313,8 @@ export function NewsroomPageClient() {
                   </div>
 
                   <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-rose-100/70 text-rose-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <FileText className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/60 flex items-center justify-center shrink-0 mt-0.5">
+                      <FileText className="w-4 h-4 [stroke:url(#newsBrandGrad)]" />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-slate-900">Editorial Distinction</h4>
@@ -1195,16 +1358,15 @@ export function NewsroomPageClient() {
             
             {/* Left Column */}
             <div className="lg:col-span-8 flex flex-col items-start space-y-3.5">
-              <div className="inline-flex items-center gap-2">
-                <span className="h-[1.5px] w-5 bg-gradient-to-r from-sky-400 to-rose-400 rounded-full" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-400">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   FOR THE MEDIA
                 </span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
                 Official information. Real stories. <br className="hidden sm:inline" />
-                <span className="italic text-cyan-200">Verified facts. Direct access.</span>
+                <span className="italic bg-gradient-to-r from-blue-300 via-purple-300 to-rose-300 bg-clip-text text-transparent">Verified facts. Direct access.</span>
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
@@ -1212,34 +1374,43 @@ export function NewsroomPageClient() {
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
-                <a
+                <GalaxyButton
                   href="#latest"
-                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold shadow-md hover:scale-105 transition-all uppercase tracking-wider cursor-pointer"
+                  size="default"
+                  className="text-xs font-bold"
                 >
-                  <span>Explore Latest</span>
-                  <ArrowRight className="size-3.5" />
-                </a>
+                  EXPLORE LATEST
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#press-releases"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  icon={false}
+                  className="text-xs font-bold"
                 >
-                  <span>Press Releases</span>
-                </a>
+                  Press Releases
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#media-kit"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  icon={false}
+                  className="text-xs font-bold"
                 >
-                  <span>Download Media Kit</span>
-                </a>
+                  Download Media Kit
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#media-enquiry"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all cursor-pointer"
+                  variant="transparent"
+                  size="default"
+                  icon={false}
+                  className="text-xs font-bold"
                 >
-                  <span>Make Enquiry</span>
-                </a>
+                  Make Enquiry
+                </GalaxyButton>
               </div>
             </div>
 
@@ -1271,3 +1442,4 @@ export function NewsroomPageClient() {
     </div>
   )
 }
+

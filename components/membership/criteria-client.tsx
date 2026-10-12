@@ -118,20 +118,32 @@ const CIRCLE_STEPS = [
 // ─── FAQ Questions ────────────────────────────────────────────────────────
 const FAQS = [
   {
+    num: '01',
+    tag: 'Timeline & Review',
     q: 'How long does Circle approval take?',
     a: 'The Circle approval process is usually completed within a week. The exact timing depends on the Circle review schedule and your guest visit. We would rather take the time to establish the right fit than place someone into a Circle simply to complete a transaction.',
+    icon: Clock,
   },
   {
+    num: '02',
+    tag: 'Multi-Circle Belonging',
     q: 'Can you join more than one Circle?',
     a: 'Yes. PEERS GLOBAL allows participation in more than one Circle, subject to the applicable Circle structure and approval process. This is valuable when your entrepreneurial journey crosses multiple industries, purposes or areas of ambition.',
+    icon: Layers,
   },
   {
+    num: '03',
+    tag: 'Category Exclusivity',
     q: 'What if your category is already taken?',
     a: 'If your preferred category is already occupied, the next conversation is not "Can we make an exception?" but "Where can you contribute most meaningfully within the community?" You may be guided toward another appropriate Circle or another pathway within PEERS GLOBAL.',
+    icon: Lock,
   },
   {
+    num: '04',
+    tag: 'Community & Inner Board',
     q: 'Why are there two distinct steps?',
     a: 'Because PEERS GLOBAL is bigger than any one Circle. PEERS GLOBAL is the community (giving you wide access across cities and countries), while your Circle is your Inner Board (giving you an intimate, focused environment for deep trust).',
+    icon: HelpCircle,
   },
 ]
 
@@ -144,6 +156,21 @@ export function CriteriaClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans antialiased">
+      {/* SVG Linear Gradient Definitions for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       {/* =========================================================================
           SECTION 1: HERO — CRITERIA & PROCESS (Full Page Dark Video Hero)
@@ -184,14 +211,16 @@ export function CriteriaClient() {
               {/* Eyebrow Badge */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span>CRITERIA &amp; PROCESS</span>
+                <span className="bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                  CRITERIA &amp; PROCESS
+                </span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
                   Two steps. Joining PEERS GLOBAL, and{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
                     joining a Circle
                   </span>
                 </h1>
@@ -201,17 +230,21 @@ export function CriteriaClient() {
               </div>
 
               {/* Sub-text / Steps Overview */}
-              <div className="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <div className="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                 <p>
                   Joining PEERS GLOBAL and finding your Circle are related—but they are distinct, intentional decisions.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-white text-xs">
-                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                    <span className="text-sky-400 font-bold block mb-1 uppercase tracking-wider text-[10px]">Step 1 · The Community</span>
+                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 transition-all">
+                    <span className="bg-gradient-to-r from-[#38BDF8] to-[#818CF8] bg-clip-text text-transparent font-bold block mb-1 uppercase tracking-wider text-[10px]">
+                      Step 1 · The Community
+                    </span>
                     Become part of the wider ecosystem across cities.
                   </div>
-                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
-                    <span className="text-rose-400 font-bold block mb-1 uppercase tracking-wider text-[10px]">Step 2 · Your Inner Board</span>
+                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 transition-all">
+                    <span className="bg-gradient-to-r from-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold block mb-1 uppercase tracking-wider text-[10px]">
+                      Step 2 · Your Inner Board
+                    </span>
                     Find the Circle where your industry fits.
                   </div>
                 </div>
@@ -250,8 +283,7 @@ export function CriteriaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-left max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 PART ONE · COMMUNITY ACCESS
               </span>
@@ -259,73 +291,102 @@ export function CriteriaClient() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
               The Five Criteria for Joining PEERS GLOBAL
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
               The first step is becoming part of the community. PEERS GLOBAL is built around relationships, contribution and participation—so joining is not designed simply as a transaction.
             </p>
           </div>
 
           {/* 6 Criteria Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FIVE_CRITERIA.map((crit) => {
+            {FIVE_CRITERIA.map((crit, idx) => {
               const Icon = crit.icon
               return (
-                <div
-                  key={crit.num}
-                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-blue-200 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className={`size-12 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 ${crit.color}`}>
-                        <Icon className="size-5.5" />
+                <div key={crit.num} className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`critBorderGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#critBorderGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white h-full shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-600 border border-slate-200/80">
+                          CRITERION {crit.num}
+                        </span>
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-600 border border-slate-200/80">
-                        CRITERION {crit.num}
-                      </span>
+
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                          {crit.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
+                          {crit.desc}
+                        </p>
+                      </div>
                     </div>
 
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
-                        {crit.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
-                        {crit.desc}
-                      </p>
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                      <span className="size-1.5 rounded-full bg-[#1D4ED8]" />
+                      <span>Core Community Standard</span>
                     </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-400 font-medium">
-                    <span className="size-1.5 rounded-full bg-[#0062D2]" />
-                    <span>Core Community Standard</span>
                   </div>
                 </div>
               )
             })}
 
             {/* 6th Card: What We Do Not Require */}
-            <div className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-gradient-to-b from-emerald-50/80 to-white border border-emerald-200/80 shadow-2xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="size-12 rounded-2xl bg-emerald-100/70 border border-emerald-200 text-emerald-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    <Check className="size-6" />
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+              <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="critBorderGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="50%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#critBorderGrad5)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white h-full shadow-sm hover:shadow-xl transition-all duration-300">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                      <Check className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-600 border border-slate-200/80 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors">
+                      ALIGNMENT
+                    </span>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200">
-                    ALIGNMENT
-                  </span>
+
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                      What We Do Not Require
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
+                      You do not need to arrive as a perfect entrepreneur. You do not need to have achieved everything already, and you do not need to know exactly where your journey will lead.
+                    </p>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
-                    What We Do Not Require
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light mt-2">
-                    You do not need to arrive as a perfect entrepreneur. You do not need to have achieved everything already, and you do not need to know exactly where your journey will lead.
-                  </p>
+                <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-700 flex items-center gap-2 group-hover:text-slate-900 transition-colors">
+                  <span className="brand-gradient-text font-bold">✦</span>
+                  <span>Fit is about alignment — not perfection.</span>
                 </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-emerald-200/60 text-xs font-bold text-emerald-800 flex items-center gap-2">
-                <span>✦</span>
-                <span>Fit is about alignment — not perfection.</span>
               </div>
             </div>
           </div>
@@ -334,8 +395,10 @@ export function CriteriaClient() {
           <div className="p-7 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-100 pb-5">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-blue-50 border border-blue-200/60 text-[11px] font-bold uppercase tracking-wider text-[#0062D2] mb-1.5">
-                  Process
+                <div className="mb-1.5">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                    Process
+                  </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
                   The Joining Process
@@ -347,49 +410,97 @@ export function CriteriaClient() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="group relative p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-blue-300 hover:bg-white hover:shadow-xs transition-all space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="size-8 rounded-xl bg-blue-50 text-[#0062D2] font-mono font-bold text-xs flex items-center justify-center border border-blue-100">
-                    01
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Step One</span>
+              <div className="animated-glow-card group !rounded-2xl cursor-pointer" tabIndex={0} role="article">
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="joinStepGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#joinStepGrad1)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="relative p-6 !rounded-[calc(1rem-1.5px)] bg-[#FAFBFD] hover:bg-white h-full space-y-3 shadow-2xs">
+                  <div className="flex items-center justify-between">
+                    <span className="size-8 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 font-mono font-bold text-xs flex items-center justify-center text-[#1D4ED8]">
+                      01
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Step One</span>
+                  </div>
+                  <h4 className="text-base font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                    Begin in Unity
+                  </h4>
+                  <p className="text-xs text-slate-600 font-light leading-relaxed">
+                    Start through the Unity App and provide the foundational details required for your membership profile.
+                  </p>
                 </div>
-                <h4 className="text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors">
-                  Begin in Unity
-                </h4>
-                <p className="text-xs text-slate-600 font-light leading-relaxed">
-                  Start through the Unity App and provide the foundational details required for your membership profile.
-                </p>
               </div>
 
-              <div className="group relative p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-blue-300 hover:bg-white hover:shadow-xs transition-all space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="size-8 rounded-xl bg-blue-50 text-[#0062D2] font-mono font-bold text-xs flex items-center justify-center border border-blue-100">
-                    02
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Step Two</span>
+              <div className="animated-glow-card group !rounded-2xl cursor-pointer" tabIndex={0} role="article">
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="joinStepGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#joinStepGrad2)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="relative p-6 !rounded-[calc(1rem-1.5px)] bg-[#FAFBFD] hover:bg-white h-full space-y-3 shadow-2xs">
+                  <div className="flex items-center justify-between">
+                    <span className="size-8 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 font-mono font-bold text-xs flex items-center justify-center text-[#1D4ED8]">
+                      02
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Step Two</span>
+                  </div>
+                  <h4 className="text-base font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                    Complete the Review
+                  </h4>
+                  <p className="text-xs text-slate-600 font-light leading-relaxed">
+                    Your profile is reviewed as part of the PEERS GLOBAL membership alignment process for business ownership.
+                  </p>
                 </div>
-                <h4 className="text-base font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors">
-                  Complete the Review
-                </h4>
-                <p className="text-xs text-slate-600 font-light leading-relaxed">
-                  Your profile is reviewed as part of the PEERS GLOBAL membership alignment process for business ownership.
-                </p>
               </div>
 
-              <div className="group relative p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-emerald-300 hover:bg-white hover:shadow-xs transition-all space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="size-8 rounded-xl bg-emerald-50 text-emerald-700 font-mono font-bold text-xs flex items-center justify-center border border-emerald-100">
-                    03
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">Step Three</span>
+              <div className="animated-glow-card group !rounded-2xl cursor-pointer" tabIndex={0} role="article">
+                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="joinStepGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#joinStepGrad3)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="relative p-6 !rounded-[calc(1rem-1.5px)] bg-[#FAFBFD] hover:bg-white h-full space-y-3 shadow-2xs">
+                  <div className="flex items-center justify-between">
+                    <span className="size-8 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 font-mono font-bold text-xs flex items-center justify-center text-[#1D4ED8]">
+                      03
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Step Three</span>
+                  </div>
+                  <h4 className="text-base font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                    Welcome as Member
+                  </h4>
+                  <p className="text-xs text-slate-600 font-light leading-relaxed">
+                    Once confirmed, you immediately gain active platform access to the global directory and network (same day).
+                  </p>
                 </div>
-                <h4 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                  Welcome as Member
-                </h4>
-                <p className="text-xs text-slate-600 font-light leading-relaxed">
-                  Once confirmed, you immediately gain active platform access to the global directory and network (same day).
-                </p>
               </div>
             </div>
           </div>
@@ -404,8 +515,7 @@ export function CriteriaClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-left max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 PART TWO · INNER BOARD
               </span>
@@ -420,41 +530,54 @@ export function CriteriaClient() {
 
           {/* 6 Step Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CIRCLE_STEPS.map((step) => {
+            {CIRCLE_STEPS.map((step, idx) => {
               const Icon = step.icon
               return (
-                <div
-                  key={step.num}
-                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-blue-200 hover:-translate-y-1 hover:bg-white transition-all duration-300"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className={`size-12 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 ${step.color}`}>
-                        <Icon className="size-5.5" />
+                <div key={step.num} className="animated-glow-card group !rounded-3xl cursor-pointer" tabIndex={0} role="article">
+                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`circleStepGrad${idx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#circleStepGrad${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="relative flex flex-col justify-between p-7 sm:p-8 !rounded-[calc(1.5rem-1.5px)] bg-[#FAFBFD] hover:bg-white h-full shadow-2xs">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-white border border-slate-200/80 text-slate-600 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors">
+                          STEP {step.num}
+                        </span>
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-white border border-slate-200/80 text-slate-600 group-hover:border-blue-200 group-hover:text-[#0062D2] transition-colors">
-                        STEP {step.num}
-                      </span>
+
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                          {step.action}
+                        </span>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                          {step.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
+                          {step.desc}
+                        </p>
+                      </div>
                     </div>
 
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
-                        {step.action}
+                    <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400">Phase {step.num} of 06</span>
+                      <span className="inline-flex items-center gap-1 font-semibold brand-gradient-text opacity-0 group-hover:opacity-100 transition-opacity">
+                        Details &rarr;
                       </span>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#0062D2] transition-colors leading-snug">
-                        {step.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
-                        {step.desc}
-                      </p>
                     </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span className="text-slate-400">Phase 0{step.num} of 06</span>
-                    <span className="inline-flex items-center gap-1 text-[#0062D2] opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
-                      Details &rarr;
-                    </span>
                   </div>
                 </div>
               )
@@ -473,89 +596,125 @@ export function CriteriaClient() {
       </section>
 
       {/* =========================================================================
-          SECTION 4: FAQS & CLARITY (ACCORDION)
+          SECTION 4: FAQS & CLARITY (Executive 2x2 Animated Grid Layout)
           ========================================================================= */}
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          <div className="text-center space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div>
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 COMMON QUESTIONS
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
               A Process Built Around Fit
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-light">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
               We want the process to answer two questions honestly: Does PEERS GLOBAL feel right for you? And is this Circle the right environment for you to contribute and grow?
             </p>
           </div>
 
-          <div className="space-y-3">
+          {/* 2x2 Clean Executive Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {FAQS.map((faq, idx) => {
               const isOpen = openFaq === idx
+              const Icon = faq.icon
               return (
                 <div
                   key={idx}
-                  className={`rounded-2xl border transition-all duration-200 bg-white ${
-                    isOpen ? 'border-[#0062D2] shadow-sm' : 'border-slate-200/80 hover:border-slate-300'
-                  }`}
+                  onClick={() => toggleFaq(idx)}
+                  tabIndex={0}
+                  role="article"
+                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer select-none"
                 >
-                  <button
-                    onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 flex items-center justify-between text-left gap-4"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="text-sm sm:text-base font-semibold text-slate-900">
-                      {faq.q}
-                    </span>
-                    <div
-                      className={`size-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                        isOpen ? 'bg-[#0062D2] text-white' : 'bg-slate-100 text-slate-600'
-                      }`}
-                    >
-                      {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+                  <div className="space-y-4">
+                    {/* Top Bar: Icon + Category Tag + Number */}
+                    <div className="flex items-center justify-between">
+                      <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                        <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-[#1D4ED8] shadow-2xs">
+                          {faq.tag}
+                        </span>
+                      </div>
                     </div>
-                  </button>
 
-                  {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-light">
-                      {faq.a}
+                    {/* Question Headline */}
+                    <div className="pt-1">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
+                        {faq.q}
+                      </h3>
                     </div>
-                  )}
+
+                    {/* Answer Content */}
+                    <p className={`text-xs sm:text-sm text-slate-600 font-light leading-relaxed pt-1 transition-all duration-300 ${
+                      isOpen ? 'opacity-100' : 'line-clamp-2 opacity-80 group-hover:opacity-100'
+                    }`}>
+                      {faq.a}
+                    </p>
+                  </div>
+
+                  {/* Card Footer Status */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span className="text-slate-400">Question #{faq.num}</span>
+                    <span className="inline-flex items-center gap-1 font-semibold brand-gradient-text">
+                      {isOpen ? 'Show Less' : 'Read Full Answer'} &rarr;
+                    </span>
+                  </div>
                 </div>
               )
             })}
+          </div>
+
+          {/* Bottom Guidance Support Box */}
+          <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-center sm:text-left">
+              <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0">
+                <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+              </div>
+              <div>
+                <h4 className="text-sm sm:text-base font-bold text-slate-900">Still have questions about membership criteria?</h4>
+                <p className="text-xs text-slate-500 font-light">Explore active Circles across your city or connect directly with our membership team.</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <GalaxyButton
+                href="/circles/find"
+                size="small"
+                className="font-semibold text-xs"
+              >
+                Find Your Circle
+              </GalaxyButton>
+              <Link
+                href="/contact"
+                className="text-xs font-bold text-[#1D4ED8] hover:text-[#0052B4] transition-colors"
+              >
+                Contact Support &rarr;
+              </Link>
+            </div>
           </div>
 
         </div>
       </section>
 
       {/* =========================================================================
-          SECTION 5: CLOSING MANIFESTO BANNER (Homepage Styling)
+          SECTION 5: CLOSING MANIFESTO BANNER (Signature Dark Brand Styling)
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#061226] via-[#0A1A38] to-[#040D1E] py-16 sm:py-20 lg:py-24 text-white border-t border-slate-800">
-        {/* Ambient background lighting & glows matching Homepage */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,98,210,0.3),transparent),radial-gradient(ellipse_60%_50%_at_90%_100%,rgba(225,29,72,0.15),transparent)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[360px] bg-gradient-to-r from-blue-600/15 via-indigo-600/10 to-rose-600/15 blur-[120px] rounded-full"
-        />
+      <section className="relative isolate overflow-hidden !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] py-16 sm:py-20 lg:py-24 text-white border-t border-white/10">
+        <div className="absolute -top-24 -left-24 size-96 rounded-full bg-gradient-to-br from-[#38BDF8]/20 via-[#818CF8]/20 to-[#FB7185]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-                <span className="h-[2px] w-4 bg-gradient-to-r from-blue-400 to-rose-400 rounded-full" />
-                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-sky-300">
-                  Your Next Step
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                  YOUR NEXT STEP
                 </span>
               </div>
 
@@ -596,7 +755,7 @@ export function CriteriaClient() {
               >
                 Intention &amp; <br />
                 Lasting <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-200 font-semibold">Trust</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-semibold">Trust</span>
               </div>
             </div>
 

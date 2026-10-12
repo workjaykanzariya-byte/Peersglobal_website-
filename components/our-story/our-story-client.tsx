@@ -39,43 +39,43 @@ import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 // ─── Verified Milestones Timeline ───────────────────────────────────────────
 const VERIFIED_TIMELINE = [
   {
-    tag: '[DATE] — THE BEGINNING',
+    tag: 'THE BEGINNING',
     title: 'The Observation in the Corridor',
     desc: '[Verified milestone and significance]',
     highlight: 'It began with an observation',
   },
   {
-    tag: '[DATE] — THE FIRST STEP',
+    tag: 'THE FIRST STEP',
     title: 'Early Steps of Entrepreneurship',
     desc: '[Verified milestone and significance]',
     highlight: 'Taking risks and building foundations',
   },
   {
-    tag: '[DATE] — THE IDEA TAKES SHAPE',
+    tag: 'THE IDEA TAKES SHAPE',
     title: 'The Story Nobody Would Publish',
     desc: '[Verified milestone and significance]',
     highlight: 'Human understanding over headlines',
   },
   {
-    tag: '[DATE] — THE COMMUNITY BEGINS',
+    tag: 'THE COMMUNITY BEGINS',
     title: 'Why a Community & Why Peers',
     desc: '[Verified milestone and significance]',
     highlight: 'Moving beyond transactional networking',
   },
   {
-    tag: '[DATE] — A NEW STAGE',
+    tag: 'A NEW STAGE',
     title: 'What We Built: Governed Circles',
     desc: '[Verified milestone and significance]',
     highlight: 'Structures for genuine collaboration',
   },
   {
-    tag: '[DATE] — THE ECOSYSTEM EXPANDS',
+    tag: 'THE ECOSYSTEM EXPANDS',
     title: 'Unity App & Pan-Bharat Connect',
     desc: '[Verified milestone and significance]',
     highlight: 'Connecting across geography & industry',
   },
   {
-    tag: '[DATE] — TODAY',
+    tag: 'TODAY',
     title: '1 Million+ Entrepreneurs to Impact by 2030',
     desc: '[Verified current milestone]',
     highlight: '1 Action = 1 Life Impacted',
@@ -86,6 +86,20 @@ export function OurStoryClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0f131a] selection:bg-[#1D4ED8] selection:text-white font-sans">
       
+      {/* Global Gradient Definition for Brand Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <linearGradient id="storyBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="storyBrandGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* =========================================================================
           1. HERO SECTION (MASTER HOMEPAGE HERO STYLE WITH BACKGROUND VIDEO)
           ========================================================================= */}
@@ -120,24 +134,26 @@ export function OurStoryClient() {
                   Home
                 </Link>
                 <ChevronRight className="size-3.5 text-slate-400" />
-                <span className="text-sky-300 font-semibold">Our Story</span>
+                <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-semibold">Our Story</span>
               </div>
 
               {/* Eyebrow Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-xs uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-                <span>OUR STORY &amp; FOUNDATION</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-900/60 via-indigo-900/50 to-rose-900/60 backdrop-blur-md border border-white/20 shadow-lg">
+                <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] animate-pulse" />
+                <span className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  OUR STORY &amp; FOUNDATION
+                </span>
               </div>
 
               {/* H1 Heading */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-semibold text-white tracking-tight leading-[1.14]">
                   It began with one observation,{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]">
                     in a hospital corridor.
                   </span>
                 </h1>
-                <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed">
+                <p className="text-base sm:text-xl text-slate-200 font-medium leading-relaxed">
                   Before there was a community, there was a question.
                 </p>
               </div>
@@ -151,7 +167,10 @@ export function OurStoryClient() {
               <div className="space-y-1.5 text-xs sm:text-sm text-slate-300 font-light">
                 <p>PEERS GLOBAL did not begin with a website. It did not begin with a membership plan.</p>
                 <p className="text-white font-semibold">
-                  It began with an observation: <span className="text-sky-300">Entrepreneurs should not have to build alone.</span>
+                  It began with an observation:{' '}
+                  <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                    Entrepreneurs should not have to build alone.
+                  </span>
                 </p>
               </div>
 
@@ -160,7 +179,7 @@ export function OurStoryClient() {
                 <GalaxyButton
                   href="#before-there-was-a-community"
                   size="default"
-                  className="uppercase tracking-wider font-semibold"
+                  className="uppercase tracking-wider font-semibold shadow-lg"
                 >
                   Read Full Story
                 </GalaxyButton>
@@ -169,7 +188,7 @@ export function OurStoryClient() {
                   href="/the-idea"
                   variant="transparent"
                   size="default"
-                  className="font-medium"
+                  className="font-medium text-white border-white/30 hover:border-white/60"
                 >
                   Discover The Idea
                 </GalaxyButton>
@@ -178,21 +197,51 @@ export function OurStoryClient() {
               {/* Stat Band */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/20">
                 {[
-                  { icon: HeartHandshake, value: 'Trust First', label: 'Genesis in the Corridor' },
-                  { icon: Users, value: 'Relationship', label: 'Beyond Transactions' },
-                  { icon: Target, value: '1M Mission', label: 'Life Impact by 2030' },
-                ].map((s) => {
-                  const Icon = s.icon
+                  {
+                    svgPath: (
+                      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                    ),
+                    value: 'Trust First',
+                    label: 'Genesis in the Corridor',
+                  },
+                  {
+                    svgPath: (
+                      <>
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </>
+                    ),
+                    value: 'Relationship',
+                    label: 'Beyond Transactions',
+                  },
+                  {
+                    svgPath: (
+                      <>
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="12" r="6" />
+                        <circle cx="12" cy="12" r="2" />
+                      </>
+                    ),
+                    value: '1M Mission',
+                    label: 'Life Impact by 2030',
+                  },
+                ].map((s, idx) => {
                   return (
                     <div
                       key={s.label}
-                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-xs transition-all"
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 backdrop-blur-xs transition-all group"
                     >
-                      <div className="size-10 rounded-xl bg-blue-500/25 border border-blue-400/35 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
-                        <Icon className="size-5" />
+                      <div className="size-10 rounded-xl bg-gradient-to-br from-blue-900/40 to-rose-900/40 border border-white/20 flex items-center justify-center shrink-0 shadow-xs">
+                        <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <g stroke="url(#storyBrandGrad)">
+                            {s.svgPath}
+                          </g>
+                        </svg>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
                           {s.value}
                         </div>
                         <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
@@ -213,7 +262,7 @@ export function OurStoryClient() {
               <p className="text-3xl sm:text-4xl text-white leading-tight font-bold italic font-serif">
                 Partners in Business
               </p>
-              <p className="text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-rose-300 font-bold italic font-serif leading-tight">
+              <p className="text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] font-bold italic font-serif leading-tight">
                 Friends in Life
               </p>
             </div>
@@ -234,7 +283,6 @@ export function OurStoryClient() {
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BEFORE THERE WAS A COMMUNITY
                 </span>
@@ -263,25 +311,25 @@ export function OurStoryClient() {
               </div>
 
               <div className="space-y-3 pt-2">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                <p className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                   But there is another side of the journey that is less visible:
                 </p>
                 <div className="space-y-2.5">
-                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs">
-                    <div className="size-2.5 rounded-full bg-blue-600 mt-2 shrink-0" />
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs hover:border-blue-200 transition-all">
+                    <div className="size-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#4F46E5] mt-1.5 shrink-0 shadow-xs" />
+                    <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
                       The questions. The responsibility. The uncertainty.
                     </p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs">
-                    <div className="size-2.5 rounded-full bg-violet-600 mt-2 shrink-0" />
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs hover:border-indigo-200 transition-all">
+                    <div className="size-2.5 rounded-full bg-gradient-to-r from-[#4F46E5] to-[#E11D48] mt-1.5 shrink-0 shadow-xs" />
+                    <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
                       The decisions that cannot easily be explained to someone who has never carried them.
                     </p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs">
-                    <div className="size-2.5 rounded-full bg-rose-600 mt-2 shrink-0" />
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                  <div className="p-4 rounded-2xl bg-white border border-cool-grey-250 flex items-start gap-3.5 shadow-xs hover:border-rose-200 transition-all">
+                    <div className="size-2.5 rounded-full bg-gradient-to-r from-[#E11D48] to-[#FB7185] mt-1.5 shrink-0 shadow-xs" />
+                    <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
                       And the feeling that, sometimes, you are carrying all of it alone.
                     </p>
                   </div>
@@ -291,26 +339,46 @@ export function OurStoryClient() {
 
             {/* Right Column Question Highlight */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#061836] text-white shadow-xl space-y-6 border border-slate-800 relative overflow-hidden">
-                <div className="size-12 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20">
-                  <Sparkles className="size-6" />
+              <div
+                className="p-8 sm:p-10 rounded-3xl text-white shadow-2xl space-y-6 border border-slate-800 relative overflow-hidden group"
+                style={{
+                  background: 'linear-gradient(145deg, #030712 0%, #071533 45%, #0B1B3D 75%, #180720 100%)',
+                }}
+              >
+                {/* Ambient Radial Lighting Accents */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
+
+                <div className="relative z-10 size-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20 backdrop-blur-md shadow-md">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <g stroke="url(#storyBrandGradLight)">
+                      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                      <path d="M5 3v4" />
+                      <path d="M19 17v4" />
+                      <path d="M3 5h4" />
+                      <path d="M17 19h4" />
+                    </g>
+                  </svg>
                 </div>
 
-                <div className="space-y-3">
-                  <span className="text-xs font-mono uppercase tracking-widest text-sky-300 font-bold">
+                <div className="relative z-10 space-y-3">
+                  <span className="text-xs font-mono uppercase tracking-widest bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-extrabold block">
                     THE STARTING POINT
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-snug">
-                    What if entrepreneurs had a community?
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold leading-snug">
+                    <span className="text-white">What if entrepreneurs had a </span>
+                    <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                      community?
+                    </span>
                   </h3>
                   <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light">
                     Built not merely to connect them, but to help them build meaningful relationships with one another.
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 flex items-center gap-3">
-                  <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-xs text-slate-300 font-medium tracking-wide">
+                <div className="relative z-10 pt-4 border-t border-white/15 flex items-center gap-3">
+                  <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] animate-pulse" />
+                  <span className="text-xs font-medium tracking-wide bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
                     The question that sparked PEERS GLOBAL
                   </span>
                 </div>
@@ -332,7 +400,6 @@ export function OurStoryClient() {
             {/* Left Box: The Story Nobody Would Publish */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE REAL HUMAN STORIES
                 </span>
@@ -370,7 +437,6 @@ export function OurStoryClient() {
             {/* Right Box: Why A Community? */}
             <div id="why-a-community" className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   BEYOND PLATFORMS
                 </span>
@@ -402,18 +468,34 @@ export function OurStoryClient() {
                 ))}
               </div>
 
-              <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white space-y-2">
-                <div className="text-xs font-mono uppercase tracking-widest text-sky-300">THE EVOLUTIONARY DIRECTION</div>
-                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-bold text-slate-100">
-                  <span>Connection</span>
-                  <span>→</span>
-                  <span>Relationship</span>
-                  <span>→</span>
-                  <span>Collaboration</span>
-                  <span>→</span>
-                  <span className="text-amber-300">Impact</span>
+              <div
+                className="p-6 rounded-3xl text-white space-y-3 shadow-xl border border-slate-800/80 relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #030712 0%, #07132B 40%, #0B1120 75%, #150618 100%)',
+                }}
+              >
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/15 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-rose-600/15 rounded-full blur-2xl pointer-events-none" />
+
+                <div className="relative z-10 text-xs font-mono uppercase tracking-widest bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-extrabold">
+                  THE EVOLUTIONARY DIRECTION
                 </div>
-                <p className="text-xs text-slate-300 font-light pt-1">That became the direction.</p>
+
+                <div className="relative z-10 flex flex-wrap items-center gap-2 text-sm sm:text-base font-bold text-slate-100">
+                  <span className="text-white">Connection</span>
+                  <span className="text-[#1D4ED8]">→</span>
+                  <span className="text-white">Relationship</span>
+                  <span className="text-indigo-400">→</span>
+                  <span className="text-white">Collaboration</span>
+                  <span className="text-[#E11D48]">→</span>
+                  <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-extrabold">
+                    Impact
+                  </span>
+                </div>
+
+                <p className="relative z-10 text-xs text-slate-300 font-light">
+                  That became the direction.
+                </p>
               </div>
             </div>
 
@@ -433,7 +515,6 @@ export function OurStoryClient() {
             {/* Left: Why Peers? */}
             <div className="lg:col-span-5 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE WORD MATTERED
                 </span>
@@ -474,7 +555,6 @@ export function OurStoryClient() {
             {/* Right: What We Built */}
             <div id="what-we-built" className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE ARCHITECTURE
                 </span>
@@ -499,16 +579,29 @@ export function OurStoryClient() {
                   { label: 'Unity App', desc: 'Brought the community into everyday life.' },
                   { label: 'Wider Ecosystem', desc: 'Created possibilities beyond a single meeting or a single Circle.' },
                 ].map((item) => (
-                  <div key={item.label} className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-xs space-y-1">
-                    <div className="text-xs font-bold text-[#1D4ED8] uppercase tracking-wider">{item.label}</div>
-                    <div className="text-xs text-slate-600 font-medium">{item.desc}</div>
+                  <div key={item.label} className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all space-y-1 group">
+                    <div className="inline-block text-xs font-bold uppercase tracking-wider brand-gradient-text">
+                      {item.label}
+                    </div>
+                    <div className="text-xs text-slate-600 font-medium leading-relaxed">{item.desc}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-900 text-white space-y-1 mt-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-sky-300">OUR FOUNDATIONAL OBJECTIVE</div>
-                <p className="text-xs sm:text-sm text-slate-200 font-light leading-relaxed">
+              <div
+                className="p-6 rounded-3xl text-white space-y-3 shadow-xl border border-slate-800/80 relative overflow-hidden mt-4"
+                style={{
+                  background: 'linear-gradient(135deg, #030712 0%, #07132B 40%, #0B1120 75%, #150618 100%)',
+                }}
+              >
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/15 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-rose-600/15 rounded-full blur-2xl pointer-events-none" />
+
+                <div className="relative z-10 text-xs font-mono uppercase tracking-widest bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-extrabold">
+                  OUR FOUNDATIONAL OBJECTIVE
+                </div>
+
+                <p className="relative z-10 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                   The objective was never simply to create a larger room. It was to create a better reason for people to stay connected after they left the room.
                 </p>
               </div>
@@ -527,7 +620,6 @@ export function OurStoryClient() {
           
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 ACCURATE MEMORY &amp; MILESTONES
               </span>
@@ -544,44 +636,64 @@ export function OurStoryClient() {
             {VERIFIED_TIMELINE.map((item, idx) => (
               <div
                 key={item.tag}
-                className="p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-cool-grey-250 shadow-xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="space-y-4">
-                  {/* Header */}
-                  <div className="flex items-center justify-between gap-2 border-b border-slate-200/80 pb-3.5">
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#1D4ED8] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                      {item.tag}
-                    </span>
-                    <span className="text-xs font-mono font-bold text-slate-400">
-                      MILESTONE #{String(idx + 1).padStart(2, '0')}
-                    </span>
+                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`timelineGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
+                    style={{ stroke: `url(#timelineGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+
+                <div className="relative z-10 flex flex-col justify-between p-7 sm:p-8 bg-white border border-slate-200/80 !rounded-[calc(1.5rem-1.5px)] h-full space-y-6 shadow-2xs">
+                  <div className="space-y-4">
+                    {/* Header */}
+                    <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3.5">
+                      <span className="text-[11px] font-mono font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-slate-200/80 brand-gradient-text shadow-2xs">
+                        {item.tag}
+                      </span>
+                      <span className="text-xs font-mono font-bold text-slate-400">
+                        MILESTONE #{String(idx + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+
+                    {/* Title & Desc */}
+                    <div className="space-y-2">
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-cool-grey-600 font-normal leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Title & Desc */}
-                  <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-cool-grey-600 font-normal leading-relaxed">
-                      {item.desc}
-                    </p>
+                  {/* Bottom Highlight */}
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-semibold group-hover:brand-gradient-text text-slate-700 transition-colors">
+                      <span className="size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0" />
+                      <span className="brand-gradient-text font-bold">{item.highlight}</span>
+                    </div>
+                    <ChevronRight className="size-4 text-slate-400 group-hover:text-[#E11D48] group-hover:translate-x-1.5 transition-all duration-300" />
                   </div>
-                </div>
-
-                {/* Bottom Highlight */}
-                <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                    <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                    <span>{item.highlight}</span>
-                  </div>
-                  <ChevronRight className="size-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200 text-amber-900 text-xs font-mono text-center font-medium">
-            [ALL DATES, MILESTONES AND CLAIMS TO BE VERIFIED BEFORE PUBLICATION]
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/50 via-white to-rose-50/50 border border-slate-200/90 shadow-2xs text-center">
+            <span className="text-xs font-mono font-bold tracking-wider brand-gradient-text uppercase">
+              [ALL DATES, MILESTONES AND CLAIMS TO BE VERIFIED BEFORE PUBLICATION]
+            </span>
           </div>
 
         </div>
@@ -598,7 +710,6 @@ export function OurStoryClient() {
             {/* Where We Are Now */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   CURRENT REALITY
                 </span>
@@ -620,15 +731,15 @@ export function OurStoryClient() {
                 <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are stories.</div>
                 <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">There are initiatives.</div>
                 <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center">Impact system.</div>
-                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center text-blue-700">Connecting beyond.</div>
+                <div className="p-3 rounded-2xl bg-white border border-cool-grey-250 text-center font-bold brand-gradient-text">Connecting beyond.</div>
               </div>
 
               <div className="p-6 rounded-3xl bg-white border border-cool-grey-250 shadow-xs space-y-3">
                 <p className="font-bold text-[#0f131a] text-base">
                   But growth is not the most important part of the story.
                 </p>
-                <p className="text-slate-700 text-sm">
-                  The important question remains: <span className="text-[#1D4ED8] font-bold">Are the relationships becoming more meaningful?</span>
+                <p className="text-slate-700 text-sm font-medium">
+                  The important question remains: <span className="brand-gradient-text font-bold">Are the relationships becoming more meaningful?</span>
                 </p>
                 <p className="text-xs sm:text-sm text-cool-grey-600 font-normal leading-relaxed">
                   Because the purpose was never simply to build a bigger community. It was to build a community in which entrepreneurs could experience what becomes possible when they stop building alone.
@@ -639,7 +750,6 @@ export function OurStoryClient() {
             {/* What We Are Building Toward */}
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE HORIZON
                 </span>
@@ -654,33 +764,59 @@ export function OurStoryClient() {
               </p>
 
               <div className="space-y-2.5 text-xs sm:text-sm text-slate-800 font-medium">
-                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
-                  <span>Where experience can be shared.</span>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-3 shadow-2xs hover:border-blue-200 transition-all">
+                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <g stroke="url(#storyBrandGrad)">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
+                    </g>
+                  </svg>
+                  <span className="font-semibold text-slate-800">Where experience can be shared.</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
-                  <span>Where contribution is recognised.</span>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-3 shadow-2xs hover:border-blue-200 transition-all">
+                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <g stroke="url(#storyBrandGrad)">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
+                    </g>
+                  </svg>
+                  <span className="font-semibold text-slate-800">Where contribution is recognised.</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
-                  <span>Where collaboration becomes natural.</span>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-3 shadow-2xs hover:border-blue-200 transition-all">
+                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <g stroke="url(#storyBrandGrad)">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
+                    </g>
+                  </svg>
+                  <span className="font-semibold text-slate-800">Where collaboration becomes natural.</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-2.5">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0" />
-                  <span>Where one entrepreneur&apos;s action can positively affect another person&apos;s life.</span>
+                <div className="p-3.5 rounded-2xl bg-white border border-cool-grey-250 flex items-center gap-3 shadow-2xs hover:border-blue-200 transition-all">
+                  <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <g stroke="url(#storyBrandGrad)">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
+                    </g>
+                  </svg>
+                  <span className="font-semibold text-slate-800">Where one entrepreneur&apos;s action can positively affect another person&apos;s life.</span>
                 </div>
               </div>
 
               {/* 1M Ambition Box */}
-              <div className="p-6 rounded-3xl bg-gradient-to-r from-blue-900 to-indigo-950 text-white space-y-2.5 shadow-md">
-                <div className="text-xs font-mono font-bold uppercase tracking-wider text-sky-300">
+              <div
+                className="p-6 sm:p-7 rounded-3xl text-white space-y-2.5 shadow-xl border border-slate-800/80 relative overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #030712 0%, #07132B 40%, #0B1120 75%, #150618 100%)',
+                }}
+              >
+                <div className="absolute -right-8 -top-8 w-40 h-40 bg-blue-600/20 rounded-full blur-2xl pointer-events-none" />
+                <div className="text-xs font-mono font-bold uppercase tracking-wider brand-gradient-text">
                   1 ACTION = 1 LIFE IMPACTED
                 </div>
                 <div className="text-xl sm:text-2xl font-bold text-white">
                   1 Million+ Entrepreneurs to Impact by 2030
                 </div>
-                <p className="text-xs sm:text-sm text-slate-200 font-light">
+                <p className="text-xs sm:text-sm text-slate-300 font-light">
                   The number matters. But the lives behind the number matter more.
                 </p>
               </div>
@@ -691,8 +827,7 @@ export function OurStoryClient() {
           {/* What Has Not Changed */}
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-cool-grey-250 shadow-xs space-y-4">
             <div className="flex items-center gap-2.5">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#1D4ED8]">
+              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 WHAT HAS NOT CHANGED
               </span>
             </div>
