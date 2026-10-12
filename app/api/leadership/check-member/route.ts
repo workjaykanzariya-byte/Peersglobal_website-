@@ -24,8 +24,56 @@ interface UserRow {
   status?: string | null
 }
 
-// Built-in fallback catalog matching database users from Adminer
+// Built-in fallback catalog matching database users from Adminer & Unityapp
 const FALLBACK_USERS = [
+  {
+    id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
+    email: 'harshchauhan9724@gmail.com',
+    phone: '9724636800',
+    first_name: 'Harsh',
+    last_name: 'Chauhan',
+    display_name: 'Harsh Chauhan',
+    company_name: 'BrandVerse Global Pvt Ltd',
+    designation: 'Founder',
+    city: 'Surat',
+    state: 'Gujarat',
+    country: 'India',
+    experience_years: 8,
+    short_bio: 'Founder at BrandVerse Global Pvt Ltd, building powerful brands that connect, influence, and grow globally.',
+    linkedin_profile: 'https://linkedin.com/in/harsh-chauhan',
+  },
+  {
+    id: '5eb3f0c2-5249-41a3-a718-d8ada8b083fd',
+    email: 'rashi.khandelwal@demo.unity.com',
+    phone: '9800000030',
+    first_name: 'Rashi',
+    last_name: 'Khandelwal',
+    display_name: 'wdqwdqwd',
+    company_name: 'qdqd',
+    designation: 'sadada',
+    city: 'Surat',
+    state: 'Gujarat',
+    country: 'India',
+    experience_years: 7,
+    short_bio: 'Dedicated business leader stewarding strategic ecosystem collaboration and enterprise governance.',
+    linkedin_profile: 'https://linkedin.com/in/rashi-khandelwal',
+  },
+  {
+    id: '0199c000-ca00-0000-8000-000000000001',
+    email: 'hardik@peersglobal.com',
+    phone: '9558739086',
+    first_name: 'Hardik',
+    last_name: 'Chauhan',
+    display_name: 'Hardik Chauhan',
+    company_name: 'Aequitas IT Solutions',
+    designation: 'Managing Director & Founder',
+    city: 'Surat',
+    state: 'Gujarat',
+    country: 'India',
+    experience_years: 8,
+    short_bio: 'Managing Director at Aequitas IT Solutions, championing Give-First leadership across Gujarat.',
+    linkedin_profile: 'https://linkedin.com/in/hardik-chauhan',
+  },
   {
     id: '08eaec34-342c-49b1-9489-62cb8291aeb2',
     email: 'swati.kulkarni@demo.unity.com',
@@ -41,6 +89,22 @@ const FALLBACK_USERS = [
     experience_years: 12,
     short_bio: 'Senior ecosystem promoter leading industrial innovation and women entrepreneurship.',
     linkedin_profile: 'https://linkedin.com/in/swati-kulkarni',
+  },
+  {
+    id: '974d3b4a-7c88-4820-bd34-dcd53bd80af6',
+    email: 'harsh.vora@demo.unity.com',
+    phone: '9800000011',
+    first_name: 'Harsh',
+    last_name: 'Vora',
+    display_name: 'Harsh Vora',
+    company_name: 'Vora Diamond Tech',
+    designation: 'Co-Founder & COO',
+    city: 'Surat',
+    state: 'Gujarat',
+    country: 'India',
+    experience_years: 11,
+    short_bio: 'Precision gem and technology innovator steering Surat circle growth.',
+    linkedin_profile: 'https://linkedin.com/in/harsh-vora',
   },
   {
     id: '10f394a5-f943-4951-b756-4ee5472d9d39',
@@ -91,22 +155,6 @@ const FALLBACK_USERS = [
     linkedin_profile: 'https://linkedin.com/in/meera-nair',
   },
   {
-    id: '974d3b4a-7c88-4820-bd34-dcd53bd80af6',
-    email: 'harsh.vora@demo.unity.com',
-    phone: '9800000011',
-    first_name: 'Harsh',
-    last_name: 'Vora',
-    display_name: 'Harsh Vora',
-    company_name: 'Vora Diamond Tech',
-    designation: 'Co-Founder & COO',
-    city: 'Surat',
-    state: 'Gujarat',
-    country: 'India',
-    experience_years: 11,
-    short_bio: 'Precision gem and technology innovator steering Surat circle growth.',
-    linkedin_profile: 'https://linkedin.com/in/harsh-vora',
-  },
-  {
     id: '0a8b3282-9b68-4d24-bb3f-2ee88ec1535a',
     email: 'gaurav.mishra@demo.unity.com',
     phone: '9800000021',
@@ -121,22 +169,6 @@ const FALLBACK_USERS = [
     experience_years: 15,
     short_bio: 'Agri-business visionary dedicated to regional value chain acceleration.',
     linkedin_profile: 'https://linkedin.com/in/gaurav-mishra',
-  },
-  {
-    id: '0199c000-ca00-0000-8000-000000000001',
-    email: 'hardik@peersglobal.com',
-    phone: '9558739086',
-    first_name: 'Hardik',
-    last_name: 'Chauhan',
-    display_name: 'Hardik Chauhan',
-    company_name: 'Aequitas IT Solutions',
-    designation: 'Managing Director & Founder',
-    city: 'Surat',
-    state: 'Gujarat',
-    country: 'India',
-    experience_years: 8,
-    short_bio: 'Managing Director at Aequitas IT Solutions, championing Give-First leadership across Gujarat.',
-    linkedin_profile: 'https://linkedin.com/in/hardik-chauhan',
   },
 ]
 
@@ -157,25 +189,10 @@ export async function POST(req: Request) {
 
     let foundUser: UserRow | null = null
 
-    // 1. Query PostgreSQL 'users' table directly
+    // 1. Query PostgreSQL 'users' table directly with flexible matching
     try {
-      if (email && tenDigit) {
-        const res = await pool.query<UserRow>(
-          `SELECT id, email, phone, first_name, last_name, display_name,
-                  company_name, designation, city, state, country,
-                  experience_years, short_bio, experience_summary, linkedin_profile,
-                  social_links, profile_photo_url, status
-           FROM users
-           WHERE LOWER(email) = $1 AND (phone = $2 OR phone LIKE $3)
-           LIMIT 1`,
-          [email, rawPhone, `%${tenDigit}%`]
-        )
-        if (res.rows.length > 0) {
-          foundUser = res.rows[0]
-        }
-      }
-
-      if (!foundUser && email) {
+      // 1A. Match by email
+      if (email) {
         const res = await pool.query<UserRow>(
           `SELECT id, email, phone, first_name, last_name, display_name,
                   company_name, designation, city, state, country,
@@ -191,6 +208,7 @@ export async function POST(req: Request) {
         }
       }
 
+      // 1B. Match by phone digits if not found yet
       if (!foundUser && tenDigit) {
         const res = await pool.query<UserRow>(
           `SELECT id, email, phone, first_name, last_name, display_name,
@@ -198,9 +216,12 @@ export async function POST(req: Request) {
                   experience_years, short_bio, experience_summary, linkedin_profile,
                   social_links, profile_photo_url, status
            FROM users
-           WHERE phone = $1 OR phone LIKE $2
+           WHERE phone LIKE $1 
+              OR phone LIKE $2 
+              OR phone = $3
+              OR REGEXP_REPLACE(COALESCE(phone, ''), '\\D', '', 'g') LIKE $4
            LIMIT 1`,
-          [rawPhone, `%${tenDigit}%`]
+          [`%${tenDigit}%`, `%${phoneDigits}%`, rawPhone, `%${tenDigit}%`]
         )
         if (res.rows.length > 0) {
           foundUser = res.rows[0]
@@ -210,12 +231,67 @@ export async function POST(req: Request) {
       console.warn('Direct PostgreSQL lookup warning:', dbErr)
     }
 
-    // 2. Fallback to catalog if DB query didn't find or errored
+    // 2. Query Live Unity Members API (https://peersunity.com/api/v1/members-with-circles)
+    if (!foundUser) {
+      try {
+        const membersRes = await fetch('https://peersunity.com/api/v1/members-with-circles', {
+          headers: {
+            Accept: 'application/json',
+            Authorization: 'Bearer 302|cO0VMR2dmr9j8c3JtIU9dfkuZfSfvzaCCF1GVxJAdc6fdd2d',
+          },
+          cache: 'no-store',
+          signal: AbortSignal.timeout(4000),
+        })
+
+        if (membersRes.ok) {
+          const membersJson = await membersRes.json()
+          const items = Array.isArray(membersJson.data?.items)
+            ? membersJson.data.items
+            : Array.isArray(membersJson.data)
+            ? membersJson.data
+            : []
+
+          const match = items.find((item: any) => {
+            const itemEmail = item.email ? String(item.email).trim().toLowerCase() : ''
+            const itemMobileDigits = String(item.mobile || item.phone || '').replace(/\D/g, '')
+
+            const emailMatch = email && itemEmail === email
+            const phoneMatch = tenDigit && (itemMobileDigits.endsWith(tenDigit) || itemMobileDigits.includes(tenDigit))
+
+            return emailMatch || phoneMatch
+          })
+
+          if (match) {
+            foundUser = {
+              id: match.id || `member-${Date.now()}`,
+              email: match.email || email,
+              phone: match.mobile || match.phone || rawPhone,
+              first_name: match.name ? match.name.split(' ')[0] : 'Member',
+              last_name: match.name ? match.name.split(' ').slice(1).join(' ') : 'Leader',
+              display_name: match.name || 'Verified Member',
+              company_name: match.company || 'Peers Global Member Enterprise',
+              designation: match.designation || 'Member Leader',
+              city: match.city || 'Surat',
+              state: 'Gujarat',
+              country: 'India',
+              experience_years: 8,
+              short_bio: match.business_description || 'Active member leader in Peers Global network.',
+              profile_photo_url: match.photo || null,
+              status: 'active',
+            }
+          }
+        }
+      } catch (apiErr) {
+        console.warn('Live members API lookup warning:', apiErr)
+      }
+    }
+
+    // 3. Fallback to catalog if DB query & API didn't find
     if (!foundUser) {
       const match = FALLBACK_USERS.find((u) => {
         const emailMatch = email && u.email.toLowerCase() === email
         const phoneMatch = tenDigit && u.phone.includes(tenDigit)
-        return (email && tenDigit && (emailMatch || phoneMatch)) || (email && emailMatch) || (tenDigit && phoneMatch)
+        return emailMatch || phoneMatch
       })
 
       if (match) {
@@ -235,7 +311,7 @@ export async function POST(req: Request) {
         (typeof foundUser.social_links === 'string'
           ? foundUser.social_links
           : foundUser.social_links?.linkedin || '') ||
-        `https://linkedin.com/in/${fullName.toLowerCase().replace(/\s+/g, '-')}`
+        `https://linkedin.com/in/${fullName.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
 
       const bio =
         foundUser.short_bio ||

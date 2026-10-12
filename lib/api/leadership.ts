@@ -1248,6 +1248,30 @@ class LeadershipApiService {
     // 3. Fallback catalog matching database 'users' table
     const catalog = [
       {
+        id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
+        email: 'harshchauhan9724@gmail.com',
+        phone: '9724636800',
+        fullName: 'Harsh Chauhan',
+        company: 'BrandVerse Global Pvt Ltd',
+        designation: 'Founder',
+        city: 'Surat',
+        yearsExperience: 8,
+        bio: 'Founder at BrandVerse Global Pvt Ltd, building powerful brands that connect, influence, and grow globally.',
+        socialLinks: 'https://linkedin.com/in/harsh-chauhan',
+      },
+      {
+        id: '5eb3f0c2-5249-41a3-a718-d8ada8b083fd',
+        email: 'rashi.khandelwal@demo.unity.com',
+        phone: '9800000030',
+        fullName: 'Rashi Khandelwal',
+        company: 'qdqd',
+        designation: 'sadada',
+        city: 'Surat',
+        yearsExperience: 7,
+        bio: 'Dedicated business leader stewarding strategic ecosystem collaboration and enterprise governance.',
+        socialLinks: 'https://linkedin.com/in/rashi-khandelwal',
+      },
+      {
         id: '08eaec34-342c-49b1-9489-62cb8291aeb2',
         email: 'swati.kulkarni@demo.unity.com',
         phone: '9800000018',
