@@ -1054,7 +1054,7 @@ pre, code {
     stroke-dashoffset: 0;
   }
   100% {
-    stroke-dashoffset: -1000;
+    stroke-dashoffset: calc(-1 * var(--card-p, 1040px));
   }
 }
 
@@ -1070,7 +1070,7 @@ pre, code {
     opacity: 1;
   }
   100% {
-    stroke-dashoffset: -1000;
+    stroke-dashoffset: calc(-1 * var(--card-p, 1040px));
     opacity: 0;
   }
 }
@@ -1105,8 +1105,9 @@ pre, code {
   stroke: url('#brandCardGrad');
   stroke-width: 3px;
   stroke-linecap: round;
+  stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
-  stroke-dasharray: 260 740;
+  stroke-dasharray: var(--card-dash, 280px) var(--card-gap, 760px);
   stroke-dashoffset: 0;
   opacity: 0;
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
