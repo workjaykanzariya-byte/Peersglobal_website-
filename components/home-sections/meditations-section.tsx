@@ -116,6 +116,7 @@ export function MeditationsSection() {
               </defs>
               <path
                 className="animated-border-path"
+                style={{ stroke: 'url(#medCardGradient1)' }}
                 d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
               />
             </svg>
@@ -148,6 +149,7 @@ export function MeditationsSection() {
               </defs>
               <path
                 className="animated-border-path animated-border-path-2"
+                style={{ stroke: 'url(#medCardGradient2)' }}
                 d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
               />
             </svg>
@@ -180,6 +182,7 @@ export function MeditationsSection() {
               </defs>
               <path
                 className="animated-border-path animated-border-path-3"
+                style={{ stroke: 'url(#medCardGradient3)' }}
                 d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
               />
             </svg>

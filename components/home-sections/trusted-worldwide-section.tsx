@@ -75,8 +75,8 @@ export function TrustedWorldwideSection() {
                 </defs>
                 <path
                   className="animated-border-path"
-                  pathLength="1000"
-                  d="M 8 1.5 H 92 A 6.5 6.5 0 0 1 98.5 8 V 92 A 6.5 6.5 0 0 1 92 98.5 H 8 A 6.5 6.5 0 0 1 1.5 92 V 8 A 6.5 6.5 0 0 1 8 1.5 Z"
+                  style={{ stroke: 'url(#cardGradientStroke)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                 />
               </svg>
               <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
@@ -117,8 +117,8 @@ export function TrustedWorldwideSection() {
                 </defs>
                 <path
                   className="animated-border-path animated-border-path-2"
-                  pathLength="1000"
-                  d="M 8 1.5 H 92 A 6.5 6.5 0 0 1 98.5 8 V 92 A 6.5 6.5 0 0 1 92 98.5 H 8 A 6.5 6.5 0 0 1 1.5 92 V 8 A 6.5 6.5 0 0 1 8 1.5 Z"
+                  style={{ stroke: 'url(#cardGradientStroke2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                 />
               </svg>
               <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
@@ -158,8 +158,8 @@ export function TrustedWorldwideSection() {
                 </defs>
                 <path
                   className="animated-border-path animated-border-path-3"
-                  pathLength="1000"
-                  d="M 8 1.5 H 92 A 6.5 6.5 0 0 1 98.5 8 V 92 A 6.5 6.5 0 0 1 92 98.5 H 8 A 6.5 6.5 0 0 1 1.5 92 V 8 A 6.5 6.5 0 0 1 8 1.5 Z"
+                  style={{ stroke: 'url(#cardGradientStroke3)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                 />
               </svg>
               <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
