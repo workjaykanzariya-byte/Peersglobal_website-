@@ -305,182 +305,7 @@ export interface Form2Payload {
 // Fallback Mock Data Store (Used if Live API has no seeded data or on 404)
 // ---------------------------------------------------------------------------
 
-export const MOCK_CAMPAIGNS: Campaign[] = [
-  {
-    id: '0199c000-ded0-7000-8000-000000000001',
-    title: 'Peers Global District Executive Director (DED) Selection 2026',
-    name: 'Peers Global District Executive Director (DED) Selection 2026',
-    slug: 'peers-global-ded-selection-2026',
-    campaign_year: 2026,
-    status: 'active',
-    nomination_open: true,
-    voting_open: false,
-    jury_open: false,
-    role: {
-      id: 'role-ded-01',
-      name: 'DED',
-      key: 'ded',
-      description: 'Senior ecosystem leader stewarding multiple Circles and strategic industry growth across a District.',
-      hierarchy_level: 4,
-    },
-    scopes: [
-      {
-        id: '0199c000-scope-7000-8000-000000000001',
-        scope_type: 'district',
-        seats_available: 1,
-        name: 'Surat District',
-        state: 'Gujarat',
-        district: 'Surat',
-      },
-      {
-        id: '0199c000-scope-7000-8000-000000000002',
-        scope_type: 'district',
-        seats_available: 1,
-        name: 'Ahmedabad District',
-        state: 'Gujarat',
-        district: 'Ahmedabad',
-      },
-    ],
-    scope_type: 'district',
-    description:
-      'The premier leadership selection for District Executive Directors across India. Responsible for governing 10+ Circles, leading chapter expansion, and championing the Give-First ethos.',
-    nomination_starts_at: '2026-09-15T00:00:00Z',
-    nomination_ends_at: '2026-10-25T23:59:59Z',
-    voting_starts_at: '2026-10-26T00:00:00Z',
-    voting_ends_at: '2026-11-05T23:59:59Z',
-    jury_starts_at: '2026-11-06T00:00:00Z',
-    jury_ends_at: '2026-11-12T23:59:59Z',
-    results_visibility: 'candidate_only',
-    total_candidates: 6,
-    total_votes: 1420,
-    rules_summary: [
-      'Must have minimum 2 years of active Peers Global membership.',
-      'Only 1 vote per verified member per district campaign.',
-      'Jury evaluation carries 40% weighting, public peer voting carries 60%.',
-      'Candidates must adhere strictly to the Peers Global Non-Solicitation & Integrity Code.',
-    ],
-    eligibility_criteria: [
-      'Promoter or Co-Founder of a registered enterprise with annual turnover > ₹3 Cr.',
-      'Minimum Peer Standing Score of 85 or above.',
-      'Zero unresolved grievances in past 12 months.',
-    ],
-  },
-  {
-    id: '0199c000-chair-7000-8000-000000000002',
-    title: 'National Circle Chair & Vice Chair Selection 2026',
-    name: 'National Circle Chair & Vice Chair Selection 2026',
-    slug: 'national-circle-chair-2026',
-    campaign_year: 2026,
-    status: 'active',
-    nomination_open: true,
-    voting_open: false,
-    jury_open: false,
-    role: {
-      id: 'role-chair-02',
-      name: 'Circle Chair',
-      key: 'circle_chair',
-      description: 'Chairs monthly inner board meetings, guides attendance, and fosters bilateral peer transactions.',
-      hierarchy_level: 2,
-    },
-    scopes: [
-      {
-        id: '0199c000-scope-7000-8000-000000000003',
-        scope_type: 'circle',
-        seats_available: 1,
-        name: 'Pinnacle Circle Surat',
-      },
-    ],
-    scope_type: 'circle',
-    description:
-      'Democratic election for Circle Chairs who hold the standard of peer accountability, attendance discipline, and inner board culture.',
-    nomination_starts_at: '2026-10-01T00:00:00Z',
-    nomination_ends_at: '2026-10-28T23:59:59Z',
-    voting_starts_at: '2026-10-29T00:00:00Z',
-    voting_ends_at: '2026-11-10T23:59:59Z',
-    jury_starts_at: '2026-11-11T00:00:00Z',
-    jury_ends_at: '2026-11-15T23:59:59Z',
-    results_visibility: 'public',
-    total_candidates: 12,
-    total_votes: 840,
-    rules_summary: [
-      'Eligible Circle members vote exclusively within their assigned Circle.',
-      'Voting is 100% anonymous and cryptographically verified.',
-      'Candidates present a 2-minute video pitch highlighting their Circle vision.',
-    ],
-    eligibility_criteria: [
-      'Active member of the target Circle for at least 6 months.',
-      'Attendance rate > 90% in monthly meetings.',
-    ],
-  },
-  {
-    id: '0199c000-sed-7000-8000-000000000003',
-    title: 'Gujarat State Executive Director (SED) Selection 2026',
-    name: 'Gujarat State Executive Director (SED) Selection 2026',
-    slug: 'gujarat-sed-selection-2026',
-    campaign_year: 2026,
-    status: 'active',
-    nomination_open: false, // Closed via Admin Panel Open/Close toggle!
-    voting_open: true,
-    jury_open: false,
-    role: {
-      id: 'role-sed-03',
-      name: 'SED',
-      key: 'sed',
-      description: 'Apex leader steering the entire state organization across all districts.',
-      hierarchy_level: 5,
-    },
-    scopes: [
-      {
-        id: '0199c000-scope-7000-8000-000000000004',
-        scope_type: 'state',
-        seats_available: 1,
-        name: 'Gujarat State Directorate',
-      },
-    ],
-    scope_type: 'state',
-    description:
-      'State-level executive leadership appointment for Gujarat, overseeing 30+ Circles and driving state-wide economic collaboration.',
-    nomination_starts_at: '2026-09-01T00:00:00Z',
-    nomination_ends_at: '2026-09-25T23:59:59Z',
-    voting_starts_at: '2026-09-26T00:00:00Z',
-    voting_ends_at: '2026-10-08T23:59:59Z',
-    jury_starts_at: '2026-10-09T00:00:00Z',
-    jury_ends_at: '2026-10-16T23:59:59Z',
-    results_visibility: 'candidate_only',
-    total_candidates: 4,
-    total_votes: 2150,
-  },
-  {
-    id: '0199c000-tech-7000-8000-000000000004',
-    title: 'Technology & AI Industry Director Selection 2025',
-    name: 'Technology & AI Industry Director Selection 2025',
-    slug: 'tech-ai-industry-director-2025',
-    campaign_year: 2025,
-    status: 'completed',
-    nomination_open: false, // Closed campaign
-    voting_open: false,
-    jury_open: false,
-    role: {
-      id: 'role-ind-04',
-      name: 'Industry Director',
-      key: 'industry_director',
-      description: 'Sector ecosystem owner linking tech founders across all local Circles.',
-      hierarchy_level: 3,
-    },
-    scope_type: 'industry',
-    description:
-      'Completed selection cycle for the Technology & AI Industry Directorate. Winner published and actively serving.',
-    nomination_starts_at: '2025-08-01T00:00:00Z',
-    nomination_ends_at: '2025-08-20T23:59:59Z',
-    voting_starts_at: '2025-08-21T00:00:00Z',
-    voting_ends_at: '2025-09-05T23:59:59Z',
-    jury_starts_at: '2025-09-06T00:00:00Z',
-    jury_ends_at: '2025-09-12T23:59:59Z',
-    results_visibility: 'public',
-    total_candidates: 5,
-    total_votes: 1840,
-  },
-]
+export const MOCK_CAMPAIGNS: Campaign[] = []
 
 export const MOCK_SCOPES: CampaignScope[] = [
   { id: 'scope-surat-01', scope_type: 'district', name: 'Surat District', state: 'Gujarat', district: 'Surat', seats_available: 1 },
@@ -1072,13 +897,13 @@ class LeadershipApiService {
   // 1. Campaign Discovery: Only Active & Open Campaigns Rendered on Cards
   async getCampaigns(params?: {
     status?: string
-    year?: number | string
+    year?: string | number
     role_id?: string
     page?: number
     per_page?: number
   }): Promise<{ success: boolean; data: Campaign[]; isLive: boolean }> {
     const queryParams = new URLSearchParams()
-    queryParams.set('status', params?.status || 'active')
+    if (params?.status) queryParams.set('status', params.status)
     if (params?.year && String(params.year) !== 'all') queryParams.set('year', String(params.year))
     if (params?.role_id && params.role_id !== 'all') queryParams.set('role_id', params.role_id)
     if (params?.page) queryParams.set('page', String(params.page))
@@ -1096,31 +921,17 @@ class LeadershipApiService {
           : Array.isArray(res.rawResponse)
           ? res.rawResponse
           : []
-        if (rawList.length > 0) {
-          const normalized = rawList.map(normalizeCampaign)
-          // Strictly enforce Admin toggle: only campaigns with status: "active" and nomination_open: true appear on cards
-          const filtered = normalized.filter((c: Campaign) => c.status === 'active' && Boolean(c.nomination_open))
-          if (filtered.length > 0) {
-            return { success: true, data: filtered, isLive: true }
-          }
-        }
+        const normalized = rawList.map(normalizeCampaign)
+        // Strictly enforce Admin toggle: only campaigns with status: "active" and nomination_open: true appear on cards
+        const filtered = normalized.filter((c: Campaign) => c.status === 'active' && Boolean(c.nomination_open))
+        return { success: true, data: filtered, isLive: true }
       }
     } catch {
       // fallback cleanly
     }
 
-    // Fallback to mock campaigns, strictly enforcing status: "active" and nomination_open: true
-    let filtered = MOCK_CAMPAIGNS.map(normalizeCampaign).filter(
-      (c: Campaign) => c.status === 'active' && Boolean(c.nomination_open)
-    )
-    if (params?.year && String(params.year) !== 'all') {
-      filtered = filtered.filter((c) => String(c.campaign_year) === String(params.year))
-    }
-    if (params?.role_id && params.role_id !== 'all') {
-      filtered = filtered.filter((c) => c.role.key === params.role_id || c.role.id === params.role_id)
-    }
-
-    return { success: true, data: filtered, isLive: false }
+    // No hardcoded campaigns - if DB has 0 campaigns or none active, return empty list
+    return { success: true, data: [], isLive: false }
   }
 
   // 2. Fetch Campaign Form & Details
@@ -1135,10 +946,11 @@ class LeadershipApiService {
       // fallback
     }
 
-    const found =
-      MOCK_CAMPAIGNS.find((c) => c.id === id || c.slug === id) ||
-      MOCK_CAMPAIGNS[0]
-    return { success: true, data: normalizeCampaign(found), isLive: false }
+    const found = MOCK_CAMPAIGNS.find((c) => c.id === id || c.slug === id)
+    if (found) {
+      return { success: true, data: normalizeCampaign(found), isLive: false }
+    }
+    return { success: false, data: {} as Campaign, isLive: false }
   }
 
   async getCampaignScopes(id: string): Promise<{ success: boolean; data: CampaignScope[]; isLive: boolean }> {
