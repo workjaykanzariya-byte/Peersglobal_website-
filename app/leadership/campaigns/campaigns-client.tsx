@@ -36,9 +36,7 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
 
   // Keep state in sync with initial props if they update
   useEffect(() => {
-    if (initialCampaigns && initialCampaigns.length > 0) {
-      setCampaigns(initialCampaigns)
-    }
+    setCampaigns(initialCampaigns || [])
   }, [initialCampaigns])
 
   // Immediately query fresh campaigns on client mount to bypass any stale server cache
@@ -47,7 +45,7 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
     leadershipApi
       .getCampaigns({ status: 'active' })
       .then((res) => {
-        if (isSubscribed && res.success && res.data.length > 0) {
+        if (isSubscribed && res.success && Array.isArray(res.data)) {
           setCampaigns(res.data)
         }
       })
@@ -192,7 +190,7 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
         <div className="rounded-2xl bg-white border border-slate-200/90 p-4 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300">
           <div className="font-serif text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-            {initialCampaigns.filter((c) => c.status === 'active').length}
+            {campaigns.filter((c) => c.status === 'active').length}
           </div>
           <div className="text-xs font-bold text-slate-900 mt-1">Active Campaigns</div>
           <div className="text-[11px] text-slate-500 font-normal">Across Bharat chapters</div>
@@ -333,24 +331,28 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
           <div className="text-center py-16 p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
             <Search className="w-10 h-10 text-slate-300 mx-auto mb-3" />
             <h3 className="font-serif text-lg font-bold text-slate-900 mb-1">
-              No matching campaigns found
+              {campaigns.length === 0 ? 'No Active Campaigns Currently' : 'No matching campaigns found'}
             </h3>
-            <p className="text-xs text-slate-500 mb-4">
-              Try adjusting your role or phase filter parameters.
+            <p className="text-xs text-slate-500 mb-4 max-w-md mx-auto">
+              {campaigns.length === 0
+                ? 'There are currently no active leadership campaigns open for nomination or voting. When a new campaign is published from the Admin panel, it will appear here.'
+                : 'Try adjusting your role or phase filter parameters.'}
             </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSearchQuery('')
-                setSelectedYear('all')
-                setSelectedRole('all')
-                setSelectedScope('all')
-                setSelectedPhase('all')
-              }}
-              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold hover:opacity-95 shadow-sm"
-            >
-              Reset Filters
-            </button>
+            {campaigns.length > 0 && (
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('')
+                  setSelectedYear('all')
+                  setSelectedRole('all')
+                  setSelectedScope('all')
+                  setSelectedPhase('all')
+                }}
+                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white text-xs font-bold hover:opacity-95 shadow-sm"
+              >
+                Reset Filters
+              </button>
+            )}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
