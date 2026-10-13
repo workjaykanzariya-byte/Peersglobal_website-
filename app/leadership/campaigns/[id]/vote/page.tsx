@@ -42,22 +42,23 @@ export default async function CampaignVotePage({ params, searchParams }: PagePro
   }
 
   return (
-    <div className="min-h-screen bg-[#020817] text-white py-8 sm:py-12 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-blue-900/20 via-rose-900/10 to-transparent blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 py-8 sm:py-12 relative overflow-hidden">
+      {/* Subtle brand ambient accents */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-1/4 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
+        <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
           <Link
             href={`/leadership/campaigns/${campaign.id}`}
-            className="hover:text-blue-400 flex items-center gap-1 transition-colors"
+            className="hover:text-[#1D4ED8] flex items-center gap-1 transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
             {campaign.name}
           </Link>
           <span>/</span>
-          <span className="text-white font-bold">
+          <span className="font-bold brand-gradient-text">
             {candidateParam && directCandidate
               ? `Vote for ${directCandidate.full_name}`
               : 'Public Voting Booth'}
