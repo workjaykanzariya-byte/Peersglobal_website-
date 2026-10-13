@@ -69,8 +69,8 @@ export async function POST(
       console.warn('Local FS upload error:', fsErr)
     }
 
-    // 3. Fallback mock storage URL
-    const mockStorageUrl = `https://dev.peersunity.com/storage/leadership/form2/${nominationId}/${encodeURIComponent(
+    // 3. Fallback storage URL
+    const mockStorageUrl = `https://peersunity.com/storage/leadership/form2/${nominationId}/${encodeURIComponent(
       file.name
     )}`
 

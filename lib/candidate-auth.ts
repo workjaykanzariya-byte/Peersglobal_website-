@@ -194,11 +194,11 @@ export const IN_MEMORY_VOTES: VoterEndorsement[] = [
 // In-memory OTP storage for rapid response & test reliability
 const memoryOtpStore: Record<string, { code: string; expiresAt: number }> = {}
 
-// Cache of remote candidates fetched from dev.peersunity.com
+// Cache of remote candidates fetched from peersunity.com
 let remoteCandidatesCache: { candidates: CandidateProfile[]; expiresAt: number } | null = null
 
 /**
- * Fetch candidates live from dev.peersunity.com backend
+ * Fetch candidates live from peersunity.com backend
  */
 export async function fetchRemoteCandidates(): Promise<CandidateProfile[]> {
   if (remoteCandidatesCache && remoteCandidatesCache.expiresAt > Date.now()) {
@@ -208,7 +208,7 @@ export async function fetchRemoteCandidates(): Promise<CandidateProfile[]> {
   const results: CandidateProfile[] = []
 
   try {
-    const baseUrls = ['https://dev.peersunity.com/api/v1/leadership', 'https://dev.fempreneur.club/api/v1/leadership']
+    const baseUrls = ['https://peersunity.com/api/v1/leadership']
 
     for (const baseUrl of baseUrls) {
       try {
@@ -269,7 +269,7 @@ export async function fetchRemoteCandidates(): Promise<CandidateProfile[]> {
 
 /**
  * Find candidate by email across:
- * 1. Remote dev.peersunity.com backend
+ * 1. Remote peersunity.com backend
  * 2. KNOWN_CANDIDATES catalog
  * 3. public.leadership_nominations table
  * 4. public.endorsement_votes table
@@ -279,7 +279,7 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
   const cleanEmail = String(rawEmail || '').trim().toLowerCase()
   if (!cleanEmail || !cleanEmail.includes('@')) return null
 
-  // 1. Check live remote candidates from dev.peersunity.com
+  // 1. Check live remote candidates from peersunity.com
   try {
     const remoteList = await fetchRemoteCandidates()
     const match = remoteList.find((c) => c.email.toLowerCase() === cleanEmail)

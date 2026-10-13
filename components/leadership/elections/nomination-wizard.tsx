@@ -237,7 +237,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         document_type: docType,
         file_url:
           uploadedDocUrls[docType] ||
-          `https://dev.peersunity.com/storage/nominations/${docType}_${fileInfo.name}`,
+          `https://peersunity.com/storage/nominations/${docType}_${fileInfo.name}`,
         original_name: fileInfo.name,
       }))
 
@@ -245,7 +245,7 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
       if (!documentsPayload.some((d) => d.document_type === 'vision_statement')) {
         documentsPayload.push({
           document_type: 'vision_statement',
-          file_url: 'https://dev.peersunity.com/storage/nominations/candidate_vision.pdf',
+          file_url: 'https://peersunity.com/storage/nominations/candidate_vision.pdf',
           original_name: `${(profile.fullName || 'candidate').replace(/\s+/g, '_')}_vision.pdf`,
         })
       }
