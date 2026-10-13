@@ -58,43 +58,52 @@ export function WhatIsSection() {
             </div>
           </div>
 
-          {/* 3 Core Pillars (LSR) matching layout */}
-          <div className="fd-what-is-mindvalley__stats !gap-8 md:!gap-12 lg:!gap-16">
+          {/* 3 Core Pillars (LSR - Learning, Sales, Resources) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 lg:gap-12 max-w-5xl mx-auto w-full items-start pt-2">
             {/* Pillar 1 - Learning */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="240">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                L — Learning
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Learning from people who have actually lived the experience.
+            <div className="flex flex-col items-center text-center group" data-fd-rise="240">
+              <div className="w-full max-w-[280px] sm:max-w-[320px] h-14 sm:h-16 px-6 rounded-2xl sm:rounded-[22px] bg-gradient-to-r from-[#FFF176] via-[#FFD6A5] to-[#FFA6DE] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center border border-white/70 select-none">
+                <h3 className="text-2xl sm:text-[28px] font-black tracking-tight text-slate-900 leading-none">
+                  Learning
+                </h3>
+              </div>
+              <p className="text-sm sm:text-base text-slate-700 mt-4 font-normal leading-relaxed max-w-[280px]">
+                Growth through knowledge, mentorship, and shared experiences.
               </p>
             </div>
 
-            {/* Pillar 2 - Sharing */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="300">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                S — Sharing
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Sharing knowledge, relationships, opportunities and experience.
+            {/* Pillar 2 - Sales */}
+            <div className="flex flex-col items-center text-center group" data-fd-rise="300">
+              <div className="w-full max-w-[280px] sm:max-w-[320px] h-14 sm:h-16 px-6 rounded-2xl sm:rounded-[22px] bg-gradient-to-r from-[#00BCD4] via-[#00BFA5] to-[#FFD54F] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center border border-white/70 select-none">
+                <h3 className="text-2xl sm:text-[28px] font-black tracking-tight text-slate-900 leading-none">
+                  Sales
+                </h3>
+              </div>
+              <p className="text-sm sm:text-base text-slate-700 mt-4 font-normal leading-relaxed max-w-[280px]">
+                Real business through referrals, networking, and collaborations.
               </p>
             </div>
 
-            {/* Pillar 3 - Relationships */}
-            <div className="fd-what-is-mindvalley__stat max-w-[340px] text-center" data-fd-rise="360">
-              <h3 className="fd-what-is-mindvalley__stat-value !text-2xl sm:!text-[28px] !leading-tight font-bold">
-                R — Relationships
-              </h3>
-              <p className="fd-what-is-mindvalley__stat-label !text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-                Building trusted relationships that become stronger over time.
+            {/* Pillar 3 - Resources */}
+            <div className="flex flex-col items-center text-center group" data-fd-rise="360">
+              <div className="w-full max-w-[280px] sm:max-w-[320px] h-14 sm:h-16 px-6 rounded-2xl sm:rounded-[22px] bg-gradient-to-r from-[#B9F6CA] via-[#B2EBF2] to-[#90CAF9] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center border border-white/70 select-none">
+                <h3 className="text-2xl sm:text-[28px] font-black tracking-tight text-slate-900 leading-none">
+                  Resources
+                </h3>
+              </div>
+              <p className="text-sm sm:text-base text-slate-700 mt-4 font-normal leading-relaxed max-w-[280px]">
+                Tools, media, and platforms to support and scale your business.
               </p>
             </div>
           </div>
 
-          {/* Closing Highlight */}
-          <div className="text-center mt-2 max-w-xl mx-auto" data-fd-rise="400">
-            <p className="text-base sm:text-lg font-serif italic text-slate-800 font-medium">
-              &ldquo;LSR is not a theory to read about. It is something to experience.&rdquo;
+          {/* Our Core Belief */}
+          <div className="text-center mt-6 sm:mt-8 max-w-2xl mx-auto space-y-2" data-fd-rise="400">
+            <h4 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+              Our Core Belief
+            </h4>
+            <p className="text-sm sm:text-base text-slate-800 font-medium leading-relaxed">
+              We believe with confidence that any business can grow - when it focuses on Learning, Sales, and Resources.
             </p>
           </div>
         </div>

@@ -177,7 +177,7 @@ const REFERENCE_TABLE_DATA = [
   {
     word: 'LSR',
     badge: 'CORE MODEL',
-    meaning: 'Learning, Sharing and Relationships — the core operating rhythm of PEERS GLOBAL.',
+    meaning: 'Learning, Sales and Resources — the core operating rhythm of PEERS GLOBAL.',
   },
   {
     word: 'Unity',
