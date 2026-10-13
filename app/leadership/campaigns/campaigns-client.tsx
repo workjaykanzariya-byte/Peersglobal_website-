@@ -219,7 +219,7 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs font-bold text-emerald-700">Live API Connected</span>
           </div>
-          <div className="text-xs font-bold text-slate-900 mt-1">dev.peersunity.com</div>
+          <div className="text-xs font-bold text-slate-900 mt-1">peersunity.com</div>
           <div className="text-[11px] text-slate-500 font-normal">Laravel 12 REST Engine</div>
         </div>
       </div>

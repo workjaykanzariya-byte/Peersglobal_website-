@@ -1,17 +1,15 @@
 /**
  * Peers Global Leadership Selection, Voting & Juror API Client
- * Connects to Dev Staging backend:
- * Primary: https://dev.fempreneur.club/api/v1/leadership
- * Fallback: https://dev.peersunity.com/api/v1/leadership
+ * Production Live API: https://peersunity.com/api/v1/leadership
  */
 
 export const PRIMARY_LEADERSHIP_API_BASE_URL =
   process.env.NEXT_PUBLIC_LEADERSHIP_API_BASE_URL ||
-  'https://dev.peersunity.com/api/v1/leadership'
+  'https://peersunity.com/api/v1/leadership'
 
 export const FALLBACK_LEADERSHIP_API_BASE_URL =
   process.env.NEXT_PUBLIC_FALLBACK_LEADERSHIP_API_BASE_URL ||
-  'https://dev.fempreneur.club/api/v1/leadership'
+  'https://peersunity.com/api/v1/leadership'
 
 export const LEADERSHIP_API_BASE_URL = PRIMARY_LEADERSHIP_API_BASE_URL
 
@@ -1017,8 +1015,7 @@ class LeadershipApiService {
 
   /**
    * Dual-fallback fetch mechanism:
-   * First tries Primary: https://dev.fempreneur.club/api/v1/leadership
-   * If route 404s or network fails, automatically falls back to: https://dev.peersunity.com/api/v1/leadership
+   * Queries Production Live API: https://peersunity.com/api/v1/leadership
    */
   async requestWithFallback<T = any>(
     path: string,
@@ -1038,7 +1035,7 @@ class LeadershipApiService {
       headers: mergedHeaders,
     }
 
-    // 1. Try Primary base URL (dev.peersunity.com)
+    // 1. Try Primary base URL (peersunity.com)
     try {
       const primaryUrl = `${this.primaryBaseUrl}${cleanPath}`
       const res = await fetch(primaryUrl, fetchConfig)
@@ -2417,8 +2414,8 @@ class LeadershipApiService {
       // fallback
     }
 
-    // Fallback: Generate local object URL or mock dev url
-    const mockUrl = `https://dev.peersunity.com/storage/leadership/form2/${nominationId}/${encodeURIComponent(
+    // Fallback: Generate local object URL or mock storage url
+    const mockUrl = `https://peersunity.com/storage/leadership/form2/${nominationId}/${encodeURIComponent(
       file.name
     )}`
 
