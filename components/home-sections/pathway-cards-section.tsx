@@ -340,7 +340,7 @@ export function PathwayCardsSection() {
                 </p>
 
                 <div className="flex flex-col gap-2 mt-1">
-                  <ul className="fd-pathway-cards__list max-h-[300px] overflow-y-auto pr-1">
+                  <ul className="fd-pathway-cards__list max-h-[300px] overflow-y-auto scrollbar-none pr-1">
                     <li className="fd-pathway-cards__item">
                       <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkEnt)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
                       <span><strong className="text-white font-semibold">01 — Business Referral.</strong> Create a trusted introduction when someone in your Circle can genuinely help.</span>
@@ -635,7 +635,7 @@ export function PathwayCardsSection() {
                   Your PEERS GLOBAL experience can include:
                 </p>
 
-                <ul className="fd-pathway-cards__list max-h-[260px] overflow-y-auto pr-1 my-1">
+                <ul className="fd-pathway-cards__list max-h-[260px] overflow-y-auto scrollbar-none pr-1 my-1">
                   <li className="fd-pathway-cards__item">
                     <svg className="fd-pathway-cards__check shrink-0" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="url(#fdPwChkAuth)" d="M20.884 5.116a1.25 1.25 0 0 0-1.768 0L9 15.232l-4.116-4.116a1.25 1.25 0 0 0-1.768 1.768l5 5a1.25 1.25 0 0 0 1.768 0l11-11a1.25 1.25 0 0 0 0-1.768"></path></svg>
                     <span>Circle meetings</span>

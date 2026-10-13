@@ -694,24 +694,26 @@ export function MembershipPageClient() {
                 return (
                   <div
                     key={item.action}
-                    className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between space-y-3 group"
+                    className="group relative p-[1.5px] rounded-2xl bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-2xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center justify-center px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-100 text-slate-500 border border-slate-200/60">
-                        0{idx + 1}
-                      </span>
-                      <div className="w-8 h-8 rounded-xl flex items-center justify-center bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs transition-transform duration-300 group-hover:scale-105">
-                        <Icon className="w-4 h-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    <div className="relative w-full h-full bg-white rounded-[14.5px] p-5 flex flex-col justify-between space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="inline-flex items-center justify-center px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-100 text-slate-500 border border-slate-200/60">
+                          0{idx + 1}
+                        </span>
+                        <div className="w-8 h-8 rounded-xl flex items-center justify-center bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs transition-transform duration-300 group-hover:scale-105">
+                          <Icon className="w-4 h-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
                       </div>
-                    </div>
 
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-tight">
-                        {item.action}
-                      </h4>
-                      <p className="text-xs text-slate-600 leading-relaxed font-light mt-1.5">
-                        {item.desc}
-                      </p>
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-tight">
+                          {item.action}
+                        </h4>
+                        <p className="text-xs text-slate-600 leading-relaxed font-light mt-1.5">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 )

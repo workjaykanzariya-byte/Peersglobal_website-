@@ -574,91 +574,93 @@ export function PurposePageClient() {
                 <div
                   key={circle.slug}
                   onClick={() => setActiveCircle(isSelected ? null : circle.slug)}
-                  className={`group p-6 sm:p-8 rounded-3xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                  className={`group relative p-[1.5px] rounded-[28px] transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-xl hover:-translate-y-1.5 ${
                     isSelected
-                       ? 'bg-white border-[#0062D2] shadow-xl ring-2 ring-[#0062D2]/20'
-                       : 'bg-white border-slate-200/90 shadow-xs hover:shadow-xl hover:border-blue-400/50'
+                      ? 'bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] shadow-xl'
+                      : 'bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48]'
                   }`}
                 >
-                  <div>
-                    {/* Header: Num + Icon */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
-                          <Icon className="size-5 stroke-[url(#brandIconGrad)]" />
-                        </div>
-                        <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
-                          {circle.num}
-                        </span>
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {circle.tags.slice(0, 2).map((tag) => (
-                          <span key={tag} className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
-                            {tag}
+                  <div className="relative w-full h-full bg-white rounded-[26.5px] p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                      {/* Header: Num + Icon */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                            <Icon className="size-5 stroke-[url(#brandIconGrad)]" />
+                          </div>
+                          <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
+                            {circle.num}
                           </span>
-                        ))}
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {circle.tags.slice(0, 2).map((tag) => (
+                            <span key={tag} className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
+
+                      {/* Title & Headline */}
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0F172A] mb-1.5 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        {circle.name}
+                      </h3>
+                      <p className="text-xs sm:text-sm font-bold brand-gradient-text mb-3">
+                        {circle.headline}
+                      </p>
+
+                      {/* Main Description */}
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                        {circle.description}
+                      </p>
+
+                      {/* Specific highlights */}
+                      {circle.questions && (
+                        <div className="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-100/80 mb-4 space-y-1">
+                          <p className="text-[11px] font-bold text-blue-900 mb-1">The value begins with shared experience:</p>
+                          {circle.questions.map((q, i) => (
+                            <p key={i} className="text-[11px] text-blue-800 flex items-center gap-1.5">
+                              <span className="size-1 rounded-full bg-blue-600" />
+                              {q}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+
+                      {circle.quote && (
+                        <div className="p-4 rounded-2xl bg-violet-50/70 border border-violet-100 mb-4">
+                          <p className="font-serif text-lg text-violet-900 font-bold mb-1">{circle.quote}</p>
+                          <p className="text-[11px] text-violet-700 leading-relaxed">{circle.quoteNote}</p>
+                        </div>
+                      )}
+
+                      {circle.keyTakeaway && (
+                        <p className="text-xs text-slate-700 font-medium bg-slate-50 p-3 rounded-xl border border-slate-200/70 mb-4 leading-relaxed">
+                          {circle.keyTakeaway}
+                        </p>
+                      )}
+
+                      {circle.sharedDirection && (
+                        <p className="text-xs text-slate-800 font-semibold italic mb-3">
+                          {circle.sharedDirection}
+                        </p>
+                      )}
                     </div>
 
-                    {/* Title & Headline */}
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0F172A] mb-1.5 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                      {circle.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-bold brand-gradient-text mb-3">
-                      {circle.headline}
-                    </p>
-
-                    {/* Main Description */}
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                      {circle.description}
-                    </p>
-
-                    {/* Specific highlights */}
-                    {circle.questions && (
-                      <div className="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-100/80 mb-4 space-y-1">
-                        <p className="text-[11px] font-bold text-blue-900 mb-1">The value begins with shared experience:</p>
-                        {circle.questions.map((q, i) => (
-                          <p key={i} className="text-[11px] text-blue-800 flex items-center gap-1.5">
-                            <span className="size-1 rounded-full bg-blue-600" />
-                            {q}
-                          </p>
-                        ))}
-                      </div>
-                    )}
-
-                    {circle.quote && (
-                      <div className="p-4 rounded-2xl bg-violet-50/70 border border-violet-100 mb-4">
-                        <p className="font-serif text-lg text-violet-900 font-bold mb-1">{circle.quote}</p>
-                        <p className="text-[11px] text-violet-700 leading-relaxed">{circle.quoteNote}</p>
-                      </div>
-                    )}
-
-                    {circle.keyTakeaway && (
-                      <p className="text-xs text-slate-700 font-medium bg-slate-50 p-3 rounded-xl border border-slate-200/70 mb-4 leading-relaxed">
-                        {circle.keyTakeaway}
-                      </p>
-                    )}
-
-                    {circle.sharedDirection && (
-                      <p className="text-xs text-slate-800 font-semibold italic mb-3">
-                        {circle.sharedDirection}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
-                    <span className="text-[11px] font-semibold text-slate-400">
-                      Cross-Industry Circle
-                    </span>
-                    <a
-                      href="https://unity.peersglobal.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-xs font-semibold tracking-wide whitespace-nowrap shadow-xs hover:shadow-md hover:scale-105 transition-all duration-200"
-                    >
-                      <span>Join in Unity App</span>
-                      <ArrowRight className="size-3 text-white" />
-                    </a>
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                      <span className="text-[11px] font-semibold text-slate-400">
+                        Cross-Industry Circle
+                      </span>
+                      <a
+                        href="https://unity.peersglobal.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-xs font-semibold tracking-wide whitespace-nowrap shadow-xs hover:shadow-md hover:scale-105 transition-all duration-200"
+                      >
+                        <span>Join in Unity App</span>
+                        <ArrowRight className="size-3 text-white" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               )

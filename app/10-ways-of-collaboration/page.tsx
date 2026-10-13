@@ -902,15 +902,15 @@ export default function TenWaysOfCollaborationPage() {
 
 
 
-              {/* Realistic 3D iPhone Mockup Image with Shadow */}
+              {/* Realistic Mobile Mockup Image with Shadow */}
               <div className="relative w-[280px] sm:w-[320px] lg:w-[330px] xl:w-[350px] transition-transform duration-500 hover:scale-[1.02] drop-shadow-[0_22px_45px_rgba(0,98,210,0.18)]">
                 <Image
-                  src="/images/unity-app-phone.png"
+                  src="/images/unity-creatives/1.png"
                   alt="Peers Global Unity Mobile App Mockup"
                   width={682}
                   height={1024}
                   priority
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-contain rounded-2xl"
                 />
               </div>
 

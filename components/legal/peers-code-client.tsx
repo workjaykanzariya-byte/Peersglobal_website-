@@ -78,6 +78,26 @@ export function PeersCodeClient() {
             <stop offset="0%" stopColor="#1D4ED8" />
             <stop offset="100%" stopColor="#E11D48" />
           </linearGradient>
+          <linearGradient id="cardGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#8B5CF6" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#2563EB" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#F43F5E" />
+          </linearGradient>
+          <linearGradient id="brandCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
         </defs>
       </svg>
 
@@ -248,19 +268,21 @@ export function PeersCodeClient() {
                 <div
                   id={`code-${item.num}`}
                   key={item.title}
-                  className="animated-glow-card group !rounded-3xl shadow-xs hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-xs hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                     <defs>
-                      <linearGradient id={`codeCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                      <linearGradient id={`codeCardGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
                         <stop offset="0%" stopColor="#1D4ED8" />
                         <stop offset="100%" stopColor="#E11D48" />
                       </linearGradient>
                     </defs>
                     <path
-                      className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
+                      className="animated-border-path"
                       style={{ stroke: `url(#codeCardGrad-${idx})` }}
-                      d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                     />
                   </svg>
 

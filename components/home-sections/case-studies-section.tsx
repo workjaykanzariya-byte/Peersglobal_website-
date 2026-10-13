@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   Play,
   X,
@@ -162,15 +163,15 @@ export function CaseStudiesSection() {
             </p>
 
             {/* Primary Action Button */}
-            <button
-              onClick={() => openStory(stories[0], 0)}
+            <Link
+              href="/success-story"
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-base font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 hover:from-blue-700 hover:via-indigo-700 hover:to-rose-700 shadow-lg shadow-blue-500/25 hover:shadow-rose-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
             >
               <span>Watch their journey</span>
               <div className="w-6 h-6 rounded-full bg-white/20 group-hover:bg-white/30 flex items-center justify-center transition-colors">
                 <Play className="w-3.5 h-3.5 fill-white text-white ml-0.5" />
               </div>
-            </button>
+            </Link>
           </div>
 
           {/* Right Collage Columns */}
@@ -244,13 +245,13 @@ export function CaseStudiesSection() {
               Take a look at how our platform helps leaders find answers to everyday problems
               and connect with other leaders worldwide.
             </p>
-            <button
-              onClick={() => openStory(stories[0], 0)}
+            <Link
+              href="/success-story"
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 shadow-md"
             >
               <span>Watch their journey</span>
               <Play className="w-3.5 h-3.5 fill-white" />
-            </button>
+            </Link>
           </div>
 
           {/* Bottom Marquee Collage */}

@@ -8,13 +8,15 @@ import { GalaxyButton } from '@/components/ui/galaxy-button'
 export function HowItWorksSection() {
   const [index, setIndex] = useState(0)
   const totalCards = 8
+  // Since 3 cards are visible at once, the carousel stops scrolling after index 5 (cards 6, 7, 8 in view)
+  const maxIndex = 5
 
   const handlePrev = () => {
     setIndex((prev) => Math.max(0, prev - 1))
   }
 
   const handleNext = () => {
-    setIndex((prev) => Math.min(totalCards - 1, prev + 1))
+    setIndex((prev) => Math.min(maxIndex, prev + 1))
   }
 
   return (
@@ -180,8 +182,8 @@ export function HowItWorksSection() {
           className="fd-how-it-works__arrow"
           aria-label="Next slide"
           onClick={handleNext}
-          disabled={index >= totalCards - 1}
-          style={{ opacity: index >= totalCards - 1 ? 0.35 : 1, cursor: index >= totalCards - 1 ? 'default' : 'pointer' }}
+          disabled={index >= maxIndex}
+          style={{ opacity: index >= maxIndex ? 0.35 : 1, cursor: index >= maxIndex ? 'default' : 'pointer' }}
         >
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />

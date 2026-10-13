@@ -382,52 +382,124 @@ export function TheIdeaClient() {
           </div>
 
           {/* 4 Pillars of Support Needed */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                  <Lightbulb className="size-5" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14 text-left">
+            {/* 1. Advice */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradProb1" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradProb1)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center mb-5 text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    <Lightbulb className="size-5" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Advice
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Objective guidance from founders who don&apos;t have an agenda or commercial interest in your outcome.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">Advice</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  Objective guidance from founders who don&apos;t have an agenda or commercial interest in your outcome.
-                </p>
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-violet-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-11 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                  <Sparkles className="size-5" />
+            {/* 2. Experience */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradProb2" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradProb2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center mb-5 text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    <Sparkles className="size-5" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Experience
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Real wisdom from someone who has already faced the exact inflection point or mistake you are staring at.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">Experience</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  Real wisdom from someone who has already faced the exact inflection point or mistake you are staring at.
-                </p>
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                  <Share2 className="size-5" />
+            {/* 3. An Introduction */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradProb3" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradProb3)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center mb-5 text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    <Share2 className="size-5" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    An Introduction
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Warm, trusted doors opened by peers whose word carries credibility and genuine respect.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">An Introduction</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  Warm, trusted doors opened by peers whose word carries credibility and genuine respect.
-                </p>
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-11 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                  <HeartHandshake className="size-5" />
+            {/* 4. "I have been there." */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradProb4" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradProb4)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center mb-5 text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    <HeartHandshake className="size-5" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    “I have been there.”
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    Sometimes the greatest relief is hearing from a fellow founder: <em>“I faced that too, and here is how we survived it.”</em>
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">“I have been there.”</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  Sometimes the greatest relief is hearing from a fellow founder: <em>“I faced that too, and here is how we survived it.”</em>
-                </p>
               </div>
             </div>
           </div>
@@ -624,64 +696,144 @@ export function TheIdeaClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-blue-200 transition-all group">
-              <div>
-                <div className="size-11 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
-                  01
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 text-left">
+            {/* Principle 01 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradBelief1" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradBelief1)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    01
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    A Journey, Not a Destination
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    We believe entrepreneurship is a journey—not a destination. Growth is continuous, and every stage brings new learning.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">A Journey, Not a Destination</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  We believe entrepreneurship is a journey—not a destination. Growth is continuous, and every stage brings new learning.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#1D4ED8]">Continuous Evolution</span>
+                <div className="pt-4 border-t border-slate-100">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                    Continuous Evolution
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-violet-200 transition-all group">
-              <div>
-                <div className="size-11 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
-                  02
+            {/* Principle 02 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradBelief2" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradBelief2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    02
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Shared Experience
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    We believe experience becomes more valuable when it is shared. Lessons locked inside one mind help only one business; shared, they elevate many.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">Shared Experience</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  We believe experience becomes more valuable when it is shared. Lessons locked inside one mind help only one business; shared, they elevate many.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-violet-600">Wisdom in Motion</span>
+                <div className="pt-4 border-t border-slate-100">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                    Wisdom in Motion
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-emerald-200 transition-all group">
-              <div>
-                <div className="size-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
-                  03
+            {/* Principle 03 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradBelief3" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradBelief3)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    03
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Trust Before Transactions
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    We believe relationships become stronger when trust is built before transactions. Trust is the currency that outlasts any commercial deal.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">Trust Before Transactions</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  We believe relationships become stronger when trust is built before transactions. Trust is the currency that outlasts any commercial deal.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Enduring Foundations</span>
+                <div className="pt-4 border-t border-slate-100">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                    Enduring Foundations
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="p-7 rounded-2xl bg-white border border-cool-grey-250 shadow-xs flex flex-col justify-between hover:shadow-md hover:border-rose-200 transition-all group">
-              <div>
-                <div className="size-11 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-105 transition-transform">
-                  04
+            {/* Principle 04 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradBelief4" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradBelief4)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-7 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    04
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Mutual Elevation
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    We believe the growth of one entrepreneur can become the beginning of growth for another. When one rises, the entire circle rises.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#0f131a] mb-2">Mutual Elevation</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  We believe the growth of one entrepreneur can become the beginning of growth for another. When one rises, the entire circle rises.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-100">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#E11D48]">Collective Rise</span>
+                <div className="pt-4 border-t border-slate-100">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                    Collective Rise
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -866,43 +1018,103 @@ export function TheIdeaClient() {
           </div>
 
           {/* LSR 3 Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-            <div className="p-8 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-12 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                  <BookOpen className="size-6" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14 text-left">
+            {/* Card 1: Learning */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradDim1" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradDim1)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-8 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-13 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center mb-6 text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    <BookOpen className="size-6" />
+                  </div>
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent block mb-2">
+                    DIMENSION 01
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#0f131a] mb-2.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Learning
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    An entrepreneur who keeps learning can grow. Continuous exposure to fresh insights, methods, and cross-industry frameworks.
+                  </p>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#1D4ED8] block mb-1">DIMENSION 01</span>
-                <h3 className="text-xl font-bold text-[#0f131a] mb-2">Learning</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  An entrepreneur who keeps learning can grow. Continuous exposure to fresh insights, methods, and cross-industry frameworks.
-                </p>
               </div>
             </div>
 
-            <div className="p-8 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-violet-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                  <Sparkles className="size-6" />
+            {/* Card 2: Sharing */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradDim2" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradDim2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-8 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-13 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center mb-6 text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    <Sparkles className="size-6" />
+                  </div>
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent block mb-2">
+                    DIMENSION 02
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#0f131a] mb-2.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Sharing
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    An entrepreneur who shares experience can help someone else grow. Turning personal lessons into collective leverage.
+                  </p>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-violet-600 block mb-1">DIMENSION 02</span>
-                <h3 className="text-xl font-bold text-[#0f131a] mb-2">Sharing</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  An entrepreneur who shares experience can help someone else grow. Turning personal lessons into collective leverage.
-                </p>
               </div>
             </div>
 
-            <div className="p-8 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                  <HeartHandshake className="size-6" />
+            {/* Card 3: Relationships */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradDim3" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradDim3)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-8 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-13 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center mb-6 text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    <HeartHandshake className="size-6" />
+                  </div>
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent block mb-2">
+                    DIMENSION 03
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#0f131a] mb-2.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Relationships
+                  </h3>
+                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                    An entrepreneur who builds trusted relationships creates possibilities that neither person could necessarily create alone.
+                  </p>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 block mb-1">DIMENSION 03</span>
-                <h3 className="text-xl font-bold text-[#0f131a] mb-2">Relationships</h3>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                  An entrepreneur who builds trusted relationships creates possibilities that neither person could necessarily create alone.
-                </p>
               </div>
             </div>
           </div>
@@ -1026,64 +1238,154 @@ export function TheIdeaClient() {
           </div>
 
           {/* 5 Dynamic Impact Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-14">
-            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-10 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
-                  01
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-14 text-left">
+            {/* Card 01 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradCollab1" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradCollab1)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-6 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    01
+                  </div>
+                  <h3 className="text-sm sm:text-base font-serif font-bold text-[#0f131a] mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Shares an Experience
+                  </h3>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                    Real perspective from someone who has navigated the exact storm before.
+                  </p>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Shares an Experience</h3>
-                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
-                  Real perspective from someone who has navigated the exact storm before.
-                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-10 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
-                  02
+            {/* Card 02 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradCollab2" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradCollab2)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-6 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    02
+                  </div>
+                  <h3 className="text-sm sm:text-base font-serif font-bold text-[#0f131a] mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Makes an Introduction
+                  </h3>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                    Opening high-trust doors that cold outreach and capital cannot unlock.
+                  </p>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Makes an Introduction</h3>
-                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
-                  Opening high-trust doors that cold outreach and capital cannot unlock.
-                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
-                  03
+            {/* Card 03 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradCollab3" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradCollab3)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-6 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    03
+                  </div>
+                  <h3 className="text-sm sm:text-base font-serif font-bold text-[#0f131a] mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Asks the Unconsidered
+                  </h3>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                    Challenging blind spots with care and sharp founder intuition.
+                  </p>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Asks the Unconsidered</h3>
-                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
-                  Challenging blind spots with care and sharp founder intuition.
-                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform">
-                  04
+            {/* Card 04 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradCollab4" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradCollab4)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-6 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                    04
+                  </div>
+                  <h3 className="text-sm sm:text-base font-serif font-bold text-[#0f131a] mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                    Helps You See Differently
+                  </h3>
+                  <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                    Reframing strategic problems into multi-dimensional opportunities.
+                  </p>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-[#0f131a] mb-1.5">Helps You See Differently</h3>
-                <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
-                  Reframing strategic problems into multi-dimensional opportunities.
-                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 via-white to-rose-50/80 border border-slate-200/90 shadow-xs hover:shadow-md hover:border-rose-300 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="size-10 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-105 transition-transform shadow-sm">
-                  05
+            {/* Card 05 */}
+            <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="brandCardGradCollab5" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#E11D48" />
+                  </linearGradient>
+                </defs>
+                <path
+                  className="animated-border-path"
+                  style={{ stroke: 'url(#brandCardGradCollab5)' }}
+                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                />
+              </svg>
+              <div className="p-6 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center font-bold text-sm mb-4 group-hover:scale-110 transition-transform shadow-sm">
+                    05
+                  </div>
+                  <h3 className="text-sm sm:text-base font-serif font-bold brand-gradient-text mb-1.5">
+                    “Let me help.”
+                  </h3>
+                  <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                    The most powerful phrase in entrepreneurship, offered without transaction.
+                  </p>
                 </div>
-                <h3 className="text-sm sm:text-base font-bold brand-gradient-text mb-1.5">“Let me help.”</h3>
-                <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                  The most powerful phrase in entrepreneurship, offered without transaction.
-                </p>
               </div>
             </div>
           </div>
@@ -1240,43 +1542,123 @@ export function TheIdeaClient() {
 
             {/* 4 Feature Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2 text-left">
-              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col justify-between group">
-                <div className="size-10 rounded-xl bg-blue-50 text-[#1D4ED8] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
-                  <BookOpen className="size-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">People to learn from</h4>
-                  <p className="text-xs text-cool-grey-600 leading-relaxed">Gain perspective from those who have solved what you are facing.</p>
+              {/* Card 1 */}
+              <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="brandCardGradSent1" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#brandCardGradSent1)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center mb-3.5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                      <BookOpen className="size-5" />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-serif font-bold text-slate-900 mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      People to learn from
+                    </h4>
+                    <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                      Gain perspective from those who have solved what you are facing.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex flex-col justify-between group">
-                <div className="size-10 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
-                  <Sparkles className="size-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">People to contribute to</h4>
-                  <p className="text-xs text-cool-grey-600 leading-relaxed">Turn your own victories and lessons into leverage for other founders.</p>
+              {/* Card 2 */}
+              <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="brandCardGradSent2" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#brandCardGradSent2)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center mb-3.5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                      <Sparkles className="size-5" />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-serif font-bold text-slate-900 mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      People to contribute to
+                    </h4>
+                    <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                      Turn your own victories and lessons into leverage for other founders.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all flex flex-col justify-between group">
-                <div className="size-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
-                  <ShieldCheck className="size-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">People they can trust</h4>
-                  <p className="text-xs text-cool-grey-600 leading-relaxed">High-integrity peer advisory protected by category exclusivity.</p>
+              {/* Card 3 */}
+              <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="brandCardGradSent3" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#brandCardGradSent3)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center mb-3.5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                      <ShieldCheck className="size-5" />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-serif font-bold text-slate-900 mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      People they can trust
+                    </h4>
+                    <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                      High-integrity peer advisory protected by category exclusivity.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group">
-                <div className="size-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
-                  <HeartHandshake className="size-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">Meaningful bonds</h4>
-                  <p className="text-xs text-cool-grey-600 leading-relaxed">Where business relationships transform into lifelong friendships.</p>
+              {/* Card 4 */}
+              <div className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all" tabIndex={0} role="article">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="brandCardGradSent4" x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: 'url(#brandCardGradSent4)' }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="p-6 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center mb-3.5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                      <HeartHandshake className="size-5" />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-serif font-bold text-slate-900 mb-1.5 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      Meaningful bonds
+                    </h4>
+                    <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
+                      Where business relationships transform into lifelong friendships.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

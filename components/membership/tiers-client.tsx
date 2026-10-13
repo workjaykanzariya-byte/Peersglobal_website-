@@ -432,20 +432,20 @@ export function TiersClient() {
             <div className="rounded-3xl !bg-[linear-gradient(135deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white p-6 sm:p-8 shadow-xl border border-white/10 relative overflow-hidden flex flex-col justify-between space-y-6 h-full">
               {/* Most Popular Ribbon */}
               <div className="absolute top-6 right-6 z-10">
-                <span className="px-3 py-1 rounded-full bg-amber-400 text-slate-950 text-[10px] font-bold uppercase tracking-wider shadow-md">
+                <span className="px-3.5 py-1 rounded-full bg-gradient-to-r from-[#FDE68A] via-[#F59E0B] to-[#D97706] text-slate-950 text-[10px] font-extrabold uppercase tracking-wider shadow-md shadow-amber-500/25 border border-amber-300/40">
                   MOST POPULAR
                 </span>
               </div>
 
               <div>
-                <div className="size-11 rounded-2xl bg-amber-400/20 border border-amber-400/40 text-amber-400 flex items-center justify-center mb-5">
+                <div className="size-11 rounded-2xl bg-gradient-to-br from-[#FDE68A]/20 via-[#F59E0B]/15 to-[#D97706]/10 border border-[#F59E0B]/40 text-[#FBBF24] flex items-center justify-center mb-5 shadow-xs shadow-amber-500/10">
                   <Crown className="size-5.5" />
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
                   Charter Peer
                 </h3>
-                <div className="text-2xl sm:text-3xl font-bold text-amber-300 mb-1.5 font-mono">
+                <div className="text-2xl sm:text-3xl font-bold font-mono tracking-tight mb-1.5 text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0A5] via-[#F6D365] to-[#FDA085] drop-shadow-xs">
                   ₹1,00,000 <span className="text-xs font-sans text-slate-400 font-normal">per year</span>
                 </div>
                 <p className="text-[11px] uppercase font-bold tracking-wider text-slate-400 mb-6">
@@ -454,31 +454,31 @@ export function TiersClient() {
 
                 <ul className="space-y-3 text-xs sm:text-[13px] text-slate-200 font-light">
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#F59E0B] shrink-0 mt-0.5 drop-shadow-[0_0_3px_rgba(245,158,11,0.4)]" />
                     <span><strong className="text-white font-semibold">Everything in Peer Membership</strong></span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#F59E0B] shrink-0 mt-0.5 drop-shadow-[0_0_3px_rgba(245,158,11,0.4)]" />
                     <span><strong className="text-white font-semibold">Open access to every Peer</strong> (view full profiles and contact details directly)</span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#F59E0B] shrink-0 mt-0.5 drop-shadow-[0_0_3px_rgba(245,158,11,0.4)]" />
                     <span><strong className="text-white font-semibold">Twelve cross-region meetings a year</strong></span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#F59E0B] shrink-0 mt-0.5 drop-shadow-[0_0_3px_rgba(245,158,11,0.4)]" />
                     <span><strong className="text-white font-semibold">The Charter Circle</strong> (national and international scale)</span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#F59E0B] shrink-0 mt-0.5 drop-shadow-[0_0_3px_rgba(245,158,11,0.4)]" />
                     <span><strong className="text-white font-semibold">First priority on leadership opportunities</strong></span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#F59E0B] shrink-0 mt-0.5 drop-shadow-[0_0_3px_rgba(245,158,11,0.4)]" />
                     <span><strong className="text-white font-semibold">First priority on media and stages</strong></span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-amber-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#F59E0B] shrink-0 mt-0.5 drop-shadow-[0_0_3px_rgba(245,158,11,0.4)]" />
                     <span><strong className="text-white font-semibold">Charter-only gatherings and special sessions</strong></span>
                   </li>
                 </ul>
@@ -686,7 +686,7 @@ export function TiersClient() {
             {/* Right 4 Cols: Grand Summary Card */}
             <div className="lg:col-span-4 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 text-white p-7 sm:p-8 shadow-xl flex flex-col justify-between min-h-[380px] border border-slate-800">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#FDE68A]/15 to-[#D97706]/15 border border-[#F59E0B]/40 text-[#FBBF24] text-xs font-semibold uppercase tracking-wider mb-6">
                   <Award className="size-3.5" />
                   Value Multiplier
                 </div>
@@ -701,7 +701,7 @@ export function TiersClient() {
                 <div className="h-px w-full bg-slate-800 my-4" />
 
                 <p className="text-xs text-slate-300 font-light leading-relaxed">
-                  You receive roughly <strong className="text-amber-300 font-semibold">6x to 7x return</strong> in direct event and leadership infrastructure for an investment of ~₹33,000–₹40,000 all-in.
+                  You receive roughly <strong className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0A5] to-[#F6D365] font-semibold">6x to 7x return</strong> in direct event and leadership infrastructure for an investment of ~₹33,000–₹40,000 all-in.
                 </p>
               </div>
 

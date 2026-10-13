@@ -133,11 +133,36 @@ export function CareersClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-[#0062D2]">
-      {/* Global SVG Gradient for Icons */}
+      {/* Global SVG Gradient for Icons & Laser Borders */}
       <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="careerBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
             <stop offset="100%" stopColor="#E11D48" />
           </linearGradient>
         </defs>
@@ -464,50 +489,49 @@ export function CareersClient() {
             {CULTURE_POINTS.map((pt, idx) => (
               <div
                 key={idx}
-                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
                 tabIndex={0}
                 role="article"
               >
-                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                   <defs>
-                    <linearGradient id={`cultureGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient id={`careerIdeaGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
                       <stop offset="0%" stopColor="#1D4ED8" />
                       <stop offset="100%" stopColor="#E11D48" />
                     </linearGradient>
                   </defs>
                   <path
-                    className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
-                    style={{ stroke: `url(#cultureGrad-${idx})` }}
+                    className="animated-border-path"
+                    style={{ stroke: `url(#careerIdeaGrad-${idx})` }}
                     d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                   />
                 </svg>
 
-                <div className="relative z-10 p-6 sm:p-7 bg-white border border-slate-200/80 !rounded-[calc(1.5rem-1.5px)] h-full flex flex-col justify-between overflow-hidden shadow-2xs">
-                  <div className="space-y-4 relative z-10">
-                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                      <span className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50/50 text-[#1D4ED8] border border-blue-100 flex items-center justify-center font-mono font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform brand-gradient-text">
+                <div className="p-7 flex flex-col justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
+                      <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 text-[#1D4ED8] flex items-center justify-center font-mono font-bold text-sm group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
                         0{idx + 1}
-                      </span>
+                      </div>
                       <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400">
                         ETHOS PILLAR
                       </span>
                     </div>
-                    <div className="space-y-1.5">
-                      <h3 className="text-base sm:text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors leading-snug">
-                        {pt.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                        {pt.desc}
-                      </p>
-                    </div>
+
+                    <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      {pt.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                      {pt.desc}
+                    </p>
                   </div>
 
-                  <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-800 relative z-10">
-                    <span className="flex items-center gap-1.5">
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent flex items-center gap-1.5">
                       <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                       Non-Negotiable Value
                     </span>
-                    <ChevronRight className="size-4 text-slate-400 group-hover:text-[#1D4ED8] group-hover:translate-x-1 transition-all" />
+                    <ChevronRight className="size-4 text-slate-400 group-hover:text-[#E11D48] group-hover:translate-x-1 transition-all duration-300" />
                   </div>
                 </div>
               </div>

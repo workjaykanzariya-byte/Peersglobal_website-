@@ -297,33 +297,35 @@ export function MembershipTermsClient() {
               return (
                 <div
                   key={idx}
-                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1.5 transition-all duration-300"
+                  className="group relative p-[1.5px] rounded-[28px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                        <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <div className="relative w-full h-full bg-white rounded-[26.5px] p-7 sm:p-8 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300">
+                          <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white shadow-2xs">
+                          TENET 0{pillar.num}
+                        </span>
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
-                        TENET 0{pillar.num}
+
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
+                          {pillar.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400">Guaranteed Covenant</span>
+                      <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
+                        Protected Seat &rarr;
                       </span>
                     </div>
-
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 brand-gradient-hover-text leading-snug cursor-pointer">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
-                        {pillar.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span className="text-slate-400">Guaranteed Covenant</span>
-                    <span className="inline-flex items-center gap-1 brand-gradient-text opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
-                      Protected Seat &rarr;
-                    </span>
                   </div>
                 </div>
               )
@@ -368,50 +370,52 @@ export function MembershipTermsClient() {
               return (
                 <div
                   key={article.id}
-                  className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6 h-full"
+                  className="group relative p-[1.5px] rounded-[28px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                 >
-                  <div className="space-y-4">
-                    {/* Header */}
-                    <div className="flex items-start justify-between gap-3 pb-4 border-b border-slate-100 min-h-[64px]">
-                      <div className="flex items-center gap-3">
-                        <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0">
-                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <div className="relative w-full h-full bg-white rounded-[26.5px] p-7 sm:p-8 flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      {/* Header */}
+                      <div className="flex items-start justify-between gap-3 pb-4 border-b border-slate-100 min-h-[64px]">
+                        <div className="flex items-center gap-3">
+                          <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 shadow-2xs flex items-center justify-center shrink-0">
+                            <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                          </div>
+                          <div>
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                              ARTICLE {article.num} • {article.category}
+                            </span>
+                            <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                              {article.heading}
+                            </h3>
+                          </div>
                         </div>
-                        <div>
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
-                            ARTICLE {article.num} • {article.category}
-                          </span>
-                          <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                            {article.heading}
-                          </h3>
-                        </div>
+
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white shadow-2xs shrink-0 mt-0.5">
+                          Binding
+                        </span>
                       </div>
 
-                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs shrink-0 mt-0.5">
-                        Binding
-                      </span>
+                      {/* Summary */}
+                      <p className="text-xs sm:text-sm font-medium text-slate-700 bg-[#FAFBFD] p-3.5 rounded-2xl border border-slate-200/80">
+                        {article.summary}
+                      </p>
+
+                      {/* Clauses / Points List */}
+                      <div className="space-y-2.5 pt-2">
+                        {article.points.map((point, pIdx) => (
+                          <div key={pIdx} className="flex items-start gap-3 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
+                            <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] mt-2 shrink-0" />
+                            <p>{point}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Summary */}
-                    <p className="text-xs sm:text-sm font-medium text-slate-700 bg-[#FAFBFD] p-3.5 rounded-2xl border border-slate-200/80">
-                      {article.summary}
-                    </p>
-
-                    {/* Clauses / Points List */}
-                    <div className="space-y-2.5 pt-2">
-                      {article.points.map((point, pIdx) => (
-                        <div key={pIdx} className="flex items-start gap-3 text-xs sm:text-[13px] text-slate-600 leading-relaxed font-light">
-                          <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] mt-2 shrink-0" />
-                          <p>{point}</p>
-                        </div>
-                      ))}
+                    {/* Card Footer Tag */}
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+                      <span>Binding Covenants</span>
+                      <span className="brand-gradient-text font-bold">Enforced by Board</span>
                     </div>
-                  </div>
-
-                  {/* Card Footer Tag */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
-                    <span>Binding Covenants</span>
-                    <span className="brand-gradient-text font-bold">Enforced by Board</span>
                   </div>
                 </div>
               )

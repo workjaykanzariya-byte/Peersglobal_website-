@@ -868,8 +868,18 @@ export function StoriesPageClient() {
             {/* Right: WHY WE SHOW THE NUMBERS & NO FICTION */}
             <div className="lg:col-span-6 space-y-6">
               <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-4 hover:border-blue-200 hover:shadow-md transition-all duration-300 group">
-                <div className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform">
-                  <TrendingUp className="size-5" />
+                <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/25 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <defs>
+                      <linearGradient id="numbersTrendingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="url(#numbersTrendingGrad)" />
+                    <polyline points="16 7 22 7 22 13" stroke="url(#numbersTrendingGrad)" />
+                  </svg>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   Why we show the numbers
@@ -931,18 +941,20 @@ export function StoriesPageClient() {
             {JOURNEY_STEPS.map((step, idx) => (
               <div
                 key={step.step}
-                className="group p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 text-center flex flex-col justify-between space-y-3 hover:border-blue-300 hover:bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                className="group relative p-[1.5px] rounded-2xl bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-2xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
               >
-                <div className="font-mono font-black text-xl sm:text-2xl bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent mx-auto group-hover:scale-125 transition-transform duration-300 select-none">
-                  0{idx + 1}
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                    {step.step}
-                  </h4>
-                  <p className="text-[11px] text-slate-500 group-hover:text-slate-700 leading-tight mt-1 font-light transition-colors">
-                    {step.desc}
-                  </p>
+                <div className="relative w-full h-full bg-[#FAFBFD] group-hover:bg-white rounded-[14.5px] p-4 text-center flex flex-col justify-between space-y-3 transition-colors duration-300">
+                  <div className="font-mono font-black text-xl sm:text-2xl bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent mx-auto group-hover:scale-125 transition-transform duration-300 select-none">
+                    0{idx + 1}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                      {step.step}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 group-hover:text-slate-700 leading-tight mt-1 font-light transition-colors">
+                      {step.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

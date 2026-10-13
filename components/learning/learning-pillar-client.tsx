@@ -476,44 +476,62 @@ export function LearningPillarClient() {
             ].map((cls, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="shrink-0">
-                      <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <defs>
-                          <linearGradient id={`clsGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#1D4ED8" />
-                            <stop offset="100%" stopColor="#E11D48" />
-                          </linearGradient>
-                        </defs>
-                        <g stroke={`url(#clsGrad-${idx})`}>
-                          {cls.svgPath}
-                        </g>
-                      </svg>
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`clsBorderGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: `url(#clsBorderGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="!rounded-3xl p-6 sm:p-7 flex flex-col justify-between h-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-blue-400/30 transition-colors">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                        <svg className="size-5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <defs>
+                            <linearGradient id={`clsIconGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" stopColor="#1D4ED8" />
+                              <stop offset="100%" stopColor="#E11D48" />
+                            </linearGradient>
+                          </defs>
+                          <g stroke={`url(#clsIconGrad-${idx})`}>
+                            {cls.svgPath}
+                          </g>
+                        </svg>
+                      </div>
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-[10px] font-mono font-bold text-slate-600">
+                        {cls.duration}
+                      </span>
                     </div>
-                    <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-[10px] font-mono font-bold text-slate-600">
-                      {cls.duration}
-                    </span>
+
+                    <div className="space-y-1.5">
+                      <span className="text-[10px] font-mono uppercase tracking-widest bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent font-bold block">
+                        {cls.category}
+                      </span>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        {cls.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                        {cls.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <span className="text-[10px] font-mono uppercase tracking-widest bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-bold block">
-                      {cls.category}
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                      {cls.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                      {cls.desc}
-                    </p>
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                    <span>Included in Membership</span>
+                    <ArrowRight className="size-3.5 group-hover:translate-x-1.5 transition-transform text-[#1D4ED8] group-hover:text-[#E11D48]" />
                   </div>
-                </div>
-
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                  <span>Included in Membership</span>
-                  <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform text-[#1D4ED8] group-hover:text-[#E11D48]" />
                 </div>
               </div>
             ))}

@@ -56,12 +56,15 @@ export function normalizeStory(item: any): SuccessStory {
   
   const cover = item.coverImageUrl || item.cover_image_url || thumbUrl;
 
+  const rawTitle = item.storyTitle || item.story_title || item.videoTitle || item.video_title || item.title || null;
+  const person = item.personName || item.person_name || 'Global Leader';
+
   return {
     id: String(item.id || Math.random().toString(36).substring(2)),
-    personName: item.personName || item.person_name || 'Global Leader',
+    personName: person,
     designation: item.designation || 'Founder & CEO',
     company: item.company || 'Peers Global Circle',
-    storyTitle: item.storyTitle || item.story_title || 'Collaborative Growth Journey',
+    storyTitle: rawTitle || (person && person !== 'Success Story' ? `${person} — Peer Collaboration Story` : 'Collaborative Growth Journey'),
     quote: item.quote || 'Connecting with peers across the globe transformed our strategic roadmap and business outcomes.',
     youtubeUrl: youtubeUrl,
     youtubeVideoId: videoId,
@@ -272,16 +275,17 @@ export const FALLBACK_STORIES: SuccessStory[] = [
 ];
 
 // Fetch active success stories with multi-level endpoint resilience
-export async function fetchSuccessStories(limit = 12): Promise<SuccessStory[]> {
+export async function fetchSuccessStories(limit = 0): Promise<SuccessStory[]> {
+  const query = limit > 0 ? `?limit=${limit}` : `?limit=200`;
   const endpoints = [
     // 1. Next.js internal proxy route
-    `/api/web-success-stories?limit=${limit}`,
+    `/api/web-success-stories${query}`,
     // 2. Production or custom backend URL
-    `${API_BASE_URL}/api/v1/web/success-stories?limit=${limit}`,
+    `${API_BASE_URL}/api/v1/web/success-stories${query}`,
     // 3. Alternative route prefix
-    `${API_BASE_URL}/api/v1/web-success-stories?limit=${limit}`,
+    `${API_BASE_URL}/api/v1/web-success-stories${query}`,
     // 4. Local dev backend fallback
-    `http://localhost:8000/api/v1/web/success-stories?limit=${limit}`,
+    `http://localhost:8000/api/v1/web/success-stories${query}`,
   ];
 
   for (const endpoint of endpoints) {
@@ -289,7 +293,7 @@ export async function fetchSuccessStories(limit = 12): Promise<SuccessStory[]> {
       const res = await fetch(endpoint, {
         headers: { Accept: 'application/json' },
         cache: 'no-store',
-        signal: AbortSignal.timeout(4000),
+        signal: AbortSignal.timeout(5000),
       });
 
       if (res.ok) {
@@ -307,7 +311,7 @@ export async function fetchSuccessStories(limit = 12): Promise<SuccessStory[]> {
             .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
 
           if (stories.length > 0) {
-            return stories.slice(0, limit);
+            return limit > 0 ? stories.slice(0, limit) : stories;
           }
         }
       }
@@ -317,5 +321,5 @@ export async function fetchSuccessStories(limit = 12): Promise<SuccessStory[]> {
   }
 
   // Gracefully fallback to curated leader stories
-  return FALLBACK_STORIES.slice(0, limit);
+  return limit > 0 ? FALLBACK_STORIES.slice(0, limit) : FALLBACK_STORIES;
 }
