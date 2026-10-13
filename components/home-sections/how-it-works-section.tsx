@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 
 export function HowItWorksSection() {
   const [index, setIndex] = useState(0)
@@ -203,7 +204,7 @@ export function HowItWorksSection() {
         <p className="fd-how-it-works__bottom-text">Download the app, explore the community, and see it for yourself.</p>
         <div className="fd-how-it-works__buttons">
           <a
-            href="https://apps.apple.com"
+            href={SITE.appStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="fd-how-it-works__store-btn"
@@ -219,7 +220,7 @@ export function HowItWorksSection() {
           </a>
 
           <a
-            href="https://play.google.com"
+            href={SITE.playStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="fd-how-it-works__store-btn"

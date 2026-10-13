@@ -3794,19 +3794,28 @@ p.body,
    Starts top-left -> goes right -> down -> left -> up -> vanishes at top-left
    Runs strictly once per hover/focus
    ========================================================================== */
+@keyframes traceBorderLoop {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+  }
+}
+
 @keyframes traceBorderOnce {
   0% {
-    stroke-dashoffset: 95;
+    stroke-dashoffset: 0;
     opacity: 0;
   }
-  4% {
+  3% {
     opacity: 1;
   }
-  92% {
+  97% {
     opacity: 1;
   }
   100% {
-    stroke-dashoffset: -290;
+    stroke-dashoffset: -1000;
     opacity: 0;
   }
 }
@@ -3839,9 +3848,11 @@ p.body,
   stroke-width: 3px;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
-  stroke-dasharray: 95 400;
-  stroke-dashoffset: 95;
+  stroke-dasharray: 260 740;
+  stroke-dashoffset: 0;
   opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 6px rgba(29, 78, 216, 0.65)) drop-shadow(0 0 12px rgba(225, 29, 72, 0.55));
 }
 
 .animated-border-path-2 {
@@ -3868,7 +3879,8 @@ p.body,
 .animated-glow-card:hover .animated-border-path-3,
 .animated-glow-card:focus-within .animated-border-path-3,
 .animated-glow-card:focus .animated-border-path-3 {
-  animation: traceBorderOnce 1.5s linear 1 forwards;
+  opacity: 1;
+  animation: traceBorderLoop 3s linear infinite;
 }
 
 .animated-glow-card>div {

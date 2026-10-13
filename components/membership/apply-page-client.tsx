@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   ChevronRight,
@@ -228,7 +229,7 @@ export function ApplyPageClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="https://apps.apple.com"
+                  href={SITE.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   size="default"
@@ -239,7 +240,7 @@ export function ApplyPageClient() {
                 </GalaxyButton>
 
                 <GalaxyButton
-                  href="https://play.google.com"
+                  href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
@@ -620,7 +621,7 @@ export function ApplyPageClient() {
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <GalaxyButton
-                  href="https://apps.apple.com"
+                  href={SITE.appStoreUrl}
                   target="_blank"
                   rel="noreferrer"
                   size="default"
@@ -631,7 +632,7 @@ export function ApplyPageClient() {
                 </GalaxyButton>
 
                 <GalaxyButton
-                  href="https://play.google.com"
+                  href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noreferrer"
                   variant="transparent"
