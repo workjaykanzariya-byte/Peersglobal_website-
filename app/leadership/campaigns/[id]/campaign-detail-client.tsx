@@ -57,7 +57,7 @@ export function CampaignDetailClient({
 
   let targetDate = campaign.nomination_ends_at
   let countdownLabel = 'Nominations Close In'
-  if (phase === 'voting_active') {
+  if (phase === 'voting_active' && campaign.voting_ends_at) {
     targetDate = campaign.voting_ends_at
     countdownLabel = 'Public Voting Closes In'
   } else if (phase === 'jury_evaluation' && campaign.jury_ends_at) {
@@ -109,7 +109,7 @@ export function CampaignDetailClient({
 
           {/* Action CTAs */}
           <div className="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
-            {(phase === 'nominations_open' || campaign.nomination_open) && (
+            {phase !== 'winners_declared' && (
               <GalaxyButton
                 href={`/leadership/campaigns/${campaign.id}/nominate`}
                 size="default"
@@ -225,8 +225,9 @@ export function CampaignDetailClient({
                       Public Peer Voting
                     </div>
                     <div className="text-xs text-slate-500 mt-0.5">
-                      {new Date(campaign.voting_starts_at).toLocaleDateString()} —{' '}
-                      {new Date(campaign.voting_ends_at).toLocaleDateString()}
+                      {campaign.voting_starts_at && campaign.voting_ends_at
+                        ? `${new Date(campaign.voting_starts_at).toLocaleDateString()} — ${new Date(campaign.voting_ends_at).toLocaleDateString()}`
+                        : 'Schedule will be announced following nominations window'}
                     </div>
                   </div>
                 </div>
