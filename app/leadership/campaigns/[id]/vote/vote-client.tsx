@@ -1,0 +1,256 @@
+'use client'
+
+import React, { useState, useMemo } from 'react'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import {
+  Vote,
+  ShieldCheck,
+  Lock,
+  Search,
+  Filter,
+  Users,
+  CheckCircle2,
+  Clock,
+  Sparkles,
+  MapPin,
+  ExternalLink,
+  ChevronLeft,
+  ArrowRight,
+} from 'lucide-react'
+import { Campaign, CampaignScope, Candidate, normalizeCandidate } from '@/lib/api/leadership'
+import { CandidateCard } from '@/components/leadership/elections/candidate-card'
+import { CandidateVotingPoster } from '@/components/leadership/elections/candidate-voting-poster'
+import { CandidateEndorsementVoteCard } from '@/components/leadership/elections/candidate-endorsement-vote-card'
+import { VoteModal } from '@/components/leadership/elections/vote-modal'
+import { CountdownTimer } from '@/components/leadership/elections/countdown-timer'
+
+interface VoteClientProps {
+  campaign: Campaign
+  candidates: Candidate[]
+  scopes: CampaignScope[]
+  initialCandidate?: Candidate | null
+  initialCandidateId?: string | null
+}
+
+export function VoteClient({
+  campaign,
+  candidates,
+  scopes,
+  initialCandidate,
+  initialCandidateId,
+}: VoteClientProps) {
+  const searchParams = useSearchParams()
+  const candidateParam = searchParams?.get('candidate') || initialCandidateId || ''
+
+  // Locate or normalize candidate for direct voting link
+  const directCandidate = useMemo(() => {
+    if (initialCandidate) return initialCandidate
+    if (!candidateParam) return null
+
+    const found = candidates.find(
+      (c) =>
+        c.id === candidateParam ||
+        (c as any).application_number === candidateParam ||
+        candidateParam.includes(c.id) ||
+        c.id.includes(candidateParam)
+    )
+    if (found) return found
+
+    return normalizeCandidate(
+      {
+        id: candidateParam,
+        campaign_id: campaign.id,
+      },
+      campaign
+    )
+  }, [candidateParam, candidates, initialCandidate, campaign])
+
+  const [directMode, setDirectMode] = useState<boolean>(Boolean(candidateParam))
+  const [selectedScope, setSelectedScope] = useState<string>('all')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCandidate, setSelectedCandidate] = useState<Candidate | null>(
+    directCandidate || (candidates.length > 0 ? candidates[0] : null)
+  )
+  const [isVoteModalOpen, setIsVoteModalOpen] = useState(false)
+  const [lastVotedRef, setLastVotedRef] = useState<string | null>(null)
+
+  const filteredCandidates = candidates.filter((cand) => {
+    if (selectedScope !== 'all' && cand.scope_name !== selectedScope) {
+      return false
+    }
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase()
+      const matchName = cand.full_name.toLowerCase().includes(q)
+      const matchCompany = cand.company.toLowerCase().includes(q)
+      const matchScope = cand.scope_name.toLowerCase().includes(q)
+      if (!matchName && !matchCompany && !matchScope) return false
+    }
+    return true
+  })
+
+  const handleVoteClick = (candidate: Candidate) => {
+    setSelectedCandidate(candidate)
+    setDirectMode(true)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  const effectiveCandidate = selectedCandidate || directCandidate
+
+  return (
+    <div className="space-y-8">
+      {/* DIRECT CANDIDATE VOTING MODE (When direct candidate link is opened or nominee selected) */}
+      {directMode && effectiveCandidate ? (
+        <div className="py-4 space-y-6">
+          {/* Centered Endorsement & Voting Form Card (Greenpreneur Reference Style) */}
+          <div className="pt-2 flex justify-center">
+            <CandidateEndorsementVoteCard
+              candidate={effectiveCandidate}
+              campaign={campaign}
+              showBackToggle={true}
+              onBackToRoster={() => setDirectMode(false)}
+            />
+          </div>
+        </div>
+      ) : (
+        /* GENERAL CANDIDATE DIRECTORY BOOTH MODE */
+        <div className="space-y-8">
+          {/* Master Voting Hero Banner */}
+          <div className="relative rounded-3xl bg-white text-slate-900 p-7 sm:p-10 lg:p-12 border border-slate-200/90 shadow-sm overflow-hidden">
+            {/* Top brand gradient accent stripe */}
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
+
+            {/* Subtle Brand Ambient Glows */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#1D4ED8]/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-[#E11D48]/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 max-w-3xl space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="h-2 w-2 rounded-full bg-rose-500 animate-pulse" />
+                <span className="brand-gradient-text">
+                  OFFICIAL PUBLIC VOTING BOOTH
+                </span>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-slate-900 leading-tight">
+                Cast Your Ballot: <span className="brand-gradient-text">{campaign.name}</span>
+              </h1>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Review the shortlisted candidates, watch their leadership pitch videos, and cast your verified vote.
+                Every ballot is protected by 2-factor OTP verification and cryptographic ledger sealing.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700">
+                  <Lock className="w-3.5 h-3.5 text-emerald-600" />
+                  1 Vote Per Verified Member
+                </div>
+                <Link
+                  href="/leadership/votes/verify"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-300 transition-colors shadow-2xs"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#1D4ED8]" />
+                  Ballot Audit &amp; Verification
+                </Link>
+              </div>
+            </div>
+
+            {/* Countdown Box */}
+            <div className="mt-6 lg:mt-0 lg:absolute lg:top-8 lg:right-8 w-full lg:w-72">
+              <CountdownTimer
+                targetDate={campaign.voting_ends_at}
+                label="Voting Window Closes In"
+              />
+            </div>
+          </div>
+
+          {/* Filter and Candidate Search */}
+          <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-3.5 justify-between items-center text-slate-900">
+            <div className="relative w-full sm:w-80">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search candidate by name or company..."
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8]"
+              />
+            </div>
+
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <span className="text-xs font-bold text-slate-500">Jurisdiction:</span>
+              <select
+                value={selectedScope}
+                onChange={(e) => setSelectedScope(e.target.value)}
+                className="flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 focus:border-[#1D4ED8]"
+              >
+                <option value="all">All Jurisdictions</option>
+                {scopes.map((s) => (
+                  <option key={s.id} value={s.name}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Candidates Roster */}
+          <div>
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+                <Users className="w-5 h-5 text-[#1D4ED8]" />
+                Shortlisted Candidates ({filteredCandidates.length})
+              </h2>
+              <span className="text-xs text-slate-500 font-medium">Select a candidate to cast your vote</span>
+            </div>
+
+            {filteredCandidates.length === 0 ? (
+              <div className="text-center py-12 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <p className="text-xs text-slate-500 font-medium">No candidates match your search filter.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredCandidates.map((cand) => (
+                  <div key={cand.id} className="flex flex-col">
+                    <CandidateCard
+                      candidate={cand}
+                      canVote={true}
+                      onVoteClick={handleVoteClick}
+                    />
+                    <div className="mt-2 text-center">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSelectedCandidate(cand)
+                          setDirectMode(true)
+                        }}
+                        className="text-[11px] font-bold text-[#1D4ED8] hover:text-[#1E40AF] transition-colors inline-flex items-center gap-1 cursor-pointer"
+                      >
+                        <span>View Official Ballot Poster</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Voting Modal */}
+      <VoteModal
+        campaign={campaign}
+        candidate={selectedCandidate}
+        isOpen={isVoteModalOpen}
+        onClose={() => setIsVoteModalOpen(false)}
+        onVoteSuccess={(ref) => {
+          setLastVotedRef(ref)
+        }}
+      />
+    </div>
+  )
+}
