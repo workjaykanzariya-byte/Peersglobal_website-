@@ -345,46 +345,46 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           Your nomination for <strong className="text-slate-900 font-semibold">{campaign.role.name}</strong> has been received and routed to the Election Governance Committee for credential verification.
         </p>
 
-        {/* Hotstar-style Premium Digital Filing Card */}
-        <div className="relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-[#030914] text-white text-left max-w-lg mx-auto mb-7 border border-slate-800 shadow-xl">
-          {/* Top glowing gradient stripe (Hotstar signature) */}
+        {/* Official Filing Record Card */}
+        <div className="relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-white via-slate-50 to-blue-50/20 text-slate-900 text-left max-w-lg mx-auto mb-7 border border-slate-200/90 shadow-md">
+          {/* Top brand gradient stripe */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
 
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3.5 mb-4">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-300">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3.5 mb-4">
+            <span className="text-[11px] font-bold uppercase tracking-[0.12em] brand-gradient-text">
               Official Filing Record
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-              <ShieldCheck className="w-3.5 h-3.5" /> Under Scrutiny
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Under Scrutiny
             </span>
           </div>
 
           <div className="space-y-4 text-xs">
             <div>
-              <div className="text-slate-400 text-[10px] uppercase font-semibold tracking-wider">Application Reference</div>
-              <div className="font-mono text-xl sm:text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-rose-400 mt-1">
+              <div className="text-slate-500 text-[10px] uppercase font-bold tracking-wider">Application Reference</div>
+              <div className="font-mono text-xl sm:text-2xl font-extrabold tracking-wider brand-gradient-text mt-1">
                 {submissionResult.applicationNumber}
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 text-slate-300 pt-1 border-t border-slate-800/80">
+            <div className="grid grid-cols-2 gap-3 text-slate-700 pt-2 border-t border-slate-200">
               <div>
-                <span className="text-slate-400 text-[11px] block">Candidate:</span>
-                <div className="font-semibold text-white text-sm mt-0.5">{profile.fullName}</div>
+                <span className="text-slate-500 text-[11px] block font-medium">Candidate:</span>
+                <div className="font-bold text-slate-900 text-sm mt-0.5">{profile.fullName}</div>
               </div>
               <div>
-                <span className="text-slate-400 text-[11px] block">Target Role:</span>
-                <div className="font-semibold text-white text-sm mt-0.5">{campaign.role.name}</div>
+                <span className="text-slate-500 text-[11px] block font-medium">Target Role:</span>
+                <div className="font-bold text-slate-900 text-sm mt-0.5">{campaign.role.name}</div>
               </div>
               <div>
-                <span className="text-slate-400 text-[11px] block">Jurisdiction:</span>
-                <div className="font-semibold text-white text-sm mt-0.5">
+                <span className="text-slate-500 text-[11px] block font-medium">Jurisdiction:</span>
+                <div className="font-bold text-slate-900 text-sm mt-0.5">
                   {scopes.find((s) => s.id === selectedScopeId)?.name || 'Surat District'}
                 </div>
               </div>
               <div>
-                <span className="text-slate-400 text-[11px] block">Submission Date:</span>
-                <div className="font-semibold text-white text-sm mt-0.5">{new Date().toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
+                <span className="text-slate-500 text-[11px] block font-medium">Submission Date:</span>
+                <div className="font-bold text-slate-900 text-sm mt-0.5">{new Date().toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
               </div>
             </div>
           </div>
@@ -421,38 +421,62 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      {/* Wizard Step Progress Bar */}
-      <div>
-        <div className="flex items-center justify-between mb-3">
-          <div className="text-xs font-bold text-slate-600 uppercase tracking-wider">
-            Step {currentStep} of 5: {stepsList[currentStep - 1]?.label}
+      {/* Top Header Card */}
+      <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
+
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+              Leadership Selection Portal
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Form 1: <span className="brand-gradient-text">Candidate Nomination</span>
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 font-normal">
+              {campaign.name} • Nomination filing for <strong className="text-slate-900">{campaign.role.name}</strong>
+            </p>
           </div>
+
           {draftSavedAt && (
-            <div className="text-xs text-slate-400 flex items-center gap-1 font-medium">
+            <div className="text-xs text-slate-500 flex items-center gap-1.5 font-medium bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200 w-fit">
               <Check className="w-3.5 h-3.5 text-emerald-500" />
               <span>Draft saved at {draftSavedAt}</span>
             </div>
           )}
         </div>
 
-        <div className="grid grid-cols-5 gap-2">
-          {stepsList.map((st) => (
-            <div
-              key={st.num}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                st.num < currentStep
-                  ? 'bg-emerald-500'
-                  : st.num === currentStep
-                  ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]'
-                  : 'bg-slate-200'
-              }`}
-            />
-          ))}
+        {/* Wizard Step Progress Bar */}
+        <div className="mt-6 pt-5 border-t border-slate-100">
+          <div className="flex items-center justify-between mb-2.5">
+            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+              Step {currentStep} of 5: <span className="text-[#1D4ED8]">{stepsList[currentStep - 1]?.label}</span>
+            </div>
+            <span className="text-xs font-mono font-bold text-slate-400">
+              {Math.round((currentStep / 5) * 100)}% Complete
+            </span>
+          </div>
+
+          <div className="grid grid-cols-5 gap-2">
+            {stepsList.map((st) => (
+              <div
+                key={st.num}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  st.num < currentStep
+                    ? 'bg-emerald-500'
+                    : st.num === currentStep
+                    ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]'
+                    : 'bg-slate-200'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Main Wizard Card */}
-      <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-10 shadow-sm">
+      <div className="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-10 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48]" />
         {error && (
           <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-3">
             <AlertCircle className="w-5 h-5 shrink-0 text-red-600" />
