@@ -89,7 +89,7 @@ const FAQ_CATEGORIES: FaqCategory[] = [
       },
       {
         q: 'Is this only about business networking?',
-        a: 'No. Business relationships are an important part of the experience, but PEERS GLOBAL is built around Learning, Sharing and Relationships — LSR. The intention is to create relationships in which entrepreneurs can learn from experience, share what they know, and help one another grow.',
+        a: 'No. Business relationships are an important part of the experience, but PEERS GLOBAL is built around Learning, Sales and Resources — LSR. The intention is to create an ecosystem in which entrepreneurs can learn from experience, unlock real business and sales, and access resources to scale.',
       },
     ],
   },

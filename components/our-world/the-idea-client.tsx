@@ -659,7 +659,7 @@ export function TheIdeaClient() {
               <div>
                 <span className="inline-block px-2 py-0.5 rounded-md bg-rose-50 text-xs font-bold text-[#E11D48]">05</span>
                 <h4 className="text-sm font-bold text-[#0f131a] mt-3 mb-1">The LSR Model</h4>
-                <p className="text-xs text-cool-grey-600 leading-relaxed">Designing Learning, Sharing and Relationships as core growth engines.</p>
+                <p className="text-xs text-cool-grey-600 leading-relaxed">Designing Learning, Sales and Resources as core growth engines.</p>
               </div>
             </div>
 
@@ -1188,7 +1188,7 @@ export function TheIdeaClient() {
                   </div>
                   <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
                     <span className="size-2 rounded-full bg-violet-400 mt-1.5 shrink-0" />
-                    <p><strong className="text-white">LSR Growth Model:</strong> Learning, Sharing &amp; Relationships working in unison.</p>
+                    <p><strong className="text-white">LSR Growth Model:</strong> Learning, Sales &amp; Resources working in unison.</p>
                   </div>
                   <div className="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 border border-white/10">
                     <span className="size-2 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
