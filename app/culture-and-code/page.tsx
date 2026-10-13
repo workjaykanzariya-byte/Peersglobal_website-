@@ -413,72 +413,78 @@ export default function CultureAndCodePage() {
 
             {/* 6 Everyday Reality Cards + 1 Spanning Highlight Card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
+              {/* 1. How they speak */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
                 <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <MessageSquare className="size-5 stroke-[url(#cultureCardGrad)]" />
+                  <MessageSquare className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#0f131a] mb-1">How they speak</h4>
+                  <h4 className="text-sm font-bold text-[#0f131a] mb-1 group-hover:text-blue-600 transition-colors">How they speak</h4>
                   <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
                     How they speak to one another in moments of comfort and critique.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-rose-200 transition-all flex items-start gap-4 group">
+              {/* 2. How they respond */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
                 <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <HeartHandshake className="size-5 stroke-[url(#cultureCardGrad)]" />
+                  <HeartHandshake className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#0f131a] mb-1">How they respond</h4>
+                  <h4 className="text-sm font-bold text-[#0f131a] mb-1 group-hover:text-blue-600 transition-colors">How they respond</h4>
                   <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
                     How they respond with immediacy when someone asks for help.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all flex items-start gap-4 group">
+              {/* 3. Confidentiality */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
                 <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <Lock className="size-5 stroke-[url(#cultureCardGrad)]" />
+                  <Lock className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#0f131a] mb-1">Confidentiality</h4>
+                  <h4 className="text-sm font-bold text-[#0f131a] mb-1 group-hover:text-blue-600 transition-colors">Confidentiality</h4>
                   <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
                     How sacred they hold sensitive business and personal matters.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-amber-200 transition-all flex items-start gap-4 group">
+              {/* 4. How they welcome */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
                 <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <UserPlus className="size-5 stroke-[url(#cultureCardGrad)]" />
+                  <UserPlus className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#0f131a] mb-1">How they welcome</h4>
+                  <h4 className="text-sm font-bold text-[#0f131a] mb-1 group-hover:text-blue-600 transition-colors">How they welcome</h4>
                   <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
                     How warm, open, and human they make a new Peer feel upon arrival.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex items-start gap-4 group">
+              {/* 5. Recognise contribution */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
                 <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <Trophy className="size-5 stroke-[url(#cultureCardGrad)]" />
+                  <Trophy className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#0f131a] mb-1">Recognise contribution</h4>
+                  <h4 className="text-sm font-bold text-[#0f131a] mb-1 group-hover:text-blue-600 transition-colors">Recognise contribution</h4>
                   <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
                     How thoughtfully they notice and celebrate selfless actions.
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-violet-200 transition-all flex items-start gap-4 group">
+              {/* 6. Handle disagreement */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex items-start gap-4 group">
                 <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <ShieldCheck className="size-5 stroke-[url(#cultureCardGrad)]" />
+                  <ShieldCheck className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#0f131a] mb-1">Handle disagreement</h4>
+                  <h4 className="text-sm font-bold text-[#0f131a] mb-1 group-hover:text-blue-600 transition-colors">Handle disagreement</h4>
                   <p className="text-xs text-cool-grey-600 leading-relaxed font-normal">
                     How they challenge assumptions directly without diminishing the human.
                   </p>
@@ -486,10 +492,10 @@ export default function CultureAndCodePage() {
               </div>
 
               {/* Full Width / Spanning Golden Principle Card */}
-              <div className="sm:col-span-2 lg:col-span-3 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/90 via-[#FAFBFD] to-rose-50/90 border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="sm:col-span-2 lg:col-span-3 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/80 via-[#FAFBFD] to-rose-50/80 border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all flex flex-col sm:flex-row items-center justify-between gap-4 group">
                 <div className="flex items-center gap-3 text-center sm:text-left">
-                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-rose-500/20 border border-blue-500/25 flex items-center justify-center shrink-0 shadow-xs">
-                    <Sparkles className="size-5 stroke-[url(#cultureCardGrad)]" />
+                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-rose-500/20 border border-blue-500/25 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
+                    <Sparkles className="size-5" />
                   </div>
                   <div>
                     <h4 className="text-sm sm:text-base font-bold text-slate-900">
@@ -500,7 +506,7 @@ export default function CultureAndCodePage() {
                     </p>
                   </div>
                 </div>
-                <div className="px-4 py-1.5 rounded-full bg-white/80 border border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-700 shrink-0">
+                <div className="px-4 py-1.5 rounded-full bg-white border border-cool-grey-200 text-[11px] font-bold uppercase tracking-wider text-slate-700 shrink-0 shadow-2xs group-hover:border-blue-300 transition-colors">
                   Culture is Architecture
                 </div>
               </div>

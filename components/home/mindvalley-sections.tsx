@@ -191,7 +191,7 @@ export function HowPeersGlobalWorksSection() {
       description:
         'Access smart peer matchmaking, live opportunity feeds, and direct introductions across cities in real time.',
       bgGradient: 'bg-gradient-to-b from-[#1c2438] to-[#0d1322]',
-      image: '/images/unity-app-phone.png',
+      image: '/images/unity-creatives/1.png',
       hasPhoneMock: true,
       link: 'https://unity.peersglobal.com',
       linkText: 'Explore Unity App',

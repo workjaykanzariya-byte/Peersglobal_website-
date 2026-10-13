@@ -636,25 +636,11 @@ export function OurStoryClient() {
             {VERIFIED_TIMELINE.map((item, idx) => (
               <div
                 key={item.tag}
-                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-xs hover:shadow-xl transition-all"
+                className="group relative p-[1.5px] rounded-3xl bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 tabIndex={0}
                 role="article"
               >
-                <svg className="animated-border-svg !rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id={`timelineGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#1D4ED8" />
-                      <stop offset="100%" stopColor="#E11D48" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
-                    style={{ stroke: `url(#timelineGrad-${idx})` }}
-                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
-                  />
-                </svg>
-
-                <div className="relative z-10 flex flex-col justify-between p-7 sm:p-8 bg-white border border-slate-200/80 !rounded-[calc(1.5rem-1.5px)] h-full space-y-6 shadow-2xs">
+                <div className="relative w-full h-full bg-white rounded-[22.5px] p-7 sm:p-8 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
                     {/* Header */}
                     <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3.5">

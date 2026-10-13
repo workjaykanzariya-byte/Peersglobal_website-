@@ -1099,17 +1099,26 @@ export default function TheLanguagePage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-white border border-cool-grey-250/90 shadow-md space-y-4">
-                <div className="size-12 rounded-xl bg-gradient-to-br from-blue-600 to-rose-600 text-white flex items-center justify-center shadow-sm">
-                  <ShieldCheck className="size-6" />
+              <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-[#FAFBFD] border border-cool-grey-200/90 shadow-sm hover:shadow-md transition-all space-y-4">
+                <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 shadow-2xs">
+                  <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="shieldCheckGradLang" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#shieldCheckGradLang)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="m9 12 2 2 4-4" stroke="url(#shieldCheckGradLang)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
-                <h4 className="text-lg font-bold text-[#0f131a]">
+                <h4 className="text-xl font-bold text-[#0f131a] tracking-tight">
                   Behavior Follows Language
                 </h4>
-                <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                <p className="text-sm text-cool-grey-600 leading-relaxed font-normal">
                   The language guides the behaviour. And the behaviour makes the language real.
                 </p>
-                <div className="pt-2 border-t border-slate-100 text-xs font-bold text-blue-600">
+                <div className="pt-3 border-t border-slate-100 text-xs font-bold brand-gradient-text tracking-wide">
                   Relationship • Respect • Reciprocity
                 </div>
               </div>

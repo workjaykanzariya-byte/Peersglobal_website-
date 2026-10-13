@@ -501,20 +501,25 @@ export function CircleDirectorClient() {
               return (
                 <div
                   key={idx}
-                  className="animated-glow-card group !rounded-3xl"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <svg className="animated-border-svg" aria-hidden="true">
-                    <rect
-                      x="1"
-                      y="1"
-                      width="calc(100% - 2px)"
-                      height="calc(100% - 2px)"
-                      rx="24"
-                      ry="24"
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`dirStructGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
                       className="animated-border-path"
+                      style={{ stroke: `url(#dirStructGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                     />
                   </svg>
-                  <div className="flex flex-col justify-between p-7 sm:p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full">
+                  <div className="flex flex-col justify-between p-7 sm:p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full group-hover:border-blue-400/30 transition-colors">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform duration-300">
@@ -610,20 +615,25 @@ export function CircleDirectorClient() {
               return (
                 <div
                   key={item.number}
-                  className="animated-glow-card group !rounded-3xl"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <svg className="animated-border-svg" aria-hidden="true">
-                    <rect
-                      x="1"
-                      y="1"
-                      width="calc(100% - 2px)"
-                      height="calc(100% - 2px)"
-                      rx="24"
-                      ry="24"
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`dirRespGrad-${item.number}`} x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
                       className="animated-border-path"
+                      style={{ stroke: `url(#dirRespGrad-${item.number})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
                     />
                   </svg>
-                  <div className="flex flex-col justify-between p-7 sm:p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full">
+                  <div className="flex flex-col justify-between p-7 sm:p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full group-hover:border-blue-400/30 transition-colors">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform duration-300">
@@ -721,19 +731,37 @@ export function CircleDirectorClient() {
               return (
                 <div
                   key={idx}
-                  className="p-7 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                        {trait.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-1.5">
-                        {trait.desc}
-                      </p>
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`traitGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#traitGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="!rounded-3xl p-7 flex flex-col justify-between h-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-blue-400/30 transition-colors">
+                    <div className="space-y-4">
+                      <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      </div>
+                      <div>
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                          {trait.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-1.5">
+                          {trait.desc}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -803,15 +803,15 @@ export function UnityPageClient() {
                       {faq.question}
                     </span>
                     <span
-                      className={`size-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                      className={`size-8 rounded-full flex items-center justify-center shrink-0 border transition-all duration-300 ${
                         isOpen
-                          ? 'bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white shadow-2xs'
-                          : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600'
+                          ? 'bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border-blue-500/30 shadow-2xs'
+                          : 'bg-slate-100/80 border-slate-200/80 text-slate-500 group-hover:bg-blue-50/80 group-hover:border-blue-300/60'
                       }`}
                     >
                       <ChevronDown
-                        className={`size-4 transition-transform duration-300 ${
-                          isOpen ? 'rotate-180' : ''
+                        className={`size-4 shrink-0 transition-transform duration-300 ${
+                          isOpen ? 'rotate-180 stroke-[url(#brandIconGrad)]' : 'text-slate-500'
                         }`}
                       />
                     </span>

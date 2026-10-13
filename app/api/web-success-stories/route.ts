@@ -8,7 +8,9 @@ let localMemoryCache: SuccessStory[] = [...FALLBACK_STORIES];
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const limit = parseInt(searchParams.get('limit') || '12', 10);
+  const limitParam = searchParams.get('limit');
+  const isAll = !limitParam || limitParam === '0' || limitParam === 'all' || parseInt(limitParam, 10) >= 100;
+  const limit = isAll ? 200 : parseInt(limitParam, 10);
 
   const candidateUrls = [
     `${API_BASE_URL}/api/v1/web/success-stories?limit=${limit}`,
@@ -22,7 +24,7 @@ export async function GET(req: Request) {
       const res = await fetch(url, {
         headers: { Accept: 'application/json' },
         cache: 'no-store',
-        signal: AbortSignal.timeout(3500),
+        signal: AbortSignal.timeout(4500),
       });
 
       if (res.ok) {
@@ -45,7 +47,7 @@ export async function GET(req: Request) {
               success: true,
               count: parsed.length,
               source: 'backend-api',
-              data: parsed.slice(0, limit),
+              data: isAll ? parsed : parsed.slice(0, limit),
             });
           }
         }
@@ -60,7 +62,7 @@ export async function GET(req: Request) {
     success: true,
     count: localMemoryCache.length,
     source: 'fallback',
-    data: localMemoryCache.slice(0, limit),
+    data: isAll ? localMemoryCache : localMemoryCache.slice(0, limit),
   });
 }
 

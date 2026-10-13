@@ -1160,24 +1160,25 @@ p.body,
 
 /* ---------- carousel ---------- */
 .fd-how-it-works__carousel {
-  /* 1440 = 3 whole 384px cards + an equal 96px peek of the previous / next one.
-     Card first (capped at Figma's 384), then the rail inset is derived from it so
-     the two peeks stay equal at every width — at 1440 this resolves to exactly
-     the Figma 120px inset. */
-  --fd-hiw-card: min(384px, calc((100cqw - 240px - 2 * var(--fd-hiw-gap)) / 3));
-  --fd-hiw-pad: calc((100cqw - 3 * var(--fd-hiw-card) - 2 * var(--fd-hiw-gap)) / 2);
+  --fd-hiw-gap: 24px;
+  /* 3 full cards + equal partial peeks (~60px) on left and right */
+  --fd-hiw-card: calc((100vw - 120px - (3 * var(--fd-hiw-gap))) / 3.25);
   --fd-hiw-step: calc(var(--fd-hiw-card) + var(--fd-hiw-gap));
+  /* Equal padding on both left and right edges */
+  --fd-hiw-pad: calc((100vw - (3 * var(--fd-hiw-card) + 2 * var(--fd-hiw-gap))) / 2);
   margin-top: 40px;
   overflow: hidden;
+  width: 100%;
 }
 
 .fd-how-it-works__track {
   display: flex;
   gap: var(--fd-hiw-gap);
   margin: 0;
-  padding: 0 0 0 var(--fd-hiw-pad);
+  padding: 0 var(--fd-hiw-pad);
   list-style: none;
-  transform: translateX(calc(-1 * var(--fd-i, 1) * var(--fd-hiw-step)));
+  width: max-content;
+  transform: translateX(calc(-1 * var(--fd-i, 0) * var(--fd-hiw-step)));
   transition: transform .45s cubic-bezier(.4, 0, .2, 1);
   will-change: transform;
 }
@@ -1186,11 +1187,14 @@ p.body,
   position: relative;
   flex: 0 0 var(--fd-hiw-card);
   width: var(--fd-hiw-card);
+  max-width: 400px;
+  min-width: 280px;
   aspect-ratio: 2 / 3;
-  border-radius: 40px;
+  border-radius: 36px;
   overflow: hidden;
   container-type: inline-size;
   color: var(--mv-white);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
 }
 
 .fd-how-it-works__card--ink {
@@ -1211,29 +1215,43 @@ p.body,
   left: 0;
   top: 0;
   width: 100%;
-  /* Figma pads 40 / gaps kicker->label 6, but Figma parks the baseline of a
-     line-height-24 / 20px line 1px lower than Chrome does. +1 here and -1 on
-     the label gap lands BOTH lines exactly on the reference screenshot. */
-  padding: min(41px, 10.68cqw) min(32px, 8.34cqw) 0;
+  padding: min(36px, 10cqw) min(28px, 8cqw) min(48px, 12cqw);
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.75) 0%, rgba(2, 6, 23, 0.45) 60%, transparent 100%);
+  z-index: 10;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  pointer-events: none;
 }
 
 .fd-how-it-works__kicker {
   margin: 0;
-  font-size: min(20px, 5.21cqw);
-  line-height: 1.2;
-  font-weight: 500;
-  /* see eyebrow: Figma's .2px under-reports its own render by 2x */
-  letter-spacing: .02em;
-  color: inherit;
+  font-size: min(16px, 4.8cqw);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #60A5FA 0%, #A78BFA 50%, #F472B6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  drop-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .fd-how-it-works__label {
-  margin: min(5px, 1.3cqw) 0 0;
-  font-size: min(28px, 7.3cqw);
-  line-height: 1.2536;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: inherit;
+  margin: min(6px, 1.6cqw) 0 0;
+  font-size: min(26px, 7cqw);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 40%, #E2E8F0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: block;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
 }
 
 .fd-how-it-works__copy--wide .fd-how-it-works__label {
@@ -1335,54 +1353,53 @@ p.body,
   fill: currentColor;
 }
 
-/* ---------- tablet (self-derived: no tablet frame in Figma) ---------- */
+/* ---------- tablet ---------- */
 @container (max-width:1024px) {
-  .fd-how-it-works {
-    padding-top: 80px;
-  }
-
-  .fd-how-it-works__carousel {
-    /* 2 whole cards + equal peeks (48px inset at 768) */
-    --fd-hiw-card: min(384px, calc((100cqw - 96px - var(--fd-hiw-gap)) / 2));
-    --fd-hiw-pad: calc((100cqw - 2 * var(--fd-hiw-card) - var(--fd-hiw-gap)) / 2);
-    margin-top: 32px;
-  }
-
-  .fd-how-it-works__title {
-    margin-top: 16px
-  }
-
-  .fd-how-it-works__nav {
-    margin-top: 32px;
-    padding-bottom: 96px
-  }
-}
-
-/* ---------- mobile (self-derived: no mobile frame in Figma) ---------- */
-@container (max-width:640px) {
   .fd-how-it-works {
     padding-top: 60px;
   }
 
+  .fd-how-it-works__carousel {
+    --fd-hiw-gap: 20px;
+    --fd-hiw-card: clamp(260px, 38vw, 340px);
+    --fd-hiw-step: calc(var(--fd-hiw-card) + var(--fd-hiw-gap));
+    --fd-hiw-pad: max(20px, calc((100% - (2 * var(--fd-hiw-card) + var(--fd-hiw-gap))) / 2));
+    margin-top: 32px;
+  }
+
+  .fd-how-it-works__title {
+    margin-top: 16px;
+  }
+
+  .fd-how-it-works__nav {
+    margin-top: 32px;
+  }
+}
+
+/* ---------- mobile ---------- */
+@container (max-width:640px) {
+  .fd-how-it-works {
+    padding-top: 48px;
+  }
+
   .fd-how-it-works__head {
-    padding: 0 20px
+    padding: 0 20px;
   }
 
   .fd-how-it-works__carousel {
-    /* 1 whole card + equal peeks (36px inset / 20px peek at 390) */
     --fd-hiw-gap: 16px;
-    --fd-hiw-card: min(384px, calc(100cqw - 72px));
-    --fd-hiw-pad: calc((100cqw - var(--fd-hiw-card)) / 2);
+    --fd-hiw-card: min(320px, calc(100% - 48px));
+    --fd-hiw-step: calc(var(--fd-hiw-card) + var(--fd-hiw-gap));
+    --fd-hiw-pad: calc((100% - var(--fd-hiw-card)) / 2);
     margin-top: 24px;
   }
 
   .fd-how-it-works__card {
-    border-radius: 24px
+    border-radius: 24px;
   }
 
   .fd-how-it-works__nav {
     margin-top: 24px;
-    padding-bottom: 64px
   }
 }
 
@@ -1972,7 +1989,13 @@ p.body,
   display: flex;
   flex-direction: column;
   gap: 7px;
-  width: 100%
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fd-pathway-cards__list::-webkit-scrollbar {
+  display: none;
 }
 
 .fd-pathway-cards__item {
@@ -3773,17 +3796,17 @@ p.body,
    ========================================================================== */
 @keyframes traceBorderOnce {
   0% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 95;
     opacity: 0;
   }
   4% {
     opacity: 1;
   }
-  96% {
+  92% {
     opacity: 1;
   }
   100% {
-    stroke-dashoffset: -1000;
+    stroke-dashoffset: -290;
     opacity: 0;
   }
 }
@@ -3816,9 +3839,8 @@ p.body,
   stroke-width: 3px;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
-  pathLength: 1000;
-  stroke-dasharray: 280 1000;
-  stroke-dashoffset: 0;
+  stroke-dasharray: 95 400;
+  stroke-dashoffset: 95;
   opacity: 0;
 }
 
@@ -3839,8 +3861,14 @@ p.body,
 
 .animated-glow-card:hover .animated-border-path,
 .animated-glow-card:focus-within .animated-border-path,
-.animated-glow-card:focus .animated-border-path {
-  animation: traceBorderOnce 1.4s linear 0.1s 1 forwards;
+.animated-glow-card:focus .animated-border-path,
+.animated-glow-card:hover .animated-border-path-2,
+.animated-glow-card:focus-within .animated-border-path-2,
+.animated-glow-card:focus .animated-border-path-2,
+.animated-glow-card:hover .animated-border-path-3,
+.animated-glow-card:focus-within .animated-border-path-3,
+.animated-glow-card:focus .animated-border-path-3 {
+  animation: traceBorderOnce 1.5s linear 1 forwards;
 }
 
 .animated-glow-card>div {
@@ -3894,10 +3922,27 @@ p.body,
   box-shadow: 0 8px 24px -4px rgba(29, 78, 216, 0.30), 0 4px 12px -2px rgba(225, 29, 72, 0.20);
 }
 
+@keyframes traceBtnBorderOnce {
+  0% {
+    stroke-dashoffset: 220;
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+    opacity: 0;
+  }
+}
+
 .animated-glow-btn:hover .animated-btn-border-path,
 .animated-glow-btn:focus-within .animated-btn-border-path,
 .animated-glow-btn:focus .animated-btn-border-path {
-  animation: traceBorderOnce 1.4s linear 0.1s 1 forwards;
+  animation: traceBtnBorderOnce 1.4s linear 0.1s 1 forwards;
 }
 
 /* Brand Gradient Text Utility matching Flutter LinearGradient(colors: [#1D4ED8, #E11D48]) */

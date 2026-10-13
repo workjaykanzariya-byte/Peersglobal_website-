@@ -386,55 +386,57 @@ export function MeetingExperienceClient() {
               <div
                 key={seg.num}
                 onClick={() => setActiveSegment(i)}
-                className="group cursor-pointer rounded-2xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 hover:-translate-y-1"
+                className="group relative p-[1.5px] rounded-2xl bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 tabIndex={0}
                 role="button"
                 aria-haspopup="dialog"
                 aria-label={`View full details for ${seg.title}`}
               >
-                {/* Top Row: Number Badge & Time */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center justify-center size-10 rounded-2xl font-bold text-sm text-white shadow-sm bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] group-hover:scale-105 transition-transform">
-                      {seg.num}
-                    </span>
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-700 shadow-2xs">
-                      <Clock className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                      {seg.time}
+                <div className="relative w-full h-full bg-white rounded-[14.5px] p-6 sm:p-7 flex flex-col justify-between">
+                  {/* Top Row: Number Badge & Time */}
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center justify-center size-10 rounded-2xl font-bold text-sm text-white shadow-sm bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] group-hover:scale-105 transition-transform">
+                        {seg.num}
+                      </span>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-700 shadow-2xs">
+                        <Clock className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        {seg.time}
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
-                      {seg.title}
-                    </h3>
-                    <p className="text-xs font-bold mt-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                      {seg.tagline}
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                        {seg.title}
+                      </h3>
+                      <p className="text-xs font-bold mt-1 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                        {seg.tagline}
+                      </p>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {seg.body.slice(0, 130)}...
                     </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {seg.body.slice(0, 130)}...
-                  </p>
-                </div>
-
-                {/* Footer / Core Signal & Click for Popup */}
-                <div className="space-y-3 pt-4 border-t border-slate-100 mt-5">
-                  <div>
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
-                      Core Signal
+                  {/* Footer / Core Signal & Click for Popup */}
+                  <div className="space-y-3 pt-4 border-t border-slate-100 mt-5">
+                    <div>
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+                        Core Signal
+                      </div>
+                      <p className="text-xs font-semibold text-slate-800 leading-tight">
+                        {seg.signal}
+                      </p>
                     </div>
-                    <p className="text-xs font-semibold text-slate-800 leading-tight">
-                      {seg.signal}
-                    </p>
-                  </div>
 
-                  <div className="pt-2 flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-500 group-hover:text-[#1D4ED8] transition-colors">
-                      View full breakdown
-                    </span>
-                    <div className="size-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all shadow-2xs">
-                      <ChevronRight className="size-3.5" />
+                    <div className="pt-2 flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-500 group-hover:text-[#1D4ED8] transition-colors">
+                        View full breakdown
+                      </span>
+                      <div className="size-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all shadow-2xs">
+                        <ChevronRight className="size-3.5" />
+                      </div>
                     </div>
                   </div>
                 </div>

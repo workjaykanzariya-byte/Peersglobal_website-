@@ -433,42 +433,44 @@ export function IndustryPageClient() {
               return (
                 <div
                   key={circle.slug}
-                  className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-xl hover:border-[#0062D2]/40 transition-all duration-300 flex flex-col justify-between group"
+                  className="group relative p-[1.5px] rounded-[28px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
-                        {circle.num}
-                      </span>
-                      <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
-                        <IconComp className="size-5 stroke-[url(#brandIconGrad)]" />
+                  <div className="relative w-full h-full bg-white rounded-[26.5px] p-7 sm:p-8 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
+                          {circle.num}
+                        </span>
+                        <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shadow-2xs">
+                          <IconComp className="size-5 stroke-[url(#brandIconGrad)]" />
+                        </div>
                       </div>
+
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        {circle.name}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm font-bold brand-gradient-text">
+                        {circle.tagline}
+                      </p>
+
+                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                        {circle.description}
+                      </p>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                      {circle.name}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm font-bold brand-gradient-text">
-                      {circle.tagline}
-                    </p>
-
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                      {circle.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between gap-2">
-                    <span className="text-xs text-slate-500 font-medium truncate max-w-[150px]">
-                      {circle.context}
-                    </span>
-                    <Link
-                      href={`/circles/find?type=industry&circle=${circle.slug}`}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-xs font-semibold tracking-wide whitespace-nowrap shadow-xs hover:shadow-md hover:scale-105 transition-all duration-200"
-                    >
-                      <span>Find Circle</span>
-                      <ArrowRight className="size-3 text-white" />
-                    </Link>
+                    <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between gap-2">
+                      <span className="text-xs text-slate-500 font-medium truncate max-w-[150px]">
+                        {circle.context}
+                      </span>
+                      <Link
+                        href={`/circles/find?type=industry&circle=${circle.slug}`}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-xs font-semibold tracking-wide whitespace-nowrap shadow-xs hover:shadow-md hover:scale-105 transition-all duration-200"
+                      >
+                        <span>Find Circle</span>
+                        <ArrowRight className="size-3 text-white" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )
@@ -899,23 +901,25 @@ export function IndustryPageClient() {
             {FAQS.map((faq, index) => (
               <div
                 key={faq.q}
-                className="rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-lg hover:border-[#0062D2]/40 transition-all duration-300 flex flex-col justify-between group space-y-4"
+                className="group relative p-[1.5px] rounded-[28px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
               >
-                <div className="space-y-3.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
-                      Q 0{index + 1}
-                    </span>
-                    <div className="size-8 rounded-full bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 flex items-center justify-center text-slate-400 group-hover:scale-110 transition-transform">
-                      <HelpCircle className="size-4 stroke-[url(#brandIconGrad)]" />
+                <div className="relative w-full h-full bg-white rounded-[26.5px] p-7 sm:p-8 flex flex-col justify-between space-y-4">
+                  <div className="space-y-3.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold brand-gradient-text bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-rose-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
+                        Q 0{index + 1}
+                      </span>
+                      <div className="size-8 rounded-full bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 flex items-center justify-center text-slate-400 group-hover:scale-110 transition-transform">
+                        <HelpCircle className="size-4 stroke-[url(#brandIconGrad)]" />
+                      </div>
                     </div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                      {faq.q}
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                      {faq.a}
+                    </p>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                    {faq.q}
-                  </h3>
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                    {faq.a}
-                  </p>
                 </div>
               </div>
             ))}

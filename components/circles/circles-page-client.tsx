@@ -1548,40 +1548,42 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                     <div
                       key={category.slug}
                       onClick={() => handleOpenCategoryModal(category)}
-                      className="group relative bg-white border border-slate-200/90 hover:border-[#0062D2]/50 rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer min-h-[190px] sm:min-h-[210px]"
+                      className="group relative p-[1.5px] rounded-[28px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
                     >
-                      {/* Selected City Status Badge on top */}
-                      {selectedMainCity !== 'All Cities' && (
-                        <span
-                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 ${
-                            isActiveInSelectedCity
-                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                              : 'bg-amber-50 text-amber-700 border border-amber-200'
-                          }`}
+                      <div className="relative w-full h-full bg-white rounded-[26.5px] p-6 sm:p-7 flex flex-col items-center justify-center text-center min-h-[190px] sm:min-h-[210px]">
+                        {/* Selected City Status Badge on top */}
+                        {selectedMainCity !== 'All Cities' && (
+                          <span
+                            className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 ${
+                              isActiveInSelectedCity
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                : 'bg-amber-50 text-amber-700 border border-amber-200'
+                            }`}
+                          >
+                            <span className={`size-1.5 rounded-full ${isActiveInSelectedCity ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
+                            {isActiveInSelectedCity ? 'Active' : 'Coming Soon'}
+                          </span>
+                        )}
+
+                        {/* Centered Circular Icon Badge */}
+                        <div
+                          className="size-16 sm:size-18 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300"
                         >
-                          <span className={`size-1.5 rounded-full ${isActiveInSelectedCity ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
-                          {isActiveInSelectedCity ? 'Active' : 'Coming Soon'}
-                        </span>
-                      )}
+                          {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 stroke-[url(#brandIconGrad)]')}
+                        </div>
 
-                      {/* Centered Circular Icon Badge */}
-                      <div
-                        className="size-16 sm:size-18 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300"
-                      >
-                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 stroke-[url(#brandIconGrad)]')}
-                      </div>
+                        {/* Category Title */}
+                        <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                          {category.name}
+                        </h4>
 
-                      {/* Category Title */}
-                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                        {category.name}
-                      </h4>
-
-                      {/* Hover Pill Button (Solid Gradient, Crisp & No Wrap) */}
-                      <div className="h-7 mt-3 flex items-center justify-center">
-                        <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-[11px] font-semibold tracking-wide whitespace-nowrap shadow-sm shadow-indigo-500/25 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                          <span>Explore Circles</span>
-                          <ArrowRight className="size-3 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
-                        </span>
+                        {/* Hover Pill Button (Solid Gradient, Crisp & No Wrap) */}
+                        <div className="h-7 mt-3 flex items-center justify-center">
+                          <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-[11px] font-semibold tracking-wide whitespace-nowrap shadow-sm shadow-indigo-500/25 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                            <span>Explore Circles</span>
+                            <ArrowRight className="size-3 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                          </span>
+                        </div>
                       </div>
                     </div>
                   )
@@ -1620,40 +1622,42 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                     <div
                       key={category.slug}
                       onClick={() => handleOpenCategoryModal(category)}
-                      className="group relative bg-white border border-slate-200/90 hover:border-[#0062D2]/50 rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer min-h-[190px] sm:min-h-[210px]"
+                      className="group relative p-[1.5px] rounded-[28px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
                     >
-                      {/* Selected City Status Badge on top */}
-                      {selectedMainCity !== 'All Cities' && (
-                        <span
-                          className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 ${
-                            isActiveInSelectedCity
-                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                              : 'bg-amber-50 text-amber-700 border border-amber-200'
-                          }`}
+                      <div className="relative w-full h-full bg-white rounded-[26.5px] p-6 sm:p-7 flex flex-col items-center justify-center text-center min-h-[190px] sm:min-h-[210px]">
+                        {/* Selected City Status Badge on top */}
+                        {selectedMainCity !== 'All Cities' && (
+                          <span
+                            className={`absolute top-4 right-4 text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 ${
+                              isActiveInSelectedCity
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                : 'bg-amber-50 text-amber-700 border border-amber-200'
+                            }`}
+                          >
+                            <span className={`size-1.5 rounded-full ${isActiveInSelectedCity ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
+                            {isActiveInSelectedCity ? 'Active' : 'Coming Soon'}
+                          </span>
+                        )}
+
+                        {/* Centered Circular Icon Badge */}
+                        <div
+                          className="size-16 sm:size-18 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300"
                         >
-                          <span className={`size-1.5 rounded-full ${isActiveInSelectedCity ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
-                          {isActiveInSelectedCity ? 'Active' : 'Coming Soon'}
-                        </span>
-                      )}
+                          {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 stroke-[url(#brandIconGrad)]')}
+                        </div>
 
-                      {/* Centered Circular Icon Badge */}
-                      <div
-                        className="size-16 sm:size-18 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shadow-2xs mb-4 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300"
-                      >
-                        {renderCategoryIcon(category.iconName, 'size-8 sm:size-9 stroke-[url(#brandIconGrad)]')}
-                      </div>
+                        {/* Category Title */}
+                        <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                          {category.name}
+                        </h4>
 
-                      {/* Category Title */}
-                      <h4 className="font-bold text-sm sm:text-base text-slate-800 leading-snug tracking-tight px-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                        {category.name}
-                      </h4>
-
-                      {/* Hover Pill Button (Solid Gradient, Crisp & No Wrap) */}
-                      <div className="h-7 mt-3 flex items-center justify-center">
-                        <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-[11px] font-semibold tracking-wide whitespace-nowrap shadow-sm shadow-indigo-500/25 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                          <span>Explore Circles</span>
-                          <ArrowRight className="size-3 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
-                        </span>
+                        {/* Hover Pill Button (Solid Gradient, Crisp & No Wrap) */}
+                        <div className="h-7 mt-3 flex items-center justify-center">
+                          <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white text-[11px] font-semibold tracking-wide whitespace-nowrap shadow-sm shadow-indigo-500/25 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                            <span>Explore Circles</span>
+                            <ArrowRight className="size-3 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                          </span>
+                        </div>
                       </div>
                     </div>
                   )

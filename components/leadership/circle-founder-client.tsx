@@ -484,36 +484,54 @@ export function CircleFounderClient() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            {SIX_STAGES.map((item) => (
+            {SIX_STAGES.map((item, idx) => (
               <div
                 key={item.stage}
-                className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 cursor-default"
+                className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                tabIndex={0}
+                role="article"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-mono font-bold text-xs flex items-center justify-center shadow-2xs">
-                      {item.stage}
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
-                      Stage {item.stage}
-                    </span>
+                <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id={`stageGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
+                      <stop offset="0%" stopColor="#1D4ED8" />
+                      <stop offset="50%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#E11D48" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="animated-border-path"
+                    style={{ stroke: `url(#stageGrad-${idx})` }}
+                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                  />
+                </svg>
+                <div className="!rounded-3xl p-7 sm:p-8 flex flex-col justify-between h-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-blue-400/30 transition-colors">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="size-11 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-mono font-bold text-xs flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform duration-300">
+                        {item.stage}
+                      </span>
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                        Stage {item.stage}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
 
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#1D4ED8] transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2.5">
-                      {item.desc}
-                    </p>
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span className="text-slate-400 font-mono">Stage 0{item.stage} of 06</span>
+                    <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1.5 transition-transform">
+                      Milestone &rarr;
+                    </span>
                   </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                  <span className="text-slate-400 font-mono">Stage 0{item.stage} of 06</span>
-                  <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">
-                    Milestone &rarr;
-                  </span>
                 </div>
               </div>
             ))}
@@ -563,38 +581,56 @@ export function CircleFounderClient() {
               return (
                 <div
                   key={dim.number}
-                  className={`group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 cursor-default ${
+                  className={`animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all ${
                     idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
                   }`}
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs">
-                        <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`roleDimGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#roleDimGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="!rounded-3xl p-7 sm:p-8 flex flex-col justify-between h-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-blue-400/30 transition-colors">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                          Dimension {dim.number}
+                        </span>
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
-                        Dimension {dim.number}
+
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                          {dim.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed mt-1.5">
+                          {dim.headline}
+                        </p>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
+                          {dim.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400 font-mono">Pillar 0{idx + 1} of 05</span>
+                      <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1.5 transition-transform">
+                        Role Dimension &rarr;
                       </span>
                     </div>
-
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#1D4ED8] transition-colors">
-                        {dim.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed mt-1.5">
-                        {dim.headline}
-                      </p>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
-                        {dim.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span className="text-slate-400 font-mono">Pillar 0{idx + 1} of 05</span>
-                    <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">
-                      Role Dimension &rarr;
-                    </span>
                   </div>
                 </div>
               )
@@ -910,33 +946,51 @@ export function CircleFounderClient() {
               return (
                 <div
                   key={idx}
-                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 cursor-default"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs">
-                        <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={`stepGrad-${idx}`} x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="50%" stopColor="#6366F1" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#stepGrad-${idx})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="!rounded-3xl p-7 sm:p-8 flex flex-col justify-between h-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-blue-400/30 transition-colors">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
+                          Step 0{idx + 1}
+                        </span>
                       </div>
-                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs">
-                        Step 0{idx + 1}
+
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                          {titles[idx]}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
+                          {descriptions[idx]}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400 font-mono">Dimension 0{idx + 1} of 06</span>
+                      <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1.5 transition-transform">
+                        Evaluate &rarr;
                       </span>
                     </div>
-
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug group-hover:text-[#1D4ED8] transition-colors">
-                        {titles[idx]}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mt-2">
-                        {descriptions[idx]}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span className="text-slate-400 font-mono">Dimension 0{idx + 1} of 06</span>
-                    <span className="inline-flex items-center gap-1 brand-gradient-text font-bold group-hover:translate-x-1 transition-transform">
-                      Evaluate &rarr;
-                    </span>
                   </div>
                 </div>
               )
