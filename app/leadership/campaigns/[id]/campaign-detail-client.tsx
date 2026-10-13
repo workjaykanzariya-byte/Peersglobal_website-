@@ -109,21 +109,12 @@ export function CampaignDetailClient({
 
           {/* Action CTAs */}
           <div className="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
-            {phase === 'nominations_open' && (
+            {(phase === 'nominations_open' || campaign.nomination_open) && (
               <GalaxyButton
                 href={`/leadership/campaigns/${campaign.id}/nominate`}
                 size="default"
               >
                 Nominate for this Role
-              </GalaxyButton>
-            )}
-
-            {phase === 'voting_active' && (
-              <GalaxyButton
-                href={`/leadership/campaigns/${campaign.id}/vote`}
-                size="default"
-              >
-                Enter Voting Booth
               </GalaxyButton>
             )}
 
@@ -323,14 +314,7 @@ export function CampaignDetailClient({
             <p className="text-xs text-slate-500 font-medium">
               Approved candidates eligible for public voting in this selection cycle.
             </p>
-            {phase === 'voting_active' && (
-              <Link
-                href={`/leadership/campaigns/${campaign.id}/vote`}
-                className="text-xs font-bold text-[#1D4ED8] flex items-center gap-1 hover:underline"
-              >
-                Go to Voting Booth <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            )}
+            
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -338,7 +322,7 @@ export function CampaignDetailClient({
               <CandidateCard
                 key={cand.id}
                 candidate={cand}
-                canVote={phase === 'voting_active'}
+                canVote={false}
                 onVoteClick={handleVoteClick}
               />
             ))}

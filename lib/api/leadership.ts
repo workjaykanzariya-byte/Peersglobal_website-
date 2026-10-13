@@ -581,24 +581,45 @@ export const MOCK_WINNERS: Winner[] = [
 
 export function calculateCampaignPhase(campaign: Campaign): CampaignPhase {
   if (campaign.status === 'completed') return 'winners_declared'
-  if (campaign.voting_open) return 'voting_active'
-  if (campaign.jury_open) return 'jury_evaluation'
-  if (campaign.nomination_open) return 'nominations_open'
 
   const now = new Date().getTime()
-  const nomStart = new Date(campaign.nomination_starts_at).getTime()
-  const nomEnd = new Date(campaign.nomination_ends_at).getTime()
-  const voteStart = new Date(campaign.voting_starts_at).getTime()
-  const voteEnd = new Date(campaign.voting_ends_at).getTime()
-  const juryStart = campaign.jury_starts_at ? new Date(campaign.jury_starts_at).getTime() : voteEnd
-  const juryEnd = campaign.jury_ends_at ? new Date(campaign.jury_ends_at).getTime() : voteEnd
+  const nomStart = campaign.nomination_starts_at ? new Date(campaign.nomination_starts_at).getTime() : 0
+  const nomEnd = campaign.nomination_ends_at ? new Date(campaign.nomination_ends_at).getTime() : Infinity
+  const voteStart = campaign.voting_starts_at ? new Date(campaign.voting_starts_at).getTime() : 0
+  const voteEnd = campaign.voting_ends_at ? new Date(campaign.voting_ends_at).getTime() : 0
+  const juryStart = campaign.jury_starts_at ? new Date(campaign.jury_starts_at).getTime() : 0
+  const juryEnd = campaign.jury_ends_at ? new Date(campaign.jury_ends_at).getTime() : 0
 
-  if (now < nomStart) return 'upcoming'
-  if (now >= nomStart && now <= nomEnd) return 'nominations_open'
-  if (now > nomEnd && now < voteStart) return 'nominations_closed'
-  if (now >= voteStart && now <= voteEnd) return 'voting_active'
-  if (now > voteEnd && now <= juryEnd) return 'jury_evaluation'
-  if (now > juryEnd) return 'winners_declared'
+  // 1. Actively in nomination window or explicitly open
+  if (campaign.nomination_open || (nomStart > 0 && now >= nomStart && now <= nomEnd)) {
+    return 'nominations_open'
+  }
+
+  // 2. Before nomination starts
+  if (nomStart > 0 && now < nomStart) {
+    return 'upcoming'
+  }
+
+  // 3. Voting phase (only if voting_open flag is explicitly true and start date reached, or dates match)
+  if (campaign.voting_open || (voteStart > 0 && now >= voteStart && (voteEnd === 0 || now <= voteEnd))) {
+    return 'voting_active'
+  }
+
+  // 4. Jury phase
+  if (campaign.jury_open || (juryStart > 0 && now >= juryStart && (juryEnd === 0 || now <= juryEnd))) {
+    return 'jury_evaluation'
+  }
+
+  // 5. Completed / Closed phases
+  if (nomEnd < Infinity && now > nomEnd && (voteStart === 0 || now < voteStart)) {
+    return 'nominations_closed'
+  }
+  if (voteEnd > 0 && now > voteEnd && (juryStart === 0 || now < juryStart)) {
+    return 'voting_closed'
+  }
+  if (juryEnd > 0 && now > juryEnd) {
+    return 'winners_declared'
+  }
 
   return 'upcoming'
 }

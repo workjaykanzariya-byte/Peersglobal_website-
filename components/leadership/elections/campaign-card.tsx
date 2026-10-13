@@ -107,23 +107,13 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
         </Link>
 
         <div className="flex items-center gap-2">
-          {phase === 'nominations_open' && (
+          {(phase === 'nominations_open' || campaign.nomination_open) && (
             <Link
               href={`/leadership/campaigns/${campaign.id}/nominate`}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold shadow-sm transition-all hover:scale-[1.02]"
             >
               <FileCheck2 className="w-3.5 h-3.5" />
               Nominate
-            </Link>
-          )}
-
-          {phase === 'voting_active' && (
-            <Link
-              href={`/leadership/campaigns/${campaign.id}/vote`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold shadow-sm transition-all hover:scale-[1.02]"
-            >
-              <Vote className="w-3.5 h-3.5" />
-              Cast Vote
             </Link>
           )}
 
