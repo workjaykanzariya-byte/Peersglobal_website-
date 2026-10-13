@@ -93,6 +93,44 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
 
   const [codeOfConductSigned, setCodeOfConductSigned] = useState(false)
 
+  // Map of question_key to friendly question labels
+  const questionLabelMap = React.useMemo(() => {
+    const map: Record<string, string> = {
+      years_in_peers: 'Years of Active Membership in Peers Global',
+      past_leadership_roles: 'Past Leadership & Council Positions Held',
+      standing_self_eval: 'Standing & Peer Accountability Self-Evaluation',
+      vision_statement: 'Executive Vision Statement for the Territory',
+      dec_no_solicitation: 'Declaration: Zero Non-Governed Commercial Solicitation',
+      dec_governance_neutrality: 'Declaration: Acceptance of Election Governance Authority',
+    }
+    formTemplate?.sections?.forEach((s) => {
+      s.questions?.forEach((q) => {
+        if (q.question_key && q.label) {
+          map[q.question_key] = q.label
+        }
+      })
+    })
+    return map
+  }, [formTemplate])
+
+  const formatAnswerDisplay = (val: unknown) => {
+    if (val === true || val === 'true') {
+      return (
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
+          <Check className="w-3 h-3 text-emerald-600" /> Affirmed (Yes)
+        </span>
+      )
+    }
+    if (val === false || val === 'false') {
+      return (
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold border border-slate-200">
+          No
+        </span>
+      )
+    }
+    return <span className="text-slate-900 font-semibold text-xs">{String(val)}</span>
+  }
+
   const triggerSaveDraft = async () => {
     if (!profile.fullName && !emailInput && !phoneInput) return
     setIsSavingDraft(true)
@@ -1008,78 +1046,231 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
             </div>
 
             <div className="space-y-6">
-              {/* Summary Card */}
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-4">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-4 border-b border-slate-200">
-                  <div>
-                    <span className="text-slate-500 font-medium">Nominee Name:</span>
-                    <div className="font-bold text-sm text-slate-900 mt-0.5">{profile.fullName}</div>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 font-medium">Role:</span>
-                    <div className="font-bold text-sm text-slate-900 mt-0.5">{campaign.role.name}</div>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 font-medium">Jurisdiction:</span>
-                    <div className="font-bold text-sm text-slate-900 mt-0.5">
-                      {scopes.find((s) => s.id === selectedScopeId)?.name || 'Selected Scope'}
+              {/* Executive Summary Card */}
+              <div className="rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden">
+                <div className="p-5 sm:p-6 bg-gradient-to-r from-slate-50 via-white to-blue-50/20 border-b border-slate-200/80">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                      <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Nominee</span>
+                      <div className="font-bold text-sm text-slate-900 mt-1">{profile.fullName || '—'}</div>
+                      <div className="text-[11px] text-slate-500 mt-0.5 truncate">{profile.email || profile.mobile}</div>
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Target Role</span>
+                      <div className="font-bold text-sm text-[#1D4ED8] mt-1">{campaign.role.name}</div>
+                      <div className="text-[11px] text-slate-500 mt-0.5">{campaign.campaign_year} Selection Cycle</div>
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Jurisdiction</span>
+                      <div className="font-bold text-sm text-slate-900 mt-1">
+                        {scopes.find((s) => s.id === selectedScopeId)?.name || 'Surat District'}
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5 capitalize">{campaign.scope_type || 'District'} Scope</div>
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">Enterprise</span>
+                      <div className="font-bold text-sm text-slate-900 mt-1 truncate">{profile.company || '—'}</div>
+                      <div className="text-[11px] text-slate-500 mt-0.5 truncate">{profile.designation || 'Leader'}</div>
                     </div>
                   </div>
+                </div>
+
+                <div className="p-5 sm:p-6 space-y-5 text-xs">
+                  {/* Questionnaire Summary */}
                   <div>
-                    <span className="text-slate-500 font-medium">Company:</span>
-                    <div className="font-bold text-sm text-slate-900 mt-0.5">{profile.company}</div>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-wider text-[11px] text-[#1D4ED8]">
-                    Questionnaire Summary ({Object.keys(answers).length} questions answered)
-                  </h4>
-                  <div className="space-y-2 bg-white p-4 rounded-xl border border-slate-200">
-                    {Object.entries(answers).map(([k, v]) => (
-                      <div key={k} className="flex justify-between gap-4 text-xs py-1 border-b border-slate-100 last:border-0">
-                        <span className="text-slate-500 font-medium capitalize">{k.replace(/_/g, ' ')}:</span>
-                        <span className="text-slate-800 font-semibold text-right max-w-md truncate">
-                          {String(v)}
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-2">
+                        <FileText className="w-4 h-4 text-[#1D4ED8]" />
+                        Questionnaire Summary
+                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-[#1D4ED8] border border-blue-200/60 lowercase">
+                          {Object.keys(answers).length} answered
                         </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                      </h4>
+                      <button
+                        type="button"
+                        onClick={() => setCurrentStep(3)}
+                        className="text-xs font-semibold text-[#1D4ED8] hover:underline"
+                      >
+                        Edit Answers
+                      </button>
+                    </div>
 
-                <div>
-                  <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-wider text-[11px] text-[#1D4ED8]">
-                    Uploaded Documents
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {Object.entries(uploadedFiles).map(([k, doc]) => (
-                      <span key={k} className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200 flex items-center gap-1">
-                        <Check className="w-3 h-3" /> {doc?.name}
-                      </span>
-                    ))}
-                    {Object.keys(uploadedFiles).length === 0 && (
-                      <span className="text-slate-400 italic">No custom files attached (Optional)</span>
-                    )}
+                    <div className="divide-y divide-slate-100 rounded-xl border border-slate-200/80 overflow-hidden bg-slate-50/30">
+                      {Object.entries(answers).map(([k, v]) => (
+                        <div key={k} className="p-3 sm:px-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white transition-colors">
+                          <span className="text-slate-600 font-medium sm:max-w-[55%]">
+                            {questionLabelMap[k] || k.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                          </span>
+                          <div className="sm:text-right">
+                            {formatAnswerDisplay(v)}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Uploaded Documents */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2.5">
+                      <h4 className="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-2">
+                        <Upload className="w-4 h-4 text-emerald-600" />
+                        Uploaded Verification Documents
+                      </h4>
+                      <button
+                        type="button"
+                        onClick={() => setCurrentStep(4)}
+                        className="text-xs font-semibold text-[#1D4ED8] hover:underline"
+                      >
+                        Manage Files
+                      </button>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {Object.entries(uploadedFiles).map(([k, doc]) => (
+                        <span key={k} className="px-3.5 py-1.5 rounded-xl bg-white text-slate-800 text-xs font-semibold border border-slate-200/90 shadow-2xs flex items-center gap-1.5">
+                          <Check className="w-3.5 h-3.5 text-emerald-600" /> {doc?.name}
+                        </span>
+                      ))}
+                      {Object.keys(uploadedFiles).length === 0 && (
+                        <span className="text-xs text-slate-500 italic p-3 rounded-xl bg-slate-50 border border-slate-200/60 w-full block">
+                          No custom files attached (Optional documentation skipped)
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Integrity Pledge */}
-              <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 text-xs">
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={codeOfConductSigned}
-                    onChange={(e) => setCodeOfConductSigned(e.target.checked)}
-                    className="w-4 h-4 rounded text-[#1D4ED8] focus:ring-[#1D4ED8] mt-0.5"
-                  />
-                  <div className="space-y-1 text-slate-800 leading-relaxed">
-                    <span className="font-bold text-amber-900 block">
-                      Code of Conduct &amp; Election Integrity Pledge:
-                    </span>
-                    I hereby declare that all information provided in this Form 1 nomination is true and verifiable. I pledge to adhere strictly to the Peers Global Charter, refrain from non-governed solicitation, uphold parity among all Circles, and abide by the final decision of the Election Governance Committee.
+              {/* Microsoft Fluent Executive Integrity & Code of Conduct Attestation */}
+              <div
+                className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  codeOfConductSigned
+                    ? 'bg-gradient-to-br from-blue-50/40 via-white to-slate-50/50 border-[#1D4ED8]/50 shadow-sm ring-1 ring-[#1D4ED8]/20'
+                    : 'bg-white border-slate-200/90 shadow-xs hover:border-slate-300'
+                }`}
+              >
+                {/* Top Subtle Corporate Accent Strip */}
+                <div
+                  className={`h-1 w-full transition-colors duration-300 ${
+                    codeOfConductSigned
+                      ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4338CA] to-[#E11D48]'
+                      : 'bg-slate-200'
+                  }`}
+                />
+
+                <div className="p-5 sm:p-6 space-y-4">
+                  {/* Header Row */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 border-b border-slate-100">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors shrink-0 ${
+                          codeOfConductSigned
+                            ? 'bg-[#1D4ED8] text-white shadow-sm'
+                            : 'bg-slate-100 text-slate-600'
+                        }`}
+                      >
+                        <ShieldCheck className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 text-sm sm:text-base tracking-tight leading-snug">
+                          Code of Conduct &amp; Election Integrity Declaration
+                        </h4>
+                        <p className="text-[11px] text-slate-500 font-normal">
+                          Official governance attestation under the Peers Global Constitution
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="shrink-0 self-start sm:self-center">
+                      {codeOfConductSigned ? (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/90 shadow-2xs">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                          Attested &amp; Signed
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                          Mandatory Attestation
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </label>
+
+                  {/* 3 Executive Commitments Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+                    <div className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-100 space-y-1">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-900 text-[11px] uppercase tracking-wider text-[#1D4ED8]">
+                        <Check className="w-3.5 h-3.5 text-[#1D4ED8]" />
+                        Accuracy of Record
+                      </div>
+                      <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                        All statements and credentials in this nomination are authentic, verifiable, and legally truthful.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-100 space-y-1">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-900 text-[11px] uppercase tracking-wider text-[#1D4ED8]">
+                        <Check className="w-3.5 h-3.5 text-[#1D4ED8]" />
+                        Zero Solicitation
+                      </div>
+                      <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                        Strict prohibition of private canvassing, commercial inducements, or negative campaigning.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-100 space-y-1">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-900 text-[11px] uppercase tracking-wider text-[#1D4ED8]">
+                        <Check className="w-3.5 h-3.5 text-[#1D4ED8]" />
+                        Governance Authority
+                      </div>
+                      <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                        Unconditional acceptance of decisions rendered by the Election Scrutiny Committee.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Legal Statement Text */}
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    I hereby declare that all information provided in this Form 1 nomination is true and verifiable. I pledge to adhere strictly to the Peers Global Charter, refrain from non-governed solicitation, uphold parity among all Circles, and abide by the final decision of the Election Governance Committee.
+                  </p>
+
+                  {/* Interactive Signing Box with modern Microsoft Fluent-like checkbox */}
+                  <div
+                    onClick={() => setCodeOfConductSigned(!codeOfConductSigned)}
+                    className={`p-4 rounded-xl border transition-all cursor-pointer flex items-start sm:items-center justify-between gap-3 ${
+                      codeOfConductSigned
+                        ? 'bg-blue-50/30 border-blue-300 shadow-2xs'
+                        : 'bg-slate-50 hover:bg-slate-100/80 border-slate-200'
+                    }`}
+                  >
+                    <div className="flex items-start sm:items-center gap-3.5">
+                      <div
+                        className={`w-5 h-5 rounded-md border-2 transition-all flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 ${
+                          codeOfConductSigned
+                            ? 'bg-[#1D4ED8] border-[#1D4ED8] text-white shadow-2xs'
+                            : 'bg-white border-slate-300 hover:border-slate-400'
+                        }`}
+                      >
+                        {codeOfConductSigned && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                      </div>
+
+                      <div className="space-y-0.5 select-none">
+                        <span className="text-xs sm:text-sm font-bold text-slate-900 block">
+                          I accept and solemnly sign this Election Integrity Pledge
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal block">
+                          Signed as <strong className="text-slate-800 font-semibold">{profile.fullName || 'Authorized Nominee'}</strong> • Electronically timestamped upon submission
+                        </span>
+                      </div>
+                    </div>
+
+                    <input
+                      type="checkbox"
+                      checked={codeOfConductSigned}
+                      onChange={(e) => setCodeOfConductSigned(e.target.checked)}
+                      className="sr-only"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 

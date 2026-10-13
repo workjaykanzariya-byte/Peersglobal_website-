@@ -700,15 +700,18 @@ export function normalizeCampaign(raw: any): Campaign {
       ? raw.nomination_open
       : raw.nomination_open === 1 || raw.nomination_open === '1' || raw.nomination_open === 'true'
 
+  // If voting start date is not configured or in future, voting_open MUST be false
   const voting_open =
-    typeof raw.voting_open === 'boolean'
+    Boolean(raw.voting_starts_at) &&
+    (typeof raw.voting_open === 'boolean'
       ? raw.voting_open
-      : raw.voting_open === 1 || raw.voting_open === '1' || raw.voting_open === 'true'
+      : raw.voting_open === 1 || raw.voting_open === '1' || raw.voting_open === 'true')
 
   const jury_open =
-    typeof raw.jury_open === 'boolean'
+    Boolean(raw.jury_starts_at) &&
+    (typeof raw.jury_open === 'boolean'
       ? raw.jury_open
-      : raw.jury_open === 1 || raw.jury_open === '1' || raw.jury_open === 'true'
+      : raw.jury_open === 1 || raw.jury_open === '1' || raw.jury_open === 'true')
 
   return {
     id: String(raw.id),
@@ -724,12 +727,12 @@ export function normalizeCampaign(raw: any): Campaign {
     scopes,
     scope_type: raw.scope_type || scopes[0]?.scope_type || 'district',
     description: raw.description || `Leadership election for ${title}`,
-    nomination_starts_at: raw.nomination_starts_at || '2026-09-15T00:00:00Z',
-    nomination_ends_at: raw.nomination_ends_at || '2026-10-25T23:59:59Z',
-    voting_starts_at: raw.voting_starts_at || '2026-10-26T00:00:00Z',
-    voting_ends_at: raw.voting_ends_at || '2026-11-05T23:59:59Z',
-    jury_starts_at: raw.jury_starts_at || '2026-11-06T00:00:00Z',
-    jury_ends_at: raw.jury_ends_at || '2026-11-12T23:59:59Z',
+    nomination_starts_at: raw.nomination_starts_at || raw.nomination_start_at || '',
+    nomination_ends_at: raw.nomination_ends_at || raw.nomination_end_at || '',
+    voting_starts_at: raw.voting_starts_at || raw.voting_start_at || '',
+    voting_ends_at: raw.voting_ends_at || raw.voting_end_at || '',
+    jury_starts_at: raw.jury_starts_at || raw.jury_start_at || '',
+    jury_ends_at: raw.jury_ends_at || raw.jury_end_at || '',
     results_visibility: raw.results_visibility || 'public',
     total_candidates: raw.total_candidates ?? raw.candidates_count ?? (Array.isArray(raw.candidates) ? raw.candidates.length : 3),
     total_votes: raw.total_votes ?? raw.votes_count ?? 0,
