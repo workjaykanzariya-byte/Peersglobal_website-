@@ -45,7 +45,7 @@ export default async function NominatePage({ params }: PageProps) {
             {campaign.name}
           </Link>
           <span>/</span>
-          <span className="text-slate-800 font-bold">Candidate Nomination Form 1</span>
+          <span className="font-bold brand-gradient-text">Candidate Nomination Form 1</span>
         </div>
 
         {/* Wizard */}
