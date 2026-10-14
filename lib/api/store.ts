@@ -91,10 +91,12 @@ export interface StoreProductsResponse {
   per_page: number
 }
 
+// The store catalogue is served from the Unity backend that holds the product
+// inventory. Override with NEXT_PUBLIC_STORE_API_BASE_URL when the production
+// store inventory is ready (e.g. https://peersunity.com).
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_STORE_API_BASE_URL ||
-  process.env.NEXT_PUBLIC_API_BASE_URL ||
-  'https://dev.peersunity.com';
+  'https://peersunity.com';
 
 const API_VERSION_BASE = `${API_BASE_URL.replace(/\/+$/, '')}/api/v1`;
 
