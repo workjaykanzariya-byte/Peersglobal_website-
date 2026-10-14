@@ -132,9 +132,9 @@ const INITIATIVES_DATA = [
   },
   {
     id: '06',
-    name: 'PEERS GLOBAL STORE',
+    name: 'PEERS STORE',
     tagline: 'A place for the ecosystem to experience what it creates.',
-    desc: 'The PEERS GLOBAL STORE is part of the wider ecosystem — an extension of the community where official merchandise, lapel pins, leather folios, playbooks, and verified community offerings are accessible through Peers Coin and community channels.',
+    desc: 'The PEERS STORE is part of the wider ecosystem — an extension of the community where official merchandise, lapel pins, leather folios, playbooks, and verified community offerings are accessible through Peers Coin and community channels.',
     structure: [
       'Official Heritage Lapel Pins',
       'Monogrammed leather folios',
@@ -144,8 +144,8 @@ const INITIATIVES_DATA = [
       'Peers Coin redemptions',
     ],
     philosophy: 'What the ecosystem creates should have a place within the ecosystem.',
-    ctaText: 'Visit the PEERS GLOBAL Store',
-    ctaLink: '/marketplace',
+    ctaText: 'Visit the PEERS Store',
+    ctaLink: '/peers-store',
     isExternal: false,
     icon: ShoppingBag,
     color: 'text-rose-700 bg-rose-50 border-rose-200',
@@ -539,7 +539,7 @@ export function InitiativesPageClient() {
                   <Link href="/circles" className="hover:underline">Explore FEMPRENEUR →</Link>
                   <Link href="/circles" className="hover:underline">Explore GREENPRENEUR →</Link>
                   <Link href="/1-million-mission" className="hover:underline">Explore 1MEIF →</Link>
-                  <Link href="/marketplace" className="hover:underline">Explore PEERS Store →</Link>
+                  <Link href="/peers-store" className="hover:underline">Explore PEERS Store →</Link>
                 </div>
               </div>
 
