@@ -29,6 +29,7 @@ import {
 } from 'lucide-react'
 import { PeerMemberProfile } from '@/lib/api/members'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 // ─── Stat Pillars ─────────────────────────────────────────────────────────
 const STATS = [
@@ -442,7 +443,8 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
             {/* Right Open Unity App Card */}
             <div className="shrink-0">
               <a
-                href="https://unity.peersglobal.com"
+                href="https://play.google.com/store/apps/details?id=com.peers.peersunity&pcampaignid=web_share"
+                onClick={(e) => handleSmartAppDownload(e)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-between gap-4 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 transition-all max-w-sm"
@@ -953,13 +955,14 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
 
               <div className="pt-3">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href="https://play.google.com/store/apps/details?id=com.peers.peersunity&pcampaignid=web_share"
+                  onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"
-                  size="md"
+                  size="default"
                 >
-                  Explore the Directory
+                  Explore in Unity App
                 </GalaxyButton>
               </div>
             </div>
@@ -1234,6 +1237,7 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
             <div className="shrink-0 lg:pr-8">
               <a
                 href="https://unity.peersglobal.com"
+                onClick={(e) => handleSmartAppDownload(e)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-blue-300/40 bg-gradient-to-r from-[#0878E8] via-[#0062D2] to-[#0751B8] px-8 py-4 text-sm font-bold tracking-wide text-white shadow-[0_8px_28px_rgba(0,98,210,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-sky-200/60 hover:shadow-[0_12px_34px_rgba(0,122,255,0.48)] active:translate-y-0 sm:w-auto"

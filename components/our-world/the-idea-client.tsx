@@ -41,6 +41,7 @@ import {
 } from 'lucide-react'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { usePageMedia, ResolvedMediaItem } from '@/lib/hooks/use-page-media'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 export function TheIdeaClient() {
   const { getMedia } = usePageMedia('our-world')
@@ -149,6 +150,7 @@ export function TheIdeaClient() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
+                  onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noreferrer"
                   size="default"
@@ -1714,6 +1716,7 @@ export function TheIdeaClient() {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <GalaxyButton
                 href="https://unity.peersglobal.com"
+                onClick={(e: any) => handleSmartAppDownload(e)}
                 target="_blank"
                 rel="noreferrer"
                 size="lg"

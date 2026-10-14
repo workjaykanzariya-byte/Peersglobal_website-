@@ -9,7 +9,7 @@ export const SITE = {
   city: 'Ahmedabad, Gujarat, India',
   phones: ['+91 93161 20831', '+91 70411 51714'],
   email: 'hello@peersglobal.com',
-  memberLoginUrl: 'https://unity.peersglobal.com',
+  memberLoginUrl: 'https://play.google.com/store/apps/details?id=com.peers.peersunity&pcampaignid=web_share',
   appStoreUrl: 'https://apps.apple.com/in/app/peers-global-unity/id6739198477',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.peers.peersunity&pcampaignid=web_share',
   statsAsOf: 'Figures verified against Unity platform records.',

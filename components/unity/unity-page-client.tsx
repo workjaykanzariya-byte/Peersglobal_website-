@@ -39,6 +39,7 @@ import {
   Sparkle
 } from 'lucide-react'
 import { SITE } from '@/lib/data/site'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 // ─── 12 Core Features of Unity ───────────────────────────────────────────────
 const TWELVE_FEATURES = [
@@ -346,14 +347,15 @@ export function UnityPageClient() {
                 </a>
 
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href={SITE.playStoreUrl}
+                  onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
                   size="default"
                   className="font-medium"
                 >
-                  Open Web App
+                  Download Unity App
                 </GalaxyButton>
               </div>
             </div>

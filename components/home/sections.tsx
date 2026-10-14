@@ -63,6 +63,7 @@ import { INDUSTRY_CIRCLES, PURPOSE_CIRCLES } from '@/lib/data/circles'
 import { UPCOMING_EVENTS, EventRecord } from '@/lib/data/events'
 import { ROLES } from '@/lib/data/leadership'
 import { OUTCOME_STATS, SITE } from '@/lib/data/site'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 /* =========================================================================
    SECTION 1.5 — MEET OUR LEADERS & MENTORS (MINDVALLEY STYLE SPOTLIGHT)
@@ -5330,9 +5331,10 @@ export function ClosingSection() {
           </Link>
 
           <a
-            href="https://unity.peersglobal.com"
+            href={SITE.playStoreUrl}
+            onClick={(e) => handleSmartAppDownload(e)}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/[0.08] px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/15 hover:border-white/70 active:scale-[0.98] uppercase"
           >
             <Download aria-hidden className="size-4" />

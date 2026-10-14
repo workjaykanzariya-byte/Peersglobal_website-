@@ -36,6 +36,7 @@ import {
   Sparkle,
   Plus,
 } from 'lucide-react'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 // ─── Stats Bar ────────────────────────────────────────────────────────────
 const STATS = [
@@ -300,6 +301,7 @@ export function WhyJoinClient() {
                 <div className="flex flex-wrap items-center gap-4">
                   <GalaxyButton
                     href="https://unity.peersglobal.com"
+                    onClick={(e: any) => handleSmartAppDownload(e)}
                     target="_blank"
                     rel="noopener noreferrer"
                     size="default"
@@ -894,6 +896,7 @@ export function WhyJoinClient() {
               <div>
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
+                  onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noopener noreferrer"
                   size="default"
@@ -946,6 +949,7 @@ export function WhyJoinClient() {
               <div className="flex flex-wrap items-center gap-4">
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
+                  onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noopener noreferrer"
                   size="lg"

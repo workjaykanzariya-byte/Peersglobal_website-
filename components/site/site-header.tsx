@@ -4,14 +4,16 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
+import { ChevronDown, Menu, X, ArrowRight, Download } from 'lucide-react'
 import { Logo } from '@/components/site/logo'
 import { HEADER_NAV, SITE, NavItem } from '@/lib/data/site'
 import { cn } from '@/lib/utils'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { handleSmartAppDownload, useSmartAppUrl } from '@/lib/utils/app-link'
 
 export function SiteHeader() {
   const pathname = usePathname()
+  const smartAppUrl = useSmartAppUrl(SITE.playStoreUrl)
   const [openMenu, setOpenMenu] = React.useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [mobileAccordion, setMobileAccordion] = React.useState<string | null>(null)
@@ -285,8 +287,22 @@ export function SiteHeader() {
             })}
           </nav>
 
-          {/* Right Side Action: ENTER PEERS GLOBAL */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Right Side Action: DOWNLOAD UNITY APP & ENTER PEERS GLOBAL */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            <GalaxyButton
+              href={smartAppUrl}
+              onClick={(e: any) => handleSmartAppDownload(e, smartAppUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+              size="sm"
+              icon={true}
+              aria-label="Get Unity App"
+              className="hidden sm:inline-flex uppercase tracking-wider font-bold"
+            >
+              GET UNITY APP
+            </GalaxyButton>
+
             <GalaxyButton
               href="/apply"
               onMouseEnter={() => setOpenMenu(null)}
@@ -314,6 +330,22 @@ export function SiteHeader() {
         {mobileMenuOpen ? (
           <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 py-5 shadow-2xl text-slate-800 animate-in slide-in-from-top-2 duration-200">
             <div className="mb-4 flex flex-col gap-2.5 border-b border-slate-200 pb-4">
+              <GalaxyButton
+                href={smartAppUrl}
+                onClick={(e: any) => {
+                  setMobileMenuOpen(false)
+                  handleSmartAppDownload(e, smartAppUrl)
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="default"
+                icon={true}
+                className="w-full justify-center uppercase tracking-wider font-bold"
+              >
+                GET UNITY APP
+              </GalaxyButton>
+
               <GalaxyButton
                 href="/apply"
                 onClick={() => setMobileMenuOpen(false)}
