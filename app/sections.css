@@ -1161,40 +1161,83 @@ p.body,
 /* ---------- carousel ---------- */
 .fd-how-it-works__carousel {
   --fd-hiw-gap: 24px;
-  /* 3 full cards + equal partial peeks (~60px) on left and right */
-  --fd-hiw-card: calc((100vw - 120px - (3 * var(--fd-hiw-gap))) / 3.25);
-  --fd-hiw-step: calc(var(--fd-hiw-card) + var(--fd-hiw-gap));
-  /* Equal padding on both left and right edges */
-  --fd-hiw-pad: calc((100vw - (3 * var(--fd-hiw-card) + 2 * var(--fd-hiw-gap))) / 2);
+  --fd-hiw-card: clamp(280px, 24vw, 360px);
   margin-top: 40px;
   overflow: hidden;
   width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
 }
 
 .fd-how-it-works__track {
   display: flex;
-  gap: var(--fd-hiw-gap);
   margin: 0;
-  padding: 0 var(--fd-hiw-pad);
-  list-style: none;
+  padding: 0;
   width: max-content;
-  transform: translateX(calc(-1 * var(--fd-i, 0) * var(--fd-hiw-step)));
-  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
   will-change: transform;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.fd-how-it-works__track--ltr {
+  animation-name: fd-hiw-scroll-ltr;
+  animation-duration: 45s;
+}
+
+.fd-how-it-works__track--rtl {
+  animation-name: fd-hiw-scroll-rtl;
+  animation-duration: 45s;
+}
+
+.fd-how-it-works__carousel:hover .fd-how-it-works__track,
+.fd-how-it-works__carousel:focus-within .fd-how-it-works__track {
+  animation-play-state: paused;
+}
+
+.fd-how-it-works__set {
+  display: flex;
+  gap: var(--fd-hiw-gap);
+  padding-right: var(--fd-hiw-gap);
+  list-style: none;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+@keyframes fd-hiw-scroll-ltr {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fd-hiw-scroll-rtl {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .fd-how-it-works__card {
   position: relative;
   flex: 0 0 var(--fd-hiw-card);
   width: var(--fd-hiw-card);
-  max-width: 400px;
-  min-width: 280px;
   aspect-ratio: 2 / 3;
   border-radius: 36px;
   overflow: hidden;
   container-type: inline-size;
   color: var(--mv-white);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.fd-how-it-works__card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
 }
 
 .fd-how-it-works__card--ink {
@@ -1361,9 +1404,7 @@ p.body,
 
   .fd-how-it-works__carousel {
     --fd-hiw-gap: 20px;
-    --fd-hiw-card: clamp(260px, 38vw, 340px);
-    --fd-hiw-step: calc(var(--fd-hiw-card) + var(--fd-hiw-gap));
-    --fd-hiw-pad: max(20px, calc((100% - (2 * var(--fd-hiw-card) + var(--fd-hiw-gap))) / 2));
+    --fd-hiw-card: clamp(260px, 34vw, 320px);
     margin-top: 32px;
   }
 
@@ -1388,9 +1429,7 @@ p.body,
 
   .fd-how-it-works__carousel {
     --fd-hiw-gap: 16px;
-    --fd-hiw-card: min(320px, calc(100% - 48px));
-    --fd-hiw-step: calc(var(--fd-hiw-card) + var(--fd-hiw-gap));
-    --fd-hiw-pad: calc((100% - var(--fd-hiw-card)) / 2);
+    --fd-hiw-card: 250px;
     margin-top: 24px;
   }
 

@@ -6,22 +6,85 @@ import { ArrowRight } from 'lucide-react'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 import { SITE } from '@/lib/data/site'
 
+interface UnityCard {
+  image: string
+  alt: string
+  kicker?: string
+  label?: string
+  ink?: boolean
+}
+
+const UNITY_CARDS: UnityCard[] = [
+  {
+    image: '/images/unity-creatives/1.png',
+    alt: 'Discover Peers by industry, city and expertise',
+  },
+  {
+    image: '/images/exclusive_lounge.jpg',
+    alt: 'Book one-to-one conversations',
+    kicker: 'Direct Connections',
+    label: 'Book One-to-One Conversations',
+  },
+  {
+    image: '/images/unity-creatives/2.png',
+    alt: 'Log referrals given and received',
+    ink: true,
+  },
+  {
+    image: '/images/section_image/circle-roundtable-topdown.jpg',
+    alt: 'Participate in their Circle',
+    kicker: 'Circle Hub',
+    label: 'Participate in Your Circle',
+  },
+  {
+    image: '/images/unity-creatives/3.jpeg',
+    alt: 'Find and create opportunities',
+    ink: true,
+  },
+  {
+    image: '/images/peer-stories-hero.jpg',
+    alt: 'Share their story',
+    kicker: 'Peer Stories',
+    label: 'Share Your Story',
+  },
+  {
+    image: '/images/unity-creatives/4.jpeg',
+    alt: 'See their contribution recognised',
+  },
+  {
+    image: '/images/unity-creatives/5.jpeg',
+    alt: 'Stay connected to the community from anywhere in the world',
+    kicker: 'Global Network',
+    label: 'Stay Connected from Anywhere',
+  },
+]
+
+function UnityCardItem({ card }: { card: UnityCard }) {
+  return (
+    <li className={`fd-how-it-works__card ${card.ink ? 'fd-how-it-works__card--ink' : ''}`}>
+      <img
+        src={card.image}
+        width="768"
+        height="1152"
+        alt={card.alt}
+        loading="lazy"
+        decoding="async"
+      />
+      {card.label && (
+        <div className="fd-how-it-works__copy">
+          {card.kicker && <p className="fd-how-it-works__kicker">{card.kicker}</p>}
+          <p className="fd-how-it-works__label">{card.label}</p>
+        </div>
+      )}
+    </li>
+  )
+}
+
 export function HowItWorksSection() {
-  const [index, setIndex] = useState(0)
-  const totalCards = 8
-  // Since 3 cards are visible at once, the carousel stops scrolling after index 5 (cards 6, 7, 8 in view)
-  const maxIndex = 5
-
-  const handlePrev = () => {
-    setIndex((prev) => Math.max(0, prev - 1))
-  }
-
-  const handleNext = () => {
-    setIndex((prev) => Math.min(maxIndex, prev + 1))
-  }
+  const [direction, setDirection] = useState<'ltr' | 'rtl'>('ltr')
 
   return (
-    <section className="fd-how-it-works" id="unity-app" style={{ ['--fd-i' as any]: index }}>
+    <section className="fd-how-it-works" id="unity-app">
       <div className="fd-how-it-works__head" data-fd-rise="0">
         <p className="fd-how-it-works__eyebrow brand-gradient-text">UNITY</p>
         <h2 className="fd-how-it-works__title">Your community doesn&apos;t disappear when the meeting ends.</h2>
@@ -54,125 +117,32 @@ export function HowItWorksSection() {
       <div
         className="fd-how-it-works__carousel"
         data-fd-rise="120"
-        role="group"
-        aria-roledescription="carousel"
-        aria-label="Peers Global Unity App features"
+        role="region"
+        aria-label="Peers Global Unity App features infinite slider"
       >
-        <ul className="fd-how-it-works__track" style={{ transform: `translateX(calc(-1 * ${index} * var(--fd-hiw-step)))` }}>
-          {/* Card 1: Discover Peers */}
-          <li className="fd-how-it-works__card">
-            <img
-              src="/images/unity-creatives/1.png"
-              width="768"
-              height="1152"
-              alt="Discover Peers by industry, city and expertise"
-              loading="lazy"
-            />
-          </li>
-
-          {/* Card 2: Book 1-to-1 conversations */}
-          <li className="fd-how-it-works__card">
-            <img
-              src="/images/exclusive_lounge.jpg"
-              width="768"
-              height="1152"
-              alt="Book one-to-one conversations"
-              loading="lazy"
-            />
-            <div className="fd-how-it-works__copy">
-              <p className="fd-how-it-works__kicker">Direct Connections</p>
-              <p className="fd-how-it-works__label">Book One-to-One Conversations</p>
-            </div>
-          </li>
-
-          {/* Card 3: Log referrals */}
-          <li className="fd-how-it-works__card fd-how-it-works__card--ink">
-            <img
-              src="/images/unity-creatives/2.png"
-              width="768"
-              height="1152"
-              alt="Log referrals given and received"
-              loading="lazy"
-            />
-          </li>
-
-          {/* Card 4: Participate in Circle */}
-          <li className="fd-how-it-works__card">
-            <img
-              src="/images/section_image/circle-roundtable-topdown.jpg"
-              width="768"
-              height="1152"
-              alt="Participate in their Circle"
-              loading="lazy"
-            />
-            <div className="fd-how-it-works__copy">
-              <p className="fd-how-it-works__kicker">Circle Hub</p>
-              <p className="fd-how-it-works__label">Participate in Your Circle</p>
-            </div>
-          </li>
-
-          {/* Card 5: Find & create opportunities */}
-          <li className="fd-how-it-works__card fd-how-it-works__card--ink">
-            <img
-              src="/images/unity-creatives/3.jpeg"
-              width="768"
-              height="1152"
-              alt="Find and create opportunities"
-              loading="lazy"
-            />
-          </li>
-
-          {/* Card 6: Share their story */}
-          <li className="fd-how-it-works__card">
-            <img
-              src="/images/peer-stories-hero.jpg"
-              width="768"
-              height="1152"
-              alt="Share their story"
-              loading="lazy"
-            />
-            <div className="fd-how-it-works__copy">
-              <p className="fd-how-it-works__kicker">Peer Stories</p>
-              <p className="fd-how-it-works__label">Share Your Story</p>
-            </div>
-          </li>
-
-          {/* Card 7: See contribution recognised */}
-          <li className="fd-how-it-works__card">
-            <img
-              src="/images/unity-creatives/4.jpeg"
-              width="768"
-              height="1152"
-              alt="See their contribution recognised"
-              loading="lazy"
-            />
-          </li>
-
-          {/* Card 8: Stay connected globally */}
-          <li className="fd-how-it-works__card">
-            <img
-              src="/images/unity-creatives/5.jpeg"
-              width="768"
-              height="1152"
-              alt="Stay connected to the community from anywhere in the world"
-              loading="lazy"
-            />
-            <div className="fd-how-it-works__copy">
-              <p className="fd-how-it-works__kicker">Global Network</p>
-              <p className="fd-how-it-works__label">Stay Connected from Anywhere</p>
-            </div>
-          </li>
-        </ul>
+        <div className={`fd-how-it-works__track ${direction === 'rtl' ? 'fd-how-it-works__track--rtl' : 'fd-how-it-works__track--ltr'}`}>
+          {/* Set 1 */}
+          <ul className="fd-how-it-works__set">
+            {UNITY_CARDS.map((card, i) => (
+              <UnityCardItem key={`u-s1-${i}`} card={card} />
+            ))}
+          </ul>
+          {/* Set 2 for seamless infinite loop */}
+          <ul className="fd-how-it-works__set" aria-hidden="true">
+            {UNITY_CARDS.map((card, i) => (
+              <UnityCardItem key={`u-s2-${i}`} card={card} />
+            ))}
+          </ul>
+        </div>
       </div>
 
-      <nav className="fd-how-it-works__nav" aria-label="Carousel navigation">
+      <nav className="fd-how-it-works__nav" aria-label="Carousel direction navigation">
         <button
           type="button"
-          className="fd-how-it-works__arrow"
-          aria-label="Previous slide"
-          onClick={handlePrev}
-          disabled={index === 0}
-          style={{ opacity: index === 0 ? 0.35 : 1, cursor: index === 0 ? 'default' : 'pointer' }}
+          className={`fd-how-it-works__arrow ${direction === 'rtl' ? 'ring-2 ring-white/60 shadow-lg' : 'opacity-80'}`}
+          aria-label="Scroll left"
+          title="Scroll towards left"
+          onClick={() => setDirection('rtl')}
         >
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
@@ -180,11 +150,10 @@ export function HowItWorksSection() {
         </button>
         <button
           type="button"
-          className="fd-how-it-works__arrow"
-          aria-label="Next slide"
-          onClick={handleNext}
-          disabled={index >= maxIndex}
-          style={{ opacity: index >= maxIndex ? 0.35 : 1, cursor: index >= maxIndex ? 'default' : 'pointer' }}
+          className={`fd-how-it-works__arrow ${direction === 'ltr' ? 'ring-2 ring-white/60 shadow-lg' : 'opacity-80'}`}
+          aria-label="Scroll right (Left to Right)"
+          title="Scroll towards right (Left to Right)"
+          onClick={() => setDirection('ltr')}
         >
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
