@@ -446,7 +446,7 @@ export const FOOTER_BANDS: FooterBand[] = [
           { label: 'Fempreneur', href: '/initiatives/fempreneur', phase: 'P2' },
           { label: 'Greenpreneur', href: '/initiatives/greenpreneur', phase: 'P2' },
           { label: '1 Million Entrepreneurs Forum', href: '/initiatives/1meif', phase: 'P2' },
-          { label: 'Peers Global Store', href: '/store', phase: 'P2' },
+          { label: 'Peers Store', href: '/peers-store', phase: 'P2' },
         ],
       },
       {

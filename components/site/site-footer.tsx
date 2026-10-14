@@ -92,6 +92,7 @@ export function SiteFooter() {
         { label: 'Executive Director', href: '/leadership/executive-director' },
         { label: 'Life Impact Score', href: '/life-impact-score' },
         { label: 'Peers Coin & Standing', href: '/peer-standing' },
+        { label: 'Peers Store', href: '/peers-store' },
         { label: 'Apply to Lead', href: '/leadership/apply' },
       ],
     },
