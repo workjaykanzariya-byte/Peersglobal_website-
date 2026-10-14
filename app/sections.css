@@ -1167,8 +1167,36 @@ p.body,
   /* Equal padding on both left and right edges */
   --fd-hiw-pad: calc((100vw - (3 * var(--fd-hiw-card) + 2 * var(--fd-hiw-gap))) / 2);
   margin-top: 40px;
-  overflow: hidden;
   width: 100%;
+  /* Native horizontal scrolling (swipe, trackpad, shift+wheel, drag) */
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--fd-hiw-pad);
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  padding-bottom: 18px;
+  /* Scrollable but scrollbar hidden */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fd-how-it-works__carousel.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  user-select: none;
+}
+
+.fd-how-it-works__carousel:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 4px;
+}
+
+.fd-how-it-works__carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .fd-how-it-works__track {
@@ -1178,9 +1206,6 @@ p.body,
   padding: 0 var(--fd-hiw-pad);
   list-style: none;
   width: max-content;
-  transform: translateX(calc(-1 * var(--fd-i, 0) * var(--fd-hiw-step)));
-  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
-  will-change: transform;
 }
 
 .fd-how-it-works__card {
@@ -1195,6 +1220,12 @@ p.body,
   container-type: inline-size;
   color: var(--mv-white);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
+  scroll-snap-align: start;
+}
+
+.fd-how-it-works__card img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .fd-how-it-works__card--ink {
@@ -1404,8 +1435,8 @@ p.body,
 }
 
 @media (prefers-reduced-motion:reduce) {
-  .fd-how-it-works__track {
-    transition: none
+  .fd-how-it-works__carousel {
+    scroll-behavior: auto
   }
 }
 

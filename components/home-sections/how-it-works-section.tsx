@@ -1,27 +1,44 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 import { SITE } from '@/lib/data/site'
 
 export function HowItWorksSection() {
-  const [index, setIndex] = useState(0)
-  const totalCards = 8
-  // Since 3 cards are visible at once, the carousel stops scrolling after index 5 (cards 6, 7, 8 in view)
-  const maxIndex = 5
+  // Native horizontal scroll (touch / trackpad / shift+wheel) plus
+  // click-and-drag scrolling for mouse users.
+  const scrollerRef = useRef<HTMLDivElement>(null)
+  const drag = useRef({ active: false, moved: false, startX: 0, startScroll: 0 })
 
-  const handlePrev = () => {
-    setIndex((prev) => Math.max(0, prev - 1))
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== 'mouse' || !scrollerRef.current) return
+    drag.current = { active: true, moved: false, startX: e.clientX, startScroll: scrollerRef.current.scrollLeft }
   }
 
-  const handleNext = () => {
-    setIndex((prev) => Math.min(maxIndex, prev + 1))
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollerRef.current
+    if (!drag.current.active || !el) return
+    const dx = e.clientX - drag.current.startX
+    if (!drag.current.moved && Math.abs(dx) > 5) {
+      drag.current.moved = true
+      el.setPointerCapture(e.pointerId)
+      el.classList.add('is-dragging')
+    }
+    if (drag.current.moved) el.scrollLeft = drag.current.startScroll - dx
+  }
+
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollerRef.current
+    if (!drag.current.active || !el) return
+    drag.current.active = false
+    if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId)
+    el.classList.remove('is-dragging')
   }
 
   return (
-    <section className="fd-how-it-works" id="unity-app" style={{ ['--fd-i' as any]: index }}>
+    <section className="fd-how-it-works" id="unity-app">
       <div className="fd-how-it-works__head" data-fd-rise="0">
         <p className="fd-how-it-works__eyebrow brand-gradient-text">UNITY</p>
         <h2 className="fd-how-it-works__title">Your community doesn&apos;t disappear when the meeting ends.</h2>
@@ -52,13 +69,20 @@ export function HowItWorksSection() {
       </div>
 
       <div
+        ref={scrollerRef}
         className="fd-how-it-works__carousel"
         data-fd-rise="120"
-        role="group"
+        role="region"
         aria-roledescription="carousel"
         aria-label="Peers Global Unity App features"
+        tabIndex={0}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onDragStart={(e) => e.preventDefault()}
       >
-        <ul className="fd-how-it-works__track" style={{ transform: `translateX(calc(-1 * ${index} * var(--fd-hiw-step)))` }}>
+        <ul className="fd-how-it-works__track">
           {/* Card 1: Discover Peers */}
           <li className="fd-how-it-works__card">
             <img
@@ -164,33 +188,6 @@ export function HowItWorksSection() {
           </li>
         </ul>
       </div>
-
-      <nav className="fd-how-it-works__nav" aria-label="Carousel navigation">
-        <button
-          type="button"
-          className="fd-how-it-works__arrow"
-          aria-label="Previous slide"
-          onClick={handlePrev}
-          disabled={index === 0}
-          style={{ opacity: index === 0 ? 0.35 : 1, cursor: index === 0 ? 'default' : 'pointer' }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          className="fd-how-it-works__arrow"
-          aria-label="Next slide"
-          onClick={handleNext}
-          disabled={index >= maxIndex}
-          style={{ opacity: index >= maxIndex ? 0.35 : 1, cursor: index >= maxIndex ? 'default' : 'pointer' }}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
-          </svg>
-        </button>
-      </nav>
 
       {/* Download App CTA */}
       <div className="fd-how-it-works__bottom">
