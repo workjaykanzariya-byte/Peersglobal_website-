@@ -14,32 +14,32 @@ const ROW_1_PILLARS: UniversePillar[] = [
   {
     title: 'Community',
     role: 'Entrepreneurs across industries and countries',
-    image: '/images/who-we-are-friends.jpg',
+    image: '/images/universe/conference-portrait.png',
   },
   {
     title: 'Culture',
     role: 'Trust, contribution and friendship',
-    image: '/images/give-first-card.jpg',
+    image: '/images/universe/cake-cutting.png',
   },
   {
     title: 'Circles',
     role: 'Your home inside the community',
-    image: '/images/section_image/circle-meeting.png',
+    image: '/images/universe/cafe-seminar.png',
   },
   {
     title: 'Language',
     role: 'The words and ideas we share',
-    image: '/images/language-hero-desk.jpg',
+    image: '/images/universe/stand-with-science.png',
   },
   {
     title: 'Leadership',
     role: 'A structure built and led by entrepreneurs',
-    image: '/images/leadership-climbers-hero.jpg',
+    image: '/images/universe/greenpreneur-portrait.png',
   },
   {
     title: 'Recognition',
     role: 'Contribution seen and celebrated',
-    image: '/images/who-we-are-impact.jpg',
+    image: '/images/universe/awards-event.png',
   },
 ]
 
@@ -52,27 +52,27 @@ const ROW_2_PILLARS: UniversePillar[] = [
   {
     title: 'Events',
     role: 'Meetings, conclaves and the global summit',
-    image: '/images/section_image/conclave.png',
+    image: '/images/universe/conference-hall.png',
   },
   {
     title: 'Media',
     role: 'Stories, podcasts and publications',
-    image: '/images/peer-stories-hero.jpg',
+    image: '/images/universe/neon-event-display.png',
   },
   {
     title: 'Learning',
     role: 'Masterclasses and playbooks',
-    image: '/images/who-we-are-boardroom.jpg',
+    image: '/images/universe/wellness-panel.png',
   },
   {
     title: 'Opportunities',
     role: 'Business, partnerships and markets',
-    image: '/images/lsr-city-sunrise.jpg',
+    image: '/images/universe/conference-checkin.png',
   },
   {
     title: 'Impact',
     role: 'The 1 Million Mission',
-    image: '/images/climbers-clean.jpg',
+    image: '/images/universe/conference-team.png',
   },
 ]
 
