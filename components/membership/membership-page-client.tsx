@@ -31,6 +31,7 @@ import {
   Target,
   UserCheck,
 } from 'lucide-react'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 // ─── Eight Reasons Data ───────────────────────────────────────────────────
 const EIGHT_REASONS = [
@@ -240,6 +241,7 @@ export function MembershipPageClient() {
 
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
+                  onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
@@ -896,6 +898,7 @@ export function MembershipPageClient() {
 
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
+                  onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noreferrer"
                   variant="transparent"

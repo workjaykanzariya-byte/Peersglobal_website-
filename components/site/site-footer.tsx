@@ -14,6 +14,7 @@ import {
 } from 'lucide-react'
 import { SITE, ACTIVE_CITIES } from '@/lib/data/site'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 export function SiteFooter() {
   const [emailInput, setEmailInput] = useState('')
@@ -173,7 +174,10 @@ export function SiteFooter() {
               </GalaxyButton>
 
               <GalaxyButton
-                href="/unity"
+                href={SITE.playStoreUrl}
+                onClick={(e: any) => handleSmartAppDownload(e)}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="transparent-light"
                 size="default"
                 icon={<Download className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />}

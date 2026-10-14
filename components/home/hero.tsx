@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Download } from 'lucide-react'
 import { SITE } from '@/lib/data/site'
+import { handleSmartAppDownload } from '@/lib/utils/app-link'
 
 export function HomeHero() {
   const [videoUrl, setVideoUrl] = React.useState('/videos/homepage-hero-bg.mp4')
@@ -131,15 +132,16 @@ export function HomeHero() {
               <ArrowRight className="size-4" />
             </Link>
 
-            <Link
-              href="https://unity.peersglobal.com"
+            <a
+              href={SITE.playStoreUrl}
+              onClick={(e) => handleSmartAppDownload(e)}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-md px-6 py-3.5 text-sm sm:text-base font-semibold text-white transition-colors shadow-md active:scale-[0.98]"
             >
               <Download className="size-4 text-slate-200" />
               <span>Download Unity App</span>
-            </Link>
+            </a>
 
             <Link
               href="/circles/find"

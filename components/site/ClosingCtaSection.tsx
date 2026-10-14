@@ -5,6 +5,8 @@ import { useRef, useEffect, useState } from 'react'
 import type * as React from 'react'
 import { ArrowRight, Download } from 'lucide-react'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { handleSmartAppDownload, useSmartAppUrl } from '@/lib/utils/app-link'
+import { SITE } from '@/lib/data/site'
 
 export interface ClosingCtaSectionProps {
   eyebrow?: string
@@ -30,13 +32,15 @@ export function ClosingCtaSection({
   primaryButtonText = 'JOIN PEERS GLOBAL',
   primaryButtonHref = '/membership',
   secondaryButtonText = 'DOWNLOAD UNITY APP',
-  secondaryButtonHref = 'https://unity.peersglobal.com',
+  secondaryButtonHref,
   secondaryButtonIcon,
   tertiaryButtonText,
   tertiaryButtonHref,
   buttons,
   className = '',
 }: ClosingCtaSectionProps) {
+  const smartUrl = useSmartAppUrl(SITE.playStoreUrl)
+  const resolvedSecondaryHref = secondaryButtonHref || (secondaryButtonText?.toUpperCase().includes('DOWNLOAD') ? smartUrl : '/membership')
   const sectionRef = useRef<HTMLElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
@@ -89,7 +93,7 @@ export function ClosingCtaSection({
     </>
   )
 
-  const isSecondaryExternal = secondaryButtonHref?.startsWith('http')
+  const isSecondaryExternal = resolvedSecondaryHref?.startsWith('http')
 
   // Calculated scroll-driven animations
   const contentTranslateY = prefersReducedMotion ? 0 : (1 - scrollProgress) * 36
@@ -221,7 +225,14 @@ export function ClosingCtaSection({
             <>
               {primaryButtonText && primaryButtonHref && (
                 <GalaxyButton
-                  href={primaryButtonHref}
+                  href={primaryButtonText.toUpperCase().includes('DOWNLOAD') ? smartUrl : primaryButtonHref}
+                  onClick={
+                    primaryButtonText.toUpperCase().includes('DOWNLOAD')
+                      ? (e: any) => handleSmartAppDownload(e, smartUrl)
+                      : undefined
+                  }
+                  target={primaryButtonHref.startsWith('http') ? '_blank' : undefined}
+                  rel={primaryButtonHref.startsWith('http') ? 'noreferrer' : undefined}
                   size="lg"
                   className="uppercase tracking-wider font-bold"
                 >
@@ -229,9 +240,14 @@ export function ClosingCtaSection({
                 </GalaxyButton>
               )}
 
-              {secondaryButtonText && secondaryButtonHref && (
+              {secondaryButtonText && resolvedSecondaryHref && (
                 <GalaxyButton
-                  href={secondaryButtonHref}
+                  href={resolvedSecondaryHref}
+                  onClick={
+                    secondaryButtonText.toUpperCase().includes('DOWNLOAD')
+                      ? (e: any) => handleSmartAppDownload(e, resolvedSecondaryHref)
+                      : undefined
+                  }
                   variant="transparent"
                   size="lg"
                   icon={secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
