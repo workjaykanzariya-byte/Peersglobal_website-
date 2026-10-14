@@ -98,7 +98,7 @@ export interface StoreProductsResponse {
 // production store inventory is ready.
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_STORE_API_BASE_URL ||
-  'https://dev.peersunity.com';
+  'https://peersunity.com';
 
 const API_VERSION_BASE = `${API_BASE_URL.replace(/\/+$/, '')}/api/v1`;
 
@@ -106,6 +106,33 @@ const DEFAULT_HEADERS = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
 };
+
+/**
+ * The products list endpoint only returns `primary_image`. When an image was
+ * uploaded in the admin without being marked as primary, `primary_image` is
+ * null, so we load the product details to get its `images` array instead.
+ */
+async function withProductImages(products: StoreProduct[]): Promise<StoreProduct[]> {
+  return Promise.all(
+    products.map(async (product) => {
+      if (product.primary_image?.image_url || product.images?.length) return product;
+      try {
+        const res = await fetch(`${API_VERSION_BASE}/store/products/${product.id}`, {
+          headers: DEFAULT_HEADERS,
+          next: { revalidate: 60 },
+        });
+        if (!res.ok) return product;
+        const json = await res.json();
+        const images: ProductImage[] = Array.isArray(json?.data?.images) ? json.data.images : [];
+        if (images.length === 0) return product;
+        const primary = images.find((img) => img.is_primary) || images[0];
+        return { ...product, images, primary_image: primary };
+      } catch {
+        return product;
+      }
+    })
+  );
+}
 
 /**
  * Fetch all active categories
@@ -158,11 +185,11 @@ export async function fetchStoreProducts(params?: {
     const json = await res.json();
     if (json.success && json.data) {
       if (Array.isArray(json.data.data)) {
-        return json.data;
+        return { ...json.data, data: await withProductImages(json.data.data) };
       } else if (Array.isArray(json.data)) {
         return {
           current_page: 1,
-          data: json.data,
+          data: await withProductImages(json.data),
           total: json.data.length,
           last_page: 1,
           per_page: json.data.length,
@@ -205,7 +232,7 @@ export async function fetchFeaturedStoreProducts(): Promise<StoreProduct[]> {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
-    return json.success && Array.isArray(json.data) ? json.data : [];
+    return json.success && Array.isArray(json.data) ? await withProductImages(json.data) : [];
   } catch (err) {
     console.error('Error fetching featured store products:', err);
     return [];
