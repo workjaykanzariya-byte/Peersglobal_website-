@@ -60,125 +60,6 @@ const BRAND_PARTNERS = [
   { name: 'Zodiac Gifts', src: '/images/brand-partners/zodiac_gifts.png' },
 ]
 
-// Fallback curated inventory in case API is temporarily unavailable or empty
-const FALLBACK_ITEMS: StoreProduct[] = [
-  {
-    id: 'fallback-1',
-    sku: 'PG-PIN-HERITAGE',
-    name: 'The Official Heritage Blazer Lapel Pin',
-    slug: 'official-heritage-blazer-lapel-pin',
-    category_id: 'regalia',
-    short_description: 'Cast in brushed antique brass and gold alloy featuring the iconic Peers Global seal.',
-    description: 'The official emblem worn by active, contributing Peers at Circle sessions, regional Conclaves, and global summits. Backed by verified contribution.',
-    coin_price: 45,
-    stock_qty: 120,
-    type: 'PHYSICAL',
-    is_featured: true,
-    status: 'ACTIVE',
-    delivery_modes: ['DELIVERY'],
-    brand: 'Peers Global',
-    primary_image: {
-      id: 'img-1',
-      image_url: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&auto=format&fit=crop&q=80',
-    },
-    category: {
-      id: 'regalia',
-      name: 'Official Regalia',
-      slug: 'official-regalia',
-      description: 'Official seal emblems and lapel pins',
-      products_count: 3,
-      is_active: true,
-      image_url: null,
-    },
-  },
-  {
-    id: 'fallback-2',
-    sku: 'PG-FOLIO-LTR',
-    name: 'Signature Monogrammed Leather Meeting Folio',
-    slug: 'monogrammed-leather-meeting-folio',
-    category_id: 'leather-goods',
-    short_description: 'Handcrafted full-grain Indian leather meeting portfolio debossed with your name.',
-    description: 'Crafted from pure vegetable-tanned leather for boardrooms, investor roundtables, and high-stakes negotiations.',
-    coin_price: 130,
-    stock_qty: 45,
-    type: 'PHYSICAL',
-    is_featured: true,
-    status: 'ACTIVE',
-    delivery_modes: ['DELIVERY'],
-    brand: 'Peers Heritage',
-    primary_image: {
-      id: 'img-2',
-      image_url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&auto=format&fit=crop&q=80',
-    },
-    category: {
-      id: 'leather-goods',
-      name: 'Leather & Folios',
-      slug: 'leather-goods',
-      description: 'Handcrafted executive meeting folios',
-      products_count: 2,
-      is_active: true,
-      image_url: null,
-    },
-  },
-  {
-    id: 'fallback-3',
-    sku: 'PG-COIN-SET',
-    name: 'Peers Citizen Commemorative Gold-Bronze Coin Set',
-    slug: 'peers-citizen-commemorative-coin-set',
-    category_id: 'collectibles',
-    short_description: 'Heavyweight collector medal struck in pure bronze and polished gold alloy.',
-    description: 'Numbered limited edition celebrating the founding philosophy of Governed Collaboration and Give-First.',
-    coin_price: 180,
-    stock_qty: 25,
-    type: 'PHYSICAL',
-    is_featured: true,
-    status: 'ACTIVE',
-    delivery_modes: ['DELIVERY'],
-    brand: 'Peers Mint',
-    primary_image: {
-      id: 'img-3',
-      image_url: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=800&auto=format&fit=crop&q=80',
-    },
-    category: {
-      id: 'collectibles',
-      name: 'Collectibles',
-      slug: 'collectibles',
-      description: 'Numbered coins and museum pieces',
-      products_count: 1,
-      is_active: true,
-      image_url: null,
-    },
-  },
-  {
-    id: 'fallback-4',
-    sku: 'PG-PLAYBOOK-JV',
-    name: 'The 10-Way Cross-Border JV Playbook & Master Kit',
-    slug: 'cross-border-jv-playbook-master-kit',
-    category_id: 'toolkits',
-    short_description: 'Comprehensive legal, financial and operational framework for executing joint ventures.',
-    description: 'Vetted agreement templates, revenue-split calculators, and case studies of multi-crore peer collaborations.',
-    coin_price: 80,
-    stock_qty: 500,
-    type: 'DIGITAL',
-    is_featured: true,
-    status: 'ACTIVE',
-    delivery_modes: ['DIGITAL'],
-    brand: 'Peers Knowledge',
-    primary_image: {
-      id: 'img-4',
-      image_url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80',
-    },
-    category: {
-      id: 'toolkits',
-      name: 'Growth Toolkits',
-      slug: 'growth-toolkits',
-      description: 'Digital blueprints and legal frameworks',
-      products_count: 3,
-      is_active: true,
-      image_url: null,
-    },
-  },
-]
 
 interface PeersStoreClientProps {
   initialCategories?: StoreCategory[]
@@ -195,9 +76,7 @@ export function PeersStoreClient({
 }: PeersStoreClientProps) {
   // State for products and filtering
   const [categories, setCategories] = useState<StoreCategory[]>(initialCategories)
-  const [products, setProducts] = useState<StoreProduct[]>(
-    initialProducts.length > 0 ? initialProducts : FALLBACK_ITEMS
-  )
+  const [products, setProducts] = useState<StoreProduct[]>(initialProducts)
   const [featuredProducts, setFeaturedProducts] = useState<StoreProduct[]>(
     initialFeatured.length > 0 ? initialFeatured : initialProducts.slice(0, 3)
   )
@@ -272,14 +151,8 @@ export function PeersStoreClient({
         if (!isCancelled) {
           if (res.success && res.data) {
             const list = Array.isArray(res.data.data) ? res.data.data : Array.isArray(res.data) ? res.data : []
-            // If API returned items, show them. If search/category is empty and API returned 0, fallback to curated
-            if (list.length > 0) {
-              setProducts(list)
-            } else if (!debouncedSearch && selectedCategory === 'all' && selectedType === 'all') {
-              setProducts(FALLBACK_ITEMS)
-            } else {
-              setProducts([])
-            }
+            // Only show what the backend returns
+            setProducts(list)
           }
           setLoading(false)
         }
@@ -452,10 +325,9 @@ export function PeersStoreClient({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
               {products.map((item) => {
                 const coinPrice = item.price_coins || item.coin_price || 0
-                const imageUrl =
-                  item.primary_image?.image_url ||
-                  item.category?.image_url ||
-                  'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80'
+                const imageUrl = item.primary_image?.image_url || item.images?.[0]?.image_url || null
+                const categoryLabel = item.category?.name || null
+                const descriptionText = item.short_description || item.description || null
 
                 return (
                   <div
@@ -465,17 +337,25 @@ export function PeersStoreClient({
                     <div className="space-y-3.5">
                       {/* Product Thumbnail */}
                       <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
-                        <img
-                          src={imageUrl}
-                          alt={item.name}
-                          className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute top-2.5 left-2.5">
-                          <span className="text-[9.5px] uppercase font-bold tracking-wider text-slate-900 bg-white/95 backdrop-blur-md px-2.5 py-0.5 rounded-full shadow-xs border border-slate-200/50">
-                            {item.category?.name || item.type || 'Regalia'}
-                          </span>
-                        </div>
+                        {imageUrl ? (
+                          <img
+                            src={imageUrl}
+                            alt={item.name}
+                            className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="size-full flex items-center justify-center text-slate-300">
+                            <Package className="w-10 h-10" />
+                          </div>
+                        )}
+                        {categoryLabel && (
+                          <div className="absolute top-2.5 left-2.5">
+                            <span className="text-[9.5px] uppercase font-bold tracking-wider text-slate-900 bg-white/95 backdrop-blur-md px-2.5 py-0.5 rounded-full shadow-xs border border-slate-200/50">
+                              {categoryLabel}
+                            </span>
+                          </div>
+                        )}
                         {item.is_featured && (
                           <div className="absolute top-2.5 right-2.5">
                             <span className="text-[9.5px] uppercase font-bold tracking-wider text-rose-700 bg-rose-50/95 backdrop-blur-md border border-rose-200 px-2 py-0.5 rounded-full shadow-xs">
@@ -487,11 +367,13 @@ export function PeersStoreClient({
 
                       {/* Title & SKU */}
                       <div>
-                        <div className="flex items-center justify-between text-[11px] text-slate-400 font-mono mb-0.5">
-                          <span>SKU: {item.sku || 'PG-STANDARD'}</span>
-                          <span className="text-emerald-700 font-semibold font-sans">
-                            {item.stock_qty > 0 ? `${item.stock_qty} in stock` : 'Available'}
-                          </span>
+                        <div className="flex items-center justify-between text-[11px] text-slate-400 font-mono mb-0.5 min-h-[16px]">
+                          <span>{item.sku ? `SKU: ${item.sku}` : ''}</span>
+                          {typeof item.stock_qty === 'number' && item.stock_qty > 0 && (
+                            <span className="text-emerald-700 font-semibold font-sans">
+                              {item.stock_qty} in stock
+                            </span>
+                          )}
                         </div>
                         <h3 className="font-serif font-bold text-slate-950 text-base leading-snug line-clamp-2 group-hover:text-[#0062D2] transition-colors">
                           {item.name}
@@ -499,9 +381,11 @@ export function PeersStoreClient({
                       </div>
 
                       {/* Description */}
-                      <p className="text-xs text-slate-600 line-clamp-2 font-light leading-relaxed">
-                        {item.short_description || item.description || 'Exclusive Peers Global community offering.'}
-                      </p>
+                      {descriptionText && (
+                        <p className="text-xs text-slate-600 line-clamp-2 font-light leading-relaxed">
+                          {descriptionText}
+                        </p>
+                      )}
                     </div>
 
                     {/* Dedicated Bottom Footer: Price Block + Action Buttons */}
@@ -1024,12 +908,16 @@ export function PeersStoreClient({
           {/* Header */}
           <div className="flex items-center justify-between p-5 sm:p-6 border-b border-slate-100 bg-slate-50/60">
             <div className="flex items-center gap-2.5">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">
-                {selectedProduct.category?.name || 'Heritage Item'}
-              </span>
-              <span className="text-xs text-slate-400 font-mono">
-                {selectedProduct.sku}
-              </span>
+              {selectedProduct.category?.name && (
+                <span className="text-[11px] font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">
+                  {selectedProduct.category.name}
+                </span>
+              )}
+              {selectedProduct.sku && (
+                <span className="text-xs text-slate-400 font-mono">
+                  {selectedProduct.sku}
+                </span>
+              )}
             </div>
             <button
               onClick={() => setSelectedProduct(null)}
@@ -1044,15 +932,17 @@ export function PeersStoreClient({
           <div className="overflow-y-auto p-5 sm:p-6 space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
               <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
-                <img
-                  src={
-                    selectedProduct.primary_image?.image_url ||
-                    (selectedProduct as any).primary_image_url ||
-                    'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&auto=format&fit=crop&q=80'
-                  }
-                  alt={selectedProduct.name}
-                  className="size-full object-cover"
-                />
+                {selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url ? (
+                  <img
+                    src={selectedProduct.primary_image?.image_url || selectedProduct.images?.[0]?.image_url}
+                    alt={selectedProduct.name}
+                    className="size-full object-cover"
+                  />
+                ) : (
+                  <div className="size-full flex items-center justify-center text-slate-300">
+                    <Package className="w-12 h-12" />
+                  </div>
+                )}
               </div>
 
               <div className="space-y-4">
@@ -1071,31 +961,48 @@ export function PeersStoreClient({
                   </span>
                 </div>
 
-                <div className="space-y-1.5 text-xs text-slate-600">
-                  <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Contribution-backed authentic item</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Free doorstep delivery across India</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Verified Member Certificate included</span>
-                  </p>
-                </div>
+                {(() => {
+                  const p = selectedProduct
+                  const facts: { label: string; value: string }[] = []
+                  if (p.brand) facts.push({ label: 'Brand', value: p.brand })
+                  if (p.type) facts.push({ label: 'Type', value: String(p.type).charAt(0) + String(p.type).slice(1).toLowerCase() })
+                  if (typeof p.stock_qty === 'number') facts.push({ label: 'Stock', value: p.stock_qty > 0 ? `${p.stock_qty} available` : 'Out of stock' })
+                  if (p.delivery_modes && p.delivery_modes.length > 0)
+                    facts.push({ label: 'Delivery', value: p.delivery_modes.map((m) => m.charAt(0) + m.slice(1).toLowerCase()).join(', ') })
+                  if (typeof p.return_allowed === 'boolean')
+                    facts.push({
+                      label: 'Returns',
+                      value: p.return_allowed
+                        ? p.return_window_days ? `Within ${p.return_window_days} days` : 'Allowed'
+                        : 'Not returnable',
+                    })
+                  if (p.max_quantity_per_order) facts.push({ label: 'Max per order', value: String(p.max_quantity_per_order) })
+                  if (facts.length === 0) return null
+                  return (
+                    <dl className="space-y-1.5 text-xs">
+                      {facts.map((f) => (
+                        <div key={f.label} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                          <dt className="text-slate-500">{f.label}:</dt>
+                          <dd className="font-semibold text-slate-800">{f.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )
+                })()}
               </div>
             </div>
 
-            <div className="space-y-2 border-t border-slate-100 pt-4">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Specification & Details
-              </h4>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {selectedProduct.description || selectedProduct.short_description}
-              </p>
-            </div>
+            {(selectedProduct.description || selectedProduct.short_description) && (
+              <div className="space-y-2 border-t border-slate-100 pt-4">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Specification &amp; Details
+                </h4>
+                <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                  {selectedProduct.description || selectedProduct.short_description}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Modal Footer */}
@@ -1234,10 +1141,8 @@ function BuyInAppModal({
     window.open(storeUrl, '_blank', 'noopener,noreferrer')
   }
 
-  const productImage =
-    product.primary_image?.image_url ||
-    (product as any).primary_image_url ||
-    'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&auto=format&fit=crop&q=80'
+  const productImage: string | null =
+    product.primary_image?.image_url || product.images?.[0]?.image_url || null
 
   const recommended: StoreTarget | null =
     platform === 'android' ? 'play' : platform === 'ios' ? 'app' : null
@@ -1316,7 +1221,13 @@ function BuyInAppModal({
           {/* Product preview */}
           <div className="flex items-center gap-4 p-3 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm">
             <div className="size-14 rounded-xl overflow-hidden bg-white/10 ring-1 ring-white/10 shrink-0">
-              <img src={productImage} alt={product.name} className="size-full object-cover" />
+              {productImage ? (
+                <img src={productImage} alt={product.name} className="size-full object-cover" />
+              ) : (
+                <div className="size-full flex items-center justify-center text-white/40">
+                  <Package className="w-6 h-6" />
+                </div>
+              )}
             </div>
             <div className="min-w-0 flex-1">
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#FB7185] block">
