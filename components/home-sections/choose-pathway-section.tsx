@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { X } from 'lucide-react'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface JourneyStep {
@@ -53,6 +54,7 @@ const JOURNEY_STEPS: JourneyStep[] = [
 export function ChoosePathwaySection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [isDismissed, setIsDismissed] = useState(false)
   const [activeStep, setActiveStep] = useState<number>(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
@@ -240,30 +242,42 @@ export function ChoosePathwaySection() {
         </div>
       </div>
 
-      {/* Dynamic Sticky Bottom Bar - Appears smoothly when section is active */}
+      {/* Dynamic Sticky Bottom Bar - Sleek Floating Glass Pill */}
       <div
-        className={`fixed bottom-0 inset-x-0 z-50 bg-[#13071f]/95 border-t border-white/10 backdrop-blur-xl py-3 md:py-4 px-6 md:px-12 shadow-2xl transition-all duration-300 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
+        className={`fixed bottom-3 sm:bottom-6 left-3 right-3 sm:left-1/2 sm:-translate-x-1/2 sm:w-auto sm:max-w-[960px] z-40 bg-[#090D1A]/95 border border-white/15 backdrop-blur-xl rounded-2xl sm:rounded-full py-2.5 px-3.5 sm:py-3 sm:px-6 shadow-[0_10px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(29,78,216,0.25)] transition-all duration-300 ${
+          isVisible && !isDismissed
+            ? 'translate-y-0 opacity-100 pointer-events-auto'
+            : 'translate-y-8 opacity-0 pointer-events-none'
         }`}
       >
-        <div className="max-w-[1000px] mx-auto flex items-center justify-between gap-4">
-          <div className="text-left">
-            <p className="text-sm md:text-base font-semibold text-white">
+        <div className="flex items-center justify-between gap-3 sm:gap-6">
+          <div className="text-left min-w-0 flex-1">
+            <p className="text-[13px] sm:text-sm font-semibold text-white tracking-tight truncate sm:whitespace-normal">
               You were never meant to build alone.
             </p>
-            <p className="text-xs text-[#9CA3AF]">
+            <p className="text-[11px] sm:text-xs text-slate-300 line-clamp-1 sm:line-clamp-none mt-0.5">
               Come as the entrepreneur you are. Discover what is possible with the right people around you.
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 shrink-0">
             <GalaxyButton
               href="/circles/find"
               size="sm"
               aria-label="Find Your Circle"
+              className="text-[11px] sm:text-xs px-3 sm:px-4 py-1.5 whitespace-nowrap shrink-0 font-bold tracking-wider"
             >
               FIND YOUR CIRCLE
             </GalaxyButton>
+
+            <button
+              type="button"
+              onClick={() => setIsDismissed(true)}
+              aria-label="Dismiss banner"
+              className="size-7 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors shrink-0"
+            >
+              <X className="size-3.5" />
+            </button>
           </div>
         </div>
       </div>
