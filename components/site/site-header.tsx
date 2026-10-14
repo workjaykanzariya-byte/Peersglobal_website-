@@ -109,14 +109,14 @@ export function SiteHeader() {
       {/* PRIMARY NAVBAR                                                        */}
       {/* ===================================================================== */}
       <header
-        className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/90 transition-all shadow-xs"
+        className="sticky top-0 z-[101] w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/90 transition-all shadow-xs"
         onMouseLeave={handleMouseLeave}
       >
         {/* Desktop Navigation Items with Simple Anchored Floating Dropdowns */}
-        <div className="mx-auto flex h-20 max-w-[1640px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 sm:h-20 max-w-[1640px] items-center justify-between px-3 sm:px-6 lg:px-8">
           {/* Brand Logo (Full Color on White) */}
           <div className="flex items-center shrink-0">
-            <Logo onDark={false} className="scale-95 sm:scale-100 origin-left" />
+            <Logo onDark={false} />
           </div>
 
           {/* Center Desktop Navigation */}
@@ -287,49 +287,94 @@ export function SiteHeader() {
             })}
           </nav>
 
-          {/* Right Side Action: DOWNLOAD UNITY APP & ENTER PEERS GLOBAL */}
+          {/* Right Side Actions: DESKTOP ONLY CTAs & MINIMALIST MOBILE MENU */}
           <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            <GalaxyButton
-              href={smartAppUrl}
-              onClick={(e: any) => handleSmartAppDownload(e, smartAppUrl)}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="primary"
-              size="sm"
-              icon={true}
-              aria-label="Get Unity App"
-              className="hidden sm:inline-flex uppercase tracking-wider font-bold"
-            >
-              GET UNITY APP
-            </GalaxyButton>
+            {/* GET UNITY APP: Desktop only (lg:), hidden on mobile */}
+            <div className="hidden lg:inline-flex">
+              <GalaxyButton
+                href={smartAppUrl}
+                onClick={(e: any) => handleSmartAppDownload(e, smartAppUrl)}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="sm"
+                icon={true}
+                aria-label="Get Unity App"
+                className="uppercase tracking-wider font-bold"
+              >
+                GET UNITY APP
+              </GalaxyButton>
+            </div>
 
-            <GalaxyButton
-              href="/apply"
-              onMouseEnter={() => setOpenMenu(null)}
-              size="sm"
-            >
-              ENTER PEERS GLOBAL
-            </GalaxyButton>
+            {/* ENTER PEERS GLOBAL: Desktop only (lg:), hidden on mobile */}
+            <div className="hidden lg:inline-flex">
+              <GalaxyButton
+                href="/apply"
+                onMouseEnter={() => setOpenMenu(null)}
+                size="sm"
+              >
+                ENTER PEERS GLOBAL
+              </GalaxyButton>
+            </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mindvalley-Style Minimalist Mobile Menu Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              aria-label={mobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
-              className="flex size-9 items-center justify-center rounded-[4px] border border-slate-200 bg-slate-50 text-slate-700 lg:hidden hover:bg-slate-100 focus:outline-none"
+              aria-controls="mobile-nav-menu"
+              className="p-2 -mr-1 rounded-lg text-[#0F131A] hover:bg-black/[0.04] active:bg-black/[0.08] transition-colors focus:outline-none flex items-center justify-center shrink-0 cursor-pointer lg:hidden"
             >
-              {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+              {mobileMenuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0F131A"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0F131A"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 12H21M3 6H21M3 18H21" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
+      </header>
 
-        {/* =================================================================== */}
-        {/* 3. MOBILE DRAWER NAVIGATION                                         */}
-        {/* =================================================================== */}
-        {mobileMenuOpen ? (
-          <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-xl px-4 py-5 shadow-2xl text-slate-800 animate-in slide-in-from-top-2 duration-200">
-            <div className="mb-4 flex flex-col gap-2.5 border-b border-slate-200 pb-4">
+      {/* =================================================================== */}
+      {/* 3. MINDVALLEY-STYLE FULL-HEIGHT MOBILE OVERLAY DRAWER               */}
+      {/* =================================================================== */}
+      {mobileMenuOpen ? (
+        <div
+          id="mobile-nav-menu"
+          className="lg:hidden fixed inset-x-0 top-16 sm:top-20 bottom-0 z-[100] bg-white flex flex-col justify-between overflow-y-auto overscroll-contain px-5 py-6 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200"
+          style={{ height: 'calc(100dvh - 4rem)' }}
+        >
+          <div>
+            {/* Top Action CTAs inside Drawer */}
+            <div className="mb-6 flex flex-col gap-3 pb-5 border-b border-slate-100">
               <GalaxyButton
                 href={smartAppUrl}
                 onClick={(e: any) => {
@@ -341,7 +386,7 @@ export function SiteHeader() {
                 variant="primary"
                 size="default"
                 icon={true}
-                className="w-full justify-center uppercase tracking-wider font-bold"
+                className="w-full justify-center uppercase tracking-wider font-bold shadow-md"
               >
                 GET UNITY APP
               </GalaxyButton>
@@ -349,74 +394,106 @@ export function SiteHeader() {
               <GalaxyButton
                 href="/apply"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full justify-center"
+                variant="transparent-light"
+                className="w-full justify-center font-semibold border border-slate-200"
               >
                 ENTER PEERS GLOBAL
               </GalaxyButton>
             </div>
 
-            <div className="flex flex-col divide-y divide-slate-100">
-              {HEADER_NAV.map((item) => {
-                const isAccordionOpen = mobileAccordion === item.label
-                const hasChildren = Boolean(item.children && item.children.length > 0)
+            {/* Navigation Items (Mindvalley Typography & Spacing) */}
+            <div className="flex flex-col">
+              <span className="text-[11px] font-bold tracking-wider text-slate-400 uppercase mb-1">
+                Explore Peers Global
+              </span>
 
-                if (item.type === 'direct') {
+              <div className="flex flex-col divide-y divide-slate-100/90">
+                {HEADER_NAV.map((item) => {
+                  const isAccordionOpen = mobileAccordion === item.label
+                  const hasChildren = Boolean(item.children && item.children.length > 0)
+
+                  if (item.type === 'direct') {
+                    return (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="py-3.5 text-[16px] font-medium text-slate-900 hover:text-[#1D4ED8] flex items-center justify-between transition-colors"
+                      >
+                        <span>{item.label}</span>
+                        <ArrowRight className="size-4 text-slate-300" />
+                      </Link>
+                    )
+                  }
+
                   return (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="py-3 text-[14px] font-semibold text-slate-800 hover:text-[#1D4ED8] flex items-center justify-between"
-                    >
-                      <span>{item.label}</span>
-                      <ArrowRight className="size-3.5 text-slate-400" />
-                    </Link>
-                  )
-                }
+                    <div key={item.label} className="py-1">
+                      <button
+                        type="button"
+                        onClick={() => toggleMobileAccordion(item.label)}
+                        className="flex w-full items-center justify-between py-3 text-left text-[16px] font-medium text-slate-900 hover:text-[#1D4ED8] focus:outline-none transition-colors"
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          className={cn(
+                            'size-4 text-slate-400 transition-transform duration-200',
+                            isAccordionOpen && 'rotate-180 text-[#1D4ED8]'
+                          )}
+                        />
+                      </button>
 
-                return (
-                  <div key={item.label} className="py-2">
-                    <button
-                      type="button"
-                      onClick={() => toggleMobileAccordion(item.label)}
-                      className="flex w-full items-center justify-between py-2 text-left text-[14px] font-semibold text-slate-800 focus:outline-none"
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown
-                        className={cn(
-                          'size-4 text-slate-400 transition-transform duration-200',
-                          isAccordionOpen && 'rotate-180 text-[#1D4ED8]'
-                        )}
-                      />
-                    </button>
-
-                    {isAccordionOpen && hasChildren ? (
-                      <ul className="mt-1 flex flex-col gap-1.5 pl-3 pb-3 border-l border-blue-200 ml-1">
-                        {item.children?.map((child) => (
-                          <li key={child.href}>
+                      {isAccordionOpen && hasChildren ? (
+                        <div className="mb-2.5 flex flex-col gap-1 pl-3.5 border-l-2 border-[#1D4ED8]/25 ml-1 pt-1 animate-in fade-in duration-150">
+                          {item.children?.map((child) => (
                             <Link
+                              key={child.href}
                               href={child.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block py-1 text-[13px] text-slate-600 hover:text-[#1D4ED8]"
+                              className="group flex flex-col py-1.5 px-2 rounded-md hover:bg-slate-50 transition-colors"
                             >
-                              <span>{child.label}</span>
-                              {child.phase === 2 ? (
-                                <span className="ml-1.5 rounded bg-slate-100 px-1.5 py-0.2 text-[9px] font-semibold text-slate-500">
-                                  P2
+                              <div className="flex items-center justify-between">
+                                <span className="text-[14px] font-medium text-slate-700 group-hover:text-[#1D4ED8] transition-colors">
+                                  {child.label}
                                 </span>
-                              ) : null}
+                                {child.phase === 2 ? (
+                                  <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[9px] font-semibold text-slate-500">
+                                    P2
+                                  </span>
+                                ) : null}
+                              </div>
+                              {child.description && (
+                                <p className="text-[12px] text-slate-400 line-clamp-1 mt-0.5">
+                                  {child.description}
+                                </p>
+                              )}
                             </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </div>
-                )
-              })}
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
-        ) : null}
-      </header>
+
+          {/* Bottom Utilities */}
+          <div className="mt-8 pt-5 border-t border-slate-100 flex flex-col gap-3">
+            <div className="flex items-center justify-center text-[13px] text-slate-500 font-medium">
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="hover:text-slate-900 transition-colors"
+              >
+                Contact & Support
+              </Link>
+            </div>
+            <p className="text-[11px] text-slate-400 text-center">
+              © {new Date().getFullYear()} Peers Global. Community of Collaboration.
+            </p>
+          </div>
+        </div>
+      ) : null}
     </>
   )
 }

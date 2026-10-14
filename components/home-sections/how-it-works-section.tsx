@@ -110,7 +110,6 @@ export function HowItWorksSection() {
           <p className="text-sm sm:text-base italic text-slate-800 font-medium pt-0.5">
             Because the real question is not: <span className="font-semibold text-slate-900">&ldquo;How often did we meet?&rdquo;</span> It is: <span className="font-semibold text-slate-900">&ldquo;What happened because we stayed connected?&rdquo;</span>
           </p>
-
         </div>
       </div>
 
