@@ -451,11 +451,11 @@ export const LEXICON_TERMS: LexiconTerm[] = [
   },
   {
     slug: 'lsr',
-    term: 'LSR — Learn, Sales, Resources',
+    term: 'LSR — Learning, Sales, Resources',
     category: 'Ecosystem',
     shortDefinition: 'The three drivers of business growth.',
     fullDefinition:
-      'The three things every business runs on — Learn, Sales, Resources — all made available to an entrepreneur inside Peers Global.',
+      'The three things every business runs on — Learning, Sales, Resources — all made available to an entrepreneur inside Peers Global.',
     ownerUrl: '/the-idea',
     ownerLabel: 'The Idea',
     icon: CheckCircle2,

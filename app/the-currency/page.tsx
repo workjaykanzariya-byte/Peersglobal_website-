@@ -999,7 +999,7 @@ export default function TheCurrencyPage() {
                   
                   {/* Exact Uploaded 3D Golden Genie Coin Image */}
                   <img
-                    src="/api/peers-genie-coin"
+                    src="/images/peers-coin-gold.jpg"
                     alt="Peers Gold Coin"
                     width={112}
                     height={112}

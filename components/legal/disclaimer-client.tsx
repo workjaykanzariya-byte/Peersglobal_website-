@@ -151,7 +151,7 @@ export function DisclaimerClient() {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm crumb-bar">
           <div className="flex items-center gap-2 text-slate-500 font-medium">
             <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
               Home
@@ -291,12 +291,10 @@ export function DisclaimerClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="flex items-center justify-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 STATUTORY DISCLOSURES &amp; BOUNDARIES
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
               11 Legal Boundaries &amp; Operational Disclosures
@@ -328,42 +326,42 @@ export function DisclaimerClient() {
                 <article
                   key={section.id}
                   id={section.id}
-                  className="group relative p-7 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-5 overflow-hidden"
+                  className="group relative p-4 sm:p-7 lg:p-9 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between space-y-4 sm:space-y-5 overflow-hidden"
                 >
                   {/* Top Accent Gradient Bar */}
                   <div className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r ${grad} opacity-75 group-hover:opacity-100 transition-opacity`} />
 
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-slate-50 to-blue-50/70 border border-slate-200/80 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform shadow-2xs">
-                        <IconComponent className="w-5 h-5 text-[#1D4ED8]" />
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-slate-50 to-blue-50/70 border border-slate-200/80 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform shadow-2xs shrink-0">
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-[#1D4ED8]" />
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/70">
+                      <div className="min-w-0 flex items-center gap-1.5 sm:gap-2">
+                        <span className="truncate text-[9px] sm:text-[10px] font-mono uppercase tracking-wide sm:tracking-wider text-slate-500 font-bold px-2 sm:px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/70">
                           {section.tag}
                         </span>
-                        <span className="text-xs font-mono font-bold bg-blue-50 text-[#1D4ED8] px-2.5 py-1 rounded-full border border-blue-100">
+                        <span className="shrink-0 whitespace-nowrap text-[10px] sm:text-xs font-mono font-bold bg-blue-50 text-[#1D4ED8] px-2 sm:px-2.5 py-1 rounded-full border border-blue-100">
                           Art. {section.number}
                         </span>
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950 tracking-tight group-hover:text-[#1D4ED8] transition-colors">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-slate-950 tracking-tight group-hover:text-[#1D4ED8] transition-colors leading-snug">
                         {section.title}
                       </h3>
                     </div>
 
-                    <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    <div className="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                       {section.body.map((paragraph, pIdx) => (
                         <p key={pIdx}>{paragraph}</p>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                    <span>Peers Global Governance Charter</span>
-                    <span className="group-hover:text-[#1D4ED8] transition-colors">Clause {section.number} →</span>
+                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-1 text-[10px] sm:text-[11px] font-mono text-slate-400">
+                    <span className="truncate">Peers Global Governance Charter</span>
+                    <span className="shrink-0 whitespace-nowrap group-hover:text-[#1D4ED8] transition-colors">Clause {section.number} →</span>
                   </div>
                 </article>
               )
@@ -391,7 +389,6 @@ export function DisclaimerClient() {
             {/* Left Col (5 cols): Statement & Authority */}
             <div className="lg:col-span-5 space-y-4 text-left">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
                   Institutional Governance &amp; Integrity
                 </span>

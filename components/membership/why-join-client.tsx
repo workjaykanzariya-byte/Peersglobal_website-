@@ -325,22 +325,22 @@ export function WhyJoinClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 items-stretch">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+                  className="h-full rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="size-11 sm:size-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                  <div className="size-10 sm:size-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
                     <Icon className="size-5 sm:size-6 text-[#0062D2]" />
                   </div>
-                  <div>
-                    <div className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                  <div className="min-w-0">
+                    <div className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-tight whitespace-nowrap">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-slate-500 font-medium">
+                    <div className="text-[11px] sm:text-xs text-slate-500 font-medium leading-snug">
                       {stat.label}
                     </div>
                   </div>

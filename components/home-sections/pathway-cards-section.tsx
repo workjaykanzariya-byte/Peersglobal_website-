@@ -188,7 +188,7 @@ export function PathwayCardsSection() {
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_one.jpg" alt="Nitin Gadkari" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">LSR Growth Model</p>
-                    <p className="fd-pathway-cards__auth">Learn, Sales, Resources</p>
+                    <p className="fd-pathway-cards__auth">Learning, Sales, Resources</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">
@@ -238,7 +238,7 @@ export function PathwayCardsSection() {
                       <img className="fd-pathway-cards__face" src="/images/peers-avatars/avatar_man_four.jpg" alt="Siddharth Rao" width="55" height="83" loading="lazy" decoding="async" />
                     </div>
                     <p className="fd-pathway-cards__prog">LSR Growth Model</p>
-                    <p className="fd-pathway-cards__auth">Learn, Sales, Resources</p>
+                    <p className="fd-pathway-cards__auth">Learning, Sales, Resources</p>
                   </div>
                   <div className="fd-pathway-cards__card">
                     <div className="fd-pathway-cards__media">

@@ -232,7 +232,7 @@ export function PartnerPageClient() {
 
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm crumb-bar">
           <div className="flex items-center gap-2 text-slate-500 font-medium">
             <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
               Home
@@ -1103,21 +1103,21 @@ export function PartnerPageClient() {
 
               {/* Direct Founder & Ecosystem Review Card */}
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
-                    <span className="flex h-2 w-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] animate-pulse" />
-                    <span className="brand-gradient-text">Direct Leadership Review</span>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="min-w-0 flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wide sm:tracking-wider">
+                    <span className="flex h-2 w-2 shrink-0 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] animate-pulse" />
+                    <span className="brand-gradient-text whitespace-nowrap">Direct Leadership Review</span>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[10px] font-bold uppercase tracking-wider brand-gradient-text shadow-2xs">
-                    Tier-1 Priority
+                  <span className="shrink-0 whitespace-nowrap px-2 sm:px-2.5 py-0.5 rounded-full bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[9px] sm:text-[10px] font-bold uppercase tracking-wide sm:tracking-wider shadow-2xs">
+                    <span className="brand-gradient-text">Tier-1 Priority</span>
                   </span>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   Every proposal is evaluated directly by our governing council for bilateral value. We do not accept purely transactional or unsolicited marketing pitches.
                 </p>
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
-                  <span>Secretariat Horizon</span>
-                  <span className="font-bold brand-gradient-text">48 – 72 Business Hours</span>
+                <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] sm:text-xs text-slate-500 font-mono">
+                  <span className="whitespace-nowrap">Secretariat Horizon</span>
+                  <span className="whitespace-nowrap font-bold brand-gradient-text">48 – 72 Business Hours</span>
                 </div>
               </div>
 

@@ -219,8 +219,9 @@ export function TheIdeaClient() {
           SUB-NAV ANCHOR BAR
           ========================================================================= */}
       <nav aria-label="Page navigation" className="sticky top-20 z-40 border-b border-cool-grey-250/80 bg-white/95 backdrop-blur-md shadow-2xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-13 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-6 sm:gap-8 whitespace-nowrap text-[13.5px] font-semibold text-slate-700 py-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 h-13 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex items-center gap-5 sm:gap-8 w-max shrink-0 whitespace-nowrap text-[13px] sm:text-[13.5px] font-semibold text-slate-700 py-1 [&>a]:shrink-0">
+
             <a href="#the-quiet-journey" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
               The Quiet Journey
             </a>
@@ -1503,9 +1504,10 @@ export function TheIdeaClient() {
 
           <div className="flex justify-center">
             <GalaxyButton
-              href="https://unity.peersglobal.com"
+              href="https://play.google.com/store/apps/details?id=com.peers.peersunity&pcampaignid=web_share"
+              onClick={(e: any) => handleSmartAppDownload(e)}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               variant="primary"
               size="md"
             >
