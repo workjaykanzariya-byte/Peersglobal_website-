@@ -216,7 +216,7 @@ export function ChoosePathwaySection() {
           &ldquo;You were never meant to build alone.&rdquo;
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
           <GalaxyButton
             href="/circles/find"
             size="lg"
@@ -232,13 +232,6 @@ export function ChoosePathwaySection() {
           >
             EXPLORE PEERS GLOBAL
           </GalaxyButton>
-          <Link
-            href="/unity"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm md:text-base font-semibold text-cyan-300 hover:text-cyan-200 bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/30 transition-all shadow-sm cursor-pointer"
-            aria-label="Download Unity"
-          >
-            <span>DOWNLOAD UNITY →</span>
-          </Link>
         </div>
       </div>
 

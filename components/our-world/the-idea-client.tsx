@@ -170,7 +170,7 @@ export function TheIdeaClient() {
               </div>
 
               {/* Stat Band */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/20">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-3.5 w-full max-w-3xl pt-6 border-t border-white/20">
                 {[
                   { icon: HeartHandshake, value: 'Trust First', label: 'Foundation of Every Circle' },
                   { icon: Sparkles, value: 'Give First', label: 'Core Culture & Currency' },
@@ -180,16 +180,16 @@ export function TheIdeaClient() {
                   return (
                     <div
                       key={s.label}
-                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-black/30 hover:bg-black/40 border border-white/20 backdrop-blur-xs transition-all"
+                      className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-black/35 hover:bg-black/50 border border-white/20 backdrop-blur-md transition-all shadow-sm"
                     >
                       <div className="size-10 rounded-xl bg-blue-500/25 border border-blue-400/35 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
                         <Icon className="size-5" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight">
                           {s.value}
                         </div>
-                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                        <div className="text-[11px] sm:text-xs text-slate-300 font-normal mt-0.5 leading-snug">
                           {s.label}
                         </div>
                       </div>

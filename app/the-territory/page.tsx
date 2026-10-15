@@ -1148,11 +1148,8 @@ export default function TheTerritoryPage() {
                       <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1A38] tracking-tight leading-[1.12] mb-5">
                         Be the reason<br />
                         your city is{' '}
-                        <span className="relative inline-block brand-gradient-text italic font-normal">
+                        <span className="brand-gradient-text italic font-normal">
                           next.
-                          <svg className="absolute -bottom-1.5 left-0 w-full h-3 text-[#1D4ED8] overflow-visible" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 8C30 3 70 3 98 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                          </svg>
                         </span>
                       </h2>
 

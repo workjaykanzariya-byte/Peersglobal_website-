@@ -14,32 +14,32 @@ const ROW_1_PILLARS: UniversePillar[] = [
   {
     title: 'Community',
     role: 'Entrepreneurs across industries and countries',
-    image: '/images/universe/conference-portrait.png',
+    image: '/images/universe/conference-portrait.webp',
   },
   {
     title: 'Culture',
     role: 'Trust, contribution and friendship',
-    image: '/images/universe/cake-cutting.png',
+    image: '/images/universe/cake-cutting.webp',
   },
   {
     title: 'Circles',
     role: 'Your home inside the community',
-    image: '/images/universe/cafe-seminar.png',
+    image: '/images/universe/cafe-seminar.webp',
   },
   {
     title: 'Language',
     role: 'The words and ideas we share',
-    image: '/images/universe/stand-with-science.png',
+    image: '/images/universe/stand-with-science.webp',
   },
   {
     title: 'Leadership',
     role: 'A structure built and led by entrepreneurs',
-    image: '/images/universe/greenpreneur-portrait.png',
+    image: '/images/universe/greenpreneur-portrait.webp',
   },
   {
     title: 'Recognition',
     role: 'Contribution seen and celebrated',
-    image: '/images/universe/awards-event.png',
+    image: '/images/universe/awards-event.webp',
   },
 ]
 
@@ -47,32 +47,32 @@ const ROW_2_PILLARS: UniversePillar[] = [
   {
     title: 'Unity App',
     role: 'The digital ecosystem',
-    image: '/images/unity-creatives/Post 2.png',
+    image: '/images/unity-creatives/Post-2.webp',
   },
   {
     title: 'Events',
     role: 'Meetings, conclaves and the global summit',
-    image: '/images/universe/conference-hall.png',
+    image: '/images/universe/conference-hall.webp',
   },
   {
     title: 'Media',
     role: 'Stories, podcasts and publications',
-    image: '/images/universe/neon-event-display.png',
+    image: '/images/universe/neon-event-display.webp',
   },
   {
     title: 'Learning',
     role: 'Masterclasses and playbooks',
-    image: '/images/universe/wellness-panel.png',
+    image: '/images/universe/wellness-panel.webp',
   },
   {
     title: 'Opportunities',
     role: 'Business, partnerships and markets',
-    image: '/images/universe/conference-checkin.png',
+    image: '/images/universe/conference-checkin.webp',
   },
   {
     title: 'Impact',
     role: 'The 1 Million Mission',
-    image: '/images/universe/conference-team.png',
+    image: '/images/universe/conference-team.webp',
   },
 ]
 

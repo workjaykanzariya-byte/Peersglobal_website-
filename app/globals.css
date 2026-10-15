@@ -844,11 +844,6 @@ pre, code {
   box-shadow: 0 0.5em 1.5em -0.5em rgba(29, 78, 216, 0.45), 0 0.25em 1em -0.25em rgba(225, 29, 72, 0.35);
 }
 
-.galaxy-btn.hidden,
-.hidden > .galaxy-btn {
-  display: none !important;
-}
-
 /* Accessible Focus State */
 .galaxy-btn:focus-visible {
   outline: 2px solid var(--btn-secondary);

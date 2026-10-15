@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
@@ -16,7 +16,7 @@ interface UnityCard {
 
 const UNITY_CARDS: UnityCard[] = [
   {
-    image: '/images/unity-creatives/1.png',
+    image: '/images/unity-creatives/1.webp',
     alt: 'Discover Peers by industry, city and expertise',
   },
   {
@@ -26,7 +26,7 @@ const UNITY_CARDS: UnityCard[] = [
     label: 'Book One-to-One Conversations',
   },
   {
-    image: '/images/unity-creatives/2.png',
+    image: '/images/unity-creatives/2.webp',
     alt: 'Log referrals given and received',
     ink: true,
   },
@@ -37,7 +37,7 @@ const UNITY_CARDS: UnityCard[] = [
     label: 'Participate in Your Circle',
   },
   {
-    image: '/images/unity-creatives/3.jpeg',
+    image: '/images/unity-creatives/3.webp',
     alt: 'Find and create opportunities',
     ink: true,
   },
@@ -48,11 +48,11 @@ const UNITY_CARDS: UnityCard[] = [
     label: 'Share Your Story',
   },
   {
-    image: '/images/unity-creatives/4.jpeg',
+    image: '/images/unity-creatives/4.webp',
     alt: 'See their contribution recognised',
   },
   {
-    image: '/images/unity-creatives/5.jpeg',
+    image: '/images/unity-creatives/5.webp',
     alt: 'Stay connected to the community from anywhere in the world',
     kicker: 'Global Network',
     label: 'Stay Connected from Anywhere',
@@ -81,8 +81,6 @@ function UnityCardItem({ card }: { card: UnityCard }) {
 }
 
 export function HowItWorksSection() {
-  const [direction, setDirection] = useState<'ltr' | 'rtl'>('ltr')
-
   return (
     <section className="fd-how-it-works" id="unity-app">
       <div className="fd-how-it-works__head" data-fd-rise="0">
@@ -119,7 +117,7 @@ export function HowItWorksSection() {
         role="region"
         aria-label="Peers Global Unity App features infinite slider"
       >
-        <div className={`fd-how-it-works__track ${direction === 'rtl' ? 'fd-how-it-works__track--rtl' : 'fd-how-it-works__track--ltr'}`}>
+        <div className="fd-how-it-works__track fd-how-it-works__track--ltr">
           {/* Set 1 */}
           <ul className="fd-how-it-works__set">
             {UNITY_CARDS.map((card, i) => (
@@ -134,31 +132,6 @@ export function HowItWorksSection() {
           </ul>
         </div>
       </div>
-
-      <nav className="fd-how-it-works__nav" aria-label="Carousel direction navigation">
-        <button
-          type="button"
-          className={`fd-how-it-works__arrow ${direction === 'rtl' ? 'ring-2 ring-white/60 shadow-lg' : 'opacity-80'}`}
-          aria-label="Scroll left"
-          title="Scroll towards left"
-          onClick={() => setDirection('rtl')}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          className={`fd-how-it-works__arrow ${direction === 'ltr' ? 'ring-2 ring-white/60 shadow-lg' : 'opacity-80'}`}
-          aria-label="Scroll right (Left to Right)"
-          title="Scroll towards right (Left to Right)"
-          onClick={() => setDirection('ltr')}
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
-          </svg>
-        </button>
-      </nav>
 
       {/* Download App CTA */}
       <div className="fd-how-it-works__bottom">

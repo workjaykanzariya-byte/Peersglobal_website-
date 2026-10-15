@@ -205,22 +205,21 @@ export function MeditationsSection() {
         </div>
 
         {/* CTA Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
           <GalaxyButton
             href="/leadership"
             size="lg"
             aria-label="Explore Leadership"
           >
-            Explore Leadership
+            EXPLORE LEADERSHIP
           </GalaxyButton>
 
           <GalaxyButton
             href="/start-a-circle"
-            variant="transparent-light"
             size="lg"
             aria-label="Start a Circle"
           >
-            Start a Circle
+            START A CIRCLE
           </GalaxyButton>
         </div>
       </div>

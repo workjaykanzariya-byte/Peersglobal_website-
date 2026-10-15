@@ -298,28 +298,6 @@ export default function TheCurrencyPage() {
                 })}
               </div>
             </div>
-
-            {/* Right Cursive Script Highlights */}
-            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-2xl sm:text-3xl text-white/90 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                People
-              </p>
-              <p
-                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Ideas · Opportunities
-              </p>
-              <p
-                className="text-3xl sm:text-4xl font-bold leading-tight bg-gradient-to-r from-sky-400 via-indigo-300 to-rose-400 bg-clip-text text-transparent"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Measurable Impact
-              </p>
-            </div>
           </div>
         </div>
       </section>
