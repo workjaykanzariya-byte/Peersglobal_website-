@@ -203,7 +203,7 @@ export function LearningPillarClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {[
               {
                 number: '100+',
@@ -251,7 +251,7 @@ export function LearningPillarClient() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300 group"
+                className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300 group"
               >
                 <div className="shrink-0">
                   <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -270,7 +270,7 @@ export function LearningPillarClient() {
                   <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
                     {stat.number}
                   </div>
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                  <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">
                     {stat.label}
                   </div>
                 </div>

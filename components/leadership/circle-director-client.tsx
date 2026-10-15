@@ -353,22 +353,22 @@ export function CircleDirectorClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={i}
-                  className="group rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex items-center gap-4 shadow-2xs hover:shadow-lg hover:border-blue-300/80 hover:-translate-y-1 transition-all duration-300"
+                  className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 shadow-2xs hover:shadow-lg hover:border-blue-300/80 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                    <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <div className="size-10 sm:size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                    <Icon className="size-5 sm:size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-none">
+                  <div className="min-w-0">
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold whitespace-nowrap bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">
                       {stat.value}
                     </div>
-                    <div className="text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wider mt-1">
+                    <div className="text-[10px] sm:text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wide sm:tracking-wider mt-1 leading-snug break-words">
                       {stat.label}
                     </div>
                   </div>
@@ -608,14 +608,19 @@ export function CircleDirectorClient() {
             </p>
           </div>
 
-          {/* 6 Grid Cards */}
+          {/* 7 Grid Cards (last card centered on tablet/desktop) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            {SEVEN_RESPONSIBILITIES.slice(0, 6).map((item) => {
+            {SEVEN_RESPONSIBILITIES.map((item, idx) => {
               const Icon = item.icon
+              const isLast = idx === SEVEN_RESPONSIBILITIES.length - 1
               return (
                 <div
                   key={item.number}
-                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                  className={`animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all${
+                    isLast
+                      ? ' md:col-span-2 md:justify-self-center md:w-[calc(50%-0.875rem)] lg:col-span-1 lg:col-start-2 lg:w-full'
+                      : ''
+                  }`}
                   tabIndex={0}
                   role="article"
                 >
@@ -665,42 +670,6 @@ export function CircleDirectorClient() {
               )
             })}
           </div>
-
-          {/* 7th Responsibility: Featured Wide Ecosystem Stewardship Banner */}
-          {SEVEN_RESPONSIBILITIES[6] && (
-            <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-blue-50/70 via-white to-slate-50/70 border border-blue-200/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div className="flex items-start gap-5 max-w-3xl">
-                <div className="size-14 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs mt-1">
-                  <Globe2 className="size-7 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                </div>
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-3">
-                    <span className="px-3 py-0.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white">
-                      Responsibility 07
-                    </span>
-                    <span className="text-xs font-semibold uppercase tracking-wider brand-gradient-text">
-                      WIDER ECOSYSTEM
-                    </span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                    {SEVEN_RESPONSIBILITIES[6].title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                    {SEVEN_RESPONSIBILITIES[6].desc}
-                  </p>
-                </div>
-              </div>
-
-              <div className="shrink-0 text-right self-stretch md:self-center flex md:flex-col items-center md:items-end justify-between border-t md:border-t-0 border-slate-200 pt-4 md:pt-0">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
-                  Network Standard
-                </span>
-                <span className="text-xs font-bold brand-gradient-text mt-0.5">
-                  Global Connectivity &rarr;
-                </span>
-              </div>
-            </div>
-          )}
 
         </div>
       </section>

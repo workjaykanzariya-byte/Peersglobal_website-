@@ -411,13 +411,13 @@ export function PodcastMediaClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={i}
-                  className="group rounded-2xl bg-white border border-slate-200/90 p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300"
+                  className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="relative flex items-center justify-center">
                     <svg className="size-0 absolute" aria-hidden="true">
@@ -438,7 +438,7 @@ export function PodcastMediaClient() {
                     <div className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                       {stat.number}
                     </div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
+                    <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500 group-hover:text-slate-700 transition-colors">
                       {stat.label}
                     </div>
                   </div>

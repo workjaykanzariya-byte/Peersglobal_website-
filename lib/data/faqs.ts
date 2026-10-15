@@ -32,7 +32,7 @@ export const FAQS: FaqGroup[] = [
     items: [
       {
         q: 'What is a Circle?',
-        a: 'A Circle is a governed peer group of 20–30 non-competing business owners from the same sector or life-stage. Each Circle meets monthly for 150 minutes following the LSR (Learn, Share, Refer) model — a fixed, structured agenda designed to produce referrals, not just conversations.',
+        a: 'A Circle is a governed peer group of 20–30 non-competing business owners from the same sector or life-stage. Each Circle meets monthly for 150 minutes following the LSR (Learning, Sales, Resources) model — a fixed, structured agenda designed to produce referrals, not just conversations.',
       },
       {
         q: 'What does "category exclusivity" mean?',

@@ -189,10 +189,10 @@ export function FounderClient() {
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5">
                   <Link
                     href="/our-story"
-                    className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                    className="group w-full sm:w-auto whitespace-nowrap inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
                   >
                     <span>Read Our Story</span>
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -200,7 +200,7 @@ export function FounderClient() {
 
                   <Link
                     href="/the-idea"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:border-[#1D4ED8] hover:brand-gradient-text transition-all uppercase tracking-wider"
+                    className="w-full sm:w-auto whitespace-nowrap inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:border-[#1D4ED8] hover:brand-gradient-text transition-all uppercase tracking-wider"
                   >
                     <span>Explore The Idea</span>
                   </Link>
@@ -209,7 +209,7 @@ export function FounderClient() {
 
               {/* Right Column: Hero Visual Card */}
               <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/5] sm:aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-4 sm:p-7">
                   <Image
                     src="/images/founder-new.png"
                     alt="Dr. Pravin Parmar — Founder of Peers Global"
@@ -221,12 +221,12 @@ export function FounderClient() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-slate-950/20 pointer-events-none" />
 
                   {/* Top Badges */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold tracking-widest uppercase backdrop-blur-md brand-gradient-text">
-                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      FOUNDER &amp; VISIONARY
+                  <div className="relative z-10 flex flex-wrap items-center justify-between gap-2">
+                    <span className="shrink-0 whitespace-nowrap inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[9px] sm:text-[10px] font-bold tracking-wider sm:tracking-widest uppercase backdrop-blur-md">
+                      <span className="size-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                      <span className="brand-gradient-text">FOUNDER &amp; VISIONARY</span>
                     </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                    <span className="shrink-0 whitespace-nowrap px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[9px] sm:text-[10px] font-mono font-bold text-white border border-white/20">
                       BOTAD &bull; AHMEDABAD
                     </span>
                   </div>
@@ -247,7 +247,7 @@ export function FounderClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {[
               { icon: Sprout, value: 'Farmer Roots', label: 'Botad, Gujarat' },
               { icon: Briefcase, value: '15+ Years', label: 'Tech & Media Building' },
@@ -258,7 +258,7 @@ export function FounderClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300 group"
+                  className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300 group"
                 >
                   <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                     <Icon className="size-5 [stroke:url(#founderBrandGrad)]" />
@@ -267,7 +267,7 @@ export function FounderClient() {
                     <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
                       {stat.value}
                     </div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                    <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">
                       {stat.label}
                     </div>
                   </div>
@@ -375,18 +375,18 @@ export function FounderClient() {
             </div>
 
             {/* Quick Benchmark Stats Pill */}
-            <div className="flex items-center gap-3 bg-white p-2.5 rounded-2xl border border-slate-200/90 shadow-2xs self-start lg:self-auto">
-              <div className="px-5 py-2.5 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 text-center">
-                <span className="block font-serif text-xl sm:text-2xl font-bold brand-gradient-text">9 Models</span>
-                <span className="text-xs uppercase font-bold text-slate-600 tracking-wider">Synthesised</span>
+            <div className="grid grid-cols-3 sm:flex sm:items-center gap-2 sm:gap-3 w-full sm:w-auto bg-white p-2 sm:p-2.5 rounded-2xl border border-slate-200/90 shadow-2xs self-stretch sm:self-start lg:self-auto">
+              <div className="h-full flex flex-col items-center justify-center px-1.5 sm:px-5 py-2.5 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 text-center">
+                <span className="block whitespace-nowrap font-serif text-base sm:text-2xl font-bold brand-gradient-text">9 Models</span>
+                <span className="text-[9px] sm:text-xs uppercase font-bold text-slate-600 tracking-wide sm:tracking-wider leading-tight">Synthesised</span>
               </div>
-              <div className="px-5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
-                <span className="block font-serif text-xl sm:text-2xl font-bold text-slate-900">100+ Yrs</span>
-                <span className="text-xs uppercase font-bold text-slate-600 tracking-wider">Collective History</span>
+              <div className="h-full flex flex-col items-center justify-center px-1.5 sm:px-5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
+                <span className="block whitespace-nowrap font-serif text-base sm:text-2xl font-bold text-slate-900">100+ Yrs</span>
+                <span className="text-[9px] sm:text-xs uppercase font-bold text-slate-600 tracking-wide sm:tracking-wider leading-tight">Collective History</span>
               </div>
-              <div className="px-5 py-2.5 rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 border border-rose-100 text-center">
-                <span className="block font-serif text-xl sm:text-2xl font-bold brand-gradient-text">100% Peer</span>
-                <span className="text-xs uppercase font-bold text-slate-600 tracking-wider">Architecture</span>
+              <div className="h-full flex flex-col items-center justify-center px-1.5 sm:px-5 py-2.5 rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 border border-rose-100 text-center">
+                <span className="block whitespace-nowrap font-serif text-base sm:text-2xl font-bold brand-gradient-text">100% Peer</span>
+                <span className="text-[9px] sm:text-xs uppercase font-bold text-slate-600 tracking-wide sm:tracking-wider leading-tight">Architecture</span>
               </div>
             </div>
           </div>
@@ -464,14 +464,14 @@ export function FounderClient() {
                 tabIndex={0}
                 role="article"
               >
-                <div className="relative w-full h-full bg-white rounded-[22.5px] p-7 sm:p-8 flex flex-col justify-between space-y-6">
+                <div className="relative w-full h-full bg-white rounded-[22.5px] p-5 sm:p-8 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
                     {/* Card Header Tag */}
                     <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3.5">
-                      <span className="text-xs font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full border border-slate-200/80 bg-gradient-to-r from-blue-50 to-rose-50 brand-gradient-text shadow-2xs">
+                      <span className="min-w-0 truncate text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider px-2.5 sm:px-3.5 py-1 rounded-full border border-slate-200/80 bg-gradient-to-r from-blue-50 to-rose-50 brand-gradient-text shadow-2xs">
                         {item.tag}
                       </span>
-                      <span className="text-xs sm:text-sm font-mono font-bold text-slate-400">
+                      <span className="shrink-0 whitespace-nowrap text-[10px] sm:text-sm font-mono font-bold text-slate-400">
                         MODEL #{String(idx + 1).padStart(2, '0')}
                       </span>
                     </div>

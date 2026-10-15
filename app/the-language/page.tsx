@@ -709,7 +709,7 @@ export default function TheLanguagePage() {
                     </span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-[#0f131a] tracking-tight">
-                    Learning. Sharing. Relationships.
+                    Learning. Sales. Resources.
                   </h3>
                 </div>
                 <div className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-blue-200/80 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-rose-50/80 self-start shadow-2xs">
@@ -719,21 +719,21 @@ export default function TheLanguagePage() {
 
               <div className="mt-6 grid md:grid-cols-3 gap-4">
                 <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
-                  <h4 className="text-base font-bold text-[#0f131a]">LEARNING</h4>
+                  <h4 className="text-base font-bold text-[#0f131a]">L — LEARNING</h4>
                   <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                    Entrepreneurs never stop learning. Insight comes from mistakes, mentors, and hard-earned experiences.
+                    Growth through knowledge, mentorship, and shared experiences.
                   </p>
                 </div>
                 <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
-                  <h4 className="text-base font-bold text-[#0f131a]">SHARING</h4>
+                  <h4 className="text-base font-bold text-[#0f131a]">S — SALES</h4>
                   <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                    Knowledge becomes more valuable when it moves, turning individual experience into collective strength.
+                    Real business through referrals, networking, and collaborations.
                   </p>
                 </div>
                 <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
-                  <h4 className="text-base font-bold text-[#0f131a]">RELATIONSHIPS</h4>
+                  <h4 className="text-base font-bold text-[#0f131a]">R — RESOURCES</h4>
                   <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                    Business is built by people. Trust takes time, and meaningful collaboration begins with genuine relationships.
+                    Tools, media, and platforms to support and scale your business.
                   </p>
                 </div>
               </div>
@@ -1037,12 +1037,31 @@ export default function TheLanguagePage() {
             </p>
           </div>
 
-          <div className="rounded-[32px] border border-cool-grey-250 bg-[#FAFBFD] p-6 sm:p-10 shadow-sm overflow-x-auto">
-            <table className="min-w-full text-left text-sm sm:text-base">
+          {/* Mobile: stacked cards */}
+          <ul className="md:hidden space-y-3">
+            {REFERENCE_TABLE_DATA.map((row, idx) => (
+              <li
+                key={idx}
+                className="rounded-2xl border border-cool-grey-250 bg-[#FAFBFD] p-5 shadow-2xs"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 className="text-base font-bold text-slate-900 break-words">{row.word}</h3>
+                  <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-blue-200/80 bg-gradient-to-r from-blue-50/90 via-indigo-50/60 to-rose-50/80 shadow-2xs">
+                    <span className="brand-gradient-text">{row.badge}</span>
+                  </span>
+                </div>
+                <p className="text-sm leading-relaxed text-cool-grey-600 font-normal">{row.meaning}</p>
+              </li>
+            ))}
+          </ul>
+
+          {/* Tablet & desktop: table */}
+          <div className="hidden md:block rounded-[32px] border border-cool-grey-250 bg-[#FAFBFD] p-6 lg:p-10 shadow-sm overflow-x-auto">
+            <table className="w-full text-left text-sm lg:text-base">
               <thead>
                 <tr className="border-b border-cool-grey-250 text-slate-900 font-bold uppercase tracking-wider text-xs">
                   <th className="py-4 pr-6 w-1/4">WORD</th>
-                  <th className="py-4 pr-6 w-1/4">CATEGORY</th>
+                  <th className="py-4 pr-6 w-1/5">CATEGORY</th>
                   <th className="py-4">WHAT IT MEANS</th>
                 </tr>
               </thead>
@@ -1053,11 +1072,11 @@ export default function TheLanguagePage() {
                       {row.word}
                     </td>
                     <td className="py-4 pr-6 align-middle">
-                      <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-blue-200/80 bg-gradient-to-r from-blue-50/90 via-indigo-50/60 to-rose-50/80 shadow-2xs">
+                      <span className="inline-block whitespace-nowrap px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-blue-200/80 bg-gradient-to-r from-blue-50/90 via-indigo-50/60 to-rose-50/80 shadow-2xs">
                         <span className="brand-gradient-text">{row.badge}</span>
                       </span>
                     </td>
-                    <td className="py-4 leading-relaxed text-cool-grey-600 align-middle font-normal text-xs sm:text-sm">
+                    <td className="py-4 leading-relaxed text-cool-grey-600 align-middle font-normal text-sm">
                       {row.meaning}
                     </td>
                   </tr>

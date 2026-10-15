@@ -84,7 +84,7 @@ export const TIERS: Tier[] = [
     includes: [
       'Everything in Global Membership',
       'One named seat in a governed Circle with category exclusivity',
-      'Full LSR experience (Learn, Sales, Resources)',
+      'Full LSR experience (Learning, Sales, Resources)',
       'Peers Board of Advisory & Brand Showcase slot',
       'Monthly 150-minute Circle meeting & hot seats',
       'Fortnightly structured 1-to-1 pairing',

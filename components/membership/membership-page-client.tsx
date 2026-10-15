@@ -415,7 +415,7 @@ export function MembershipPageClient() {
                     Learning
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                    Learn from people who have built, tested, failed, adapted and succeeded. Not theory alone. Real experience.
+                    Growth through knowledge, mentorship, and shared experiences.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-200/80 text-xs font-bold brand-gradient-text flex items-center gap-1.5">
@@ -443,17 +443,17 @@ export function MembershipPageClient() {
               <div className="relative p-7 sm:p-8 !rounded-[calc(1.5rem-1.5px)] bg-[#FAFBFD] h-full shadow-2xs space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold text-lg shadow-2xs group-hover:scale-105 transition-transform">
-                    <Share2 className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    <TrendingUp className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                    Sharing
+                    Sales
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                    Share what you know. Share what you have learned. Share the problem you are trying to solve. Share the opportunity you see.
+                    Real business through referrals, networking, and collaborations.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-200/80 text-xs font-bold brand-gradient-text flex items-center gap-1.5">
-                  <span>✦</span> Generous Contribution
+                  <span>✦</span> Real Business Growth
                 </div>
               </div>
             </div>
@@ -477,17 +477,17 @@ export function MembershipPageClient() {
               <div className="relative p-7 sm:p-8 !rounded-[calc(1.5rem-1.5px)] bg-[#FAFBFD] h-full shadow-2xs space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold text-lg shadow-2xs group-hover:scale-105 transition-transform">
-                    <HeartHandshake className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    <Layers className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                    Relationships
+                    Resources
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                    Because learning and sharing become more valuable when they happen between people who genuinely trust one another.
+                    Tools, media, and platforms to support and scale your business.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-200/80 text-xs font-bold brand-gradient-text flex items-center gap-1.5">
-                  <span>✦</span> Enduring Trust
+                  <span>✦</span> Tools to Scale
                 </div>
               </div>
             </div>
@@ -496,10 +496,10 @@ export function MembershipPageClient() {
           {/* LSR Cycle Banner */}
           <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 text-center space-y-2">
             <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
-              Learning → Sharing → Relationships → Learning
+              Learning → Sales → Resources → Learning
             </div>
             <p className="text-sm font-semibold text-slate-800">
-              Relationships create better conversations. Better conversations create better learning. Better learning creates better contribution.
+              Learning sharpens how you sell. Sales fund better resources. Better resources accelerate learning.
             </p>
             <p className="text-xs text-slate-500 font-medium">
               LSR is not a programme. It is a way of growing.

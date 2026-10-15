@@ -319,29 +319,34 @@ export function MarketplaceClient() {
             {/* Right Hero Visual Card */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-3">
-                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900">
+                <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-950 via-[#07122a] to-slate-950 flex flex-col justify-between p-6">
+                  {/* Glowing background behind coin */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-64 h-64 rounded-full bg-amber-500/15 blur-3xl animate-pulse" />
+                  </div>
+
                   <Image
-                    src="/images/culture-hero-desk.jpg"
-                    alt="Peers Global Marketplace items and recognition tokens"
+                    src="/images/peers-coin-gold.jpg"
+                    alt="Peers Coin Gold Recognition Token"
                     fill
-                    className="object-cover"
+                    className="object-contain p-8 sm:p-10 group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-slate-950/30 pointer-events-none" />
                   
-                  <div className="absolute top-5 right-5">
-                    <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 border border-blue-400/30 backdrop-blur-md text-[11px] font-mono font-bold uppercase tracking-wider">
+                  <div className="relative z-10 flex justify-end">
+                    <span className="px-3 py-1 rounded-full bg-blue-500/25 text-blue-200 border border-blue-400/40 backdrop-blur-md text-[11px] font-mono font-bold uppercase tracking-wider shadow-sm">
                       Peers Coin Only
                     </span>
                   </div>
 
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
+                  <div className="relative z-10 text-white space-y-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-[10px] font-semibold uppercase tracking-wider text-amber-200 border border-amber-300/30">
                       Contribution to Experience
                     </span>
                     <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
-                      "You do not purchase your way into the experience. You earn recognition."
+                      &ldquo;You do not purchase your way into the experience. You earn recognition.&rdquo;
                     </p>
                   </div>
                 </div>
@@ -772,9 +777,23 @@ export function MarketplaceClient() {
       </section>
 
       {/* ─── SECTION 6: CLOSING ROYAL HERO BANNER (CONTRIBUTE. EARN. REDEEM. EXPERIENCE.) ── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-[#051129] to-slate-950 text-white py-20 lg:py-28 border-t border-slate-800">
+        {/* Subtle luminous ambient glows */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.22),transparent_50%),radial-gradient(circle_at_82%_20%,rgba(225,29,72,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-rose-500/12 blur-3xl"
+        />
+
         {/* Geometric Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
+        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-25 overflow-hidden flex items-center justify-center">
           <svg
             viewBox="0 0 600 600"
             fill="none"
@@ -795,8 +814,8 @@ export function MarketplaceClient() {
             
             {/* Left Manifesto */}
             <div className="lg:col-span-8 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — READY TO EXPLORE? —
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
+                READY TO EXPLORE?
               </span>
 
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">

@@ -170,7 +170,7 @@ export function CareersClient() {
 
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm crumb-bar">
           <div className="flex items-center gap-2 text-slate-500 font-medium">
             <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
               Home
@@ -352,14 +352,14 @@ export function CareersClient() {
             </div>
 
             {/* Quick summary badge */}
-            <div className="flex items-center gap-2.5 bg-slate-50 p-2 rounded-2xl border border-slate-200/90 shadow-2xs self-start lg:self-auto">
-              <div className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-100 text-center">
-                <span className="block font-serif text-base sm:text-lg font-bold brand-gradient-text">6 Pillars</span>
-                <span className="text-[10px] uppercase font-bold text-slate-600 tracking-wider">Human DNA</span>
+            <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-2.5 w-full sm:w-auto bg-slate-50 p-2 rounded-2xl border border-slate-200/90 shadow-2xs self-stretch sm:self-start lg:self-auto">
+              <div className="h-full flex flex-col items-center justify-center gap-0.5 px-3 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-100 text-center">
+                <span className="whitespace-nowrap font-serif text-base sm:text-lg font-bold brand-gradient-text">6 Pillars</span>
+                <span className="whitespace-nowrap text-[10px] uppercase font-bold text-slate-600 tracking-wider">Human DNA</span>
               </div>
-              <div className="px-4 py-2 rounded-xl bg-white border border-slate-200/80 text-center">
-                <span className="block font-serif text-base sm:text-lg font-bold text-slate-900">Give First</span>
-                <span className="text-[10px] uppercase font-bold text-slate-600 tracking-wider">Core Ethos</span>
+              <div className="h-full flex flex-col items-center justify-center gap-0.5 px-3 sm:px-4 py-2.5 rounded-xl bg-white border border-slate-200/80 text-center">
+                <span className="whitespace-nowrap font-serif text-base sm:text-lg font-bold text-slate-900">Give First</span>
+                <span className="whitespace-nowrap text-[10px] uppercase font-bold text-slate-600 tracking-wider">Core Ethos</span>
               </div>
             </div>
           </div>
@@ -567,8 +567,10 @@ export function CareersClient() {
               </p>
             </div>
 
-            <div className="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono font-semibold text-slate-600">
-              Zero Artificial Vacancies &bull; Direct Founder Review
+            <div className="self-start px-3 sm:px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-[10px] sm:text-xs font-mono font-semibold text-slate-600 flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+              <span className="whitespace-nowrap">Zero Artificial Vacancies</span>
+              <span>&bull;</span>
+              <span className="whitespace-nowrap">Direct Founder Review</span>
             </div>
           </div>
 
@@ -576,28 +578,28 @@ export function CareersClient() {
             {OPEN_ROLES.map((role, idx) => (
               <div
                 key={idx}
-                className="group p-6 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 space-y-6"
+                className="group p-4 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 space-y-5 sm:space-y-6"
               >
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-100">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between sm:justify-start gap-2">
+                      <span className="min-w-0 truncate text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-100">
                         <span className="brand-gradient-text">{role.team}</span>
                       </span>
-                      <span className="text-xs font-mono font-semibold text-slate-400">
-                        OPPORTUNITY #{String(idx + 1).padStart(2, '0')}
+                      <span className="shrink-0 whitespace-nowrap text-[10px] sm:text-xs font-mono font-semibold text-slate-400">
+                        <span className="hidden sm:inline">OPPORTUNITY </span>#{String(idx + 1).padStart(2, '0')}
                       </span>
                     </div>
                     <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors">
                       {role.title}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-600">
-                      <span className="flex items-center gap-1 font-semibold text-slate-800">
-                        <MapPin className="size-3.5 [stroke:url(#careerBrandGrad)]" />
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-slate-600">
+                      <span className="flex items-center gap-1 font-semibold text-slate-800 whitespace-nowrap">
+                        <MapPin className="size-3.5 shrink-0 [stroke:url(#careerBrandGrad)]" />
                         {role.location}
                       </span>
-                      <span>&bull;</span>
-                      <span className="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                      <span className="hidden sm:inline">&bull;</span>
+                      <span className="whitespace-nowrap text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
                         Closing Date: {role.closingDate}
                       </span>
                     </div>
@@ -608,7 +610,7 @@ export function CareersClient() {
                     onClick={() => setFormData((prev) => ({ ...prev, workType: role.title }))}
                     variant="primary"
                     size="sm"
-                    className="self-start lg:self-auto shrink-0"
+                    className="w-full sm:w-auto justify-center whitespace-nowrap self-stretch sm:self-start lg:self-auto shrink-0"
                   >
                     Apply for this Role
                   </GalaxyButton>
@@ -668,10 +670,10 @@ export function CareersClient() {
               <div className="p-3.5 rounded-2xl bg-[#F8FAFD] border border-slate-200">
                 <a
                   href="#general-application"
-                  className="text-xs font-bold brand-gradient-text hover:opacity-80 flex items-center gap-1.5 uppercase tracking-wider"
+                  className="group inline-flex flex-nowrap items-center gap-1.5 text-xs font-bold uppercase tracking-wider hover:opacity-80 whitespace-nowrap"
                 >
-                  <span>Submit General Application</span>
-                  <ArrowRight className="size-3.5 [stroke:url(#careerBrandGrad)]" />
+                  <span className="brand-gradient-text">Submit General Application</span>
+                  <ArrowRight className="size-3.5 shrink-0 [stroke:url(#careerBrandGrad)] transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
