@@ -117,7 +117,7 @@ export function SecurityClient() {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm crumb-bar">
           <div className="flex items-center gap-2 text-slate-500 font-medium">
             <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
               Home
@@ -258,12 +258,10 @@ export function SecurityClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+            <div className="flex items-center justify-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 DEFENSE-IN-DEPTH ARCHITECTURE
               </span>
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
               Four Pillars of Platform Integrity
@@ -331,7 +329,6 @@ export function SecurityClient() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Governance &amp; Audits
                   </span>
@@ -408,7 +405,6 @@ export function SecurityClient() {
             {/* Left Col (5 cols): Statement & Authority */}
             <div className="lg:col-span-5 space-y-4 text-left">
               <div className="flex items-center gap-2.5">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/90">
                   Infrastructure Trust &amp; Privacy
                 </span>

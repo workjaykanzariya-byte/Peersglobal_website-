@@ -766,7 +766,7 @@ export function BenefitsClient() {
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed max-w-2xl mx-auto">
-              <strong className="text-slate-900 font-semibold">Learning + Sharing + Relationships.</strong> A continuous triangular feedback loop where each pillar deepens and compounds the other two.
+              <strong className="text-slate-900 font-semibold">Learning + Sales + Resources.</strong> A continuous triangular feedback loop where each pillar deepens and compounds the other two.
             </p>
           </div>
 
@@ -810,7 +810,7 @@ export function BenefitsClient() {
                   </div>
 
                   <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                    Gain practical insights from entrepreneurs who have built through the exact fires and challenges you currently navigate.
+                    Growth through knowledge, mentorship, and shared experiences.
                   </p>
                 </div>
 
@@ -841,7 +841,7 @@ export function BenefitsClient() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
-                      <Share2 className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      <TrendingUp className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
                     <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
                       Pillar 02
@@ -850,21 +850,21 @@ export function BenefitsClient() {
 
                   <div className="flex flex-col space-y-1">
                     <h3 className="text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug w-fit">
-                      Sharing
+                      Sales
                     </h3>
                     <p className="text-xs font-semibold uppercase tracking-wider brand-gradient-text w-fit">
-                      Give What You Know
+                      Grow What You Sell
                     </p>
                   </div>
 
                   <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                    Your hard-won wisdom gains true value when shared freely to unblock a fellow founder or open a closed door.
+                    Real business through referrals, networking, and collaborations.
                   </p>
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
                   <span className="size-1.5 rounded-full bg-emerald-600" />
-                  <span>Mentorship, warm intros &amp; resources</span>
+                  <span>Referrals, networking &amp; collaborations</span>
                 </div>
               </div>
             </div>
@@ -889,7 +889,7 @@ export function BenefitsClient() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center font-bold group-hover:scale-105 transition-transform duration-300">
-                      <HeartHandshake className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      <Layers className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
                     <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
                       Pillar 03
@@ -898,21 +898,21 @@ export function BenefitsClient() {
 
                   <div className="flex flex-col space-y-1">
                     <h3 className="text-xl font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug w-fit">
-                      Relationships
+                      Resources
                     </h3>
                     <p className="text-xs font-semibold uppercase tracking-wider brand-gradient-text w-fit">
-                      Grow Who You Know
+                      Scale What You Build
                     </p>
                   </div>
 
                   <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                    Depth precedes speed. Long-term mutual trust lays the fertile ground where multi-year partnerships flourish.
+                    Tools, media, and platforms to support and scale your business.
                   </p>
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
                   <span className="size-1.5 rounded-full bg-rose-600" />
-                  <span>Lifelong bonds &amp; joint ventures</span>
+                  <span>Tools, media &amp; platforms</span>
                 </div>
               </div>
             </div>

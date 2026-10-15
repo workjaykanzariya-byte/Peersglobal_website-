@@ -333,22 +333,22 @@ export function PowerhouseClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-4 sm:mt-5 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <div className="mt-4 sm:mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+                  className="h-full rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
-                    <Icon className="size-6" />
+                  <div className="size-10 sm:size-12 rounded-xl bg-blue-50 text-[#0062D2] flex items-center justify-center shrink-0">
+                    <Icon className="size-5 sm:size-6" />
                   </div>
-                  <div>
-                    <div className="font-serif text-2xl sm:text-3xl font-bold text-slate-950 leading-none">
+                  <div className="min-w-0">
+                    <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold whitespace-nowrap text-slate-950 leading-tight">
                       {stat.value}
                     </div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
+                    <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide sm:tracking-wider text-slate-500 mt-1 leading-snug break-words">
                       {stat.label}
                     </div>
                   </div>

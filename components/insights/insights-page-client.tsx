@@ -712,7 +712,7 @@ export function InsightsPageClient() {
                   One entrepreneur learns something through experience. They share it. Another entrepreneur discovers a new perspective. They apply it. They learn something else. They share that. And the cycle continues:
                 </p>
                 <div className="p-3 rounded-xl bg-white/10 border border-white/10 text-center font-mono font-bold text-xs sm:text-sm text-sky-200">
-                  Learning → Sharing → Relationships (LSR)
+                  Learning → Sales → Resources (LSR)
                 </div>
                 <p className="text-xs text-slate-300 font-light">
                   LSR is not simply a model. It is a way knowledge moves through a community.

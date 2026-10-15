@@ -170,7 +170,7 @@ export function TheIdeaClient() {
               </div>
 
               {/* Stat Band */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full max-w-xl pt-6 border-t border-white/20">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-3.5 w-full max-w-3xl pt-6 border-t border-white/20">
                 {[
                   { icon: HeartHandshake, value: 'Trust First', label: 'Foundation of Every Circle' },
                   { icon: Sparkles, value: 'Give First', label: 'Core Culture & Currency' },
@@ -180,16 +180,16 @@ export function TheIdeaClient() {
                   return (
                     <div
                       key={s.label}
-                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-black/30 hover:bg-black/40 border border-white/20 backdrop-blur-xs transition-all"
+                      className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-black/35 hover:bg-black/50 border border-white/20 backdrop-blur-md transition-all shadow-sm"
                     >
                       <div className="size-10 rounded-xl bg-blue-500/25 border border-blue-400/35 flex items-center justify-center text-sky-300 shrink-0 shadow-xs">
                         <Icon className="size-5" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight whitespace-nowrap">
+                        <div className="font-bold text-sm sm:text-base text-white tracking-tight leading-tight">
                           {s.value}
                         </div>
-                        <div className="text-[11px] text-slate-300 font-medium mt-0.5 leading-snug truncate">
+                        <div className="text-[11px] sm:text-xs text-slate-300 font-normal mt-0.5 leading-snug">
                           {s.label}
                         </div>
                       </div>
@@ -219,8 +219,9 @@ export function TheIdeaClient() {
           SUB-NAV ANCHOR BAR
           ========================================================================= */}
       <nav aria-label="Page navigation" className="sticky top-20 z-40 border-b border-cool-grey-250/80 bg-white/95 backdrop-blur-md shadow-2xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-13 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-6 sm:gap-8 whitespace-nowrap text-[13.5px] font-semibold text-slate-700 py-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 h-13 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex items-center gap-5 sm:gap-8 w-max shrink-0 whitespace-nowrap text-[13px] sm:text-[13.5px] font-semibold text-slate-700 py-1 [&>a]:shrink-0">
+
             <a href="#the-quiet-journey" className="hover:text-[#1D4ED8] pb-3 pt-3 transition-colors">
               The Quiet Journey
             </a>
@@ -1503,9 +1504,10 @@ export function TheIdeaClient() {
 
           <div className="flex justify-center">
             <GalaxyButton
-              href="https://unity.peersglobal.com"
+              href="https://play.google.com/store/apps/details?id=com.peers.peersunity&pcampaignid=web_share"
+              onClick={(e: any) => handleSmartAppDownload(e)}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               variant="primary"
               size="md"
             >

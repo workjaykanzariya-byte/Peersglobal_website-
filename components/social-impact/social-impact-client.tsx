@@ -181,11 +181,12 @@ export function SocialImpactClient() {
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5">
                   <GalaxyButton
                     href="/1-million-mission"
                     variant="primary"
                     size="md"
+                    className="w-full sm:w-auto justify-center"
                   >
                     Explore 1M Mission
                   </GalaxyButton>
@@ -194,6 +195,7 @@ export function SocialImpactClient() {
                     href="#sdgs"
                     variant="transparent"
                     size="md"
+                    className="w-full sm:w-auto justify-center"
                   >
                     Evidenced SDGs
                   </GalaxyButton>
@@ -202,7 +204,7 @@ export function SocialImpactClient() {
 
               {/* Right Column: Hero Visual Card */}
               <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-6 sm:p-7">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/5] sm:aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-4 sm:p-7">
                   <Image
                     src="/images/who-we-are-impact.jpg"
                     alt="Peers Global foundation and social impact in action"
@@ -214,12 +216,12 @@ export function SocialImpactClient() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-slate-950/30 pointer-events-none" />
 
                   {/* Top Badges */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[10px] font-bold brand-gradient-text tracking-widest uppercase backdrop-blur-md">
-                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      SECTION 8 FOUNDATION
+                  <div className="relative z-10 flex flex-wrap items-center justify-between gap-2">
+                    <span className="shrink-0 whitespace-nowrap inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[9px] sm:text-[10px] font-bold tracking-wider sm:tracking-widest uppercase backdrop-blur-md">
+                      <span className="size-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                      <span className="brand-gradient-text">SECTION 8 FOUNDATION</span>
                     </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                    <span className="shrink-0 whitespace-nowrap px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[9px] sm:text-[10px] font-mono font-bold text-white border border-white/20">
                       100% EVIDENCE-BASED
                     </span>
                   </div>
@@ -240,7 +242,7 @@ export function SocialImpactClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {[
               { icon: Target, value: '1M Target', label: 'Entrepreneurs by 2030' },
               { icon: HeartHandshake, value: '100% Confirmed', label: 'Peer Receiver Verified' },
@@ -251,16 +253,16 @@ export function SocialImpactClient() {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
+                  className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs">
+                  <div className="size-9 sm:size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs">
                     <Icon className="size-5 [stroke:url(#impactBrandGrad)]" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-base sm:text-lg font-bold brand-gradient-text leading-tight">
                       {stat.value}
                     </div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                    <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500 mt-0.5">
                       {stat.label}
                     </div>
                   </div>

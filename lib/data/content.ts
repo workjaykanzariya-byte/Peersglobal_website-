@@ -3,8 +3,8 @@
 export const LSR = [
   {
     letter: 'L',
-    title: 'Learn',
-    minutes: 'Learn Pillar',
+    title: 'Learning',
+    minutes: 'Learning Pillar',
     body: 'Practitioners teaching what they actually did, plus a confidential board of peers you can be honest with.',
   },
   {
@@ -32,7 +32,7 @@ export const WHY_PILLARS = [
   },
   {
     title: 'The LSR model',
-    body: 'Learn, Share, Refer — 150 minutes, held to time, every month. The agenda is fixed so the room does not drift into a lunch club.',
+    body: 'Learning, Sales, Resources — 150 minutes, held to time, every month. The agenda is fixed so the room does not drift into a lunch club.',
   },
   {
     title: 'A leadership pipeline',

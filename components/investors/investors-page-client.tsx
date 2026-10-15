@@ -118,7 +118,7 @@ export function InvestorsPageClient() {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-rose-100 selection:text-[#E11D48]">
       {/* ── Breadcrumb Navigation ── */}
       <div className="border-b border-slate-200/70 bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between text-xs sm:text-sm crumb-bar">
           <div className="flex items-center gap-2 text-slate-500 font-medium">
             <Link href="/" className="hover:text-[#1D4ED8] transition-colors">
               Home

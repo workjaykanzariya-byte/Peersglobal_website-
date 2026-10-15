@@ -188,22 +188,22 @@ export function TiersClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={i}
-                  className="group rounded-2xl bg-white/10 border border-white/15 p-4 sm:p-5 flex items-center gap-3.5 shadow-lg backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300"
+                  className="group h-full rounded-2xl bg-white/10 border border-white/15 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-3.5 shadow-lg backdrop-blur-md hover:bg-white/15 hover:border-white/25 transition-all duration-300"
                 >
-                  <div className="size-11 sm:size-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <div className="size-10 sm:size-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                     <Icon className="size-5 sm:size-6 stroke-[url(#brandStatGrad)] text-sky-400" />
                   </div>
-                  <div>
-                    <div className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-sky-300 group-hover:to-rose-300 transition-colors">
+                  <div className="min-w-0">
+                    <div className="text-xl sm:text-2xl font-bold whitespace-nowrap text-white tracking-tight leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-sky-300 group-hover:to-rose-300 transition-colors">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-slate-300 font-medium">
+                    <div className="text-[11px] sm:text-xs text-slate-300 font-medium leading-snug break-words">
                       {stat.label}
                     </div>
                   </div>

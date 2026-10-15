@@ -966,8 +966,10 @@ export function StartCircleClient() {
                 ))}
               </div>
 
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-200 text-xs sm:text-sm font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                You do not need to be the loudest person in the room. You need to be willing to create the room.
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-rose-50 border border-blue-200 text-xs sm:text-sm font-semibold">
+                <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  You do not need to be the loudest person in the room. You need to be willing to create the room.
+                </span>
               </div>
             </div>
 
@@ -1011,16 +1013,20 @@ export function StartCircleClient() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <button
+                      type="button"
+                      aria-label="Previous testimonial"
                       onClick={() => setTestimonialIdx((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
-                      className="size-7 rounded-full border border-slate-200 flex items-center justify-center hover:border-[#0062D2] hover:text-[#0062D2] transition-all cursor-pointer"
+                      className="size-8 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm flex items-center justify-center hover:scale-110 hover:shadow-md active:scale-95 transition-all cursor-pointer"
                     >
-                      <ChevronLeft className="size-3.5" />
+                      <ChevronLeft className="size-4" />
                     </button>
                     <button
+                      type="button"
+                      aria-label="Next testimonial"
                       onClick={() => setTestimonialIdx((i) => (i + 1) % TESTIMONIALS.length)}
-                      className="size-7 rounded-full border border-slate-200 flex items-center justify-center hover:border-[#0062D2] hover:text-[#0062D2] transition-all cursor-pointer"
+                      className="size-8 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm flex items-center justify-center hover:scale-110 hover:shadow-md active:scale-95 transition-all cursor-pointer"
                     >
-                      <ChevronRight className="size-3.5" />
+                      <ChevronRight className="size-4" />
                     </button>
                   </div>
                 </div>

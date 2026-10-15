@@ -53,8 +53,11 @@ export const metadata: Metadata = {
     siteName: 'Peers Global',
   },
   icons: {
-    icon: '/images/logo-icon-only.png',
-    apple: '/images/logo-icon-only.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/logo-icon-only.png', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
 }
 

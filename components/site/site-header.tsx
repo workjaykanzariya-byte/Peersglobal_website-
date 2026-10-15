@@ -287,10 +287,10 @@ export function SiteHeader() {
             })}
           </nav>
 
-          {/* Right Side Actions: DESKTOP ONLY CTAs & MINIMALIST MOBILE MENU */}
+          {/* Right Side Actions: DESKTOP ONLY DOWNLOAD BUTTON & MOBILE MENU BUTTON */}
           <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            {/* GET UNITY APP: Desktop only (lg:), hidden on mobile */}
-            <div className="hidden lg:inline-flex">
+            {/* DOWNLOAD PEERSUNITY: Desktop only (lg:), hidden on mobile view */}
+            <div className="hidden lg:inline-flex items-center">
               <GalaxyButton
                 href={smartAppUrl}
                 onClick={(e: any) => handleSmartAppDownload(e, smartAppUrl)}
@@ -299,21 +299,10 @@ export function SiteHeader() {
                 variant="primary"
                 size="sm"
                 icon={true}
-                aria-label="Get Unity App"
-                className="uppercase tracking-wider font-bold"
+                aria-label="Download PeersUnity"
+                className="uppercase tracking-wider font-bold text-xs"
               >
-                GET UNITY APP
-              </GalaxyButton>
-            </div>
-
-            {/* ENTER PEERS GLOBAL: Desktop only (lg:), hidden on mobile */}
-            <div className="hidden lg:inline-flex">
-              <GalaxyButton
-                href="/apply"
-                onMouseEnter={() => setOpenMenu(null)}
-                size="sm"
-              >
-                ENTER PEERS GLOBAL
+                DOWNLOAD PEERSUNITY
               </GalaxyButton>
             </div>
 
@@ -388,7 +377,7 @@ export function SiteHeader() {
                 icon={true}
                 className="w-full justify-center uppercase tracking-wider font-bold shadow-md"
               >
-                GET UNITY APP
+                DOWNLOAD PEERSUNITY
               </GalaxyButton>
 
               <GalaxyButton

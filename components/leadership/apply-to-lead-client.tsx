@@ -403,44 +403,44 @@ export function ApplyToLeadClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
+            <div className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
               <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                 <Users className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
                 <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">6 Roles</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Pathway Levels</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">Pathway Levels</div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+            <div className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
               <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                 <Building2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
                 <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">18 Circles</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">City Ecosystems</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">City Ecosystems</div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+            <div className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
               <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                 <Award className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
                 <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">100%</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Service Driven</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">Service Driven</div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
+            <div className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-indigo-200 hover:-translate-y-0.5 transition-all duration-300 group">
               <div className="size-10 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                 <Globe2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
               </div>
               <div>
                 <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">National</div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Network Reach</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">Network Reach</div>
               </div>
             </div>
           </div>
@@ -492,14 +492,14 @@ export function ApplyToLeadClient() {
 
               {/* ── STEP PROGRESS BAR ── */}
               <div className="bg-white rounded-2xl p-3 sm:p-4 border border-slate-200/90 shadow-2xs">
-                <div className="flex items-center justify-between gap-1 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+                <div className="flex items-center justify-between gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
                   {[
-                    { step: 1, label: '01 Personal' },
-                    { step: 2, label: '02 Business' },
-                    { step: 3, label: '03 Experience' },
-                    { step: 4, label: '04 Reflection' },
-                    { step: 5, label: '05 Founding' },
-                    { step: 6, label: '06 Review & Send' },
+                    { step: 1, num: '01', name: 'Personal' },
+                    { step: 2, num: '02', name: 'Business' },
+                    { step: 3, num: '03', name: 'Experience' },
+                    { step: 4, num: '04', name: 'Reflection' },
+                    { step: 5, num: '05', name: 'Founding' },
+                    { step: 6, num: '06', name: 'Review & Send' },
                   ].map((s) => {
                     const isActive = currentStep === s.step
                     const isPassed = currentStep > s.step
@@ -507,12 +507,14 @@ export function ApplyToLeadClient() {
                       <button
                         type="button"
                         key={s.step}
+                        aria-label={`Step ${s.num}: ${s.name}`}
+                        aria-current={isActive ? 'step' : undefined}
                         onClick={() => {
                           if (currentStep >= s.step || s.step <= currentStep + 1) {
                             goToNextStep(s.step)
                           }
                         }}
-                        className={`px-3 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
+                        className={`shrink-0 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center justify-center gap-1.5 cursor-pointer ${
                           isActive
                             ? 'bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-sm'
                             : isPassed
@@ -521,7 +523,8 @@ export function ApplyToLeadClient() {
                         }`}
                       >
                         {isPassed && <Check className="size-3 stroke-[3]" />}
-                        <span>{s.label}</span>
+                        <span className={isPassed ? 'hidden sm:inline' : ''}>{s.num}</span>
+                        <span className={isActive ? 'inline' : 'hidden sm:inline'}>{s.name}</span>
                       </button>
                     )
                   })}
@@ -650,14 +653,14 @@ export function ApplyToLeadClient() {
                     </div>
                   </div>
 
-                  <div className="pt-4 flex items-center justify-between border-t border-slate-100">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <div className="pt-4 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100">
+                    <span className="text-center sm:text-left text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                       Step 01 of 06
                     </span>
                     <button
                       type="button"
                       onClick={() => goToNextStep(2)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 02</span>
                       <ArrowRight className="size-3.5" />
@@ -790,18 +793,18 @@ export function ApplyToLeadClient() {
                     </div>
                   </div>
 
-                  <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+                  <div className="pt-4 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100">
                     <button
                       type="button"
                       onClick={() => goToPrevStep(1)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
                     >
                       ← Previous Step
                     </button>
                     <button
                       type="button"
                       onClick={() => goToNextStep(3)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 03</span>
                       <ArrowRight className="size-3.5" />
@@ -902,18 +905,18 @@ export function ApplyToLeadClient() {
                     )}
                   </div>
 
-                  <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+                  <div className="pt-4 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100">
                     <button
                       type="button"
                       onClick={() => goToPrevStep(2)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
                     >
                       ← Previous Step
                     </button>
                     <button
                       type="button"
                       onClick={() => goToNextStep(4)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 04</span>
                       <ArrowRight className="size-3.5" />
@@ -1046,18 +1049,18 @@ export function ApplyToLeadClient() {
                     </div>
                   </div>
 
-                  <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+                  <div className="pt-4 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100">
                     <button
                       type="button"
                       onClick={() => goToPrevStep(3)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
                     >
                       ← Previous Step
                     </button>
                     <button
                       type="button"
                       onClick={() => goToNextStep(5)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 05</span>
                       <ArrowRight className="size-3.5" />
@@ -1199,18 +1202,18 @@ export function ApplyToLeadClient() {
                     )}
                   </div>
 
-                  <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+                  <div className="pt-4 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100">
                     <button
                       type="button"
                       onClick={() => goToPrevStep(4)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
                     >
                       ← Previous Step
                     </button>
                     <button
                       type="button"
                       onClick={() => goToNextStep(6)}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>Proceed to Step 06</span>
                       <ArrowRight className="size-3.5" />
@@ -1256,15 +1259,15 @@ export function ApplyToLeadClient() {
                       />
                     </div>
 
-                    <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+                    <div className="pt-4 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-slate-100">
                       <button
                         type="button"
                         onClick={() => goToPrevStep(5)}
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-xs font-semibold transition-all cursor-pointer"
                       >
                         ← Previous Step
                       </button>
-                      <span className="text-xs font-semibold text-slate-500">
+                      <span className="text-center sm:text-right text-xs font-semibold text-slate-500">
                         Final Step before Submission
                       </span>
                     </div>

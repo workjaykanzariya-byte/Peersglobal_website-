@@ -1210,8 +1210,8 @@ export function NewsroomPageClient() {
                       type="submit"
                       className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                     >
-                      <span>Transmit Media Enquiry →</span>
-                      <Send className="size-3.5" />
+                      <span>Transmit Media Enquiry</span>
+                      <Send className="size-4 shrink-0 !text-white ![stroke:white]" />
                     </button>
                   </form>
                 )}

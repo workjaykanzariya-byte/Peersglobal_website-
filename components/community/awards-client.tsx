@@ -341,9 +341,9 @@ export function AwardsClient() {
           </div>
 
           {/* Floating Stats Bar */}
-          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 items-center">
+          <div className="relative z-10 mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-stretch">
             {/* 1. Trophy */}
-            <div className="group rounded-2xl bg-white border border-slate-200/90 p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
+            <div className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
               <svg className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <defs>
                   <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -362,14 +362,14 @@ export function AwardsClient() {
                 <div className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   9 Official
                 </div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500 group-hover:text-slate-700 transition-colors">
                   Award Categories
                 </div>
               </div>
             </div>
 
             {/* 2. ShieldCheck */}
-            <div className="group rounded-2xl bg-white border border-slate-200/90 p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
+            <div className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
               <svg className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <defs>
                   <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -384,14 +384,14 @@ export function AwardsClient() {
                 <div className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   100% Confirmed
                 </div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500 group-hover:text-slate-700 transition-colors">
                   Peer Receiver Verified
                 </div>
               </div>
             </div>
 
             {/* 3. Calendar */}
-            <div className="group rounded-2xl bg-white border border-slate-200/90 p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
+            <div className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
               <svg className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <defs>
                   <linearGradient id="calGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -414,14 +414,14 @@ export function AwardsClient() {
                 <div className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   4 Stages
                 </div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500 group-hover:text-slate-700 transition-colors">
                   Year-Round System
                 </div>
               </div>
             </div>
 
             {/* 4. Flame */}
-            <div className="group rounded-2xl bg-white border border-slate-200/90 p-4 flex items-center gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
+            <div className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300">
               <svg className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <defs>
                   <linearGradient id="flameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -435,7 +435,7 @@ export function AwardsClient() {
                 <div className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   Zero
                 </div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
+                <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500 group-hover:text-slate-700 transition-colors">
                   Self-Nomination / Bias
                 </div>
               </div>
