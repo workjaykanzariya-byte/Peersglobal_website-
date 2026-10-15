@@ -190,20 +190,22 @@ export function FounderClient() {
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5">
-                  <Link
+                  <GalaxyButton
                     href="/our-story"
-                    className="group w-full sm:w-auto whitespace-nowrap inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+                    size="lg"
+                    className="text-xs sm:text-sm font-bold tracking-wider uppercase"
                   >
-                    <span>Read Our Story</span>
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                    READ OUR STORY
+                  </GalaxyButton>
 
-                  <Link
+                  <GalaxyButton
                     href="/the-idea"
-                    className="w-full sm:w-auto whitespace-nowrap inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:border-[#1D4ED8] hover:brand-gradient-text transition-all uppercase tracking-wider"
+                    variant="transparent"
+                    size="lg"
+                    className="text-xs sm:text-sm font-bold tracking-wider uppercase"
                   >
-                    <span>Explore The Idea</span>
-                  </Link>
+                    EXPLORE THE IDEA
+                  </GalaxyButton>
                 </div>
               </div>
 
@@ -573,10 +575,10 @@ export function FounderClient() {
                   href="https://www.linkedin.com/in/drpravinparmar/"
                   variant="transparent"
                   size="lg"
-                  icon={false}
+                  icon={true}
                   className="text-xs sm:text-sm font-bold tracking-wider uppercase"
                 >
-                  LINKEDIN PROFILE →
+                  LINKEDIN PROFILE
                 </GalaxyButton>
               </div>
             </div>

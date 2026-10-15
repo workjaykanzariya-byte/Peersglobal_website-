@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SmartAppDownloadButton } from '@/components/site/SmartAppDownloadButton'
 import {
   ArrowRight,
   ChevronRight,
@@ -184,13 +185,14 @@ export function CircleMagazinesClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <GalaxyButton
-                  href="/unity"
+                <SmartAppDownloadButton
+                  variant="primary"
                   size="default"
-                  className="font-semibold"
+                  icon={true}
+                  className="font-semibold uppercase tracking-wider"
                 >
-                  Download Unity App
-                </GalaxyButton>
+                  DOWNLOAD UNITY APP
+                </SmartAppDownloadButton>
                 <GalaxyButton
                   href="#directory"
                   variant="transparent"
@@ -641,14 +643,14 @@ export function CircleMagazinesClient() {
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-            <GalaxyButton
-              href="https://unity.peersglobal.com"
-              target="_blank"
-              rel="noreferrer"
+            <SmartAppDownloadButton
+              variant="primary"
               size="md"
+              icon={true}
+              className="font-semibold uppercase tracking-wider"
             >
-              Download Unity App
-            </GalaxyButton>
+              DOWNLOAD UNITY APP
+            </SmartAppDownloadButton>
           </div>
         </div>
       </section>

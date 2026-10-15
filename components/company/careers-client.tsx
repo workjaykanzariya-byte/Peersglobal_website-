@@ -1001,10 +1001,10 @@ export function CareersClient() {
         </div>
       </section>
 
-      {/* ── FINAL THE PEERS GLOBAL INVITATION BANNER (COMPACT SIGNATURE) ── */}
+      {/* ── FINAL THE PEERS GLOBAL INVITATION BANNER (SIGNATURE SECTION) ── */}
       <section
         id="contact"
-        className="relative py-12 sm:py-16 bg-[#040F24] text-white overflow-hidden border-t border-slate-800"
+        className="relative py-16 sm:py-20 lg:py-24 bg-[#040F24] text-white overflow-hidden border-t border-slate-800"
       >
         {/* Deep celestial radial gradients & luminous aura */}
         <div
@@ -1029,81 +1029,83 @@ export function CareersClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
             {/* Left Column: Manifesto, Highlights & Buttons */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-3.5">
+            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
               
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE PEERS GLOBAL INVITATION
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]">
                 Come Build With Us
               </h2>
 
               {/* Manifesto Content */}
-              <div className="space-y-1.5 text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+              <div className="space-y-2 text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl">
                 <p>If you believe entrepreneurs should not have to build alone —</p>
                 <p>If you believe relationships can create more value than transactions —</p>
                 <p>If you believe communities become stronger when people contribute —</p>
-                <p className="font-bold text-xs sm:text-sm pt-0.5 brand-gradient-text">
+                <p className="font-bold text-base sm:text-lg pt-1 brand-gradient-text">
                   We would like to hear from you.
                 </p>
               </div>
 
               {/* Key Highlights Pill */}
-              <div className="py-2 px-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <p className="text-slate-300 text-xs font-medium">
-                  <span className="brand-gradient-text font-bold">1 Action = 1 Life Impacted</span> &bull; High-Autonomy &bull; Direct Founder Mentorship
+              <div className="py-2.5 px-4 sm:px-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+                <p className="text-slate-200 text-xs sm:text-sm font-medium leading-normal">
+                  <span className="brand-gradient-text font-bold text-sm sm:text-base">1 Action = 1 Life Impacted</span> &bull; High-Autonomy &bull; Direct Founder Mentorship
                 </p>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <GalaxyButton
                   href="#open-roles"
                   variant="primary"
-                  size="sm"
+                  size="lg"
+                  className="text-xs sm:text-sm font-bold uppercase tracking-wider"
                 >
-                  View Open Roles
+                  VIEW OPEN ROLES
                 </GalaxyButton>
 
                 <GalaxyButton
                   href="#general-application"
                   variant="transparent"
-                  size="sm"
+                  size="lg"
+                  className="text-xs sm:text-sm font-bold uppercase tracking-wider"
                 >
-                  Make a General Application
+                  MAKE A GENERAL APPLICATION
                 </GalaxyButton>
               </div>
 
               {/* Bottom Quote */}
-              <p className="text-[11px] text-slate-400 italic font-serif pt-1">
+              <p className="text-xs sm:text-sm text-slate-400 italic pt-1 max-w-xl">
                 &ldquo;Build with purpose. Learn with people. Leave something better than you found it.&rdquo;
               </p>
             </div>
 
             {/* Right Column: Cursive Script Typography Highlight */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1 lg:pl-6">
+            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-2 lg:pl-6">
               <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
+                className="text-2xl sm:text-3xl text-white/75 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Build With
               </p>
               <p
-                className="text-2xl sm:text-3xl text-sky-300 leading-tight font-bold"
+                className="text-3xl sm:text-4xl lg:text-5xl text-sky-300 leading-tight font-bold"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Purpose &amp; Heart
               </p>
               <p
-                className="text-xl sm:text-2xl text-rose-300 leading-tight font-medium"
+                className="text-2xl sm:text-3xl lg:text-4xl text-rose-300 leading-tight font-medium"
                 style={{ fontFamily: 'var(--font-script)' }}
               >
                 Leave Something Better

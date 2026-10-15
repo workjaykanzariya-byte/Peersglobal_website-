@@ -822,9 +822,9 @@ export function InsightsPageClient() {
                   rel="noopener noreferrer"
                   variant="transparent"
                   size="default"
-                  className="font-semibold"
+                  className="font-semibold uppercase tracking-wider"
                 >
-                  Open Unity App
+                  DOWNLOAD UNITY APP
                 </GalaxyButton>
               </div>
             </div>

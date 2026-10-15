@@ -179,7 +179,7 @@ export function SiteFooter() {
                 onClick={(e: any) => handleSmartAppDownload(e)}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="transparent-light"
+                variant="transparent"
                 size="default"
                 icon={<Download className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />}
                 aria-label="Download Unity App"
