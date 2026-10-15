@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SmartAppDownloadButton } from '@/components/site/SmartAppDownloadButton'
 import {
   ArrowRight,
   Sparkles,
@@ -152,22 +154,21 @@ export default function OneMillionMissionPage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-rose-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:opacity-95 transition-all duration-300 group cursor-pointer"
+                  size="default"
+                  className="font-semibold"
                 >
-                  <span>Become a Life Impactor</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
+                  Become a Life Impactor
+                </GalaxyButton>
 
-                <a
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                <SmartAppDownloadButton
+                  variant="transparent"
+                  size="default"
+                  className="font-medium"
                 >
-                  <span>Download the Unity App</span>
-                </a>
+                  Download the Unity App
+                </SmartAppDownloadButton>
               </div>
 
               {/* Stat Band */}
@@ -820,22 +821,20 @@ export default function OneMillionMissionPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-              <Link
+              <GalaxyButton
                 href="/membership"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:opacity-95 shadow-lg shadow-blue-600/25 transition-all hover:scale-105"
+                size="default"
+                className="font-semibold"
               >
-                <span>Become a Life Impactor</span>
-                <ArrowRight className="size-4" />
-              </Link>
-              <a
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900 hover:border-slate-400 hover:bg-slate-50 transition-all shadow-2xs"
+                Become a Life Impactor
+              </GalaxyButton>
+              <SmartAppDownloadButton
+                variant="transparent-light"
+                size="default"
+                className="font-medium"
               >
-                <span>Download the Unity App</span>
-                <ArrowRight className="size-4" />
-              </a>
+                Download the Unity App
+              </SmartAppDownloadButton>
             </div>
           </div>
 

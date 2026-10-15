@@ -887,7 +887,7 @@ export function SpeakClient() {
                   size="lg"
                   className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  Open Unity App
+                  Download Unity App
                 </GalaxyButton>
               </div>
             </div>

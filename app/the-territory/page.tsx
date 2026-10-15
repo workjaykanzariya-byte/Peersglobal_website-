@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SmartAppDownloadButton } from '@/components/site/SmartAppDownloadButton'
 import {
   ArrowRight,
   Download,
@@ -193,14 +194,13 @@ export default function TheTerritoryPage() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <GalaxyButton
-                  href="/unity"
+                <SmartAppDownloadButton
                   size="default"
                   icon={<Smartphone className="size-4" />}
                   className="font-semibold"
                 >
                   Download Unity App
-                </GalaxyButton>
+                </SmartAppDownloadButton>
 
                 <GalaxyButton
                   href="/circles"
@@ -1300,27 +1300,11 @@ export default function TheTerritoryPage() {
             }
             subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
             description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
-            buttons={
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                <Link
-                  href="/circles"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] uppercase transition-all duration-200"
-                >
-                  <span>FIND YOUR CIRCLE</span>
-                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-white" />
-                </Link>
-
-                {/* Capsule Button: "JOIN PEERS GLOBAL" */}
-                <Link
-                  href="/membership"
-                  className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/25 bg-white/[0.04] backdrop-blur-md hover:border-white/50 hover:bg-white/[0.08] transition-all duration-200 shadow-lg cursor-pointer active:scale-[0.98]"
-                >
-                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
-                    JOIN PEERS GLOBAL
-                  </span>
-                </Link>
-              </div>
-            }
+            primaryButtonText="FIND YOUR CIRCLE"
+            primaryButtonHref="/circles"
+            secondaryButtonText="JOIN PEERS GLOBAL"
+            secondaryButtonHref="/membership"
+            secondaryButtonIcon={false}
           />
 
         </div>
