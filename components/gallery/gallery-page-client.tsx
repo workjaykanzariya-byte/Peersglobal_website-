@@ -905,17 +905,6 @@ export function GalleryPageClient() {
                 >
                   Apply for Membership
                 </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="lg"
-                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
-                >
-                  DOWNLOAD UNITY APP
-                </GalaxyButton>
               </div>
             </div>
 
