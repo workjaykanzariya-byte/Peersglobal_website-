@@ -74,7 +74,7 @@ export function HowACircleWorksClient() {
                   Join a Circle
                 </GalaxyButton>
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   variant="transparent-light"
                   size="md"
                 >

@@ -185,14 +185,14 @@ export function CircleMagazinesClient() {
 
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <SmartAppDownloadButton
-                  variant="primary"
+                <GalaxyButton
+                  href="/download"
                   size="default"
                   icon={true}
                   className="font-semibold uppercase tracking-wider"
                 >
                   DOWNLOAD UNITY APP
-                </SmartAppDownloadButton>
+                </GalaxyButton>
                 <GalaxyButton
                   href="#directory"
                   variant="transparent"

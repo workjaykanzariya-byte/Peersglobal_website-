@@ -393,16 +393,6 @@ export function PodcastMediaClient() {
                   >
                     Listen &amp; Watch Now
                   </GalaxyButton>
-
-                  <GalaxyButton
-                    onClick={() => setNominateOpen(true)}
-                    variant="transparent"
-                    size="lg"
-                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
-                    showIcon={false}
-                  >
-                    Nominate an Entrepreneur
-                  </GalaxyButton>
                 </div>
               </div>
 
@@ -852,10 +842,8 @@ export function PodcastMediaClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+
               <div>
                 <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   AMPLIFY YOUR VOICE
@@ -875,8 +863,8 @@ export function PodcastMediaClient() {
                     • 120+ Episodes · 5 Publishing Channels · 1M+ Community Reach.
                   </p>
                   <p className="text-white font-bold text-xs sm:text-sm">Join the authentic conversation today.</p>
-                </div>
-              </div>
+                
+</div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
@@ -901,33 +889,6 @@ export function PodcastMediaClient() {
               </div>
             </div>
 
-            {/* Right Cursive Script Highlights */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Ideas.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                People.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Communities.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                A Brighter Tomorrow.
-              </p>
-            </div>
 
           </div>
         </div>

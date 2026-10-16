@@ -474,17 +474,14 @@ export function ExecutiveDirectorClient() {
               </div>
             </div>
 
-            {/* Right Visual Image / Video */}
+            {/* Right Visual Image */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group bg-slate-900">
-                <video
-                  src="/videos/peers-global-earth-loop.mp4"
-                  poster="/images/executive-director-hero.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group">
+                <Image
+                  src="/images/leadership-executive-director-leaders.jpg"
+                  alt="Executive Directors and regional leaders at PEERS GLOBAL"
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                 <div className="absolute top-4 right-4 text-right select-none pointer-events-none drop-shadow-md">
@@ -952,8 +949,7 @@ export function ExecutiveDirectorClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   BUILD WHERE PEOPLE CAN BELONG
@@ -996,34 +992,6 @@ export function ExecutiveDirectorClient() {
                 </GalaxyButton>
               </div>
             </div>
-
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                From Circle to City.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                From District to State.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                From Country
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                To Global Impact.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </div>

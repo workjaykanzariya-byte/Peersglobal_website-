@@ -536,10 +536,8 @@ export function FounderClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+
               <div className="inline-flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   CONNECT WITH THE FOUNDER
@@ -559,8 +557,8 @@ export function FounderClient() {
                     • 1 Action = 1 Life Impacted · Governed Collaboration · 18 Industry Formats.
                   </p>
                   <p className="text-white font-bold text-xs sm:text-sm">Connect with Dr. Pravin Parmar today.</p>
-                </div>
-              </div>
+                
+</div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
@@ -585,33 +583,6 @@ export function FounderClient() {
               </div>
             </div>
 
-            {/* Right Cursive Script Highlights */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Farmer.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Learner.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Founder.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl font-bold leading-tight brand-gradient-text"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Servant Leader.
-              </p>
-            </div>
 
           </div>
         </div>

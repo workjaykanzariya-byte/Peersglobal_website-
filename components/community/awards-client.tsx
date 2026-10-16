@@ -837,10 +837,8 @@ export function AwardsClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+
               <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent block">
                 THE PEERS GLOBAL STANDARD
               </span>
@@ -858,8 +856,8 @@ export function AwardsClient() {
                     • 1 Action = 1 Life Impacted · Transparent Community Ledger · Zero Self-Praise.
                   </p>
                   <p className="text-white font-bold text-xs sm:text-sm">Earn recognition through authentic giving.</p>
-                </div>
-              </div>
+                
+</div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
@@ -884,33 +882,6 @@ export function AwardsClient() {
               </div>
             </div>
 
-            {/* Right Cursive Script Highlights */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Give first.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Log impact.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Earn respect.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-amber-300 font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Lead.
-              </p>
-            </div>
 
           </div>
         </div>

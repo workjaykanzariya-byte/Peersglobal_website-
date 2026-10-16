@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   ChevronRight,
@@ -1013,58 +1014,43 @@ export function BenefitsClient() {
         <div className="absolute -bottom-24 -right-24 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span className="bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                  START YOUR JOURNEY
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold leading-[1.2] tracking-tight text-white">
-                The community is not what we give you. It is what we create with you.
-              </h2>
-
-              <p className="text-base sm:text-lg font-medium text-slate-200 max-w-2xl">
-                Your knowledge, experience, relationships, and contribution become part of the collective experience. You do not simply join a community—you become part of what the community can make possible.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <GalaxyButton
-                  href="/circles/find"
-                  size="default"
-                  className="font-semibold"
-                >
-                  Find Your Circle
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-medium"
-                >
-                  Download Unity App
-                </GalaxyButton>
-              </div>
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+              <span className="bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                START YOUR JOURNEY
+              </span>
             </div>
 
-            <div className="lg:col-span-4 text-right flex justify-end">
-              <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold leading-[1.2] tracking-tight text-white">
+              The community is not what we give you. It is what we create with you.
+            </h2>
+
+            <p className="text-base sm:text-lg font-medium text-slate-200 max-w-2xl">
+              Your knowledge, experience, relationships, and contribution become part of the collective experience. You do not simply join a community—you become part of what the community can make possible.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <GalaxyButton
+                href="/circles/find"
+                size="default"
+                className="font-semibold"
               >
-                Create <br />
-                Impact <br />
-                <span className="text-[#7DD3FC]">Together</span>
-              </div>
-            </div>
+                Find Your Circle
+              </GalaxyButton>
 
+              <GalaxyButton
+                href={SITE.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="transparent"
+                size="default"
+                icon={<Smartphone className="size-4 text-sky-400" />}
+                className="font-medium"
+              >
+                Download Unity App
+              </GalaxyButton>
+            </div>
           </div>
         </div>
       </section>

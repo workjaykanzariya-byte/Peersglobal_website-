@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   ChevronRight,
@@ -706,58 +707,43 @@ export function MemberFaqClient() {
         <div className="absolute -bottom-24 -right-24 size-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
-                  YOUR INFORMED DECISION
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-bold leading-[1.18] tracking-tight text-white">
-                You simply need enough information to make a decision with confidence.
-              </h2>
-
-              <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
-                PEERS GLOBAL is the community. Your Circle is your Inner Board. Unity keeps the relationship alive beyond the meeting. When you are ready, begin with Unity.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-3">
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  size="default"
-                  icon={<Smartphone className="size-4" />}
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="/circles/find"
-                  variant="transparent"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Explore Circles
-                </GalaxyButton>
-              </div>
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                YOUR INFORMED DECISION
+              </span>
             </div>
 
-            <div className="lg:col-span-4 text-right flex justify-end">
-              <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-md"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-bold leading-[1.18] tracking-tight text-white">
+              You simply need enough information to make a decision with confidence.
+            </h2>
+
+            <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
+              PEERS GLOBAL is the community. Your Circle is your Inner Board. Unity keeps the relationship alive beyond the meeting. When you are ready, begin with Unity.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-3">
+              <GalaxyButton
+                href={SITE.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                size="default"
+                icon={<Smartphone className="size-4" />}
+                className="uppercase tracking-wider font-bold"
               >
-                Informed <br />
-                Decisions &amp; <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-semibold">Confidence</span>
-              </div>
-            </div>
+                Download Unity App
+              </GalaxyButton>
 
+              <GalaxyButton
+                href="/circles/find"
+                variant="transparent"
+                size="default"
+                className="uppercase tracking-wider font-bold"
+              >
+                Explore Circles
+              </GalaxyButton>
+            </div>
           </div>
         </div>
       </section>

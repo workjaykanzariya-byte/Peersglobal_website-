@@ -34,30 +34,11 @@ export const metadata: Metadata = {
 export default function StoriesPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Peers Global Approved Peer Collaboration Stories',
+    '@type': 'WebPage',
+    name: 'Peers Global Collaboration Stories',
     description:
-      'Verified real-world collaborations between entrepreneurs across Circles, cities and industries.',
-    itemListElement: [
-      {
-        '@type': 'Article',
-        position: 1,
-        headline: 'A referral that became ₹1.2 Cr in recurring packaging business',
-        author: [{ '@type': 'Person', name: 'Jignesh Shah' }, { '@type': 'Person', name: 'Rohit Mehta' }],
-      },
-      {
-        '@type': 'Article',
-        position: 2,
-        headline: 'A joint export alliance unlocking 3 new international markets',
-        author: [{ '@type': 'Person', name: 'Priya Desai' }, { '@type': 'Person', name: 'Karan Malhotra' }],
-      },
-      {
-        '@type': 'Article',
-        position: 3,
-        headline: 'A confidential hot seat session saving 18 months of compliance delays',
-        author: [{ '@type': 'Person', name: 'Amit Trivedi' }, { '@type': 'Person', name: 'Sandeep Kulkarni' }],
-      },
-    ],
+      'The authentic framework of how entrepreneurs connect, collaborate, and grow together inside Circles.',
+    url: 'https://peersglobal.com/stories',
   }
 
   return (

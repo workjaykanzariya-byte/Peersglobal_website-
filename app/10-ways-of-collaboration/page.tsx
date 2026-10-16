@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
@@ -25,6 +25,8 @@ import {
   ShieldCheck,
   TrendingUp,
   Play,
+  Volume2,
+  VolumeX,
   Plus,
   Star,
   BarChart3,
@@ -166,6 +168,51 @@ const COLLABORATION_WAYS: CollaborationWay[] = [
 
 export default function TenWaysOfCollaborationPage() {
   const [selectedWay, setSelectedWay] = useState<CollaborationWay | null>(null)
+  const [isMuted, setIsMuted] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const [isActionMuted, setIsActionMuted] = useState(true)
+  const [isActionPlaying, setIsActionPlaying] = useState(true)
+  const actionVideoRef = useRef<HTMLVideoElement>(null)
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play()
+        setIsPlaying(true)
+      } else {
+        videoRef.current.pause()
+        setIsPlaying(false)
+      }
+    }
+  }
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(videoRef.current.muted)
+    }
+  }
+
+  const toggleActionPlay = () => {
+    if (actionVideoRef.current) {
+      if (actionVideoRef.current.paused) {
+        actionVideoRef.current.play()
+        setIsActionPlaying(true)
+      } else {
+        actionVideoRef.current.pause()
+        setIsActionPlaying(false)
+      }
+    }
+  }
+
+  const toggleActionMute = () => {
+    if (actionVideoRef.current) {
+      actionVideoRef.current.muted = !actionVideoRef.current.muted
+      setIsActionMuted(actionVideoRef.current.muted)
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
@@ -328,26 +375,59 @@ export default function TenWaysOfCollaborationPage() {
               </div>
             </div>
 
-            {/* Right Lounge Meeting Visual */}
+            {/* Right Video Visual (Facebook Reel) */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
-              <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50">
-                <Image
-                  src="/images/who-we-are-inner-board.jpg"
-                  alt="Peers in Circle Meeting"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-cover"
+              <div className="relative w-full max-w-[340px] sm:max-w-[360px] aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-[#040F24] group">
+                <video
+                  ref={videoRef}
+                  src="/videos/collaboration-practice.mp4"
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  preload="metadata"
+                  className="size-full object-cover cursor-pointer"
+                  onClick={togglePlay}
                 />
 
+                {/* Subtle vignette overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none" />
+
                 {/* Floating Top-Left Tag */}
-                <div className="absolute top-4 left-4 z-10 rounded-full bg-white/95 backdrop-blur-md px-3.5 py-1 shadow-sm border border-slate-100">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700">
+                <div className="absolute top-4 left-4 z-10 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1.5 shadow-sm border border-white/20 flex items-center gap-2">
+                  <span className="size-2 rounded-full bg-rose-500 animate-pulse" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white">
                     Real People · Real Impact
                   </span>
                 </div>
 
-                {/* Floating Bottom-Right Card */}
-                <div className="absolute bottom-4 right-4 z-10 rounded-2xl bg-white/95 backdrop-blur-md border border-white/80 p-3.5 shadow-2xl flex items-center gap-3 max-w-[230px]">
+                {/* Floating Top-Right Audio Mute/Unmute Toggle */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleMute()
+                  }}
+                  className="absolute top-4 right-4 z-20 size-9 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 flex items-center justify-center hover:bg-black/80 hover:scale-105 transition-all cursor-pointer shadow-md"
+                  aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                >
+                  {isMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+                </button>
+
+                {/* Center Play Indicator when paused */}
+                {!isPlaying && (
+                  <div
+                    onClick={togglePlay}
+                    className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 backdrop-blur-2xs cursor-pointer transition-opacity"
+                  >
+                    <div className="size-16 rounded-full bg-white/95 text-[#040F24] flex items-center justify-center shadow-2xl hover:scale-110 transition-transform pl-1">
+                      <Play className="size-7 fill-current" />
+                    </div>
+                  </div>
+                )}
+
+                {/* Floating Bottom Card */}
+                <div className="absolute bottom-4 inset-x-4 z-10 rounded-2xl bg-white/95 backdrop-blur-md border border-white/80 p-3 shadow-2xl flex items-center gap-3">
                   <div className="size-9 rounded-xl bg-gradient-to-r from-[#1D4ED8]/10 to-[#E11D48]/10 border border-[#1D4ED8]/20 flex items-center justify-center shrink-0 shadow-2xs">
                     <HeartHandshake className="size-5" stroke="url(#peersLogoGradIcon)" strokeWidth={2.2} />
                   </div>
@@ -678,16 +758,76 @@ export default function TenWaysOfCollaborationPage() {
 
 
 
-              {/* Realistic Mobile Mockup Image with Shadow */}
-              <div className="relative w-[280px] sm:w-[320px] lg:w-[330px] xl:w-[350px] transition-transform duration-500 hover:scale-[1.02] drop-shadow-[0_22px_45px_rgba(0,98,210,0.18)]">
-                <Image
-                  src="/images/unity-creatives/1.png"
-                  alt="Peers Global Unity Mobile App Mockup"
-                  width={682}
-                  height={1024}
-                  priority
-                  className="w-full h-auto object-contain rounded-2xl"
+              {/* Vertical Video Reel Player */}
+              <div className="relative w-full max-w-[300px] sm:max-w-[330px] lg:max-w-[340px] aspect-[9/16] rounded-3xl overflow-hidden shadow-[0_22px_45px_rgba(0,98,210,0.22)] border border-slate-200/80 bg-[#040F24] group">
+                <video
+                  ref={actionVideoRef}
+                  src="/videos/collaboration-action.mp4"
+                  autoPlay
+                  loop
+                  muted={isActionMuted}
+                  playsInline
+                  preload="metadata"
+                  className="size-full object-cover cursor-pointer"
+                  onClick={toggleActionPlay}
                 />
+
+                {/* Subtle vignette gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/35 pointer-events-none" />
+
+                {/* Floating Top-Left Tag */}
+                <div className="absolute top-4 left-4 z-10 rounded-full bg-black/60 backdrop-blur-md px-3.5 py-1.5 shadow-sm border border-white/20 flex items-center gap-2">
+                  <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white">
+                    Unity App · In Action
+                  </span>
+                </div>
+
+                {/* Floating Top-Right Audio Mute/Unmute Toggle */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleActionMute()
+                  }}
+                  className="absolute top-4 right-4 z-20 size-9 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 flex items-center justify-center hover:bg-black/80 hover:scale-105 transition-all cursor-pointer shadow-md"
+                  aria-label={isActionMuted ? 'Unmute video' : 'Mute video'}
+                >
+                  {isActionMuted ? (
+                    <VolumeX className="size-4 text-white" />
+                  ) : (
+                    <Volume2 className="size-4 text-white" />
+                  )}
+                </button>
+
+                {/* Paused Play Button Overlay */}
+                {!isActionPlaying && (
+                  <div
+                    onClick={toggleActionPlay}
+                    className="absolute inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-[2px] cursor-pointer"
+                  >
+                    <div className="size-16 rounded-full bg-white/90 text-[#1D4ED8] flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+                      <Play className="size-7 fill-current ml-1" />
+                    </div>
+                  </div>
+                )}
+
+                {/* Floating Bottom Card */}
+                <div className="absolute bottom-4 left-4 right-4 z-10 rounded-2xl bg-white/95 backdrop-blur-md p-3 shadow-lg border border-white/60">
+                  <div className="flex items-center gap-2.5">
+                    <div className="size-8 rounded-xl bg-gradient-to-br from-[#1D4ED8]/10 via-white to-[#E11D48]/10 border border-[#1D4ED8]/25 flex items-center justify-center shrink-0">
+                      <Rocket className="size-4 text-[#1D4ED8]" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[11px] font-bold text-slate-900 leading-tight truncate">
+                        Where Connections Create Impact
+                      </p>
+                      <p className="text-[10px] text-slate-500 font-medium leading-tight">
+                        Turn conversations into opportunities
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>

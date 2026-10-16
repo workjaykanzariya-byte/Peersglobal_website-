@@ -630,89 +630,68 @@ export function PeerToPeerClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 8: CLOSING ROYAL HERO BANNER (EXPERIENCE THE COMMUNITY ONE PERSON AT A TIME) ── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* Geometric Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg
-            viewBox="0 0 600 600"
-            fill="none"
-            className="w-full h-full text-white/30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M 50 450 A 420 420 0 0 1 550 50" stroke="currentColor" strokeWidth="1.2" />
-            <path d="M 120 520 A 500 500 0 0 1 600 120" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <path d="M 220 580 A 460 460 0 0 1 580 220" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="280" y1="220" x2="380" y2="120" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="280" cy="220" r="4.5" fill="#7DD3FC" />
-            <circle cx="280" cy="220" r="10" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
+      {/* ─── SECTION 8: CLOSING HERO BANNER (EXPERIENCE THE COMMUNITY ONE PERSON AT A TIME) ── */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(56,189,248,0.18),transparent_50%),radial-gradient(circle_at_82%_12%,rgba(251,113,133,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-sky-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-rose-500/15 blur-3xl"
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — NEVER BUILD ALONE —
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+              <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] animate-pulse" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                NEVER BUILD ALONE
               </span>
+            </div>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                EXPERIENCE THE COMMUNITY ONE PERSON AT A TIME
-              </h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+              Experience the community one person at a{' '}
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                time
+              </span>
+              .
+            </h2>
 
-              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
-                <div className="space-y-1.5 pl-3 border-l-2 border-sky-300 text-sm text-sky-100 font-medium">
-                  <p>Circles create the room.</p>
-                  <p>Peer-to-Peer creates the relationship.</p>
-                  <p>Collaboration creates the action.</p>
-                  <p className="text-white font-bold">And action is what turns community into impact.</p>
-                </div>
-                <p className="text-white font-semibold font-serif text-xl italic">
-                  You were never meant to build alone.
+            <div className="space-y-3.5 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5">
+                <p className="bg-gradient-to-r from-sky-200 via-indigo-200 to-rose-200 bg-clip-text text-transparent font-medium text-xs sm:text-sm">
+                  • Circles create the room · Peer-to-Peer creates the relationship · Collaboration creates the action.
                 </p>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="default"
-                  className="font-semibold"
-                >
-                  Start a Peer-to-Peer Conversation
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="/unity"
-                  variant="transparent"
-                  size="default"
-                  className="font-semibold"
-                >
-                  Member Login
-                </GalaxyButton>
+                <p className="text-white font-bold text-xs sm:text-sm">And action is what turns community into impact.</p>
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-3">
+              <GalaxyButton
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                size="default"
+                className="uppercase tracking-wider font-bold"
               >
-                Meet.
-                <br />
-                Understand.
-                <br />
-                Trust.
-                <br />
-                Collaborate.
-              </p>
-            </div>
+                START A CONVERSATION
+              </GalaxyButton>
 
+              <GalaxyButton
+                href="/unity"
+                variant="transparent"
+                size="default"
+                className="uppercase tracking-wider font-bold"
+              >
+                MEMBER LOGIN
+              </GalaxyButton>
+            </div>
           </div>
         </div>
       </section>

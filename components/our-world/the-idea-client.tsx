@@ -150,7 +150,7 @@ export function TheIdeaClient() {
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href={SITE.playStoreUrl}
+                  href="/download"
                   onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noreferrer"

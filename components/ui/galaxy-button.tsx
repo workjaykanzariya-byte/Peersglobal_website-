@@ -2,10 +2,10 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { cn } from '@/lib/utils'
-import { getSmartAppUrl, handleSmartAppDownload } from '@/lib/utils/app-link'
-import { SITE } from '@/lib/data/site'
 import { Smartphone } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { handleSmartAppDownload, getSmartAppUrl } from '@/lib/utils/app-link'
+import { SITE } from '@/lib/data/site'
 
 export interface GalaxyButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
@@ -13,11 +13,23 @@ export interface GalaxyButtonProps
   href?: string
   target?: string
   rel?: string
-  size?: 'sm' | 'default' | 'lg'
-  variant?: 'primary' | 'transparent' | 'transparent-light' | 'gradient'
+  size?: 'sm' | 'default' | 'md' | 'lg' | 'small'
+  variant?: 'primary' | 'secondary' | 'transparent' | 'transparent-light' | 'gradient'
   icon?: React.ReactNode | boolean
-  children: React.ReactNode
+  showIcon?: boolean
+  children?: React.ReactNode
   className?: string
+  'data-download'?: boolean
+}
+
+function extractText(node: React.ReactNode): string {
+  if (typeof node === 'string') return node
+  if (typeof node === 'number') return String(node)
+  if (Array.isArray(node)) return node.map(extractText).join(' ')
+  if (React.isValidElement(node) && node.props && (node.props as any).children) {
+    return extractText((node.props as any).children)
+  }
+  return ''
 }
 
 /* Default stylish curved arrow SVG provided by design */
@@ -75,6 +87,7 @@ export const GalaxyButton = React.forwardRef<
     size = 'default',
     variant = 'primary',
     icon = true,
+    showIcon,
     children,
     className,
     disabled,
@@ -84,97 +97,57 @@ export const GalaxyButton = React.forwardRef<
   },
   ref
 ) {
-  // Check if this button is specifically for App Store or Google Play
-  const isExplicitAppStore =
-    (typeof href === 'string' && href.includes('apps.apple.com')) ||
-    (typeof children === 'string' &&
-      children.toLowerCase().includes('app store') &&
-      !children.toLowerCase().includes('google'))
+  const effectiveIcon = showIcon === false ? false : icon
 
-  const isExplicitPlayStore =
-    (typeof href === 'string' && href.includes('play.google.com')) ||
-    (typeof children === 'string' &&
-      (children.toLowerCase().includes('google play') ||
-        children.toLowerCase().includes('play store')))
-
-  // Check if this button is a general smart Download Unity App button
-  const isUnityDownloadLink =
-    !isExplicitAppStore &&
-    !isExplicitPlayStore &&
-    ((typeof href === 'string' &&
-      (href.includes('unity.peersglobal.com') ||
-        (href === '/unity' &&
-          typeof children === 'string' &&
-          children.toLowerCase().includes('download')))) ||
-      (typeof children === 'string' &&
-        children.toLowerCase().includes('download') &&
-        children.toLowerCase().includes('unity')))
-
-  const [resolvedHref, setResolvedHref] = React.useState<string | undefined>(href)
-
-  React.useEffect(() => {
-    if (isExplicitAppStore) {
-      setResolvedHref(SITE.appStoreUrl)
-    } else if (isExplicitPlayStore) {
-      setResolvedHref(SITE.playStoreUrl)
-    } else if (isUnityDownloadLink) {
-      setResolvedHref(getSmartAppUrl(SITE.playStoreUrl))
-    } else {
-      setResolvedHref(href)
-    }
-  }, [href, isExplicitAppStore, isExplicitPlayStore, isUnityDownloadLink])
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
-    if (isExplicitAppStore) {
-      if (e && typeof (e as any).preventDefault === 'function') {
-        e.preventDefault()
-      }
-      if (typeof window !== 'undefined') {
-        window.open(SITE.appStoreUrl, '_blank', 'noopener,noreferrer')
-      }
-    } else if (isExplicitPlayStore) {
-      if (e && typeof (e as any).preventDefault === 'function') {
-        e.preventDefault()
-      }
-      if (typeof window !== 'undefined') {
-        window.open(SITE.playStoreUrl, '_blank', 'noopener,noreferrer')
-      }
-    } else if (isUnityDownloadLink) {
-      handleSmartAppDownload(e, resolvedHref || SITE.playStoreUrl)
-    } else if (onClick) {
-      onClick(e as any)
-    }
-  }
   const sizeClass =
-    size === 'sm'
+    size === 'sm' || size === 'small'
       ? 'galaxy-btn--sm'
       : size === 'lg'
-      ? 'galaxy-btn--lg'
-      : ''
+        ? 'galaxy-btn--lg'
+        : ''
 
   const variantClass =
-    variant === 'transparent'
+    variant === 'transparent' || variant === 'secondary'
       ? 'galaxy-btn--transparent'
       : variant === 'transparent-light'
-      ? 'galaxy-btn--transparent-light'
-      : variant === 'gradient'
-      ? 'galaxy-btn--gradient'
-      : ''
+        ? 'galaxy-btn--transparent-light'
+        : variant === 'gradient'
+          ? 'galaxy-btn--gradient'
+          : ''
 
-  // Clean trailing arrow characters from text if the button already renders an arrow icon
-  const sanitizedChildren =
-    typeof children === 'string'
-      ? children.replace(/\s*[→↗➔➜⇒➡▶]\s*$/, '').trim()
-      : children
+  // Smart download link detection:
+  // If the button text mentions download unity/app/peers or links to /download,
+  // automatically wire it to the platform-specific App Store (iOS) or Play Store (Android).
+  const textContent = extractText(children)
+  const isDownload =
+    (/download/i.test(textContent) && /unity|app|peers/i.test(textContent)) ||
+    href === '/download' ||
+    Boolean((rest as any)['data-download'])
+
+  const resolvedHref = isDownload && (!href || href === '/unity' || href === 'https://unity.peersglobal.com' || href === '/download')
+    ? (typeof window !== 'undefined' ? getSmartAppUrl(SITE.playStoreUrl) : SITE.playStoreUrl)
+    : href
+
+  const resolvedTarget = isDownload ? (target ?? '_blank') : target
+  const resolvedRel = isDownload ? (rel ?? 'noopener noreferrer') : rel
+
+  const handleClick = (e: any) => {
+    if (onClick) {
+      onClick(e)
+    }
+    if (isDownload) {
+      handleSmartAppDownload(e)
+    }
+  }
 
   const content = (
     <>
       <span className="galaxy-btn__content">
-        <span className="galaxy-btn__text">{sanitizedChildren}</span>
-        {icon === true && (isUnityDownloadLink ? <GalaxySmartphoneIcon /> : <GalaxyArrowIcon />)}
-        {React.isValidElement(icon) && (
+        <span className="galaxy-btn__text">{children}</span>
+        {effectiveIcon === true && <GalaxyArrowIcon />}
+        {React.isValidElement(effectiveIcon) && (
           <span className="galaxy-btn__icon flex items-center justify-center">
-            {icon}
+            {effectiveIcon}
           </span>
         )}
       </span>
@@ -184,17 +157,11 @@ export const GalaxyButton = React.forwardRef<
   )
 
   if (resolvedHref) {
-    const isExternal =
-      (target === '_blank') ||
-      isUnityDownloadLink ||
-      resolvedHref.startsWith('http://') ||
-      resolvedHref.startsWith('https://')
-
     return (
       <Link
         href={resolvedHref}
-        target={target || (isExternal ? '_blank' : undefined)}
-        rel={rel || (isExternal ? 'noopener noreferrer' : undefined)}
+        target={resolvedTarget}
+        rel={resolvedRel}
         onClick={handleClick as any}
         className={cn('galaxy-btn', sizeClass, variantClass, className)}
         ref={ref as React.Ref<HTMLAnchorElement>}

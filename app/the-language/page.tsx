@@ -679,10 +679,6 @@ export default function TheLanguagePage() {
                 <p>
                   A Life Impactor is a Peer whose actions create a positive difference in another person&apos;s journey. Every genuine contribution matters: introductions, teaching, mentoring, and solving real challenges.
                 </p>
-                <div className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-sm sm:text-base shadow-md">
-                  <Sparkles className="size-4" />
-                  <span>1 Action = 1 Life Impacted</span>
-                </div>
               </div>
             </div>
 

@@ -790,9 +790,7 @@ export function PeersStoreClient({
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   — READY TO REDEEM? —
@@ -861,35 +859,8 @@ export function PeersStoreClient({
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1.5">
-              <p
-                className="text-2xl sm:text-3xl text-white/60 leading-tight font-light"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
-              >
-                Contribute.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-white/75 leading-tight font-light"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
-              >
-                Earn.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-white/90 leading-tight font-light"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
-              >
-                Wear.
-              </p>
-              <p
-                className="text-3xl sm:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-normal leading-tight pt-1"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
-              >
-                Belong.
-              </p>
-            </div>
 
-          </div>
+          
         </div>
       </section>
 

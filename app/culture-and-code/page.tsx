@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { RitualsInteractiveGrid } from '@/components/culture/rituals-interactive-grid'
 import {
   ArrowRight,
   Lock,
@@ -920,51 +921,7 @@ export default function CultureAndCodePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {RITUALS_DATA.map((ritual, idx) => {
-              const RitualIcon = ritual.icon
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-cool-grey-250 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col group"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-                    <Image
-                      src={ritual.image}
-                      alt={ritual.name}
-                      fill
-                      className="object-cover object-center filter brightness-[0.92] contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-
-                    <div className="absolute top-4 left-4 flex items-center gap-1.5 drop-shadow-md">
-                      <span className="text-xs font-bold font-mono tracking-wider brand-gradient-text uppercase">
-                        RITUAL {ritual.num}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 right-4 size-10 rounded-xl bg-white/95 backdrop-blur-sm border border-white/60 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                      <RitualIcon className="size-5 stroke-[url(#cultureCardGrad)]" />
-                    </div>
-                  </div>
-
-                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-[#0f131a] leading-snug">
-                        {ritual.name}
-                      </h3>
-                      <p className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
-                        {ritual.headline}
-                      </p>
-                      <p className="text-xs sm:text-sm text-cool-grey-600 font-normal leading-relaxed pt-1">
-                        {ritual.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <RitualsInteractiveGrid />
         </div>
       </section>
 
@@ -1411,7 +1368,7 @@ export default function CultureAndCodePage() {
                     Become a Peer
                   </GalaxyButton>
                   <GalaxyButton
-                    href="https://unity.peersglobal.com"
+                    href="/download"
                     target="_blank"
                     rel="noreferrer"
                     variant="transparent-light"

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
-import { SmartAppDownloadButton } from '@/components/site/SmartAppDownloadButton'
+import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   Sparkles,
@@ -153,22 +153,60 @@ export default function OneMillionMissionPage() {
               </div>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <GalaxyButton
-                  href="/membership"
-                  size="default"
-                  className="font-semibold"
-                >
-                  Become a Life Impactor
-                </GalaxyButton>
+              <div className="pt-2 flex flex-col gap-3">
+                <div className="flex flex-wrap items-center gap-3.5">
+                  <GalaxyButton
+                    href="/membership"
+                    size="lg"
+                    className="text-xs sm:text-sm"
+                  >
+                    BECOME A LIFE IMPACTOR
+                  </GalaxyButton>
 
-                <SmartAppDownloadButton
-                  variant="transparent"
-                  size="default"
-                  className="font-medium"
-                >
-                  Download the Unity App
-                </SmartAppDownloadButton>
+                  <GalaxyButton
+                    href={SITE.playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="transparent"
+                    size="lg"
+                    className="text-xs sm:text-sm"
+                  >
+                    Download the Unity App
+                  </GalaxyButton>
+                </div>
+
+                {/* Direct Store Badges */}
+                <div className="flex flex-wrap items-center gap-2.5 text-xs text-slate-300 pt-0.5">
+                  <span className="text-slate-400">Available on:</span>
+                  <a
+                    href={SITE.playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium transition-all shadow-2xs hover:scale-105"
+                    aria-label="Get it on Google Play"
+                  >
+                    <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                      <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                      <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                      <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                      <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                    </svg>
+                    <span>Google Play</span>
+                  </a>
+                  <span className="text-white/30">•</span>
+                  <a
+                    href={SITE.appStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium transition-all shadow-2xs hover:scale-105"
+                    aria-label="Download on Apple App Store"
+                  >
+                    <svg className="size-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.06-1.82.94-2.88-.91.04-2.02.6-2.67 1.36-.58.67-.99 1.74-.85 2.77 1.02.08 2.05-.55 2.58-1.25z" />
+                    </svg>
+                    <span>App Store</span>
+                  </a>
+                </div>
               </div>
 
               {/* Stat Band */}
@@ -228,7 +266,7 @@ export default function OneMillionMissionPage() {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_80%_85%,rgba(225,29,72,0.03),transparent_60%)]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           {/* The Number That Matters */}
           <div className="space-y-8">
             <div className="max-w-4xl space-y-3">
@@ -286,9 +324,8 @@ export default function OneMillionMissionPage() {
                 return (
                   <div
                     key={idx}
-                    className={`p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 shadow-xs hover:shadow-lg transition-all flex items-start gap-4 group hover:-translate-y-0.5 ${
-                      item.spanFull ? 'md:col-span-2' : ''
-                    }`}
+                    className={`brand-gradient-border-card p-6 rounded-2xl bg-white shadow-xs hover:shadow-lg transition-all flex items-start gap-4 group cursor-pointer ${item.spanFull ? 'md:col-span-2' : ''
+                      }`}
                   >
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shrink-0 shadow-2xs">
                       <Icon className="w-6 h-6 stroke-[url(#brandIconGrad)]" />
@@ -326,7 +363,7 @@ export default function OneMillionMissionPage() {
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48]" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
+
               {/* Left Column: Heading & Core Narrative */}
               <div className="lg:col-span-6 space-y-6">
                 <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
@@ -360,7 +397,7 @@ export default function OneMillionMissionPage() {
                 ].map((ripple, idx) => (
                   <div
                     key={idx}
-                    className={`p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-slate-400 flex items-center justify-between gap-3 shadow-2xs hover:shadow-md transition-all group ${ripple.border}`}
+                    className="brand-gradient-border-card p-4 rounded-2xl bg-[#FAFBFD] flex items-center justify-between gap-3 shadow-2xs hover:shadow-md transition-all group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
                       <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform font-bold text-xs">
@@ -389,7 +426,7 @@ export default function OneMillionMissionPage() {
       <section className="relative py-20 sm:py-28 bg-gradient-to-b from-[#FAFBFD] via-white to-[#FAFBFD] text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_20%_30%,rgba(29,78,216,0.03),transparent_60%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
               <span className="brand-gradient-text">THE IMPACT PRINCIPLE</span>
@@ -408,7 +445,7 @@ export default function OneMillionMissionPage() {
             {ACTION_EXAMPLES.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-slate-400 transition-all flex flex-col justify-between space-y-5 group hover:-translate-y-1"
+                className="brand-gradient-border-card bg-white rounded-3xl p-7 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between space-y-5 group cursor-pointer"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-serif text-3xl font-bold brand-gradient-text">
@@ -455,7 +492,7 @@ export default function OneMillionMissionPage() {
           ========================================================================= */}
       <section className="relative py-20 sm:py-28 bg-gradient-to-b from-white via-[#FAFBFD] to-white text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           {/* Architecture flow */}
           <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -475,7 +512,7 @@ export default function OneMillionMissionPage() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {ARCHITECTURE_FLOW.map((item) => (
-                <div key={item.step} className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-slate-400 transition-all space-y-2.5 group hover:-translate-y-1">
+                <div key={item.step} className="brand-gradient-border-card p-6 rounded-3xl bg-white shadow-2xs hover:shadow-md transition-all space-y-2.5 group cursor-pointer">
                   <span className="text-xs font-mono font-bold brand-gradient-text block bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 px-2 py-0.5 rounded-md w-fit">
                     STEP {item.step}
                   </span>
@@ -522,7 +559,7 @@ export default function OneMillionMissionPage() {
           ========================================================================= */}
       <section className="relative py-20 sm:py-28 bg-gradient-to-b from-[#FAFBFD] via-white to-[#FAFBFD] text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase">
@@ -628,7 +665,7 @@ export default function OneMillionMissionPage() {
           ========================================================================= */}
       <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white via-[#FAFBFD] to-white text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           {/* What does it mean to be a Life Impactor? */}
           <div className="space-y-6">
             <div className="max-w-3xl space-y-2.5">
@@ -688,7 +725,7 @@ export default function OneMillionMissionPage() {
                 return (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md transition-all flex items-start gap-3.5 group"
+                    className="brand-gradient-border-card p-5 rounded-2xl bg-white shadow-2xs hover:shadow-md transition-all flex items-start gap-3.5 group cursor-pointer"
                   >
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-105 group-hover:border-blue-500/40 transition-all shrink-0 shadow-2xs">
                       <Icon className="w-5 h-5 stroke-[url(#brandIconGrad)]" />
@@ -734,12 +771,12 @@ export default function OneMillionMissionPage() {
               className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(67,16,102,0.25),transparent)] pointer-events-none"
               aria-hidden="true"
             />
-            
+
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase brand-gradient-text">
                 <span>ONE MILLION IS NOT THE DESTINATION</span>
               </div>
-              
+
               <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white">
                 The number matters. But the number is not the heart of the mission.
               </h3>
@@ -809,7 +846,7 @@ export default function OneMillionMissionPage() {
                 turning point.
               </span>
             </h3>
-            
+
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
               Somewhere in this community, there is an entrepreneur who needs exactly what you already know. And somewhere ahead of you, there is another entrepreneur whose experience can change your own journey.
             </p>
@@ -820,21 +857,59 @@ export default function OneMillionMissionPage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-              <GalaxyButton
-                href="/membership"
-                size="default"
-                className="font-semibold"
-              >
-                Become a Life Impactor
-              </GalaxyButton>
-              <SmartAppDownloadButton
-                variant="transparent-light"
-                size="default"
-                className="font-medium"
-              >
-                Download the Unity App
-              </SmartAppDownloadButton>
+            <div className="flex flex-col items-center gap-3.5 pt-2">
+              <div className="flex flex-wrap items-center justify-center gap-3.5">
+                <GalaxyButton
+                  href="/membership"
+                  size="lg"
+                  className="text-xs sm:text-sm"
+                >
+                  BECOME A LIFE IMPACTOR
+                </GalaxyButton>
+                <GalaxyButton
+                  href={SITE.playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="transparent"
+                  size="lg"
+                  className="text-xs sm:text-sm"
+                >
+                  Download the Unity App
+                </GalaxyButton>
+              </div>
+
+              {/* Direct Store Badges */}
+              <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-500 pt-1">
+                <span className="font-medium text-slate-600">Available on:</span>
+                <a
+                  href={SITE.playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-semibold transition-all shadow-2xs hover:scale-105"
+                  aria-label="Get it on Google Play"
+                >
+                  <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                    <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                    <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                    <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                    <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                  </svg>
+                  <span>Google Play</span>
+                </a>
+                <span className="text-slate-300">•</span>
+                <a
+                  href={SITE.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-semibold transition-all shadow-2xs hover:scale-105"
+                  aria-label="Download on Apple App Store"
+                >
+                  <svg className="size-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.06-1.82.94-2.88-.91.04-2.02.6-2.67 1.36-.58.67-.99 1.74-.85 2.77 1.02.08 2.05-.55 2.58-1.25z" />
+                  </svg>
+                  <span>App Store</span>
+                </a>
+              </div>
             </div>
           </div>
 
