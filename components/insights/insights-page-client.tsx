@@ -811,17 +811,6 @@ export function InsightsPageClient() {
               >
                 EXPLORE ALL INSIGHTS
               </GalaxyButton>
-
-              <GalaxyButton
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="transparent"
-                size="default"
-                className="uppercase tracking-wider font-bold"
-              >
-                DOWNLOAD UNITY APP
-              </GalaxyButton>
             </div>
           </div>
         </div>
