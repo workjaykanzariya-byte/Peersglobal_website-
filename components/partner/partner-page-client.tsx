@@ -587,70 +587,74 @@ export function PartnerPageClient() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* PARTNERSHIP IS NOT ACCESS */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-6 shadow-sm">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-700">
-                  <ShieldAlert className="w-4 h-4 text-rose-600" />
-                  PROTECTING TRUST
+            <div className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-8 rounded-[23px] bg-white flex flex-col justify-between space-y-6 h-full">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-700">
+                    <ShieldAlert className="w-4 h-4 text-rose-600" />
+                    PROTECTING TRUST
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
+                    PARTNERSHIP IS NOT ACCESS
+                  </h2>
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    PEERS GLOBAL is built on trust. A partnership does not automatically create access to:
+                  </p>
+
+                  <ul className="space-y-3">
+                    {NOT_ACCESS_POINTS.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
+                        <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-                  PARTNERSHIP IS NOT ACCESS
-                </h2>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  PEERS GLOBAL is built on trust. A partnership does not automatically create access to:
-                </p>
 
-                <ul className="space-y-3">
-                  {NOT_ACCESS_POINTS.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
-                      <XCircle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/70 to-rose-50/40 border border-slate-200 shadow-2xs">
-                <p className="text-sm font-bold text-slate-900">
-                  The community is not an audience to be mined.
-                </p>
-                <p className="text-xs text-slate-600 mt-1">
-                  Our Peers are people first. Their trust is something we protect unconditionally.
-                </p>
+                <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/70 to-rose-50/40 border border-slate-200 shadow-2xs">
+                  <p className="text-sm font-bold text-slate-900">
+                    The community is not an audience to be mined.
+                  </p>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Our Peers are people first. Their trust is something we protect unconditionally.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* WHO WE DECLINE */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-6 shadow-sm">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-bold text-amber-800">
-                  <ShieldCheck className="w-4 h-4 text-amber-700" />
-                  INTENTIONAL BOUNDARIES
+            <div className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-8 rounded-[23px] bg-white flex flex-col justify-between space-y-6 h-full">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs font-bold text-amber-800">
+                    <ShieldCheck className="w-4 h-4 text-amber-700" />
+                    INTENTIONAL BOUNDARIES
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
+                    WHO WE DECLINE
+                  </h2>
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    Not every commercial relationship is the right relationship. We may decline organisations whose proposed involvement conflicts with the experience we are building. This includes partnerships based primarily on:
+                  </p>
+
+                  <ul className="space-y-2.5">
+                    {DECLINE_REASONS.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
+                        <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0 mt-1.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-                  WHO WE DECLINE
-                </h2>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  Not every commercial relationship is the right relationship. We may decline organisations whose proposed involvement conflicts with the experience we are building. This includes partnerships based primarily on:
-                </p>
 
-                <ul className="space-y-2.5">
-                  {DECLINE_REASONS.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
-                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shrink-0 mt-1.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="p-5 rounded-xl bg-amber-50/70 border border-amber-200 shadow-2xs">
-                <p className="text-sm font-bold text-amber-900">
-                  We do not partner with organisations that want to sell into our Circles.
-                </p>
-                <p className="text-xs text-amber-800 mt-1 leading-relaxed">
-                  That boundary is intentional. It protects the relationship between Peers, the trust within Circles, and what PEERS GLOBAL is trying to build.
-                </p>
+                <div className="p-5 rounded-xl bg-amber-50/70 border border-amber-200 shadow-2xs">
+                  <p className="text-sm font-bold text-amber-900">
+                    We do not partner with organisations that want to sell into our Circles.
+                  </p>
+                  <p className="text-xs text-amber-800 mt-1 leading-relaxed">
+                    That boundary is intentional. It protects the relationship between Peers, the trust within Circles, and what PEERS GLOBAL is trying to build.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -769,12 +773,17 @@ export function PartnerPageClient() {
 
               <div className="space-y-3">
                 {SPONSORSHIP_AREAS.map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-white border border-slate-200 space-y-1 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
-                    <h3 className="text-sm font-bold text-slate-950">{item.title}</h3>
-                    <p className="text-xs text-slate-600">{item.desc}</p>
-                    <span className="text-[11px] font-bold brand-gradient-text block pt-1">
-                      Scope: {item.scope}
-                    </span>
+                  <div
+                    key={idx}
+                    className="group/spon relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
+                  >
+                    <div className="p-4 rounded-[11px] bg-white space-y-1 h-full">
+                      <h3 className="text-sm font-bold text-slate-950 group-hover/spon:bg-gradient-to-r group-hover/spon:from-[#1D4ED8] group-hover/spon:to-[#E11D48] group-hover/spon:bg-clip-text group-hover/spon:text-transparent transition-all">{item.title}</h3>
+                      <p className="text-xs text-slate-600">{item.desc}</p>
+                      <span className="text-[11px] font-bold brand-gradient-text block pt-1">
+                        Scope: {item.scope}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -797,14 +806,19 @@ export function PartnerPageClient() {
 
               <div className="space-y-3">
                 {ADVERTISING_CHANNELS.map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-4 shadow-2xs hover:border-slate-300 hover:shadow-xs transition-all">
-                    <div>
-                      <h3 className="text-sm font-bold text-slate-950">{item.title}</h3>
-                      <p className="text-xs text-slate-600">{item.desc}</p>
+                  <div
+                    key={idx}
+                    className="group/adv relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
+                  >
+                    <div className="p-4 rounded-[11px] bg-white flex items-center justify-between gap-4 h-full">
+                      <div>
+                        <h3 className="text-sm font-bold text-slate-950 group-hover/adv:bg-gradient-to-r group-hover/adv:from-[#1D4ED8] group-hover/adv:to-[#E11D48] group-hover/adv:bg-clip-text group-hover/adv:text-transparent transition-all">{item.title}</h3>
+                        <p className="text-xs text-slate-600">{item.desc}</p>
+                      </div>
+                      <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 brand-gradient-text shrink-0 shadow-2xs">
+                        {item.badge}
+                      </span>
                     </div>
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 brand-gradient-text shrink-0 shadow-2xs">
-                      {item.badge}
-                    </span>
                   </div>
                 ))}
               </div>
@@ -984,46 +998,50 @@ export function PartnerPageClient() {
                 {EXPECTATIONS_PARTNERS.map((exp, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-white border border-slate-200/90 space-y-1.5 shadow-2xs hover:border-slate-300 hover:shadow-sm transition-all group"
+                    className="group/exp relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xs font-bold brand-gradient-text uppercase tracking-wider">{exp.title}</h3>
-                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="p-5 rounded-[15px] bg-white space-y-1.5 h-full">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-xs font-bold brand-gradient-text uppercase tracking-wider">{exp.title}</h3>
+                        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] opacity-60 group-hover/exp:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-xs text-slate-700 leading-relaxed">{exp.desc}</p>
                     </div>
-                    <p className="text-xs text-slate-700 leading-relaxed">{exp.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* WHAT PEERS CAN EXPECT */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 flex flex-col justify-between space-y-6 shadow-sm relative overflow-hidden">
-              <div className="space-y-4">
-                <div className="mb-2">
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                    Our Integrity Pledge
-                  </span>
+            <div className="group/expect relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-8 rounded-[23px] bg-white flex flex-col justify-between space-y-6 h-full relative overflow-hidden">
+                <div className="space-y-4">
+                  <div className="mb-2">
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                      Our Integrity Pledge
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
+                    WHAT PEERS CAN EXPECT FROM US
+                  </h2>
+                  <p className="text-slate-600 text-sm">
+                    We will be equally clear with our community and partners.
+                  </p>
+
+                  <ul className="space-y-3">
+                    {PROMISES_FROM_US.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-800">
+                        <CheckCircle2 className="w-4 h-4 [stroke:url(#partnerBrandGrad)] shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-950">
-                  WHAT PEERS CAN EXPECT FROM US
-                </h2>
-                <p className="text-slate-600 text-sm">
-                  We will be equally clear with our community and partners.
-                </p>
 
-                <ul className="space-y-3">
-                  {PROMISES_FROM_US.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-800">
-                      <CheckCircle2 className="w-4 h-4 [stroke:url(#partnerBrandGrad)] shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/70 to-rose-50/40 border border-slate-200 text-xs text-slate-700 shadow-2xs">
-                <strong className="text-slate-950 block mb-1">Non-Negotiable Editorial Separation:</strong>
-                All editorial, partnership, sponsorship, advertising, and community contribution channels are kept explicitly distinct.
+                <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/70 to-rose-50/40 border border-slate-200 text-xs text-slate-700 shadow-2xs">
+                  <strong className="text-slate-950 block mb-1">Non-Negotiable Editorial Separation:</strong>
+                  All editorial, partnership, sponsorship, advertising, and community contribution channels are kept explicitly distinct.
+                </div>
               </div>
             </div>
           </div>

@@ -627,42 +627,44 @@ export function CriteriaClient() {
                   onClick={() => toggleFaq(idx)}
                   tabIndex={0}
                   role="article"
-                  className="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer select-none"
+                  className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-xl transition-all duration-300 cursor-pointer select-none"
                 >
-                  <div className="space-y-4">
-                    {/* Top Bar: Icon + Category Tag + Number */}
-                    <div className="flex items-center justify-between">
-                      <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                        <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <div className="p-7 sm:p-8 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between transition-colors duration-300">
+                    <div className="space-y-4">
+                      {/* Top Bar: Icon + Category Tag + Number */}
+                      <div className="flex items-center justify-between">
+                        <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                          <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-[#1D4ED8] shadow-2xs">
+                            {faq.tag}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-[#1D4ED8] shadow-2xs">
-                          {faq.tag}
-                        </span>
+
+                      {/* Question Headline */}
+                      <div className="pt-1">
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                          {faq.q}
+                        </h3>
                       </div>
+
+                      {/* Answer Content */}
+                      <p className={`text-xs sm:text-sm text-slate-600 font-light leading-relaxed pt-1 transition-all duration-300 ${
+                        isOpen ? 'opacity-100' : 'line-clamp-2 opacity-80 group-hover:opacity-100'
+                      }`}>
+                        {faq.a}
+                      </p>
                     </div>
 
-                    {/* Question Headline */}
-                    <div className="pt-1">
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 brand-gradient-hover-text cursor-pointer leading-snug">
-                        {faq.q}
-                      </h3>
+                    {/* Card Footer Status */}
+                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                      <span className="text-slate-400">Question #{faq.num}</span>
+                      <span className="inline-flex items-center gap-1 font-semibold brand-gradient-text">
+                        {isOpen ? 'Show Less' : 'Read Full Answer'} &rarr;
+                      </span>
                     </div>
-
-                    {/* Answer Content */}
-                    <p className={`text-xs sm:text-sm text-slate-600 font-light leading-relaxed pt-1 transition-all duration-300 ${
-                      isOpen ? 'opacity-100' : 'line-clamp-2 opacity-80 group-hover:opacity-100'
-                    }`}>
-                      {faq.a}
-                    </p>
-                  </div>
-
-                  {/* Card Footer Status */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                    <span className="text-slate-400">Question #{faq.num}</span>
-                    <span className="inline-flex items-center gap-1 font-semibold brand-gradient-text">
-                      {isOpen ? 'Show Less' : 'Read Full Answer'} &rarr;
-                    </span>
                   </div>
                 </div>
               )
@@ -682,7 +684,9 @@ export function CriteriaClient() {
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <GalaxyButton
-                href="/circles/find"
+                href="https://peersunity.com/circles"
+                target="_blank"
+                rel="noopener noreferrer"
                 size="small"
                 className="font-semibold text-xs"
               >
@@ -726,7 +730,9 @@ export function CriteriaClient() {
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <GalaxyButton
-                  href="/circles/find"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >

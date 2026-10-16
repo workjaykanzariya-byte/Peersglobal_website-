@@ -8,6 +8,7 @@ export type CircleCategory = {
   activeSlug: string
   tagline: string
   description: string
+  appDeepLink?: string
 }
 
 export const STATE_CITIES_MAP: Record<string, string[]> = {

@@ -1,170 +1,17 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import '@/app/sections.css'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
-  Search,
-  ArrowRight,
   ChevronRight,
-  CheckCircle2,
   Users,
-  MapPin,
-  Building2,
   TrendingUp,
-  Sparkles,
-  Quote,
   ShieldCheck,
   Award,
-  Compass,
-  Briefcase,
-  X,
-  Layers,
-  Heart,
-  SlidersHorizontal,
-  Handshake,
   Check,
 } from 'lucide-react'
-
-// ─── 3 Approved Real Stories Structure ─────────────────────────────────────────
-export interface PeerStory {
-  id: string
-  number: string
-  // Peers Info
-  peer1: {
-    name: string
-    business: string
-    city: string
-  }
-  peer2: {
-    name: string
-    business: string
-    city: string
-  }
-  circle: string
-  formOfCollaboration: string
-  // Narrative
-  situation: string
-  connection: string
-  whatHappened: string
-  // Outcome & Numbers
-  whatExistsToday: {
-    highlight: string
-    description: string
-  }
-  quotes: {
-    peer1Quote: string
-    peer2Quote: string
-  }
-  image: string
-}
-
-const PEER_STORIES: PeerStory[] = [
-  {
-    id: 'story-01',
-    number: '01',
-    peer1: {
-      name: 'Jignesh Shah',
-      business: 'Shah Packaging Solutions',
-      city: 'Ahmedabad',
-    },
-    peer2: {
-      name: 'Rohit Mehta',
-      business: 'Mehta Industrial Trading',
-      city: 'Vadodara',
-    },
-    circle: 'Gujarat Manufacturing Circle',
-    formOfCollaboration: 'Referral & Client Acquisition',
-    situation:
-      'Shah Packaging had idle corrugation capacity following a major plant commissioning in Sanand, while fellow Peer Rohit Mehta was navigating repeated supply delays and quality inconsistencies from regional vendors.',
-    connection:
-      'During a cross-Circle Collaboration Roundtable, Rohit learned of Jignesh’s high-precision corrugated box production. Instead of a commercial broker, Rohit directly introduced Jignesh to his primary automotive client.',
-    whatHappened:
-      'The initial technical audit cleared in 14 days, followed by a trial batch. Recognizing mutual alignment and strict adherence to the PEERS Code, the arrangement expanded across all Western region distribution hubs.',
-    whatExistsToday: {
-      highlight: '₹1.2 Crore Annual Recurring Contract',
-      description:
-        'A continuous packaging supply partnership generating ₹1.2 Cr in verified annual revenue across three regional industrial hubs.',
-    },
-    quotes: {
-      peer1Quote:
-        '“We did not spend six months in pitch meetings. The trust was already established in the room before we ever spoke business.”',
-      peer2Quote:
-        '“When you introduce a fellow Peer, you know the standards and the accountability they carry. It solved our supply bottlenecks completely.”',
-    },
-    image: '/images/who-we-are-boardroom.jpg',
-  },
-  {
-    id: 'story-02',
-    number: '02',
-    peer1: {
-      name: 'Priya Desai',
-      business: 'Desai Global Organics',
-      city: 'Surat',
-    },
-    peer2: {
-      name: 'Karan Malhotra',
-      business: 'Malhotra Freight & Logistics',
-      city: 'Mumbai',
-    },
-    circle: 'Western Export & Trade Circle',
-    formOfCollaboration: 'Strategic Alliance & Joint Venture',
-    situation:
-      'Desai Organics held certified agricultural export volume but lacked temperature-controlled bonded cold freight and compliant customs corridors into Europe. Malhotra held bonded clearance corridors but lacked high-value manufacturer exclusivity.',
-    connection:
-      'Meeting at the PEERS GLOBAL Regional Summit, both entrepreneurs mapped out an operational bottleneck over a 30-minute peer dialogue.',
-    whatHappened:
-      'Instead of competing or acting as standard third-party contractors, they formed a 50:50 joint export corridor combining Desai’s export-grade supply with Malhotra’s bonded multi-modal transport network.',
-    whatExistsToday: {
-      highlight: '3 New European Export Corridors',
-      description:
-        '24 container shipments delivered to Hamburg, Rotterdam and Dubai in 9 months, cutting landing transit costs by 18% with verified ₹8.5 Cr export turnover.',
-    },
-    quotes: {
-      peer1Quote:
-        '“We stopped trying to build logistics from scratch and partnered with someone who already owned the road.”',
-      peer2Quote:
-        '“Collaboration created a market that neither of us could have captured alone in that timeframe.”',
-    },
-    image: '/images/industry-cross-city-handshake.jpg',
-  },
-  {
-    id: 'story-03',
-    number: '03',
-    peer1: {
-      name: 'Amit Trivedi',
-      business: 'Trivedi Chemicals & Synthetics',
-      city: 'Bharuch',
-    },
-    peer2: {
-      name: 'Sandeep Kulkarni',
-      business: 'Kulkarni Environmental Technologies',
-      city: 'Pune',
-    },
-    circle: 'Chemical & Process Engineering Circle',
-    formOfCollaboration: 'Mentorship & Problem Solving',
-    situation:
-      'Amit was preparing to invest ₹65 Lakhs in an imported solvent recovery distillation column, navigating complex state pollution control board environmental clearance guidelines.',
-    connection:
-      'In a confidential Circle Hot Seat session, Sandeep Kulkarni shared his first-hand experience having installed and decommissioned a similar column two years prior.',
-    whatHappened:
-      'Sandeep walked Amit through the real operational failure points, unviable maintenance overheads, and connected him with an indigenous modified catalytic recovery architecture.',
-    whatExistsToday: {
-      highlight: '₹38 Lakhs Saved & 18 Months of Avoided Delays',
-      description:
-        'Achieved environmental zero-discharge compliance on first inspection while avoiding a ₹38 Lakhs capital misallocation.',
-    },
-    quotes: {
-      peer1Quote:
-        '“A 45-minute honest conversation with someone who had lived through the mistake saved us eighteen months of regulatory paralysis.”',
-      peer2Quote:
-        '“Sharing what did not work is often the greatest contribution you can make to another entrepreneur.”',
-    },
-    image: '/images/industry-director-speaker.jpg',
-  },
-]
 
 // ─── Journey Steps: FROM CONNECTION TO COLLABORATION ───────────────────────────
 const JOURNEY_STEPS = [
@@ -204,50 +51,6 @@ const INTEGRITY_GUARDRAILS = [
 ]
 
 export function StoriesPageClient() {
-  const [selectedCity, setSelectedCity] = useState('All Cities')
-  const [selectedForm, setSelectedForm] = useState('All Forms')
-  const [searchQuery, setSearchQuery] = useState('')
-
-  // Filter options
-  const cities = useMemo(() => {
-    return ['All Cities', 'Ahmedabad', 'Surat', 'Mumbai', 'Vadodara', 'Pune', 'Bharuch']
-  }, [])
-
-  const forms = useMemo(() => {
-    return [
-      'All Forms',
-      'Referral & Client Acquisition',
-      'Strategic Alliance & Joint Venture',
-      'Mentorship & Problem Solving',
-    ]
-  }, [])
-
-  // Filtered Stories
-  const filteredStories = useMemo(() => {
-    return PEER_STORIES.filter((story) => {
-      const matchCity =
-        selectedCity === 'All Cities' ||
-        story.peer1.city.toLowerCase().includes(selectedCity.toLowerCase()) ||
-        story.peer2.city.toLowerCase().includes(selectedCity.toLowerCase())
-
-      const matchForm =
-        selectedForm === 'All Forms' || story.formOfCollaboration === selectedForm
-
-      const s = searchQuery.toLowerCase().trim()
-      const matchSearch =
-        !s ||
-        story.peer1.name.toLowerCase().includes(s) ||
-        story.peer2.name.toLowerCase().includes(s) ||
-        story.peer1.business.toLowerCase().includes(s) ||
-        story.peer2.business.toLowerCase().includes(s) ||
-        story.situation.toLowerCase().includes(s) ||
-        story.whatHappened.toLowerCase().includes(s) ||
-        story.whatExistsToday.highlight.toLowerCase().includes(s)
-
-      return matchCity && matchForm && matchSearch
-    })
-  }, [selectedCity, selectedForm, searchQuery])
-
   return (
     <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
       
@@ -324,11 +127,11 @@ export function StoriesPageClient() {
               {/* Buttons matching Home Page Hero button style */}
               <div className="fd-hero__cta flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="#stories-feed"
+                  href="#authenticity"
                   size="lg"
                   className="text-xs sm:text-sm font-semibold"
                 >
-                  EXPLORE PEER STORIES
+                  EXPLORE THE FRAMEWORK
                 </GalaxyButton>
                 <GalaxyButton
                   href="https://unity.peersglobal.com"
@@ -393,7 +196,7 @@ export function StoriesPageClient() {
       </section>
 
       {/* ─── SECTION 2: REAL PEOPLE. REAL BUSINESSES. REAL COLLABORATION. ─── */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
+      <section id="authenticity" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-sm p-7 sm:p-10 lg:p-12 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -432,63 +235,71 @@ export function StoriesPageClient() {
               {/* Right: 4 Anatomy Blocks */}
               <div className="lg:col-span-6 space-y-3.5">
                 {/* Step 1 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      1
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      Before — The Need &amp; Challenge
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        1
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        Before — The Need &amp; Challenge
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      What did each entrepreneur do? What challenge, opportunity or need existed before they connected?
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    What did each entrepreneur do? What challenge, opportunity or need existed before they connected?
-                  </p>
                 </div>
 
                 {/* Step 2 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      2
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      The Connection — The 10 Forms of Collaboration
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        2
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        The Connection — The 10 Forms of Collaboration
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      Which Form of Collaboration created the connection? An introduction, referral, alliance, mentorship or new market?
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    Which Form of Collaboration created the connection? An introduction, referral, alliance, mentorship or new market?
-                  </p>
                 </div>
 
                 {/* Step 3 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      3
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      The Change — Measurable Outcomes
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        3
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        The Change — Measurable Outcomes
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      What happened next? What was created, solved, introduced or expanded — with a real, verifiable number.
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    What happened next? What was created, solved, introduced or expanded — with a real, verifiable number.
-                  </p>
                 </div>
 
                 {/* Step 4 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      4
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      The Relationship — What Exists Today
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        4
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        The Relationship — What Exists Today
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      The lasting bond: <em className="text-slate-800 font-medium">“What relationship exists today that did not exist before?”</em>
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    The lasting bond: <em className="text-slate-800 font-medium">“What relationship exists today that did not exist before?”</em>
-                  </p>
                 </div>
               </div>
 
@@ -565,260 +376,8 @@ export function StoriesPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 4: STORIES FROM THE COMMUNITY (3 APPROVED STORIES FEED) ── */}
-      <section id="stories-feed" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80 scroll-mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80">
-                <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] animate-pulse" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent">
-                  VERIFIED EVIDENCE
-                </span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
-                Stories From the Community
-              </h2>
-            </div>
-
-            {/* Filter Bar */}
-            <div className="flex flex-wrap items-center gap-3">
-              <select
-                value={selectedCity}
-                onChange={(e) => setSelectedCity(e.target.value)}
-                className="px-4 py-2.5 rounded-full bg-[#FAFBFD] border border-slate-200 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#0062D2] shadow-2xs"
-              >
-                {cities.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-
-              <select
-                value={selectedForm}
-                onChange={(e) => setSelectedForm(e.target.value)}
-                className="px-4 py-2.5 rounded-full bg-[#FAFBFD] border border-slate-200 text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#0062D2] shadow-2xs"
-              >
-                {forms.map((f) => (
-                  <option key={f} value={f}>
-                    {f}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* 3 Story Cards */}
-          <div className="space-y-10">
-            {filteredStories.map((story) => (
-              <div
-                key={story.id}
-                className="rounded-3xl border border-slate-200/90 bg-white shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden p-6 sm:p-10 space-y-8"
-              >
-                {/* Header: Story Number & Peers Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <span className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center font-mono font-bold text-sm shadow-xs">
-                      {story.number}
-                    </span>
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] block">
-                        PEER STORY: APPROVED REAL STORY
-                      </span>
-                      <span className="text-xs text-slate-500">
-                        {story.circle}
-                      </span>
-                    </div>
-                  </div>
-
-                  <span className="px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0062D2] text-xs font-semibold border border-blue-100 self-start sm:self-auto">
-                    Form: {story.formOfCollaboration}
-                  </span>
-                </div>
-
-                {/* 2 Named Peers Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs space-y-1">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Peer 01
-                    </span>
-                    <h4 className="font-bold text-slate-900 text-base">
-                      {story.peer1.name}
-                    </h4>
-                    <p className="text-xs text-slate-600">
-                      {story.peer1.business} · <span className="font-semibold text-slate-900">{story.peer1.city}</span>
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 shadow-2xs space-y-1">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Peer 02
-                    </span>
-                    <h4 className="font-bold text-slate-900 text-base">
-                      {story.peer2.name}
-                    </h4>
-                    <p className="text-xs text-slate-600">
-                      {story.peer2.business} · <span className="font-semibold text-slate-900">{story.peer2.city}</span>
-                    </p>
-                  </div>
-                </div>
-
-                {/* 3 Columns: The Situation, The Connection, What Happened */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
-                  {/* The Situation */}
-                  <div
-                    className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-lg transition-all"
-                    tabIndex={0}
-                    role="article"
-                  >
-                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id={`sitGrad-${story.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#1D4ED8" />
-                          <stop offset="50%" stopColor="#4F46E5" />
-                          <stop offset="100%" stopColor="#E11D48" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        className="animated-border-path"
-                        style={{ stroke: `url(#sitGrad-${story.id})` }}
-                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
-                      />
-                    </svg>
-                    <div className="relative z-10 flex flex-col justify-start p-5 bg-white border border-slate-200/80 rounded-2xl h-full space-y-2.5">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 block">
-                        The Situation
-                      </span>
-                      <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-800 leading-relaxed font-light transition-colors">
-                        {story.situation}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* The Connection */}
-                  <div
-                    className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-lg transition-all"
-                    tabIndex={0}
-                    role="article"
-                  >
-                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id={`connGrad-${story.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#1D4ED8" />
-                          <stop offset="50%" stopColor="#4F46E5" />
-                          <stop offset="100%" stopColor="#E11D48" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        className="animated-border-path animated-border-path-2"
-                        style={{ stroke: `url(#connGrad-${story.id})` }}
-                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
-                      />
-                    </svg>
-                    <div className="relative z-10 flex flex-col justify-start p-5 bg-white border border-slate-200/80 rounded-2xl h-full space-y-2.5">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 block">
-                        The Connection
-                      </span>
-                      <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-800 leading-relaxed font-light transition-colors">
-                        {story.connection}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* What Happened */}
-                  <div
-                    className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-lg transition-all"
-                    tabIndex={0}
-                    role="article"
-                  >
-                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                      <defs>
-                        <linearGradient id={`whGrad-${story.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#1D4ED8" />
-                          <stop offset="50%" stopColor="#4F46E5" />
-                          <stop offset="100%" stopColor="#E11D48" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        className="animated-border-path animated-border-path-3"
-                        style={{ stroke: `url(#whGrad-${story.id})` }}
-                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
-                      />
-                    </svg>
-                    <div className="relative z-10 flex flex-col justify-start p-5 bg-white border border-slate-200/80 rounded-2xl h-full space-y-2.5">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#4F46E5] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 block">
-                        What Happened
-                      </span>
-                      <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-800 leading-relaxed font-light transition-colors">
-                        {story.whatHappened}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Verified Outcome Banner */}
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-50/90 via-indigo-50/50 to-slate-50 border border-blue-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="space-y-1">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#0062D2] block">
-                      What Exists Today
-                    </span>
-                    <h5 className="font-bold text-lg sm:text-xl text-slate-900">
-                      {story.whatExistsToday.highlight}
-                    </h5>
-                    <p className="text-xs text-slate-600 font-light">
-                      {story.whatExistsToday.description}
-                    </p>
-                  </div>
-
-                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white text-emerald-700 font-bold text-xs border border-emerald-200 shadow-2xs shrink-0 self-start sm:self-auto">
-                    <CheckCircle2 className="size-3.5" />
-                    <span>Approved & Verified</span>
-                  </span>
-                </div>
-
-                {/* Quotes & Authenticity Photo */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2">
-                  <div className="lg:col-span-8 space-y-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
-                      What They Say
-                    </span>
-                    <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200 text-xs sm:text-sm text-slate-700 italic leading-relaxed">
-                      {story.quotes.peer1Quote}
-                      <span className="block not-italic text-[11px] font-bold text-slate-900 mt-1">
-                        — {story.peer1.name}
-                      </span>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200 text-xs sm:text-sm text-slate-700 italic leading-relaxed">
-                      {story.quotes.peer2Quote}
-                      <span className="block not-italic text-[11px] font-bold text-slate-900 mt-1">
-                        — {story.peer2.name}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-4 relative h-48 sm:h-56 rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 shadow-xs">
-                    <Image
-                      src={story.image}
-                      alt={`Real photograph of ${story.peer1.name} and ${story.peer2.name}`}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-md text-[10px] font-bold text-white uppercase tracking-wider">
-                      Verified Peers
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ─── SECTION 5: MORE THAN BUSINESS & WHY WE SHOW THE NUMBERS ───────── */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+      {/* ─── SECTION 4: MORE THAN BUSINESS & WHY WE SHOW THE NUMBERS ───────── */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -843,7 +402,7 @@ export function StoriesPageClient() {
                 {BEYOND_BUSINESS_ITEMS.map((item, idx) => (
                   <div
                     key={item}
-                    className="p-3.5 rounded-2xl bg-white border border-slate-200/90 text-xs sm:text-sm font-semibold text-slate-800 flex items-center gap-2.5 shadow-2xs hover:border-blue-300 hover:shadow-xs transition-all duration-200 group"
+                    className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 text-xs sm:text-sm font-semibold text-slate-800 flex items-center gap-2.5 shadow-2xs hover:border-blue-300 hover:shadow-xs transition-all duration-200 group"
                   >
                     <svg className="size-4 shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <defs>
@@ -867,7 +426,7 @@ export function StoriesPageClient() {
 
             {/* Right: WHY WE SHOW THE NUMBERS & NO FICTION */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs space-y-4 hover:border-blue-200 hover:shadow-md transition-all duration-300 group">
+              <div className="p-7 sm:p-8 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs space-y-4 hover:border-blue-200 hover:shadow-md transition-all duration-300 group">
                 <div className="size-12 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/25 shadow-2xs flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-blue-500/40 transition-all duration-300">
                   <svg className="size-6 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <defs>
@@ -906,7 +465,7 @@ export function StoriesPageClient() {
                   A community built on relationships must protect the credibility of those relationships.
                 </p>
                 <div className="space-y-1.5 pl-3.5 border-l-2 border-[#38BDF8] text-xs text-slate-300 font-medium relative z-10">
-                  <p>• Three real stories are better than twelve invented ones.</p>
+                  <p>• Real stories are better than invented ones.</p>
                   <p>• Every story belongs to real, verified Peers.</p>
                   <p>• Every result is attributable to the collaboration.</p>
                   <p>• Every published story has explicit consent from both Peers.</p>
@@ -918,8 +477,8 @@ export function StoriesPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 6: FROM CONNECTION TO COLLABORATION (8-STAGE JOURNEY) ─── */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
+      {/* ─── SECTION 5: FROM CONNECTION TO COLLABORATION (8-STAGE JOURNEY) ─── */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12 space-y-3">
@@ -943,7 +502,7 @@ export function StoriesPageClient() {
                 key={step.step}
                 className="group relative p-[1.5px] rounded-2xl bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-2xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer"
               >
-                <div className="relative w-full h-full bg-[#FAFBFD] group-hover:bg-white rounded-[14.5px] p-4 text-center flex flex-col justify-between space-y-3 transition-colors duration-300">
+                <div className="relative w-full h-full bg-white rounded-[14.5px] p-4 text-center flex flex-col justify-between space-y-3 transition-colors duration-300">
                   <div className="font-mono font-black text-xl sm:text-2xl bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent mx-auto group-hover:scale-125 transition-transform duration-300 select-none">
                     0{idx + 1}
                   </div>
@@ -963,7 +522,7 @@ export function StoriesPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 7: CLOSING HERO BANNER ── */}
+      {/* ─── SECTION 6: CLOSING HERO BANNER ── */}
       <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28">
         <div
           aria-hidden="true"

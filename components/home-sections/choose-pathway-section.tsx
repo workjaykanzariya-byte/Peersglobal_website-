@@ -218,7 +218,9 @@ export function ChoosePathwaySection() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
           <GalaxyButton
-            href="/circles/find"
+            href="https://peersunity.com/circles"
+            target="_blank"
+            rel="noopener noreferrer"
             size="lg"
             aria-label="Find Your Circle"
           >
@@ -255,7 +257,9 @@ export function ChoosePathwaySection() {
 
           <div className="flex items-center gap-2 shrink-0">
             <GalaxyButton
-              href="/circles/find"
+              href="https://peersunity.com/circles"
+              target="_blank"
+              rel="noopener noreferrer"
               size="sm"
               aria-label="Find Your Circle"
               className="text-[11px] sm:text-xs px-3 sm:px-4 py-1.5 whitespace-nowrap shrink-0 font-bold tracking-wider"

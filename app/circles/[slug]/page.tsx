@@ -6,6 +6,7 @@ import { Card, Cta, Eyebrow, SectionHead, Tag } from '@/components/site/ui'
 import { CIRCLES } from '@/lib/data/circles'
 import { MAIN_18_CIRCLES } from '@/lib/data/main-18-circles'
 import { CircleMembersModal } from '@/components/circle-members-modal'
+import { getCircleDeepLink, APP_DEEP_LINKS } from '@/lib/data/app-deep-links'
 
 export async function generateStaticParams() {
   const allSlugs = [
@@ -97,10 +98,24 @@ export default async function CircleDetailPage({
               </li>
             </ul>
             <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Cta
+                href={getCircleDeepLink(circle.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in Unity App
+              </Cta>
               {circle.seatsOpen > 0 ? (
-                <Cta href="/membership">Apply for a category seat</Cta>
+                <Cta
+                  href={APP_DEEP_LINKS.APPLY_MEMBERSHIP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline"
+                >
+                  Apply for a category seat
+                </Cta>
               ) : (
-                <Cta href="/contact?intent=membership">Join the waitlist</Cta>
+                <Cta href="/contact?intent=membership" variant="outline">Join the waitlist</Cta>
               )}
               <Cta href="/contact?intent=explorer" variant="outline">Request a guest seat</Cta>
               <CircleMembersModal

@@ -246,44 +246,53 @@ export function PeerStandingClient() {
               </div>
 
               {/* 4 Value Pillars */}
+              {/* 4 Value Pillars */}
               <div className="grid sm:grid-cols-2 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <ShieldCheck className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Uncompromised Trust</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">Built through verified reciprocity</p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Meritocratic Standing</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">Independent of capital or company size</p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <ShieldCheck className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Uncompromised Trust</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">Built through verified reciprocity</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <Users className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Leadership Candicacy</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">Requirement for Circle & ED roles</p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Meritocratic Standing</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">Independent of capital or company size</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <Award className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Users className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Leadership Candicacy</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">Requirement for Circle & ED roles</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">National Reach</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">High standing peers connect across cities</p>
+                </div>
+
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Award className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">National Reach</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">High standing peers connect across cities</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -291,55 +300,57 @@ export function PeerStandingClient() {
 
             {/* Right Visual Card Column */}
             <div className="lg:col-span-5">
-              <div
-                style={{
-                  background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
-                }}
-                className="rounded-3xl border border-white/10 p-7 sm:p-8 text-white shadow-xl space-y-6 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
-                <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
-                    <span className="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                      HOW STANDING OPERATES
+              <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                <div
+                  style={{
+                    background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                  }}
+                  className="rounded-[calc(1.5rem-1px)] p-7 sm:p-8 text-white space-y-6 relative overflow-hidden h-full"
+                >
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
+                  <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
+                      <span className="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                        HOW STANDING OPERATES
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-0.5 rounded-full shadow-2xs">
+                      5 Progression Tiers
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-0.5 rounded-full shadow-2xs">
-                    5 Progression Tiers
-                  </span>
-                </div>
 
-                <div className="relative z-10 space-y-3 text-xs sm:text-sm">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-                    <span className="font-mono text-xs font-bold text-sky-400 mt-0.5">01</span>
-                    <div>
-                      <strong className="block text-white font-semibold">Every Action Earns Credit</strong>
-                      <span className="text-slate-300 text-xs font-light">Referrals, masterclasses, and time invested increment your record.</span>
+                  <div className="relative z-10 space-y-3 text-xs sm:text-sm">
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                      <span className="font-mono text-xs font-bold text-sky-400 mt-0.5">01</span>
+                      <div>
+                        <strong className="block text-white font-semibold">Every Action Earns Credit</strong>
+                        <span className="text-slate-300 text-xs font-light">Referrals, masterclasses, and time invested increment your record.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                      <span className="font-mono text-xs font-bold text-emerald-400 mt-0.5">02</span>
+                      <div>
+                        <strong className="block text-white font-semibold">Peer Verification</strong>
+                        <span className="text-slate-300 text-xs font-light">Points are only awarded when the recipient verifies the value received.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                      <span className="font-mono text-xs font-bold text-purple-400 mt-0.5">03</span>
+                      <div>
+                        <strong className="block text-white font-semibold">Global Reputation Badge</strong>
+                        <span className="text-slate-300 text-xs font-light">Your badge is recognized across 45+ cities and 250+ Circles worldwide.</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-                    <span className="font-mono text-xs font-bold text-emerald-400 mt-0.5">02</span>
-                    <div>
-                      <strong className="block text-white font-semibold">Peer Verification</strong>
-                      <span className="text-slate-300 text-xs font-light">Points are only awarded when the recipient verifies the value received.</span>
-                    </div>
+                  <div className="relative z-10 pt-2 text-center">
+                    <span className="text-[11px] text-slate-400 font-light italic">
+                      &ldquo;Respect in this community cannot be bought — it can only be built.&rdquo;
+                    </span>
                   </div>
-
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-                    <span className="font-mono text-xs font-bold text-purple-400 mt-0.5">03</span>
-                    <div>
-                      <strong className="block text-white font-semibold">Global Reputation Badge</strong>
-                      <span className="text-slate-300 text-xs font-light">Your badge is recognized across 45+ cities and 250+ Circles worldwide.</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative z-10 pt-2 text-center">
-                  <span className="text-[11px] text-slate-400 font-light italic">
-                    &ldquo;Respect in this community cannot be bought — it can only be built.&rdquo;
-                  </span>
                 </div>
               </div>
             </div>
@@ -370,20 +381,9 @@ export function PeerStandingClient() {
               return (
                 <div
                   key={tier.name}
-                  className="animated-glow-card group !rounded-3xl"
+                  className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
                 >
-                  <svg className="animated-border-svg" aria-hidden="true">
-                    <rect
-                      x="1"
-                      y="1"
-                      width="calc(100% - 2px)"
-                      height="calc(100% - 2px)"
-                      rx="24"
-                      ry="24"
-                      className="animated-border-path"
-                    />
-                  </svg>
-                  <div className="relative flex flex-col justify-between p-6 sm:p-7 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full cursor-default text-center">
+                  <div className="relative flex flex-col justify-between p-6 sm:p-7 rounded-[23px] bg-white group-hover:bg-[#FAFBFD] transition-colors h-full text-center">
                     <div className="space-y-4 flex flex-col items-center">
                       <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs">
                         <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
@@ -454,32 +454,43 @@ export function PeerStandingClient() {
                 </div>
 
                 <div className="space-y-3 text-xs sm:text-sm text-slate-600 font-light">
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Recognition across the community</strong>
-                      <span className="text-slate-600 text-xs font-light">Peers across Circles and cities see you are someone who gives. That reputation opens doors before you ask.</span>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Recognition across the community</strong>
+                        <span className="text-slate-600 text-xs font-light">Peers across Circles and cities see you are someone who gives. That reputation opens doors before you ask.</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Access to leadership opportunities</strong>
-                      <span className="text-slate-600 text-xs font-light">Every leadership role follows contribution. Standing is what makes a Peer a candidate.</span>
+
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Access to leadership opportunities</strong>
+                        <span className="text-slate-600 text-xs font-light">Every leadership role follows contribution. Standing is what makes a Peer a candidate.</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Priority consideration for initiatives</strong>
-                      <span className="text-slate-600 text-xs font-light">Special conclaves, overseas delegations and high-level working committees prioritize top-standing peers.</span>
+
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Priority consideration for initiatives</strong>
+                        <span className="text-slate-600 text-xs font-light">Special conclaves, overseas delegations and high-level working committees prioritize top-standing peers.</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">Greater visibility within Circles &amp; beyond</strong>
-                      <span className="text-slate-600 text-xs font-light">Brand showcase priority and featured editorial coverage across VyapaarJagat.</span>
+
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Greater visibility within Circles &amp; beyond</strong>
+                        <span className="text-slate-600 text-xs font-light">Brand showcase priority and featured editorial coverage across VyapaarJagat.</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -515,32 +526,43 @@ export function PeerStandingClient() {
                 </div>
 
                 <div className="space-y-3 text-xs sm:text-sm text-slate-600 font-light">
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It is not a hierarchy of importance</strong>
-                      <span className="text-slate-600 text-xs font-light">Peers are not ordered against each other or treated as second-class.</span>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It is not a hierarchy of importance</strong>
+                        <span className="text-slate-600 text-xs font-light">Peers are not ordered against each other or treated as second-class.</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It is not based on your business size</strong>
-                      <span className="text-slate-600 text-xs font-light">A micro-entrepreneur with huge generosity outranks a ₹100 Cr tycoon who only takes.</span>
+
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It is not based on your business size</strong>
+                        <span className="text-slate-600 text-xs font-light">A micro-entrepreneur with huge generosity outranks a ₹100 Cr tycoon who only takes.</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It cannot be bought</strong>
-                      <span className="text-slate-600 text-xs font-light">No sponsorship, donation, or tier purchase produces standing.</span>
+
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It cannot be bought</strong>
+                        <span className="text-slate-600 text-xs font-light">No sponsorship, donation, or tier purchase produces standing.</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It is not permanent</strong>
-                      <span className="text-slate-600 text-xs font-light">Standing reflects an active contributing member. It ends when membership does.</span>
+
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It is not permanent</strong>
+                        <span className="text-slate-600 text-xs font-light">Standing reflects an active contributing member. It ends when membership does.</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -548,7 +570,7 @@ export function PeerStandingClient() {
 
               <div className="mt-8 pt-5 border-t border-slate-100">
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-700 flex items-center gap-2.5">
-                  <ShieldCheck className="size-4 shrink-0 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <ShieldCheck className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   <span>Standing is not given. It is earned, one contribution at a time.</span>
                 </div>
               </div>

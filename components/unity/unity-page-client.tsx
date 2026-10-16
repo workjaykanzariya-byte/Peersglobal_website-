@@ -387,34 +387,38 @@ export function UnityPageClient() {
                 ].map((point) => (
                   <div
                     key={point.title}
-                    className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs space-y-1 group hover:border-blue-300 hover:shadow-md transition-all cursor-pointer"
+                    className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer"
                   >
-                    <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
-                      <CheckCircle2 className="w-4 h-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 group-hover:scale-110 transition-transform" />
-                      <span className="group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">{point.title}</span>
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white h-full space-y-1 transition-colors">
+                      <div className="flex items-center gap-2 text-xs font-bold text-slate-900">
+                        <CheckCircle2 className="w-4 h-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 group-hover:scale-110 transition-transform" />
+                        <span className="group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">{point.title}</span>
+                      </div>
+                      <p className="text-xs text-slate-500 leading-relaxed pl-6 group-hover:text-slate-700 transition-colors">
+                        {point.desc}
+                      </p>
                     </div>
-                    <p className="text-xs text-slate-500 leading-relaxed pl-6 group-hover:text-slate-700 transition-colors">
-                      {point.desc}
-                    </p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="lg:col-span-6">
-              <div className="p-8 sm:p-10 rounded-3xl bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white shadow-xl space-y-6 border border-white/10 relative overflow-hidden">
-                <div className="w-11 h-11 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20 shadow-2xs">
-                  <ShieldCheck className="w-5 h-5 stroke-[url(#brandStatGrad)] text-sky-300" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
-                  "The experience is built around relationships—not an algorithm deciding what should appear next."
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                  Unity removes the noise of open social networks. No promoted posts, no engagement hooks, and no vanity metrics. Just verified entrepreneurs solving problems, making introductions, and taking responsibility for one another.
-                </p>
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold bg-gradient-to-r from-[#38BDF8] to-[#FB7185] bg-clip-text text-transparent">
-                  <span>Trust-Based Architecture</span>
-                  <span>100% Verified Founders</span>
+              <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                <div className="p-8 sm:p-10 rounded-[calc(1.5rem-1px)] bg-[linear-gradient(90deg,rgb(6,17,44)_0%,rgb(19,7,31)_50%,rgb(38,5,19)_100%)] text-white space-y-6 relative overflow-hidden h-full flex flex-col justify-between">
+                  <div className="w-11 h-11 rounded-2xl bg-white/10 text-sky-300 flex items-center justify-center border border-white/20 shadow-2xs group-hover:scale-105 transition-transform">
+                    <ShieldCheck className="w-5 h-5 stroke-[url(#brandStatGrad)] text-sky-300" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
+                    "The experience is built around relationships—not an algorithm deciding what should appear next."
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                    Unity removes the noise of open social networks. No promoted posts, no engagement hooks, and no vanity metrics. Just verified entrepreneurs solving problems, making introductions, and taking responsibility for one another.
+                  </p>
+                  <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold bg-gradient-to-r from-[#38BDF8] to-[#FB7185] bg-clip-text text-transparent">
+                    <span>Trust-Based Architecture</span>
+                    <span>100% Verified Founders</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -505,136 +509,144 @@ export function UnityPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Box 1: YOUR PROFILE IS PRIVATE BY DEFAULT */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md hover:border-blue-300 transition-all group">
-              <div className="space-y-3.5">
-                <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
-                  <Lock className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1">
+              <div className="p-7 sm:p-9 rounded-[calc(1.5rem-1px)] bg-[#FAFBFD] group-hover:bg-white h-full flex flex-col justify-between space-y-6 transition-colors">
+                <div className="space-y-3.5">
+                  <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
+                    <Lock className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                    Your profile is private by default
+                  </h3>
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    <p>
+                      Your digital presence should begin with trust. Your profile is private by default.
+                    </p>
+                    <p>
+                      Your participation should happen within the context of a community you have chosen to be part of.
+                    </p>
+                    <p className="text-slate-800 font-medium pt-1">
+                      Unity is not designed around strangers discovering you through an open algorithm. It is designed around relationships you can understand, and relationships you can choose to build.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
-                  Your profile is private by default
-                </h3>
-                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  <p>
-                    Your digital presence should begin with trust. Your profile is private by default.
-                  </p>
-                  <p>
-                    Your participation should happen within the context of a community you have chosen to be part of.
-                  </p>
-                  <p className="text-slate-800 font-medium pt-1">
-                    Unity is not designed around strangers discovering you through an open algorithm. It is designed around relationships you can understand, and relationships you can choose to build.
-                  </p>
+                <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  <Shield className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
+                  <span>Zero Open Harvesting • Mutual Connection Permissions</span>
                 </div>
-              </div>
-              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                <Shield className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
-                <span>Zero Open Harvesting • Mutual Connection Permissions</span>
               </div>
             </div>
 
             {/* Box 2: WHY THE APP MATTERS MORE THAN THE MEETING */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md hover:border-blue-300 transition-all group">
-              <div className="space-y-3.5">
-                <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
-                  <Clock className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
-                  Why the app matters more than the meeting
-                </h3>
-                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  <p>
-                    A Circle meeting may happen for a few hours each month. But a relationship does not stop when the meeting ends.
-                  </p>
-                  <p>
-                    There are approximately <strong className="text-slate-900 font-semibold">8,736 hours in a year</strong>. The meeting occupies only a small part of that time. The rest is where relationships continue:
-                  </p>
-                  <div className="grid grid-cols-2 gap-1.5 text-xs text-slate-800 font-medium pt-1">
-                    <span>• A message</span>
-                    <span>• An introduction</span>
-                    <span>• A question</span>
-                    <span>• A shared opportunity</span>
-                    <span>• A one-to-one</span>
-                    <span>• A contribution</span>
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1">
+              <div className="p-7 sm:p-9 rounded-[calc(1.5rem-1px)] bg-[#FAFBFD] group-hover:bg-white h-full flex flex-col justify-between space-y-6 transition-colors">
+                <div className="space-y-3.5">
+                  <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
+                    <Clock className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
-                  <p className="italic text-slate-700 pt-1">
-                    The meeting creates the connection. Unity helps keep the connection alive.
-                  </p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                    Why the app matters more than the meeting
+                  </h3>
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    <p>
+                      A Circle meeting may happen for a few hours each month. But a relationship does not stop when the meeting ends.
+                    </p>
+                    <p>
+                      There are approximately <strong className="text-slate-900 font-semibold">8,736 hours in a year</strong>. The meeting occupies only a small part of that time. The rest is where relationships continue:
+                    </p>
+                    <div className="grid grid-cols-2 gap-1.5 text-xs text-slate-800 font-medium pt-1">
+                      <span>• A message</span>
+                      <span>• An introduction</span>
+                      <span>• A question</span>
+                      <span>• A shared opportunity</span>
+                      <span>• A one-to-one</span>
+                      <span>• A contribution</span>
+                    </div>
+                    <p className="italic text-slate-700 pt-1">
+                      The meeting creates the connection. Unity helps keep the connection alive.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                <TrendingUp className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
-                <span>8,736 Hours of Continuous Value</span>
+                <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  <TrendingUp className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
+                  <span>8,736 Hours of Continuous Value</span>
+                </div>
               </div>
             </div>
 
             {/* Box 3: ONE COMMUNITY. EVERY COUNTRY. */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md hover:border-blue-300 transition-all group">
-              <div className="space-y-3.5">
-                <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
-                  <Globe2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
-                  One community. Every country.
-                </h3>
-                <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  <p>
-                    PEERS GLOBAL is designed as one community across geographies.
-                  </p>
-                  <div className="space-y-1.5 pl-3 border-l-2 border-blue-500 text-xs text-slate-700 font-medium">
-                    <p>• Your Circle gives you local relationships.</p>
-                    <p>• Your industry can connect you to relevant entrepreneurs.</p>
-                    <p>• Your purpose can take you beyond your industry.</p>
-                    <p>• And Unity can keep those relationships connected across the wider community.</p>
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1">
+              <div className="p-7 sm:p-9 rounded-[calc(1.5rem-1px)] bg-[#FAFBFD] group-hover:bg-white h-full flex flex-col justify-between space-y-6 transition-colors">
+                <div className="space-y-3.5">
+                  <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
+                    <Globe2 className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
-                  <p className="text-slate-900 font-semibold pt-1">
-                    Local relationships. National possibilities. Global connections. One community.
-                  </p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                    One community. Every country.
+                  </h3>
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    <p>
+                      PEERS GLOBAL is designed as one community across geographies.
+                    </p>
+                    <div className="space-y-1.5 pl-3 border-l-2 border-blue-500 text-xs text-slate-700 font-medium">
+                      <p>• Your Circle gives you local relationships.</p>
+                      <p>• Your industry can connect you to relevant entrepreneurs.</p>
+                      <p>• Your purpose can take you beyond your industry.</p>
+                      <p>• And Unity can keep those relationships connected across the wider community.</p>
+                    </div>
+                    <p className="text-slate-900 font-semibold pt-1">
+                      Local relationships. National possibilities. Global connections. One community.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                <Compass className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
-                <span>Cross-Border Ecosystem Architecture</span>
+                <div className="pt-4 border-t border-slate-200/80 flex items-center gap-2 text-xs font-semibold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                  <Compass className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0" />
+                  <span>Cross-Border Ecosystem Architecture</span>
+                </div>
               </div>
             </div>
 
             {/* Box 4: START HERE */}
-            <div className="p-7 sm:p-9 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-6 hover:shadow-md hover:border-blue-300 transition-all group">
-              <div className="space-y-3.5">
-                <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
-                  <Flag className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
-                  Start here
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  You do not need to understand every feature before you begin. Start with your people.
-                </p>
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1">
+              <div className="p-7 sm:p-9 rounded-[calc(1.5rem-1px)] bg-[#FAFBFD] group-hover:bg-white h-full flex flex-col justify-between space-y-6 transition-colors">
+                <div className="space-y-3.5">
+                  <div className="size-11 rounded-2xl bg-white border border-blue-100 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
+                    <Flag className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                    Start here
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    You do not need to understand every feature before you begin. Start with your people.
+                  </p>
 
-                <div className="space-y-2 pt-1">
-                  {START_HERE_STEPS.map((s, idx) => {
-                    return (
-                      <div
-                        key={s.title}
-                        className="flex items-start gap-3 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:border-blue-100 transition-colors"
-                      >
-                        <div className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white flex items-center justify-center shrink-0 text-[10px] font-bold shadow-2xs">
-                          {idx + 1}
+                  <div className="space-y-2 pt-1">
+                    {START_HERE_STEPS.map((s, idx) => {
+                      return (
+                        <div
+                          key={s.title}
+                          className="flex items-start gap-3 p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:border-blue-100 transition-colors"
+                        >
+                          <div className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white flex items-center justify-center shrink-0 text-[10px] font-bold shadow-2xs">
+                            {idx + 1}
+                          </div>
+                          <div>
+                            <span className="text-xs font-bold text-slate-900 block leading-tight">
+                              {s.title}
+                            </span>
+                            <span className="text-[11px] text-slate-600 leading-tight">
+                              {s.desc}
+                            </span>
+                          </div>
                         </div>
-                        <div>
-                          <span className="text-xs font-bold text-slate-900 block leading-tight">
-                            {s.title}
-                          </span>
-                          <span className="text-[11px] text-slate-600 leading-tight">
-                            {s.desc}
-                          </span>
-                        </div>
-                      </div>
-                    )
-                  })}
+                      )
+                    })}
+                  </div>
                 </div>
+                <p className="text-xs font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent text-center pt-2">
+                  That is the purpose of Unity.
+                </p>
               </div>
-              <p className="text-xs font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent text-center pt-2">
-                That is the purpose of Unity.
-              </p>
             </div>
 
           </div>

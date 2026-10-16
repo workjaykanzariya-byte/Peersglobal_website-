@@ -59,7 +59,9 @@ export function IndiaNetworkClient() {
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <GalaxyButton
-                  href="/circles/find"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="primary"
                   size="md"
                 >
@@ -177,7 +179,9 @@ export function IndiaNetworkClient() {
 
               <div className="pt-2">
                 <GalaxyButton
-                  href="/circles"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="primary"
                   size="md"
                 >

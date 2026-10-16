@@ -63,6 +63,7 @@ import {
 import { CIRCLES, Circle } from '@/lib/data/circles'
 import { ACTIVE_CITIES } from '@/lib/data/site'
 import { CircleMembersModal } from '@/components/circle-members-modal'
+import { APP_DEEP_LINKS, getCircleDeepLink } from '@/lib/data/app-deep-links'
 
 export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }) {
   const cityList = dynamicCities.length > 0 ? dynamicCities : ACTIVE_CITIES
@@ -330,6 +331,21 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
+      {/* SVG Linear Gradient Definitions for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
       {/* =========================================================================
           SECTION 1: HERO (Master Full Page Dark Video Banner)
           ========================================================================= */}
@@ -877,13 +893,15 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </p>
               </div>
 
-              <button
-                onClick={() => scrollToExplore('industry')}
+              <a
+                href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-fit shadow-sm"
               >
                 <span>Browse Industry Circles</span>
                 <ArrowRight className="size-4" />
-              </button>
+              </a>
             </div>
 
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all group">
@@ -905,13 +923,15 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </p>
               </div>
 
-              <button
-                onClick={() => scrollToExplore('purpose')}
+              <a
+                href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-fit shadow-sm"
               >
                 <span>Browse Purpose Circles</span>
                 <ArrowRight className="size-4" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -1870,7 +1890,9 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <GalaxyButton
-                  onClick={() => scrollToExplore()}
+                  href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >
@@ -1910,9 +1932,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             {/* Close Button */}
             <button
               onClick={() => setSelectedCategoryForModal(null)}
-              className="absolute top-5 right-5 size-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-5 right-5 size-9 rounded-full bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-rose-500/15 hover:from-blue-500/20 hover:via-indigo-500/20 hover:to-rose-500/25 border border-blue-200/60 shadow-xs flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer group"
+              aria-label="Close modal"
             >
-              <X className="size-4" />
+              <X className="size-5 stroke-[url(#brandIconGrad)] stroke-[2.5] text-[#1D4ED8] group-hover:rotate-90 transition-transform duration-200" />
             </button>
 
             {/* Header: Category Badge + Title */}
@@ -2060,7 +2083,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex items-center gap-2.5">
+                        <div className="flex flex-wrap items-center gap-2.5">
                           <Link
                             href={`/circles/${circle.slug}?city=${encodeURIComponent(modalCity)}`}
                             className="flex-1 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-4 py-2 text-xs font-bold shadow-2xs transition-all text-center inline-flex items-center justify-center gap-1.5"
@@ -2068,6 +2091,15 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                             <span>View Chapter Details & Apply</span>
                             <ArrowRight className="size-3" />
                           </Link>
+                          <a
+                            href={getCircleDeepLink(selectedCategoryForModal.name)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white px-4 py-2 text-xs font-bold shadow-2xs transition-all text-center inline-flex items-center justify-center gap-1.5 hover:opacity-95"
+                          >
+                            <span>Open in App</span>
+                            <ArrowRight className="size-3" />
+                          </a>
                           <button
                             type="button"
                             onClick={() => {
@@ -2178,9 +2210,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="relative w-full max-w-lg rounded-3xl border border-slate-700 bg-[#050C1A] text-white p-8 shadow-2xl flex flex-col gap-6">
             <button
               onClick={() => setIsGuestModalOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors"
+              className="absolute top-5 right-5 size-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer group"
+              aria-label="Close modal"
             >
-              <X className="size-5" />
+              <X className="size-5 stroke-[url(#brandStatGrad)] stroke-[2.5] text-sky-400 group-hover:rotate-90 transition-transform duration-200" />
             </button>
 
             <div className="flex flex-col gap-2">

@@ -641,12 +641,14 @@ export default function LexiconClientPage() {
                   <ArrowRight className="size-4" />
                 </Link>
 
-                <Link
-                  href="/circles"
+                <a
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-7 py-3.5 text-sm font-semibold transition-all hover:scale-105"
                 >
                   Find Your Circle
-                </Link>
+                </a>
               </div>
 
               {/* 3 Pill Stats matching reference screenshot */}
@@ -1562,12 +1564,14 @@ export default function LexiconClientPage() {
                 <ArrowRight className="size-4" />
               </Link>
 
-              <Link
-                href="/circles"
+              <a
+                href="https://peersunity.com/circles"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 text-sm font-semibold transition-all hover:scale-105"
               >
                 Find Your Circle
-              </Link>
+              </a>
             </div>
 
           </div>

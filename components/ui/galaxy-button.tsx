@@ -117,25 +117,31 @@ export const GalaxyButton = React.forwardRef<
 
   // Smart download link detection:
   // If the button text mentions download unity/app/peers or links to /download,
-  // automatically wire it to the platform-specific App Store (iOS) or Play Store (Android).
+  // automatically wire it to the platform-specific App Store (iOS) or Play Store (Android),
+  // EXCEPT when an explicit store link (App Store or Google Play) was specifically provided.
   const textContent = extractText(children)
-  const isDownload =
-    (/download/i.test(textContent) && /unity|app|peers/i.test(textContent)) ||
-    href === '/download' ||
-    Boolean((rest as any)['data-download'])
+  const isExplicitStoreLink =
+    typeof href === 'string' &&
+    (href.includes('apps.apple.com') || href.includes('play.google.com'))
 
-  const resolvedHref = isDownload && (!href || href === '/unity' || href === 'https://unity.peersglobal.com' || href === '/download')
+  const isSmartDownload =
+    !isExplicitStoreLink &&
+    ((/download/i.test(textContent) && /unity|app|peers/i.test(textContent)) ||
+      href === '/download' ||
+      Boolean((rest as any)['data-download']))
+
+  const resolvedHref = isSmartDownload && (!href || href === '/unity' || href === 'https://unity.peersglobal.com' || href === '/download')
     ? (typeof window !== 'undefined' ? getSmartAppUrl(SITE.playStoreUrl) : SITE.playStoreUrl)
     : href
 
-  const resolvedTarget = isDownload ? (target ?? '_blank') : target
-  const resolvedRel = isDownload ? (rel ?? 'noopener noreferrer') : rel
+  const resolvedTarget = isSmartDownload || isExplicitStoreLink ? (target ?? '_blank') : target
+  const resolvedRel = isSmartDownload || isExplicitStoreLink ? (rel ?? 'noopener noreferrer') : rel
 
   const handleClick = (e: any) => {
     if (onClick) {
       onClick(e)
     }
-    if (isDownload) {
+    if (isSmartDownload) {
       handleSmartAppDownload(e)
     }
   }

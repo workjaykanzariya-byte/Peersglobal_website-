@@ -192,6 +192,22 @@ export function AmbassadorClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FAFBFD] text-slate-900">
+      {/* Global SVG Gradients for Icons and Card Borders */}
+      <svg className="absolute size-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="cardGradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* ─── 1. HERO SECTION (MASTER HOMEPAGE HERO STYLE) ──────────────── */}
       <section className="relative min-h-[560px] sm:min-h-[620px] lg:min-h-[680px] bg-[#040F24] text-white flex items-center overflow-hidden">
         {/* Background video layer */}
@@ -307,7 +323,6 @@ export function AmbassadorClient() {
             {/* Left Content */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 <span className="brand-gradient-text">RELATIONAL GROWTH</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-5">
@@ -350,7 +365,6 @@ export function AmbassadorClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-12">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <span className="brand-gradient-text">THREE CORE PILLARS</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight mb-4">
@@ -367,29 +381,31 @@ export function AmbassadorClient() {
               return (
                 <div
                   key={item.number}
-                  className="relative p-8 rounded-3xl border border-slate-200/90 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                  className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                 >
-                  {/* Watermark Number */}
-                  <div className="absolute top-4 right-6 text-6xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50/70">
-                    {item.number}
-                  </div>
-
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="size-13 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center shadow-sm border border-blue-100/70">
-                        <Icon className="size-6" />
-                      </div>
+                  <div className="p-8 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between overflow-hidden relative transition-colors">
+                    {/* Watermark Number */}
+                    <div className="absolute top-4 right-6 text-6xl font-extrabold text-slate-100 font-sans select-none pointer-events-none transition-colors group-hover:text-blue-50/70">
+                      {item.number}
                     </div>
 
-                    <h3 className="font-serif text-2xl font-bold text-slate-950 mb-1 tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs font-bold text-[#0062D2] mb-4 uppercase tracking-wider">
-                      {item.headline}
-                    </p>
-                    <p className="text-sm text-slate-600 leading-relaxed font-light">
-                      {item.desc}
-                    </p>
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="size-13 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-[#0062D2] flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                          <Icon className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                      </div>
+
+                      <h3 className="font-serif text-2xl font-bold text-slate-950 mb-1 tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs font-bold text-[#0062D2] mb-4 uppercase tracking-wider">
+                        {item.headline}
+                      </p>
+                      <p className="text-sm text-slate-600 leading-relaxed font-light">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
               )
@@ -405,7 +421,6 @@ export function AmbassadorClient() {
             {/* Left: Consciousness & Awareness */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-1">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 <span className="brand-gradient-text">AWARENESS & STATURE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
@@ -417,11 +432,16 @@ export function AmbassadorClient() {
 
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 {WHO_YOU_BECOME_POINTS.map((pt, idx) => (
-                  <div key={idx} className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200 flex items-start gap-2.5 shadow-sm">
-                    <CheckCircle2 className="size-4 text-[#0062D2] shrink-0 mt-0.5" />
-                    <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug">
-                      {pt}
-                    </p>
+                  <div
+                    key={idx}
+                    className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
+                  >
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-2.5 h-full transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                      <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:to-[#E11D48] group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all">
+                        {pt}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -435,20 +455,22 @@ export function AmbassadorClient() {
 
             {/* Right: The Guiding Question Card */}
             <div className="lg:col-span-5">
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-[#FAFBFD] to-[#F1F5F9] border border-slate-200/90 shadow-sm flex flex-col justify-between">
-                <div>
-                  <div className="size-12 rounded-2xl bg-blue-50 text-[#0062D2] flex items-center justify-center mb-5">
-                    <Quote className="size-6" />
+              <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1">
+                <div className="p-8 rounded-[calc(1.5rem-1px)] bg-gradient-to-br from-[#FAFBFD] to-[#F1F5F9] h-full flex flex-col justify-between">
+                  <div>
+                    <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 text-[#0062D2] flex items-center justify-center mb-5 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Quote className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
+                      THE CRITICAL QUESTION
+                    </h3>
+                    <blockquote className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug tracking-tight mb-4 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                      “When someone meets you, what do they feel about the community you represent?”
+                    </blockquote>
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                      Every interaction reflects back on the standards and character of PEERS GLOBAL. That awareness shapes how an Ambassador walks into every room.
+                    </p>
                   </div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0062D2] mb-2">
-                    THE CRITICAL QUESTION
-                  </h3>
-                  <blockquote className="font-serif text-xl sm:text-2xl font-bold text-slate-950 leading-snug tracking-tight mb-4">
-                    “When someone meets you, what do they feel about the community you represent?”
-                  </blockquote>
-                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                    Every interaction reflects back on the standards and character of PEERS GLOBAL. That awareness shapes how an Ambassador walks into every room.
-                  </p>
                 </div>
               </div>
             </div>
@@ -461,9 +483,7 @@ export function AmbassadorClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <span className="brand-gradient-text">ACTION & PRACTICE</span>
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight">
               What an Ambassador does
@@ -474,28 +494,46 @@ export function AmbassadorClient() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {EIGHT_ACTIONS.map((item) => {
+            {EIGHT_ACTIONS.map((item, idx) => {
               const Icon = item.icon
+              const gradId = `ambActionGrad_${idx}`
               return (
                 <div
                   key={item.action}
-                  className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-[#0062D2]/40 hover:shadow-md transition-all flex flex-col justify-between"
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-xs font-bold text-[#0062D2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
-                        {item.action}
-                      </span>
-                      <div className="size-10 rounded-xl bg-slate-50 text-[#0062D2] flex items-center justify-center">
-                        <Icon className="size-5" />
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={gradId} x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#${gradId})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="p-6 flex flex-col justify-between h-full">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="font-mono text-xs font-bold text-[#0062D2] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100 group-hover:border-blue-200 transition-colors">
+                          {item.action}
+                        </span>
+                        <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
                       </div>
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-slate-950 mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
-                    <h3 className="font-serif text-base font-bold text-slate-950 mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                      {item.desc}
-                    </p>
                   </div>
                 </div>
               )
@@ -582,9 +620,7 @@ export function AmbassadorClient() {
           <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-2">
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
                 <span className="brand-gradient-text">PROFILE & FIT</span>
-                <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
                 Who this is for
@@ -596,11 +632,16 @@ export function AmbassadorClient() {
 
             <div className="grid sm:grid-cols-2 gap-3.5 mb-8">
               {WHO_THIS_IS_FOR.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-slate-800 font-medium">
-                    {item}
-                  </span>
+                <div
+                  key={idx}
+                  className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
+                >
+                  <div className="flex items-start gap-3 p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white h-full transition-colors">
+                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                    <span className="text-xs sm:text-sm text-slate-800 font-medium group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:to-[#E11D48] group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all">
+                      {item}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -619,9 +660,7 @@ export function AmbassadorClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-3">
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
               <span className="brand-gradient-text">FREQUENTLY ASKED QUESTIONS</span>
-              <span className="w-5 h-[2px] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-950 tracking-tight">
               Frequently asked questions

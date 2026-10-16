@@ -254,14 +254,18 @@ export function CircleMapClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="/circles/find"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="font-semibold"
                 >
                   Find Your Circle
                 </GalaxyButton>
                 <GalaxyButton
-                  href="/start-a-circle"
+                  href="https://peersunity.com/start_a_circle"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="transparent"
                   size="default"
                   className="font-medium"
@@ -743,7 +747,9 @@ export function CircleMapClient() {
 
             <div className="flex shrink-0 flex-wrap items-center gap-4">
               <GalaxyButton
-                href="/circles/find"
+                href="https://peersunity.com/circles"
+                target="_blank"
+                rel="noopener noreferrer"
                 size="default"
                 className="font-semibold"
               >
@@ -751,7 +757,9 @@ export function CircleMapClient() {
               </GalaxyButton>
 
               <GalaxyButton
-                href="/start-a-circle"
+                href="https://peersunity.com/start_a_circle"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="transparent"
                 size="default"
                 className="font-medium"

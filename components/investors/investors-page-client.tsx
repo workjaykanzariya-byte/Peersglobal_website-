@@ -135,156 +135,121 @@ export function InvestorsPageClient() {
         </div>
       </div>
 
-      {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
-      <section className="relative overflow-hidden bg-[#FAFBFD] text-slate-900 pt-6 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Top Hero Banner with Smooth Left-Fading Media/Video Backdrop */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[36px] bg-white border border-slate-200/80 shadow-sm min-h-[540px] lg:min-h-[600px] flex items-center">
+      {/* ── Signature Hero Section (True Full-Bleed Edge-to-Edge Dark Cinematic Video Hero) ── */}
+      <section className="relative overflow-hidden bg-[#040F24] text-white w-full min-h-[580px] lg:min-h-[640px] flex items-center border-b border-slate-800">
+        
+        {/* Full Bleed Media Background Layer with Dark Scrim */}
+        <div className="absolute inset-0 size-full overflow-hidden pointer-events-none">
+          {/* Active Video Background */}
+          <video
+            src="/videos/homepage-hero-bg.mp4"
+            poster="/images/circles-hero-new.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="size-full object-cover object-center"
+          />
+
+          {/* Dark scrim matching Partner & Home hero */}
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.94)_0%,rgba(4,15,36,0.82)_45%,rgba(4,15,36,0.60)_100%)] pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#040F24] via-[#040F24]/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#040F24]/70 via-transparent to-transparent pointer-events-none" />
+        </div>
+
+        {/* Inner Content Area */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+          <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
             
-            {/* Media Background Layer (Right ~60% fading into white on the left) */}
-            <div
-              className="absolute top-0 right-0 bottom-0 w-full sm:w-[65%] lg:w-[60%] overflow-hidden pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 8%, rgba(0,0,0,0.5) 25%, black 50%)',
-              }}
-            >
-              {/* Active Video Background */}
-              <video
-                src="/videos/homepage-hero-bg.mp4"
-                poster="/images/circles-hero-new.jpg"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="size-full object-cover object-center"
-              />
-
-              {/* Seamless gradient overlays for misty fade */}
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-white via-white/85 via-30% to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top-Right Script Typography */}
-              <div className="absolute top-6 sm:top-8 right-6 sm:right-8 z-20 text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] pointer-events-none select-none">
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight" style={{ fontFamily: 'var(--font-script)' }}>
-                  Institutional Infrastructure
-                </p>
-                <p className="text-xl sm:text-2xl text-white/95 leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Building Together
-                </p>
-                <p className="text-2xl sm:text-3xl text-amber-300 font-medium leading-tight mt-0.5" style={{ fontFamily: 'var(--font-script)' }}>
-                  Ecosystem Value
-                </p>
-              </div>
-
-              {/* Bottom-Right Frosted Glass Pill */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20 pointer-events-none select-none hidden sm:block">
-                <div className="rounded-xl border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2.5 shadow-lg text-left">
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-white/70">
-                    GROWTH CAPITAL &amp; ALLIANCES
-                  </p>
-                  <p className="text-xs font-bold tracking-wider text-white">
-                    PEERS GLOBAL ECOSYSTEM
-                  </p>
-                </div>
-              </div>
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2.5 mb-4">
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
+                INVESTORS &amp; CAPITAL PARTNERS
+              </span>
             </div>
 
-            {/* Left Content Area */}
-            <div className="relative z-10 w-full p-6 sm:p-10 lg:p-14">
-              <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
-                
-                {/* Eyebrow with brand gradient bar */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                    INVESTORS &amp; CAPITAL PARTNERS
-                  </span>
+            {/* H1 Heading */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-semibold text-white tracking-tight leading-[1.14] mb-4">
+              Building the infrastructure for entrepreneurs to{' '}
+              <span className="italic bg-gradient-to-r from-blue-400 via-indigo-300 to-rose-400 bg-clip-text text-transparent font-medium">
+                build, connect, collaborate and create impact.
+              </span>
+            </h1>
+
+            {/* Subtitle & Core Observation Quote */}
+            <div className="border-l-2 border-[#E11D48] pl-3 py-1 mb-6 max-w-xl">
+              <p className="text-xs sm:text-sm text-slate-300">
+                “PEERS GLOBAL is being built around a simple observation:
+              </p>
+              <p className="text-base sm:text-lg font-semibold text-white mt-0.5">
+                Entrepreneurs should not have to build alone.”
+              </p>
+              <p className="text-xs sm:text-sm text-slate-200 mt-1">
+                A multi-layered ecosystem enabling value created by one entrepreneur to compound across the entire network.
+              </p>
+            </div>
+
+            {/* 6 Ecosystem Dimensions Pills */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full max-w-lg mb-8">
+              {[
+                'A community',
+                'Collaboration infra',
+                'Learning environment',
+                'Leadership pathway',
+                'Media platform',
+                'Impact ecosystem',
+              ].map((item, idx) => (
+                <div key={idx} className="p-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-xs shadow-2xs flex items-center gap-1.5 text-xs font-semibold text-slate-100 transition-colors">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                  <span className="truncate">{item}</span>
                 </div>
+              ))}
+            </div>
 
-                {/* H1 Heading */}
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[50px] font-bold text-slate-950 tracking-tight leading-[1.14] mb-4">
-                  Building the infrastructure for entrepreneurs to{' '}
-                  <span className="italic bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] bg-clip-text text-transparent font-medium">
-                    build, connect, collaborate and create impact.
-                  </span>
-                </h1>
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
+              <GalaxyButton
+                href="#investor-enquiry"
+                size="default"
+                className="uppercase tracking-wider font-bold"
+              >
+                Investor Enquiry
+              </GalaxyButton>
 
-                {/* Subtitle & Core Observation */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-rose-50/50 border border-blue-100/80 mb-6 max-w-lg">
-                  <p className="font-serif italic text-slate-900 text-sm sm:text-base font-medium">
-                    “PEERS GLOBAL is being built around a simple observation: <span className="not-italic font-bold text-slate-950">Entrepreneurs should not have to build alone.”</span>
-                  </p>
-                  <p className="text-xs text-slate-600 mt-1">
-                    A multi-layered ecosystem enabling value created by one entrepreneur to compound across the entire network.
-                  </p>
-                </div>
+              <GalaxyButton
+                href="#the-model"
+                variant="transparent"
+                size="default"
+                className="uppercase tracking-wider font-bold"
+                showIcon={false}
+              >
+                The Model
+              </GalaxyButton>
 
-                {/* 6 Ecosystem Dimensions Pills */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full max-w-lg mb-8">
-                  {[
-                    'A community',
-                    'Collaboration infra',
-                    'Learning environment',
-                    'Leadership pathway',
-                    'Media platform',
-                    'Impact ecosystem',
-                  ].map((item, idx) => (
-                    <div key={idx} className="p-2.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center gap-1.5 text-xs font-semibold text-slate-800">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#1D4ED8] shrink-0" />
-                      <span className="truncate">{item}</span>
-                    </div>
-                  ))}
-                </div>
+              <GalaxyButton
+                href="#investment-principles"
+                variant="transparent"
+                size="default"
+                className="uppercase tracking-wider font-bold"
+                showIcon={false}
+              >
+                Principles
+              </GalaxyButton>
+            </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-                  <GalaxyButton
-                    href="#investor-enquiry"
-                    variant="primary"
-                    size="md"
-                  >
-                    Investor Enquiry
-                  </GalaxyButton>
-
-                  <GalaxyButton
-                    href="#the-model"
-                    variant="transparent-light"
-                    size="md"
-                    showIcon={false}
-                  >
-                    The Model
-                  </GalaxyButton>
-
-                  <GalaxyButton
-                    href="#investment-principles"
-                    variant="transparent-light"
-                    size="md"
-                    showIcon={false}
-                  >
-                    Principles
-                  </GalaxyButton>
-                </div>
-
-                {/* Quick Info Bar */}
-                <div className="flex items-center gap-6 text-xs text-slate-500 pt-2 border-t border-slate-200/80 w-full max-w-lg">
-                  <div className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Governed Capital Protocol</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 font-medium">
-                    <Sparkles className="w-4 h-4 text-[#1D4ED8]" />
-                    <span>Confidential Direct Briefings</span>
-                  </div>
-                </div>
-
+            {/* Quick Info Bar */}
+            <div className="flex items-center gap-6 text-xs text-slate-300 pt-2 border-t border-white/15 w-full max-w-lg">
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>Governed Capital Protocol</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <Sparkles className="w-4 h-4 text-blue-400" />
+                <span>Confidential Direct Briefings</span>
               </div>
             </div>
 
           </div>
-
         </div>
       </section>
 
@@ -295,7 +260,6 @@ export function InvestorsPageClient() {
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Market Context
                   </span>
@@ -328,27 +292,30 @@ export function InvestorsPageClient() {
               </div>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#F8FAFD] border border-slate-200 shadow-sm space-y-6">
-              <h3 className="text-xl font-serif font-bold text-slate-950">
-                PEERS GLOBAL is building around that opportunity.
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600">
-                The ambition is not simply to create another business network. It is to build an ecosystem in which:
-              </p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: 'People connect', desc: 'Relational trust over transactions' },
-                  { label: 'Experience moves', desc: 'Practitioner wisdom shared directly' },
-                  { label: 'Collaboration happens', desc: 'Structured bilateral opportunities' },
-                  { label: 'Leadership develops', desc: 'Peer stewardship & council governance' },
-                  { label: 'Contribution compounds', desc: 'Give-first culture with Peers Coin' },
-                  { label: 'Impact travels', desc: '1 Action = 1 Life Impacted' },
-                ].map((item, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                    <div className="text-xs font-bold brand-gradient-text">{item.label}</div>
-                    <div className="text-[11px] text-slate-600 mt-0.5">{item.desc}</div>
-                  </div>
-                ))}
+            {/* THE OPPORTUNITY CARD */}
+            <div className="group/opp relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-8 sm:p-10 rounded-[23px] bg-[#F8FAFD] space-y-6 h-full">
+                <h3 className="text-xl font-serif font-bold text-slate-950">
+                  PEERS GLOBAL is building around that opportunity.
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600">
+                  The ambition is not simply to create another business network. It is to build an ecosystem in which:
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { label: 'People connect', desc: 'Relational trust over transactions' },
+                    { label: 'Experience moves', desc: 'Practitioner wisdom shared directly' },
+                    { label: 'Collaboration happens', desc: 'Structured bilateral opportunities' },
+                    { label: 'Leadership develops', desc: 'Peer stewardship & council governance' },
+                    { label: 'Contribution compounds', desc: 'Give-first culture with Peers Coin' },
+                    { label: 'Impact travels', desc: '1 Action = 1 Life Impacted' },
+                  ].map((item, idx) => (
+                    <div key={idx} className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                      <div className="text-xs font-bold brand-gradient-text">{item.label}</div>
+                      <div className="text-[11px] text-slate-600 mt-0.5">{item.desc}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -360,7 +327,6 @@ export function InvestorsPageClient() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 System Architecture
               </span>
@@ -379,22 +345,24 @@ export function InvestorsPageClient() {
               return (
                 <div
                   key={idx}
-                  className="p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 hover:shadow-md transition-all flex flex-col justify-between space-y-4 group"
+                  className="group/layer relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform">
-                        <Icon className="w-6 h-6" />
+                  <div className="p-7 rounded-[15px] bg-white h-full flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] group-hover/layer:scale-105 transition-transform">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <span className="text-xs font-mono font-bold text-slate-400">
+                          LAYER 0{idx + 1}
+                        </span>
                       </div>
-                      <span className="text-xs font-mono font-bold text-slate-400">
-                        LAYER 0{idx + 1}
-                      </span>
+                      <h3 className="text-lg font-serif font-bold text-slate-950 group-hover/layer:bg-gradient-to-r group-hover/layer:from-[#1D4ED8] group-hover/layer:to-[#E11D48] group-hover/layer:bg-clip-text group-hover/layer:text-transparent transition-all">
+                        {layer.title}
+                      </h3>
+                      <p className="text-xs font-bold brand-gradient-text">{layer.subtitle}</p>
+                      <p className="text-xs text-slate-600 leading-relaxed">{layer.desc}</p>
                     </div>
-                    <h3 className="text-lg font-serif font-bold text-slate-950 group-hover:text-[#1D4ED8] transition-colors">
-                      {layer.title}
-                    </h3>
-                    <p className="text-xs font-bold brand-gradient-text">{layer.subtitle}</p>
-                    <p className="text-xs text-slate-600 leading-relaxed">{layer.desc}</p>
                   </div>
                 </div>
               )
@@ -411,7 +379,6 @@ export function InvestorsPageClient() {
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Compounding Value
                   </span>
@@ -455,10 +422,9 @@ export function InvestorsPageClient() {
             </div>
 
             {/* NETWORK EFFECT */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200 space-y-6">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAFBFD] border border-slate-200 shadow-sm space-y-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Flywheel Dynamics
                   </span>
@@ -471,7 +437,11 @@ export function InvestorsPageClient() {
                 </p>
               </div>
 
-              <div className="relative pl-6 space-y-3 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-gradient-to-b before:from-[#1D4ED8] before:to-[#E11D48]">
+              {/* Pixel-perfect vertical timeline */}
+              <div className="relative pl-7 space-y-4 my-2">
+                {/* Continuous vertical track running precisely behind the dots */}
+                <div className="absolute left-[7px] top-2 bottom-3 w-[2px] bg-gradient-to-b from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48] rounded-full pointer-events-none" />
+
                 {[
                   'Membership creates participation.',
                   'Participation creates relationships.',
@@ -481,9 +451,12 @@ export function InvestorsPageClient() {
                   'Trust strengthens the community.',
                   'And a stronger community creates more possibilities for the next entrepreneur.',
                 ].map((step, idx) => (
-                  <div key={idx} className="relative text-xs sm:text-sm text-slate-700 font-medium">
-                    <span className="absolute -left-[23px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#1D4ED8]" />
-                    {step}
+                  <div key={idx} className="relative flex items-baseline gap-3 text-xs sm:text-sm text-slate-800 font-medium leading-relaxed group/step">
+                    {/* Perfectly centered glowing dot on the vertical track */}
+                    <span className="absolute -left-[28px] top-1.5 size-4 rounded-full bg-white border-2 border-[#1D4ED8] flex items-center justify-center shadow-xs">
+                      <span className="size-1.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
+                    </span>
+                    <span>{step}</span>
                   </div>
                 ))}
               </div>
@@ -503,11 +476,9 @@ export function InvestorsPageClient() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 LSR Framework
               </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               THE GROWTH ENGINE
@@ -518,41 +489,50 @@ export function InvestorsPageClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3">
-                L
+            {/* L - Learning */}
+            <div className="group/lsr relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-7 rounded-[15px] bg-white h-full space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3 group-hover/lsr:scale-105 transition-transform">
+                  L
+                </div>
+                <h3 className="text-lg font-serif font-bold text-slate-950 group-hover/lsr:bg-gradient-to-r group-hover/lsr:from-[#1D4ED8] group-hover/lsr:to-[#E11D48] group-hover/lsr:bg-clip-text group-hover/lsr:text-transparent transition-all">LEARNING</h3>
+                <p className="text-xs font-bold brand-gradient-text">What entrepreneurs know.</p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Tacit operating knowledge, market playbooks, mistakes navigated, and hard-earned domain insights.
+                </p>
               </div>
-              <h3 className="text-lg font-serif font-bold text-slate-950">LEARNING</h3>
-              <p className="text-xs font-bold brand-gradient-text">What entrepreneurs know.</p>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Tacit operating knowledge, market playbooks, mistakes navigated, and hard-earned domain insights.
-              </p>
             </div>
 
-            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3">
-                S
+            {/* S - Self */}
+            <div className="group/lsr relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-7 rounded-[15px] bg-white h-full space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3 group-hover/lsr:scale-105 transition-transform">
+                  S
+                </div>
+                <h3 className="text-lg font-serif font-bold text-slate-950 group-hover/lsr:bg-gradient-to-r group-hover/lsr:from-[#1D4ED8] group-hover/lsr:to-[#E11D48] group-hover/lsr:bg-clip-text group-hover/lsr:text-transparent transition-all">SELF</h3>
+                <p className="text-xs font-bold brand-gradient-text">
+                  Who they become through experience, reflection and leadership.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Emotional resilience, character under pressure, leadership stewardship, and self-awareness as a builder.
+                </p>
               </div>
-              <h3 className="text-lg font-serif font-bold text-slate-950">SELF</h3>
-              <p className="text-xs font-bold brand-gradient-text">
-                Who they become through experience, reflection and leadership.
-              </p>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Emotional resilience, character under pressure, leadership stewardship, and self-awareness as a builder.
-              </p>
             </div>
 
-            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3">
-                R
+            {/* R - Resources */}
+            <div className="group/lsr relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-7 rounded-[15px] bg-white h-full space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200 text-[#1D4ED8] flex items-center justify-center font-bold text-base mb-3 group-hover/lsr:scale-105 transition-transform">
+                  R
+                </div>
+                <h3 className="text-lg font-serif font-bold text-slate-950 group-hover/lsr:bg-gradient-to-r group-hover/lsr:from-[#1D4ED8] group-hover/lsr:to-[#E11D48] group-hover/lsr:bg-clip-text group-hover/lsr:text-transparent transition-all">RESOURCES</h3>
+                <p className="text-xs font-bold brand-gradient-text">
+                  What they can access, share and create together.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Relational capital, digital infrastructure, distribution networks, and collective purchasing power.
+                </p>
               </div>
-              <h3 className="text-lg font-serif font-bold text-slate-950">RESOURCES</h3>
-              <p className="text-xs font-bold brand-gradient-text">
-                What they can access, share and create together.
-              </p>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Relational capital, digital infrastructure, distribution networks, and collective purchasing power.
-              </p>
             </div>
           </div>
 
@@ -573,7 +553,6 @@ export function InvestorsPageClient() {
           <div className="space-y-8">
             <div className="max-w-3xl space-y-3">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Trajectory &amp; Governance
                 </span>
@@ -619,10 +598,15 @@ export function InvestorsPageClient() {
                   desc: 'Direct MSME mentorship, student fellowships, and foundation programs.',
                 },
               ].map((item, idx) => (
-                <div key={idx} className="p-6 rounded-2xl bg-[#F8FAFD] border border-slate-200 space-y-1.5 shadow-2xs">
-                  <span className="text-xs font-semibold text-slate-500 block">{item.title}</span>
-                  <div className="text-xl font-serif font-bold text-slate-950">{item.metric}</div>
-                  <p className="text-xs text-slate-600">{item.desc}</p>
+                <div
+                  key={idx}
+                  className="group/metric relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
+                >
+                  <div className="p-6 rounded-[15px] bg-[#F8FAFD] space-y-1.5 h-full">
+                    <span className="text-xs font-semibold text-slate-500 block">{item.title}</span>
+                    <div className="text-xl font-serif font-bold text-slate-950 group-hover/metric:bg-gradient-to-r group-hover/metric:from-[#1D4ED8] group-hover/metric:to-[#E11D48] group-hover/metric:bg-clip-text group-hover/metric:text-transparent transition-all">{item.metric}</div>
+                    <p className="text-xs text-slate-600">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -632,7 +616,6 @@ export function InvestorsPageClient() {
           <div className="space-y-8 pt-8 border-t border-slate-200">
             <div className="max-w-3xl space-y-2">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   Long-Term Lifecycle
                 </span>
@@ -647,11 +630,16 @@ export function InvestorsPageClient() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {JOURNEY_STAGES.map((stg) => (
-                <div key={stg.step} className="p-5 rounded-xl bg-[#FAFBFD] border border-slate-200 space-y-1 shadow-2xs">
-                  <span className="text-xs font-mono font-bold brand-gradient-text block">
-                    {stg.step} · {stg.title}
-                  </span>
-                  <p className="text-xs text-slate-700">{stg.desc}</p>
+                <div
+                  key={stg.step}
+                  className="group/stg relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
+                >
+                  <div className="p-5 rounded-[11px] bg-[#FAFBFD] space-y-1 h-full">
+                    <span className="text-xs font-mono font-bold brand-gradient-text block">
+                      {stg.step} · {stg.title}
+                    </span>
+                    <p className="text-xs text-slate-700">{stg.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -667,7 +655,6 @@ export function InvestorsPageClient() {
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Generational Target
                   </span>
@@ -713,7 +700,6 @@ export function InvestorsPageClient() {
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                     Strategic Differentiation
                   </span>
@@ -759,7 +745,6 @@ export function InvestorsPageClient() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Governance &amp; Transparency
               </span>
@@ -776,10 +761,12 @@ export function InvestorsPageClient() {
             {INVESTMENT_PRINCIPLES.map((principle, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-[#F8FAFD] border border-slate-200 flex items-start gap-3 shadow-2xs"
+                className="group/principle relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
               >
-                <CheckCircle2 className="w-5 h-5 text-[#1D4ED8] shrink-0 mt-0.5" />
-                <span className="text-sm font-medium text-slate-800">{principle}</span>
+                <div className="p-5 rounded-[15px] bg-[#F8FAFD] flex items-start gap-3 h-full">
+                  <CheckCircle2 className="w-5 h-5 text-[#1D4ED8] shrink-0 mt-0.5 group-hover/principle:text-[#E11D48] transition-colors" />
+                  <span className="text-sm font-medium text-slate-800">{principle}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -813,11 +800,9 @@ export function InvestorsPageClient() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
           <div className="max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Mutual Due Diligence
               </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               A CONVERSATION BEFORE A COMMITMENT
@@ -862,11 +847,9 @@ export function InvestorsPageClient() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2">
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
                 Dialogue &amp; Alignment
               </span>
-              <span className="h-[2px] w-5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950">
               FOR PROSPECTIVE INVESTORS
@@ -1054,12 +1037,10 @@ export function InvestorsPageClient() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <div className="space-y-4">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-white/70" />
+            <div className="flex items-center justify-center">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
                 INTERESTED IN THE JOURNEY?
               </span>
-              <span className="h-[1.5px] w-6 bg-white/70" />
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
               Build patiently. Build honestly. <br />

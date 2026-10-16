@@ -110,7 +110,7 @@ export function PathwayCardsSection() {
                 </div>
               </div>
               <div className="pt-2">
-                <a className="fd-pathway-cards__btn" href="/circles" aria-label="Find Your Circle">FIND YOUR CIRCLE →</a>
+                <a className="fd-pathway-cards__btn" href="https://peersunity.com/circles" target="_blank" rel="noopener noreferrer" aria-label="Find Your Circle">FIND YOUR CIRCLE →</a>
               </div>
             </div>
           </div>

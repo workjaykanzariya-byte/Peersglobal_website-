@@ -552,18 +552,22 @@ export function HowACircleWorksClient() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/apply"
+                <a
+                  href="https://peersunity.com/apply_membership"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0062D2] hover:bg-[#1a42c0] text-white text-xs font-bold shadow-md transition-all uppercase tracking-wider"
                 >
                   Apply to Join <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <Link
-                  href="/circles"
+                </a>
+                <a
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-slate-800 text-xs font-bold border border-slate-200 hover:bg-slate-50 transition-all shadow-xs"
                 >
                   Find Your Circle <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                </a>
               </div>
             </div>
 

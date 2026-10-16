@@ -472,27 +472,33 @@ export function ContactPageClient() {
                     const el = document.getElementById('send-message')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className={`animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-xl transition-all ${
+                  className={`relative !rounded-2xl cursor-pointer shadow-2xs hover:shadow-xl transition-all duration-300 ${
                     isSelected
-                      ? 'ring-2 ring-blue-500/50 shadow-lg shadow-blue-500/15 -translate-y-1.5'
-                      : ''
+                      ? 'shadow-xl -translate-y-1.5'
+                      : 'hover:-translate-y-1'
                   }`}
                   tabIndex={0}
                   role="button"
                 >
-                  <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                    <defs>
-                      <linearGradient id={`routeCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#1D4ED8" />
-                        <stop offset="100%" stopColor="#E11D48" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      className={`animated-border-path ${idx % 3 === 1 ? 'animated-border-path-2' : idx % 3 === 2 ? 'animated-border-path-3' : ''}`}
-                      style={{ stroke: `url(#routeCardGrad-${idx})` }}
-                      d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
-                    />
-                  </svg>
+                  {isSelected && (
+                    <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id={`routeCardGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#1D4ED8" />
+                          <stop offset="100%" stopColor="#E11D48" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        className="animated-border-path"
+                        style={{
+                          stroke: `url(#routeCardGrad-${idx})`,
+                          opacity: 1,
+                          animation: 'traceBorderLoop 3s linear infinite',
+                        }}
+                        d="M 12,0 H 88 Q 100,0 100,12 V 88 Q 100,100 88,100 H 12 Q 0,100 0,88 V 12 Q 0,0 12,0 Z"
+                      />
+                    </svg>
+                  )}
 
                   <div className="p-6 sm:p-7 rounded-2xl bg-white flex flex-col justify-between space-y-4 h-full">
                     <div className="space-y-4">
@@ -704,46 +710,50 @@ export function ContactPageClient() {
                 {GENERAL_ENQUIRY_DOORS.map((door, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-xl bg-white border border-slate-200/90 text-xs font-medium text-slate-800 flex items-center gap-2 shadow-2xs hover:border-slate-300 transition-colors"
+                    className="group/door relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 cursor-default"
                   >
-                    <CheckCircle2 className="w-4 h-4 [stroke:url(#contactBrandGrad)] shrink-0" />
-                    <span>{door}</span>
+                    <div className="p-3.5 rounded-[11px] bg-white text-xs font-medium text-slate-800 flex items-center gap-2 h-full">
+                      <CheckCircle2 className="w-4 h-4 [stroke:url(#contactBrandGrad)] shrink-0" />
+                      <span className="group-hover/door:bg-gradient-to-r group-hover/door:from-[#1D4ED8] group-hover/door:to-[#E11D48] group-hover/door:bg-clip-text group-hover/door:text-transparent transition-all">{door}</span>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* COMPANY DETAILS CARD */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider brand-gradient-text">
-                  STATUTORY &amp; CORPORATE DETAILS
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-[#0f131a] tracking-tight">
-                PEERS GLOBAL BUSINESS MEDIA PRIVATE LIMITED
-              </h3>
+            <div className="group/corp relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+              <div className="p-8 sm:p-10 rounded-[23px] bg-white space-y-4 h-full">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider brand-gradient-text">
+                    STATUTORY &amp; CORPORATE DETAILS
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-[#0f131a] tracking-tight">
+                  PEERS GLOBAL BUSINESS MEDIA PRIVATE LIMITED
+                </h3>
 
-              <div className="space-y-2 text-xs font-mono text-slate-700 pt-2 border-t border-slate-100">
-                <div className="flex justify-between py-1.5 border-b border-slate-100">
-                  <span className="text-slate-500">Corporate Identity (CIN):</span>
-                  <span className="text-slate-900 font-bold">U22219GJ2022PTC137646</span>
-                </div>
-                <div className="flex justify-between py-1.5 border-b border-slate-100">
-                  <span className="text-slate-500">GST Registration:</span>
-                  <span className="text-slate-900 font-bold">24AANCP4546L1ZY</span>
-                </div>
-                <div className="flex justify-between py-1.5 border-b border-slate-100">
-                  <span className="text-slate-500">Official Inquiries:</span>
-                  <span className="brand-gradient-text font-bold">hello@peersglobal.com</span>
-                </div>
-                <div className="flex justify-between py-1.5 border-b border-slate-100">
-                  <span className="text-slate-500">Headquartered:</span>
-                  <span className="text-slate-900 font-medium">Ahmedabad, Gujarat, Bharat</span>
-                </div>
-                <div className="flex justify-between py-1.5">
-                  <span className="text-slate-500">Founded by:</span>
-                  <span className="text-slate-900 font-bold">Dr. Pravin Parmar</span>
+                <div className="space-y-2 text-xs font-mono text-slate-700 pt-2 border-t border-slate-100">
+                  <div className="flex justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Corporate Identity (CIN):</span>
+                    <span className="text-slate-900 font-bold">U22219GJ2022PTC137646</span>
+                  </div>
+                  <div className="flex justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">GST Registration:</span>
+                    <span className="text-slate-900 font-bold">24AANCP4546L1ZY</span>
+                  </div>
+                  <div className="flex justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Official Inquiries:</span>
+                    <span className="brand-gradient-text font-bold">hello@peersglobal.com</span>
+                  </div>
+                  <div className="flex justify-between py-1.5 border-b border-slate-100">
+                    <span className="text-slate-500">Headquartered:</span>
+                    <span className="text-slate-900 font-medium">Ahmedabad, Gujarat, Bharat</span>
+                  </div>
+                  <div className="flex justify-between py-1.5">
+                    <span className="text-slate-500">Founded by:</span>
+                    <span className="text-slate-900 font-bold">Dr. Pravin Parmar</span>
+                  </div>
                 </div>
               </div>
             </div>

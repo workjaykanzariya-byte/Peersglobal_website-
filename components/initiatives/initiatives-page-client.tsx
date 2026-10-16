@@ -180,7 +180,6 @@ export function InitiativesPageClient() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                 <span className="text-xs font-bold tracking-[0.22em] uppercase brand-gradient-text">
                   THE ECOSYSTEM
                 </span>
@@ -267,9 +266,8 @@ export function InitiativesPageClient() {
       <section id="ecosystem" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-3xl mb-12">
             <div className="flex items-center gap-2 mb-1">
-              <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
               <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                 THE 6 PLATFORMS
               </span>
@@ -282,76 +280,89 @@ export function InitiativesPageClient() {
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {INITIATIVES_DATA.map((item) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.id}
-                  className="p-8 sm:p-10 rounded-3xl bg-[#FBFCFE] border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-8"
+                  className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
                 >
-                  {/* Left content */}
-                  <div className="space-y-4 max-w-3xl">
-                    <div className="flex items-center gap-3">
-                      <span className="px-3 py-1 rounded-xl bg-white border border-slate-200 text-xs font-mono font-bold text-[#0062D2]">
-                        {item.id}
-                      </span>
-                      <div className={`p-2 rounded-xl border ${item.color} flex items-center justify-center`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950">
-                          {item.name}
-                        </h3>
-                        <p className="text-xs sm:text-sm font-semibold text-[#0062D2]">
-                          {item.tagline}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                      {item.desc}
-                    </p>
-
-                    {/* Structure Tags */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
-                      {item.structure.map((feat) => (
-                        <div
-                          key={feat}
-                          className="p-2 rounded-xl bg-white border border-slate-200 text-[11px] font-medium text-slate-700 flex items-center gap-1.5"
-                        >
-                          <Check className="w-3.5 h-3.5 text-[#0062D2] shrink-0" />
-                          <span className="line-clamp-1">{feat}</span>
+                  <div className="rounded-[23px] bg-white p-7 sm:p-8 flex flex-col justify-between h-full space-y-6">
+                    <div className="space-y-4">
+                      {/* Top Header Row */}
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center gap-2.5">
+                          <div className={`p-2.5 rounded-2xl border ${item.color} flex items-center justify-center shrink-0`}>
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
+                              INITIATIVE {item.id}
+                            </span>
+                            <h3 className="text-lg sm:text-xl font-serif font-bold text-slate-950 leading-snug group-hover/card:bg-gradient-to-r group-hover/card:from-[#1D4ED8] group-hover/card:to-[#E11D48] group-hover/card:bg-clip-text group-hover/card:text-transparent transition-all">
+                              {item.name}
+                            </h3>
+                          </div>
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Tagline */}
+                      <p className="text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                        {item.tagline}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                        {item.desc}
+                      </p>
+
+                      {/* Structure Tags */}
+                      <div className="space-y-1.5 pt-2 border-t border-slate-100">
+                        <span className="text-[10px] font-mono uppercase tracking-wider font-semibold text-slate-400 block mb-1">
+                          Key Pillars:
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {item.structure.map((feat) => (
+                            <span
+                              key={feat}
+                              className="px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] font-medium text-slate-700 flex items-center gap-1.5"
+                            >
+                              <Check className="w-3 h-3 text-[#1D4ED8] shrink-0" />
+                              <span className="line-clamp-1">{feat}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Philosophy Quote */}
+                      <p className="text-xs font-serif italic text-slate-700 border-l-2 border-[#1D4ED8] pl-3 py-0.5">
+                        &ldquo;{item.philosophy}&rdquo;
+                      </p>
                     </div>
 
-                    <p className="text-xs font-serif italic text-slate-800 border-l-2 border-[#0062D2] pl-3 pt-1">
-                      {item.philosophy}
-                    </p>
-                  </div>
-
-                  {/* Right CTA */}
-                  <div className="shrink-0 pt-2 lg:pt-0">
-                    {item.isExternal ? (
-                      <a
-                        href={item.ctaLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#061836] text-white text-xs font-semibold hover:bg-[#0062D2] transition-all shadow-sm"
-                      >
-                        <span>{item.ctaText}</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    ) : (
-                      <Link
-                        href={item.ctaLink}
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0062D2] text-white text-xs font-semibold hover:bg-[#0052B4] transition-all shadow-sm"
-                      >
-                        <span>{item.ctaText}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    )}
+                    {/* Bottom CTA */}
+                    <div className="pt-4 border-t border-slate-100">
+                      {item.isExternal ? (
+                        <a
+                          href={item.ctaLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-slate-900 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group/btn"
+                        >
+                          <span className="text-white">{item.ctaText}</span>
+                          <ExternalLink className="w-4 h-4 text-white shrink-0 stroke-[2.5] opacity-100" />
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.ctaLink}
+                          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-slate-900 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group/btn"
+                        >
+                          <span className="text-white">{item.ctaText}</span>
+                          <ArrowRight className="w-4 h-4 text-white shrink-0 stroke-[2.5] opacity-100 group-hover/btn:translate-x-1 transition-transform" />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
               )
@@ -438,7 +449,6 @@ export function InitiativesPageClient() {
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="h-[2px] w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
                   <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                     EVERY BUILDER BELONGS
                   </span>
@@ -497,71 +507,73 @@ export function InitiativesPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 5: CLOSING ROYAL HERO BANNER (YOU WERE NEVER MEANT TO BUILD ALONE) ── */}
-      <section className="relative py-20 sm:py-28 bg-[#0062D2] text-white overflow-hidden">
-        {/* Geometric Art */}
-        <div className="absolute -right-16 -top-20 bottom-0 pointer-events-none w-[420px] sm:w-[560px] lg:w-[680px] opacity-35 overflow-hidden flex items-center justify-center">
-          <svg
-            viewBox="0 0 600 600"
-            fill="none"
-            className="w-full h-full text-white/30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="300" cy="300" r="230" stroke="currentColor" strokeWidth="1.2" />
-            <circle cx="300" cy="300" r="170" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
-            <circle cx="300" cy="300" r="110" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-            <line x1="120" y1="180" x2="480" y2="420" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
-            <circle cx="300" cy="300" r="6" fill="#7DD3FC" />
-            <circle cx="300" cy="300" r="15" stroke="#7DD3FC" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
+      {/* ─── SECTION 5: CLOSING HERO BANNER (YOU WERE NEVER MEANT TO BUILD ALONE) ── */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(56,189,248,0.18),transparent_50%),radial-gradient(circle_at_82%_12%,rgba(251,113,133,0.15),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-sky-600/15 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-rose-500/15 blur-3xl"
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-6">
-
-              <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
-                — EXPLORE THE ECOSYSTEM —
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+              <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] animate-pulse" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                EXPLORE THE ECOSYSTEM
               </span>
+            </div>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
-                YOU WERE NEVER MEANT TO BUILD ALONE.
-              </h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+              You were never meant to build{' '}
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                alone
+              </span>
+              .
+            </h2>
 
-              <div className="space-y-4 text-base sm:text-lg text-white/90 leading-relaxed font-light max-w-2xl">
-                <p>
-                  Connect across our six platforms and discover where your contribution can create the greatest impact.
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-sky-100 font-medium">
+            <div className="space-y-3.5 text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl">
+              <p>
+                Connect across our six platforms and discover where your contribution can create the greatest impact.
+              </p>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs text-sky-200 font-medium">
                   <Link href="/circles" className="hover:underline">Explore PEERS GLOBAL →</Link>
                   <a href="https://vyapaarjagat.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Explore VyapaarJagat →</a>
                   <Link href="/circles" className="hover:underline">Explore FEMPRENEUR →</Link>
                   <Link href="/circles" className="hover:underline">Explore GREENPRENEUR →</Link>
                   <Link href="/1-million-mission" className="hover:underline">Explore 1MEIF →</Link>
                   <Link href="/peers-store" className="hover:underline">Explore PEERS Store →</Link>
-                
-</div>
-
-              {/* Action Buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-3">
-                <GalaxyButton
-                  href="/circles"
-                  variant="primary"
-                  size="md"
-                >
-                  Explore PEERS GLOBAL
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="/download"
-                  variant="transparent"
-                  size="md"
-                >
-                  Download Unity App
-                </GalaxyButton>
+                </div>
               </div>
             </div>
 
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-3">
+              <GalaxyButton
+                href="/circles"
+                size="default"
+                className="uppercase tracking-wider font-bold"
+              >
+                EXPLORE PEERS GLOBAL
+              </GalaxyButton>
 
+              <GalaxyButton
+                href="/download"
+                variant="transparent"
+                size="default"
+                className="uppercase tracking-wider font-bold"
+              >
+                DOWNLOAD UNITY APP
+              </GalaxyButton>
+            </div>
           </div>
         </div>
       </section>
