@@ -106,138 +106,68 @@ export function PeerStandingClient() {
           <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#FB7185] animate-pulse" />
-                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">COMMUNITY RECOGNITION</span>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#FB7185] animate-pulse" />
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">COMMUNITY RECOGNITION</span>
+            </div>
 
-              <div className="space-y-3">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
-                  Peer{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
-                    Standing
-                  </span>
-                </h1>
-                <p className="text-base sm:text-lg text-slate-200 font-medium leading-relaxed">
-                  What the community recognises you for.
-                </p>
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-xl">
-                Earned through what you gave. Conferred by the people you gave it to. A universal measure of credibility, trust, and mutual commitment across the ecosystem.
+            <div className="space-y-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                Peer{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                  Standing
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg text-slate-200 font-medium leading-relaxed">
+                What the community recognises you for.
               </p>
+            </div>
 
-              {/* Feature Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <Crown className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">5 Merit Tiers</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <ShieldCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">100% Peer Vetted</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <TrendingUp className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Score Driven</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <Award className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Systemic Voice</span>
-                </div>
+            <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-xl">
+              Earned through what you gave. Conferred by the people you gave it to. A universal measure of credibility, trust, and mutual commitment across the ecosystem.
+            </p>
+
+            {/* Feature Chips */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <Crown className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">5 Merit Tiers</span>
               </div>
-
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-                <GalaxyButton
-                  href="/life-impact-score"
-                  variant="transparent"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Life Impact Score
-                </GalaxyButton>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <ShieldCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">100% Peer Vetted</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <TrendingUp className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Score Driven</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <Award className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Systemic Voice</span>
               </div>
             </div>
 
-            {/* Right Interactive Phone / Standing Visual Card */}
-            <div className="lg:col-span-5 relative flex justify-center items-center py-2">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 via-indigo-500/20 to-rose-500/20 rounded-[50px] blur-2xl pointer-events-none" />
-
-              {/* Phone Frame */}
-              <div className="relative w-64 sm:w-72 rounded-[40px] p-3 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border-[3px] border-slate-700/80 shadow-2xl ring-1 ring-white/10">
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-18 h-3.5 bg-slate-950 rounded-full z-20 flex items-center justify-center">
-                  <div className="w-7 h-1 bg-slate-800 rounded-full" />
-                  <div className="size-1.5 rounded-full bg-slate-900 ml-1.5" />
-                </div>
-
-                <div className="rounded-[30px] bg-[#060D1D] text-white p-5 pt-7 space-y-4 overflow-hidden relative border border-white/5">
-                  {/* Ambient Earth Video Background in card */}
-                  <div className="absolute inset-0 opacity-25 pointer-events-none overflow-hidden">
-                    <video
-                      src="/videos/peers-global-earth-loop.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <div className="relative z-10 flex justify-between items-center text-xs text-slate-400 pt-0.5">
-                    <span className="font-semibold tracking-wide text-slate-300 text-[11px]">Peers Standing</span>
-                    <div className="flex items-center gap-1.5">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-[9px] text-emerald-400 uppercase tracking-widest font-mono">Conferred</span>
-                    </div>
-                  </div>
-
-                  {/* Tier Level Display */}
-                  <div className="relative z-10 text-center py-3.5 space-y-1.5 rounded-2xl bg-gradient-to-b from-white/[0.06] to-transparent border border-white/[0.08] p-3">
-                    <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest">
-                      <Crown className="size-3 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
-                      <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Tier 04 / 05</span>
-                    </div>
-                    <div className="text-2xl sm:text-3xl font-bold text-white tracking-tight drop-shadow-sm flex items-center justify-center gap-2">
-                      <span>Leader</span>
-                      <Award className="size-5 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
-                    </div>
-                    <div className="text-[11px] text-slate-300 font-light">
-                      Verified by 48 Peers across 6 Cities
-                    </div>
-                  </div>
-
-                  {/* Standing Metrics */}
-                  <div className="relative z-10 space-y-2 pt-0.5 text-xs">
-                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 flex justify-between items-center transition-colors hover:bg-white/[0.07]">
-                      <span className="text-slate-300 text-[11px]">Life Impact Score</span>
-                      <span className="font-mono text-sky-300 font-bold bg-sky-950/50 px-2 py-0.5 rounded border border-sky-400/20 text-[11px]">2,850 pts</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 flex justify-between items-center transition-colors hover:bg-white/[0.07]">
-                      <span className="text-slate-300 text-[11px]">Community Weight</span>
-                      <span className="text-emerald-300 font-semibold bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-400/20 text-[11px]">National Seat</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute -bottom-3 -right-3 sm:-right-4 text-xs font-bold bg-white px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-lg hidden sm:flex items-center gap-1.5 z-20">
-                  <Sparkles className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  <span className="bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">Respect Earned. Not Given.</span>
-                </div>
-              </div>
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <GalaxyButton
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="default"
+                className="font-bold uppercase tracking-wider"
+              >
+                Download Unity App
+              </GalaxyButton>
+              <GalaxyButton
+                href="/life-impact-score"
+                variant="transparent"
+                size="default"
+                className="font-bold uppercase tracking-wider"
+              >
+                Life Impact Score
+              </GalaxyButton>
             </div>
           </div>
 
@@ -643,72 +573,43 @@ export function PeerStandingClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                  PEER REPUTATION
-                </span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
-                The most valuable thing you can build here is a{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
-                  reputation for giving.
-                </span>
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-2xl">
-                Elevate your standing by supporting fellow founders, sharing verified connections, and stewarding your Circle.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-                <GalaxyButton
-                  href="/life-impact-score"
-                  variant="transparent"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  See Life Impact Score
-                </GalaxyButton>
-              </div>
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                PEER REPUTATION
+              </span>
             </div>
 
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+              The most valuable thing you can build here is a{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                reputation for giving.
+              </span>
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-2xl">
+              Elevate your standing by supporting fellow founders, sharing verified connections, and stewarding your Circle.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <GalaxyButton
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="default"
+                className="font-bold uppercase tracking-wider"
               >
-                Honor Earned.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
+                Download Unity App
+              </GalaxyButton>
+              <GalaxyButton
+                href="/life-impact-score"
+                variant="transparent"
+                size="default"
+                className="font-bold uppercase tracking-wider"
               >
-                Doors Opened.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Trust Bestowed.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Conferred by Peers.
-              </p>
+                See Life Impact Score
+              </GalaxyButton>
             </div>
           </div>
         </div>

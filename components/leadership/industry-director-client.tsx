@@ -909,8 +909,7 @@ export function IndustryDirectorClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
                 <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
@@ -952,34 +951,6 @@ export function IndustryDirectorClient() {
                 </GalaxyButton>
               </div>
             </div>
-
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                One Sector.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                One City.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Your Industry
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Your Contribution.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </div>

@@ -394,15 +394,6 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 >
                   Find a Circle Near You
                 </GalaxyButton>
-
-                <GalaxyButton
-                  onClick={() => setIsGuestModalOpen(true)}
-                  variant="transparent"
-                  size="default"
-                  className="font-medium"
-                >
-                  Visit as a Guest
-                </GalaxyButton>
               </div>
 
               {/* Stat Band */}
@@ -1857,10 +1848,8 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Left Content (8 cols) */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
+
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   YOUR NEXT CIRCLE
@@ -1902,20 +1891,9 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
               <div className="pt-2 text-xs text-slate-400">
                 Peers are Partners in Business and Friends in Life. Designed in Bharat. Built for the World.
-              </div>
-            </div>
+              
+</div>
 
-            {/* Right Script (4 cols) */}
-            <div className="lg:col-span-4 text-right flex justify-end">
-              <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
-              >
-                Circles <br />
-                Create <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold">Impact</span>
-              </div>
-            </div>
 
           </div>
         </div>

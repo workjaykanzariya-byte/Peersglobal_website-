@@ -86,7 +86,7 @@ export function CircleRolesClient() {
                   Apply for a Role
                 </GalaxyButton>
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   variant="transparent-light"
                   size="md"
                 >
@@ -486,7 +486,7 @@ export function CircleRolesClient() {
               Apply for Circle Role
             </GalaxyButton>
             <GalaxyButton
-              href="/unity"
+              href="/download"
               variant="transparent"
               size="md"
             >

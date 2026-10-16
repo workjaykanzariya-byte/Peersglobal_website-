@@ -332,25 +332,13 @@ export function AmbassadorClient() {
 
             {/* Right Visual Image */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden shadow-lg border border-slate-200/60 aspect-[4/3]">
+              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-square group">
                 <Image
-                  src="/images/who-we-are-friends.jpg"
-                  alt="Ambassador engaging in authentic conversation with entrepreneurs"
+                  src="/images/leadership-ambassadors-community.jpg"
+                  alt="PeersGlobal - World's First Community of Collaboration"
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <div className="absolute top-4 right-4 text-right select-none pointer-events-none drop-shadow-md">
-                  <p className="text-xs text-white/90 font-medium tracking-wider uppercase">
-                    Representation
-                  </p>
-                  <p
-                    className="text-lg text-amber-300 font-bold leading-tight"
-                    style={{ fontFamily: 'var(--font-script)' }}
-                  >
-                    Built On Trust
-                  </p>
-                </div>
               </div>
             </div>
           </div>

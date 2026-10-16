@@ -300,8 +300,10 @@ export default function TheCitizensPage() {
 
             {/* Right 5 cols: Typographic Manifesto Callout with Left Accent Bar */}
             <div className="lg:col-span-5 flex lg:justify-end lg:pt-14">
-              <div className="border-l-4 border-[#0062D2] pl-6 sm:pl-8 py-2 max-w-md">
-                <p className="text-xl sm:text-2xl font-bold tracking-[0.12em] text-[#0062D2] uppercase leading-[1.35] font-sans">
+              <div className="flex items-stretch gap-5 sm:gap-7 max-w-md">
+                {/* Logo Gradient Vertical Accent Line */}
+                <div className="w-1.5 rounded-full bg-gradient-to-b from-[#1D4ED8] to-[#E11D48] shrink-0" />
+                <p className="text-xl sm:text-2xl font-bold tracking-[0.12em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent uppercase leading-[1.35] font-sans py-1">
                   ENTREPRENEURS <br />
                   BUILD PEOPLE. <br />
                   PEOPLE BUILD <br />

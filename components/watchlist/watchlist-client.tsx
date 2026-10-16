@@ -797,10 +797,8 @@ export function WatchlistClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 space-y-6">
+          <div className="max-w-3xl space-y-6">
+
               <span className="text-xs font-bold uppercase tracking-widest text-sky-200">
                 — TESTED IN REAL BUSINESSES —
               </span>
@@ -821,7 +819,7 @@ export function WatchlistClient() {
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-3">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href="/download"
                   target="_blank"
                   rel="noopener noreferrer"
                   size="default"
@@ -838,24 +836,9 @@ export function WatchlistClient() {
                 >
                   Apply for Membership
                 </GalaxyButton>
-              </div>
-            </div>
+              
+</div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Used.
-                <br />
-                Tested.
-                <br />
-                Honest.
-                <br />
-                Trusted.
-              </p>
-            </div>
 
           </div>
         </div>

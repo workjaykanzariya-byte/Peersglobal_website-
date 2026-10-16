@@ -1236,7 +1236,7 @@ export function PeerDirectoryClient({ initialMembers = [] }: PeerDirectoryClient
 
             <div className="shrink-0 lg:pr-8">
               <a
-                href="https://unity.peersglobal.com"
+                href="/download"
                 onClick={(e) => handleSmartAppDownload(e)}
                 target="_blank"
                 rel="noopener noreferrer"

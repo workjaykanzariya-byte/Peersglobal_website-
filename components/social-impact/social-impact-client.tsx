@@ -433,10 +433,8 @@ export function SocialImpactClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
+
               <div className="inline-flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
                   THE SOCIAL IMPACT MISSION
@@ -457,8 +455,8 @@ export function SocialImpactClient() {
                     • <span className="brand-gradient-text font-bold">1 Action = 1 Life Impacted</span> &bull; 3 UN SDGs &bull; 1 Million Mission by 2030.
                   </p>
                   <p className="text-white font-bold text-xs sm:text-sm pt-0.5">Lead through authentic giving.</p>
-                </div>
-              </div>
+                
+</div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
@@ -480,33 +478,6 @@ export function SocialImpactClient() {
               </div>
             </div>
 
-            {/* Right Cursive Script Highlights */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                See.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Care.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Act.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl font-bold leading-tight brand-gradient-text"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Impact.
-              </p>
-            </div>
 
           </div>
         </div>

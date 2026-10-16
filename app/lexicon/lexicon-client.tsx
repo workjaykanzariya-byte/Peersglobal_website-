@@ -1540,17 +1540,7 @@ export default function LexiconClientPage() {
               <span className="w-5 h-[1.5px] bg-sky-400" />
             </div>
 
-            {/* Script Text top right on desktop */}
-            <div className="hidden sm:block absolute right-8 top-0 pointer-events-none select-none text-right">
-              <p
-                className="text-white/80 text-xl sm:text-2xl font-normal drop-shadow-md leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Real People. <br />
-                Real Impact. <br />
-                <span className="text-sky-400">A Stronger Tomorrow.</span>
-              </p>
-            </div>
+            
 
             {/* Headline */}
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white tracking-tight leading-[1.18] mb-6">

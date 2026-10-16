@@ -73,127 +73,72 @@ export function LifeImpactScoreClient() {
           <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(2,8,23,0.92)_0%,rgba(4,15,36,0.78)_45%,rgba(4,15,36,0.55)_100%)]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full min-h-[440px] lg:min-h-[480px]">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#FB7185] animate-pulse" />
-                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">VERIFIED RELATIONAL CURRENCY</span>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+          <div className="max-w-3xl space-y-6">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#FB7185] animate-pulse" />
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">VERIFIED RELATIONAL CURRENCY</span>
+            </div>
 
-              {/* Main Heading */}
-              <div className="space-y-3">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
-                  Life Impact{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
-                    Score
-                  </span>
-                </h1>
-                <p className="text-base sm:text-lg text-slate-200 font-medium leading-relaxed">
-                  The record of what you have given.
-                </p>
-              </div>
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-xl">
-                Logged as it happens. Confirmed by the person you helped. Every contribution builds your immutable record of service.
+            {/* Main Heading */}
+            <div className="space-y-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
+                Life Impact{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                  Score
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg text-slate-200 font-medium leading-relaxed">
+                The record of what you have given.
               </p>
+            </div>
 
-              {/* Feature Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <ShieldCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Immutable</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Peer Confirmed</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <TrendingUp className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Live Score</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <Award className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Coin Rewards</span>
-                </div>
+            {/* Description */}
+            <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-xl">
+              Logged as it happens. Confirmed by the person you helped. Every contribution builds your immutable record of service.
+            </p>
+
+            {/* Feature Chips */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <ShieldCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Immutable</span>
               </div>
-
-              {/* Action CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-                <GalaxyButton
-                  href="/peer-standing"
-                  variant="transparent"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  See Peer Standing
-                </GalaxyButton>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Peer Confirmed</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <TrendingUp className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Live Score</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <Award className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Coin Rewards</span>
               </div>
             </div>
 
-            {/* Right Phone Visual */}
-            <div className="lg:col-span-5 relative flex justify-center items-center py-2">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 via-indigo-500/20 to-rose-500/20 rounded-[50px] blur-2xl pointer-events-none" />
-
-              {/* Phone Frame */}
-              <div className="relative w-64 sm:w-72 rounded-[40px] p-3 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 border-[3px] border-slate-700/80 shadow-2xl ring-1 ring-white/10">
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-18 h-3.5 bg-slate-950 rounded-full z-20 flex items-center justify-center">
-                  <div className="w-7 h-1 bg-slate-800 rounded-full" />
-                  <div className="size-1.5 rounded-full bg-slate-900 ml-1.5" />
-                </div>
-
-                <div className="rounded-[30px] bg-[#060D1D] text-white p-5 pt-7 space-y-4 overflow-hidden relative border border-white/5">
-                  <div className="flex justify-between items-center text-xs text-slate-400 pt-0.5">
-                    <span className="font-semibold tracking-wide text-slate-300 text-[11px]">Peers Unity</span>
-                    <div className="flex items-center gap-1.5">
-                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-[9px] text-emerald-400 uppercase tracking-widest font-mono">Live</span>
-                    </div>
-                  </div>
-
-                  <div className="text-center py-3 space-y-1 rounded-2xl bg-gradient-to-b from-white/[0.04] to-transparent border border-white/[0.06] p-3">
-                    <span className="text-[10px] uppercase tracking-widest font-mono bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
-                      Life Impact Score
-                    </span>
-                    <div className="text-3xl sm:text-4xl font-mono font-bold text-white tracking-tight drop-shadow-sm">
-                      2,850
-                    </div>
-                    <div className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-medium bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                      <span>+150 this month</span>
-                      <span>•</span>
-                      <span>Top 5% Peer</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 pt-0.5 text-xs">
-                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 flex justify-between items-center transition-colors hover:bg-white/[0.07]">
-                      <span className="text-slate-300 text-[11px]">Recent Confirmation</span>
-                      <span className="font-mono text-sky-300 font-bold bg-sky-950/50 px-2 py-0.5 rounded border border-sky-400/20 text-[11px]">+100 pts</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 flex justify-between items-center transition-colors hover:bg-white/[0.07]">
-                      <span className="text-slate-300 text-[11px]">Peer Standing</span>
-                      <span className="text-amber-300 font-semibold bg-amber-950/50 px-2 py-0.5 rounded border border-amber-400/20 text-[11px]">Catalyst</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute -bottom-3 -right-3 sm:-right-4 text-xs font-bold bg-white px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-lg hidden sm:flex items-center gap-1.5 z-20">
-                  <span className="bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">Give. Support. Impact.</span>
-                </div>
-              </div>
+            {/* Action CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <GalaxyButton
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                size="default"
+                className="font-bold uppercase tracking-wider"
+              >
+                Download Unity App
+              </GalaxyButton>
+              <GalaxyButton
+                href="/peer-standing"
+                variant="transparent"
+                size="default"
+                className="font-bold uppercase tracking-wider"
+              >
+                See Peer Standing
+              </GalaxyButton>
             </div>
           </div>
 
@@ -658,8 +603,7 @@ export function LifeImpactScoreClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   MEASURE WHAT MATTERS
@@ -699,34 +643,6 @@ export function LifeImpactScoreClient() {
                 </GalaxyButton>
               </div>
             </div>
-
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Every Introduction.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Every Referral.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Every Hour of Support.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Recorded & Confirmed.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </div>

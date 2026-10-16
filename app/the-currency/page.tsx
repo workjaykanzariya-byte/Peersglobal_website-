@@ -230,7 +230,7 @@ export default function TheCurrencyPage() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   size="default"
                   className="font-semibold"
                 >
@@ -725,37 +725,25 @@ export default function TheCurrencyPage() {
               )
             })}
 
-            {/* 5th Card: Gradient Callout Promo Card with Animated Glow Border */}
-            <div className="animated-glow-card group w-full !bg-gradient-to-br !from-[#1D4ED8] !via-[#6366F1] !to-[#E11D48]" tabIndex={0} role="article">
-              <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="whereCardGradPromo" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FFFFFF" />
-                    <stop offset="50%" stopColor="#FDE047" />
-                    <stop offset="100%" stopColor="#FFFFFF" />
-                  </linearGradient>
-                </defs>
-                <path
-                  className="animated-border-path animated-border-path-2"
-                  style={{ stroke: 'url(#whereCardGradPromo)' }}
-                  d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
-                />
-              </svg>
-              <div className="relative overflow-hidden p-6 text-white shadow-xl flex flex-col justify-between h-full !bg-gradient-to-br !from-[#0D1630] !via-[#1E1B4B] !to-[#4C0519] rounded-[calc(1rem-1.5px)]">
-                {/* Subtle ambient glowing blobs */}
-                <div className="absolute -top-10 -right-10 size-40 rounded-full bg-gradient-to-br from-[#1D4ED8]/40 to-[#E11D48]/40 blur-2xl pointer-events-none" />
-                <div className="absolute -bottom-10 -left-10 size-32 rounded-full bg-gradient-to-br from-indigo-500/30 to-purple-500/30 blur-2xl pointer-events-none" />
-                
-                <div className="relative z-10">
-                  <p className="font-serif italic text-lg sm:text-xl font-light text-white leading-snug mb-4 drop-shadow-xs">
-                    Small actions. <br />
-                    Big change. <br />
-                    <span className="bg-gradient-to-r from-sky-300 via-pink-200 to-rose-300 bg-clip-text text-transparent font-medium">Real people.</span>
-                  </p>
-                </div>
-                <div className="relative z-10 text-[11px] font-bold tracking-[0.2em] text-sky-200/90 uppercase drop-shadow-xs">
-                  A MORE CONNECTED TOMORROW
-                </div>
+            {/* 5th Card: Dark Callout Promo Card (Without gradient border hover effect) */}
+            <div
+              className="relative overflow-hidden rounded-2xl p-6 text-white shadow-xl flex flex-col justify-between h-full bg-gradient-to-br from-[#0D1630] via-[#1E1B4B] to-[#4C0519] border border-white/10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-0.5"
+              tabIndex={0}
+              role="article"
+            >
+              {/* Subtle ambient glowing blobs */}
+              <div className="absolute -top-10 -right-10 size-40 rounded-full bg-gradient-to-br from-[#1D4ED8]/40 to-[#E11D48]/40 blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 size-32 rounded-full bg-gradient-to-br from-indigo-500/30 to-purple-500/30 blur-2xl pointer-events-none" />
+              
+              <div className="relative z-10">
+                <p className="font-serif italic text-lg sm:text-xl font-light text-white leading-snug mb-4 drop-shadow-xs">
+                  Small actions. <br />
+                  Big change. <br />
+                  <span className="bg-gradient-to-r from-sky-300 via-pink-200 to-rose-300 bg-clip-text text-transparent font-medium">Real people.</span>
+                </p>
+              </div>
+              <div className="relative z-10 text-[11px] font-bold tracking-[0.2em] text-sky-200/90 uppercase drop-shadow-xs">
+                A MORE CONNECTED TOMORROW
               </div>
             </div>
           </div>
@@ -1101,8 +1089,8 @@ export default function TheCurrencyPage() {
                 </div>
 
                 <Link
-                  href="/membership"
-                  className="w-full rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                  href="/peers-store"
+                  className="w-full rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white py-3 text-sm font-semibold shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
                 >
                   <span>Explore the Peers Marketplace</span>
                   <ArrowRight className="size-4" />
@@ -1271,10 +1259,8 @@ export default function TheCurrencyPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Column (8 cols): Mission Headline & CTAs */}
-            <div className="lg:col-span-8 space-y-5">
+          <div className="max-w-3xl space-y-5">
+
               {/* Eyebrow */}
               <div className="flex items-center gap-2.5">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
@@ -1307,37 +1293,16 @@ export default function TheCurrencyPage() {
                   See the 1 Million Mission
                 </GalaxyButton>
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   variant="transparent"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >
                   Download Unity App
                 </GalaxyButton>
-              </div>
-            </div>
+              
+</div>
 
-            {/* Right Column (4 cols): Floating Calligraphy Script Highlights */}
-            <div className="hidden lg:flex lg:col-span-4 flex-col items-end text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-2xl sm:text-3xl text-white/90 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                More People
-              </p>
-              <p
-                className="text-3xl sm:text-4xl text-white leading-tight font-bold"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Brighter Businesses
-              </p>
-              <p
-                className="text-3xl sm:text-4xl font-bold leading-tight bg-gradient-to-r from-sky-400 via-indigo-300 to-rose-400 bg-clip-text text-transparent"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                A Better Tomorrow
-              </p>
-            </div>
 
           </div>
         </div>

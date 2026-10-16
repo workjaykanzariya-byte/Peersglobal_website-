@@ -40,6 +40,7 @@ export type NavSubItem = {
   label: string
   href: string
   desc: string
+  description?: string
   phase?: 1 | 2
   external?: boolean
 }

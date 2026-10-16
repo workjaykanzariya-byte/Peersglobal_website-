@@ -657,14 +657,15 @@ export function ApplyToLeadClient() {
                     <span className="text-center sm:text-left text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                       Step 01 of 06
                     </span>
-                    <button
+                    <GalaxyButton
                       type="button"
                       onClick={() => goToNextStep(2)}
-                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      variant="primary"
+                      size="default"
+                      className="font-bold uppercase tracking-wider"
                     >
-                      <span>Proceed to Step 02</span>
-                      <ArrowRight className="size-3.5" />
-                    </button>
+                      Proceed to Step 02
+                    </GalaxyButton>
                   </div>
                 </div>
               )}
@@ -801,14 +802,15 @@ export function ApplyToLeadClient() {
                     >
                       ← Previous Step
                     </button>
-                    <button
+                    <GalaxyButton
                       type="button"
                       onClick={() => goToNextStep(3)}
-                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      variant="primary"
+                      size="default"
+                      className="font-bold uppercase tracking-wider"
                     >
-                      <span>Proceed to Step 03</span>
-                      <ArrowRight className="size-3.5" />
-                    </button>
+                      Proceed to Step 03
+                    </GalaxyButton>
                   </div>
                 </div>
               )}
@@ -913,14 +915,15 @@ export function ApplyToLeadClient() {
                     >
                       ← Previous Step
                     </button>
-                    <button
+                    <GalaxyButton
                       type="button"
                       onClick={() => goToNextStep(4)}
-                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      variant="primary"
+                      size="default"
+                      className="font-bold uppercase tracking-wider"
                     >
-                      <span>Proceed to Step 04</span>
-                      <ArrowRight className="size-3.5" />
-                    </button>
+                      Proceed to Step 04
+                    </GalaxyButton>
                   </div>
                 </div>
               )}
@@ -1057,14 +1060,15 @@ export function ApplyToLeadClient() {
                     >
                       ← Previous Step
                     </button>
-                    <button
+                    <GalaxyButton
                       type="button"
                       onClick={() => goToNextStep(5)}
-                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      variant="primary"
+                      size="default"
+                      className="font-bold uppercase tracking-wider"
                     >
-                      <span>Proceed to Step 05</span>
-                      <ArrowRight className="size-3.5" />
-                    </button>
+                      Proceed to Step 05
+                    </GalaxyButton>
                   </div>
                 </div>
               )}
@@ -1210,14 +1214,15 @@ export function ApplyToLeadClient() {
                     >
                       ← Previous Step
                     </button>
-                    <button
+                    <GalaxyButton
                       type="button"
                       onClick={() => goToNextStep(6)}
-                      className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                      variant="primary"
+                      size="default"
+                      className="font-bold uppercase tracking-wider"
                     >
-                      <span>Proceed to Step 06</span>
-                      <ArrowRight className="size-3.5" />
-                    </button>
+                      Proceed to Step 06
+                    </GalaxyButton>
                   </div>
                 </div>
               )}
@@ -1537,79 +1542,46 @@ export function ApplyToLeadClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                  PEERS GLOBAL LEADERSHIP
-                </span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
-                Your leadership journey{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
-                  may begin here.
-                </span>
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-2xl">
-                PEERS GLOBAL does not need people who simply want another title. It needs entrepreneurs who are willing to contribute, bring relationships, and foster communities.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <GalaxyButton
-                  onClick={handleScrollToForm}
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Apply to Lead
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-              </div>
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                PEERS GLOBAL LEADERSHIP
+              </span>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Ideas.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                People.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Communities.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                A Brighter Tomorrow.
-              </p>
-            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
+              Your leadership journey{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                may begin here.
+              </span>
+            </h2>
 
+            <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-2xl">
+              PEERS GLOBAL does not need people who simply want another title. It needs entrepreneurs who are willing to contribute, bring relationships, and foster communities.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <GalaxyButton
+                onClick={handleScrollToForm}
+                variant="primary"
+                size="default"
+                className="font-bold uppercase tracking-wider"
+              >
+                Apply to Lead
+              </GalaxyButton>
+
+              <GalaxyButton
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="transparent"
+                size="default"
+                className="font-bold uppercase tracking-wider"
+              >
+                Download Unity App
+              </GalaxyButton>
+            </div>
           </div>
         </div>
       </section>

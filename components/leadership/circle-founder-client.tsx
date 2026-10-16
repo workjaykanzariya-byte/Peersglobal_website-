@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   ChevronRight,
@@ -438,7 +439,7 @@ export function CircleFounderClient() {
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group">
                 <Image
-                  src="/images/leadership-circle-founder.jpg"
+                  src="/images/leadership-circle-founder-conference.jpg"
                   alt="Circle Founder bringing entrepreneurs together"
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
@@ -1127,61 +1128,44 @@ export function CircleFounderClient() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
-                  START WITH ONE ENTREPRENEUR
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-bold leading-[1.18] tracking-tight text-white">
-                You only have to begin.
-              </h2>
-
-              <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
-                You do not have to build the whole Circle today. Find the first entrepreneur. Start the first conversation. Create the first connection. Then let contribution, trust and relationships build what comes next.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-3">
-                <GalaxyButton
-                  href="/start-a-circle"
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Apply to Found a Circle
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-              </div>
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                START WITH ONE ENTREPRENEUR
+              </span>
             </div>
 
-            <div className="lg:col-span-4 text-right flex justify-end">
-              <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-md"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-bold leading-[1.18] tracking-tight text-white">
+              You only have to begin.
+            </h2>
+
+            <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
+              You do not have to build the whole Circle today. Find the first entrepreneur. Start the first conversation. Create the first connection. Then let contribution, trust and relationships build what comes next.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-3">
+              <GalaxyButton
+                href="/start-a-circle"
+                variant="primary"
+                size="default"
+                className="font-bold uppercase tracking-wider"
               >
-                Start With One. <br />
-                Build With Trust. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
-                  Create A Circle.
-                </span>
-              </div>
-            </div>
+                Apply to Found a Circle
+              </GalaxyButton>
 
+              <GalaxyButton
+                href={SITE.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="transparent"
+                size="default"
+                icon={<Smartphone className="size-4 text-sky-400" />}
+                className="font-bold uppercase tracking-wider"
+              >
+                Download Unity App
+              </GalaxyButton>
+            </div>
           </div>
         </div>
       </section>

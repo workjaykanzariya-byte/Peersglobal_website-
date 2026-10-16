@@ -1354,10 +1354,8 @@ export function NewsroomPageClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
-            {/* Left Column */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-3.5">
+          <div className="max-w-3xl flex flex-col items-start space-y-3.5">
+
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
                   FOR THE MEDIA
@@ -1411,30 +1409,11 @@ export function NewsroomPageClient() {
                 >
                   Make Enquiry
                 </GalaxyButton>
-              </div>
-            </div>
+              
+</div>
 
             {/* Right Column */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1 lg:pl-6">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Public Record
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-sky-300 leading-tight font-bold"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Authentic &amp; Verified
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-rose-300 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Zero Hype
-              </p>
-            </div>
+
 
           </div>
         </div>

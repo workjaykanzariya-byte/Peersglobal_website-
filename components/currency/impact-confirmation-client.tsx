@@ -67,7 +67,7 @@ export function ImpactConfirmationClient() {
 
               <div className="pt-2">
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   variant="primary"
                   size="md"
                 >
@@ -319,7 +319,7 @@ export function ImpactConfirmationClient() {
           </h2>
           <div className="pt-2">
             <GalaxyButton
-              href="/unity"
+              href="/download"
               variant="primary"
               size="md"
             >
