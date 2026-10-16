@@ -202,7 +202,7 @@ export default function OneMillionMissionPage() {
                     aria-label="Download on Apple App Store"
                   >
                     <svg className="size-3.5 fill-current shrink-0" viewBox="0 0 24 24">
-                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.06-1.82.94-2.88-.91.04-2.02.6-2.67 1.36-.58.67-.99 1.74-.85 2.77 1.02.08 2.05-.55 2.58-1.25z"/>
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.06-1.82.94-2.88-.91.04-2.02.6-2.67 1.36-.58.67-.99 1.74-.85 2.77 1.02.08 2.05-.55 2.58-1.25z" />
                     </svg>
                     <span>App Store</span>
                   </a>
@@ -266,7 +266,7 @@ export default function OneMillionMissionPage() {
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_80%_85%,rgba(225,29,72,0.03),transparent_60%)]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           {/* The Number That Matters */}
           <div className="space-y-8">
             <div className="max-w-4xl space-y-3">
@@ -324,9 +324,8 @@ export default function OneMillionMissionPage() {
                 return (
                   <div
                     key={idx}
-                    className={`brand-gradient-border-card p-6 rounded-2xl bg-white shadow-xs hover:shadow-lg transition-all flex items-start gap-4 group cursor-pointer ${
-                      item.spanFull ? 'md:col-span-2' : ''
-                    }`}
+                    className={`brand-gradient-border-card p-6 rounded-2xl bg-white shadow-xs hover:shadow-lg transition-all flex items-start gap-4 group cursor-pointer ${item.spanFull ? 'md:col-span-2' : ''
+                      }`}
                   >
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-500/40 transition-all shrink-0 shadow-2xs">
                       <Icon className="w-6 h-6 stroke-[url(#brandIconGrad)]" />
@@ -364,7 +363,7 @@ export default function OneMillionMissionPage() {
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1D4ED8] via-[#8B5CF6] to-[#E11D48]" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              
+
               {/* Left Column: Heading & Core Narrative */}
               <div className="lg:col-span-6 space-y-6">
                 <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
@@ -427,7 +426,7 @@ export default function OneMillionMissionPage() {
       <section className="relative py-20 sm:py-28 bg-gradient-to-b from-[#FAFBFD] via-white to-[#FAFBFD] text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_20%_30%,rgba(29,78,216,0.03),transparent_60%)]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] uppercase">
               <span className="brand-gradient-text">THE IMPACT PRINCIPLE</span>
@@ -493,7 +492,7 @@ export default function OneMillionMissionPage() {
           ========================================================================= */}
       <section className="relative py-20 sm:py-28 bg-gradient-to-b from-white via-[#FAFBFD] to-white text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           {/* Architecture flow */}
           <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -560,7 +559,7 @@ export default function OneMillionMissionPage() {
           ========================================================================= */}
       <section className="relative py-20 sm:py-28 bg-gradient-to-b from-[#FAFBFD] via-white to-[#FAFBFD] text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase">
@@ -666,7 +665,7 @@ export default function OneMillionMissionPage() {
           ========================================================================= */}
       <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white via-[#FAFBFD] to-white text-slate-900 border-b border-slate-200/80 overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
+
           {/* What does it mean to be a Life Impactor? */}
           <div className="space-y-6">
             <div className="max-w-3xl space-y-2.5">
@@ -772,12 +771,12 @@ export default function OneMillionMissionPage() {
               className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(67,16,102,0.25),transparent)] pointer-events-none"
               aria-hidden="true"
             />
-            
+
             <div className="relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase brand-gradient-text">
                 <span>ONE MILLION IS NOT THE DESTINATION</span>
               </div>
-              
+
               <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white">
                 The number matters. But the number is not the heart of the mission.
               </h3>
@@ -847,7 +846,7 @@ export default function OneMillionMissionPage() {
                 turning point.
               </span>
             </h3>
-            
+
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
               Somewhere in this community, there is an entrepreneur who needs exactly what you already know. And somewhere ahead of you, there is another entrepreneur whose experience can change your own journey.
             </p>
@@ -906,7 +905,7 @@ export default function OneMillionMissionPage() {
                   aria-label="Download on Apple App Store"
                 >
                   <svg className="size-3.5 fill-current shrink-0" viewBox="0 0 24 24">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.06-1.82.94-2.88-.91.04-2.02.6-2.67 1.36-.58.67-.99 1.74-.85 2.77 1.02.08 2.05-.55 2.58-1.25z"/>
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.06-1.82.94-2.88-.91.04-2.02.6-2.67 1.36-.58.67-.99 1.74-.85 2.77 1.02.08 2.05-.55 2.58-1.25z" />
                   </svg>
                   <span>App Store</span>
                 </a>

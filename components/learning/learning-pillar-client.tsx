@@ -598,7 +598,7 @@ export function LearningPillarClient() {
                   size="lg"
                   className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  Open Unity App
+                  DOWNLOAD UNITY APP
                 </GalaxyButton>
 
                 <GalaxyButton
@@ -607,7 +607,7 @@ export function LearningPillarClient() {
                   size="lg"
                   className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  Apply for Membership →
+                  Apply for Membership
                 </GalaxyButton>
               </div>
             </div>

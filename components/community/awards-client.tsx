@@ -875,7 +875,7 @@ export function AwardsClient() {
                   size="lg"
                   className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  Apply for Membership →
+                  Apply for Membership
                 </GalaxyButton>
               </div>
             </div>

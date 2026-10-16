@@ -36,6 +36,8 @@ import {
   X,
   Flame,
 } from 'lucide-react'
+import { SITE } from '@/lib/data/site'
+import { handleSmartAppDownload, useSmartAppUrl } from '@/lib/utils/app-link'
 
 // ─── The Six Stages Data ──────────────────────────────────────────────────
 const SIX_STAGES = [
@@ -203,6 +205,7 @@ const TESTIMONIALS = [
 ]
 
 export function StartCircleClient() {
+  const smartUrl = useSmartAppUrl(SITE.playStoreUrl)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [testimonialIdx, setTestimonialIdx] = useState(0)
 
@@ -285,7 +288,8 @@ export function StartCircleClient() {
                   Apply to Found a Circle
                 </GalaxyButton>
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href={smartUrl}
+                  onClick={(e: any) => handleSmartAppDownload(e, smartUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="transparent"
@@ -1196,9 +1200,10 @@ export function StartCircleClient() {
                 </GalaxyButton>
 
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href={smartUrl}
+                  onClick={(e: any) => handleSmartAppDownload(e, smartUrl)}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   variant="transparent"
                   size="default"
                   className="uppercase tracking-wider font-bold"

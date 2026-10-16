@@ -345,18 +345,6 @@ export function UnityPageClient() {
                     <span className="app-badge-title">Google Play</span>
                   </div>
                 </a>
-
-                <GalaxyButton
-                  href={SITE.playStoreUrl}
-                  onClick={(e: any) => handleSmartAppDownload(e)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="default"
-                  className="font-medium"
-                >
-                  Download Unity App
-                </GalaxyButton>
               </div>
             </div>
           </div>

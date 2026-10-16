@@ -247,7 +247,8 @@ export function TheIdeaClient() {
 
           <div className="hidden md:flex items-center shrink-0 pl-4">
             <GalaxyButton
-              href="https://unity.peersglobal.com"
+              href={SITE.playStoreUrl}
+              onClick={(e: any) => handleSmartAppDownload(e)}
               target="_blank"
               rel="noreferrer"
               size="sm"
@@ -1717,7 +1718,7 @@ export function TheIdeaClient() {
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <GalaxyButton
-                href="https://unity.peersglobal.com"
+                href={SITE.playStoreUrl}
                 onClick={(e: any) => handleSmartAppDownload(e)}
                 target="_blank"
                 rel="noreferrer"

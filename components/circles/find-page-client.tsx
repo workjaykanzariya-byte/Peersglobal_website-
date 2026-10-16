@@ -27,6 +27,7 @@ import {
   Apple,
 } from 'lucide-react'
 import { SITE } from '@/lib/data/site'
+import { handleSmartAppDownload, useSmartAppUrl } from '@/lib/utils/app-link'
 
 // ─── Industries list ───────────────────────────────────────────────────────
 const INDUSTRIES = [
@@ -181,6 +182,7 @@ function PillButton({
 
 // ─── Main client component ─────────────────────────────────────────────────
 export function FindPageClient() {
+  const smartUrl = useSmartAppUrl(SITE.playStoreUrl)
   const [step, setStep] = useState(1)
   const totalSteps = 6
   const [submitted, setSubmitted] = useState(false)
@@ -307,7 +309,8 @@ export function FindPageClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href={smartUrl}
+                  onClick={(e: any) => handleSmartAppDownload(e, smartUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"
@@ -1179,7 +1182,8 @@ export function FindPageClient() {
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href={smartUrl}
+                  onClick={(e: any) => handleSmartAppDownload(e, smartUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"

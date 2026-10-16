@@ -551,6 +551,8 @@ p, span, a, button, input, textarea,
 
   button.bg-primary,
   a.bg-primary,
+  button[class*="bg-primary"],
+  a[class*="bg-primary"],
   button[class~="bg-[#0078D4]"],
   a[class~="bg-[#0078D4]"],
   button[class~="bg-[#0062D2]"],
@@ -560,8 +562,14 @@ p, span, a, button, input, textarea,
   button[class~="bg-blue-600"],
   a[class~="bg-blue-600"],
   button[class~="bg-blue-700"],
-  a[class~="bg-blue-700"] {
-    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
+  a[class~="bg-blue-700"],
+  button[class*="bg-gradient-to-r"][class*="from-blue-600"],
+  a[class*="bg-gradient-to-r"][class*="from-blue-600"],
+  button[class*="bg-gradient-to-r"][class*="from-[#1D4ED8]"],
+  a[class*="bg-gradient-to-r"][class*="from-[#1D4ED8]"],
+  button[class*="bg-gradient-to-r"][class*="from-[#1E4ED8]"],
+  a[class*="bg-gradient-to-r"][class*="from-[#1E4ED8]"] {
+    background-image: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%) !important;
   }
 
   /* Brand gradient primary CTA button with shimmer & hover lift */
@@ -1347,8 +1355,8 @@ button.rounded-full svg.lucide,
 }
 
 /* Galaxy button default curved arrow has an invisible 24x24 path bounding box; never stroke it */
-.galaxy-btn svg:not(.lucide),
-.galaxy-btn svg:not(.lucide) path {
+.galaxy-btn svg:not(.lucide):not(.galaxy-btn__icon),
+.galaxy-btn svg:not(.lucide):not(.galaxy-btn__icon) path {
   stroke: none !important;
 }
 

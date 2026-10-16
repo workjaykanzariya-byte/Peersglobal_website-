@@ -530,7 +530,7 @@ export function GalleryPageClient() {
                   size="lg"
                   className="text-xs sm:text-sm uppercase tracking-wider text-white"
                 >
-                  Open Unity App
+                  DOWNLOAD UNITY APP
                 </GalaxyButton>
               </div>
 
@@ -914,7 +914,7 @@ export function GalleryPageClient() {
                   size="lg"
                   className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  Open Unity App →
+                  DOWNLOAD UNITY APP
                 </GalaxyButton>
               </div>
             </div>

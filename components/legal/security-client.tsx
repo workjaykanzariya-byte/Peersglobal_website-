@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ShieldCheck,
   ChevronRight,
@@ -182,20 +183,24 @@ export function SecurityClient() {
               </div>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <a
+                <GalaxyButton
                   href="#security-pillars"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-purple-600 to-[#E11D48] text-white font-semibold text-sm shadow-lg shadow-rose-500/20 hover:shadow-rose-500/40 hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group cursor-pointer border border-white/20"
+                  size="lg"
+                  icon={false}
+                  className="text-xs sm:text-sm font-bold uppercase tracking-wider"
                 >
-                  <span className="font-bold tracking-wide">Explore Security Pillars</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform text-white" />
-                </a>
+                  EXPLORE SECURITY PILLARS
+                </GalaxyButton>
 
-                <a
+                <GalaxyButton
                   href="#compliance-standards"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+                  variant="transparent"
+                  size="lg"
+                  icon={false}
+                  className="text-xs sm:text-sm font-bold uppercase tracking-wider"
                 >
-                  <span>Compliance Standards</span>
-                </a>
+                  COMPLIANCE STANDARDS
+                </GalaxyButton>
               </div>
 
               {/* Stat Band */}

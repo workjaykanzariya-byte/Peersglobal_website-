@@ -194,10 +194,10 @@ export function CareersClient() {
       {/* ── Signature Hero Section (Home & Circles Master Design Layout) ── */}
       <section className="relative overflow-hidden bg-[#040F24] text-white pt-0 pb-10 sm:pb-12 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Home-style full-bleed hero with video backdrop */}
           <div className="min-h-[440px] lg:min-h-[480px] flex items-center">
-            
+
             {/* Ambient Lighting */}
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 right-10 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -224,7 +224,7 @@ export function CareersClient() {
             {/* Left Content Area */}
             <div className="relative z-10 w-full p-6 sm:p-8 lg:p-10">
               <div className="max-w-xl lg:max-w-2xl flex flex-col items-start text-left">
-                
+
                 {/* Eyebrow label without dash line */}
                 <div className="flex items-center gap-2.5 mb-3">
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
@@ -721,9 +721,9 @@ export function CareersClient() {
       {/* ── GENERAL APPLICATION / APPLICATION DESK ── */}
       <section id="general-application" className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#F8FAFD] to-white border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            
+
             {/* Left Column: Context & Guidelines */}
             <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
               <div className="space-y-3">
@@ -732,11 +732,11 @@ export function CareersClient() {
                     APPLICATION DESK
                   </span>
                 </div>
-                
+
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
                   General Application
                 </h2>
-                
+
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   Tell us about yourself, what drives you, and what you would like to build together with PEERS GLOBAL.
                 </p>
@@ -798,7 +798,7 @@ export function CareersClient() {
             {/* Right Column: Sleek Form Architecture */}
             <div className="lg:col-span-7">
               <div className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-lg relative overflow-hidden">
-                
+
                 {/* Subtle top accent bar */}
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
 
@@ -823,7 +823,7 @@ export function CareersClient() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5 text-xs sm:text-sm">
-                    
+
                     {/* Header inside form */}
                     <div className="pb-3 border-b border-slate-100 flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
@@ -1001,10 +1001,10 @@ export function CareersClient() {
         </div>
       </section>
 
-      {/* ── FINAL THE PEERS GLOBAL INVITATION BANNER (COMPACT SIGNATURE) ── */}
+      {/* ── FINAL THE PEERS GLOBAL INVITATION BANNER (SIGNATURE SECTION) ── */}
       <section
         id="contact"
-        className="relative py-12 sm:py-16 bg-[#040F24] text-white overflow-hidden border-t border-slate-800"
+        className="relative py-16 sm:py-20 lg:py-24 bg-[#040F24] text-white overflow-hidden border-t border-slate-800"
       >
         {/* Deep celestial radial gradients & luminous aura */}
         <div
@@ -1031,61 +1031,63 @@ export function CareersClient() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl flex flex-col items-start space-y-3.5">
 
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                  THE PEERS GLOBAL INVITATION
-                </span>
-              </div>
 
-              {/* Main Headline */}
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
-                Come Build With Us
-              </h2>
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                THE PEERS GLOBAL INVITATION
+              </span>
+            </div>
 
-              {/* Manifesto Content */}
-              <div className="space-y-1.5 text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
-                <p>If you believe entrepreneurs should not have to build alone —</p>
-                <p>If you believe relationships can create more value than transactions —</p>
-                <p>If you believe communities become stronger when people contribute —</p>
-                <p className="font-bold text-xs sm:text-sm pt-0.5 brand-gradient-text">
-                  We would like to hear from you.
-                </p>
-              </div>
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]">
+              Come Build With Us
+            </h2>
 
-              {/* Key Highlights Pill */}
-              <div className="py-2 px-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <p className="text-slate-300 text-xs font-medium">
-                  <span className="brand-gradient-text font-bold">1 Action = 1 Life Impacted</span> &bull; High-Autonomy &bull; Direct Founder Mentorship
-                </p>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                <GalaxyButton
-                  href="#open-roles"
-                  variant="primary"
-                  size="sm"
-                >
-                  View Open Roles
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="#general-application"
-                  variant="transparent"
-                  size="sm"
-                >
-                  Make a General Application
-                </GalaxyButton>
-              </div>
-
-              {/* Bottom Quote */}
-              <p className="text-[11px] text-slate-400 italic font-serif pt-1">
-                &ldquo;Build with purpose. Learn with people. Leave something better than you found it.&rdquo;
+            {/* Manifesto Content */}
+            <div className="space-y-2 text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-2xl">
+              <p>If you believe entrepreneurs should not have to build alone —</p>
+              <p>If you believe relationships can create more value than transactions —</p>
+              <p>If you believe communities become stronger when people contribute —</p>
+              <p className="font-bold text-base sm:text-lg pt-1 brand-gradient-text">
+                We would like to hear from you.
               </p>
-            
-</div>
+            </div>
+
+            {/* Key Highlights Pill */}
+            <div className="py-2.5 px-4 sm:px-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md shadow-sm">
+              <p className="text-slate-200 text-xs sm:text-sm font-medium leading-normal">
+                <span className="brand-gradient-text font-bold text-sm sm:text-base">1 Action = 1 Life Impacted</span> &bull; High-Autonomy &bull; Direct Founder Mentorship
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <GalaxyButton
+                href="#open-roles"
+                variant="primary"
+                size="lg"
+                className="text-xs sm:text-sm font-bold uppercase tracking-wider"
+              >
+                VIEW OPEN ROLES
+              </GalaxyButton>
+
+              <GalaxyButton
+                href="#general-application"
+                variant="transparent"
+                size="lg"
+                className="text-xs sm:text-sm font-bold uppercase tracking-wider"
+              >
+                MAKE A GENERAL APPLICATION
+              </GalaxyButton>
+            </div>
+
+            {/* Bottom Quote */}
+            <p className="text-xs sm:text-sm text-slate-400 italic pt-1 max-w-xl">
+              &ldquo;Build with purpose. Learn with people. Leave something better than you found it.&rdquo;
+            </p>
+
+          </div>
         </div>
       </section>
     </div>

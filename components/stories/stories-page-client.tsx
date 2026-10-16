@@ -336,9 +336,9 @@ export function StoriesPageClient() {
                   rel="noopener noreferrer"
                   variant="transparent"
                   size="lg"
-                  className="text-xs sm:text-sm font-semibold"
+                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
-                  Open Unity App ↗
+                  DOWNLOAD UNITY APP
                 </GalaxyButton>
               </div>
 
@@ -1017,7 +1017,7 @@ export function StoriesPageClient() {
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >
-                  Open Unity App
+                  DOWNLOAD UNITY APP
                 </GalaxyButton>
 
                 <GalaxyButton

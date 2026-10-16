@@ -393,7 +393,7 @@ export function ApplyToLeadClient() {
                     size="default"
                     className="font-bold uppercase tracking-wider"
                   >
-                    Open Unity App
+                    DOWNLOAD UNITY APP
                   </GalaxyButton>
                 </div>
               </div>

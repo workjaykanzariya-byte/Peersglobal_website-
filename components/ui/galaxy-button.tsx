@@ -51,6 +51,30 @@ export function GalaxyArrowIcon({ className }: { className?: string }) {
   )
 }
 
+/* Sleek Smartphone icon for Download Unity App */
+export function GalaxySmartphoneIcon({ className }: { className?: string }) {
+  return (
+    <span className="galaxy-btn__icon inline-flex items-center justify-center shrink-0">
+      <Smartphone
+        className={cn('lucide shrink-0 size-4.5 text-white', className)}
+        stroke="#ffffff"
+        fill="none"
+        strokeWidth={2.2}
+        style={{
+          width: '18px',
+          height: '18px',
+          stroke: '#ffffff',
+          fill: 'none',
+          strokeWidth: 2.2,
+          display: 'inline-block',
+          verticalAlign: 'middle',
+        }}
+        aria-hidden="true"
+      />
+    </span>
+  )
+}
+
 export const GalaxyButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   GalaxyButtonProps
@@ -78,17 +102,17 @@ export const GalaxyButton = React.forwardRef<
     size === 'sm' || size === 'small'
       ? 'galaxy-btn--sm'
       : size === 'lg'
-      ? 'galaxy-btn--lg'
-      : ''
+        ? 'galaxy-btn--lg'
+        : ''
 
   const variantClass =
     variant === 'transparent' || variant === 'secondary'
       ? 'galaxy-btn--transparent'
       : variant === 'transparent-light'
-      ? 'galaxy-btn--transparent-light'
-      : variant === 'gradient'
-      ? 'galaxy-btn--gradient'
-      : ''
+        ? 'galaxy-btn--transparent-light'
+        : variant === 'gradient'
+          ? 'galaxy-btn--gradient'
+          : ''
 
   // Smart download link detection:
   // If the button text mentions download unity/app/peers or links to /download,
@@ -151,6 +175,7 @@ export const GalaxyButton = React.forwardRef<
     <button
       type={(type === 'submit' || type === 'reset') ? type : 'button'}
       disabled={disabled}
+      onClick={handleClick}
       onClick={handleClick}
       className={cn('galaxy-btn', sizeClass, variantClass, className)}
       ref={ref as React.Ref<HTMLButtonElement>}
