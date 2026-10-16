@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { Smartphone } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { handleSmartAppDownload, getSmartAppUrl } from '@/lib/utils/app-link'
 import { SITE } from '@/lib/data/site'
@@ -16,7 +17,7 @@ export interface GalaxyButtonProps
   variant?: 'primary' | 'secondary' | 'transparent' | 'transparent-light' | 'gradient'
   icon?: React.ReactNode | boolean
   showIcon?: boolean
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
   'data-download'?: boolean
 }
@@ -175,7 +176,6 @@ export const GalaxyButton = React.forwardRef<
     <button
       type={(type === 'submit' || type === 'reset') ? type : 'button'}
       disabled={disabled}
-      onClick={handleClick}
       onClick={handleClick}
       className={cn('galaxy-btn', sizeClass, variantClass, className)}
       ref={ref as React.Ref<HTMLButtonElement>}
