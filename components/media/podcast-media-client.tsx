@@ -393,16 +393,6 @@ export function PodcastMediaClient() {
                   >
                     Listen &amp; Watch Now
                   </GalaxyButton>
-
-                  <GalaxyButton
-                    onClick={() => setNominateOpen(true)}
-                    variant="transparent"
-                    size="lg"
-                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
-                    showIcon={false}
-                  >
-                    Nominate an Entrepreneur
-                  </GalaxyButton>
                 </div>
               </div>
 
