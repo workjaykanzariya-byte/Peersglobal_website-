@@ -1,9 +1,15 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import {
+  fetchPodcastEpisodes,
+  fetchFeaturedEpisodes,
+  extractYoutubeVideoId,
+  type ApiPodcastEpisode,
+} from '@/lib/api/web-content'
 import {
   ArrowRight,
   ChevronRight,
@@ -125,22 +131,7 @@ const FORMAT_CARDS = [
 ]
 
 // ─── 4 Featured Episodes ───────────────────────────────────────────────────
-interface Episode {
-  id: string
-  title: string
-  subtitle: string
-  tag: string
-  duration: string
-  image: string
-  guest: {
-    name: string
-    title: string
-    avatar: string
-  }
-  showNotes: string[]
-  spotifyUrl: string
-  youtubeUrl: string
-}
+type Episode = ApiPodcastEpisode
 
 const EPISODES: Episode[] = [
   {
@@ -226,9 +217,33 @@ const EPISODES: Episode[] = [
 ]
 
 export function PodcastMediaClient() {
+  const [episodes, setEpisodes] = useState<Episode[]>(EPISODES)
+  const [isLoading, setIsLoading] = useState(false)
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [nominateOpen, setNominateOpen] = useState(false)
+
+  // Fetch dynamic episodes from Unity backend on mount
+  useEffect(() => {
+    let isMounted = true
+    async function loadEpisodes() {
+      setIsLoading(true)
+      try {
+        const apiData = await fetchFeaturedEpisodes(6)
+        if (isMounted && apiData && apiData.length > 0) {
+          setEpisodes(apiData)
+        }
+      } catch (err) {
+        console.warn('Failed to load dynamic podcast episodes, fallback to static:', err)
+      } finally {
+        if (isMounted) setIsLoading(false)
+      }
+    }
+    loadEpisodes()
+    return () => {
+      isMounted = false
+    }
+  }, [])
 
   // Nomination Form State
   const [nomineeName, setNomineeName] = useState('')
@@ -675,7 +690,7 @@ export function PodcastMediaClient() {
 
           {/* 4 Episode Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {EPISODES.map((ep) => (
+            {episodes.map((ep) => (
               <div
                 key={ep.id}
                 onClick={() => {
@@ -906,49 +921,63 @@ export function PodcastMediaClient() {
             </button>
 
             {/* Media Player Header */}
-            <div className="relative h-60 sm:h-72 w-full bg-slate-950">
-              <Image
-                src={selectedEpisode.image}
-                alt={selectedEpisode.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-              
-              <div className="absolute bottom-4 left-6 right-6 text-white">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-blue-600 text-white uppercase tracking-wider inline-block mb-1.5">
-                  {selectedEpisode.tag} · {selectedEpisode.duration}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold leading-tight">
-                  {selectedEpisode.title}
-                </h3>
-                <p className="text-xs text-slate-300 mt-1">
-                  {selectedEpisode.subtitle}
-                </p>
+            {selectedEpisode.youtubeVideoId ? (
+              <div className="relative aspect-video w-full bg-black">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${selectedEpisode.youtubeVideoId}?autoplay=1&rel=0`}
+                  title={selectedEpisode.title}
+                  className="size-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
-            </div>
-
-            {/* Audio Control Bar Simulation */}
-            <div className="bg-slate-900 p-4 px-6 text-white flex items-center gap-4 border-b border-slate-800">
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="size-10 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 transition-transform hover:scale-105 cursor-pointer"
-              >
-                <Play className={`size-4 fill-current ${isPlaying ? 'opacity-80' : ''}`} />
-              </button>
-
-              <div className="flex-1">
-                <div className="h-1.5 w-full bg-slate-700 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] w-1/3 rounded-full" />
-                </div>
-                <div className="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
-                  <span>14:20</span>
-                  <span>{selectedEpisode.duration}</span>
+            ) : (
+              <div className="relative h-60 sm:h-72 w-full bg-slate-950">
+                <Image
+                  src={selectedEpisode.image}
+                  alt={selectedEpisode.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
+                
+                <div className="absolute bottom-4 left-6 right-6 text-white">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-blue-600 text-white uppercase tracking-wider inline-block mb-1.5">
+                    {selectedEpisode.tag} · {selectedEpisode.duration}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold leading-tight">
+                    {selectedEpisode.title}
+                  </h3>
+                  <p className="text-xs text-slate-300 mt-1">
+                    {selectedEpisode.subtitle}
+                  </p>
                 </div>
               </div>
+            )}
 
-              <Volume2 className="size-4 text-slate-400" />
-            </div>
+            {/* Audio Control Bar Simulation (Shown for audio episodes) */}
+            {!selectedEpisode.youtubeVideoId && (
+              <div className="bg-slate-900 p-4 px-6 text-white flex items-center gap-4 border-b border-slate-800">
+                <button
+                  onClick={() => setIsPlaying(!isPlaying)}
+                  className="size-10 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 transition-transform hover:scale-105 cursor-pointer"
+                >
+                  <Play className={`size-4 fill-current ${isPlaying ? 'opacity-80' : ''}`} />
+                </button>
+
+                <div className="flex-1">
+                  <div className="h-1.5 w-full bg-slate-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] w-1/3 rounded-full" />
+                  </div>
+                  <div className="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
+                    <span>14:20</span>
+                    <span>{selectedEpisode.duration}</span>
+                  </div>
+                </div>
+
+                <Volume2 className="size-4 text-slate-400" />
+              </div>
+            )}
 
             {/* Show Notes & Guest Info */}
             <div className="p-6 sm:p-8 space-y-6">
@@ -989,21 +1018,26 @@ export function PodcastMediaClient() {
               <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <a
-                    href="https://spotify.com"
+                    href={selectedEpisode.spotifyUrl || 'https://open.spotify.com'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
                   >
-                    <span>Spotify</span>
+                    <span>Listen on Spotify</span>
                     <ExternalLink className="size-3" />
                   </a>
                   <a
-                    href="https://youtube.com"
+                    href={
+                      selectedEpisode.youtubeUrl ||
+                      (selectedEpisode.youtubeVideoId
+                        ? `https://www.youtube.com/watch?v=${selectedEpisode.youtubeVideoId}`
+                        : 'https://youtube.com')
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
                   >
-                    <span>YouTube</span>
+                    <span>Watch on YouTube</span>
                     <ExternalLink className="size-3" />
                   </a>
                 </div>
