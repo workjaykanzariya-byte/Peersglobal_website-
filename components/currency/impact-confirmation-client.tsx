@@ -521,8 +521,8 @@ export function ImpactConfirmationClient() {
                 <div className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold border inline-block ${vp.color}`}>
                   {vp.points}
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
 
           {/* Bottom Footnote on Calibration */}
