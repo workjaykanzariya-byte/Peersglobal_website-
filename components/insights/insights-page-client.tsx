@@ -306,9 +306,9 @@ export function InsightsPageClient() {
                 </span>
               </div>
 
-              <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.08] text-slate-950">
                 <span className="brand-gradient-text block">INSIGHTS</span>
-                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block font-sans">
+                <span className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 font-medium mt-2 block">
                   Written by entrepreneurs who have done the thing they are writing about.
                 </span>
               </h1>
@@ -374,7 +374,7 @@ export function InsightsPageClient() {
                     <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold uppercase tracking-wider text-sky-200 border border-white/20">
                       Experience Before Theory
                     </span>
-                    <p className="font-serif text-lg sm:text-xl font-bold leading-snug">
+                    <p className="text-lg sm:text-xl font-bold leading-snug text-white">
                       "People who have done the thing, sharing what they learned from doing it."
                     </p>
                   </div>
@@ -399,7 +399,7 @@ export function InsightsPageClient() {
                     THE PHILOSOPHY
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-950 mt-1 leading-tight">
                   EXPERIENCE BEFORE THEORY
                 </h2>
               </div>
@@ -429,13 +429,13 @@ export function InsightsPageClient() {
                   <Lightbulb className="w-6 h-6" />
                 </div>
 
-                <h3 className="text-2xl font-serif font-bold text-white leading-snug">
+                <h3 className="text-2xl font-bold text-white leading-snug">
                   THE QUESTION WE ASK BEFORE PUBLISHING
                 </h3>
 
                 <div className="space-y-2 text-sm text-slate-300">
                   <p className="line-through text-slate-400">“Will this article get attention?”</p>
-                  <p className="text-lg font-serif font-bold text-sky-200">
+                  <p className="text-lg font-bold text-sky-200">
                     “Has this person actually done the thing they are writing about?”
                   </p>
                 </div>
@@ -461,7 +461,7 @@ export function InsightsPageClient() {
                 CURATED TOPICS
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-950 mt-1">
               FIVE PLACES TO EXPLORE
             </h2>
             <p className="text-base sm:text-lg text-slate-600 mt-2 font-light">
@@ -496,7 +496,7 @@ export function InsightsPageClient() {
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-slate-400">
+                      <span className="text-xs font-bold text-slate-400">
                         {place.num}
                       </span>
                       <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${place.color}`}>
@@ -505,7 +505,7 @@ export function InsightsPageClient() {
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-serif font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
+                      <h3 className="text-xl font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
                         {place.title}
                       </h3>
                       <p className="text-xs font-semibold text-slate-700 mt-1">
@@ -525,11 +525,6 @@ export function InsightsPageClient() {
                         </div>
                       ))}
                     </div>
-                  </div>
-
-                  <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-[#0062D2]">
-                    <span>Explore {place.title}</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               )
@@ -551,7 +546,7 @@ export function InsightsPageClient() {
                   KNOWLEDGE REPOSITORY
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950 mt-1">
+              <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-950 mt-1">
                 START READING
               </h2>
             </div>
@@ -621,7 +616,7 @@ export function InsightsPageClient() {
                       <span>{art.readTime}</span>
                     </div>
 
-                    <h3 className="font-serif font-bold text-slate-950 text-lg leading-snug group-hover:text-[#0062D2] transition-colors">
+                    <h3 className="font-bold text-slate-950 text-lg leading-snug group-hover:text-[#0062D2] transition-colors">
                       {art.title}
                     </h3>
 
@@ -667,7 +662,7 @@ export function InsightsPageClient() {
                     THE REALITY
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 mt-1 leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-950 mt-1 leading-tight">
                   PRACTICAL, NOT PERFECT
                 </h2>
               </div>
@@ -693,7 +688,7 @@ export function InsightsPageClient() {
             {/* Right: INSIGHTS ARE NOT INSTRUCTIONS & THE KNOWLEDGE KEEPS MOVING */}
             <div className="lg:col-span-6 space-y-6">
               <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-                <h3 className="text-xl font-serif font-bold text-slate-950">
+                <h3 className="text-xl font-bold text-slate-950">
                   INSIGHTS ARE NOT INSTRUCTIONS
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
@@ -705,13 +700,13 @@ export function InsightsPageClient() {
               </div>
 
               <div className="p-8 rounded-3xl bg-slate-900 text-white shadow-md space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-sky-300 block">
+                <span className="text-xs font-bold uppercase tracking-wider text-sky-300 block">
                   THE KNOWLEDGE KEEPS MOVING
                 </span>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
                   One entrepreneur learns something through experience. They share it. Another entrepreneur discovers a new perspective. They apply it. They learn something else. They share that. And the cycle continues:
                 </p>
-                <div className="p-3 rounded-xl bg-white/10 border border-white/10 text-center font-mono font-bold text-xs sm:text-sm text-sky-200">
+                <div className="p-3 rounded-xl bg-white/10 border border-white/10 text-center font-semibold text-xs sm:text-sm text-sky-200 tracking-wide">
                   Learning → Sales → Resources (LSR)
                 </div>
                 <p className="text-xs text-slate-300 font-light">
@@ -735,7 +730,7 @@ export function InsightsPageClient() {
             <span className="h-[2px] w-6 bg-gradient-to-r from-[#E11D48] to-[#1D4ED8] rounded-full" />
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-slate-950">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-950">
             HAVE SOMETHING WORTH SHARING?
           </h2>
 
@@ -743,7 +738,7 @@ export function InsightsPageClient() {
             <p>
               Perhaps you have built something. Solved something. Learned something. Failed at something and discovered what the failure taught you. Or developed a perspective that another entrepreneur could genuinely benefit from.
             </p>
-            <p className="font-serif font-bold text-slate-950 text-lg sm:text-xl">
+            <p className="font-bold text-slate-950 text-lg sm:text-xl">
               "The most valuable lesson may be the one you once wished someone had shared with you."
             </p>
             <p className="text-[#0062D2] font-semibold text-sm">
@@ -789,7 +784,7 @@ export function InsightsPageClient() {
                 — KNOWLEDGE THAT TRAVELS —
               </span>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
                 EVERY ARTICLE HAS A JOURNEY BEHIND IT.
               </h2>
 
@@ -857,7 +852,7 @@ export function InsightsPageClient() {
                 <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-600 text-white inline-block mb-2">
                   {readingArticle.category} · {readingArticle.readTime}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold leading-tight">
+                <h3 className="text-xl sm:text-2xl font-bold leading-tight text-white">
                   {readingArticle.title}
                 </h3>
               </div>
