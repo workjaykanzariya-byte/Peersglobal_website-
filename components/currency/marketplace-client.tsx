@@ -810,10 +810,8 @@ export function MarketplaceClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 space-y-6">
+          <div className="max-w-3xl space-y-6">
+
               <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                 READY TO EXPLORE?
               </span>
@@ -833,8 +831,8 @@ export function MarketplaceClient() {
                   <span>• Business Resources</span>
                   <span>• Official Merchandise</span>
                   <span>• Peers Coin Only</span>
-                </div>
-              </div>
+                
+</div>
 
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-3">
@@ -858,21 +856,6 @@ export function MarketplaceClient() {
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-center lg:text-right select-none pointer-events-none">
-              <p
-                className="text-3xl sm:text-4xl lg:text-5xl font-light italic leading-tight text-white drop-shadow-lg"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Explore.
-                <br />
-                Redeem.
-                <br />
-                Experience.
-                <br />
-                Grow.
-              </p>
-            </div>
 
           </div>
         </div>

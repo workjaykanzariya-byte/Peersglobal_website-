@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 import {
   Truck,
   Rocket,
@@ -1221,16 +1222,51 @@ export function PurposePageClient() {
                   </div>
                 </div>
 
-                <div className="pt-2">
-                  <a
-                    href="https://unity.peersglobal.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white px-8 py-3.5 text-xs sm:text-sm font-bold shadow-lg shadow-blue-600/25 transition-all hover:scale-105 inline-flex items-center gap-2"
-                  >
-                    <span>Download Unity App & Find Your Circle</span>
-                    <ArrowRight className="size-4" />
-                  </a>
+                <div className="pt-2 flex flex-col gap-3">
+                  <div>
+                    <GalaxyButton
+                      href={SITE.playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      size="lg"
+                      className="text-xs sm:text-sm font-bold"
+                    >
+                      Download Unity App & Find Your Circle
+                    </GalaxyButton>
+                  </div>
+
+                  {/* Direct Store Badges */}
+                  <div className="flex flex-wrap items-center gap-2.5 text-xs text-slate-500 pt-0.5">
+                    <span className="font-medium text-slate-600">Available on:</span>
+                    <a
+                      href={SITE.playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-semibold transition-all shadow-2xs hover:scale-105"
+                      aria-label="Get it on Google Play"
+                    >
+                      <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
+                        <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
+                        <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
+                        <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
+                        <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
+                      </svg>
+                      <span>Google Play</span>
+                    </a>
+                    <span className="text-slate-300">•</span>
+                    <a
+                      href={SITE.appStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-semibold transition-all shadow-2xs hover:scale-105"
+                      aria-label="Download on Apple App Store"
+                    >
+                      <svg className="size-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.06-1.82.94-2.88-.91.04-2.02.6-2.67 1.36-.58.67-.99 1.74-.85 2.77 1.02.08 2.05-.55 2.58-1.25z"/>
+                      </svg>
+                      <span>App Store</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 

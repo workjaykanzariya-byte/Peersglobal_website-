@@ -449,8 +449,8 @@ export function CircleDirectorClient() {
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/3] group">
                 <Image
-                  src="/images/leadership-entrepreneurs-meeting.jpg"
-                  alt="Circle Director facilitating collaboration"
+                  src="/images/leadership-circle-director-group.jpg"
+                  alt="PEERS GLOBAL Circle Director and Leaders"
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
@@ -1020,65 +1020,48 @@ export function CircleDirectorClient() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
-                  LEAD WITH RESPONSIBILITY
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-bold leading-[1.18] tracking-tight text-white">
-                Your Circle. Your Responsibility.
-              </h2>
-
-              <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
-                Every Circle needs entrepreneurs who are willing to do more than attend. It needs people who are willing to care. To contribute. To mentor. To coordinate. To recognise. To hold the community together.
-              </p>
-
-              <p className="text-base sm:text-lg bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold leading-relaxed max-w-2xl">
-                The Circle Director is one of those people. You do not lead the Circle to become important. You lead because the Circle matters.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-3">
-                <GalaxyButton
-                  href="/contact?intent=leadership"
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Apply to Lead
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-              </div>
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase mb-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
+              <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold">
+                LEAD WITH RESPONSIBILITY
+              </span>
             </div>
 
-            <div className="lg:col-span-4 text-right flex justify-end">
-              <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-md"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-bold leading-[1.18] tracking-tight text-white">
+              Your Circle. Your Responsibility.
+            </h2>
+
+            <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
+              Every Circle needs entrepreneurs who are willing to do more than attend. It needs people who are willing to care. To contribute. To mentor. To coordinate. To recognise. To hold the community together.
+            </p>
+
+            <p className="text-base sm:text-lg bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent font-bold leading-relaxed max-w-2xl">
+              The Circle Director is one of those people. You do not lead the Circle to become important. You lead because the Circle matters.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-3">
+              <GalaxyButton
+                href="/contact?intent=leadership"
+                variant="primary"
+                size="default"
+                className="font-bold uppercase tracking-wider"
               >
-                Lead <br />
-                With Purpose. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
-                  Your Circle.
-                </span>
-              </div>
-            </div>
+                Apply to Lead
+              </GalaxyButton>
 
+              <GalaxyButton
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noreferrer"
+                variant="transparent"
+                size="default"
+                icon={<Smartphone className="size-4 text-sky-400" />}
+                className="font-bold uppercase tracking-wider"
+              >
+                Download Unity App
+              </GalaxyButton>
+            </div>
           </div>
         </div>
       </section>

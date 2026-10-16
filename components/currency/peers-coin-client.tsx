@@ -526,10 +526,9 @@ export function PeersCoinClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Column: Manifesto & CTAs */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+          <div className="max-w-3xl">
+            {/* Mission Content */}
+            <div className="flex flex-col items-start space-y-5">
               <div>
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-sky-400">
                   CONTRIBUTE. EARN. EXPERIENCE.
@@ -597,23 +596,6 @@ export function PeersCoinClient() {
                 </GalaxyButton>
               </div>
             </div>
-
-            {/* Right Column: Signature Accents */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1.5">
-              <p className="text-xl sm:text-2xl text-slate-300 font-medium leading-tight">
-                Contribute Freely.
-              </p>
-              <p className="text-xl sm:text-2xl text-slate-200 font-medium leading-tight">
-                Earn Recognition.
-              </p>
-              <p className="text-xl sm:text-2xl text-white font-medium leading-tight">
-                Redeem Value.
-              </p>
-              <p className="text-2xl sm:text-3xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-rose-400">
-                Experience Community.
-              </p>
-            </div>
-
           </div>
         </div>
       </section>

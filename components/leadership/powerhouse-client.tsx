@@ -706,9 +706,8 @@ export function PowerhouseClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-8 flex flex-col items-start">
+          <div className="max-w-3xl flex flex-col items-start">
+
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">
                 <span className="w-5 h-px bg-blue-400" />
                 YOUR LEADERSHIP JOURNEY
@@ -740,30 +739,9 @@ export function PowerhouseClient() {
                 >
                   Apply to Lead
                 </GalaxyButton>
-              </div>
-            </div>
+              
+</div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg">
-              <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Entrepreneurs
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-white/95 leading-tight font-medium mt-1"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Creating a Better
-              </p>
-              <p
-                className="text-3xl sm:text-4xl text-amber-300 font-bold leading-tight mt-1"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Tomorrow.
-              </p>
-            </div>
           </div>
         </div>
       </section>

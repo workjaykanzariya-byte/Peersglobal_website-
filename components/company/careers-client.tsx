@@ -1029,10 +1029,8 @@ export function CareersClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
-            {/* Left Column: Manifesto, Highlights & Buttons */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-3.5">
+          <div className="max-w-3xl flex flex-col items-start space-y-3.5">
+
               
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2">
@@ -1086,31 +1084,8 @@ export function CareersClient() {
               <p className="text-[11px] text-slate-400 italic font-serif pt-1">
                 &ldquo;Build with purpose. Learn with people. Leave something better than you found it.&rdquo;
               </p>
-            </div>
-
-            {/* Right Column: Cursive Script Typography Highlight */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1 lg:pl-6">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Build With
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-sky-300 leading-tight font-bold"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Purpose &amp; Heart
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-rose-300 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Leave Something Better
-              </p>
-            </div>
-
-          </div>
+            
+</div>
         </div>
       </section>
     </div>

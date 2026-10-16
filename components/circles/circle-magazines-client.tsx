@@ -185,7 +185,7 @@ export function CircleMagazinesClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   size="default"
                   className="font-semibold"
                 >

@@ -979,10 +979,8 @@ export function StoriesPageClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
                 <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] animate-pulse" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
@@ -1007,8 +1005,8 @@ export function StoriesPageClient() {
                     • A conversation · An introduction · A willingness to help · A relationship.
                   </p>
                   <p className="text-white font-bold text-xs sm:text-sm">And then — something becomes possible.</p>
-                </div>
-              </div>
+                
+</div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
@@ -1033,33 +1031,6 @@ export function StoriesPageClient() {
               </div>
             </div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Meet.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Trust.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Collaborate.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-sky-300 font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Impact.
-              </p>
-            </div>
 
           </div>
         </div>

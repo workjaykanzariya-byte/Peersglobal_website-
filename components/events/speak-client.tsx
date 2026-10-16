@@ -841,10 +841,8 @@ export function SpeakClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            {/* Left Manifesto */}
-            <div className="lg:col-span-8 flex flex-col items-start space-y-5">
+          <div className="max-w-3xl flex flex-col items-start space-y-5">
+
               <div>
                 <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
                   ONE FINAL THOUGHT
@@ -889,36 +887,9 @@ export function SpeakClient() {
                 >
                   Open Unity App
                 </GalaxyButton>
-              </div>
-            </div>
+              
+</div>
 
-            {/* Right Cursive Script */}
-            <div className="lg:col-span-4 text-left lg:text-right select-none pointer-events-none drop-shadow-lg space-y-1">
-              <p
-                className="text-xl sm:text-2xl text-white/70 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Experience.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white/80 leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Honesty.
-              </p>
-              <p
-                className="text-xl sm:text-2xl text-white leading-tight font-medium"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Generosity.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] font-bold leading-tight"
-                style={{ fontFamily: 'var(--font-script)' }}
-              >
-                Shared Wisdom.
-              </p>
-            </div>
 
           </div>
         </div>

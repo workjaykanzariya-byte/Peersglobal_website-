@@ -87,7 +87,7 @@ export function GiveFirstClient() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   variant="primary"
                   size="md"
                 >
@@ -539,7 +539,7 @@ export function GiveFirstClient() {
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <GalaxyButton
-              href="/unity"
+              href="/download"
               variant="primary"
               size="md"
             >

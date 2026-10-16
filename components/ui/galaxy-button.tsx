@@ -3,6 +3,8 @@
 import React from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import { handleSmartAppDownload, getSmartAppUrl } from '@/lib/utils/app-link'
+import { SITE } from '@/lib/data/site'
 
 export interface GalaxyButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
@@ -10,11 +12,23 @@ export interface GalaxyButtonProps
   href?: string
   target?: string
   rel?: string
-  size?: 'sm' | 'default' | 'lg'
-  variant?: 'primary' | 'transparent' | 'transparent-light' | 'gradient'
+  size?: 'sm' | 'default' | 'md' | 'lg' | 'small'
+  variant?: 'primary' | 'secondary' | 'transparent' | 'transparent-light' | 'gradient'
   icon?: React.ReactNode | boolean
+  showIcon?: boolean
   children: React.ReactNode
   className?: string
+  'data-download'?: boolean
+}
+
+function extractText(node: React.ReactNode): string {
+  if (typeof node === 'string') return node
+  if (typeof node === 'number') return String(node)
+  if (Array.isArray(node)) return node.map(extractText).join(' ')
+  if (React.isValidElement(node) && node.props && (node.props as any).children) {
+    return extractText((node.props as any).children)
+  }
+  return ''
 }
 
 /* Default stylish curved arrow SVG provided by design */
@@ -48,6 +62,7 @@ export const GalaxyButton = React.forwardRef<
     size = 'default',
     variant = 'primary',
     icon = true,
+    showIcon,
     children,
     className,
     disabled,
@@ -57,15 +72,17 @@ export const GalaxyButton = React.forwardRef<
   },
   ref
 ) {
+  const effectiveIcon = showIcon === false ? false : icon
+
   const sizeClass =
-    size === 'sm'
+    size === 'sm' || size === 'small'
       ? 'galaxy-btn--sm'
       : size === 'lg'
       ? 'galaxy-btn--lg'
       : ''
 
   const variantClass =
-    variant === 'transparent'
+    variant === 'transparent' || variant === 'secondary'
       ? 'galaxy-btn--transparent'
       : variant === 'transparent-light'
       ? 'galaxy-btn--transparent-light'
@@ -73,14 +90,39 @@ export const GalaxyButton = React.forwardRef<
       ? 'galaxy-btn--gradient'
       : ''
 
+  // Smart download link detection:
+  // If the button text mentions download unity/app/peers or links to /download,
+  // automatically wire it to the platform-specific App Store (iOS) or Play Store (Android).
+  const textContent = extractText(children)
+  const isDownload =
+    (/download/i.test(textContent) && /unity|app|peers/i.test(textContent)) ||
+    href === '/download' ||
+    Boolean((rest as any)['data-download'])
+
+  const resolvedHref = isDownload && (!href || href === '/unity' || href === 'https://unity.peersglobal.com' || href === '/download')
+    ? (typeof window !== 'undefined' ? getSmartAppUrl(SITE.playStoreUrl) : SITE.playStoreUrl)
+    : href
+
+  const resolvedTarget = isDownload ? (target ?? '_blank') : target
+  const resolvedRel = isDownload ? (rel ?? 'noopener noreferrer') : rel
+
+  const handleClick = (e: any) => {
+    if (onClick) {
+      onClick(e)
+    }
+    if (isDownload) {
+      handleSmartAppDownload(e)
+    }
+  }
+
   const content = (
     <>
       <span className="galaxy-btn__content">
         <span className="galaxy-btn__text">{children}</span>
-        {icon === true && <GalaxyArrowIcon />}
-        {React.isValidElement(icon) && (
+        {effectiveIcon === true && <GalaxyArrowIcon />}
+        {React.isValidElement(effectiveIcon) && (
           <span className="galaxy-btn__icon flex items-center justify-center">
-            {icon}
+            {effectiveIcon}
           </span>
         )}
       </span>
@@ -89,13 +131,13 @@ export const GalaxyButton = React.forwardRef<
     </>
   )
 
-  if (href) {
+  if (resolvedHref) {
     return (
       <Link
-        href={href}
-        target={target}
-        rel={rel}
-        onClick={onClick as any}
+        href={resolvedHref}
+        target={resolvedTarget}
+        rel={resolvedRel}
+        onClick={handleClick as any}
         className={cn('galaxy-btn', sizeClass, variantClass, className)}
         ref={ref as React.Ref<HTMLAnchorElement>}
         {...(rest as any)}
@@ -109,7 +151,7 @@ export const GalaxyButton = React.forwardRef<
     <button
       type={(type === 'submit' || type === 'reset') ? type : 'button'}
       disabled={disabled}
-      onClick={onClick}
+      onClick={handleClick}
       className={cn('galaxy-btn', sizeClass, variantClass, className)}
       ref={ref as React.Ref<HTMLButtonElement>}
       {...rest}

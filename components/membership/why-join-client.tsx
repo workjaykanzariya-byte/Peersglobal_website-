@@ -929,10 +929,8 @@ export function WhyJoinClient() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="max-w-3xl flex flex-col items-start">
 
-            {/* Left Copy */}
-            <div className="lg:col-span-8 flex flex-col items-start">
               <div className="inline-flex items-center gap-3 text-sky-400 text-xs font-bold tracking-[0.25em] uppercase mb-4">
                 <span className="h-0.5 w-6 bg-sky-400" />
                 <span>YOUR NEXT CHAPTER</span>
@@ -966,20 +964,9 @@ export function WhyJoinClient() {
                 >
                   Apply for Membership
                 </GalaxyButton>
-              </div>
-            </div>
+              
+</div>
 
-            {/* Right Cursive Script Callout */}
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
-              <div className="text-left lg:text-right select-none pointer-events-none" style={{ fontFamily: 'var(--font-script)' }}>
-                <p className="text-3xl sm:text-4xl text-white/50 leading-tight">People,</p>
-                <p className="text-3xl sm:text-4xl text-white/70 leading-tight">Partnerships,</p>
-                <p className="text-3xl sm:text-4xl text-white/90 leading-tight">Possibilities.</p>
-                <p className="text-4xl sm:text-5xl text-amber-300 font-medium leading-tight mt-1">
-                  A Brighter Tomorrow.
-                </p>
-              </div>
-            </div>
 
           </div>
         </div>

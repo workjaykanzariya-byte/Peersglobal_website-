@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 import {
   ArrowRight,
   ChevronRight,
@@ -236,21 +237,12 @@ export function WhoBelongsClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="/circles/find"
-                  size="default"
-                  className="font-semibold"
-                >
-                  Explore PEERS GLOBAL
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
                   size="default"
                   icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-medium"
+                  className="font-semibold"
                 >
                   Download Unity App
                 </GalaxyButton>
@@ -860,9 +852,7 @@ export function WhoBelongsClient() {
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+          <div className="max-w-3xl flex flex-col items-start space-y-4">
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   You Do Not Have To Fit Everywhere
@@ -887,9 +877,9 @@ export function WhoBelongsClient() {
                 </GalaxyButton>
 
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
+                  href={SITE.playStoreUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   variant="transparent"
                   size="default"
                   className="uppercase tracking-wider font-bold"
@@ -899,19 +889,7 @@ export function WhoBelongsClient() {
               </div>
             </div>
 
-            <div className="lg:col-span-4 text-right flex justify-end">
-              <div
-                className="text-white/95 text-3xl sm:text-5xl font-normal leading-tight select-none pointer-events-none drop-shadow-sm"
-                style={{ fontFamily: 'var(--font-script, Georgia, serif)' }}
-              >
-                A Person <br />
-                Who <br />
-                <span className="text-[#7DD3FC]">Belongs</span>
-              </div>
-            </div>
-
           </div>
-        </div>
       </section>
 
     </div>

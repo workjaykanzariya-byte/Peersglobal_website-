@@ -1099,13 +1099,12 @@ export function FindPageClient() {
               <p className="text-base text-slate-500 leading-relaxed mb-8">
                 Still have questions? We're here to help.
               </p>
-              <Link
-                href="/circles"
-                className="rounded-full border border-slate-300 hover:border-[#0062D2] text-slate-700 hover:text-[#0062D2] px-6 py-3 text-sm font-semibold transition-all inline-flex items-center gap-2"
+              <GalaxyButton
+                href="/contact"
+                size="default"
               >
                 Contact Us
-                <ArrowRight className="size-4" />
-              </Link>
+              </GalaxyButton>
             </div>
 
             {/* Right: FAQ Accordion */}

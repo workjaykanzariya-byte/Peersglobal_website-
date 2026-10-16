@@ -1230,7 +1230,7 @@ pre, code {
   color: transparent !important;
 }
 
-/* Gradient Border on Hover */
+/* Gradient Border on Hover (Static Logo Colors #1D4ED8 -> #6366F1 -> #E11D48 - Non-Spinning) */
 .brand-gradient-border-card {
   position: relative;
   background: #ffffff;
@@ -1244,7 +1244,7 @@ pre, code {
   inset: -1.5px;
   border-radius: inherit;
   padding: 1.5px;
-  background: linear-gradient(90deg, #1D4ED8 0%, #E11D48 100%);
+  background: linear-gradient(135deg, #1D4ED8 0%, #6366F1 50%, #E11D48 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -1260,9 +1260,43 @@ pre, code {
 }
 
 .brand-gradient-border-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px -6px rgba(29, 78, 216, 0.20), 0 8px 18px -4px rgba(225, 29, 72, 0.16);
-  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -6px rgba(29, 78, 216, 0.16), 0 8px 18px -4px rgba(225, 29, 72, 0.12);
+  border-color: transparent !important;
+}
+
+/* Subtle static logo gradient border (visible slightly at rest, intensifies on hover like One Life card) */
+.brand-gradient-border-card-subtle {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid transparent;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-gradient-border-card-subtle::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #1D4ED8 0%, #6366F1 50%, #E11D48 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.45;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.brand-gradient-border-card-subtle:hover::before,
+.brand-gradient-border-card-subtle:focus-within::before {
+  opacity: 1;
+}
+
+.brand-gradient-border-card-subtle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -6px rgba(29, 78, 216, 0.18), 0 8px 18px -4px rgba(225, 29, 72, 0.14);
 }
 
 /* Custom Scrollbar Utility */

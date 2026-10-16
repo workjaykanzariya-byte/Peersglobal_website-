@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SmartAppLink } from '@/components/ui/smart-app-link'
 import {
   ArrowRight,
   Download,
@@ -194,7 +195,7 @@ export default function TheTerritoryPage() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
-                  href="/unity"
+                  href="/download"
                   size="default"
                   icon={<Smartphone className="size-4" />}
                   className="font-semibold"
@@ -936,13 +937,12 @@ export default function TheTerritoryPage() {
                       </div>
                     </div>
 
-                    <Link
-                      href="/circles"
-                      className="inline-flex items-center justify-between w-full rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-5 py-3 text-xs font-semibold shadow-md shadow-blue-500/20 hover:scale-[1.01] transition-all"
+                    <SmartAppLink
+                      className="inline-flex items-center justify-between w-full rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white px-5 py-3 text-xs font-semibold shadow-md shadow-blue-500/20 hover:scale-[1.01] transition-all cursor-pointer"
                     >
                       <span className="font-bold tracking-wide">Peers Global India</span>
                       <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    </SmartAppLink>
                   </div>
                 </div>
 
@@ -1301,24 +1301,22 @@ export default function TheTerritoryPage() {
             subtitle="Build Your Business. Build Your Relationships. Build Your Circle."
             description="Peers Global — World's First Community of Collaboration. Peers are Partners in Business and Friends in Life."
             buttons={
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                <Link
+              <div className="flex flex-wrap items-center gap-3.5">
+                <GalaxyButton
                   href="/circles"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] uppercase transition-all duration-200"
+                  size="lg"
+                  className="text-xs sm:text-sm"
                 >
-                  <span>FIND YOUR CIRCLE</span>
-                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1 text-white" />
-                </Link>
-
-                {/* Capsule Button: "JOIN PEERS GLOBAL" */}
-                <Link
+                  FIND YOUR CIRCLE
+                </GalaxyButton>
+                <GalaxyButton
                   href="/membership"
-                  className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/25 bg-white/[0.04] backdrop-blur-md hover:border-white/50 hover:bg-white/[0.08] transition-all duration-200 shadow-lg cursor-pointer active:scale-[0.98]"
+                  variant="transparent"
+                  size="lg"
+                  className="text-xs sm:text-sm"
                 >
-                  <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
-                    JOIN PEERS GLOBAL
-                  </span>
-                </Link>
+                  JOIN PEERS GLOBAL
+                </GalaxyButton>
               </div>
             }
           />
