@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   ArrowRight,
@@ -106,126 +105,72 @@ export function ImpactConfirmationClient() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="max-w-4xl flex flex-col items-start space-y-6">
             
-            {/* Left Copy Column */}
-            <div className="lg:col-span-7 flex flex-col items-start space-y-6">
-              
-              {/* Eyebrow with cyan leading bar */}
-              <div className="flex items-center gap-3">
-                <span className="h-0.5 w-7 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full shadow-[0_0_10px_#38bdf8]" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                  BILATERAL INTEGRITY ENGINE
-                </span>
-              </div>
-
-              {/* H1 Heading */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-bold tracking-tight text-white leading-[1.12]">
-                How Peers Confirm{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
-                  Impact
-                </span>
-              </h1>
-
-              {/* Subtitle */}
-              <p className="text-lg sm:text-xl font-medium text-slate-200 leading-relaxed max-w-2xl">
-                You cannot award yourself impact. Every contribution is verified and confirmed by the entrepreneur who received it.
-              </p>
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-xl">
-                When a contribution is logged in the Unity App, the receiving Peer is notified to confirm, amend or decline. Until they do, it counts for nothing. That single rule makes our entire record real.
-              </p>
-
-              {/* 4 Feature Badges */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full pt-1">
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <ShieldCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Peer Verified</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <Lock className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Zero Self-Award</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <FileCheck2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Mutual Audit</span>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
-                  <BadgeCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
-                  <span className="truncate">Immutable</span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <GalaxyButton
-                  href="/download"
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-                <GalaxyButton
-                  href="/life-impact-score"
-                  variant="transparent"
-                  size="default"
-                  className="font-medium uppercase tracking-wider"
-                >
-                  Explore Impact Score
-                </GalaxyButton>
-              </div>
-
+            {/* Eyebrow with cyan leading bar */}
+            <div className="flex items-center gap-3">
+              <span className="h-0.5 w-7 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full shadow-[0_0_10px_#38bdf8]" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                BILATERAL INTEGRITY ENGINE
+              </span>
             </div>
 
-            {/* Right Column: High-End Framed Media Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="absolute -inset-1 rounded-[32px] bg-gradient-to-tr from-cyan-500/25 via-blue-600/20 to-rose-500/25 blur-xl opacity-80 pointer-events-none" />
+            {/* H1 Heading */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-bold tracking-tight text-white leading-[1.12]">
+              How Peers Confirm{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185]">
+                Impact
+              </span>
+            </h1>
 
-              <div className="relative rounded-[28px] border border-white/15 bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent p-2.5 shadow-2xl backdrop-blur-md">
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[22px] bg-[#020817]">
-                  <Image
-                    src="/images/lexicon-open-book.jpg"
-                    alt="Bilateral verification ledger"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 500px"
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/35 to-transparent pointer-events-none" />
+            {/* Subtitle */}
+            <p className="text-lg sm:text-xl font-medium text-slate-200 leading-relaxed max-w-3xl">
+              You cannot award yourself impact. Every contribution is verified and confirmed by the entrepreneur who received it.
+            </p>
 
-                  {/* Top-Right Pill Box: The Three Principles */}
-                  <div className="absolute top-4 right-4 z-20 flex flex-col items-end gap-1 rounded-xl border border-white/15 bg-slate-950/80 p-3 backdrop-blur-md shadow-xl">
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-cyan-300">
-                      HONESTY
-                    </span>
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-indigo-200">
-                      RECIPROCITY
-                    </span>
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-rose-300">
-                      CONFIRMATION
-                    </span>
-                  </div>
+            {/* Description */}
+            <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+              When a contribution is logged in the Unity App, the receiving Peer is notified to confirm, amend or decline. Until they do, it counts for nothing. That single rule makes our entire record real.
+            </p>
 
-                  {/* Bottom Content Floating Pill */}
-                  <div className="absolute bottom-4 left-4 right-4 z-20">
-                    <div className="rounded-2xl border border-white/15 bg-slate-950/70 p-3.5 backdrop-blur-md flex items-center justify-between">
-                      <div className="space-y-0.5">
-                        <div className="text-[10px] font-bold uppercase tracking-widest text-cyan-300">
-                          Bilateral Verification
-                        </div>
-                        <div className="text-xs font-semibold text-white">
-                          Confirmed by recipient before counting
-                        </div>
-                      </div>
-                      <div className="size-8 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center shrink-0">
-                        <Check className="size-4" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            {/* 4 Feature Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full max-w-3xl pt-1">
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <ShieldCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Peer Verified</span>
               </div>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <Lock className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Zero Self-Award</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <FileCheck2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Mutual Audit</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-semibold text-white flex items-center gap-2 shadow-2xs hover:bg-white/15 transition-all">
+                <BadgeCheck className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0" />
+                <span className="truncate">Immutable</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <GalaxyButton
+                href="/download"
+                variant="primary"
+                size="default"
+                className="font-bold uppercase tracking-wider"
+              >
+                Download Unity App
+              </GalaxyButton>
+              <GalaxyButton
+                href="/life-impact-score"
+                variant="transparent"
+                size="default"
+                className="font-medium uppercase tracking-wider"
+              >
+                Explore Impact Score
+              </GalaxyButton>
             </div>
 
           </div>
