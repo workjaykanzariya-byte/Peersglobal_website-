@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -382,112 +383,55 @@ export function ImpactConfirmationClient() {
                 desc: 'Instantly credited toward your Life Impact Score, Peer Standing level, and rewardable Peers Coin wallet.',
                 icon: Award,
               },
-            ].map((st) => {
-              const StepIcon = st.icon
-              return (
-                <div
-                  key={st.step}
-                  className="group relative p-[1.5px] rounded-[28px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div className="relative w-full h-full bg-white rounded-[26.5px] p-7 sm:p-8 flex flex-col justify-between space-y-6">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-mono font-bold bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent px-3 py-1 rounded-full bg-blue-50/70 border border-blue-100">
-                          STAGE {st.step}
-                        </span>
-                        <div className="size-10 rounded-2xl bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs">
-                          <StepIcon className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                        </div>
-                      </div>
-
-                      <div className="space-y-1.5">
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
-                          {st.badge}
-                        </span>
-                        <h3 className="font-bold text-lg text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                          {st.title}
-                        </h3>
-                      </div>
-
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        {st.desc}
-                      </p>
-                    </div>
-
-                    <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-slate-400 group-hover:text-[#1D4ED8] transition-colors">
-                      <span>Bilateral Protection</span>
-                      <ArrowRight className="size-3 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+            ].map((st) => (
+              <div
+                key={st.step}
+                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-3"
+              >
+                <span className="w-8 h-8 rounded-full bg-[#0062D2] text-white text-xs font-bold flex items-center justify-center">
+                  {st.step}
+                </span>
+                <h3 className="font-serif font-bold text-lg text-slate-950 leading-snug">
+                  {st.title}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {st.desc}
+                </p>
+              </div>
+            ))}
           </div>
 
         </div>
       </section>
 
-      {/* ─── 4. WHY IT HOLDS & WHAT THIS MAKES POSSIBLE ─── */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-            
-            {/* Left Card: Why It Holds */}
-            <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-5">
-                <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
-                    SYSTEM RESILIENCE
-                  </span>
+      {/* ─── Why It Holds & What This Makes Possible ─── */}
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            {/* Why it holds */}
+            <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6">
+              <h2 className="text-2xl font-serif text-slate-950 font-bold">
+                Why it holds
+              </h2>
+              <div className="space-y-4 text-xs sm:text-sm text-slate-600">
+                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+                  <strong className="block text-slate-900 font-bold mb-1">
+                    Both people are in the same room
+                  </strong>
+                  A Peer who inflates a contribution is asking someone they will see next month to endorse something untrue. Almost nobody does that.
                 </div>
-
-                <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                  Why the system holds
-                </h2>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Bilateral verification is not just a digital feature. It is deeply supported by the human governance of Peers Global:
-                </p>
-
-                <div className="space-y-3 pt-1">
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 space-y-1">
-                    <strong className="block text-slate-900 font-bold text-xs sm:text-sm">
-                      1. Both people are in the same room
-                    </strong>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      A Peer who inflates a contribution is asking someone they will sit beside next month to endorse something untrue. Almost nobody risks their reputation for vanity points.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 space-y-1">
-                    <strong className="block text-slate-900 font-bold text-xs sm:text-sm">
-                      2. Declining is normal and expected
-                    </strong>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Sometimes an introduction did not pan out, or a meeting was rescheduled. Declining or amending carries zero penalty and zero awkwardness.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 space-y-1">
-                    <strong className="block text-slate-900 font-bold text-xs sm:text-sm">
-                      3. Directors can see the pattern
-                    </strong>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      A Peer whose logged contributions are frequently declined has a private, supportive advisory conversation with their Circle Director.
-                    </p>
-                  </div>
+                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+                  <strong className="block text-slate-900 font-bold mb-1">
+                    Declining is normal
+                  </strong>
+                  Sometimes an introduction did not lead anywhere. Amending or declining carries zero penalty and zero awkwardness.
                 </div>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/culture-and-code"
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1D4ED8] hover:text-[#E11D48] transition-colors"
-                >
-                  <span>Read the Peers Culture &amp; Code</span>
-                  <ArrowRight className="size-3.5" />
-                </Link>
+                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
+                  <strong className="block text-slate-900 font-bold mb-1">
+                    Directors can see the pattern
+                  </strong>
+                  A Peer whose contributions are frequently declined has a private conversation with their Circle Director.
+                </div>
               </div>
             </div>
 
@@ -512,57 +456,33 @@ export function ImpactConfirmationClient() {
                 <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                   What this makes possible
                 </h2>
-
-                <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                  Because every score is bilateral, our ecosystem unlocks benefits impossible in traditional networking groups:
-                </p>
-
-                <div className="space-y-4 pt-1">
-                  <div className="flex items-start gap-3.5">
-                    <div className="size-8 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="size-4.5 text-emerald-400" />
-                    </div>
+                <div className="space-y-3.5 text-xs sm:text-sm text-slate-600">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-white font-bold text-xs sm:text-sm">Verified Recognition</strong>
-                      <p className="text-xs text-slate-300 font-light mt-0.5">
-                        Every award, summit accolade, and leadership appointment is backed by verified confirmations from real entrepreneurs.
-                      </p>
+                      <strong className="block text-slate-900 font-bold">Verified Recognition</strong>
+                      Every award and standing named at the Summit is backed by confirmations from real people.
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-3.5">
-                    <div className="size-8 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="size-4.5 text-emerald-400" />
-                    </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-white font-bold text-xs sm:text-sm">Honest 1M Reporting</strong>
-                      <p className="text-xs text-slate-300 font-light mt-0.5">
-                        When Peers Global reports on the 1 Million Mission, that metric is built on real confirmed interventions, never marketing estimates.
-                      </p>
+                      <strong className="block text-slate-900 font-bold">Honest Reporting</strong>
+                      When Peers Global publishes lives impacted, that number is built from confirmed data rather than estimates.
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-3.5">
-                    <div className="size-8 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="size-4.5 text-emerald-400" />
-                    </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-white font-bold text-xs sm:text-sm">Unbreakable Room Trust</strong>
-                      <p className="text-xs text-slate-300 font-light mt-0.5">
-                        Nobody in a Circle wonders whether the Peer beside them is inflating their numbers. Trust is mathematically guaranteed.
-                      </p>
+                      <strong className="block text-slate-900 font-bold">Trust in the Room</strong>
+                      Nobody wonders whether the Peer beside them is inflating their record.
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="relative z-10 p-5 rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-md space-y-1">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-300 block">
-                  PEERS CORE BELIEF
-                </span>
-                <p className="text-xs sm:text-sm font-medium text-white italic leading-snug">
-                  &ldquo;Impact is not measured by intention, but by what it creates for others.&rdquo;
-                </p>
+              <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#0062D2]/20 text-xs font-serif italic text-[#0062D2] text-center">
+                &ldquo;Impact is not measured by intention, but by what it creates for others.&rdquo;
               </div>
             </div>
 
@@ -589,43 +509,17 @@ export function ImpactConfirmationClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {VALUE_POINTS.map((vp) => {
-              const VpIcon = vp.icon
-              return (
-                <div
-                  key={vp.name}
-                  className="group relative p-[1.5px] rounded-[24px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-2xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div className="relative w-full h-full bg-white rounded-[22.5px] p-5 flex flex-col justify-between space-y-4">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-mono font-bold text-slate-400 tracking-wider">
-                          {vp.way}
-                        </span>
-                        <div className="size-8 rounded-xl bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-rose-500/10 border border-blue-500/20 flex items-center justify-center group-hover:scale-105 transition-transform">
-                          <VpIcon className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                        </div>
-                      </div>
-
-                      <h3 className="text-sm font-bold text-slate-900 leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                        {vp.name}
-                      </h3>
-
-                      <p className="text-[11px] text-slate-500 leading-relaxed font-normal">
-                        {vp.desc}
-                      </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
-                        SCORE CREDIT
-                      </span>
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-blue-50 text-[#1D4ED8] border border-blue-200/60 shadow-2xs">
-                        +{vp.points}
-                      </span>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {VALUE_POINTS.map((vp) => (
+              <div
+                key={vp.name}
+                className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs text-center space-y-2"
+              >
+                <div className="text-xs font-serif font-bold text-slate-900">
+                  {vp.name}
+                </div>
+                <div className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold border inline-block ${vp.color}`}>
+                  {vp.points}
                 </div>
               )
             })}

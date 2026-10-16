@@ -298,38 +298,47 @@ export function PeersCoinClient() {
       <section className="py-16 sm:py-24 bg-[#FBFCFE] border-b border-slate-200/80">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border-2 border-rose-200/80 shadow-md space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-600 uppercase tracking-wider">
-              <Lock className="w-3.5 h-3.5" /> FUNDAMENTAL BOUNDARY
-            </div>
+          {/* Gradient Border Wrap */}
+          <div className="group relative rounded-3xl p-[1px] bg-rose-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-md">
+            <div className="p-8 sm:p-12 rounded-[23px] bg-white group-hover:bg-[#FAFBFD] transition-colors duration-300 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-600 uppercase tracking-wider">
+                <Lock className="w-3.5 h-3.5" /> FUNDAMENTAL BOUNDARY
+              </div>
 
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 leading-tight">
-              COINS CANNOT BE PURCHASED
-            </h2>
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-950 leading-tight">
+                COINS CANNOT BE PURCHASED
+              </h2>
 
-            <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
-              <p className="text-base sm:text-lg font-serif italic text-slate-900 font-medium">
-                This is fundamental. Peers Coin cannot be purchased.
-              </p>
-              <p>
-                It is not something you buy in order to participate. It is something you earn through recognised contribution.
-              </p>
-              <p>
-                That distinction protects the meaning behind the system.
-              </p>
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                <p className="text-base sm:text-lg font-serif italic text-slate-900 font-medium">
+                  This is fundamental. Peers Coin cannot be purchased.
+                </p>
+                <p>
+                  It is not something you buy in order to participate. It is something you earn through recognised contribution.
+                </p>
+                <p>
+                  That distinction protects the meaning behind the system.
+                </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-semibold text-slate-800">
-                <div className="p-3.5 rounded-2xl bg-rose-50/50 border border-rose-100 flex items-center gap-2">
-                  <Ban className="w-4 h-4 text-rose-500 shrink-0" />
-                  <span>You cannot buy your way into recognition.</span>
-                </div>
-                <div className="p-3.5 rounded-2xl bg-rose-50/50 border border-rose-100 flex items-center gap-2">
-                  <Ban className="w-4 h-4 text-rose-500 shrink-0" />
-                  <span>You cannot purchase contribution.</span>
-                </div>
-                <div className="p-3.5 rounded-2xl bg-rose-50/50 border border-rose-100 flex items-center gap-2">
-                  <Ban className="w-4 h-4 text-rose-500 shrink-0" />
-                  <span>You cannot buy respect from giving.</span>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-semibold text-slate-800">
+                  <div className="group/item relative rounded-2xl p-[1px] bg-rose-100 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-rose-50/50 group-hover/item:bg-white flex items-center gap-2 transition-colors duration-300 h-full">
+                      <Ban className="w-4 h-4 text-rose-500 shrink-0" />
+                      <span>You cannot buy your way into recognition.</span>
+                    </div>
+                  </div>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-rose-100 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-rose-50/50 group-hover/item:bg-white flex items-center gap-2 transition-colors duration-300 h-full">
+                      <Ban className="w-4 h-4 text-rose-500 shrink-0" />
+                      <span>You cannot purchase contribution.</span>
+                    </div>
+                  </div>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-rose-100 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-rose-50/50 group-hover/item:bg-white flex items-center gap-2 transition-colors duration-300 h-full">
+                      <Ban className="w-4 h-4 text-rose-500 shrink-0" />
+                      <span>You cannot buy respect from giving.</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -436,29 +445,41 @@ export function PeersCoinClient() {
                   Peers Coin operates according to rules established by PEERS GLOBAL. The rules cover matters including:
                 </p>
                 <div className="space-y-2 text-xs font-medium text-slate-700">
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>How Peers Coin is earned</span>
+                  <div className="group/item relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="flex items-center gap-2 p-2 rounded-[11px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>How Peers Coin is earned</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Eligible contributions & verified activities</span>
+                  <div className="group/item relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="flex items-center gap-2 p-2 rounded-[11px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>Eligible contributions & verified activities</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Earning rates & Life Impact scoring</span>
+                  <div className="group/item relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="flex items-center gap-2 p-2 rounded-[11px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>Earning rates & Life Impact scoring</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Redemption eligibility & marketplace values</span>
+                  <div className="group/item relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="flex items-center gap-2 p-2 rounded-[11px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>Redemption eligibility & marketplace values</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Validity or applicable conditions</span>
+                  <div className="group/item relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="flex items-center gap-2 p-2 rounded-[11px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>Validity or applicable conditions</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Changes to earning or redemption rules</span>
+                  <div className="group/item relative rounded-xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="flex items-center gap-2 p-2 rounded-[11px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span>Changes to earning or redemption rules</span>
+                    </div>
                   </div>
                 </div>
                 <p className="text-[11px] text-slate-500 italic pt-1">
@@ -481,9 +502,11 @@ export function PeersCoinClient() {
                 </p>
                 <div className="space-y-2 text-xs font-medium text-slate-800">
                   {WHAT_IT_IS_NOT.map((item) => (
-                    <div key={item} className="flex items-center gap-2 p-2.5 rounded-xl bg-rose-50/40 border border-rose-100">
-                      <XCircle className="w-4 h-4 text-rose-500 shrink-0" />
-                      <span>{item}</span>
+                    <div key={item} className="group/item relative rounded-xl p-[1px] bg-rose-100/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                      <div className="flex items-center gap-2 p-2.5 rounded-[11px] bg-rose-50/40 group-hover/item:bg-white transition-colors">
+                        <XCircle className="w-4 h-4 text-rose-500 shrink-0" />
+                        <span>{item}</span>
+                      </div>
                     </div>
                   ))}
                 </div>

@@ -235,63 +235,71 @@ export function StoriesPageClient() {
               {/* Right: 4 Anatomy Blocks */}
               <div className="lg:col-span-6 space-y-3.5">
                 {/* Step 1 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      1
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      Before — The Need &amp; Challenge
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        1
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        Before — The Need &amp; Challenge
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      What did each entrepreneur do? What challenge, opportunity or need existed before they connected?
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    What did each entrepreneur do? What challenge, opportunity or need existed before they connected?
-                  </p>
                 </div>
 
                 {/* Step 2 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      2
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      The Connection — The 10 Forms of Collaboration
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        2
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        The Connection — The 10 Forms of Collaboration
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      Which Form of Collaboration created the connection? An introduction, referral, alliance, mentorship or new market?
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    Which Form of Collaboration created the connection? An introduction, referral, alliance, mentorship or new market?
-                  </p>
                 </div>
 
                 {/* Step 3 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      3
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      The Change — Measurable Outcomes
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        3
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        The Change — Measurable Outcomes
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      What happened next? What was created, solved, introduced or expanded — with a real, verifiable number.
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    What happened next? What was created, solved, introduced or expanded — with a real, verifiable number.
-                  </p>
                 </div>
 
                 {/* Step 4 */}
-                <div className="group p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-1.5 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
-                    <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover:scale-110 transition-transform">
-                      4
-                    </span>
-                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
-                      The Relationship — What Exists Today
-                    </span>
+                <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover/item:bg-[#FAFBFD] transition-colors space-y-1.5 h-full">
+                    <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold">
+                      <span className="w-6 h-6 rounded-lg bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white flex items-center justify-center text-[11px] font-mono shadow-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        4
+                      </span>
+                      <span className="bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] bg-clip-text text-transparent font-bold">
+                        The Relationship — What Exists Today
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
+                      The lasting bond: <em className="text-slate-800 font-medium">“What relationship exists today that did not exist before?”</em>
+                    </p>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 pl-8.5 leading-relaxed font-light">
-                    The lasting bond: <em className="text-slate-800 font-medium">“What relationship exists today that did not exist before?”</em>
-                  </p>
                 </div>
               </div>
 

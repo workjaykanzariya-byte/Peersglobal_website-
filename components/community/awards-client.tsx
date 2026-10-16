@@ -731,75 +731,77 @@ export function AwardsClient() {
             {filteredWinners.map((winner, idx) => (
               <div
                 key={idx}
-                className="rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1"
               >
-                <div>
-                  <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
-                    <Image
-                      src={winner.image}
-                      alt={winner.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
-                    
-                    <div className="absolute top-3.5 right-3.5">
-                      <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-[11px] font-mono font-bold text-white shadow-md">
-                        {winner.year}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                      <span className="text-[10px] font-mono uppercase tracking-widest font-extrabold block mb-0.5 bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                        {winner.award}
-                      </span>
-                      <h4 className="text-lg font-bold text-white leading-tight">
-                        {winner.name}
-                      </h4>
-                    </div>
-                  </div>
-
-                  <div className="p-6 space-y-4 text-xs">
-                    <div className="space-y-1.5">
-                      <p className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                        {winner.business}
-                      </p>
-                      <p className="flex items-center gap-1.5 text-slate-500 text-xs font-medium">
-                        <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <defs>
-                            <linearGradient id={`mapPinGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                              <stop offset="0%" stopColor="#1D4ED8" />
-                              <stop offset="100%" stopColor="#E11D48" />
-                            </linearGradient>
-                          </defs>
-                          <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" stroke={`url(#mapPinGrad-${idx})`} />
-                          <circle cx="12" cy="10" r="3" stroke={`url(#mapPinGrad-${idx})`} />
-                        </svg>
-                        <span>{winner.city} · {winner.circle}</span>
-                      </p>
-                    </div>
-
-                    <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 text-slate-700 leading-relaxed shadow-2xs space-y-1.5">
-                      <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider">
-                        <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <defs>
-                            <linearGradient id={`heartGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                              <stop offset="0%" stopColor="#1D4ED8" />
-                              <stop offset="100%" stopColor="#E11D48" />
-                            </linearGradient>
-                          </defs>
-                          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke={`url(#heartGrad-${idx})`} />
-                          <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" stroke={`url(#heartGrad-${idx})`} />
-                          <path d="m18 15-2-2" stroke={`url(#heartGrad-${idx})`} />
-                          <path d="m15 18-2-2" stroke={`url(#heartGrad-${idx})`} />
-                        </svg>
-                        <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
-                          What they gave:
+                <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
+                  <div>
+                    <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
+                      <Image
+                        src={winner.image}
+                        alt={winner.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+                      
+                      <div className="absolute top-3.5 right-3.5">
+                        <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-[11px] font-mono font-bold text-white shadow-md">
+                          {winner.year}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-600 font-light leading-relaxed">
-                        {winner.contribution}
-                      </p>
+
+                      <div className="absolute bottom-3.5 left-4 right-4 text-white">
+                        <span className="text-[10px] font-mono uppercase tracking-widest font-extrabold block mb-0.5 bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                          {winner.award}
+                        </span>
+                        <h4 className="text-lg font-bold text-white leading-tight">
+                          {winner.name}
+                        </h4>
+                      </div>
+                    </div>
+
+                    <div className="p-6 space-y-4 text-xs">
+                      <div className="space-y-1.5">
+                        <p className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                          {winner.business}
+                        </p>
+                        <p className="flex items-center gap-1.5 text-slate-500 text-xs font-medium">
+                          <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <defs>
+                              <linearGradient id={`mapPinGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#1D4ED8" />
+                                <stop offset="100%" stopColor="#E11D48" />
+                              </linearGradient>
+                            </defs>
+                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" stroke={`url(#mapPinGrad-${idx})`} />
+                            <circle cx="12" cy="10" r="3" stroke={`url(#mapPinGrad-${idx})`} />
+                          </svg>
+                          <span>{winner.city} · {winner.circle}</span>
+                        </p>
+                      </div>
+
+                      <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 text-slate-700 leading-relaxed shadow-2xs space-y-1.5">
+                        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider">
+                          <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <defs>
+                              <linearGradient id={`heartGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#1D4ED8" />
+                                <stop offset="100%" stopColor="#E11D48" />
+                              </linearGradient>
+                            </defs>
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke={`url(#heartGrad-${idx})`} />
+                            <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" stroke={`url(#heartGrad-${idx})`} />
+                            <path d="m18 15-2-2" stroke={`url(#heartGrad-${idx})`} />
+                            <path d="m15 18-2-2" stroke={`url(#heartGrad-${idx})`} />
+                          </svg>
+                          <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">
+                            What they gave:
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-600 font-light leading-relaxed">
+                          {winner.contribution}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

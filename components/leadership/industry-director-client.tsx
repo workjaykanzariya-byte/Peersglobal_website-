@@ -316,17 +316,19 @@ export function IndustryDirectorClient() {
               return (
                 <div
                   key={i}
-                  className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 shadow-2xs hover:shadow-lg hover:border-blue-300/80 hover:-translate-y-1 transition-all duration-300 cursor-default"
+                  className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                 >
-                  <div className="size-10 sm:size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                    <Icon className="size-5 sm:size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold whitespace-nowrap bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">
-                      {stat.value}
+                  <div className="h-full rounded-[15px] bg-white p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 transition-colors">
+                    <div className="size-10 sm:size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                      <Icon className="size-5 sm:size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
-                    <div className="text-[10px] sm:text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wide sm:tracking-wider mt-1 leading-snug break-words">
-                      {stat.label}
+                    <div className="min-w-0">
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold whitespace-nowrap bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">
+                        {stat.value}
+                      </div>
+                      <div className="text-[10px] sm:text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wide sm:tracking-wider mt-1 leading-snug break-words">
+                        {stat.label}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -356,6 +358,7 @@ export function IndustryDirectorClient() {
                 Every industry has its own language, challenges, opportunities, and relationships. It has people who have spent years learning what works—and what does not.
               </p>
 
+              {/* Dark Callout */}
               <div
                 className="p-6 rounded-3xl text-white border border-white/10 shadow-xl relative overflow-hidden space-y-1.5"
                 style={{
@@ -371,39 +374,49 @@ export function IndustryDirectorClient() {
                 </p>
               </div>
 
-              {/* Two Capabilities */}
+              {/* Two Capabilities with Hover Gradient Border */}
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-blue-300/80 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-3.5 group cursor-default">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-110 transition-transform duration-300">
-                    <Building2 className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                      Sector Ownership
-                    </h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Bridge sector circles and external industry leaders into one united, active community.
-                    </p>
+                <div className="group relative rounded-2xl p-[1.5px] transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 cursor-default">
+                  <div className="absolute inset-0 rounded-2xl border border-slate-200/90 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#1D4ED8] via-[#6366F1] to-[#E11D48] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  
+                  <div className="relative flex items-start gap-3.5 p-5 rounded-[14.5px] bg-[#FAFBFD] h-full">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                      <Building2 className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        Sector Ownership
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Bridge sector circles and external industry leaders into one united, active community.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-blue-300/80 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-3.5 group cursor-default">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-110 transition-transform duration-300">
-                    <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                      Cross-Pollination
-                    </h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Help entrepreneurs discover unseen collaborative opportunities across the entire city.
-                    </p>
+                <div className="group relative rounded-2xl p-[1.5px] transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 cursor-default">
+                  <div className="absolute inset-0 rounded-2xl border border-slate-200/90 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#1D4ED8] via-[#6366F1] to-[#E11D48] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                  <div className="relative flex items-start gap-3.5 p-5 rounded-[14.5px] bg-[#FAFBFD] h-full">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                      <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        Cross-Pollination
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Help entrepreneurs discover unseen collaborative opportunities across the entire city.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* From Circle to Sector Comparison Card */}
-              <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#FAFBFD] border border-slate-200/90 shadow-2xs">
+              <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#FAFBFD] shadow-2xs">
                 <h3 className="text-lg font-bold text-slate-900 mb-2">
                   From Circle to Sector
                 </h3>
@@ -412,21 +425,34 @@ export function IndustryDirectorClient() {
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-3.5">
-                  <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs">
-                    <span className="text-[11px] uppercase tracking-wider font-bold text-slate-500">
-                      Circle Leadership
-                    </span>
-                    <p className="text-sm font-semibold text-slate-900 mt-1">
-                      “How can my Circle grow?”
-                    </p>
+                  {/* Circle Leadership Card */}
+                  <div className="group relative rounded-2xl p-[1.5px] transition-all duration-300 hover:shadow-md cursor-default">
+                    <div className="absolute inset-0 rounded-2xl border border-slate-200 shadow-2xs pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                    <div className="relative p-4 rounded-[14.5px] bg-white h-full">
+                      <span className="text-[11px] uppercase tracking-wider font-bold text-slate-500">
+                        Circle Leadership
+                      </span>
+                      <p className="text-sm font-semibold text-slate-900 mt-1">
+                        “How can my Circle grow?”
+                      </p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200/80 shadow-2xs">
-                    <span className="text-[11px] uppercase tracking-wider font-bold brand-gradient-text">
-                      Ecosystem Leadership
-                    </span>
-                    <p className="text-sm font-bold brand-gradient-text mt-1">
-                      “How can this sector become more connected and capable?”
-                    </p>
+
+                  {/* Ecosystem Leadership Card */}
+                  <div className="group relative rounded-2xl p-[1.5px] transition-all duration-300 hover:shadow-md cursor-default">
+                    <div className="absolute inset-0 rounded-2xl border border-blue-200/80 shadow-2xs pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                    <div className="relative p-4 rounded-[14.5px] bg-blue-50/70 h-full">
+                      <span className="text-[11px] uppercase tracking-wider font-bold brand-gradient-text">
+                        Ecosystem Leadership
+                      </span>
+                      <p className="text-sm font-bold brand-gradient-text mt-1">
+                        “How can this sector become more connected and capable?”
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -637,23 +663,29 @@ export function IndustryDirectorClient() {
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-300/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 shadow-2xs group cursor-default">
-                    <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                    <p className="text-xs sm:text-sm text-slate-800 font-medium group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                      You notice people who need connections and recognise experience that can be shared.
-                    </p>
+                  <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white flex items-start gap-3 h-full transition-colors">
+                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                      <p className="text-xs sm:text-sm text-slate-800 font-medium group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        You notice people who need connections and recognise experience that can be shared.
+                      </p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-300/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 shadow-2xs group cursor-default">
-                    <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                    <p className="text-xs sm:text-sm text-slate-800 font-medium group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                      You see opportunities that may otherwise remain invisible across siloed operations.
-                    </p>
+                  <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white flex items-start gap-3 h-full transition-colors">
+                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                      <p className="text-xs sm:text-sm text-slate-800 font-medium group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        You see opportunities that may otherwise remain invisible across siloed operations.
+                      </p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-300/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 shadow-2xs group cursor-default">
-                    <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                    <p className="text-xs sm:text-sm text-slate-800 font-medium group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                      You introduce people not because of an immediate transaction, but because the relationship creates enduring value.
-                    </p>
+                  <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white flex items-start gap-3 h-full transition-colors">
+                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                      <p className="text-xs sm:text-sm text-slate-800 font-medium group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        You introduce people not because of an immediate transaction, but because the relationship creates enduring value.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -676,24 +708,26 @@ export function IndustryDirectorClient() {
             </div>
 
             {/* Right: Title vs Role Card */}
-            <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl hover:border-blue-300/80 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group cursor-default">
-              <div className="space-y-4">
-                <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform duration-300">
-                  <Quote className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+            <div className="lg:col-span-5 relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1 group">
+              <div className="p-8 sm:p-10 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform duration-300">
+                    <Quote className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  </div>
+                  <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
+                    THE DIFFERENCE BETWEEN A TITLE AND A ROLE
+                  </div>
+                  <blockquote className="text-lg sm:text-xl font-bold text-slate-900 leading-snug tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    “A title tells people what you are called. A role tells people what you are willing to take responsibility for.”
+                  </blockquote>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    At PEERS GLOBAL, leadership is not about becoming important. It is about becoming useful. That trust has to be earned continuously through genuine service and steady presence.
+                  </p>
                 </div>
-                <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
-                  THE DIFFERENCE BETWEEN A TITLE AND A ROLE
-                </div>
-                <blockquote className="text-lg sm:text-xl font-bold text-slate-900 leading-snug tracking-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  “A title tells people what you are called. A role tells people what you are willing to take responsibility for.”
-                </blockquote>
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  At PEERS GLOBAL, leadership is not about becoming important. It is about becoming useful. That trust has to be earned continuously through genuine service and steady presence.
-                </p>
-              </div>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs font-semibold brand-gradient-text">
-                ✦ When leadership is rooted in service, the entire ecosystem rises together.
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs font-semibold brand-gradient-text">
+                  ✦ When leadership is rooted in service, the entire ecosystem rises together.
+                </div>
               </div>
             </div>
           </div>
@@ -781,64 +815,68 @@ export function IndustryDirectorClient() {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             {/* Left: Who this is for */}
             <div className="lg:col-span-6 flex">
-              <div className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between w-full space-y-6">
-                <div>
+              <div className="relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1 w-full group">
+                <div className="p-8 sm:p-9 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between space-y-6">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                      CANDIDACY FIT
-                    </span>
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                        CANDIDACY FIT
+                      </span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3 mt-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                      Who this is for
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
+                      The Industry Director role may be meaningful for an entrepreneur who:
+                    </p>
+
+                    <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
+                      {WHO_THIS_IS_FOR.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3 mt-2">
-                    Who this is for
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
-                    The Industry Director role may be meaningful for an entrepreneur who:
-                  </p>
 
-                  <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
-                    {WHO_THIS_IS_FOR.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-5 border-t border-slate-200">
-                  <p className="text-xs font-semibold brand-gradient-text">
-                    You do not need to know everything about your industry. You need to care enough about its people to keep learning—and keep contributing.
-                  </p>
+                  <div className="pt-5 border-t border-slate-200">
+                    <p className="text-xs font-semibold brand-gradient-text">
+                      You do not need to know everything about your industry. You need to care enough about its people to keep learning—and keep contributing.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Right: From Circle to Ecosystem */}
             <div className="lg:col-span-6 flex">
-              <div className="p-8 sm:p-9 rounded-3xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between w-full space-y-6">
-                <div>
+              <div className="relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1 w-full group">
+                <div className="p-8 sm:p-9 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between space-y-6">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                      THE FIELD OF POSSIBILITY
-                    </span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3 mt-2">
-                    From Circle to Ecosystem
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-4">
-                    The leadership journey does not stop when you become a Circle leader. A Circle is a beginning. An industry is a larger field of possibility.
-                  </p>
-                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
-                    And when people within an industry begin learning from one another, sharing resources, creating relationships and collaborating, something larger than networking begins to emerge.
-                  </p>
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                        THE FIELD OF POSSIBILITY
+                      </span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3 mt-2 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                      From Circle to Ecosystem
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-4">
+                      The leadership journey does not stop when you become a Circle leader. A Circle is a beginning. An industry is a larger field of possibility.
+                    </p>
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed mb-6">
+                      And when people within an industry begin learning from one another, sharing resources, creating relationships and collaborating, something larger than networking begins to emerge.
+                    </p>
 
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-3">That is the opportunity of an Industry Director:</h4>
-                    <div className="grid grid-cols-2 gap-2.5 text-xs font-semibold text-slate-700">
-                      <div className="p-3 rounded-xl bg-white border border-slate-200">● One sector</div>
-                      <div className="p-3 rounded-xl bg-white border border-slate-200">● One city</div>
-                      <div className="p-3 rounded-xl bg-white border border-slate-200">● Many entrepreneurs</div>
-                      <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 brand-gradient-text font-bold">● One connected ecosystem</div>
+                    <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-3">That is the opportunity of an Industry Director:</h4>
+                      <div className="grid grid-cols-2 gap-2.5 text-xs font-semibold text-slate-700">
+                        <div className="p-3 rounded-xl bg-white border border-slate-200">● One sector</div>
+                        <div className="p-3 rounded-xl bg-white border border-slate-200">● One city</div>
+                        <div className="p-3 rounded-xl bg-white border border-slate-200">● Many entrepreneurs</div>
+                        <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 brand-gradient-text font-bold">● One connected ecosystem</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -868,13 +906,13 @@ export function IndustryDirectorClient() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-2xs transition-colors"
+                  className="rounded-2xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-2xs hover:border-slate-300 transition-colors"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
                     className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 text-base sm:text-lg font-bold text-slate-900 group transition-all duration-300 cursor-pointer"
                   >
-                    <span className={isOpen ? 'brand-gradient-text' : 'group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300'}>{item.q}</span>
+                    <span className={isOpen ? 'brand-gradient-text' : 'group-hover:text-blue-600 transition-colors'}>{item.q}</span>
                     <ChevronDown
                       className={`size-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                         isOpen ? 'rotate-180 text-[#1D4ED8]' : 'group-hover:text-[#1D4ED8]'

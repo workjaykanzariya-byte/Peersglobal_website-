@@ -219,43 +219,51 @@ export function LifeImpactScoreClient() {
 
               {/* 4 Feature Value Pillars */}
               <div className="grid sm:grid-cols-2 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <ShieldCheck className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Peer Confirmed</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">Only verified by the peer you helped</p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <TrendingUp className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Live & Dynamic</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">Updates in real-time on your profile</p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <ShieldCheck className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Peer Confirmed</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">Only verified by the peer you helped</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <Users className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Social Capital</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">Unlocks national community standing</p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <TrendingUp className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Live & Dynamic</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">Updates in real-time on your profile</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-xs transition-all flex items-start gap-3 group">
-                  <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <Award className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Users className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Social Capital</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">Unlocks national community standing</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Merit Based</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">Cannot be bought with any money</p>
+                </div>
+
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-4 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors flex items-start gap-3 h-full">
+                    <div className="size-9 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Award className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Merit Based</h4>
+                      <p className="text-xs text-slate-500 mt-0.5">Cannot be bought with any money</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -263,63 +271,65 @@ export function LifeImpactScoreClient() {
 
             {/* Right Visual Card Column */}
             <div className="lg:col-span-5">
-              <div
-                style={{
-                  background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
-                }}
-                className="rounded-3xl border border-white/10 p-7 sm:p-8 text-white shadow-xl space-y-6 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-                <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
-                    <span className="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                      WHAT GETS RECORDED
+              <div className="group/rightCard relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-xl">
+                <div
+                  style={{
+                    background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                  }}
+                  className="rounded-[23px] p-7 sm:p-8 text-white space-y-6 relative overflow-hidden h-full"
+                >
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+                  <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8]" />
+                      <span className="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                        WHAT GETS RECORDED
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-0.5 rounded-full shadow-2xs">
+                      Live Activity
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-0.5 rounded-full shadow-2xs">
-                    Live Activity
-                  </span>
-                </div>
 
-                <div className="relative z-10 space-y-3 text-xs sm:text-sm">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-white font-semibold">Introductions & Referrals</strong>
-                      <span className="text-slate-300 text-xs font-light">An introduction that opened a door or converted to a client.</span>
+                  <div className="relative z-10 space-y-3 text-xs sm:text-sm">
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3 hover:bg-white/10 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-white font-semibold">Introductions & Referrals</strong>
+                        <span className="text-slate-300 text-xs font-light">An introduction that opened a door or converted to a client.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3 hover:bg-white/10 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-white font-semibold">Knowledge & Guidance</strong>
+                        <span className="text-slate-300 text-xs font-light">Strategic mentorship that saved someone 18 months of trial and error.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3 hover:bg-white/10 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-white font-semibold">Vetted Resources</strong>
+                        <span className="text-slate-300 text-xs font-light">A supplier, team member, or partner you have already tested and trust.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3 hover:bg-white/10 transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-white font-semibold">Founder Support</strong>
+                        <span className="text-slate-300 text-xs font-light">An hour spent with a Peer founder navigating a critical decision.</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-white font-semibold">Knowledge & Guidance</strong>
-                      <span className="text-slate-300 text-xs font-light">Strategic mentorship that saved someone 18 months of trial and error.</span>
-                    </div>
+                  <div className="relative z-10 pt-2 text-center">
+                    <span className="text-[11px] text-slate-400 font-light italic">
+                      All contributions are confirmed by the receiving peer before impacting score.
+                    </span>
                   </div>
-
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-white font-semibold">Vetted Resources</strong>
-                      <span className="text-slate-300 text-xs font-light">A supplier, team member, or partner you have already tested and trust.</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGradDark)] text-[#38BDF8] shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-white font-semibold">Founder Support</strong>
-                      <span className="text-slate-300 text-xs font-light">An hour spent with a Peer founder navigating a critical decision.</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative z-10 pt-2 text-center">
-                  <span className="text-[11px] text-slate-400 font-light italic">
-                    All contributions are confirmed by the receiving peer before impacting score.
-                  </span>
                 </div>
               </div>
             </div>
@@ -367,18 +377,22 @@ export function LifeImpactScoreClient() {
                 </div>
 
                 <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/70">
-                    <p>
-                      <strong className="text-slate-900 font-semibold block mb-1">Because contribution that goes unseen slowly stops happening.</strong>
-                      Effort without acknowledgement quietly fades, and a room where nobody notices who gives eventually becomes a room where fewer people do.
-                    </p>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white transition-colors">
+                      <p>
+                        <strong className="text-slate-900 font-semibold block mb-1 group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Because contribution that goes unseen slowly stops happening.</strong>
+                        Effort without acknowledgement quietly fades, and a room where nobody notices who gives eventually becomes a room where fewer people do.
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-slate-50/80 border border-slate-200/70">
-                    <p>
-                      <strong className="text-slate-900 font-semibold block mb-1">And because a community outgrows memory.</strong>
-                      In a room of thirty, everyone knows who gives. Across thousands of entrepreneurs in many cities, nobody would — unless it is recorded.
-                    </p>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white transition-colors">
+                      <p>
+                        <strong className="text-slate-900 font-semibold block mb-1 group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">And because a community outgrows memory.</strong>
+                        In a room of thirty, everyone knows who gives. Across thousands of entrepreneurs in many cities, nobody would — unless it is recorded.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -413,35 +427,43 @@ export function LifeImpactScoreClient() {
                 </div>
 
                 <div className="space-y-3 text-xs sm:text-sm text-slate-600 font-light">
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 text-rose-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It is not a leaderboard</strong>
-                      <span className="text-slate-600 text-xs font-light">Peers are not ranked against each other, and nobody is publicly compared.</span>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It is not a leaderboard</strong>
+                        <span className="text-slate-600 text-xs font-light">Peers are not ranked against each other, and nobody is publicly compared.</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 text-rose-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It is not attendance</strong>
-                      <span className="text-slate-600 text-xs font-light">Showing up is the entry fee. Genuine contribution is what counts.</span>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It is not attendance</strong>
+                        <span className="text-slate-600 text-xs font-light">Showing up is the entry fee. Genuine contribution is what counts.</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 text-rose-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It is not permanent</strong>
-                      <span className="text-slate-600 text-xs font-light">Your score reflects active contribution. It ends when membership ends.</span>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It is not permanent</strong>
+                        <span className="text-slate-600 text-xs font-light">Your score reflects active contribution. It ends when membership ends.</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                    <XCircle className="size-4 text-rose-500 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-semibold">It cannot be bought</strong>
-                      <span className="text-slate-600 text-xs font-light">No subscription tier, payment, or seniority produces a single point.</span>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                      <XCircle className="size-4 stroke-[url(#brandIconGrad)] text-[#E11D48] shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-slate-900 font-semibold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">It cannot be bought</strong>
+                        <span className="text-slate-600 text-xs font-light">No subscription tier, payment, or seniority produces a single point.</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -449,7 +471,7 @@ export function LifeImpactScoreClient() {
 
               <div className="mt-8 pt-5 border-t border-slate-100">
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-700 flex items-center gap-2.5">
-                  <ShieldCheck className="size-4 shrink-0 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  <ShieldCheck className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   <span>Pure meritocracy based entirely on peer verification.</span>
                 </div>
               </div>
@@ -476,21 +498,10 @@ export function LifeImpactScoreClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
-            <div className="animated-glow-card group !rounded-3xl">
-              <svg className="animated-border-svg" aria-hidden="true">
-                <rect
-                  x="1"
-                  y="1"
-                  width="calc(100% - 2px)"
-                  height="calc(100% - 2px)"
-                  rx="24"
-                  ry="24"
-                  className="animated-border-path"
-                />
-              </svg>
-              <div className="relative flex flex-col justify-between p-7 sm:p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full">
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+              <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-[23px] bg-white group-hover:bg-[#FAFBFD] transition-colors h-full">
                 <div className="space-y-4">
-                  <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
                     <Award className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">
@@ -512,21 +523,10 @@ export function LifeImpactScoreClient() {
               </div>
             </div>
 
-            <div className="animated-glow-card group !rounded-3xl">
-              <svg className="animated-border-svg" aria-hidden="true">
-                <rect
-                  x="1"
-                  y="1"
-                  width="calc(100% - 2px)"
-                  height="calc(100% - 2px)"
-                  rx="24"
-                  ry="24"
-                  className="animated-border-path"
-                />
-              </svg>
-              <div className="relative flex flex-col justify-between p-7 sm:p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full">
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+              <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-[23px] bg-white group-hover:bg-[#FAFBFD] transition-colors h-full">
                 <div className="space-y-4">
-                  <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
                     <TrendingUp className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">
@@ -548,21 +548,10 @@ export function LifeImpactScoreClient() {
               </div>
             </div>
 
-            <div className="animated-glow-card group !rounded-3xl">
-              <svg className="animated-border-svg" aria-hidden="true">
-                <rect
-                  x="1"
-                  y="1"
-                  width="calc(100% - 2px)"
-                  height="calc(100% - 2px)"
-                  rx="24"
-                  ry="24"
-                  className="animated-border-path"
-                />
-              </svg>
-              <div className="relative flex flex-col justify-between p-7 sm:p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full">
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+              <div className="relative flex flex-col justify-between p-7 sm:p-8 rounded-[23px] bg-white group-hover:bg-[#FAFBFD] transition-colors h-full">
                 <div className="space-y-4">
-                  <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
+                  <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shadow-2xs group-hover:scale-110 transition-transform">
                     <Users className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">

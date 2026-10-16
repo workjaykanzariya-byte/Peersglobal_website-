@@ -409,27 +409,31 @@ export function CircleFounderClient() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                    <Compass className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors">See The Opportunity</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Identify the missing ecosystem in your city or industry where accomplished founders can connect.
-                    </p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-white flex items-start gap-3.5 h-full transition-colors">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Compass className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">See The Opportunity</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Identify the missing ecosystem in your city or industry where accomplished founders can connect.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                    <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors">Create The Possibility</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Turn an empty space into a vibrant home for collaboration, peer learning, and shared growth.
-                    </p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-white flex items-start gap-3.5 h-full transition-colors">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">Create The Possibility</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Turn an empty space into a vibrant home for collaboration, peer learning, and shared growth.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -666,26 +670,34 @@ export function CircleFounderClient() {
                   A Founder starts the Circle. That does not mean the Founder must remain the centre of everything. The strongest communities gradually develop shared responsibility through four evolutionary stages:
                 </p>
 
-                <div className="grid sm:grid-cols-2 gap-3.5 pt-1">
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 01</span>
-                    <h4 className="text-sm font-bold text-slate-900 mt-1">One Founder</h4>
-                    <p className="text-xs text-slate-600 font-light mt-0.5">Sees the vision and convenes the initial room.</p>
+                <div className="grid sm:grid-cols-2 gap-3.5 pt-2">
+                  <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white h-full transition-colors">
+                      <span className="text-xs font-bold brand-gradient-text font-mono">Stage 01</span>
+                      <h4 className="text-sm font-bold text-slate-900 mt-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">One Founder</h4>
+                      <p className="text-xs text-slate-600 font-light mt-0.5">Sees the vision and convenes the initial room.</p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 02</span>
-                    <h4 className="text-sm font-bold text-slate-900 mt-1">A Powerhouse</h4>
-                    <p className="text-xs text-slate-600 font-light mt-0.5">14 active committees take functional ownership.</p>
+                  <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white h-full transition-colors">
+                      <span className="text-xs font-bold brand-gradient-text font-mono">Stage 02</span>
+                      <h4 className="text-sm font-bold text-slate-900 mt-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">A Powerhouse</h4>
+                      <p className="text-xs text-slate-600 font-light mt-0.5">14 active committees take functional ownership.</p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 03</span>
-                    <h4 className="text-sm font-bold text-slate-900 mt-1">Circle Director &amp; Team</h4>
-                    <p className="text-xs text-slate-600 font-light mt-0.5">Holds month-on-month operational rhythm.</p>
+                  <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white h-full transition-colors">
+                      <span className="text-xs font-bold brand-gradient-text font-mono">Stage 03</span>
+                      <h4 className="text-sm font-bold text-slate-900 mt-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Circle Director &amp; Team</h4>
+                      <p className="text-xs text-slate-600 font-light mt-0.5">Holds month-on-month operational rhythm.</p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#FAFBFD] border border-slate-200/80">
-                    <span className="text-xs font-bold brand-gradient-text font-mono">Stage 04</span>
-                    <h4 className="text-sm font-bold text-slate-900 mt-1">Self-Sustaining Community</h4>
-                    <p className="text-xs text-slate-600 font-light mt-0.5">Thrives and outgrows any individual effort.</p>
+                  <div className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white h-full transition-colors">
+                      <span className="text-xs font-bold brand-gradient-text font-mono">Stage 04</span>
+                      <h4 className="text-sm font-bold text-slate-900 mt-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Self-Sustaining Community</h4>
+                      <p className="text-xs text-slate-600 font-light mt-0.5">Thrives and outgrows any individual effort.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -761,12 +773,14 @@ export function CircleFounderClient() {
                 {WHAT_FOUNDER_DOES.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-[#FAFBFD] border border-slate-200/80 hover:border-blue-200 hover:bg-blue-50/20 hover:shadow-2xs transition-all flex items-start gap-2.5"
+                    className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
                   >
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                    <span className="text-xs text-slate-800 font-medium capitalize">
-                      {item}
-                    </span>
+                    <div className="p-3 sm:p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-2.5 h-full transition-colors">
+                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                      <span className="text-xs text-slate-800 font-medium capitalize group-hover/item:text-slate-900 transition-colors">
+                        {item}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -804,9 +818,14 @@ export function CircleFounderClient() {
 
                 <div className="space-y-3">
                   {WHO_THIS_IS_FOR.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/70">
-                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm font-medium text-slate-800 capitalize">{item}</span>
+                    <div
+                      key={i}
+                      className="group/item relative rounded-2xl p-[1px] bg-slate-200/70 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
+                    >
+                      <div className="flex items-start gap-3 p-3 rounded-[15px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                        <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm font-medium text-slate-800 capitalize group-hover/item:text-slate-900 transition-colors">{item}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -843,15 +862,20 @@ export function CircleFounderClient() {
 
                 <div className="space-y-3 pt-2">
                   {WHAT_PEERS_GLOBAL_PROVIDES.map((item, idx) => (
-                    <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-start gap-3">
-                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs text-slate-600 mt-0.5 font-light leading-relaxed">
-                          {item.desc}
-                        </p>
+                    <div
+                      key={idx}
+                      className="group/item relative rounded-2xl p-[1px] bg-slate-200/70 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
+                    >
+                      <div className="p-3.5 rounded-[15px] bg-slate-50 group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                        <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover/item:text-slate-950 transition-colors">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-0.5 font-light leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -878,15 +902,20 @@ export function CircleFounderClient() {
 
                 <div className="space-y-3 pt-2">
                   {WHAT_YOU_BRING_POINTS.map((item, idx) => (
-                    <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-start gap-3">
-                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs text-slate-600 mt-0.5 font-light leading-relaxed">
-                          {item.desc}
-                        </p>
+                    <div
+                      key={idx}
+                      className="group/item relative rounded-2xl p-[1px] bg-slate-200/70 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
+                    >
+                      <div className="p-3.5 rounded-[15px] bg-slate-50 group-hover/item:bg-white flex items-start gap-3 transition-colors">
+                        <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5" />
+                        <div>
+                          <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover/item:text-slate-950 transition-colors">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs text-slate-600 mt-0.5 font-light leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   ))}

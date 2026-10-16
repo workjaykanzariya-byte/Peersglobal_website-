@@ -535,12 +535,14 @@ export function OurStoryClient() {
                 </span>
               </div>
 
-              <div className="p-6 rounded-3xl bg-white border border-cool-grey-250 shadow-xs space-y-2.5 text-xs sm:text-sm text-slate-800 font-medium">
-                <p>• People building businesses.</p>
-                <p>• People carrying responsibility.</p>
-                <p>• People learning.</p>
-                <p>• People contributing.</p>
-                <p>• People capable of helping one another.</p>
+              <div className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-1">
+                <div className="p-6 rounded-[23px] bg-white space-y-2.5 text-xs sm:text-sm text-slate-800 font-medium">
+                  <p>• People building businesses.</p>
+                  <p>• People carrying responsibility.</p>
+                  <p>• People learning.</p>
+                  <p>• People contributing.</p>
+                  <p>• People capable of helping one another.</p>
+                </div>
               </div>
 
               <p className="text-sm sm:text-base text-slate-900 font-semibold italic border-l-2 border-[#E11D48] pl-3.5 py-1">
@@ -579,11 +581,16 @@ export function OurStoryClient() {
                   { label: 'Unity App', desc: 'Brought the community into everyday life.' },
                   { label: 'Wider Ecosystem', desc: 'Created possibilities beyond a single meeting or a single Circle.' },
                 ].map((item) => (
-                  <div key={item.label} className="p-4 rounded-2xl bg-white border border-cool-grey-250 shadow-xs hover:shadow-md hover:border-blue-200 transition-all space-y-1 group">
-                    <div className="inline-block text-xs font-bold uppercase tracking-wider brand-gradient-text">
-                      {item.label}
+                  <div
+                    key={item.label}
+                    className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5"
+                  >
+                    <div className="p-4 rounded-[15px] bg-white space-y-1 h-full">
+                      <div className="inline-block text-xs font-bold uppercase tracking-wider brand-gradient-text">
+                        {item.label}
+                      </div>
+                      <div className="text-xs text-slate-600 font-medium leading-relaxed">{item.desc}</div>
                     </div>
-                    <div className="text-xs text-slate-600 font-medium leading-relaxed">{item.desc}</div>
                   </div>
                 ))}
               </div>

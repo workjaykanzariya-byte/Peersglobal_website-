@@ -361,17 +361,17 @@ export function ApplyPageClient() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-1.5 hover:bg-white/[0.07] transition-all">
                   <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] to-[#818CF8] bg-clip-text text-transparent">Learning</h4>
-                  <p className="text-xs text-slate-300 font-light leading-relaxed">Access masterclasses, real founder playbooks, and peer discussions.</p>
+                  <p className="text-xs text-slate-300 font-light leading-relaxed">Growth through knowledge, mentorship, and shared experiences.</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-1.5 hover:bg-white/[0.07] transition-all">
-                  <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Sharing</h4>
-                  <p className="text-xs text-slate-300 font-light leading-relaxed">Offer your expertise, contribute insights, and support other entrepreneurs.</p>
+                  <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Sales</h4>
+                  <p className="text-xs text-slate-300 font-light leading-relaxed">Real business through referrals, networking, and collaborations.</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-1.5 hover:bg-white/[0.07] transition-all">
-                  <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Relationships</h4>
-                  <p className="text-xs text-slate-300 font-light leading-relaxed">Connect with founders across industries, cities, and countries in Unity.</p>
+                  <h4 className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">Resources</h4>
+                  <p className="text-xs text-slate-300 font-light leading-relaxed">Tools, media, and platforms to support and scale your business.</p>
                 </div>
               </div>
 
