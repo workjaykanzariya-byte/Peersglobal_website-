@@ -511,6 +511,10 @@ export function InsightsPageClient() {
                         </p>
                       </div>
 
+                      <p className="text-xs text-slate-600 leading-relaxed font-light">
+                        {place.desc}
+                      </p>
+
                       <div className="pt-2 border-t border-slate-100 space-y-1.5">
                         {place.bullets.map((b) => (
                           <div key={b} className="flex items-center gap-2 text-[11px] font-medium text-slate-700">
