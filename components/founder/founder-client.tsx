@@ -210,38 +210,26 @@ export function FounderClient() {
               </div>
 
               {/* Right Column: Hero Visual Card */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/5] sm:aspect-[4/3] group bg-slate-900 flex flex-col justify-between p-4 sm:p-7">
+              <div className="lg:col-span-5 relative space-y-3">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 aspect-[4/5] sm:aspect-[4/3] group bg-slate-100">
                   <Image
                     src="/images/founder-new.png"
                     alt="Dr. Pravin Parmar — Founder of Peers Global"
                     fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-90"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-slate-950/20 pointer-events-none" />
+                </div>
 
-                  {/* Top Badges */}
-                  <div className="relative z-10 flex flex-wrap items-center justify-between gap-2">
-                    <span className="shrink-0 whitespace-nowrap inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-slate-950/80 border border-blue-400/40 text-[9px] sm:text-[10px] font-bold tracking-wider sm:tracking-widest uppercase backdrop-blur-md">
-                      <span className="size-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48]" />
-                      <span className="brand-gradient-text">FOUNDER &amp; VISIONARY</span>
-                    </span>
-                    <span className="shrink-0 whitespace-nowrap px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[9px] sm:text-[10px] font-mono font-bold text-white border border-white/20">
-                      BOTAD &bull; AHMEDABAD
-                    </span>
-                  </div>
-
-                  {/* Bottom Highlight */}
-                  <div className="relative z-10 text-white space-y-1">
-                    <p className="text-xs font-mono uppercase tracking-wider brand-gradient-text font-bold">
-                      Founder, Peers Global
-                    </p>
-                    <p className="text-sm sm:text-base font-bold leading-snug">
-                      &ldquo;What can I do with what I have?&rdquo;
-                    </p>
-                  </div>
+                {/* Text below the image */}
+                <div className="space-y-1 px-1">
+                  <p className="text-xs font-mono uppercase tracking-wider brand-gradient-text font-bold">
+                    Founder, Peers Global
+                  </p>
+                  <p className="text-sm sm:text-base font-bold text-slate-800 leading-snug">
+                    &ldquo;What can I do with what I have?&rdquo;
+                  </p>
                 </div>
               </div>
 
@@ -368,7 +356,7 @@ export function FounderClient() {
                   RESEARCH &amp; BENCHMARKING
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950 tracking-tight leading-tight">
                 Studying Global Community Models
               </h2>
               <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
@@ -376,19 +364,35 @@ export function FounderClient() {
               </p>
             </div>
 
-            {/* Quick Benchmark Stats Pill */}
-            <div className="grid grid-cols-3 sm:flex sm:items-center gap-2 sm:gap-3 w-full sm:w-auto bg-white p-2 sm:p-2.5 rounded-2xl border border-slate-200/90 shadow-2xs self-stretch sm:self-start lg:self-auto">
-              <div className="h-full flex flex-col items-center justify-center px-1.5 sm:px-5 py-2.5 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 text-center">
-                <span className="block whitespace-nowrap font-serif text-base sm:text-2xl font-bold brand-gradient-text">9 Models</span>
-                <span className="text-[9px] sm:text-xs uppercase font-bold text-slate-600 tracking-wide sm:tracking-wider leading-tight">Synthesised</span>
+            {/* Quick Benchmark Stats Ribbon */}
+            <div className="flex items-center divide-x divide-slate-200/90 bg-white rounded-2xl border border-slate-200/90 shadow-2xs px-4 sm:px-6 py-3.5 self-start lg:self-end shrink-0">
+              <div className="pr-4 sm:pr-6 text-left">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-xl sm:text-2xl font-extrabold tracking-tight brand-gradient-text">9</span>
+                  <span className="text-sm sm:text-base font-bold text-slate-800">Models</span>
+                </div>
+                <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 mt-0.5">
+                  Synthesised
+                </p>
               </div>
-              <div className="h-full flex flex-col items-center justify-center px-1.5 sm:px-5 py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center">
-                <span className="block whitespace-nowrap font-serif text-base sm:text-2xl font-bold text-slate-900">100+ Yrs</span>
-                <span className="text-[9px] sm:text-xs uppercase font-bold text-slate-600 tracking-wide sm:tracking-wider leading-tight">Collective History</span>
+
+              <div className="px-4 sm:px-6 text-left">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-950">100+</span>
+                  <span className="text-sm sm:text-base font-bold text-slate-800">Years</span>
+                </div>
+                <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 mt-0.5">
+                  Collective History
+                </p>
               </div>
-              <div className="h-full flex flex-col items-center justify-center px-1.5 sm:px-5 py-2.5 rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 border border-rose-100 text-center">
-                <span className="block whitespace-nowrap font-serif text-base sm:text-2xl font-bold brand-gradient-text">100% Peer</span>
-                <span className="text-[9px] sm:text-xs uppercase font-bold text-slate-600 tracking-wide sm:tracking-wider leading-tight">Architecture</span>
+
+              <div className="pl-4 sm:pl-6 text-left">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-xl sm:text-2xl font-extrabold tracking-tight brand-gradient-text">100%</span>
+                </div>
+                <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-slate-500 mt-0.5">
+                  Peer Architecture
+                </p>
               </div>
             </div>
           </div>
@@ -480,7 +484,7 @@ export function FounderClient() {
 
                     {/* Title & Origin */}
                     <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl lg:text-[26px] font-serif font-bold text-slate-950 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-snug">
+                      <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-slate-950 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-snug">
                         {item.name}
                       </h3>
                       <div className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm font-mono text-slate-500">
@@ -570,7 +574,9 @@ export function FounderClient() {
                 </GalaxyButton>
 
                 <GalaxyButton
-                  href="https://www.linkedin.com/in/drpravinparmar/"
+                  href="https://www.linkedin.com/company/peersglobal"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="transparent"
                   size="lg"
                   icon={true}

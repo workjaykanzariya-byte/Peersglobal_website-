@@ -1412,9 +1412,9 @@ export default function CultureAndCodePage() {
         subtitle="Circles, not crowds. Trust, not transactions. Peers, not gurus."
         description="PEERS GLOBAL is the World's First Community of Collaboration. Enter a trusted Circle and experience culture in action."
         primaryButtonText="BECOME A PEER"
-        primaryButtonHref="/membership"
+        primaryButtonHref="https://peersunity.com/membership"
         secondaryButtonText="FIND YOUR CIRCLE"
-        secondaryButtonHref="/circles"
+        secondaryButtonHref="https://peersunity.com/circles"
       />
 
     </div>

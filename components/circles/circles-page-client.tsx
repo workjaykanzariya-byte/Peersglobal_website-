@@ -63,6 +63,7 @@ import {
 import { CIRCLES, Circle } from '@/lib/data/circles'
 import { ACTIVE_CITIES } from '@/lib/data/site'
 import { CircleMembersModal } from '@/components/circle-members-modal'
+import { APP_DEEP_LINKS, getCircleDeepLink } from '@/lib/data/app-deep-links'
 
 export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }) {
   const cityList = dynamicCities.length > 0 ? dynamicCities : ACTIVE_CITIES
@@ -892,13 +893,15 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </p>
               </div>
 
-              <button
-                onClick={() => scrollToExplore('industry')}
+              <a
+                href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-fit shadow-sm"
               >
                 <span>Browse Industry Circles</span>
                 <ArrowRight className="size-4" />
-              </button>
+              </a>
             </div>
 
             <div className="p-8 sm:p-10 rounded-3xl bg-[#F0F7FF] border border-[#DCEBFE] flex flex-col justify-between hover:shadow-lg transition-all group">
@@ -920,13 +923,15 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                 </p>
               </div>
 
-              <button
-                onClick={() => scrollToExplore('purpose')}
+              <a
+                href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-7 py-3 text-xs sm:text-sm font-semibold transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-fit shadow-sm"
               >
                 <span>Browse Purpose Circles</span>
                 <ArrowRight className="size-4" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -1885,7 +1890,9 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <GalaxyButton
-                  onClick={() => scrollToExplore()}
+                  href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >
@@ -2076,7 +2083,7 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex items-center gap-2.5">
+                        <div className="flex flex-wrap items-center gap-2.5">
                           <Link
                             href={`/circles/${circle.slug}?city=${encodeURIComponent(modalCity)}`}
                             className="flex-1 rounded-full bg-[#0062D2] hover:bg-[#0052B4] text-white px-4 py-2 text-xs font-bold shadow-2xs transition-all text-center inline-flex items-center justify-center gap-1.5"
@@ -2084,6 +2091,15 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
                             <span>View Chapter Details & Apply</span>
                             <ArrowRight className="size-3" />
                           </Link>
+                          <a
+                            href={getCircleDeepLink(selectedCategoryForModal.name)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] text-white px-4 py-2 text-xs font-bold shadow-2xs transition-all text-center inline-flex items-center justify-center gap-1.5 hover:opacity-95"
+                          >
+                            <span>Open in App</span>
+                            <ArrowRight className="size-3" />
+                          </a>
                           <button
                             type="button"
                             onClick={() => {

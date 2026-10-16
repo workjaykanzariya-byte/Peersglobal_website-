@@ -278,7 +278,9 @@ export function BenefitsClient() {
               {/* CTAs */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
-                  href="/circles/find"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="font-semibold"
                 >
@@ -1028,7 +1030,9 @@ export function BenefitsClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <GalaxyButton
-                href="/circles/find"
+                href="https://peersunity.com/circles"
+                target="_blank"
+                rel="noopener noreferrer"
                 size="default"
                 className="font-semibold"
               >

@@ -682,7 +682,9 @@ export function CriteriaClient() {
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <GalaxyButton
-                href="/circles/find"
+                href="https://peersunity.com/circles"
+                target="_blank"
+                rel="noopener noreferrer"
                 size="small"
                 className="font-semibold text-xs"
               >
@@ -726,7 +728,9 @@ export function CriteriaClient() {
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <GalaxyButton
-                  href="/circles/find"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >

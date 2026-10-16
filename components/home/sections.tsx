@@ -1237,13 +1237,15 @@ export function CirclesSection() {
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/circles"
+            <a
+              href="https://peersunity.com/circles"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-[4px] bg-[#0078D4] hover:bg-[#006cbd] text-white font-semibold px-6 py-3 text-sm shadow-sm transition-all active:scale-[0.98]"
             >
               <span>Find Your Circle</span>
               <ArrowRight className="size-4" />
-            </Link>
+            </a>
           </div>
         </div>
 

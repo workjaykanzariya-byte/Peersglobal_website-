@@ -31,8 +31,8 @@ export default function WhyPage() {
             Most entrepreneurs are told to build a network. Very few are shown how to build a circle. The difference decides how fast you grow.
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Cta href="/circles" variant="gold" size="lg">Find Your Circle</Cta>
-            <Cta href="/events" variant="onDark" size="lg">Visit a Meeting as a Guest</Cta>
+            <Cta href="https://peersunity.com/circles" target="_blank" rel="noopener noreferrer" variant="gold" size="lg">Find Your Circle</Cta>
+            <Cta href="https://peersunity.com/events" target="_blank" rel="noopener noreferrer" variant="onDark" size="lg">Visit a Meeting as a Guest</Cta>
           </div>
         </div>
       </section>

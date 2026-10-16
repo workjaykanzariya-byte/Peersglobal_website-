@@ -963,14 +963,18 @@ export function PurposePageClient() {
 
               <div className="flex flex-wrap items-center gap-3">
                 <GalaxyButton
-                  href="/circles"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="primary"
                   size="sm"
                 >
                   Browse All Circles
                 </GalaxyButton>
                 <GalaxyButton
-                  href="/circles/industry"
+                  href="https://peersunity.com/circles"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="transparent-light"
                   size="sm"
                 >
