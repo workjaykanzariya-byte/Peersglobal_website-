@@ -330,6 +330,21 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#0F172A] selection:bg-[#0062D2] selection:text-white font-sans">
+      {/* SVG Linear Gradient Definitions for Icons */}
+      <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1D4ED8" />
+            <stop offset="50%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#E11D48" />
+          </linearGradient>
+          <linearGradient id="brandStatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38BDF8" />
+            <stop offset="50%" stopColor="#818CF8" />
+            <stop offset="100%" stopColor="#FB7185" />
+          </linearGradient>
+        </defs>
+      </svg>
       {/* =========================================================================
           SECTION 1: HERO (Master Full Page Dark Video Banner)
           ========================================================================= */}
@@ -1910,9 +1925,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
             {/* Close Button */}
             <button
               onClick={() => setSelectedCategoryForModal(null)}
-              className="absolute top-5 right-5 size-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-5 right-5 size-9 rounded-full bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-rose-500/15 hover:from-blue-500/20 hover:via-indigo-500/20 hover:to-rose-500/25 border border-blue-200/60 shadow-xs flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer group"
+              aria-label="Close modal"
             >
-              <X className="size-4" />
+              <X className="size-5 stroke-[url(#brandIconGrad)] stroke-[2.5] text-[#1D4ED8] group-hover:rotate-90 transition-transform duration-200" />
             </button>
 
             {/* Header: Category Badge + Title */}
@@ -2178,9 +2194,10 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
           <div className="relative w-full max-w-lg rounded-3xl border border-slate-700 bg-[#050C1A] text-white p-8 shadow-2xl flex flex-col gap-6">
             <button
               onClick={() => setIsGuestModalOpen(false)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors"
+              className="absolute top-5 right-5 size-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer group"
+              aria-label="Close modal"
             >
-              <X className="size-5" />
+              <X className="size-5 stroke-[url(#brandStatGrad)] stroke-[2.5] text-sky-400 group-hover:rotate-90 transition-transform duration-200" />
             </button>
 
             <div className="flex flex-col gap-2">
