@@ -201,7 +201,7 @@ export default function TheTerritoryPage() {
                   className="font-semibold"
                 >
                   Download Unity App
-                </SmartAppDownloadButton>
+                </GalaxyButton>
 
                 <GalaxyButton
                   href="/circles"

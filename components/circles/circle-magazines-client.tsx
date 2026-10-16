@@ -192,7 +192,7 @@ export function CircleMagazinesClient() {
                   className="font-semibold uppercase tracking-wider"
                 >
                   DOWNLOAD UNITY APP
-                </SmartAppDownloadButton>
+                </GalaxyButton>
                 <GalaxyButton
                   href="#directory"
                   variant="transparent"
