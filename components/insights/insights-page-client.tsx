@@ -491,7 +491,6 @@ export function InsightsPageClient() {
                     idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
                   }`}
                 >
-<<<<<<< HEAD
                   <div className="p-8 rounded-[23px] bg-white group-hover/card:bg-[#FAFBFD] transition-colors flex flex-col justify-between space-y-6 h-full">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
@@ -512,6 +511,10 @@ export function InsightsPageClient() {
                         </p>
                       </div>
 
+                      <p className="text-xs text-slate-600 leading-relaxed font-light">
+                        {place.desc}
+                      </p>
+
                       <div className="pt-2 border-t border-slate-100 space-y-1.5">
                         {place.bullets.map((b) => (
                           <div key={b} className="flex items-center gap-2 text-[11px] font-medium text-slate-700">
@@ -526,39 +529,6 @@ export function InsightsPageClient() {
                       <span>Explore {place.title}</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#E11D48] transition-transform group-hover/card:translate-x-1" />
                     </div>
-=======
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-slate-400">
-                        {place.num}
-                      </span>
-                      <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${place.color}`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-950 group-hover:text-[#0062D2] transition-colors">
-                        {place.title}
-                      </h3>
-                      <p className="text-xs font-semibold text-slate-700 mt-1">
-                        {place.tagline}
-                      </p>
-                    </div>
-
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      {place.desc}
-                    </p>
-
-                    <div className="pt-2 border-t border-slate-100 space-y-1">
-                      {place.bullets.map((b) => (
-                        <div key={b} className="flex items-center gap-2 text-[11px] font-medium text-slate-700">
-                          <Check className="w-3 h-3 text-[#0062D2] shrink-0" />
-                          <span>{b}</span>
-                        </div>
-                      ))}
-                    </div>
->>>>>>> b77caaddd171727dca4625ac9acd2c1df92466b4
                   </div>
                 </div>
               )
@@ -644,17 +614,11 @@ export function InsightsPageClient() {
                       </span>
                     </div>
 
-<<<<<<< HEAD
                     <div className="p-6 space-y-3">
                       <div className="flex items-center gap-2 text-xs text-slate-500">
                         <Clock className="w-3.5 h-3.5" />
                         <span>{art.readTime}</span>
                       </div>
-=======
-                    <h3 className="font-bold text-slate-950 text-lg leading-snug group-hover:text-[#0062D2] transition-colors">
-                      {art.title}
-                    </h3>
->>>>>>> b77caaddd171727dca4625ac9acd2c1df92466b4
 
                       <h3 className="font-serif font-bold text-slate-950 text-lg leading-snug group-hover/article:text-transparent group-hover/article:bg-clip-text group-hover/article:bg-gradient-to-r group-hover/article:from-[#1D4ED8] group-hover/article:via-[#6366F1] group-hover/article:to-[#E11D48] transition-all">
                         {art.title}
@@ -725,7 +689,6 @@ export function InsightsPageClient() {
 
             {/* Right: INSIGHTS ARE NOT INSTRUCTIONS & THE KNOWLEDGE KEEPS MOVING */}
             <div className="lg:col-span-6 space-y-6">
-<<<<<<< HEAD
               <div className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
                 <div className="p-8 rounded-[23px] bg-white space-y-4">
                   <h3 className="text-xl font-serif font-bold text-slate-950">
@@ -738,18 +701,6 @@ export function InsightsPageClient() {
                     The purpose is not to tell every entrepreneur what to do. It is to give entrepreneurs better things to think about.
                   </p>
                 </div>
-=======
-              <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-                <h3 className="text-xl font-bold text-slate-950">
-                  INSIGHTS ARE NOT INSTRUCTIONS
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  Read an experience. Question it. Relate it to your own context. Take what is useful. Leave what is not.
-                </p>
-                <p className="text-xs font-semibold text-slate-900 border-l-2 border-[#0062D2] pl-3 italic">
-                  The purpose is not to tell every entrepreneur what to do. It is to give entrepreneurs better things to think about.
-                </p>
->>>>>>> b77caaddd171727dca4625ac9acd2c1df92466b4
               </div>
 
               <div className="p-8 rounded-3xl bg-slate-900 text-white shadow-md space-y-4">
