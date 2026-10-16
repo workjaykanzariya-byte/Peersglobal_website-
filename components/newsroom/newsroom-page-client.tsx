@@ -208,6 +208,7 @@ const MEDIA_KIT_DOWNLOADS = [
 export function NewsroomPageClient() {
   const [copied, setCopied] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [selectedPressCategory, setSelectedPressCategory] = useState<string>('All')
   const [formData, setFormData] = useState({
     name: '',
     organisation: '',
@@ -547,95 +548,77 @@ export function NewsroomPageClient() {
         </div>
       </section>
 
-      {/* ─── Section 2: PRESS RELEASES ─── */}
-      <section id="press-releases" className="py-14 sm:py-20 bg-[#F8FAFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ─── Section 2: PRESS RELEASES (FULL-WIDTH MODERN LAYOUT) ─── */}
+      <section id="press-releases" className="py-16 sm:py-24 bg-[#F8FAFD] border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            
-            {/* Left Column: Context & Covered Areas */}
-            <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
-              <div className="space-y-2.5">
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
-                    PRESS RELEASES
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight leading-snug">
-                  Official Announcements
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Press releases are the formal record of significant governance, policy, and organizational announcements.
-                </p>
+          {/* Top Full-Width Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2 border-b border-slate-200/60">
+            <div className="max-w-2xl space-y-2.5">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] brand-gradient-text">
+                  PRESS RELEASES
+                </span>
               </div>
-
-              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
-                <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                  Announcement Categories
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-xs font-medium text-slate-800">
-                  {[
-                    'New Charters',
-                    'Milestones',
-                    'Leadership',
-                    'Strategic Deals',
-                    'Communities',
-                    'Social Impact',
-                    'Annual Summits',
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50 border border-slate-100 text-[11px]">
-                      <CheckCircle2 className="size-3 [stroke:url(#newsBrandGrad)] shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-serif font-bold text-slate-950 tracking-tight leading-tight">
+                Official Announcements
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Press releases are the formal record of significant governance, policy, and organizational announcements across PEERS GLOBAL.
+              </p>
             </div>
 
-            {/* Right Column: Press Release List */}
-            <div className="lg:col-span-8 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
-                  [OFFICIAL PRESS RELEASES — PERMANENT RECORD]
-                </span>
-                <span className="text-xs font-mono text-slate-400 hidden sm:inline">
-                  Downloadable official statements
-                </span>
-              </div>
+            <div className="text-xs font-mono text-slate-400 hidden lg:block text-right">
+              <span className="block text-slate-700 font-bold">[PERMANENT REPOSITORY]</span>
+              <span>Downloadable statements with verified media desk contacts</span>
+            </div>
+          </div>
 
-              <div className="divide-y divide-slate-200/80 rounded-2xl bg-white border border-slate-200/90 shadow-sm overflow-hidden">
-                {PRESS_RELEASES.map((pr) => (
-                  <div
-                    key={pr.headline}
-                    className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-blue-50/20 transition-colors group"
-                  >
-                    <div className="space-y-1.5 max-w-xl">
-                      <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                        <span className="px-2.5 py-0.5 rounded bg-blue-50/80 font-bold border border-blue-200 text-[11px] brand-gradient-text">
-                          {pr.type}
-                        </span>
-                        <span className="text-slate-400">•</span>
-                        <span className="text-slate-600 font-semibold text-[11px]">{pr.date}</span>
-                      </div>
+          {/* Independent Card Blocks Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PRESS_RELEASES.map((pr) => (
+              <div
+                key={pr.headline}
+                className="group/pr relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
+              >
+                <div className="rounded-[23px] bg-white p-7 sm:p-8 flex flex-col justify-between h-full space-y-6">
+                  <div className="space-y-3.5">
+                    {/* Badge and Date */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                      <span className="px-2.5 py-0.5 rounded-full bg-blue-50/90 font-bold border border-blue-200/80 text-[11px] brand-gradient-text">
+                        {pr.type}
+                      </span>
+                      <span className="text-slate-500 font-medium text-[11px]">{pr.date}</span>
+                    </div>
 
-                      <h3 className="text-base sm:text-lg font-bold text-slate-950 group-hover-gradient-text transition-colors leading-snug">
-                        {pr.headline}
-                      </h3>
+                    {/* Headline */}
+                    <h3 className="text-lg sm:text-xl font-serif font-bold text-slate-950 group-hover/pr:bg-gradient-to-r group-hover/pr:from-[#1D4ED8] group-hover/pr:to-[#E11D48] group-hover/pr:bg-clip-text group-hover/pr:text-transparent transition-all leading-snug">
+                      {pr.headline}
+                    </h3>
 
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                        {pr.summary}
-                      </p>
+                    {/* Summary */}
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                      {pr.summary}
+                    </p>
+                  </div>
 
-                      <div className="text-[11px] text-slate-500 font-mono pt-1">
-                        Contact: <a href={`mailto:${pr.mediaContact}`} className="font-semibold brand-gradient-text hover:underline">{pr.mediaContact}</a>
-                      </div>
+                  {/* Footer with Contact & PDF Button */}
+                  <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                    <div className="text-[11px] text-slate-500 font-mono">
+                      Contact:{' '}
+                      <a
+                        href={`mailto:${pr.mediaContact}`}
+                        className="font-semibold brand-gradient-text hover:underline"
+                      >
+                        {pr.mediaContact}
+                      </a>
                     </div>
 
                     <GalaxyButton
                       href="#media-enquiry"
                       size="sm"
                       icon={false}
-                      className="text-xs shrink-0 self-start whitespace-nowrap"
+                      className="text-xs shrink-0 whitespace-nowrap self-start sm:self-auto"
                     >
                       <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
                         <span>Official PDF</span>
@@ -643,10 +626,9 @@ export function NewsroomPageClient() {
                       </span>
                     </GalaxyButton>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-
+            ))}
           </div>
 
         </div>

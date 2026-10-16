@@ -560,82 +560,84 @@ export function MemberFaqClient() {
                 return (
                   <div
                     key={cat.id}
-                    className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full"
+                    className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="space-y-5">
-                      {/* Card Header with icon, category badge, and title */}
-                      <div className="flex items-start justify-between gap-3 pb-5 border-b border-slate-100 min-h-[72px]">
-                        <div className="flex items-center gap-3.5">
-                          <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0">
-                            <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    <div className="p-6 sm:p-8 rounded-[calc(1.5rem-1px)] bg-white flex flex-col justify-between h-full transition-colors duration-300">
+                      <div className="space-y-5">
+                        {/* Card Header with icon, category badge, and title */}
+                        <div className="flex items-start justify-between gap-3 pb-5 border-b border-slate-100 min-h-[72px]">
+                          <div className="flex items-center gap-3.5">
+                            <div className="size-11 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs flex items-center justify-center shrink-0">
+                              <Icon className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                            </div>
+                            <div>
+                              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block font-mono mb-0.5">
+                                SECTION 0{cat.num} • {cat.topic}
+                              </span>
+                              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                                {cat.title}
+                              </h3>
+                            </div>
                           </div>
-                          <div>
-                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block font-mono mb-0.5">
-                              SECTION 0{cat.num} • {cat.topic}
-                            </span>
-                            <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                              {cat.title}
-                            </h3>
-                          </div>
+
+                          <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs shrink-0 mt-0.5">
+                            0{cat.items.length} Questions
+                          </span>
                         </div>
 
-                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white shadow-2xs shrink-0 mt-0.5">
-                          0{cat.items.length} Questions
-                        </span>
-                      </div>
-
-                      {/* Accordions inside this category */}
-                      <div className="space-y-3">
-                        {cat.items.map((item, idx) => {
-                          const itemKey = `${cat.id}-${idx}`
-                          const isOpen = !!openItems[itemKey]
-                          return (
-                            <div
-                              key={idx}
-                              className={`rounded-2xl border transition-all duration-200 bg-white overflow-hidden ${
-                                isOpen
-                                  ? 'border-blue-200/80 shadow-sm ring-1 ring-blue-500/10'
-                                  : 'border-slate-200/80 hover:border-slate-300 shadow-2xs'
-                              }`}
-                            >
-                              <button
-                                onClick={() => toggleItem(itemKey)}
-                                className="w-full p-4 text-left flex items-center justify-between gap-3 cursor-pointer select-none"
-                                aria-expanded={isOpen}
+                        {/* Accordions inside this category */}
+                        <div className="space-y-3">
+                          {cat.items.map((item, idx) => {
+                            const itemKey = `${cat.id}-${idx}`
+                            const isOpen = !!openItems[itemKey]
+                            return (
+                              <div
+                                key={idx}
+                                className={`rounded-2xl border transition-all duration-200 bg-white overflow-hidden ${
+                                  isOpen
+                                    ? 'border-blue-200/80 shadow-sm ring-1 ring-blue-500/10'
+                                    : 'border-slate-200/80 hover:border-slate-300 shadow-2xs'
+                                }`}
                               >
-                                <span className={`text-xs sm:text-sm font-bold transition-colors leading-snug ${
-                                  isOpen ? 'brand-gradient-text' : 'text-slate-900 hover:text-[#1D4ED8]'
-                                }`}>
-                                  {item.q}
-                                </span>
-                                <div className="size-6 rounded-full flex items-center justify-center shrink-0 transition-all duration-300">
-                                  <ChevronDown
-                                    className={`size-4 transition-transform duration-300 ${
-                                      isOpen
-                                        ? 'rotate-180 stroke-[url(#brandIconGrad)] text-[#1D4ED8] stroke-[2.5]'
-                                        : 'text-slate-400 group-hover:text-slate-700 stroke-[2]'
-                                    }`}
-                                  />
-                                </div>
-                              </button>
+                                <button
+                                  onClick={() => toggleItem(itemKey)}
+                                  className="w-full p-4 text-left flex items-center justify-between gap-3 cursor-pointer select-none"
+                                  aria-expanded={isOpen}
+                                >
+                                  <span className={`text-xs sm:text-sm font-bold transition-colors leading-snug ${
+                                    isOpen ? 'brand-gradient-text' : 'text-slate-900 hover:text-[#1D4ED8]'
+                                  }`}>
+                                    {item.q}
+                                  </span>
+                                  <div className="size-6 rounded-full flex items-center justify-center shrink-0 transition-all duration-300">
+                                    <ChevronDown
+                                      className={`size-4 transition-transform duration-300 ${
+                                        isOpen
+                                          ? 'rotate-180 stroke-[url(#brandIconGrad)] text-[#1D4ED8] stroke-[2.5]'
+                                          : 'text-slate-400 group-hover:text-slate-700 stroke-[2]'
+                                      }`}
+                                    />
+                                  </div>
+                                </button>
 
-                              {isOpen && (
-                                <div className="px-4 pb-4 text-xs sm:text-[13px] text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-light bg-[#FCFDFE]">
-                                  {item.a}
-                                </div>
-                              )}
-                            </div>
-                          )
-                        })}
+                                {isOpen && (
+                                  <div className="px-4 pb-4 text-xs sm:text-[13px] text-slate-600 leading-relaxed border-t border-slate-100 pt-3 font-light bg-[#FCFDFE]">
+                                    {item.a}
+                                  </div>
+                                )}
+                              </div>
+                            )
+                          })}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Footer link / hint */}
-                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
-                      <span>{cat.items.length} {cat.items.length === 1 ? 'Question' : 'Questions'} answered</span>
-                      <span className="brand-gradient-text font-bold">PEERS GLOBAL Standards</span>
-                    </div>
+                      {/* Footer link / hint */}
+                      <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                        <span>{cat.items.length} {cat.items.length === 1 ? 'Question' : 'Questions'} answered</span>
+                        <span className="brand-gradient-text font-bold">PEERS GLOBAL Standards</span>
+                      </div>
 
+                    </div>
                   </div>
                 )
               })}
@@ -651,43 +653,45 @@ export function MemberFaqClient() {
       <section className="py-16 sm:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-2xs text-center space-y-6">
-            <div className="size-14 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs text-[#1D4ED8] flex items-center justify-center mx-auto">
-              <Headphones className="size-7 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-            </div>
+          <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-xl transition-all duration-300">
+            <div className="p-8 sm:p-12 rounded-[calc(1.5rem-1px)] bg-white text-center space-y-6 transition-colors duration-300">
+              <div className="size-14 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 shadow-2xs text-[#1D4ED8] flex items-center justify-center mx-auto group-hover:scale-105 transition-transform duration-300">
+                <Headphones className="size-7 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+              </div>
 
-            <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                WE ARE HERE TO HELP
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
-                Still Have a Question?
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-light">
-                Some questions are answered best by a conversation. If you are already a Peer, ask inside Unity. If you are considering membership, begin with the Unity App and explore the community before making your decision.
-              </p>
-            </div>
+              <div className="space-y-2">
+                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
+                  WE ARE HERE TO HELP
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                  Still Have a Question?
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-light">
+                  Some questions are answered best by a conversation. If you are already a Peer, ask inside Unity. If you are considering membership, begin with the Unity App and explore the community before making your decision.
+                </p>
+              </div>
 
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-              <GalaxyButton
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                size="default"
-                icon={<Smartphone className="size-4" />}
-                className="font-bold uppercase tracking-wider"
-              >
-                Download Unity App
-              </GalaxyButton>
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+                <GalaxyButton
+                  href="https://unity.peersglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="default"
+                  icon={<Smartphone className="size-4" />}
+                  className="font-bold uppercase tracking-wider"
+                >
+                  Download Unity App
+                </GalaxyButton>
 
-              <GalaxyButton
-                href="/contact"
-                variant="transparent"
-                size="default"
-                className="font-bold uppercase tracking-wider !text-slate-800 !border-slate-300 hover:!bg-slate-50"
-              >
-                Contact Desk
-              </GalaxyButton>
+                <GalaxyButton
+                  href="/contact"
+                  variant="transparent"
+                  size="default"
+                  className="font-bold uppercase tracking-wider !text-slate-800 !border-slate-300 hover:!bg-slate-50"
+                >
+                  Contact Desk
+                </GalaxyButton>
+              </div>
             </div>
           </div>
 

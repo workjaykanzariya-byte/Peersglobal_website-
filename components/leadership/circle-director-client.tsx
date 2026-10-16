@@ -359,17 +359,19 @@ export function CircleDirectorClient() {
               return (
                 <div
                   key={i}
-                  className="group h-full rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 shadow-2xs hover:shadow-lg hover:border-blue-300/80 hover:-translate-y-1 transition-all duration-300"
+                  className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                 >
-                  <div className="size-10 sm:size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                    <Icon className="size-5 sm:size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold whitespace-nowrap bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">
-                      {stat.value}
+                  <div className="h-full rounded-[15px] bg-white p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 transition-colors">
+                    <div className="size-10 sm:size-12 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+                      <Icon className="size-5 sm:size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
                     </div>
-                    <div className="text-[10px] sm:text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wide sm:tracking-wider mt-1 leading-snug break-words">
-                      {stat.label}
+                    <div className="min-w-0">
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold whitespace-nowrap bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent leading-tight">
+                        {stat.value}
+                      </div>
+                      <div className="text-[10px] sm:text-xs font-bold text-slate-800 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-colors uppercase tracking-wide sm:tracking-wider mt-1 leading-snug break-words">
+                        {stat.label}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -419,27 +421,31 @@ export function CircleDirectorClient() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                    <Users className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors">Lead From Within</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Earn trust among peers through genuine service and steady presence rather than top-down authority.
-                    </p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white flex items-start gap-3.5 h-full transition-colors">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Users className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">Lead From Within</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Earn trust among peers through genuine service and steady presence rather than top-down authority.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200/90 hover:border-blue-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                    <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#1D4ED8] transition-colors">Catalyst For Growth</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Every breakthrough in the Circle traces back to someone holding the standards and opening doors.
-                    </p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white flex items-start gap-3.5 h-full transition-colors">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">Catalyst For Growth</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Every breakthrough in the Circle traces back to someone holding the standards and opening doors.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -766,11 +772,16 @@ export function CircleDirectorClient() {
 
                 <div className="grid sm:grid-cols-2 gap-3 pt-2">
                   {WHO_YOU_BECOME_POINTS.map((pt, idx) => (
-                    <div key={idx} className="p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-300/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 shadow-2xs group cursor-default">
-                      <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                      <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                        {pt}
-                      </p>
+                    <div
+                      key={idx}
+                      className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
+                    >
+                      <div className="p-3.5 rounded-[15px] bg-white flex items-start gap-3 h-full transition-colors">
+                        <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                        <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:to-[#E11D48] group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all">
+                          {pt}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -790,30 +801,37 @@ export function CircleDirectorClient() {
             </div>
 
             {/* Right: Who this is for */}
-            <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl hover:border-blue-300/80 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group cursor-default">
-              <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
-                  CANDIDACY CRITERIA
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  Who this is for
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  The Circle Director role is for an entrepreneur who is willing to take responsibility for something larger than their own business:
-                </p>
+            <div className="lg:col-span-5 relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1 group">
+              <div className="p-8 sm:p-10 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
+                    CANDIDACY CRITERIA
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    Who this is for
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    The Circle Director role is for an entrepreneur who is willing to take responsibility for something larger than their own business:
+                  </p>
 
-                <div className="space-y-3">
-                  {WHO_THIS_IS_FOR.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:border-blue-300/80 hover:bg-white hover:shadow-sm transition-all duration-300 group/item">
-                      <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
-                      <span className="text-xs sm:text-sm font-medium text-slate-800 group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:to-[#E11D48] group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all">{item}</span>
-                    </div>
-                  ))}
+                  <div className="space-y-3">
+                    {WHO_THIS_IS_FOR.map((item, i) => (
+                      <div
+                        key={i}
+                        className="group/item relative rounded-xl p-[1px] bg-slate-200/70 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm"
+                      >
+                        <div className="flex items-start gap-3 p-3 rounded-[11px] bg-slate-50 group-hover/item:bg-white transition-colors">
+                          <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                          <span className="text-xs sm:text-sm font-medium text-slate-800 group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:to-[#E11D48] group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all">{item}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
-                ✦ You do not need to know everything. You need to be willing to take responsibility and help others grow.
+                <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
+                  ✦ You do not need to know everything. You need to be willing to take responsibility and help others grow.
+                </div>
               </div>
             </div>
 
@@ -829,86 +847,96 @@ export function CircleDirectorClient() {
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
             
             {/* Left: How to become a Circle Director */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl hover:border-blue-300/80 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group cursor-default">
-              <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
-                  THE PATHWAY
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  How to become a Circle Director
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  Leadership at PEERS GLOBAL follows contribution. You do not need to chase a title.
-                </p>
+            <div className="relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1 group">
+              <div className="p-8 sm:p-10 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
+                    THE PATHWAY
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    How to become a Circle Director
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    Leadership at PEERS GLOBAL follows contribution. You do not need to chase a title.
+                  </p>
 
-                <div className="space-y-3 pt-2">
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-1 hover:border-blue-300/80 hover:bg-white hover:shadow-sm transition-all duration-300">
-                    <p className="font-bold text-slate-900 text-sm">1. Begin by contributing</p>
-                    <p className="text-slate-600 font-light text-xs">
-                      Take responsibility within your Circle. Become part of the Powerhouse. Serve your fellow Peers.
-                    </p>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-1 hover:border-blue-300/80 hover:bg-white hover:shadow-sm transition-all duration-300">
-                    <p className="font-bold text-slate-900 text-sm">2. Build trust & consistency</p>
-                    <p className="text-slate-600 font-light text-xs">
-                      Demonstrate consistency over time. Show up for others before you ask anything for yourself.
-                    </p>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-1 hover:border-blue-300/80 hover:bg-white hover:shadow-sm transition-all duration-300">
-                    <p className="font-bold text-slate-900 text-sm">3. Step forward when opportunity arises</p>
-                    <p className="text-slate-600 font-light text-xs">
-                      When the opportunity for Circle leadership arises, you can step forward with readiness.
-                    </p>
+                  <div className="space-y-3 pt-2">
+                    <div className="group/step relative rounded-2xl p-[1px] bg-slate-200/70 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm">
+                      <div className="p-3.5 rounded-[15px] bg-slate-50 group-hover/step:bg-white space-y-1 transition-colors">
+                        <p className="font-bold text-slate-900 text-sm group-hover/step:text-blue-600 transition-colors">1. Begin by contributing</p>
+                        <p className="text-slate-600 font-light text-xs">
+                          Take responsibility within your Circle. Become part of the Powerhouse. Serve your fellow Peers.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="group/step relative rounded-2xl p-[1px] bg-slate-200/70 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm">
+                      <div className="p-3.5 rounded-[15px] bg-slate-50 group-hover/step:bg-white space-y-1 transition-colors">
+                        <p className="font-bold text-slate-900 text-sm group-hover/step:text-blue-600 transition-colors">2. Build trust & consistency</p>
+                        <p className="text-slate-600 font-light text-xs">
+                          Demonstrate consistency over time. Show up for others before you ask anything for yourself.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="group/step relative rounded-2xl p-[1px] bg-slate-200/70 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm">
+                      <div className="p-3.5 rounded-[15px] bg-slate-50 group-hover/step:bg-white space-y-1 transition-colors">
+                        <p className="font-bold text-slate-900 text-sm group-hover/step:text-blue-600 transition-colors">3. Step forward when opportunity arises</p>
+                        <p className="text-slate-600 font-light text-xs">
+                          When the opportunity for Circle leadership arises, you can step forward with readiness.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
-                The better question is: “What responsibility am I ready to carry?”
+                <div className="pt-4 border-t border-slate-100 text-xs font-semibold brand-gradient-text">
+                  The better question is: “What responsibility am I ready to carry?”
+                </div>
               </div>
             </div>
 
             {/* Right: The Circle Director's Real Work */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-2xl hover:border-blue-300/80 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group cursor-default">
-              <div className="space-y-4">
-                <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
-                  BEHIND THE SCENES
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  The Circle Director&apos;s real work
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  The visible part of leadership may be the meeting. The real work happens before and after it.
-                </p>
-
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
-                  It happens in conversations. In preparation. In follow-up. In mentoring. In introductions. In difficult moments. In encouraging someone who has stopped participating. In recognising someone whose contribution deserves to be seen. And sometimes, simply in being available.
-                </p>
-
-                <div
-                  className="p-5 rounded-2xl text-white border border-white/10 shadow-md relative overflow-hidden space-y-1"
-                  style={{
-                    background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
-                  }}
-                >
-                  <div className="absolute top-0 right-0 size-32 rounded-full bg-blue-600/20 blur-xl pointer-events-none" />
-                  <p className="text-xs sm:text-sm font-bold text-white relative z-10">
-                    The meeting is an event. The relationship is the experience.
+            <div className="relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-2xl hover:-translate-y-1 group">
+              <div className="p-8 sm:p-10 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="text-xs font-bold uppercase tracking-wider brand-gradient-text">
+                    BEHIND THE SCENES
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    The Circle Director&apos;s real work
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    The visible part of leadership may be the meeting. The real work happens before and after it.
                   </p>
-                  <p className="text-xs text-slate-300 font-light relative z-10">
-                    The Director helps create the conditions in which that relationship can grow.
-                  </p>
-                </div>
-              </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <GalaxyButton
-                  href="/contact?intent=leadership"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Express Interest in Leadership
-                </GalaxyButton>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
+                    It happens in conversations. In preparation. In follow-up. In mentoring. In introductions. In difficult moments. In encouraging someone who has stopped participating. In recognising someone whose contribution deserves to be seen. And sometimes, simply in being available.
+                  </p>
+
+                  <div
+                    className="p-5 rounded-2xl text-white border border-white/10 shadow-md relative overflow-hidden space-y-1"
+                    style={{
+                      background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
+                    }}
+                  >
+                    <div className="absolute top-0 right-0 size-32 rounded-full bg-blue-600/20 blur-xl pointer-events-none" />
+                    <p className="text-xs sm:text-sm font-bold text-white relative z-10">
+                      The meeting is an event. The relationship is the experience.
+                    </p>
+                    <p className="text-xs text-slate-300 font-light relative z-10">
+                      The Director helps create the conditions in which that relationship can grow.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100">
+                  <GalaxyButton
+                    href="/contact?intent=leadership"
+                    size="default"
+                    className="font-bold uppercase tracking-wider"
+                  >
+                    Express Interest in Leadership
+                  </GalaxyButton>
+                </div>
               </div>
             </div>
 
@@ -939,13 +967,13 @@ export function CircleDirectorClient() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-2xs transition-all duration-200"
+                  className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-2xs hover:border-slate-300 transition-colors"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
                     className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 text-base sm:text-lg font-bold text-slate-900 group transition-all duration-300 cursor-pointer"
                   >
-                    <span className={isOpen ? 'brand-gradient-text' : 'group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300'}>{item.q}</span>
+                    <span className={isOpen ? 'brand-gradient-text' : 'group-hover:text-blue-600 transition-colors'}>{item.q}</span>
                     <ChevronDown
                       className={`size-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                         isOpen ? 'rotate-180 text-[#1D4ED8]' : 'group-hover:text-[#1D4ED8]'

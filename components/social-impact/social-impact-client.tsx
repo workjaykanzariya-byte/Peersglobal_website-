@@ -385,19 +385,21 @@ export function SocialImpactClient() {
             {IMPACT_JOURNEY_STAGES.map((st, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all space-y-2 text-center flex flex-col justify-between"
+                className="group/stage relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
               >
-                <div>
-                  <span className="text-[10px] font-mono font-bold brand-gradient-text block">
-                    STEP #{idx + 1}
-                  </span>
-                  <h4 className="text-sm font-bold text-slate-900 mt-1">
-                    {st.stage}
-                  </h4>
+                <div className="p-4 rounded-[15px] bg-white h-full space-y-2 text-center flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold brand-gradient-text block">
+                      STEP #{idx + 1}
+                    </span>
+                    <h4 className="text-sm font-bold text-slate-900 mt-1 group-hover/stage:bg-gradient-to-r group-hover/stage:from-[#1D4ED8] group-hover/stage:to-[#E11D48] group-hover/stage:bg-clip-text group-hover/stage:text-transparent transition-all">
+                      {st.stage}
+                    </h4>
+                  </div>
+                  <p className="text-[11px] text-slate-500 font-light leading-snug">
+                    {st.desc}
+                  </p>
                 </div>
-                <p className="text-[11px] text-slate-500 font-light leading-snug">
-                  {st.desc}
-                </p>
               </div>
             ))}
           </div>

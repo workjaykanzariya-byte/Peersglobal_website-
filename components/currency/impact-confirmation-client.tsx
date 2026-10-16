@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { GlowCard } from '@/components/ui/glow-card'
 import {
   ArrowRight,
   ChevronRight,
@@ -161,20 +162,23 @@ export function ImpactConfirmationClient() {
                 desc: 'Instantly credited toward your Life Impact Score, Peer Standing level and Peers Coin wallet.',
               },
             ].map((st) => (
-              <div
+              <GlowCard
                 key={st.step}
-                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-3"
+                className="!rounded-3xl shadow-sm hover:shadow-xl transition-all cursor-pointer h-full"
+                innerClassName="p-6 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full flex flex-col justify-between space-y-3 group-hover:border-blue-400/30 transition-colors"
               >
-                <span className="w-8 h-8 rounded-full bg-[#0062D2] text-white text-xs font-bold flex items-center justify-center">
-                  {st.step}
-                </span>
-                <h3 className="font-serif font-bold text-lg text-slate-950 leading-snug">
-                  {st.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {st.desc}
-                </p>
-              </div>
+                <div className="space-y-3">
+                  <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#6366F1] text-white text-xs font-bold flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
+                    {st.step}
+                  </span>
+                  <h3 className="font-serif font-bold text-lg text-slate-950 leading-snug group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">
+                    {st.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    {st.desc}
+                  </p>
+                </div>
+              </GlowCard>
             ))}
           </div>
         </div>
@@ -189,26 +193,32 @@ export function ImpactConfirmationClient() {
               <h2 className="text-2xl font-serif text-slate-950 font-bold">
                 Why it holds
               </h2>
-              <div className="space-y-4 text-xs sm:text-sm text-slate-600">
-                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-                  <strong className="block text-slate-900 font-bold mb-1">
-                    Both people are in the same room
-                  </strong>
-                  A Peer who inflates a contribution is asking someone they will see next month to endorse something untrue. Almost nobody does that.
+                <div className="space-y-3.5 text-xs sm:text-sm text-slate-600 font-light">
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#F8FAFC] group-hover/item:bg-white transition-colors">
+                      <strong className="block text-slate-900 font-bold mb-1 group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">
+                        Both people are in the same room
+                      </strong>
+                      A Peer who inflates a contribution is asking someone they will see next month to endorse something untrue. Almost nobody does that.
+                    </div>
+                  </div>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#F8FAFC] group-hover/item:bg-white transition-colors">
+                      <strong className="block text-slate-900 font-bold mb-1 group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">
+                        Declining is normal
+                      </strong>
+                      Sometimes an introduction did not lead anywhere. Amending or declining carries zero penalty and zero awkwardness.
+                    </div>
+                  </div>
+                  <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                    <div className="p-4 rounded-[15px] bg-[#F8FAFC] group-hover/item:bg-white transition-colors">
+                      <strong className="block text-slate-900 font-bold mb-1 group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">
+                        Directors can see the pattern
+                      </strong>
+                      A Peer whose contributions are frequently declined has a private conversation with their Circle Director.
+                    </div>
+                  </div>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-                  <strong className="block text-slate-900 font-bold mb-1">
-                    Declining is normal
-                  </strong>
-                  Sometimes an introduction did not lead anywhere. Amending or declining carries zero penalty and zero awkwardness.
-                </div>
-                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-                  <strong className="block text-slate-900 font-bold mb-1">
-                    Directors can see the pattern
-                  </strong>
-                  A Peer whose contributions are frequently declined has a private conversation with their Circle Director.
-                </div>
-              </div>
             </div>
 
             {/* What this makes possible */}
@@ -217,34 +227,40 @@ export function ImpactConfirmationClient() {
                 <h2 className="text-2xl font-serif text-slate-950 font-bold">
                   What this makes possible
                 </h2>
-                <div className="space-y-3.5 text-xs sm:text-sm text-slate-600">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-bold">Verified Recognition</strong>
-                      Every award and standing named at the Summit is backed by confirmations from real people.
+                  <div className="space-y-3.5 text-xs sm:text-sm text-slate-600 font-light">
+                    <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                      <div className="flex items-start gap-3 p-3.5 rounded-[15px] bg-slate-50/50 group-hover/item:bg-white transition-colors">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="block text-slate-900 font-bold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Verified Recognition</strong>
+                          Every award and standing named at the Summit is backed by confirmations from real people.
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-bold">Honest Reporting</strong>
-                      When Peers Global publishes lives impacted, that number is built from confirmed data rather than estimates.
+                    <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                      <div className="flex items-start gap-3 p-3.5 rounded-[15px] bg-slate-50/50 group-hover/item:bg-white transition-colors">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="block text-slate-900 font-bold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Honest Reporting</strong>
+                          When Peers Global publishes lives impacted, that number is built from confirmed data rather than estimates.
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="block text-slate-900 font-bold">Trust in the Room</strong>
-                      Nobody wonders whether the Peer beside them is inflating their record.
+                    <div className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-sm cursor-pointer">
+                      <div className="flex items-start gap-3 p-3.5 rounded-[15px] bg-slate-50/50 group-hover/item:bg-white transition-colors">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="block text-slate-900 font-bold group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:via-[#6366F1] group-hover/item:to-[#E11D48] transition-all">Trust in the Room</strong>
+                          Nobody wonders whether the Peer beside them is inflating their record.
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#0062D2]/20 text-xs font-serif italic text-[#0062D2] text-center">
-                &ldquo;Impact is not measured by intention, but by what it creates for others.&rdquo;
-              </div>
+                <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/60 text-xs font-serif italic text-[#0062D2] text-center">
+                  &ldquo;Impact is not measured by intention, but by what it creates for others.&rdquo;
+                </div>
             </div>
           </div>
         </div>
@@ -266,13 +282,17 @@ export function ImpactConfirmationClient() {
             {VALUE_POINTS.map((vp) => (
               <div
                 key={vp.name}
-                className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs text-center space-y-2"
+                className="group relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
               >
-                <div className="text-xs font-serif font-bold text-slate-900">
-                  {vp.name}
-                </div>
-                <div className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold border inline-block ${vp.color}`}>
-                  {vp.points}
+                <div className="p-4 sm:p-5 rounded-[15px] bg-white group-hover:bg-[#FAFBFD] transition-colors text-center space-y-2 h-full flex flex-col justify-between items-center">
+                  <div className="text-xs font-serif font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">
+                    {vp.name}
+                  </div>
+                  <div className="px-3 py-1 rounded-full text-xs font-mono font-bold border border-indigo-100/80 bg-gradient-to-r from-blue-50/70 via-indigo-50/70 to-rose-50/70 shadow-2xs">
+                    <span className="bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
+                      {vp.points}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}

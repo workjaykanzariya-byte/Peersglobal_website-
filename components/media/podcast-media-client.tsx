@@ -573,75 +573,77 @@ export function PodcastMediaClient() {
               return (
                 <div
                   key={item.id}
-                  className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                  className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div>
-                    {/* Visual Card Image */}
-                    <div className="relative h-40 w-full overflow-hidden bg-slate-900">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3">
-                        <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-[10px] font-mono font-bold text-white shadow-sm">
-                          {item.tag}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-5 space-y-2.5">
-                      <div className="flex items-center gap-2.5">
-                        <div className="relative flex items-center justify-center">
-                          <svg className="size-0 absolute" aria-hidden="true">
-                            <defs>
-                              <linearGradient id={`formatIconGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#1D4ED8" />
-                                <stop offset="100%" stopColor="#E11D48" />
-                              </linearGradient>
-                            </defs>
-                          </svg>
-                          <Icon
-                            className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300"
-                            style={{ stroke: `url(#formatIconGrad-${idx})` }}
-                            strokeWidth={2}
-                          />
+                  <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
+                    <div>
+                      {/* Visual Card Image */}
+                      <div className="relative h-40 w-full overflow-hidden bg-slate-900">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                        <div className="absolute top-3 left-3">
+                          <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-[10px] font-mono font-bold text-white shadow-sm">
+                            {item.tag}
+                          </span>
                         </div>
-                        <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                          {item.title}
-                        </h3>
                       </div>
 
-                      <p className="text-xs text-slate-600 leading-relaxed font-light">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
+                      {/* Content */}
+                      <div className="p-5 space-y-2.5">
+                        <div className="flex items-center gap-2.5">
+                          <div className="relative flex items-center justify-center">
+                            <svg className="size-0 absolute" aria-hidden="true">
+                              <defs>
+                                <linearGradient id={`formatIconGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                                  <stop offset="0%" stopColor="#1D4ED8" />
+                                  <stop offset="100%" stopColor="#E11D48" />
+                                </linearGradient>
+                              </defs>
+                            </svg>
+                            <Icon
+                              className="size-5 shrink-0 group-hover:scale-110 transition-transform duration-300"
+                              style={{ stroke: `url(#formatIconGrad-${idx})` }}
+                              strokeWidth={2}
+                            />
+                          </div>
+                          <h3 className="font-bold text-slate-900 text-sm leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                            {item.title}
+                          </h3>
+                        </div>
 
-                  {/* CTA Link */}
-                  <div className="p-5 pt-0">
-                    {item.external ? (
-                      <a
-                        href={item.ctaHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group-hover:opacity-90 transition-opacity"
-                      >
-                        <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">{item.ctaText}</span>
-                        <ExternalLink className="size-3.5 text-[#E11D48]" />
-                      </a>
-                    ) : (
-                      <a
-                        href={item.ctaHref}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
-                      >
-                        <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">{item.ctaText}</span>
-                        <ArrowRight className="size-3.5 text-[#E11D48]" />
-                      </a>
-                    )}
+                        <p className="text-xs text-slate-600 leading-relaxed font-light">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* CTA Link */}
+                    <div className="p-5 pt-0">
+                      {item.external ? (
+                        <a
+                          href={item.ctaHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group-hover:opacity-90 transition-opacity"
+                        >
+                          <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">{item.ctaText}</span>
+                          <ExternalLink className="size-3.5 text-[#E11D48]" />
+                        </a>
+                      ) : (
+                        <a
+                          href={item.ctaHref}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group-hover:translate-x-0.5 transition-transform"
+                        >
+                          <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent">{item.ctaText}</span>
+                          <ArrowRight className="size-3.5 text-[#E11D48]" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               )
@@ -690,67 +692,69 @@ export function PodcastMediaClient() {
                   setSelectedEpisode(ep)
                   setIsPlaying(true)
                 }}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
               >
-                <div>
-                  {/* Video Still with Play Overlay & Duration */}
-                  <div className="relative h-48 w-full overflow-hidden bg-slate-950">
-                    <Image
-                      src={ep.image}
-                      alt={ep.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20" />
+                <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
+                  <div>
+                    {/* Video Still with Play Overlay & Duration */}
+                    <div className="relative h-48 w-full overflow-hidden bg-slate-950">
+                      <Image
+                        src={ep.image}
+                        alt={ep.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20" />
 
-                    {/* Topic Badge on Top Left */}
-                    <div className="absolute top-3.5 left-3.5 max-w-[170px]">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-1 rounded-full shadow-md line-clamp-1">
-                        {ep.tag}
+                      {/* Topic Badge on Top Left */}
+                      <div className="absolute top-3.5 left-3.5 max-w-[170px]">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-1 rounded-full shadow-md line-clamp-1">
+                          {ep.tag}
+                        </span>
+                      </div>
+
+                      {/* Duration Badge on Top Right */}
+                      <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/75 text-white backdrop-blur-md border border-white/10">
+                        {ep.duration}
                       </span>
-                    </div>
 
-                    {/* Duration Badge on Top Right */}
-                    <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/75 text-white backdrop-blur-md border border-white/10">
-                      {ep.duration}
-                    </span>
-
-                    {/* Big Center Play Icon */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="size-12 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all">
-                        <Play className="size-5 fill-current ml-0.5" />
+                      {/* Big Center Play Icon */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="size-12 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all">
+                          <Play className="size-5 fill-current ml-0.5" />
+                        </div>
                       </div>
                     </div>
+
+                    {/* Card Body */}
+                    <div className="p-5 space-y-2">
+                      <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-2">
+                        {ep.title}
+                      </h3>
+                      <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-2">
+                        {ep.subtitle}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Card Body */}
-                  <div className="p-5 space-y-2">
-                    <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-2">
-                      {ep.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-2">
-                      {ep.subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Guest Footer */}
-                <div className="p-5 pt-0 border-t border-slate-100 flex items-center gap-3 mt-3">
-                  <div className="relative size-9 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
-                    <Image
-                      src={ep.guest.avatar}
-                      alt={ep.guest.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="leading-tight">
-                    <span className="text-xs font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
-                      {ep.guest.name}
-                    </span>
-                    <span className="text-[10px] text-slate-500 block truncate max-w-[170px]">
-                      {ep.guest.title}
-                    </span>
+                  {/* Guest Footer */}
+                  <div className="p-5 pt-0 border-t border-slate-100 flex items-center gap-3 mt-3">
+                    <div className="relative size-9 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                      <Image
+                        src={ep.guest.avatar}
+                        alt={ep.guest.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="leading-tight">
+                      <span className="text-xs font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
+                        {ep.guest.name}
+                      </span>
+                      <span className="text-[10px] text-slate-500 block truncate max-w-[170px]">
+                        {ep.guest.title}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

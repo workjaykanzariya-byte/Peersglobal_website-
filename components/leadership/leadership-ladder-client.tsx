@@ -511,35 +511,45 @@ export function LeadershipLadderClient() {
           
           {/* Part A: How a Circle is Actually Led (Founder vs Director) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <div className="group p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 space-y-5">
-              <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
-                <Sprout className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 brand-gradient-hover-text transition-colors">
-                The Circle Founder
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                The Founder brings a new Circle into existence. The Founder convenes the industry, creates the initial room, invites leaders and helps establish the Circle from Day 1.
-              </p>
-              <div className="p-3.5 rounded-2xl bg-[#f8f9fe] border border-blue-100/80 text-xs font-bold text-slate-800">
-                <span className="brand-gradient-text mr-1.5">✦</span>
-                Responsible for creating the possibility.
+            {/* The Circle Founder */}
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-xl transition-all duration-300">
+              <div className="p-8 sm:p-10 rounded-[calc(1.5rem-1px)] bg-white h-full space-y-5 transition-colors duration-300 flex flex-col justify-between">
+                <div className="space-y-5">
+                  <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
+                    <Sprout className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                    The Circle Founder
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    The Founder brings a new Circle into existence. The Founder convenes the industry, creates the initial room, invites leaders and helps establish the Circle from Day 1.
+                  </p>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-[#f8f9fe] border border-blue-100/80 text-xs font-bold text-slate-800">
+                  <span className="brand-gradient-text mr-1.5">✦</span>
+                  Responsible for creating the possibility.
+                </div>
               </div>
             </div>
 
-            <div className="group p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-200/80 hover:-translate-y-1 transition-all duration-300 space-y-5">
-              <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
-                <UserCheck className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 brand-gradient-hover-text transition-colors">
-                The Circle Director
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                The Director runs the Circle, month on month. The Director develops the leadership team, maintains the rhythm of the Circle and helps the entrepreneurs inside it grow.
-              </p>
-              <div className="p-3.5 rounded-2xl bg-[#f8f9fe] border border-blue-100/80 text-xs font-bold text-slate-800">
-                <span className="brand-gradient-text mr-1.5">✦</span>
-                Responsible for growing the Circle.
+            {/* The Circle Director */}
+            <div className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-xl transition-all duration-300">
+              <div className="p-8 sm:p-10 rounded-[calc(1.5rem-1px)] bg-white h-full space-y-5 transition-colors duration-300 flex flex-col justify-between">
+                <div className="space-y-5">
+                  <div className="size-12 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
+                    <UserCheck className="size-6 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                    The Circle Director
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                    The Director runs the Circle, month on month. The Director develops the leadership team, maintains the rhythm of the Circle and helps the entrepreneurs inside it grow.
+                  </p>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-[#f8f9fe] border border-blue-100/80 text-xs font-bold text-slate-800">
+                  <span className="brand-gradient-text mr-1.5">✦</span>
+                  Responsible for growing the Circle.
+                </div>
               </div>
             </div>
           </div>

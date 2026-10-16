@@ -42,6 +42,7 @@ import {
 import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import { usePageMedia, ResolvedMediaItem } from '@/lib/hooks/use-page-media'
 import { handleSmartAppDownload } from '@/lib/utils/app-link'
+import { SITE } from '@/lib/data/site'
 
 export function TheIdeaClient() {
   const { getMedia } = usePageMedia('our-world')

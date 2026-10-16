@@ -439,14 +439,16 @@ export function BenefitsClient() {
                   {BUSINESS_GROWTH_ITEMS.map((item, idx) => (
                     <div
                       key={idx}
-                      className="group/item p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-blue-300 hover:shadow-2xs transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-800"
+                      className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
                     >
-                      <div className="size-6 rounded-lg bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
-                        <Check className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      <div className="p-3 sm:p-3.5 rounded-[15px] bg-white flex items-center gap-3 text-xs sm:text-sm text-slate-800 transition-colors">
+                        <div className="size-6 rounded-lg bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
+                          <Check className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="font-normal text-slate-700 group-hover/item:text-slate-900 group-hover/item:font-medium transition-all">
+                          {item}
+                        </span>
                       </div>
-                      <span className="font-normal text-slate-700 group-hover/item:text-slate-900 group-hover/item:font-medium transition-all">
-                        {item}
-                      </span>
                     </div>
                   ))}
                 </div>
@@ -488,14 +490,16 @@ export function BenefitsClient() {
                   {LEARNING_CHANNELS.map((channel, idx) => (
                     <div
                       key={idx}
-                      className="group/item p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/80 hover:border-indigo-300 hover:shadow-2xs transition-all flex items-center gap-3 text-xs sm:text-sm text-slate-800"
+                      className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
                     >
-                      <div className="size-6 rounded-lg bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
-                        <BookOpen className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                      <div className="p-3 sm:p-3.5 rounded-[15px] bg-white flex items-center gap-3 text-xs sm:text-sm text-slate-800 transition-colors">
+                        <div className="size-6 rounded-lg bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
+                          <BookOpen className="size-3.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                        </div>
+                        <span className="font-normal text-slate-700 group-hover/item:text-slate-900 group-hover/item:font-medium transition-all">
+                          {channel}
+                        </span>
                       </div>
-                      <span className="font-normal text-slate-700 group-hover/item:text-slate-900 group-hover/item:font-medium transition-all">
-                        {channel}
-                      </span>
                     </div>
                   ))}
                 </div>

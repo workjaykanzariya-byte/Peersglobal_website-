@@ -444,27 +444,31 @@ export function ExecutiveDirectorClient() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <Globe2 className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Multi-City Scale</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Link circles across borders and establish healthy regional ecosystems.
-                    </p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white flex items-start gap-3.5 h-full transition-colors">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Globe2 className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Multi-City Scale</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Link circles across borders and establish healthy regional ecosystems.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-indigo-200 hover:shadow-md transition-all duration-300 flex items-start gap-3.5 group">
-                  <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
-                    <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Culture Integrity</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
-                      Protect the trust, service ethos and give-first standard as we expand.
-                    </p>
+                <div className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white flex items-start gap-3.5 h-full transition-colors">
+                    <div className="size-11 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform shadow-2xs">
+                      <Sparkles className="size-5.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">Culture Integrity</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal mt-1">
+                        Protect the trust, service ethos and give-first standard as we expand.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -792,9 +796,14 @@ export function ExecutiveDirectorClient() {
 
                   <div className="grid sm:grid-cols-1 gap-2.5">
                     {WHO_THIS_IS_FOR.map((item, i) => (
-                      <div key={i} className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/70 flex items-start gap-3">
-                        <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-slate-700 font-light">{item}</span>
+                      <div
+                        key={i}
+                        className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
+                      >
+                        <div className="p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white flex items-start gap-3 h-full transition-colors">
+                          <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                          <span className="text-xs sm:text-sm text-slate-700 font-medium group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:to-[#E11D48] group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all">{item}</span>
+                        </div>
                       </div>
                     ))}
                   </div>

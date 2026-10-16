@@ -696,51 +696,53 @@ export function GalleryPageClient() {
               <div
                 key={photo.id}
                 onClick={() => openLightbox(idx)}
-                className="rounded-3xl bg-[#FAFBFD] border border-slate-200/90 overflow-hidden shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
               >
-                <div className="relative h-56 w-full bg-slate-900 overflow-hidden">
-                  <Image
-                    src={photo.image}
-                    alt={photo.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
-                  
-                  <div className="absolute top-3.5 right-3.5">
-                    <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[10px] font-mono font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent border border-white/20 shadow-md">
-                      {photo.year}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                    <span className="text-[10px] font-mono bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent uppercase tracking-widest font-extrabold block mb-0.5">
-                      {photo.category}
-                    </span>
-                    <h4 className="text-base font-bold text-white leading-tight group-hover:bg-gradient-to-r group-hover:from-[#38BDF8] group-hover:via-[#818CF8] group-hover:to-[#FB7185] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                      {photo.title}
-                    </h4>
-                  </div>
-                </div>
-
-                <div className="p-5 space-y-3 text-xs">
-                  <p className="text-slate-600 font-light leading-relaxed">
-                    {photo.caption}
-                  </p>
-
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-slate-500 text-[11px] font-medium">
-                    <span className="flex items-center gap-1.5 font-semibold text-slate-700">
-                      <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                        <g stroke="url(#brandGrad)">
-                          <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-                          <circle cx="12" cy="10" r="3" />
-                        </g>
-                      </svg>
-                      <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-semibold">
-                        {photo.city}
+                <div className="rounded-[23px] bg-[#FAFBFD] overflow-hidden h-full flex flex-col justify-between group">
+                  <div className="relative h-56 w-full bg-slate-900 overflow-hidden">
+                    <Image
+                      src={photo.image}
+                      alt={photo.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
+                    
+                    <div className="absolute top-3.5 right-3.5">
+                      <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[10px] font-mono font-bold bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent border border-white/20 shadow-md">
+                        {photo.year}
                       </span>
-                    </span>
-                    <span className="text-slate-600 font-medium">{photo.circle}</span>
+                    </div>
+
+                    <div className="absolute bottom-3.5 left-4 right-4 text-white">
+                      <span className="text-[10px] font-mono bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent uppercase tracking-widest font-extrabold block mb-0.5">
+                        {photo.category}
+                      </span>
+                      <h4 className="text-base font-bold text-white leading-tight group-hover:bg-gradient-to-r group-hover:from-[#38BDF8] group-hover:via-[#818CF8] group-hover:to-[#FB7185] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        {photo.title}
+                      </h4>
+                    </div>
+                  </div>
+
+                  <div className="p-5 space-y-3 text-xs">
+                    <p className="text-slate-600 font-light leading-relaxed">
+                      {photo.caption}
+                    </p>
+
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-slate-500 text-[11px] font-medium">
+                      <span className="flex items-center gap-1.5 font-semibold text-slate-700">
+                        <svg className="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <g stroke="url(#brandGrad)">
+                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                            <circle cx="12" cy="10" r="3" />
+                          </g>
+                        </svg>
+                        <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent font-semibold">
+                          {photo.city}
+                        </span>
+                      </span>
+                      <span className="text-slate-600 font-medium">{photo.circle}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -798,45 +800,47 @@ export function GalleryPageClient() {
                   const el = document.getElementById('gallery-grid')
                   if (el) el.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
               >
-                <div>
-                  <div className="relative h-32 w-full overflow-hidden bg-slate-900">
-                    <Image
-                      src={col.image}
-                      alt={col.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                  </div>
-
-                  <div className="p-4 space-y-1.5">
-                    <div className="shrink-0 mb-2">
-                      <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <defs>
-                          <linearGradient id={`colGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#1D4ED8" />
-                            <stop offset="100%" stopColor="#E11D48" />
-                          </linearGradient>
-                        </defs>
-                        <g stroke={`url(#colGrad-${idx})`}>
-                          {col.svgPath}
-                        </g>
-                      </svg>
+                <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
+                  <div>
+                    <div className="relative h-32 w-full overflow-hidden bg-slate-900">
+                      <Image
+                        src={col.image}
+                        alt={col.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                     </div>
-                    <h3 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
-                      {col.title}
-                    </h3>
-                    <p className="text-[11px] text-slate-500 leading-snug font-light">
-                      {col.subtitle}
-                    </p>
-                  </div>
-                </div>
 
-                <div className="p-4 pt-0 flex justify-end">
-                  <div className="size-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white group-hover:border-transparent transition-all">
-                    <ArrowRight className="size-3.5" />
+                    <div className="p-4 space-y-1.5">
+                      <div className="shrink-0 mb-2">
+                        <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <defs>
+                            <linearGradient id={`colGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" stopColor="#1D4ED8" />
+                              <stop offset="100%" stopColor="#E11D48" />
+                            </linearGradient>
+                          </defs>
+                          <g stroke={`url(#colGrad-${idx})`}>
+                            {col.svgPath}
+                          </g>
+                        </svg>
+                      </div>
+                      <h3 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                        {col.title}
+                      </h3>
+                      <p className="text-[11px] text-slate-500 leading-snug font-light">
+                        {col.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 pt-0 flex justify-end">
+                    <div className="size-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white group-hover:border-transparent transition-all">
+                      <ArrowRight className="size-3.5" />
+                    </div>
                   </div>
                 </div>
               </div>

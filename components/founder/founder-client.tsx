@@ -260,17 +260,19 @@ export function FounderClient() {
               return (
                 <div
                   key={i}
-                  className="h-full rounded-2xl bg-white border border-slate-200/90 p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 shadow-2xs hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all duration-300 group"
+                  className="group/stat relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md hover:-translate-y-0.5"
                 >
-                  <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                    <Icon className="size-5 [stroke:url(#founderBrandGrad)]" />
-                  </div>
-                  <div>
-                    <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
-                      {stat.value}
+                  <div className="h-full rounded-[15px] bg-white p-3.5 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 group">
+                    <div className="size-10 rounded-xl bg-gradient-to-br from-blue-50 to-rose-50 border border-slate-200/80 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                      <Icon className="size-5 [stroke:url(#founderBrandGrad)]" />
                     </div>
-                    <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">
-                      {stat.label}
+                    <div>
+                      <div className="text-base sm:text-lg font-bold text-slate-900 leading-tight group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                        {stat.value}
+                      </div>
+                      <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-wider leading-snug text-slate-500">
+                        {stat.label}
+                      </div>
                     </div>
                   </div>
                 </div>

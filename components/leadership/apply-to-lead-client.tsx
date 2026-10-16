@@ -1361,20 +1361,14 @@ export function ApplyToLeadClient() {
               return (
                 <div
                   key={route.target}
-                  className="animated-glow-card group !rounded-3xl"
+                  className="group relative rounded-3xl p-[1.5px] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-2xs"
                 >
-                  <svg className="animated-border-svg" aria-hidden="true">
-                    <rect
-                      x="1"
-                      y="1"
-                      width="calc(100% - 2px)"
-                      height="calc(100% - 2px)"
-                      rx="24"
-                      ry="24"
-                      className="animated-border-path"
-                    />
-                  </svg>
-                  <div className="relative flex flex-col justify-between p-8 !rounded-[22px] bg-white border border-slate-200/90 shadow-2xs h-full">
+                  {/* Subtle default border */}
+                  <div className="absolute inset-0 rounded-3xl border border-slate-200/90 pointer-events-none transition-opacity duration-300 group-hover:opacity-0" />
+                  {/* Hover gradient border */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#1D4ED8] via-[#6366F1] to-[#E11D48] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                  <div className="relative flex flex-col justify-between p-8 rounded-[22.5px] bg-white h-full">
                     <div className="space-y-5">
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-3 py-1 rounded-full shadow-2xs">
@@ -1409,8 +1403,8 @@ export function ApplyToLeadClient() {
           </div>
 
           <div className="mt-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-blue-50/70 via-indigo-50/40 to-slate-50 border border-blue-100 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="size-10 rounded-2xl bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 shadow-md">
-              <Sparkles className="size-5" />
+            <div className="size-10 rounded-2xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0 shadow-2xs">
+              <Sparkles className="size-5 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
             </div>
             <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
               Where appropriate, the conversation can then move toward the leadership opportunity that best fits your experience and the community&apos;s needs.
@@ -1456,14 +1450,14 @@ export function ApplyToLeadClient() {
                   ].map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 hover:bg-blue-50/40 hover:border-blue-200 transition-all duration-300"
+                      className="group/item relative rounded-2xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-md cursor-pointer"
                     >
-                      <div className="size-6 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                        <Check className="size-3.5 stroke-[3]" />
+                      <div className="flex items-start gap-3 p-3.5 rounded-[15px] bg-[#FAFBFD] group-hover/item:bg-white h-full transition-colors">
+                        <CheckCircle2 className="size-4.5 stroke-[url(#brandIconGrad)] text-[#1D4ED8] shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                        <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed group-hover/item:bg-gradient-to-r group-hover/item:from-[#1D4ED8] group-hover/item:to-[#E11D48] group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all">
+                          {item}
+                        </p>
                       </div>
-                      <p className="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
-                        {item}
-                      </p>
                     </div>
                   ))}
                 </div>

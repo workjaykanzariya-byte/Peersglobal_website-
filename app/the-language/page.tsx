@@ -718,23 +718,40 @@ export default function TheLanguagePage() {
               </div>
 
               <div className="mt-6 grid md:grid-cols-3 gap-4">
-                <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
-                  <h4 className="text-base font-bold text-[#0f131a]">L — LEARNING</h4>
-                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                    Growth through knowledge, mentorship, and shared experiences.
-                  </p>
+                {/* L — LEARNING */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-250 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-6 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white space-y-2 h-full transition-colors duration-300">
+                    <h4 className="text-base font-bold text-[#0f131a] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      L — LEARNING
+                    </h4>
+                    <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                      Growth through knowledge, mentorship, and shared experiences.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
-                  <h4 className="text-base font-bold text-[#0f131a]">S — SALES</h4>
-                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                    Real business through referrals, networking, and collaborations.
-                  </p>
+
+                {/* S — SALES */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-250 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-6 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white space-y-2 h-full transition-colors duration-300">
+                    <h4 className="text-base font-bold text-[#0f131a] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      S — SALES
+                    </h4>
+                    <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                      Real business through referrals, networking, and collaborations.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-6 rounded-2xl bg-[#FAFBFD] border border-cool-grey-250 space-y-2 shadow-2xs">
-                  <h4 className="text-base font-bold text-[#0f131a]">R — RESOURCES</h4>
-                  <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
-                    Tools, media, and platforms to support and scale your business.
-                  </p>
+
+                {/* R — RESOURCES */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-250 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-6 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white space-y-2 h-full transition-colors duration-300">
+                    <h4 className="text-base font-bold text-[#0f131a] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                      R — RESOURCES
+                    </h4>
+                    <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                      Tools, media, and platforms to support and scale your business.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -900,108 +917,109 @@ export default function TheLanguagePage() {
                 {/* 10 Forms Dynamic Cards Grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
                   {TEN_FORMS_OF_COLLABORATION.map((item, formIdx) => {
-                    const IconComponent = item.icon
                     return (
                       <div
                         key={item.id}
-                        className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300/80 transition-all flex flex-col justify-between space-y-3 group"
+                        className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer flex flex-col justify-between"
                       >
-                        <div className="flex items-center justify-between">
-                          <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-2xs">
-                            <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <defs>
-                                <linearGradient id={`formIconGrad${formIdx}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" stopColor="#1D4ED8" />
-                                  <stop offset="100%" stopColor="#E11D48" />
-                                </linearGradient>
-                              </defs>
-                              {formIdx === 0 && (
-                                /* Business Referral / Send */
-                                <path d="m22 2-7 20-4-9-9-4Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                              )}
-                              {formIdx === 1 && (
-                                /* Mentorship / BookOpen */
-                                <>
-                                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 2 && (
-                                /* Joint Venture / Handshake */
-                                <>
-                                  <path d="m11 17 2 2a1 1 0 0 0 1.42 0l4.24-4.24a1 1 0 0 0 0-1.42l-5.66-5.66a1 1 0 0 0-1.42 0L8 11.34" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="m18 14 2.5-2.5a2.12 2.12 0 0 0 0-3v0a2.12 2.12 0 0 0-3 0L15 11" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="m14 18 2.5-2.5" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="m6 13.34-2.5-2.5a2.12 2.12 0 0 1 0-3v0a2.12 2.12 0 0 1 3 0L9 10.34" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 3 && (
-                                /* Knowledge Sharing / Lightbulb */
-                                <>
-                                  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M9 18h6" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M10 22h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 4 && (
-                                /* Problem Solving / Sparkles */
-                                <>
-                                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 5 && (
-                                /* Vendor Connect / Building2 */
-                                <>
-                                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M10 6h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M10 10h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M10 14h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M10 18h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 6 && (
-                                /* Funding Access / TrendingUp */
-                                <>
-                                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <polyline points="16 7 22 7 22 13" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 7 && (
-                                /* Visibility & PR / Eye */
-                                <>
-                                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <circle cx="12" cy="12" r="3" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 8 && (
-                                /* Emotional Support / Heart */
-                                <>
-                                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                              {formIdx === 9 && (
-                                /* Execution Support / Hammer */
-                                <>
-                                  <path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="M17.64 15 22 10.64" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                  <path d="m20.91 3.26-6.36 6.36" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </>
-                              )}
-                            </svg>
+                        <div className="p-5 rounded-[15px] bg-white group-hover:bg-white space-y-3 h-full flex flex-col justify-between transition-colors duration-300">
+                          <div className="flex items-center justify-between">
+                            <div className="size-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-rose-500/15 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-2xs">
+                              <svg className="size-5.5 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                  <linearGradient id={`formIconGrad${formIdx}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#1D4ED8" />
+                                    <stop offset="100%" stopColor="#E11D48" />
+                                  </linearGradient>
+                                </defs>
+                                {formIdx === 0 && (
+                                  /* Business Referral / Send */
+                                  <path d="m22 2-7 20-4-9-9-4Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                )}
+                                {formIdx === 1 && (
+                                  /* Mentorship / BookOpen */
+                                  <>
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 2 && (
+                                  /* Joint Venture / Handshake */
+                                  <>
+                                    <path d="m11 17 2 2a1 1 0 0 0 1.42 0l4.24-4.24a1 1 0 0 0 0-1.42l-5.66-5.66a1 1 0 0 0-1.42 0L8 11.34" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="m18 14 2.5-2.5a2.12 2.12 0 0 0 0-3v0a2.12 2.12 0 0 0-3 0L15 11" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="m14 18 2.5-2.5" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="m6 13.34-2.5-2.5a2.12 2.12 0 0 1 0-3v0a2.12 2.12 0 0 1 3 0L9 10.34" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 3 && (
+                                  /* Knowledge Sharing / Lightbulb */
+                                  <>
+                                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M9 18h6" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M10 22h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 4 && (
+                                  /* Problem Solving / Sparkles */
+                                  <>
+                                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 5 && (
+                                  /* Vendor Connect / Building2 */
+                                  <>
+                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M10 6h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M10 10h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M10 14h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M10 18h4" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 6 && (
+                                  /* Funding Access / TrendingUp */
+                                  <>
+                                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <polyline points="16 7 22 7 22 13" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 7 && (
+                                  /* Visibility & PR / Eye */
+                                  <>
+                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <circle cx="12" cy="12" r="3" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 8 && (
+                                  /* Emotional Support / Heart */
+                                  <>
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                                {formIdx === 9 && (
+                                  /* Execution Support / Hammer */
+                                  <>
+                                    <path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M17.64 15 22 10.64" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="m20.91 3.26-6.36 6.36" stroke={`url(#formIconGrad${formIdx})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </>
+                                )}
+                              </svg>
+                            </div>
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                              0{item.id}
+                            </span>
                           </div>
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                            0{item.id}
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
-                            {item.form}
-                          </h4>
-                          <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
-                            {item.meaning}
-                          </p>
+                          <div>
+                            <h4 className="text-sm font-bold text-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-200">
+                              {item.form}
+                            </h4>
+                            <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
+                              {item.meaning}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     )
@@ -1172,52 +1190,70 @@ export default function TheLanguagePage() {
 
               {/* Right Column: 2-Column Split of Living Words Cards */}
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-blue-200 transition-all space-y-1.5 group">
-                  <div className="flex items-center justify-between">
-                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-[#1D4ED8] transition-colors">Give-First</strong>
-                    <span className="size-2 rounded-full bg-blue-500/40" />
+                {/* Give-First */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white transition-colors duration-300 space-y-1.5 h-full">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-slate-900 font-bold text-sm block group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Give-First</strong>
+                      <span className="size-2 rounded-full bg-blue-500/40" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when someone helps without being asked.</p>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when someone helps without being asked.</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-indigo-200 transition-all space-y-1.5 group">
-                  <div className="flex items-center justify-between">
-                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-indigo-600 transition-colors">Peer</strong>
-                    <span className="size-2 rounded-full bg-indigo-500/40" />
+                {/* Peer */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white transition-colors duration-300 space-y-1.5 h-full">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-slate-900 font-bold text-sm block group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Peer</strong>
+                      <span className="size-2 rounded-full bg-indigo-500/40" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when trust is earned and protected.</p>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when trust is earned and protected.</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-emerald-200 transition-all space-y-1.5 group">
-                  <div className="flex items-center justify-between">
-                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-emerald-600 transition-colors">Circle</strong>
-                    <span className="size-2 rounded-full bg-emerald-500/40" />
+                {/* Circle */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white transition-colors duration-300 space-y-1.5 h-full">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-slate-900 font-bold text-sm block group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Circle</strong>
+                      <span className="size-2 rounded-full bg-emerald-500/40" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when people show up for one another.</p>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when people show up for one another.</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-amber-200 transition-all space-y-1.5 group">
-                  <div className="flex items-center justify-between">
-                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-amber-600 transition-colors">Confidential Forum</strong>
-                    <span className="size-2 rounded-full bg-amber-500/40" />
+                {/* Confidential Forum */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white transition-colors duration-300 space-y-1.5 h-full">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-slate-900 font-bold text-sm block group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Confidential Forum</strong>
+                      <span className="size-2 rounded-full bg-amber-500/40" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when sensitive matters remain safe.</p>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when sensitive matters remain safe.</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-rose-200 transition-all space-y-1.5 group">
-                  <div className="flex items-center justify-between">
-                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-rose-600 transition-colors">Life Impactor</strong>
-                    <span className="size-2 rounded-full bg-rose-500/40" />
+                {/* Life Impactor */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white transition-colors duration-300 space-y-1.5 h-full">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-slate-900 font-bold text-sm block group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Life Impactor</strong>
+                      <span className="size-2 rounded-full bg-rose-500/40" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when action changes someone&apos;s journey.</p>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when action changes someone&apos;s journey.</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#FAFBFD] border border-cool-grey-200/90 shadow-2xs hover:shadow-md hover:border-cyan-200 transition-all space-y-1.5 group">
-                  <div className="flex items-center justify-between">
-                    <strong className="text-slate-900 font-bold text-sm block group-hover:text-cyan-600 transition-colors">Unity</strong>
-                    <span className="size-2 rounded-full bg-cyan-500/40" />
+                {/* Unity */}
+                <div className="group relative rounded-2xl p-[1px] bg-cool-grey-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg cursor-pointer">
+                  <div className="p-5 rounded-[15px] bg-[#FAFBFD] group-hover:bg-white transition-colors duration-300 space-y-1.5 h-full">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-slate-900 font-bold text-sm block group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">Unity</strong>
+                      <span className="size-2 rounded-full bg-cyan-500/40" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when connection continues 24/7.</p>
                   </div>
-                  <p className="text-xs sm:text-[13px] text-cool-grey-600 leading-relaxed">Becomes real when connection continues 24/7.</p>
                 </div>
               </div>
 
