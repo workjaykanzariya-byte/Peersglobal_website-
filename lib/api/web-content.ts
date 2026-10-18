@@ -98,7 +98,7 @@ function normalizeGalleryPhoto(raw: any, index: number): ApiGalleryPhoto {
     city: raw.city || 'National',
     circle: raw.circle || 'All Circles',
     year: String(raw.year || new Date().getFullYear()),
-    image: raw.image || raw.image_url || raw.photo_url || '/images/section_image/event_awards_stage.jpg',
+    image: raw.image || raw.image_url || raw.photo_url || '',
     caption: raw.caption || raw.description || '',
     sort_order: raw.sort_order ?? index,
   }
@@ -121,17 +121,23 @@ function normalizePodcastEpisode(raw: any, index: number): ApiPodcastEpisode {
     ? rawNotes.split('\n').filter(Boolean)
     : []
 
+  const image =
+    raw.image ||
+    raw.image_url ||
+    raw.cover_image ||
+    (youtubeVideoId ? `https://img.youtube.com/vi/${youtubeVideoId}/hqdefault.jpg` : '')
+
   return {
     id: String(raw.id || `ep-${index + 1}`),
     title: raw.title || 'Peers Global Episode',
     subtitle: raw.subtitle || raw.description || '',
     tag: raw.tag || raw.category || 'COMMUNITY',
     duration: raw.duration || '45 mins',
-    image: raw.image || raw.image_url || raw.cover_image || '/images/industry-panel-leaders.jpg',
+    image,
     guest: {
       name: raw.guest?.name || raw.guest_name || 'Featured Leader',
       title: raw.guest?.title || raw.guest_title || 'Community Member',
-      avatar: raw.guest?.avatar || raw.guest_avatar || raw.image || '/images/story-jignesh-rohit.jpg',
+      avatar: raw.guest?.avatar || raw.guest_avatar || '',
     },
     showNotes,
     spotifyUrl: raw.spotifyUrl || raw.spotify_url || '',
@@ -177,7 +183,7 @@ export async function fetchGalleryPhotos(params?: GalleryPhotosParams): Promise<
 
     const res = await fetch(url.toString(), {
       headers: DEFAULT_HEADERS,
-      next: { revalidate: 60 },
+      cache: 'no-store',
     })
 
     if (!res.ok) {
@@ -204,7 +210,7 @@ export async function fetchCuratedCollections(): Promise<ApiGalleryCollection[]>
     const url = `${BASE_URL}/api/v1/web/gallery/collections`
     const res = await fetch(url, {
       headers: DEFAULT_HEADERS,
-      next: { revalidate: 60 },
+      cache: 'no-store',
     })
 
     if (!res.ok) return []
@@ -248,7 +254,7 @@ export async function fetchPodcastEpisodes(params?: PodcastEpisodesParams): Prom
 
     const res = await fetch(url.toString(), {
       headers: DEFAULT_HEADERS,
-      next: { revalidate: 60 },
+      cache: 'no-store',
     })
 
     if (!res.ok) {
@@ -275,7 +281,7 @@ export async function fetchFeaturedEpisodes(limit: number = 6): Promise<ApiPodca
     const url = `${BASE_URL}/api/v1/web/podcasts/featured?limit=${limit}`
     const res = await fetch(url, {
       headers: DEFAULT_HEADERS,
-      next: { revalidate: 60 },
+      cache: 'no-store',
     })
 
     if (res.ok) {

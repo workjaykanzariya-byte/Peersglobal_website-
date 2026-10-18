@@ -36,6 +36,7 @@ import {
   Award,
   ShieldCheck,
   Headphones,
+  RotateCcw,
 } from 'lucide-react'
 
 // ─── 4 Stats Bar ────────────────────────────────────────────────────────────
@@ -131,118 +132,32 @@ const FORMAT_CARDS = [
 ]
 
 // ─── 4 Featured Episodes ───────────────────────────────────────────────────
+// ─── Featured Episodes Type ────────────────────────────────────────────────
 type Episode = ApiPodcastEpisode
 
-const EPISODES: Episode[] = [
-  {
-    id: 'ep-01',
-    title: 'From Near Bankruptcy to 120-Person Precision Engineering',
-    subtitle: 'Building through family resistance and industrial downturns.',
-    tag: 'MANUFACTURING',
-    duration: '48 mins',
-    image: '/images/story-jignesh-rohit.jpg',
-    guest: {
-      name: 'Rajesh Shah',
-      title: 'Founder, Apex Precision Engineering, Ahmedabad',
-      avatar: '/images/story-jignesh-rohit.jpg',
-    },
-    showNotes: [
-      'How raw materials inflation in 2021 pushed their primary plant to 14 days of remaining liquidity.',
-      'Why peer accountability inside Gujarat Manufacturing Circle gave them clarity to renegotiate key client terms.',
-      'Transitioning from owner-dependent shopfloor to a professionalized second line of leadership.',
-    ],
-    spotifyUrl: 'https://open.spotify.com',
-    youtubeUrl: 'https://youtube.com',
-  },
-  {
-    id: 'ep-02',
-    title: 'How Two Rivals Built a ₹40 Cr Joint Cold Chain Network',
-    subtitle: 'The psychology of collaboration over destructive competition.',
-    tag: 'LOGISTICS & AGRI',
-    duration: '52 mins',
-    image: '/images/story-priya-karan.jpg',
-    guest: {
-      name: 'Priya Sharma & Vikram Malhotra',
-      title: 'Zenith Logistics & TechPack Solutions, Mumbai',
-      avatar: '/images/story-priya-karan.jpg',
-    },
-    showNotes: [
-      'The initial friction when two regional logistics operators sat at the same Circle roundtable.',
-      'Structuring shared warehousing contracts without losing proprietary enterprise accounts.',
-      'Why open transparency on excess capacity lowered costs by 34% across 8 Maharashtra hubs.',
-    ],
-    spotifyUrl: 'https://open.spotify.com',
-    youtubeUrl: 'https://youtube.com',
-  },
-  {
-    id: 'ep-03',
-    title: 'Scaling an MSME from Surat to 14 Export Markets with Zero Brokers',
-    subtitle: 'Overcoming trade barriers through verified peer syndicates.',
-    tag: 'GLOBAL TRADE',
-    duration: '44 mins',
-    image: '/images/story-amit-sandeep.jpg',
-    guest: {
-      name: 'Harish Mehta',
-      title: 'Managing Director, Mehta Global Exim, Surat',
-      avatar: '/images/story-amit-sandeep.jpg',
-    },
-    showNotes: [
-      'The harsh realities of international customs compliance for first-generation Indian exporters.',
-      'How cross-Circle introductions directly bypassed predatory trade middlemen in Dubai and Rotterdam.',
-      'The 7 golden rules for building cross-border relationships that outlast macroeconomic currency shifts.',
-    ],
-    spotifyUrl: 'https://open.spotify.com',
-    youtubeUrl: 'https://youtube.com',
-  },
-  {
-    id: 'ep-04',
-    title: 'Building Communities That Last: The Origin Story of Peers Global',
-    subtitle: 'Why peer governance is the foundation of genuine entrepreneurial trust.',
-    tag: 'COMMUNITY & VISION',
-    duration: '58 mins',
-    image: '/images/industry-cross-city-handshake.jpg',
-    guest: {
-      name: 'Dr. Pravin Parmar',
-      title: 'Founder & Visionary, Peers Global & Vyapaar Jagat',
-      avatar: '/images/who-we-are-inner-board.jpg',
-    },
-    showNotes: [
-      'The founding conviction born in a hospital corridor: why entrepreneurs must never build alone.',
-      'Why traditional transactional networking failed Indian promoters and why Governed Collaboration succeeds.',
-      'The roadmap to impact one million lives across India by 2030.',
-    ],
-    spotifyUrl: 'https://open.spotify.com',
-    youtubeUrl: 'https://youtube.com',
-  },
-]
-
 export function PodcastMediaClient() {
-  const [episodes, setEpisodes] = useState<Episode[]>(EPISODES)
-  const [isLoading, setIsLoading] = useState(false)
+  const [episodes, setEpisodes] = useState<Episode[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [nominateOpen, setNominateOpen] = useState(false)
 
   // Fetch dynamic episodes from Unity backend on mount
+  const loadEpisodes = async () => {
+    setIsLoading(true)
+    try {
+      const apiData = await fetchFeaturedEpisodes(12)
+      setEpisodes(apiData || [])
+    } catch (err) {
+      console.warn('Failed to load dynamic podcast episodes:', err)
+      setEpisodes([])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   useEffect(() => {
-    let isMounted = true
-    async function loadEpisodes() {
-      setIsLoading(true)
-      try {
-        const apiData = await fetchFeaturedEpisodes(6)
-        if (isMounted && apiData && apiData.length > 0) {
-          setEpisodes(apiData)
-        }
-      } catch (err) {
-        console.warn('Failed to load dynamic podcast episodes, fallback to static:', err)
-      } finally {
-        if (isMounted) setIsLoading(false)
-      }
-    }
     loadEpisodes()
-    return () => {
-      isMounted = false
-    }
   }, [])
 
   // Nomination Form State
@@ -677,94 +592,149 @@ export function PodcastMediaClient() {
               </p>
             </div>
 
-            <a
-              href="https://unity.peersglobal.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all"
-            >
-              <span>View All on Unity</span>
-              <ArrowRight className="size-3.5" />
-            </a>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={loadEpisodes}
+                disabled={isLoading}
+                title="Refresh from Admin Panel"
+                className="px-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer group"
+              >
+                <RotateCcw className={`size-3.5 text-slate-500 group-hover:text-[#1D4ED8] transition-colors ${isLoading ? 'animate-spin text-blue-600' : ''}`} />
+                <span className="group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                  {isLoading ? 'Updating...' : 'Refresh'}
+                </span>
+              </button>
+              <a
+                href="https://unity.peersglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all"
+              >
+                <span>View All on Unity</span>
+                <ArrowRight className="size-3.5" />
+              </a>
+            </div>
           </div>
 
-          {/* 4 Episode Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {episodes.map((ep) => (
-              <div
-                key={ep.id}
-                onClick={() => {
-                  setSelectedEpisode(ep)
-                  setIsPlaying(true)
-                }}
-                className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
-              >
-                <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
-                  <div>
-                    {/* Video Still with Play Overlay & Duration */}
-                    <div className="relative h-48 w-full overflow-hidden bg-slate-950">
-                      <Image
-                        src={ep.image}
-                        alt={ep.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20" />
+          {/* Episode Content: Loading / Empty / Grid */}
+          {isLoading ? (
+            <div className="text-center py-20 px-4 space-y-4">
+              <div className="size-10 rounded-full border-2 border-blue-600 border-t-transparent animate-spin mx-auto" />
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Loading episodes &amp; broadcasts...
+              </p>
+            </div>
+          ) : episodes.length === 0 ? (
+            <div className="text-center py-20 px-6 bg-[#FAFBFD] rounded-3xl border border-slate-200/90 shadow-2xs space-y-4 max-w-xl mx-auto my-4">
+              <div className="size-16 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 flex items-center justify-center mx-auto text-blue-600 shadow-xs">
+                <Mic className="size-7" />
+              </div>
+              <div className="space-y-1.5">
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                  No Podcast Episodes Published Yet
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed max-w-md mx-auto">
+                  Episodes, podcasts, and video broadcasts uploaded from the admin panel will appear here automatically.
+                </p>
+              </div>
+              <div className="pt-2 flex items-center justify-center gap-3">
+                <button
+                  onClick={loadEpisodes}
+                  className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+                >
+                  <RotateCcw className="size-3.5" />
+                  <span>Refresh Episodes</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {episodes.map((ep) => (
+                <div
+                  key={ep.id}
+                  onClick={() => {
+                    setSelectedEpisode(ep)
+                    setIsPlaying(true)
+                  }}
+                  className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                >
+                  <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
+                    <div>
+                      {/* Video Still with Play Overlay & Duration */}
+                      <div className="relative h-48 w-full overflow-hidden bg-slate-950">
+                        {ep.image ? (
+                          <Image
+                            src={ep.image}
+                            alt={ep.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="size-full flex items-center justify-center bg-slate-900 text-slate-600">
+                            <Mic className="size-10 opacity-30 text-blue-400" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20" />
 
-                      {/* Topic Badge on Top Left */}
-                      <div className="absolute top-3.5 left-3.5 max-w-[170px]">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-1 rounded-full shadow-md line-clamp-1">
-                          {ep.tag}
+                        {/* Topic Badge on Top Left */}
+                        <div className="absolute top-3.5 left-3.5 max-w-[170px]">
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-1 rounded-full shadow-md line-clamp-1">
+                            {ep.tag}
+                          </span>
+                        </div>
+
+                        {/* Duration Badge on Top Right */}
+                        <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/75 text-white backdrop-blur-md border border-white/10">
+                          {ep.duration}
                         </span>
-                      </div>
 
-                      {/* Duration Badge on Top Right */}
-                      <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/75 text-white backdrop-blur-md border border-white/10">
-                        {ep.duration}
-                      </span>
-
-                      {/* Big Center Play Icon */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="size-12 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all">
-                          <Play className="size-5 fill-current ml-0.5" />
+                        {/* Big Center Play Icon */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="size-12 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all">
+                            <Play className="size-5 fill-current ml-0.5" />
+                          </div>
                         </div>
                       </div>
+
+                      {/* Card Body */}
+                      <div className="p-5 space-y-2">
+                        <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-2">
+                          {ep.title}
+                        </h3>
+                        <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-2">
+                          {ep.subtitle}
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Card Body */}
-                    <div className="p-5 space-y-2">
-                      <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-2">
-                        {ep.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-2">
-                        {ep.subtitle}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Guest Footer */}
-                  <div className="p-5 pt-0 border-t border-slate-100 flex items-center gap-3 mt-3">
-                    <div className="relative size-9 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
-                      <Image
-                        src={ep.guest.avatar}
-                        alt={ep.guest.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="leading-tight">
-                      <span className="text-xs font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
-                        {ep.guest.name}
-                      </span>
-                      <span className="text-[10px] text-slate-500 block truncate max-w-[170px]">
-                        {ep.guest.title}
-                      </span>
+                    {/* Guest Footer */}
+                    <div className="p-5 pt-0 border-t border-slate-100 flex items-center gap-3 mt-3">
+                      <div className="relative size-9 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-xs font-bold text-blue-600">
+                        {ep.guest.avatar ? (
+                          <Image
+                            src={ep.guest.avatar}
+                            alt={ep.guest.name}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <span>{ep.guest.name ? ep.guest.name.charAt(0) : 'P'}</span>
+                        )}
+                      </div>
+                      <div className="leading-tight">
+                        <span className="text-xs font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
+                          {ep.guest.name}
+                        </span>
+                        <span className="text-[10px] text-slate-500 block truncate max-w-[170px]">
+                          {ep.guest.title}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
         </div>
       </section>
@@ -933,12 +903,18 @@ export function PodcastMediaClient() {
               </div>
             ) : (
               <div className="relative h-60 sm:h-72 w-full bg-slate-950">
-                <Image
-                  src={selectedEpisode.image}
-                  alt={selectedEpisode.title}
-                  fill
-                  className="object-cover"
-                />
+                {selectedEpisode.image ? (
+                  <Image
+                    src={selectedEpisode.image}
+                    alt={selectedEpisode.title}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="size-full flex items-center justify-center bg-slate-900 text-slate-600">
+                    <Mic className="size-16 opacity-30 text-blue-400" />
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
                 
                 <div className="absolute bottom-4 left-6 right-6 text-white">
@@ -982,13 +958,17 @@ export function PodcastMediaClient() {
             {/* Show Notes & Guest Info */}
             <div className="p-6 sm:p-8 space-y-6">
               <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-                <div className="relative size-11 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
-                  <Image
-                    src={selectedEpisode.guest.avatar}
-                    alt={selectedEpisode.guest.name}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative size-11 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-sm font-bold text-blue-600">
+                  {selectedEpisode.guest.avatar ? (
+                    <Image
+                      src={selectedEpisode.guest.avatar}
+                      alt={selectedEpisode.guest.name}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span>{selectedEpisode.guest.name ? selectedEpisode.guest.name.charAt(0) : 'P'}</span>
+                  )}
                 </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900">

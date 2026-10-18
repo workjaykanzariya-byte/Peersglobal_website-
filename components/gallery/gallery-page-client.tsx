@@ -5,7 +5,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import '@/app/sections.css'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
-import { fetchGalleryPhotos, type ApiGalleryPhoto } from '@/lib/api/web-content'
+import {
+  fetchGalleryPhotos,
+  fetchCuratedCollections,
+  type ApiGalleryPhoto,
+  type ApiGalleryCollection,
+} from '@/lib/api/web-content'
 import {
   ArrowRight,
   ChevronRight,
@@ -79,304 +84,36 @@ const STATS = [
   },
 ]
 
-// ─── 6 Collections ──────────────────────────────────────────────────────────
-const COLLECTIONS = [
-  {
-    id: 'circle-meetings',
-    title: 'Circle Meetings',
-    subtitle: 'The rooms where it happens, month after month.',
-    image: '/images/section_image/circle-meeting.png',
-    svgPath: (
-      <>
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </>
-    ),
-    categoryName: 'Circle Meetings',
-  },
-  {
-    id: 'city-gatherings',
-    title: 'City Gatherings',
-    subtitle: 'Circles coming together across regional chapters.',
-    image: '/images/who-we-are-friends.jpg',
-    svgPath: (
-      <>
-        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-        <circle cx="12" cy="10" r="3" />
-      </>
-    ),
-    categoryName: 'City Gatherings',
-  },
-  {
-    id: 'regional-conclaves',
-    title: 'Regional Conclaves',
-    subtitle: 'Territories in one high-energy room.',
-    image: '/images/section_image/executive-director-conclave.jpg',
-    svgPath: (
-      <>
-        <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
-        <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
-        <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
-      </>
-    ),
-    categoryName: 'Regional Conclaves',
-  },
-  {
-    id: 'annual-summit',
-    title: 'The Annual Summit',
-    subtitle: 'The grand gala celebrating the whole community.',
-    image: '/images/section_image/event_awards_stage.jpg',
-    svgPath: (
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    ),
-    categoryName: 'Annual Summit',
-  },
-  {
-    id: 'awards',
-    title: 'Recognition & Awards',
-    subtitle: 'Public contribution affirmed and celebrated.',
-    image: '/images/section_image/event_awards_stage.jpg',
-    svgPath: (
-      <>
-        <circle cx="12" cy="8" r="6" />
-        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-      </>
-    ),
-    categoryName: 'Recognition & Awards',
-  },
-  {
-    id: 'masterclasses',
-    title: 'Masterclasses',
-    subtitle: 'Impact mentors delivering practical wisdom.',
-    image: '/images/section_image/circle-roundtable-topdown.jpg',
-    svgPath: (
-      <>
-        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
-        <path d="M22 10v6" />
-        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
-      </>
-    ),
-    categoryName: 'Masterclasses',
-  },
-]
-
 // ─── Gallery Photos Type ──────────────────────────────────────────────────────
 type GalleryPhoto = ApiGalleryPhoto
 
-const INITIAL_PHOTOS: GalleryPhoto[] = [
-  {
-    id: 'photo-01',
-    title: 'National Leadership Conclave Opening',
-    category: 'Annual Summit',
-    city: 'Ahmedabad',
-    circle: 'All Circles',
-    year: '2026',
-    image: '/images/section_image/event_awards_stage.jpg',
-    caption: 'Founders and Circle Directors convening on stage during the opening plenary in Ahmedabad.',
-  },
-  {
-    id: 'photo-02',
-    title: 'Cross-Circle Collaboration Roundtable',
-    category: 'Circle Meetings',
-    city: 'Mumbai',
-    circle: 'Logistics Circle',
-    year: '2026',
-    image: '/images/section_image/circle-roundtable-topdown.jpg',
-    caption: '12 enterprise peers discussing joint supply chain warehousing and regional distribution synergies.',
-  },
-  {
-    id: 'photo-03',
-    title: 'Gratitude & Impact Recognition Round',
-    category: 'Recognition & Awards',
-    city: 'Bengaluru',
-    circle: 'Technology Circle',
-    year: '2025',
-    image: '/images/story-jignesh-rohit.jpg',
-    caption: 'Peers publicly acknowledging confirmed business introductions and advisory interventions.',
-  },
-  {
-    id: 'photo-04',
-    title: 'Masterclass: Scaling Operations Past ₹50 Cr',
-    category: 'Masterclasses',
-    city: 'Surat',
-    circle: 'Manufacturing Circle',
-    year: '2026',
-    image: '/images/industry-panel-leaders.jpg',
-    caption: '20-minute unscripted insights on managing vendor liquidity and working capital.',
-  },
-  {
-    id: 'photo-05',
-    title: 'Regional Conclave Fellowship & Dinner',
-    category: 'Regional Conclaves',
-    city: 'Ahmedabad',
-    circle: 'All Circles',
-    year: '2025',
-    image: '/images/section_image/executive-director-conclave.jpg',
-    caption: 'Entrepreneurs forging lifelong friendships and collaborative partnerships after boardroom sessions.',
-  },
-  {
-    id: 'photo-06',
-    title: 'Fempreneur Circle Innovation Forum',
-    category: 'City Gatherings',
-    city: 'Bengaluru',
-    circle: 'Fempreneur Circle',
-    year: '2026',
-    image: '/images/story-neha-simran.jpg',
-    caption: 'First-generation women founders sharing manufacturing playbooks and export frameworks.',
-  },
-  {
-    id: 'photo-07',
-    title: 'Global Trade & Export Advisory Panel',
-    category: 'Circle Meetings',
-    city: 'Surat',
-    circle: 'Export Circle',
-    year: '2025',
-    image: '/images/story-amit-sandeep.jpg',
-    caption: 'Direct syndicate discussions on bypassing international trade brokers across UAE and EU hubs.',
-  },
-  {
-    id: 'photo-08',
-    title: 'Circle Director of the Year Presentation',
-    category: 'Recognition & Awards',
-    city: 'Ahmedabad',
-    circle: 'Leadership Board',
-    year: '2026',
-    image: '/images/who-we-are-inner-board.jpg',
-    caption: 'Honouring outstanding retention, governance integrity, and regional community expansion.',
-  },
-  {
-    id: 'photo-09',
-    title: 'MSME Manufacturing Plant Modernization',
-    category: 'Masterclasses',
-    city: 'Pune',
-    circle: 'Engineering Circle',
-    year: '2025',
-    image: '/images/story-priya-karan.jpg',
-    caption: 'Practical session on automation and cost-effective inventory visibility without bloated software.',
-  },
-  {
-    id: 'photo-10',
-    title: 'Circle Foundation Day & Charter Signing',
-    category: 'City Gatherings',
-    city: 'Delhi NCR',
-    circle: 'Capital Circle',
-    year: '2026',
-    image: '/images/industry-cross-city-handshake.jpg',
-    caption: 'Charter members pledging commitment to zero predatory pitching and transparent mutual support.',
-  },
-  {
-    id: 'photo-11',
-    title: 'Annual Peer Summit Keynote Hall',
-    category: 'Annual Summit',
-    city: 'Ahmedabad',
-    circle: 'All Circles',
-    year: '2025',
-    image: '/images/section_image/event_awards_stage.jpg',
-    caption: 'Over 800 founders gathered to evaluate the 1 Million Lives by 2030 roadmap.',
-  },
-  {
-    id: 'photo-12',
-    title: 'Confidential Boardroom Strategy Circle',
-    category: 'Circle Meetings',
-    city: 'Hyderabad',
-    circle: 'Healthcare Circle',
-    year: '2026',
-    image: '/images/section_image/circle-meeting.png',
-    caption: 'Monthly governed closed-door session reviewing member strategic roadblocks and opportunities.',
-  },
-]
-
-// ─── Extra 6 Photos (Loaded on Demand) ──────────────────────────────────────
-const MORE_PHOTOS: GalleryPhoto[] = [
-  {
-    id: 'photo-13',
-    title: 'Cross-Border MSME Trade Syndicate',
-    category: 'Circle Meetings',
-    city: 'Mumbai',
-    circle: 'Export Circle',
-    year: '2025',
-    image: '/images/story-amit-sandeep.jpg',
-    caption: 'Direct collaboration between textile manufacturers and international freight operators.',
-  },
-  {
-    id: 'photo-14',
-    title: 'Women in Enterprise Leadership Panel',
-    category: 'City Gatherings',
-    city: 'Bengaluru',
-    circle: 'Fempreneur Circle',
-    year: '2026',
-    image: '/images/story-neha-simran.jpg',
-    caption: 'Evaluating funding-free sustainable bootstrap scaling in tier-1 markets.',
-  },
-  {
-    id: 'photo-15',
-    title: 'Executive Director Regional Strategy Meet',
-    category: 'Regional Conclaves',
-    city: 'Ahmedabad',
-    circle: 'Leadership Board',
-    year: '2025',
-    image: '/images/section_image/executive-director-conclave.jpg',
-    caption: 'Harmonizing cross-city member introductions and industry roundtable topics.',
-  },
-  {
-    id: 'photo-16',
-    title: 'Pillar of Integrity Honour Award',
-    category: 'Recognition & Awards',
-    city: 'Surat',
-    circle: 'All Circles',
-    year: '2026',
-    image: '/images/who-we-are-inner-board.jpg',
-    caption: 'Presented to leaders upholding strict governance and trust verification across chapters.',
-  },
-  {
-    id: 'photo-17',
-    title: 'Mid-Market Working Capital Clinic',
-    category: 'Masterclasses',
-    city: 'Pune',
-    circle: 'Finance Circle',
-    year: '2025',
-    image: '/images/industry-panel-leaders.jpg',
-    caption: 'Hands-on breakdown of vendor contract structuring and cash cycle protection.',
-  },
-  {
-    id: 'photo-18',
-    title: 'National Gala Closing Fellowship',
-    category: 'Annual Summit',
-    city: 'Ahmedabad',
-    circle: 'All Circles',
-    year: '2026',
-    image: '/images/section_image/event_awards_stage.jpg',
-    caption: 'Celebrating another year of authentic entrepreneurial solidarity and shared growth.',
-  },
-]
-
 export function GalleryPageClient() {
-  const [photos, setPhotos] = useState<GalleryPhoto[]>(INITIAL_PHOTOS)
-  const [isLoading, setIsLoading] = useState(false)
+  const [photos, setPhotos] = useState<GalleryPhoto[]>([])
+  const [collections, setCollections] = useState<ApiGalleryCollection[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   const [hasLoadedMore, setHasLoadedMore] = useState(false)
 
-  // Fetch dynamic photos from Unity backend API on mount
+  // Fetch dynamic photos and curated collections from Unity backend API on mount
+  const loadData = async () => {
+    setIsLoading(true)
+    try {
+      const [photoData, collectionData] = await Promise.all([
+        fetchGalleryPhotos(),
+        fetchCuratedCollections(),
+      ])
+      setPhotos(photoData || [])
+      setCollections(collectionData || [])
+    } catch (err) {
+      console.warn('Failed to load dynamic gallery photos:', err)
+      setPhotos([])
+      setCollections([])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   useEffect(() => {
-    let isMounted = true
-    async function loadPhotos() {
-      setIsLoading(true)
-      try {
-        const apiData = await fetchGalleryPhotos()
-        if (isMounted && apiData && apiData.length > 0) {
-          setPhotos(apiData)
-        }
-      } catch (err) {
-        console.warn('Failed to load dynamic gallery photos, fallback to static:', err)
-      } finally {
-        if (isMounted) setIsLoading(false)
-      }
-    }
-    loadPhotos()
-    return () => {
-      isMounted = false
-    }
+    loadData()
   }, [])
 
   // Filters State
@@ -415,17 +152,16 @@ export function GalleryPageClient() {
 
   const handleLoadMore = async () => {
     try {
-      const moreApiData = await fetchGalleryPhotos({ page: 2, limit: 12 })
+      const nextPage = Math.floor(photos.length / 12) + 1
+      const moreApiData = await fetchGalleryPhotos({ page: nextPage, limit: 12 })
       if (moreApiData && moreApiData.length > 0) {
         setPhotos((prev) => [...prev, ...moreApiData])
+      } else {
         setHasLoadedMore(true)
-        return
       }
     } catch {
-      // Fallback seamlessly to static archive photos
+      setHasLoadedMore(true)
     }
-    setPhotos((prev) => [...prev, ...MORE_PHOTOS])
-    setHasLoadedMore(true)
   }
 
   const handleResetFilters = () => {
@@ -612,12 +348,25 @@ export function GalleryPageClient() {
 
             <div className="flex items-center gap-2">
               <button
-                onClick={handleResetFilters}
+                onClick={loadData}
+                disabled={isLoading}
+                title="Refresh from Admin Panel"
                 className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer hover:shadow-xs group"
               >
-                <RotateCcw className="size-3.5 text-slate-500 group-hover:text-[#1D4ED8] transition-colors" />
-                <span className="group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">Reset Filters</span>
+                <RotateCcw className={`size-3.5 text-slate-500 group-hover:text-[#1D4ED8] transition-colors ${isLoading ? 'animate-spin text-blue-600' : ''}`} />
+                <span className="group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                  {isLoading ? 'Updating...' : 'Refresh'}
+                </span>
               </button>
+              {(selectedCity !== 'All' || selectedCircle !== 'All' || selectedEvent !== 'All' || selectedYear !== 'All' || searchQuery) && (
+                <button
+                  onClick={handleResetFilters}
+                  className="px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
+                >
+                  <X className="size-3.5" />
+                  <span>Reset</span>
+                </button>
+              )}
             </div>
           </div>
 
@@ -715,8 +464,38 @@ export function GalleryPageClient() {
             </div>
           </div>
 
-          {/* Photo Grid */}
-          {filteredPhotos.length === 0 ? (
+          {/* Photo Grid & Dynamic Empty State */}
+          {isLoading ? (
+            <div className="py-24 text-center space-y-3">
+              <div className="size-10 rounded-full border-2 border-blue-600 border-t-transparent animate-spin mx-auto" />
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Loading community moments...
+              </p>
+            </div>
+          ) : photos.length === 0 ? (
+            <div className="text-center py-20 px-6 bg-white rounded-3xl border border-slate-200/90 shadow-2xs space-y-4 max-w-xl mx-auto my-4">
+              <div className="size-16 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 flex items-center justify-center mx-auto text-blue-600 shadow-xs">
+                <Camera className="size-7" />
+              </div>
+              <div className="space-y-1.5">
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                  No Moments Uploaded Yet
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed max-w-md mx-auto">
+                  Community photos, circle meetings, and event memories uploaded from the admin panel will appear here automatically.
+                </p>
+              </div>
+              <div className="pt-2 flex items-center justify-center gap-3">
+                <button
+                  onClick={loadData}
+                  className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+                >
+                  <RotateCcw className="size-3.5" />
+                  <span>Refresh Gallery</span>
+                </button>
+              </div>
+            </div>
+          ) : filteredPhotos.length === 0 ? (
             <div className="text-center py-16 px-4 bg-slate-50/80 rounded-3xl border border-dashed border-slate-200 space-y-3">
               <p className="text-sm font-semibold text-slate-700">No moments found matching your current filter selections.</p>
               <button
@@ -736,12 +515,18 @@ export function GalleryPageClient() {
                 >
                   <div className="rounded-[23px] bg-[#FAFBFD] overflow-hidden h-full flex flex-col justify-between group">
                     <div className="relative h-56 w-full bg-slate-900 overflow-hidden">
-                      <Image
-                        src={photo.image}
-                        alt={photo.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      {photo.image ? (
+                        <Image
+                          src={photo.image}
+                          alt={photo.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="size-full flex items-center justify-center bg-slate-800 text-slate-500">
+                          <Camera className="size-8 opacity-40" />
+                        </div>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
                       
                       <div className="absolute top-3.5 right-3.5">
@@ -787,7 +572,7 @@ export function GalleryPageClient() {
           )}
 
           {/* Load More Button */}
-          {!hasLoadedMore && (
+          {photos.length >= 12 && !hasLoadedMore && (
             <div className="pt-8 text-center">
               <GalaxyButton
                 onClick={handleLoadMore}
@@ -803,89 +588,86 @@ export function GalleryPageClient() {
         </div>
       </section>
 
-      {/* ─── SECTION 3: EXPLORE BY COLLECTION ─── */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div className="space-y-2">
-              <div className="mb-1">
-                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
-                  EXPLORE BY COLLECTION
-                </span>
+      {/* ─── SECTION 3: EXPLORE BY COLLECTION (DYNAMIC) ─── */}
+      {collections.length > 0 && (
+        <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFBFD] border-b border-slate-200/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div className="space-y-2">
+                <div className="mb-1">
+                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent inline-block">
+                    EXPLORE BY COLLECTION
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+                  Curated Collections
+                </h2>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
-                Curated Collections
-              </h2>
+
+              <button
+                onClick={handleResetFilters}
+                className="inline-flex items-center gap-1.5 text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent hover:opacity-80 transition-opacity uppercase tracking-wider cursor-pointer"
+              >
+                <span>View All Collections</span>
+                <ArrowRight className="size-3.5 text-[#E11D48]" />
+              </button>
             </div>
 
-            <button
-              onClick={handleResetFilters}
-              className="inline-flex items-center gap-1.5 text-xs font-bold bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent hover:opacity-80 transition-opacity uppercase tracking-wider cursor-pointer"
-            >
-              <span>View All Collections</span>
-              <ArrowRight className="size-3.5 text-[#E11D48]" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
-            {COLLECTIONS.map((col, idx) => (
-              <div
-                key={col.id}
-                onClick={() => {
-                  setSelectedEvent(col.categoryName)
-                  const el = document.getElementById('gallery-grid')
-                  if (el) el.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
-              >
-                <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
-                  <div>
-                    <div className="relative h-32 w-full overflow-hidden bg-slate-900">
-                      <Image
-                        src={col.image}
-                        alt={col.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                    </div>
-
-                    <div className="p-4 space-y-1.5">
-                      <div className="shrink-0 mb-2">
-                        <svg className="size-5" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <defs>
-                            <linearGradient id={`colGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                              <stop offset="0%" stopColor="#1D4ED8" />
-                              <stop offset="100%" stopColor="#E11D48" />
-                            </linearGradient>
-                          </defs>
-                          <g stroke={`url(#colGrad-${idx})`}>
-                            {col.svgPath}
-                          </g>
-                        </svg>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+              {collections.map((col, idx) => (
+                <div
+                  key={col.id}
+                  onClick={() => {
+                    setSelectedEvent(col.categoryName || col.title)
+                    const el = document.getElementById('gallery-grid')
+                    if (el) el.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                >
+                  <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
+                    <div>
+                      <div className="relative h-32 w-full overflow-hidden bg-slate-900">
+                        {col.cover_image || col.image ? (
+                          <Image
+                            src={col.cover_image || col.image || ''}
+                            alt={col.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        ) : (
+                          <div className="size-full flex items-center justify-center bg-slate-800 text-slate-500">
+                            <Sparkles className="size-6 text-blue-400" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                       </div>
-                      <h3 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
-                        {col.title}
-                      </h3>
-                      <p className="text-[11px] text-slate-500 leading-snug font-light">
-                        {col.subtitle}
-                      </p>
-                    </div>
-                  </div>
 
-                  <div className="p-4 pt-0 flex justify-end">
-                    <div className="size-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white group-hover:border-transparent transition-all">
-                      <ArrowRight className="size-3.5" />
+                      <div className="p-4 space-y-1.5">
+                        <h3 className="font-bold text-slate-900 text-sm group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all leading-snug">
+                          {col.title}
+                        </h3>
+                        {col.subtitle && (
+                          <p className="text-[11px] text-slate-500 leading-snug font-light line-clamp-2">
+                            {col.subtitle}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="p-4 pt-0 flex justify-end">
+                      <div className="size-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white group-hover:border-transparent transition-all">
+                        <ArrowRight className="size-3.5" />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
       {/* ─── SECTION 4: SIGNATURE LUXURY CLOSING HERO BANNER ─── */}
       <section
