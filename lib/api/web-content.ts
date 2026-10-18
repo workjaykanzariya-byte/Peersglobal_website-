@@ -93,13 +93,13 @@ export function extractYoutubeVideoId(url?: string): string | undefined {
 function normalizeGalleryPhoto(raw: any, index: number): ApiGalleryPhoto {
   return {
     id: String(raw.id || `photo-${index + 1}`),
-    title: raw.title || 'Community Moment',
-    category: raw.category || raw.event_category || 'Circle Meetings',
-    city: raw.city || 'National',
-    circle: raw.circle || 'All Circles',
-    year: String(raw.year || new Date().getFullYear()),
-    image: raw.image || raw.image_url || raw.photo_url || '',
-    caption: raw.caption || raw.description || '',
+    title: raw.title || raw.caption || 'Community Moment',
+    category: raw.category || raw.event_category || '',
+    city: raw.city || '',
+    circle: raw.circle || '',
+    year: String(raw.year || ''),
+    image: raw.image || raw.image_url || raw.photo_url || raw.url || '',
+    caption: raw.caption || raw.description || raw.title || '',
     sort_order: raw.sort_order ?? index,
   }
 }
