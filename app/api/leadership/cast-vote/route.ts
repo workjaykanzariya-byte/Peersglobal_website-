@@ -50,14 +50,14 @@ export async function POST(req: Request) {
     const currentCount = candidateVoteCounts[cleanCandidateId] || 0
     candidateVoteCounts[cleanCandidateId] = currentCount + 1
 
-    // Try saving vote record in database if table exists
+    // 1. Save vote record into public.web_votes table (used by admin panel)
     try {
       await pool.query(
-        `CREATE TABLE IF NOT EXISTS public.endorsement_votes (
+        `CREATE TABLE IF NOT EXISTS public.web_votes (
           id SERIAL PRIMARY KEY,
           vote_reference VARCHAR(100) UNIQUE NOT NULL,
           campaign_id VARCHAR(100),
-          candidate_id VARCHAR(100),
+          nomination_id VARCHAR(100),
           candidate_name VARCHAR(255),
           candidate_email VARCHAR(255),
           voter_name VARCHAR(255) NOT NULL,
@@ -68,13 +68,13 @@ export async function POST(req: Request) {
           voter_city VARCHAR(100),
           support_reason TEXT,
           created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-        )`
-      )
+        );
 
-      // Ensure candidate_email column exists if table was created previously
-      try {
-        await pool.query('ALTER TABLE public.endorsement_votes ADD COLUMN IF NOT EXISTS candidate_email VARCHAR(255)')
-      } catch {}
+        CREATE INDEX IF NOT EXISTS idx_web_votes_ref ON public.web_votes (vote_reference);
+        CREATE INDEX IF NOT EXISTS idx_web_votes_nom_id ON public.web_votes (nomination_id);
+        CREATE INDEX IF NOT EXISTS idx_web_votes_voter_email ON public.web_votes (LOWER(voter_email));
+        CREATE INDEX IF NOT EXISTS idx_web_votes_cand_email ON public.web_votes (LOWER(candidate_email));`
+      )
 
       // Resolve candidate email from candidate ID or catalog
       let resolvedCandEmail = body.candidate_email ? String(body.candidate_email).trim().toLowerCase() : ''
@@ -99,15 +99,16 @@ export async function POST(req: Request) {
       }
 
       await pool.query(
-        `INSERT INTO public.endorsement_votes 
-          (vote_reference, campaign_id, candidate_id, candidate_name, candidate_email, voter_name, voter_email, voter_phone, voter_company, voter_designation, voter_city, support_reason)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
+        `INSERT INTO public.web_votes 
+          (vote_reference, campaign_id, nomination_id, candidate_name, candidate_email, voter_name, voter_email, voter_phone, voter_company, voter_designation, voter_city, support_reason, created_at)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, NOW())
+         ON CONFLICT (vote_reference) DO NOTHING`,
         [
           voteRef,
-          campaign_id || 'pg-ded-2026',
+          campaign_id || '23ba107a-f314-4cd9-b04a-7af04951f95c',
           cleanCandidateId,
-          candidate_name || 'Nominee',
-          resolvedCandEmail || null,
+          candidate_name || 'Payal Parmar',
+          resolvedCandEmail || 'plan.vishalparmar@gmail.com',
           cleanFullName,
           cleanEmail,
           cleanPhone,
@@ -117,8 +118,31 @@ export async function POST(req: Request) {
           support_reason || null,
         ]
       )
+
+      // Also replicate to endorsement_votes if present for backwards compatibility
+      try {
+        await pool.query(
+          `INSERT INTO public.endorsement_votes 
+            (vote_reference, campaign_id, candidate_id, candidate_name, candidate_email, voter_name, voter_email, voter_phone, voter_company, voter_designation, voter_city, support_reason)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
+          [
+            voteRef,
+            campaign_id || '23ba107a-f314-4cd9-b04a-7af04951f95c',
+            cleanCandidateId,
+            candidate_name || 'Nominee',
+            resolvedCandEmail || null,
+            cleanFullName,
+            cleanEmail,
+            cleanPhone,
+            company || business || null,
+            designation || null,
+            cleanCity,
+            support_reason || null,
+          ]
+        )
+      } catch {}
     } catch (dbErr) {
-      console.warn('Optional vote DB recording note:', dbErr)
+      console.warn('web_votes DB recording note:', dbErr)
     }
 
     // Always buffer vote into IN_MEMORY_VOTES for high availability
@@ -132,6 +156,31 @@ export async function POST(req: Request) {
         resolvedEmailForBuffer = 'hardik@peersglobal.com'
       }
     }
+
+    // Attempt sync to production backend (peersunity.com)
+    try {
+      await fetch('https://peersunity.com/api/v1/leadership/public/votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          campaign_id: campaign_id || '23ba107a-f314-4cd9-b04a-7af04951f95c',
+          nomination_id: cleanCandidateId,
+          candidate_id: cleanCandidateId,
+          voter_name: cleanFullName,
+          full_name: cleanFullName,
+          voter_email: cleanEmail,
+          email: cleanEmail,
+          voter_phone: cleanPhone,
+          phone: cleanPhone,
+          voter_city: cleanCity,
+          city: cleanCity,
+          voter_company: company || business || null,
+          voter_designation: designation || null,
+          support_reason: support_reason || null,
+          vote_reference: voteRef,
+        }),
+      }).catch(() => null)
+    } catch {}
 
     IN_MEMORY_VOTES.push({
       id: `vote-${Date.now()}`,

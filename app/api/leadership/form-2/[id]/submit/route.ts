@@ -95,7 +95,59 @@ export async function POST(
         [JSON.stringify(existingSnapshot), parent.id]
       )
 
-      // Insert or update sub nomination row
+      // 1. Update and insert into public.web_nominations table (for admin panel)
+      try {
+        await pool.query(
+          `CREATE TABLE IF NOT EXISTS public.web_nominations (
+            id VARCHAR(100) PRIMARY KEY,
+            campaign_id VARCHAR(100),
+            scope_id VARCHAR(100),
+            user_id VARCHAR(100),
+            application_number VARCHAR(100) UNIQUE,
+            form_type VARCHAR(50) DEFAULT 'main_form_1',
+            parent_nomination_id VARCHAR(100),
+            full_name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            mobile VARCHAR(50),
+            company VARCHAR(255),
+            designation VARCHAR(255),
+            city VARCHAR(100),
+            state VARCHAR(100),
+            status VARCHAR(50) DEFAULT 'submitted',
+            form_data JSONB,
+            documents JSONB,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+          )`
+        )
+
+        // Insert secondary sub-nomination record
+        await pool.query(
+          `INSERT INTO public.web_nominations 
+            (id, campaign_id, scope_id, user_id, application_number, form_type, parent_nomination_id, full_name, email, mobile, status, form_data, created_at, updated_at)
+           VALUES ($1, $2, $3, $4, $5, 'sub_form_2', $6, $7, $8, $9, 'submitted', $10, NOW(), NOW())
+           ON CONFLICT (id) DO UPDATE SET 
+             form_data = EXCLUDED.form_data, 
+             status = 'submitted', 
+             updated_at = NOW()`,
+          [
+            subNominationId,
+            parent.campaign_id,
+            parent.scope_id,
+            parent.user_id,
+            f2AppNumber,
+            parent.id,
+            parent.full_name,
+            parent.email,
+            payload.mobile || parent.mobile || '',
+            JSON.stringify(payload),
+          ]
+        )
+      } catch (e) {
+        console.warn('web_nominations sub_form_2 write error:', e)
+      }
+
+      // 2. Also maintain legacy leadership_nominations
       await pool.query(
         `INSERT INTO leadership_nominations 
           (id, campaign_id, scope_id, user_id, application_number, full_name, email, mobile, status, profile_snapshot, created_at, submitted_at)

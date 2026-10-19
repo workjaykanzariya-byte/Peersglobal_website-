@@ -296,7 +296,39 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
     return knownMatch
   }
 
-  // 3. Check leadership_nominations table
+  // 2b. Check web_nominations table
+  try {
+    const webNomRes = await pool.query(
+      `SELECT id, campaign_id, scope_id, application_number, full_name, email, mobile, company, designation, city, state, status, form_data
+       FROM public.web_nominations 
+       WHERE LOWER(email) = $1 
+       ORDER BY created_at DESC 
+       LIMIT 1`,
+      [cleanEmail]
+    )
+
+    if (webNomRes.rows.length > 0) {
+      const row = webNomRes.rows[0]
+      const snap = row.form_data || {}
+      return {
+        id: row.id,
+        full_name: row.full_name || snap.full_name || 'Nominated Candidate',
+        email: cleanEmail,
+        mobile: row.mobile || snap.mobile || '',
+        company: row.company || snap.company_name || snap.company || 'Enterprise Leader',
+        designation: row.designation || snap.designation || 'Nominee Leader',
+        city: row.city || snap.city || 'Surat',
+        state: row.state || snap.state || 'Gujarat',
+        role_title: 'District Executive Director',
+        scope_name: snap.scope_name || 'Surat District',
+        status: row.status || 'submitted',
+      }
+    }
+  } catch (err) {
+    // continue
+  }
+
+  // 3. Check legacy leadership_nominations table
   try {
     const nomRes = await pool.query(
       `SELECT id, campaign_id, scope_id, application_number, full_name, email, mobile, status, profile_snapshot
@@ -328,7 +360,34 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
     console.warn('candidate lookup from leadership_nominations warning:', err)
   }
 
-  // 4. Check endorsement_votes table
+  // 3b. Check web_votes table
+  try {
+    const webVoteRes = await pool.query(
+      `SELECT nomination_id, candidate_name, candidate_email 
+       FROM public.web_votes 
+       WHERE LOWER(candidate_email) = $1 
+       LIMIT 1`,
+      [cleanEmail]
+    )
+
+    if (webVoteRes.rows.length > 0) {
+      const v = webVoteRes.rows[0]
+      return {
+        id: v.nomination_id || `cand-${Date.now()}`,
+        full_name: v.candidate_name || 'Nominated Leader',
+        email: cleanEmail,
+        company: 'Nominated Enterprise',
+        designation: 'Candidate Leader',
+        city: 'Surat',
+        role_title: 'District Executive Director',
+        status: 'approved',
+      }
+    }
+  } catch (err) {
+    // continue
+  }
+
+  // 4. Check legacy endorsement_votes table
   try {
     const voteRes = await pool.query(
       `SELECT candidate_id, candidate_name, candidate_email 
