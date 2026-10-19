@@ -14,7 +14,7 @@ export interface GalaxyButtonProps
   target?: string
   rel?: string
   size?: 'sm' | 'default' | 'md' | 'lg' | 'small'
-  variant?: 'primary' | 'secondary' | 'transparent' | 'transparent-light' | 'gradient'
+  variant?: 'primary' | 'secondary' | 'transparent' | 'transparent-light' | 'gradient' | 'white-gradient' | 'gradient-white'
   icon?: React.ReactNode | boolean
   showIcon?: boolean
   children?: React.ReactNode
@@ -113,7 +113,9 @@ export const GalaxyButton = React.forwardRef<
         ? 'galaxy-btn--transparent-light'
         : variant === 'gradient'
           ? 'galaxy-btn--gradient'
-          : ''
+          : variant === 'white-gradient'
+            ? 'galaxy-btn--white-gradient'
+            : 'galaxy-btn--gradient-white'
 
   // Smart download link detection:
   // If the button text mentions download unity/app/peers or links to /download,

@@ -199,6 +199,7 @@ export default function TheCitizensPage() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
                   href="/membership"
+                  variant="white-gradient"
                   size="default"
                   className="font-semibold"
                 >
@@ -207,7 +208,7 @@ export default function TheCitizensPage() {
 
                 <GalaxyButton
                   href="/leadership"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-medium"
                 >

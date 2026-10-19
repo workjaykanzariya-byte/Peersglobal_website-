@@ -157,6 +157,7 @@ export default function OneMillionMissionPage() {
                 <div className="flex flex-wrap items-center gap-3.5">
                   <GalaxyButton
                     href="/membership"
+                    variant="white-gradient"
                     size="lg"
                     className="text-xs sm:text-sm"
                   >
@@ -167,7 +168,7 @@ export default function OneMillionMissionPage() {
                     href={SITE.playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    variant="transparent"
+                    variant="gradient-white"
                     size="lg"
                     className="text-xs sm:text-sm"
                   >
@@ -861,6 +862,7 @@ export default function OneMillionMissionPage() {
               <div className="flex flex-wrap items-center justify-center gap-3.5">
                 <GalaxyButton
                   href="/membership"
+                  variant="gradient-white"
                   size="lg"
                   className="text-xs sm:text-sm"
                 >
@@ -870,7 +872,7 @@ export default function OneMillionMissionPage() {
                   href={SITE.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="transparent-light"
                   size="lg"
                   className="text-xs sm:text-sm"
                 >

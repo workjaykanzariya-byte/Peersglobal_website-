@@ -311,6 +311,7 @@ export function PartnerPageClient() {
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
                   <GalaxyButton
                     href="#start-conversation"
+                    variant="white-gradient"
                     size="default"
                     className="uppercase tracking-wider font-bold"
                   >
@@ -319,7 +320,7 @@ export function PartnerPageClient() {
 
                   <GalaxyButton
                     href="#who-we-partner-with"
-                    variant="transparent"
+                    variant="gradient-white"
                     size="default"
                     className="uppercase tracking-wider font-bold"
                   >

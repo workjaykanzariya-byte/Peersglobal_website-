@@ -132,8 +132,9 @@ export function GalleryPageClient() {
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <GalaxyButton
                 href="#gallery-grid"
+                variant="white-gradient"
                 size="lg"
-                className="text-xs sm:text-sm uppercase tracking-wider"
+                className="text-xs sm:text-sm uppercase tracking-wider font-bold"
               >
                 BROWSE GALLERY
               </GalaxyButton>
@@ -141,9 +142,9 @@ export function GalleryPageClient() {
                 href="https://unity.peersglobal.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="transparent"
+                variant="gradient-white"
                 size="lg"
-                className="text-xs sm:text-sm uppercase tracking-wider text-white"
+                className="text-xs sm:text-sm uppercase tracking-wider font-bold text-white"
               >
                 DOWNLOAD UNITY APP
               </GalaxyButton>

@@ -308,17 +308,19 @@ export function ContactPageClient() {
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
                   <GalaxyButton
                     href="#send-message"
-                    variant="primary"
+                    variant="white-gradient"
                     size="md"
+                    className="font-bold"
                   >
                     Send Us a Message
                   </GalaxyButton>
 
                   <GalaxyButton
                     href="#how-can-we-help"
-                    variant="transparent"
+                    variant="gradient-white"
                     size="md"
                     showIcon={false}
+                    className="font-bold"
                   >
                     The 7 Categories
                   </GalaxyButton>

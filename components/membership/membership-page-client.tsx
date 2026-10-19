@@ -235,8 +235,9 @@ export function MembershipPageClient() {
                   href="https://peersunity.com/circles"
                   target="_blank"
                   rel="noopener noreferrer"
+                  variant="white-gradient"
                   size="default"
-                  className="font-semibold"
+                  className="font-bold"
                 >
                   Find Your Circle
                 </GalaxyButton>
@@ -246,10 +247,10 @@ export function MembershipPageClient() {
                   onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-medium"
+                  className="font-bold"
                 >
                   Download Unity App
                 </GalaxyButton>

@@ -277,6 +277,7 @@ export function LeadershipLadderClient() {
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
                   href="/leadership/apply"
+                  variant="white-gradient"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
@@ -287,7 +288,7 @@ export function LeadershipLadderClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   icon={<Smartphone className="size-4 text-sky-400" />}
                   className="font-bold uppercase tracking-wider"
