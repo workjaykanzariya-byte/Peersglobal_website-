@@ -1609,10 +1609,10 @@ class LeadershipApiService {
       },
     }
 
-    // 1. Try direct single-step nomination endpoint: POST /public/campaigns/{id}/nominate
+    // 1. Submit nomination via main official API: POST /campaigns/{id}/nominations
     try {
       const res = await this.requestWithFallback<any>(
-        `/public/campaigns/${campaignId}/nominate`,
+        `/campaigns/${campaignId}/nominations`,
         {
           method: 'POST',
           body: JSON.stringify(fullPayload),
