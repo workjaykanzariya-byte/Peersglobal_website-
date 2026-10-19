@@ -826,6 +826,7 @@ export function WatchlistClient() {
                 href="/download"
                 target="_blank"
                 rel="noopener noreferrer"
+                variant="white-gradient"
                 size="default"
                 className="uppercase tracking-wider font-bold"
               >
@@ -834,7 +835,7 @@ export function WatchlistClient() {
 
               <GalaxyButton
                 href="/membership"
-                variant="transparent"
+                variant="gradient-white"
                 size="default"
                 className="uppercase tracking-wider font-bold"
               >

@@ -67,6 +67,7 @@ export default async function GlobalWinnersPage() {
             <div className="pt-2 flex justify-center gap-3">
               <GalaxyButton
                 href="/leadership/campaigns"
+                variant="white-gradient"
                 size="default"
                 className="text-xs sm:text-sm"
               >
@@ -74,7 +75,7 @@ export default async function GlobalWinnersPage() {
               </GalaxyButton>
               <GalaxyButton
                 href="/leadership/votes/verify"
-                variant="transparent"
+                variant="gradient-white"
                 size="default"
                 className="text-xs sm:text-sm"
               >

@@ -128,8 +128,9 @@ export function StoriesPageClient() {
               <div className="fd-hero__cta flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
                   href="#authenticity"
+                  variant="white-gradient"
                   size="lg"
-                  className="text-xs sm:text-sm font-semibold"
+                  className="text-xs sm:text-sm font-bold"
                 >
                   EXPLORE THE FRAMEWORK
                 </GalaxyButton>
@@ -137,9 +138,9 @@ export function StoriesPageClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="lg"
-                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
+                  className="text-xs sm:text-sm font-bold uppercase tracking-wider"
                 >
                   DOWNLOAD UNITY APP
                 </GalaxyButton>

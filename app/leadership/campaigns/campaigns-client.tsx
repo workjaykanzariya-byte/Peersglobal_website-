@@ -157,6 +157,7 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <GalaxyButton
               href="/leadership/votes/verify"
+              variant="white-gradient"
               size="default"
               className="text-xs sm:text-sm"
             >
@@ -165,7 +166,7 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
 
             <GalaxyButton
               href="/leadership/juror"
-              variant="transparent"
+              variant="gradient-white"
               size="default"
               className="text-xs sm:text-sm"
             >

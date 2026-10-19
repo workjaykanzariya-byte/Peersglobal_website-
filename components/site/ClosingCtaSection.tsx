@@ -233,6 +233,7 @@ export function ClosingCtaSection({
                   }
                   target={primaryButtonHref.startsWith('http') ? '_blank' : undefined}
                   rel={primaryButtonHref.startsWith('http') ? 'noreferrer' : undefined}
+                  variant={secondaryButtonText && resolvedSecondaryHref ? 'white-gradient' : 'gradient-white'}
                   size="lg"
                   className="uppercase tracking-wider font-bold"
                 >
@@ -248,9 +249,9 @@ export function ClosingCtaSection({
                       ? (e: any) => handleSmartAppDownload(e, resolvedSecondaryHref)
                       : undefined
                   }
-                  variant="transparent"
+                  variant="gradient-white"
                   size="lg"
-                  icon={secondaryButtonIcon ?? <Download aria-hidden className="size-4" />}
+                  icon={secondaryButtonIcon ?? true}
                   target={isSecondaryExternal ? '_blank' : undefined}
                   rel={isSecondaryExternal ? 'noreferrer' : undefined}
                   className="uppercase tracking-wider font-bold"

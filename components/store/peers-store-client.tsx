@@ -841,6 +841,7 @@ export function PeersStoreClient({
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  variant="white-gradient"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
@@ -850,7 +851,7 @@ export function PeersStoreClient({
 
                 <GalaxyButton
                   href="/marketplace"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >

@@ -294,6 +294,7 @@ export default function TenWaysOfCollaborationPage() {
                   href="https://peersunity.com/circles"
                   target="_blank"
                   rel="noopener noreferrer"
+                  variant="white-gradient"
                   size="lg"
                   className="text-xs sm:text-sm"
                 >
@@ -303,7 +304,7 @@ export default function TenWaysOfCollaborationPage() {
                   href="https://peersunity.com/apply_membership"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="lg"
                   className="text-xs sm:text-sm"
                 >
@@ -658,6 +659,7 @@ export default function TenWaysOfCollaborationPage() {
                   href="https://peersunity.com/circles"
                   target="_blank"
                   rel="noopener noreferrer"
+                  variant="white-gradient"
                   size="lg"
                   className="text-xs sm:text-sm"
                 >
@@ -667,7 +669,7 @@ export default function TenWaysOfCollaborationPage() {
                   href="https://peersunity.com/apply_membership"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="lg"
                   className="text-xs sm:text-sm"
                 >
@@ -983,6 +985,7 @@ export default function TenWaysOfCollaborationPage() {
               href="https://peersunity.com/circles"
               target="_blank"
               rel="noopener noreferrer"
+              variant="white-gradient"
               size="lg"
             >
               FIND YOUR CIRCLE
@@ -991,7 +994,7 @@ export default function TenWaysOfCollaborationPage() {
               href="https://peersunity.com/apply_membership"
               target="_blank"
               rel="noopener noreferrer"
-              variant="transparent"
+              variant="gradient-white"
               size="lg"
             >
               APPLY FOR MEMBERSHIP

@@ -52,8 +52,9 @@ export function HeroSection() {
                 href="https://peersunity.com/circles"
                 target="_blank"
                 rel="noopener noreferrer"
+                variant="white-gradient"
                 size="lg"
-                className="text-xs sm:text-sm"
+                className="text-xs sm:text-sm font-bold"
               >
                 FIND YOUR CIRCLE
               </GalaxyButton>
@@ -61,11 +62,11 @@ export function HeroSection() {
                 href="https://peersunity.com/apply_membership"
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="transparent"
+                variant="gradient-white"
                 size="lg"
-                className="text-xs sm:text-sm"
+                className="text-xs sm:text-sm font-bold"
               >
-                Apply for Membership
+                APPLY FOR MEMBERSHIP
               </GalaxyButton>
             </div>
 

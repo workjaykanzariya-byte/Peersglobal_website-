@@ -184,18 +184,18 @@ export function SocialImpactClient() {
                 <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5">
                   <GalaxyButton
                     href="/1-million-mission"
-                    variant="primary"
+                    variant="white-gradient"
                     size="md"
-                    className="w-full sm:w-auto justify-center"
+                    className="w-full sm:w-auto justify-center font-bold"
                   >
                     Explore 1M Mission
                   </GalaxyButton>
 
                   <GalaxyButton
                     href="#sdgs"
-                    variant="transparent"
+                    variant="gradient-white"
                     size="md"
-                    className="w-full sm:w-auto justify-center"
+                    className="w-full sm:w-auto justify-center font-bold"
                   >
                     Evidenced SDGs
                   </GalaxyButton>

@@ -231,6 +231,7 @@ export default function TheCurrencyPage() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
                   href="/download"
+                  variant="white-gradient"
                   size="default"
                   className="font-semibold"
                 >
@@ -239,7 +240,7 @@ export default function TheCurrencyPage() {
 
                 <GalaxyButton
                   href="/stories"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-medium"
                 >
@@ -1287,6 +1288,7 @@ export default function TheCurrencyPage() {
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <GalaxyButton
                   href="/1-million-mission"
+                  variant="white-gradient"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >
@@ -1294,7 +1296,7 @@ export default function TheCurrencyPage() {
                 </GalaxyButton>
                 <GalaxyButton
                   href="/download"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >
