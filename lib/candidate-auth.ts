@@ -271,8 +271,8 @@ export async function fetchRemoteCandidates(): Promise<CandidateProfile[]> {
  * Find candidate by email across:
  * 1. Remote peersunity.com backend
  * 2. KNOWN_CANDIDATES catalog
- * 3. public.leadership_nominations table
- * 4. public.endorsement_votes table
+ * 3. public.web_nominations table
+ * 4. public.web_votes table
  * 5. public.users table
  */
 export async function findCandidateByEmail(rawEmail: string): Promise<CandidateProfile | null> {
@@ -328,91 +328,7 @@ export async function findCandidateByEmail(rawEmail: string): Promise<CandidateP
     // continue
   }
 
-  // 3. Check legacy leadership_nominations table
-  try {
-    const nomRes = await pool.query(
-      `SELECT id, campaign_id, scope_id, application_number, full_name, email, mobile, status, profile_snapshot
-       FROM public.leadership_nominations 
-       WHERE LOWER(email) = $1 
-       ORDER BY created_at DESC 
-       LIMIT 1`,
-      [cleanEmail]
-    )
 
-    if (nomRes.rows.length > 0) {
-      const row = nomRes.rows[0]
-      const snap = row.profile_snapshot || {}
-      return {
-        id: row.id,
-        full_name: row.full_name || snap.full_name || 'Nominated Candidate',
-        email: cleanEmail,
-        mobile: row.mobile || snap.mobile || '',
-        company: snap.company_name || snap.company || 'Enterprise Leader',
-        designation: snap.designation || 'Nominee Leader',
-        city: snap.city || 'Surat',
-        state: snap.state || 'Gujarat',
-        role_title: 'District Executive Director',
-        scope_name: snap.scope_name || 'Surat District',
-        status: row.status || 'submitted',
-      }
-    }
-  } catch (err) {
-    console.warn('candidate lookup from leadership_nominations warning:', err)
-  }
-
-  // 3b. Check web_votes table
-  try {
-    const webVoteRes = await pool.query(
-      `SELECT nomination_id, candidate_name, candidate_email 
-       FROM public.web_votes 
-       WHERE LOWER(candidate_email) = $1 
-       LIMIT 1`,
-      [cleanEmail]
-    )
-
-    if (webVoteRes.rows.length > 0) {
-      const v = webVoteRes.rows[0]
-      return {
-        id: v.nomination_id || `cand-${Date.now()}`,
-        full_name: v.candidate_name || 'Nominated Leader',
-        email: cleanEmail,
-        company: 'Nominated Enterprise',
-        designation: 'Candidate Leader',
-        city: 'Surat',
-        role_title: 'District Executive Director',
-        status: 'approved',
-      }
-    }
-  } catch (err) {
-    // continue
-  }
-
-  // 4. Check legacy endorsement_votes table
-  try {
-    const voteRes = await pool.query(
-      `SELECT candidate_id, candidate_name, candidate_email 
-       FROM public.endorsement_votes 
-       WHERE LOWER(candidate_email) = $1 
-       LIMIT 1`,
-      [cleanEmail]
-    )
-
-    if (voteRes.rows.length > 0) {
-      const v = voteRes.rows[0]
-      return {
-        id: v.candidate_id || `cand-${Date.now()}`,
-        full_name: v.candidate_name || 'Nominated Leader',
-        email: cleanEmail,
-        company: 'Nominated Enterprise',
-        designation: 'Candidate Leader',
-        city: 'Surat',
-        role_title: 'District Executive Director',
-        status: 'shortlisted',
-      }
-    }
-  } catch (err) {
-    console.warn('candidate lookup from endorsement_votes warning:', err)
-  }
 
   // 5. Check users table in PostgreSQL
   try {
@@ -548,15 +464,15 @@ export async function getCandidateVotesStrict(candidate: CandidateProfile): Prom
 
   const votesMap = new Map<string, VoterEndorsement>()
 
-  // 1. Fetch from Database
+  // 1. Fetch from Database (public.web_votes)
   try {
     const res = await pool.query(
-      `SELECT id, vote_reference, campaign_id, candidate_id, candidate_name, candidate_email,
+      `SELECT id, vote_reference, campaign_id, nomination_id AS candidate_id, candidate_name, candidate_email,
               voter_name, voter_email, voter_phone, voter_company, voter_designation,
               voter_city, support_reason, created_at
-       FROM public.endorsement_votes
+       FROM public.web_votes
        WHERE LOWER(candidate_email) = $1 
-          OR candidate_id = $2 
+          OR nomination_id = $2 
           OR LOWER(candidate_name) = $3
        ORDER BY created_at DESC`,
       [cleanEmail, cleanId, cleanName]

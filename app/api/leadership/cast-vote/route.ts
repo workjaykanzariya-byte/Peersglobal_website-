@@ -119,28 +119,6 @@ export async function POST(req: Request) {
         ]
       )
 
-      // Also replicate to endorsement_votes if present for backwards compatibility
-      try {
-        await pool.query(
-          `INSERT INTO public.endorsement_votes 
-            (vote_reference, campaign_id, candidate_id, candidate_name, candidate_email, voter_name, voter_email, voter_phone, voter_company, voter_designation, voter_city, support_reason)
-           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`,
-          [
-            voteRef,
-            campaign_id || '23ba107a-f314-4cd9-b04a-7af04951f95c',
-            cleanCandidateId,
-            candidate_name || 'Nominee',
-            resolvedCandEmail || null,
-            cleanFullName,
-            cleanEmail,
-            cleanPhone,
-            company || business || null,
-            designation || null,
-            cleanCity,
-            support_reason || null,
-          ]
-        )
-      } catch {}
     } catch (dbErr) {
       console.warn('web_votes DB recording note:', dbErr)
     }

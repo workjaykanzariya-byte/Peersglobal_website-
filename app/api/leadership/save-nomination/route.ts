@@ -84,49 +84,6 @@ export async function POST(req: Request) {
         ]
       )
 
-      // 2. Also write to legacy leadership_nominations for backwards compatibility
-      try {
-        await pool.query(
-          `CREATE TABLE IF NOT EXISTS public.leadership_nominations (
-            id VARCHAR(100) PRIMARY KEY,
-            campaign_id VARCHAR(100),
-            scope_id VARCHAR(100),
-            application_number VARCHAR(100),
-            full_name VARCHAR(255),
-            email VARCHAR(255) NOT NULL,
-            mobile VARCHAR(50),
-            status VARCHAR(50) DEFAULT 'submitted',
-            profile_snapshot JSONB,
-            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-            submitted_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-          )`
-        )
-
-        await pool.query(
-          `INSERT INTO public.leadership_nominations 
-            (id, campaign_id, scope_id, application_number, full_name, email, mobile, status, profile_snapshot, created_at, submitted_at)
-           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, NOW(), NOW())
-           ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email, full_name = EXCLUDED.full_name`,
-          [
-            candidateId,
-            campaign_id || '23ba107a-f314-4cd9-b04a-7af04951f95c',
-            scope_id || null,
-            applicationNumber,
-            cleanFullName || 'Nominated Candidate',
-            cleanEmail,
-            cleanMobile,
-            'submitted',
-            JSON.stringify({
-              full_name: cleanFullName,
-              company_name: cleanCompany,
-              designation: cleanDesignation,
-              email: cleanEmail,
-              mobile: cleanMobile,
-              answers: answers || {},
-            }),
-          ]
-        )
-      } catch {}
     } catch (dbErr) {
       console.warn('save-nomination DB error:', dbErr)
     }

@@ -54,7 +54,7 @@ export async function POST(
   // 2. Query local database
   try {
     const dbRes = await pool.query(
-      `SELECT id, email, full_name, profile_snapshot FROM leadership_nominations 
+      `SELECT id, email, full_name, form_data AS profile_snapshot FROM public.web_nominations 
        WHERE id = $1 OR application_number = $1
        LIMIT 1`,
       [nominationId]
