@@ -85,7 +85,7 @@ export function CandidateCard({ candidate, canVote = true, onVoteClick }: Candid
                 {candidate.years_in_peers} yrs in Peers
               </span>
             )}
-            {candidate.votes_count !== undefined && (
+            {typeof candidate.votes_count === 'number' && candidate.votes_count > 0 && (
               <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-700 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-lg">
                 <Vote className="w-3.5 h-3.5 text-[#1D4ED8]" />
                 {candidate.votes_count} verified votes

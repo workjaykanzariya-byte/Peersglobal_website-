@@ -90,6 +90,7 @@ export function SiteFooter() {
         { label: 'Circle Director', href: '/leadership/circle-director' },
         { label: 'Industry Director', href: '/leadership/industry-director' },
         { label: 'Executive Director', href: '/leadership/executive-director' },
+        { label: 'Campaigns', href: '/leadership/campaigns' },
         { label: 'Life Impact Score', href: '/life-impact-score' },
         { label: 'Peers Coin & Standing', href: '/peer-standing' },
         { label: 'Peers Store', href: '/peers-store' },

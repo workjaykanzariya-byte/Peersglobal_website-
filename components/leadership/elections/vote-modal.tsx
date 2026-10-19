@@ -418,7 +418,7 @@ export function VoteModal({
             <button
               type="submit"
               disabled={loading || otp.join('').length !== 6}
-              className="w-full py-3.5 px-5 rounded-full brand-btn-primary text-white font-semibold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full py-3.5 px-5 rounded-full brand-btn-primary bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-semibold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -473,7 +473,7 @@ export function VoteModal({
                 type="button"
                 onClick={handleCastVote}
                 disabled={loading}
-                className="flex-2 py-3 px-6 rounded-full brand-btn-primary text-white font-semibold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="flex-2 py-3 px-6 rounded-full brand-btn-primary bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] hover:opacity-95 text-white font-semibold text-xs shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Vote className="w-4 h-4" />
                 Confirm &amp; Cast Ballot

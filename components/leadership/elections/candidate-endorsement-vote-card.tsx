@@ -183,14 +183,28 @@ export function CandidateEndorsementVoteCard({
 
             {/* Candidate Header Row */}
             <div className="flex items-start gap-4 sm:gap-5 pt-1">
-              {/* Circular Avatar with Ring */}
+              {/* Circular Avatar with Ring — Real photo from API or candidate initials monogram */}
               <div className="relative shrink-0">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-slate-200 ring-4 ring-blue-500/15 shadow-md bg-slate-100">
-                  <img
-                    src={candidate.photo_url || '/images/who-we-are-friends.jpg'}
-                    alt={candidate.full_name}
-                    className="w-full h-full object-cover object-top"
-                  />
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-slate-200 ring-4 ring-blue-500/15 shadow-md bg-slate-100 flex items-center justify-center">
+                  {candidate.photo_url ? (
+                    <img
+                      src={candidate.photo_url}
+                      alt={candidate.full_name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1D4ED8] to-[#E11D48] text-white font-extrabold text-2xl sm:text-3xl select-none">
+                      {candidate.full_name
+                        ? candidate.full_name
+                            .trim()
+                            .split(/\s+/)
+                            .map((n) => n[0])
+                            .slice(0, 2)
+                            .join('')
+                            .toUpperCase()
+                        : 'PG'}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -220,18 +234,6 @@ export function CandidateEndorsementVoteCard({
                       {isBioExpanded ? 'Read less' : 'Read more'}
                     </button>
                   )}
-                </div>
-              </div>
-
-              {/* Votes Box on Right */}
-              <div className="shrink-0">
-                <div className="w-18 sm:w-20 py-2.5 px-2 rounded-2xl bg-slate-50 border border-slate-200 text-center shadow-2xs">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none tracking-tight">
-                    {votesCount}
-                  </div>
-                  <div className="text-[9px] font-bold tracking-widest text-slate-500 uppercase mt-1">
-                    VOTES
-                  </div>
                 </div>
               </div>
             </div>

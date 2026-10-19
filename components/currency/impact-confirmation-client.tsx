@@ -518,7 +518,7 @@ export function ImpactConfirmationClient() {
                 <div className="text-xs font-serif font-bold text-slate-900">
                   {vp.name}
                 </div>
-                <div className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold border inline-block ${vp.color}`}>
+                <div className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold border inline-block ${(vp as any).color || 'bg-blue-50 text-blue-700 border-blue-200'}`}>
                   {vp.points}
                 </div>
               </div>

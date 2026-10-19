@@ -4,7 +4,7 @@
  * Connects to Unity App backend REST APIs (Dev Server first, then Production).
  */
 
-const RAW_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://dev.peersunity.com'
+const RAW_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://peersunity.com'
 const BASE_URL = RAW_BASE_URL.replace(/\/+$/, '')
 
 export interface ApiGalleryPhoto {
