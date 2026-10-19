@@ -149,6 +149,7 @@ export const HEADER_NAV: NavItem[] = [
       { label: 'Executive Director', href: '/leadership/executive-director', desc: 'Area / District / State / Country leadership', phase: 1 },
       { label: 'Ambassador', href: '/leadership/ambassadors', desc: 'Carrying the name into rooms where it is not yet known', phase: 1 },
       { label: 'Apply to Lead', href: '/leadership/apply', desc: 'Submit expression of interest for leadership', phase: 1 },
+      { label: 'Campaigns', href: '/leadership/campaigns', desc: 'Active elections & leadership selections', phase: 1 },
     ],
   },
   {
@@ -358,6 +359,7 @@ export const FOOTER_BANDS: FooterBand[] = [
           { label: 'Industry Director', href: '/leadership/industry-director', phase: 'P1', headerShared: true },
           { label: 'Executive Director', href: '/leadership/executive-director', phase: 'P1', headerShared: true },
           { label: 'Ambassadors', href: '/leadership/ambassadors', phase: 'P1', headerShared: true },
+          { label: 'Campaigns', href: '/leadership/campaigns', phase: 'P1', headerShared: true },
           { label: 'Global Advisory Board', href: '/leadership/global-advisors', phase: 'P2', headerShared: true },
           { label: 'Apply to Lead', href: '/leadership/apply', phase: 'P1', headerShared: true },
         ],

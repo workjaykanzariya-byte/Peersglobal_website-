@@ -795,27 +795,38 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
     profile.jurisdiction ||
     'Surat District'
 
-  // 5. Photo URL
-  const photoUrl =
+  // 5. Photo URL: Only use genuine photo from API, never fallback to random stock models
+  const rawPhoto =
     raw.photo_url ||
     raw.profile_photo_url ||
+    raw.photo ||
     profile.photo_url ||
     profile.profile_photo_url ||
+    profile.photo ||
     raw.user?.avatar ||
-    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'
+    raw.user?.photo ||
+    null
+
+  const photoUrl =
+    rawPhoto && typeof rawPhoto === 'string' && !rawPhoto.includes('unsplash.com')
+      ? rawPhoto
+      : null
 
   // 6. Bio & Vision
   const bio =
     raw.bio ||
     profile.bio ||
-    'Serial entrepreneur with 14 years in enterprise software and community governance. Founding leader dedicated to scaling high-velocity peer commerce across the District.'
+    'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth.'
 
   const visionStatement =
     raw.vision_statement ||
     profile.vision_statement ||
-    'To build an interconnected, high-trust leadership ecosystem that scales regional enterprises and unlocks multi-generational collaboration across Gujarat.'
+    'To build an interconnected, high-trust leadership ecosystem that scales regional enterprises and unlocks multi-generational collaboration.'
 
   const id = raw.id || raw.nomination_id || raw.candidate_id || 'f92a7bec-fb45-403e-a423-94da1fe964d3'
+
+  const rawVotes = raw.votes_count ?? raw.total_votes ?? null
+  const votesCount = typeof rawVotes === 'number' ? rawVotes : (rawVotes ? Number(rawVotes) : 0)
 
   return {
     id,
@@ -827,16 +838,16 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
     company,
     designation,
     scope_name: scopeName,
-    photo_url: photoUrl,
+    photo_url: photoUrl || undefined,
     bio,
     vision_statement: visionStatement,
     video_pitch_url: raw.video_pitch_url || profile.video_pitch_url || null,
-    years_in_peers: raw.years_in_peers || profile.years_in_peers || 3,
-    standing_score: raw.standing_score || 96,
+    years_in_peers: raw.years_in_peers || profile.years_in_peers || 1,
+    standing_score: raw.standing_score || 90,
     status: raw.status || 'approved',
-    votes_count: raw.votes_count || raw.total_votes || 546,
+    votes_count: votesCount,
     social_links: raw.social_links || {
-      linkedin: 'https://linkedin.com/in/hardikchauhan',
+      linkedin: 'https://linkedin.com',
       website: 'https://peersglobal.com',
     },
   }

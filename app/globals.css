@@ -157,6 +157,18 @@ html, body {
   color: transparent !important;
 }
 
+.brand-btn-primary {
+  background: linear-gradient(135deg, #1D4ED8 0%, #E11D48 100%) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.brand-btn-primary:hover {
+  opacity: 0.95 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 25px -5px rgba(29, 78, 216, 0.4), 0 8px 10px -6px rgba(225, 29, 72, 0.3) !important;
+}
+
 /* =============================================================
    DIRECTION 1 — MICROSOFT ENTERPRISE (CLEAN, SHARP & ROYAL)
    White canvas, #1D4ED8 Royal Blue, #E11D48 Accent, Libre Franklin
