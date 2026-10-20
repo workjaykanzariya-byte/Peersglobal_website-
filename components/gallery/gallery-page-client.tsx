@@ -252,28 +252,38 @@ export function GalleryPageClient() {
             <div className="pt-4 flex flex-wrap items-center justify-center gap-3.5">
               {photos.length > 1 && (
                 <div className="relative p-[1.5px] rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] shadow-md shadow-blue-900/10 hover:shadow-lg hover:shadow-blue-900/15 transition-all">
-                  <div className="p-1 rounded-full bg-white flex items-center gap-1 text-xs font-semibold">
+                  <div className="p-1 rounded-full bg-slate-100 flex items-center gap-1 text-xs font-semibold">
                     <button
                       onClick={() => setViewMode('coverflow')}
                       className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
                         viewMode === 'coverflow'
                           ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
-                          : 'text-slate-800 hover:text-black hover:bg-slate-100/70 font-semibold'
+                          : 'text-black hover:bg-white/80 font-bold'
                       }`}
                     >
-                      <Sparkles className={`size-3.5 stroke-[2.2] transition-colors ${viewMode === 'coverflow' ? 'text-white' : 'text-black'}`} />
-                      <span>3D Showcase</span>
+                      <Sparkles
+                        size={15}
+                        strokeWidth={2.6}
+                        style={{ stroke: viewMode === 'coverflow' ? '#ffffff' : '#000000' }}
+                        className="shrink-0 transition-colors"
+                      />
+                      <span style={{ color: viewMode === 'coverflow' ? '#ffffff' : '#000000' }}>3D Showcase</span>
                     </button>
                     <button
                       onClick={() => setViewMode('grid')}
                       className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
                         viewMode === 'grid'
                           ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
-                          : 'text-slate-800 hover:text-black hover:bg-slate-100/70 font-semibold'
+                          : 'text-black hover:bg-white/80 font-bold'
                       }`}
                     >
-                      <LayoutGrid className={`size-3.5 stroke-[2.2] transition-colors ${viewMode === 'grid' ? 'text-white' : 'text-black'}`} />
-                      <span>Grid Gallery</span>
+                      <LayoutGrid
+                        size={15}
+                        strokeWidth={2.6}
+                        style={{ stroke: viewMode === 'grid' ? '#ffffff' : '#000000' }}
+                        className="shrink-0 transition-colors"
+                      />
+                      <span style={{ color: viewMode === 'grid' ? '#ffffff' : '#000000' }}>Grid Gallery</span>
                     </button>
                   </div>
                 </div>
@@ -286,13 +296,16 @@ export function GalleryPageClient() {
                 title="Refresh from Admin Panel"
                 className="relative p-[1.5px] rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] shadow-md shadow-blue-900/10 hover:shadow-lg hover:shadow-rose-900/20 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
               >
-                <div className="px-4 py-1.5 rounded-full bg-white group-hover:bg-transparent transition-colors duration-300 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+                <div className="px-4 py-1.5 rounded-full bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all duration-300 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
                   <RotateCcw
-                    className={`size-3.5 stroke-[2.2] text-black group-hover:text-white transition-colors duration-300 ${
-                      isLoading ? 'animate-spin text-rose-500' : 'group-hover:rotate-180'
+                    size={15}
+                    strokeWidth={2.6}
+                    style={{ stroke: '#000000' }}
+                    className={`shrink-0 transition-colors duration-300 group-hover:!stroke-white ${
+                      isLoading ? 'animate-spin' : 'group-hover:rotate-180'
                     }`}
                   />
-                  <span className="bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] bg-clip-text text-transparent group-hover:text-white transition-colors duration-300">
+                  <span className="text-black font-extrabold group-hover:text-white transition-colors duration-300">
                     {isLoading ? 'Updating...' : 'Refresh'}
                   </span>
                 </div>
