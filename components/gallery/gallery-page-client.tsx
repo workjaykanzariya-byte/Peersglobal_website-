@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
 import '@/app/sections.css'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
 import {
   fetchGalleryPhotos,
+  resolveImageUrl,
   type ApiGalleryPhoto,
 } from '@/lib/api/web-content'
 import {
@@ -231,18 +231,12 @@ export function GalleryPageClient() {
                 >
                   <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
                     <div className="relative h-64 sm:h-72 w-full bg-slate-950 overflow-hidden">
-                      {photo.image ? (
-                        <Image
-                          src={photo.image}
-                          alt={photo.caption || 'Community Moment'}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      ) : (
-                        <div className="size-full flex items-center justify-center bg-slate-900 text-slate-600">
-                          <Camera className="size-10 opacity-30 text-blue-400" />
-                        </div>
-                      )}
+                      <img
+                        src={resolveImageUrl(photo.image)}
+                        alt={photo.caption || photo.title || 'Gallery Photo'}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
                       
                       {/* Subtle hover overlay to view full size */}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -253,13 +247,11 @@ export function GalleryPageClient() {
                       </div>
                     </div>
 
-                    {photo.caption && (
-                      <div className="p-5">
-                        <p className="text-slate-800 text-xs sm:text-sm font-medium leading-relaxed">
-                          {photo.caption}
-                        </p>
-                      </div>
-                    )}
+                    <div className="p-4 sm:p-5">
+                      <p className="text-slate-900 font-medium text-xs sm:text-sm line-clamp-2">
+                        {photo.caption || photo.title || 'Gallery Photo'}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -367,21 +359,18 @@ export function GalleryPageClient() {
               </>
             )}
 
-            <div className="relative h-[420px] sm:h-[520px] w-full bg-slate-950">
-              {photos[lightboxIndex].image && (
-                <Image
-                  src={photos[lightboxIndex].image}
-                  alt={photos[lightboxIndex].caption || 'Community Moment'}
-                  fill
-                  className="object-contain object-center"
-                />
-              )}
+            <div className="relative max-h-[75vh] w-full flex items-center justify-center bg-slate-950 p-2 sm:p-4">
+              <img
+                src={resolveImageUrl(photos[lightboxIndex].image)}
+                alt={photos[lightboxIndex].caption || photos[lightboxIndex].title || 'Gallery Photo'}
+                className="max-h-[72vh] w-auto max-w-full object-contain rounded-lg shadow-2xl mx-auto"
+              />
             </div>
 
-            {photos[lightboxIndex].caption && (
-              <div className="p-6 bg-slate-950 text-white border-t border-white/10">
-                <p className="text-sm text-slate-200 font-light leading-relaxed max-w-3xl">
-                  {photos[lightboxIndex].caption}
+            {(photos[lightboxIndex].caption || photos[lightboxIndex].title) && (
+              <div className="p-5 sm:p-6 bg-slate-950 text-white border-t border-white/10 text-center w-full">
+                <p className="text-xs sm:text-sm text-slate-200 font-light leading-relaxed max-w-2xl mx-auto">
+                  {photos[lightboxIndex].caption || photos[lightboxIndex].title}
                 </p>
               </div>
             )}

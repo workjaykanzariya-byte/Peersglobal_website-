@@ -88,19 +88,44 @@ export function extractYoutubeVideoId(url?: string): string | undefined {
 }
 
 /**
+ * Resolves full image URL by prefixing backend domain if relative path is provided.
+ */
+export function resolveImageUrl(imagePath?: string): string {
+  if (!imagePath) return ''
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath
+  }
+  const prefix = BASE_URL || 'https://peersunity.com'
+  return `${prefix}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`
+}
+
+export const getFullImageUrl = resolveImageUrl
+
+/**
  * Normalizes raw API response item to ApiGalleryPhoto
  */
 function normalizeGalleryPhoto(raw: any, index: number): ApiGalleryPhoto {
+  const rawPath =
+    raw.image ||
+    raw.imageUrl ||
+    raw.mediaUrl ||
+    raw.image_url ||
+    raw.photo_url ||
+    raw.url ||
+    ''
+
+  const image = resolveImageUrl(rawPath)
+
   return {
     id: String(raw.id || `photo-${index + 1}`),
-    title: raw.title || raw.caption || 'Community Moment',
-    category: raw.category || raw.event_category || '',
+    title: raw.title || raw.caption || 'Gallery Photo',
+    category: raw.category || raw.event_category || 'Gallery',
     city: raw.city || '',
     circle: raw.circle || '',
     year: String(raw.year || ''),
-    image: raw.image || raw.image_url || raw.photo_url || raw.url || '',
+    image,
     caption: raw.caption || raw.description || raw.title || '',
-    sort_order: raw.sort_order ?? index,
+    sort_order: raw.sortOrder ?? raw.sort_order ?? index,
   }
 }
 
