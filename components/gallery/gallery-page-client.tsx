@@ -234,6 +234,21 @@ export function GalleryPageClient() {
           background: 'linear-gradient(135deg, #030712 0%, #07132B 35%, #0B1120 70%, #150618 100%)',
         }}
       >
+        {/* Full-Bleed Cinematic Background Video */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/er5P3Y-Uyto?autoplay=1&mute=1&loop=1&playlist=er5P3Y-Uyto&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
+            title="Gallery Hero Background Video"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] min-w-full min-h-full border-0 pointer-events-none select-none opacity-45 sm:opacity-50 object-cover"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          />
+
+          {/* Luxury Brand Gradient Overlays for High Text Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030712]/92 via-[#07132B]/75 to-[#0B1120]/60 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#030712]/70 via-transparent to-transparent pointer-events-none" />
+        </div>
+
         {/* Ambient Glows */}
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-rose-600/18 rounded-full blur-3xl pointer-events-none" />
