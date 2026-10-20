@@ -227,87 +227,8 @@ export function GalleryPageClient() {
         </defs>
       </svg>
 
-      {/* ─── SECTION 1: HERO SECTION ─── */}
-      <section
-        className="fd-hero relative overflow-hidden bg-slate-950 text-white min-h-[420px] sm:min-h-[480px] flex items-center"
-        style={{
-          background: 'linear-gradient(135deg, #030712 0%, #07132B 35%, #0B1120 70%, #150618 100%)',
-        }}
-      >
-        {/* Full-Bleed Cinematic Background Video */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <iframe
-            src="https://www.youtube.com/embed/er5P3Y-Uyto?autoplay=1&mute=1&loop=1&playlist=er5P3Y-Uyto&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0"
-            title="Gallery Hero Background Video"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] min-w-full min-h-full border-0 pointer-events-none select-none opacity-45 sm:opacity-50 object-cover"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          />
-
-          {/* Luxury Brand Gradient Overlays for High Text Contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030712]/92 via-[#07132B]/75 to-[#0B1120]/60 pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#030712] via-[#030712]/60 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#030712]/70 via-transparent to-transparent pointer-events-none" />
-        </div>
-
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-rose-600/18 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.08),transparent_60%)] pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 w-full">
-          <div className="max-w-3xl space-y-5">
-            
-            {/* Category / Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-              <span className="inline-block size-2 rounded-full bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] animate-pulse" />
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                COMMUNITY LIFE &amp; ARCHIVES
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="!text-3xl sm:!text-5xl lg:!text-[52px] !leading-[1.14] font-semibold tracking-tight text-white">
-              Gallery
-            </h1>
-
-            {/* Subtitle */}
-            <p className="!text-base sm:!text-xl font-medium leading-relaxed bg-gradient-to-r from-white via-slate-100 to-sky-200 bg-clip-text text-transparent">
-              Moments, conclaves, and community gatherings captured across our network.
-            </p>
-
-            {/* Quote with Brand Accent */}
-            <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3.5 py-0.5 max-w-2xl">
-              &ldquo;Every photo here is a real moment from a real room. Circle meetings, conclaves, and lifelong friendships forged in business.&rdquo;
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <GalaxyButton
-                href="#gallery-showcase"
-                variant="white-gradient"
-                size="lg"
-                className="text-xs sm:text-sm uppercase tracking-wider font-bold"
-              >
-                BROWSE GALLERY
-              </GalaxyButton>
-              <GalaxyButton
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="gradient-white"
-                size="lg"
-                className="text-xs sm:text-sm uppercase tracking-wider font-bold text-white"
-              >
-                DOWNLOAD UNITY APP
-              </GalaxyButton>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 2: 3D COVERFLOW SHOWCASE (REFERENCE STYLE) ─── */}
-      <section id="gallery-showcase" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80 scroll-mt-12 overflow-hidden">
+      {/* ─── GALLERY SHOWCASE (PRIMARY 3D COVERFLOW SECTION) ─── */}
+      <section id="gallery-showcase" className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 lg:pb-24 bg-white border-b border-slate-200/80 scroll-mt-12 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           {/* Header matching reference */}
@@ -337,10 +258,10 @@ export function GalleryPageClient() {
                       className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
                         viewMode === 'coverflow'
                           ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-medium'
+                          : 'text-slate-800 hover:text-black hover:bg-slate-100/70 font-semibold'
                       }`}
                     >
-                      <Sparkles className={`size-3.5 ${viewMode === 'coverflow' ? 'text-white' : 'text-indigo-600'}`} />
+                      <Sparkles className={`size-3.5 stroke-[2.2] transition-colors ${viewMode === 'coverflow' ? 'text-white' : 'text-black'}`} />
                       <span>3D Showcase</span>
                     </button>
                     <button
@@ -348,10 +269,10 @@ export function GalleryPageClient() {
                       className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
                         viewMode === 'grid'
                           ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-medium'
+                          : 'text-slate-800 hover:text-black hover:bg-slate-100/70 font-semibold'
                       }`}
                     >
-                      <LayoutGrid className={`size-3.5 ${viewMode === 'grid' ? 'text-white' : 'text-rose-600'}`} />
+                      <LayoutGrid className={`size-3.5 stroke-[2.2] transition-colors ${viewMode === 'grid' ? 'text-white' : 'text-black'}`} />
                       <span>Grid Gallery</span>
                     </button>
                   </div>
@@ -367,7 +288,7 @@ export function GalleryPageClient() {
               >
                 <div className="px-4 py-1.5 rounded-full bg-white group-hover:bg-transparent transition-colors duration-300 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
                   <RotateCcw
-                    className={`size-3.5 text-[#1D4ED8] group-hover:text-white transition-colors duration-300 ${
+                    className={`size-3.5 stroke-[2.2] text-black group-hover:text-white transition-colors duration-300 ${
                       isLoading ? 'animate-spin text-rose-500' : 'group-hover:rotate-180'
                     }`}
                   />
