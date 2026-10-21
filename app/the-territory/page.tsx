@@ -1313,16 +1313,6 @@ export default function TheTerritoryPage() {
             >
               FIND YOUR CIRCLE
             </GalaxyButton>
-            <GalaxyButton
-              href="https://peersunity.com/membership"
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="transparent"
-              size="lg"
-              className="text-xs sm:text-sm"
-            >
-              JOIN PEERS GLOBAL
-            </GalaxyButton>
           </div>
         }
       />

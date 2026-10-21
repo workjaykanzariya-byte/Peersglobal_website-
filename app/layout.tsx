@@ -80,7 +80,6 @@ export default function RootLayout({
     >
       <head>
         <DesignScript />
-        <link rel="preload" href="/animations/splash.json" as="fetch" crossOrigin="anonymous" />
       </head>
       <body className="antialiased">
         <PageLoader />

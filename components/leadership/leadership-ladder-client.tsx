@@ -894,18 +894,6 @@ export function LeadershipLadderClient() {
               >
                 Apply to Lead
               </GalaxyButton>
-
-              <GalaxyButton
-                href={SITE.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="transparent"
-                size="default"
-                icon={<Smartphone className="size-4 text-sky-400" />}
-                className="font-bold uppercase tracking-wider"
-              >
-                Download Unity App
-              </GalaxyButton>
             </div>
           </div>
         </div>

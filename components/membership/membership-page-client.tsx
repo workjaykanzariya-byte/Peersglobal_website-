@@ -897,18 +897,6 @@ export function MembershipPageClient() {
                 >
                   Find Your Circle
                 </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  onClick={(e: any) => handleSmartAppDownload(e)}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
               </div>
             </div>
 

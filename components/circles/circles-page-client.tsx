@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { ClosingCtaSection } from '@/components/site/ClosingCtaSection'
 import {
   Factory,
   Building2,
@@ -1819,107 +1820,25 @@ export function CirclesPageClient({ dynamicCities }: { dynamicCities: string[] }
       {/* =========================================================================
           SECTION 8: CLOSING BANNER
           ========================================================================= */}
-      <section className="relative isolate overflow-hidden bg-[#040F24] py-16 sm:py-20 lg:py-24 text-white">
-        {/* Deep celestial radial gradients & luminous aura */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(0,98,210,0.25),transparent_42%),radial-gradient(circle_at_82%_12%,rgba(56,189,248,0.18),transparent_36%),linear-gradient(115deg,#020817_0%,#071a3d_48%,#06132d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-32 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
-        />
-
-        {/* Subtle geometric orbital line art */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-[min(58vw,760px)] opacity-35">
-          <svg
-            viewBox="0 0 760 520"
-            fill="none"
-            className="h-full w-full"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M760 40C555 45 405 145 375 310C355 423 265 493 70 520"
-              stroke="currentColor"
-              strokeWidth="1"
-              className="text-blue-300/30"
-            />
-            <path
-              d="M760 120C590 125 470 205 445 335C424 442 335 500 180 520"
-              stroke="currentColor"
-              strokeWidth="1"
-              strokeDasharray="5 8"
-              className="text-sky-200/25"
-            />
-            <path
-              d="M760 215C640 220 565 278 540 370C519 446 470 490 390 520"
-              stroke="currentColor"
-              strokeWidth="1"
-              className="text-blue-200/20"
-            />
-            <circle cx="540" cy="370" r="4" fill="currentColor" className="text-sky-300/60" />
-            <circle cx="540" cy="370" r="13" stroke="currentColor" strokeWidth="1" className="text-sky-300/25" />
-          </svg>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl flex flex-col items-start space-y-4">
-
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold uppercase tracking-[0.22em] brand-gradient-text">
-                  YOUR NEXT CIRCLE
-                </span>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-normal leading-[1.18] tracking-tight text-white">
-                <span className="brand-gradient-text">Find your people. Find your next opportunity.</span>
-              </h2>
-
-              <p className="text-base sm:text-lg font-medium text-slate-200 max-w-xl">
-                Where could the right relationships help you grow—and where could your experience help someone else grow? That is where your Circle begins.
-              </p>
-
-              <div className="text-xs text-sky-300 tracking-wider font-semibold">
-                20–40 curated entrepreneurs • 18 Industry &amp; Goal Circles • Built around LSR
-              </div>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <GalaxyButton
-                  href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Find Your Circle
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download the Unity App
-                </GalaxyButton>
-              </div>
-
-              <div className="pt-2 text-xs text-slate-400">
-                Peers are Partners in Business and Friends in Life. Designed in Bharat. Built for the World.
-              
-</div>
-
-
+      <ClosingCtaSection
+        eyebrow="YOUR NEXT CIRCLE"
+        title="Find your people. Find your next opportunity."
+        subtitle="Where could the right relationships help you grow—and where could your experience help someone else grow? That is where your Circle begins."
+        description="20–40 curated entrepreneurs • 18 Industry & Goal Circles • Built around LSR. Peers are Partners in Business and Friends in Life. Designed in Bharat. Built for the World."
+        buttons={
+          <div className="flex flex-wrap items-center gap-3.5">
+            <GalaxyButton
+              href={APP_DEEP_LINKS.EXPLORE_CIRCLES}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="lg"
+              className="text-xs sm:text-sm"
+            >
+              FIND YOUR CIRCLE
+            </GalaxyButton>
           </div>
-        </div>
-      </section>
+        }
+      />
 
       {/* =========================================================================
           INTERACTIVE LOCATION SELECTOR MODAL (State & City Selection for 18 Categories)

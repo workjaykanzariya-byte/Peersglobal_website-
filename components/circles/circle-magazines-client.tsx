@@ -641,17 +641,6 @@ export function CircleMagazinesClient() {
           <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
             Join verified business owners, record your shared milestones, and create lasting value.
           </p>
-
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-            <SmartAppDownloadButton
-              variant="primary"
-              size="md"
-              icon={true}
-              className="font-semibold uppercase tracking-wider"
-            >
-              DOWNLOAD UNITY APP
-            </SmartAppDownloadButton>
-          </div>
         </div>
       </section>
     </div>

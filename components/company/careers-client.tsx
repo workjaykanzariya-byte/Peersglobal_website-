@@ -297,31 +297,13 @@ export function CareersClient() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="animated-glow-card group !rounded-2xl cursor-pointer shadow-2xs hover:shadow-md transition-all"
-                tabIndex={0}
-                role="article"
+                className="group relative rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 p-3 sm:p-3.5 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default"
               >
-                <svg className="animated-border-svg !rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id={`statGrad-${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#1D4ED8" />
-                      <stop offset="100%" stopColor="#E11D48" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    className={`animated-border-path ${idx % 2 === 1 ? 'animated-border-path-2' : ''}`}
-                    style={{ stroke: `url(#statGrad-${idx})` }}
-                    d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
-                  />
-                </svg>
-
-                <div className="relative z-10 p-3 sm:p-3.5 bg-white border border-slate-200/80 rounded-2xl h-full">
-                  <div className="font-serif text-base sm:text-lg font-bold brand-gradient-text">
-                    {stat.val}
-                  </div>
-                  <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
-                  <div className="text-[10px] text-slate-500 font-normal">{stat.sub}</div>
+                <div className="font-serif text-base sm:text-lg font-bold brand-gradient-text">
+                  {stat.val}
                 </div>
+                <div className="text-xs font-bold text-slate-900 mt-0.5">{stat.label}</div>
+                <div className="text-[10px] text-slate-500 font-normal">{stat.sub}</div>
               </div>
             ))}
           </div>

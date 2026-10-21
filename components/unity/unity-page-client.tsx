@@ -896,39 +896,6 @@ export function UnityPageClient() {
 
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
-              <a
-                href={SITE.appStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="app-badge-btn"
-                aria-label="Download on the Apple App Store"
-              >
-                <Apple className="size-5 fill-white shrink-0" />
-                <div className="text-left">
-                  <span className="app-badge-sub">Download on the</span>
-                  <span className="app-badge-title">App Store</span>
-                </div>
-              </a>
-
-              <a
-                href={SITE.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="app-badge-btn"
-                aria-label="Get it on Google Play"
-              >
-                <svg className="size-5 shrink-0" viewBox="0 0 24 24" fill="none">
-                  <path d="M3.6 2.4C3.4 2.6 3.2 2.9 3.2 3.4V20.6C3.2 21.1 3.4 21.4 3.6 21.6L12.7 12L3.6 2.4Z" fill="#2196F3" />
-                  <path d="M16.3 8.4L13.8 10.9L12.7 12L13.8 13.1L16.3 15.6L20.4 13.3C21.6 12.6 21.6 11.4 20.4 10.7L16.3 8.4Z" fill="#FFC107" />
-                  <path d="M12.7 12L3.6 21.6C3.9 21.8 4.3 21.8 4.8 21.5L16.3 15.6L12.7 12Z" fill="#4CAF50" />
-                  <path d="M12.7 12L16.3 8.4L4.8 2.5C4.3 2.2 3.9 2.2 3.6 2.4L12.7 12Z" fill="#F44336" />
-                </svg>
-                <div className="text-left">
-                  <span className="app-badge-sub">GET IT ON</span>
-                  <span className="app-badge-title">Google Play</span>
-                </div>
-              </a>
-
               <GalaxyButton
                 href="/membership"
                 size="default"

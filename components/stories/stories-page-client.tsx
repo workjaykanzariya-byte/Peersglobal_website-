@@ -570,18 +570,7 @@ export function StoriesPageClient() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  DOWNLOAD UNITY APP
-                </GalaxyButton>
-
-                <GalaxyButton
                   href="/membership"
-                  variant="transparent"
                   size="default"
                   className="uppercase tracking-wider font-bold"
                 >

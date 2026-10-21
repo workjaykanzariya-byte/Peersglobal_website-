@@ -1292,16 +1292,7 @@ export default function TheCurrencyPage() {
                 >
                   See the 1 Million Mission
                 </GalaxyButton>
-                <GalaxyButton
-                  href="/download"
-                  variant="transparent"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
-              
-</div>
+              </div>
 
 
           </div>

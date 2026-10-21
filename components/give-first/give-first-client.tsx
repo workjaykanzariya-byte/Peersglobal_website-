@@ -539,17 +539,9 @@ export function GiveFirstClient() {
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <GalaxyButton
-              href="/download"
+              href="/the-idea"
               variant="primary"
               size="md"
-            >
-              Download Unity App
-            </GalaxyButton>
-            <GalaxyButton
-              href="/the-idea"
-              variant="transparent"
-              size="md"
-              showIcon={false}
             >
               Explore Our World
             </GalaxyButton>

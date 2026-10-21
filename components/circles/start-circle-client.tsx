@@ -1198,18 +1198,6 @@ export function StartCircleClient() {
                 >
                   Apply to Found a Circle
                 </GalaxyButton>
-
-                <GalaxyButton
-                  href={smartUrl}
-                  onClick={(e: any) => handleSmartAppDownload(e, smartUrl)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
               </div>
             </div>
 

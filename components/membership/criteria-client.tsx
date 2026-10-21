@@ -3,10 +3,9 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { GalaxyButton } from '@/components/ui/galaxy-button'
+import { SITE } from '@/lib/data/site'
 import {
-  ArrowRight,
   ChevronRight,
-  Smartphone,
   Check,
   ShieldCheck,
   UserCheck,
@@ -18,8 +17,6 @@ import {
   Heart,
   Users2,
   HelpCircle,
-  Plus,
-  Minus,
   CheckCircle2,
   FileText,
 } from 'lucide-react'
@@ -211,7 +208,7 @@ export function CriteriaClient() {
               {/* Eyebrow Badge */}
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-sm uppercase">
                 <span className="h-1.5 w-1.5 rounded-full bg-rose-400 animate-pulse" />
-                <span className="bg-linear-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                   CRITERIA &amp; PROCESS
                 </span>
               </div>
@@ -258,17 +255,6 @@ export function CriteriaClient() {
                   className="font-semibold"
                 >
                   Explore Circles
-                </GalaxyButton>
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-medium"
-                >
-                  Download Unity App
                 </GalaxyButton>
               </div>
             </div>
@@ -625,8 +611,15 @@ export function CriteriaClient() {
                 <div
                   key={idx}
                   onClick={() => toggleFaq(idx)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      toggleFaq(idx)
+                    }
+                  }}
                   tabIndex={0}
-                  role="article"
+                  role="button"
+                  aria-expanded={isOpen}
                   className="group relative rounded-3xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] shadow-2xs hover:shadow-xl transition-all duration-300 cursor-pointer select-none"
                 >
                   <div className="p-7 sm:p-8 rounded-[calc(1.5rem-1px)] bg-white h-full flex flex-col justify-between transition-colors duration-300">
@@ -737,17 +730,6 @@ export function CriteriaClient() {
                   className="uppercase tracking-wider font-bold"
                 >
                   Find Your Circle
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
                 </GalaxyButton>
               </div>
             </div>
