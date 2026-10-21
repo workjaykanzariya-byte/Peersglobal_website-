@@ -15,8 +15,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Maximize2,
-  LayoutGrid,
-  Sparkles,
 } from 'lucide-react'
 
 type GalleryPhoto = ApiGalleryPhoto
@@ -255,34 +253,22 @@ export function GalleryPageClient() {
                   <div className="p-1 rounded-full bg-slate-100 flex items-center gap-1 text-xs font-semibold">
                     <button
                       onClick={() => setViewMode('coverflow')}
-                      className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                      className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center ${
                         viewMode === 'coverflow'
                           ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
                           : 'text-black hover:bg-white/80 font-bold'
                       }`}
                     >
-                      <Sparkles
-                        size={15}
-                        strokeWidth={2.6}
-                        style={{ stroke: viewMode === 'coverflow' ? '#ffffff' : '#000000' }}
-                        className="shrink-0 transition-colors"
-                      />
                       <span style={{ color: viewMode === 'coverflow' ? '#ffffff' : '#000000' }}>3D Showcase</span>
                     </button>
                     <button
                       onClick={() => setViewMode('grid')}
-                      className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                      className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center ${
                         viewMode === 'grid'
                           ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
                           : 'text-black hover:bg-white/80 font-bold'
                       }`}
                     >
-                      <LayoutGrid
-                        size={15}
-                        strokeWidth={2.6}
-                        style={{ stroke: viewMode === 'grid' ? '#ffffff' : '#000000' }}
-                        className="shrink-0 transition-colors"
-                      />
                       <span style={{ color: viewMode === 'grid' ? '#ffffff' : '#000000' }}>Grid Gallery</span>
                     </button>
                   </div>
@@ -296,15 +282,7 @@ export function GalleryPageClient() {
                 title="Refresh from Admin Panel"
                 className="relative p-[1.5px] rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] shadow-md shadow-blue-900/10 hover:shadow-lg hover:shadow-rose-900/20 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
               >
-                <div className="px-4 py-1.5 rounded-full bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all duration-300 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
-                  <RotateCcw
-                    size={15}
-                    strokeWidth={2.6}
-                    style={{ stroke: '#000000' }}
-                    className={`shrink-0 transition-colors duration-300 group-hover:!stroke-white ${
-                      isLoading ? 'animate-spin' : 'group-hover:rotate-180'
-                    }`}
-                  />
+                <div className="px-4 py-1.5 rounded-full bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all duration-300 flex items-center justify-center text-xs font-bold uppercase tracking-wider">
                   <span className="text-black font-extrabold group-hover:text-white transition-colors duration-300">
                     {isLoading ? 'Updating...' : 'Refresh'}
                   </span>
@@ -417,9 +395,11 @@ export function GalleryPageClient() {
               {/* Active Caption & Counter */}
               {activePhoto && (
                 <div className="text-center max-w-xl mx-auto px-4 space-y-1.5">
+                  {/* Temporarily hidden caption
                   <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 tracking-tight leading-snug">
                     {activePhoto.caption || activePhoto.title || 'Community Moment'}
                   </h3>
+                  */}
                   {photos.length > 1 && (
                     <p className="text-xs text-slate-500 font-mono">
                       {activeIndex + 1} of {photos.length}
@@ -497,11 +477,13 @@ export function GalleryPageClient() {
                       </div>
                     </div>
 
+                    {/* Temporarily hidden caption
                     <div className="p-4 sm:p-5">
                       <p className="text-slate-900 font-medium text-xs sm:text-sm line-clamp-2">
                         {photo.caption || photo.title || 'Gallery Photo'}
                       </p>
                     </div>
+                    */}
                   </div>
                 </div>
               ))}
@@ -642,6 +624,7 @@ export function GalleryPageClient() {
           </div>
 
           {/* Bottom Bar: Clean Floating Caption (No Box, No Card Footer) */}
+          {/* Temporarily hidden caption
           <div
             className="relative z-30 text-center w-full max-w-3xl mx-auto py-2 px-4"
             onClick={(e) => e.stopPropagation()}
@@ -652,6 +635,7 @@ export function GalleryPageClient() {
               </p>
             )}
           </div>
+          */}
         </div>
       )}
     </div>
