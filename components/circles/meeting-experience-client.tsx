@@ -881,13 +881,11 @@ export function MeetingExperienceClient() {
       <ClosingCtaSection
         eyebrow="YOUR NEXT MEETING"
         title="Experience it for yourself."
-        subtitle="Join as a guest, meet the Peers and see the agenda in action. Or download the Unity App and start exploring today."
+        subtitle="Join as a guest, meet the Peers and see the agenda in action."
         description="Four segments. The same people. Every month. Build Your Business. Build Your Relationships. Build Your Circle."
-        primaryButtonText="Download Unity App"
-        primaryButtonHref="https://unity.peersglobal.com"
-        secondaryButtonText="Visit as a Guest"
-        secondaryButtonHref="/circles/find"
-        secondaryButtonIcon={<ChevronRight className="size-4" />}
+        primaryButtonText="VISIT AS A GUEST"
+        primaryButtonHref="/circles/find"
+        secondaryButtonText=""
       />
 
     </div>

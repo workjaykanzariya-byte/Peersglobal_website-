@@ -876,19 +876,7 @@ export function SpeakClient() {
                 >
                   Apply to Speak
                 </GalaxyButton>
-
-                <GalaxyButton
-                  variant="transparent"
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="lg"
-                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-              
-</div>
+              </div>
 
 
           </div>

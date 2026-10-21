@@ -875,17 +875,6 @@ export function WhoBelongsClient() {
                 >
                   Explore PEERS GLOBAL
                 </GalaxyButton>
-
-                <GalaxyButton
-                  href={SITE.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="default"
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
               </div>
             </div>
 

@@ -40,7 +40,7 @@ export function SiteHeader() {
     if (hoverTimer.current) clearTimeout(hoverTimer.current)
     hoverTimer.current = setTimeout(() => {
       setOpenMenu(null)
-    }, 180)
+    }, 280)
   }
 
   const keepMenuOpen = () => {
@@ -178,14 +178,26 @@ export function SiteHeader() {
                   onMouseEnter={() => hasSubmenu && handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <Link
+                  <div
                     ref={(el) => {
                       itemRefs.current[item.label] = el
                     }}
-                    href={item.href}
+                    role="button"
+                    tabIndex={0}
                     aria-expanded={isHovered}
+                    onClick={() => {
+                      if (hasSubmenu) {
+                        setOpenMenu((prev) => (prev === item.label ? null : item.label))
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        setOpenMenu((prev) => (prev === item.label ? null : item.label))
+                      }
+                    }}
                     className={cn(
-                      'relative z-10 inline-flex items-center gap-1.5 px-4 py-2 text-[13.5px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap select-none',
+                      'relative z-10 inline-flex items-center gap-1.5 px-4 py-2 text-[13.5px] font-medium tracking-tight rounded-full transition-colors duration-200 whitespace-nowrap select-none cursor-pointer',
                       isHovered || (isActive && !openMenu)
                         ? 'text-[#1D4ED8] font-bold'
                         : 'text-slate-700 hover:text-[#1D4ED8]'
@@ -198,7 +210,7 @@ export function SiteHeader() {
                         isHovered ? 'rotate-180 text-[#1D4ED8] opacity-100' : 'text-slate-400 opacity-70'
                       )}
                     />
-                  </Link>
+                  </div>
 
                   {/* ================================================================= */}
                   {/* SIMPLE ANCHORED FLOATING DROPDOWN (WHITE LIGHT THEME)             */}
@@ -208,17 +220,17 @@ export function SiteHeader() {
                       onMouseEnter={keepMenuOpen}
                       onMouseLeave={handleMouseLeave}
                       className={cn(
-                        'absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 transition-all duration-200 ease-out',
+                        'absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 pt-2.5 z-50 transition-all duration-200 ease-out',
                         isHovered
                           ? 'opacity-100 translate-y-0 pointer-events-auto visible'
                           : 'opacity-0 -translate-y-1.5 pointer-events-none invisible'
                       )}
                     >
-                      {/* Top invisible hit bridge */}
-                      <div className="absolute -top-3 left-0 right-0 h-4 bg-transparent" />
+                      {/* Top invisible hit bridge extending across gap */}
+                      <div className="absolute -top-3 left-0 right-0 h-3 bg-transparent pointer-events-auto" />
 
                       {/* Clean Floating White Card */}
-                      <div className="w-[360px] sm:w-[440px] rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-3.5 shadow-[0_20px_45px_rgba(15,23,42,0.12),0_2px_8px_rgba(15,23,42,0.04)] text-slate-900">
+                      <div className="relative z-10 w-[360px] sm:w-[440px] rounded-2xl border border-slate-200/90 bg-white/98 backdrop-blur-2xl p-3.5 shadow-[0_20px_45px_rgba(15,23,42,0.12),0_2px_8px_rgba(15,23,42,0.04)] text-slate-900">
                         {/* Header Label */}
                         <div className="flex items-center justify-between px-2.5 pb-2.5 mb-1.5 border-b border-slate-100">
                           <span className="text-[11.5px] font-bold uppercase tracking-wider text-[#1D4ED8] flex items-center gap-1.5">
@@ -238,6 +250,7 @@ export function SiteHeader() {
                               <Link
                                 key={child.href}
                                 href={child.href}
+                                prefetch={false}
                                 onClick={() => setOpenMenu(null)}
                                 className={cn(
                                   'group/link flex flex-col justify-center rounded-xl px-3 py-2 transition-all duration-150 hover:bg-[#EFF6FF]/70 hover:translate-x-0.5',
@@ -450,9 +463,9 @@ export function SiteHeader() {
                                   </span>
                                 ) : null}
                               </div>
-                              {child.description && (
+                              {(child.desc || child.description) && (
                                 <p className="text-[12px] text-slate-400 line-clamp-1 mt-0.5">
-                                  {child.description}
+                                  {child.desc || child.description}
                                 </p>
                               )}
                             </Link>

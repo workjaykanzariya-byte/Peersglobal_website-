@@ -32,7 +32,6 @@ import {
   Share2,
   MessageSquare,
   Search,
-  Smartphone,
 } from 'lucide-react'
 import { usePageMedia } from '@/lib/hooks/use-page-media'
 
@@ -335,18 +334,6 @@ export function CircleDirectorClient() {
                   className="font-bold uppercase tracking-wider"
                 >
                   Apply to Lead
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
                 </GalaxyButton>
               </div>
             </div>
@@ -1076,18 +1063,6 @@ export function CircleDirectorClient() {
                 className="font-bold uppercase tracking-wider"
               >
                 Apply to Lead
-              </GalaxyButton>
-
-              <GalaxyButton
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noreferrer"
-                variant="transparent"
-                size="default"
-                icon={<Smartphone className="size-4 text-sky-400" />}
-                className="font-bold uppercase tracking-wider"
-              >
-                Download Unity App
               </GalaxyButton>
             </div>
           </div>

@@ -725,19 +725,8 @@ export function MemberFaqClient() {
 
             <div className="flex flex-wrap items-center gap-4 pt-3">
               <GalaxyButton
-                href={SITE.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                size="default"
-                icon={<Smartphone className="size-4" />}
-                className="uppercase tracking-wider font-bold"
-              >
-                Download Unity App
-              </GalaxyButton>
-
-              <GalaxyButton
                 href="/circles/find"
-                variant="transparent"
+                variant="default"
                 size="default"
                 className="uppercase tracking-wider font-bold"
               >

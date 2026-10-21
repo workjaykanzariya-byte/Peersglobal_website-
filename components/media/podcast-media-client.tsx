@@ -854,18 +854,8 @@ export function PodcastMediaClient() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="lg"
-                  className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
-                >
-                  DOWNLOAD UNITY APP
-                </GalaxyButton>
-
-                <GalaxyButton
                   href="/membership"
-                  variant="transparent"
+                  variant="default"
                   size="lg"
                   className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >

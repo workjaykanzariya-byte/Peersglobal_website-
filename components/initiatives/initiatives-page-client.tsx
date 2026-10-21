@@ -564,15 +564,6 @@ export function InitiativesPageClient() {
               >
                 EXPLORE PEERS GLOBAL
               </GalaxyButton>
-
-              <GalaxyButton
-                href="/download"
-                variant="transparent"
-                size="default"
-                className="uppercase tracking-wider font-bold"
-              >
-                DOWNLOAD UNITY APP
-              </GalaxyButton>
             </div>
           </div>
         </div>

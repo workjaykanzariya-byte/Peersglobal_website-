@@ -108,9 +108,8 @@ export function ImpactConfirmationClient() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl flex flex-col items-start space-y-6">
             
-            {/* Eyebrow with cyan leading bar */}
-            <div className="flex items-center gap-3">
-              <span className="h-0.5 w-7 bg-gradient-to-r from-[#38BDF8] to-[#818CF8] rounded-full shadow-[0_0_10px_#38bdf8]" />
+            {/* Eyebrow */}
+            <div className="flex items-center">
               <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
                 BILATERAL INTEGRITY ENGINE
               </span>
@@ -229,8 +228,7 @@ export function ImpactConfirmationClient() {
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="h-0.5 w-6 bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] rounded-full" />
+              <div className="flex items-center">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
                   INTEGRITY FIRST
                 </span>
@@ -258,29 +256,45 @@ export function ImpactConfirmationClient() {
 
               {/* 3 Core Trust Safeguards */}
               <div className="grid sm:grid-cols-3 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-2 hover:border-indigo-200 hover:shadow-xs transition-all">
-                  <div className="size-8 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
-                    <Users className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-900">Same Room Accountability</h4>
-                  <p className="text-[11px] text-slate-500 leading-relaxed">You sit with your peers every month.</p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-2 hover:border-indigo-200 hover:shadow-xs transition-all">
-                  <div className="size-8 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-900">Declining is Normal</h4>
-                  <p className="text-[11px] text-slate-500 leading-relaxed">Amending or declining has zero penalty.</p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-2 hover:border-indigo-200 hover:shadow-xs transition-all">
-                  <div className="size-8 rounded-xl bg-gradient-to-b from-[#f8f9fe] to-[#dde9fd] border border-blue-100/80 flex items-center justify-center shrink-0">
-                    <Scale className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-900">Director Oversight</h4>
-                  <p className="text-[11px] text-slate-500 leading-relaxed">Circle Directors monitor irregular patterns.</p>
-                </div>
+                {[
+                  {
+                    icon: Users,
+                    title: 'Same Room Accountability',
+                    desc: 'You sit with your peers every month.',
+                  },
+                  {
+                    icon: CheckCircle2,
+                    title: 'Declining is Normal',
+                    desc: 'Amending or declining has zero penalty.',
+                  },
+                  {
+                    icon: Scale,
+                    title: 'Director Oversight',
+                    desc: 'Circle Directors monitor irregular patterns.',
+                  },
+                ].map((sg) => {
+                  const Icon = sg.icon
+                  return (
+                    <div
+                      key={sg.title}
+                      className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] shadow-2xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                      tabIndex={0}
+                      role="article"
+                    >
+                      <div className="h-full w-full rounded-[15px] bg-white p-5 flex flex-col justify-between space-y-3">
+                        <div className="size-9 rounded-xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300">
+                          <Icon className="size-4 text-[#1D4ED8] group-hover:text-white transition-colors" />
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                            {sg.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 leading-relaxed mt-1">{sg.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
@@ -356,6 +370,7 @@ export function ImpactConfirmationClient() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
+                id: 'confirmLoopGrad1',
                 step: '01',
                 badge: 'LOGGING',
                 title: 'A contribution is logged',
@@ -363,6 +378,7 @@ export function ImpactConfirmationClient() {
                 icon: Smartphone,
               },
               {
+                id: 'confirmLoopGrad2',
                 step: '02',
                 badge: 'NOTIFICATION',
                 title: 'Receiving Peer notified',
@@ -370,6 +386,7 @@ export function ImpactConfirmationClient() {
                 icon: Bell,
               },
               {
+                id: 'confirmLoopGrad3',
                 step: '03',
                 badge: 'HONEST REVIEW',
                 title: 'Confirm, decline or amend',
@@ -377,61 +394,113 @@ export function ImpactConfirmationClient() {
                 icon: CheckCircle2,
               },
               {
+                id: 'confirmLoopGrad4',
                 step: '04',
                 badge: 'IMMUTABLE CREDIT',
                 title: 'On confirmation, it counts',
                 desc: 'Instantly credited toward your Life Impact Score, Peer Standing level, and rewardable Peers Coin wallet.',
                 icon: Award,
               },
-            ].map((st) => (
-              <div
-                key={st.step}
-                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-3"
-              >
-                <span className="w-8 h-8 rounded-full bg-[#0062D2] text-white text-xs font-bold flex items-center justify-center">
-                  {st.step}
-                </span>
-                <h3 className="font-serif font-bold text-lg text-slate-950 leading-snug">
-                  {st.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {st.desc}
-                </p>
-              </div>
-            ))}
+            ].map((st) => {
+              const Icon = st.icon
+              return (
+                <div
+                  key={st.step}
+                  className="animated-glow-card group !rounded-3xl cursor-pointer shadow-sm hover:shadow-xl transition-all"
+                  tabIndex={0}
+                  role="article"
+                >
+                  <svg className="animated-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id={st.id} x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stopColor="#1D4ED8" />
+                        <stop offset="100%" stopColor="#E11D48" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      className="animated-border-path"
+                      style={{ stroke: `url(#${st.id})` }}
+                      d="M 0.8 6 Q 0.8 0.8 6 0.8 L 94 0.8 Q 99.2 0.8 99.2 6 L 99.2 94 Q 99.2 99.2 94 99.2 L 6 99.2 Q 0.8 99.2 0.8 94 Z"
+                    />
+                  </svg>
+                  <div className="p-7 flex flex-col justify-between space-y-4">
+                    <div>
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="size-12 rounded-2xl bg-gradient-to-r from-[#1D4ED8]/15 to-[#E11D48]/15 border border-[#1D4ED8]/30 flex items-center justify-center text-[#1D4ED8] group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all duration-300 shadow-xs">
+                          <Icon className="size-5" />
+                        </div>
+                        <span className="w-8 h-8 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono font-bold flex items-center justify-center group-hover:border-blue-200 transition-colors">
+                          {st.step}
+                        </span>
+                      </div>
+                      <div className="text-[10px] font-mono font-bold tracking-wider text-slate-400 uppercase group-hover:text-[#1D4ED8] transition-colors mb-1.5">
+                        {st.badge}
+                      </div>
+                      <h3 className="text-base sm:text-lg font-serif font-bold text-[#0f131a] mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all">
+                        {st.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-cool-grey-600 leading-relaxed font-normal">
+                        {st.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
 
         </div>
       </section>
 
       {/* ─── Why It Holds & What This Makes Possible ─── */}
-      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <section className="py-16 md:py-24 border-b border-slate-200/80 bg-[#FAFBFD]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* Why it holds */}
-            <div className="p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6">
-              <h2 className="text-2xl font-serif text-slate-950 font-bold">
-                Why it holds
-              </h2>
-              <div className="space-y-4 text-xs sm:text-sm text-slate-600">
-                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-                  <strong className="block text-slate-900 font-bold mb-1">
-                    Both people are in the same room
-                  </strong>
-                  A Peer who inflates a contribution is asking someone they will see next month to endorse something untrue. Almost nobody does that.
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-6 flex flex-col justify-between">
+              <div className="space-y-6">
+                <div>
+                  <div className="flex items-center mb-3">
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#1D4ED8] via-[#6366F1] to-[#E11D48] bg-clip-text text-transparent">
+                      FOUNDATION OF ACCOUNTABILITY
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-serif text-slate-950 font-bold tracking-tight">
+                    Why it holds
+                  </h2>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-                  <strong className="block text-slate-900 font-bold mb-1">
-                    Declining is normal
-                  </strong>
-                  Sometimes an introduction did not lead anywhere. Amending or declining carries zero penalty and zero awkwardness.
+
+                <div className="space-y-3.5">
+                  <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 hover:border-blue-200 transition-colors">
+                    <strong className="block text-slate-900 font-bold mb-1 text-sm">
+                      Both people are in the same room
+                    </strong>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      A Peer who inflates a contribution is asking someone they will see next month to endorse something untrue. Almost nobody does that.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 hover:border-blue-200 transition-colors">
+                    <strong className="block text-slate-900 font-bold mb-1 text-sm">
+                      Declining is normal
+                    </strong>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      Sometimes an introduction did not lead anywhere. Amending or declining carries zero penalty and zero awkwardness.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80 hover:border-blue-200 transition-colors">
+                    <strong className="block text-slate-900 font-bold mb-1 text-sm">
+                      Directors can see the pattern
+                    </strong>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      A Peer whose contributions are frequently declined has a private conversation with their Circle Director.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200/80">
-                  <strong className="block text-slate-900 font-bold mb-1">
-                    Directors can see the pattern
-                  </strong>
-                  A Peer whose contributions are frequently declined has a private conversation with their Circle Director.
-                </div>
+              </div>
+
+              <div className="pt-2 text-xs text-slate-500 font-medium border-t border-slate-100 flex items-center gap-2">
+                <span className="size-2 rounded-full bg-blue-600" />
+                Governed by bilateral consensus within each Circle
               </div>
             </div>
 
@@ -440,48 +509,58 @@ export function ImpactConfirmationClient() {
               style={{
                 background: 'linear-gradient(135deg, rgb(6, 17, 44) 0%, rgb(19, 7, 31) 50%, rgb(38, 5, 19) 100%)',
               }}
-              className="lg:col-span-6 p-8 sm:p-10 rounded-3xl border border-white/10 text-white shadow-xl space-y-6 flex flex-col justify-between relative overflow-hidden"
+              className="p-8 sm:p-10 rounded-3xl border border-white/10 text-white shadow-xl space-y-6 flex flex-col justify-between relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-rose-500/15 rounded-full blur-2xl pointer-events-none" />
 
-              <div className="relative z-10 space-y-5">
-                <div className="flex items-center gap-2">
-                  <span className="h-0.5 w-6 bg-gradient-to-r from-[#38BDF8] to-[#FB7185] rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
-                    OUTCOMES OF TRUST
-                  </span>
+              <div className="relative z-10 space-y-6">
+                <div>
+                  <div className="flex items-center mb-3">
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] bg-gradient-to-r from-[#38BDF8] via-[#818CF8] to-[#FB7185] bg-clip-text text-transparent">
+                      OUTCOMES OF TRUST
+                    </span>
+                  </div>
+
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    What this makes possible
+                  </h2>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                  What this makes possible
-                </h2>
-                <div className="space-y-3.5 text-xs sm:text-sm text-slate-600">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-slate-900 font-bold">Verified Recognition</strong>
-                      Every award and standing named at the Summit is backed by confirmations from real people.
+                      <strong className="block text-white font-bold text-sm">Verified Recognition</strong>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Every award and standing named at the Summit is backed by confirmations from real people.
+                      </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-slate-900 font-bold">Honest Reporting</strong>
-                      When Peers Global publishes lives impacted, that number is built from confirmed data rather than estimates.
+                      <strong className="block text-white font-bold text-sm">Honest Reporting</strong>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        When Peers Global publishes lives impacted, that number is built from confirmed data rather than estimates.
+                      </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-slate-900 font-bold">Trust in the Room</strong>
-                      Nobody wonders whether the Peer beside them is inflating their record.
+                      <strong className="block text-white font-bold text-sm">Trust in the Room</strong>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Nobody wonders whether the Peer beside them is inflating their record.
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#0062D2]/20 text-xs font-serif italic text-[#0062D2] text-center">
+              <div className="relative z-10 p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm text-xs font-serif italic text-sky-200 text-center">
                 &ldquo;Impact is not measured by intention, but by what it creates for others.&rdquo;
               </div>
             </div>
@@ -513,13 +592,15 @@ export function ImpactConfirmationClient() {
             {VALUE_POINTS.map((vp) => (
               <div
                 key={vp.name}
-                className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs text-center space-y-2"
+                className="group relative rounded-2xl p-[1px] bg-slate-200/90 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:via-[#6366F1] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-lg hover:-translate-y-1 cursor-default"
               >
-                <div className="text-xs font-serif font-bold text-slate-900">
-                  {vp.name}
-                </div>
-                <div className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold border inline-block ${(vp as any).color || 'bg-blue-50 text-blue-700 border-blue-200'}`}>
-                  {vp.points}
+                <div className="h-full w-full p-5 rounded-[15px] bg-white text-center space-y-2 flex flex-col items-center justify-center transition-colors">
+                  <div className="text-xs font-serif font-bold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48] transition-all">
+                    {vp.name}
+                  </div>
+                  <div className="px-2.5 py-1 rounded-full text-xs font-mono font-bold border border-slate-200 bg-slate-50 text-slate-700 inline-block transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:via-[#6366F1] group-hover:to-[#E11D48]">
+                    {vp.points}
+                  </div>
                 </div>
               </div>
             ))}
@@ -562,12 +643,10 @@ export function ImpactConfirmationClient() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <div className="space-y-4">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="h-[1.5px] w-6 bg-white/70" />
+            <div className="flex items-center justify-center">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
                 BE THE ENTREPRENEUR WHO GIVES
               </span>
-              <span className="h-[1.5px] w-6 bg-white/70" />
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-[1.15]">
@@ -582,15 +661,8 @@ export function ImpactConfirmationClient() {
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
             <GalaxyButton
-              href="/download"
-              variant="primary"
-              size="md"
-            >
-              Download Unity App
-            </GalaxyButton>
-            <GalaxyButton
               href="/life-impact-score"
-              variant="transparent"
+              variant="primary"
               size="md"
             >
               Explore Life Impact Score
