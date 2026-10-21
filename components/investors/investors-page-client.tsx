@@ -210,6 +210,7 @@ export function InvestorsPageClient() {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
               <GalaxyButton
                 href="#investor-enquiry"
+                variant="white-gradient"
                 size="default"
                 className="uppercase tracking-wider font-bold"
               >
@@ -218,7 +219,7 @@ export function InvestorsPageClient() {
 
               <GalaxyButton
                 href="#the-model"
-                variant="transparent"
+                variant="gradient-white"
                 size="default"
                 className="uppercase tracking-wider font-bold"
                 showIcon={false}
@@ -1054,14 +1055,14 @@ export function InvestorsPageClient() {
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
             <GalaxyButton
               href="#investor-enquiry"
-              variant="primary"
+              variant="white-gradient"
               size="md"
             >
               Investor Enquiry
             </GalaxyButton>
             <GalaxyButton
               href="/initiatives"
-              variant="transparent"
+              variant="gradient-white"
               size="md"
             >
               Explore PEERS GLOBAL

@@ -91,8 +91,8 @@ export async function GET(
   // 2. Query local PostgreSQL database if remote is syncing/offline
   try {
     const dbRes = await pool.query(
-      `SELECT id, campaign_id, application_number, full_name, email, status, profile_snapshot 
-       FROM leadership_nominations 
+      `SELECT id, campaign_id, application_number, full_name, email, status, form_data AS profile_snapshot 
+       FROM public.web_nominations 
        WHERE id = $1 OR application_number = $1
        LIMIT 1`,
       [nominationId]

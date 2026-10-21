@@ -293,6 +293,7 @@ export default function TheLanguagePage() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
                   href="/membership"
+                  variant="white-gradient"
                   size="default"
                   className="font-semibold"
                 >
@@ -301,7 +302,7 @@ export default function TheLanguagePage() {
 
                 <GalaxyButton
                   href="#terms"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-medium"
                 >

@@ -54,8 +54,8 @@ export async function POST(
 
   try {
     const parentRes = await pool.query(
-      `SELECT id, campaign_id, scope_id, user_id, application_number, full_name, email, profile_snapshot
-       FROM leadership_nominations 
+      `SELECT id, campaign_id, scope_id, user_id, application_number, full_name, email, form_data AS profile_snapshot
+       FROM public.web_nominations 
        WHERE id = $1 OR application_number = $1
        LIMIT 1`,
       [nominationId]
@@ -78,7 +78,7 @@ export async function POST(
         )
       }
 
-      // Update parent nomination status & snapshot
+      // Update parent nomination status & form_data in public.web_nominations
       const existingSnapshot = (typeof parent.profile_snapshot === 'string'
         ? JSON.parse(parent.profile_snapshot)
         : parent.profile_snapshot) || {}
@@ -89,36 +89,32 @@ export async function POST(
       existingSnapshot.form_2 = payload
 
       await pool.query(
-        `UPDATE leadership_nominations 
-         SET profile_snapshot = $1 
+        `UPDATE public.web_nominations 
+         SET form_data = $1, status = 'shortlisted', updated_at = NOW() 
          WHERE id = $2`,
         [JSON.stringify(existingSnapshot), parent.id]
       )
 
-      // Insert or update sub nomination row
+      // Insert secondary sub-nomination record into public.web_nominations
       await pool.query(
-        `INSERT INTO leadership_nominations 
-          (id, campaign_id, scope_id, user_id, application_number, full_name, email, mobile, status, profile_snapshot, created_at, submitted_at)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW(), NOW())
-         ON CONFLICT (id) DO UPDATE SET profile_snapshot = EXCLUDED.profile_snapshot, status = 'submitted'`,
+        `INSERT INTO public.web_nominations 
+          (id, campaign_id, scope_id, user_id, application_number, form_type, parent_nomination_id, full_name, email, mobile, status, form_data, created_at, updated_at)
+         VALUES ($1, $2, $3, $4, $5, 'sub_form_2', $6, $7, $8, $9, 'submitted', $10, NOW(), NOW())
+         ON CONFLICT (id) DO UPDATE SET 
+           form_data = EXCLUDED.form_data, 
+           status = 'submitted', 
+           updated_at = NOW()`,
         [
           subNominationId,
           parent.campaign_id,
           parent.scope_id,
           parent.user_id,
           f2AppNumber,
+          parent.id,
           parent.full_name,
           parent.email,
           payload.mobile || parent.mobile || '',
-          'submitted',
-          JSON.stringify({
-            form_type: 'sub_form_2',
-            parent_nomination_id: parent.id,
-            parent_application_number: appNumber,
-            candidate_name: parent.full_name,
-            submitted_at: new Date().toISOString(),
-            form_2: payload,
-          }),
+          JSON.stringify(payload),
         ]
       )
 

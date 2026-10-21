@@ -90,6 +90,7 @@ export function SiteFooter() {
         { label: 'Circle Director', href: '/leadership/circle-director' },
         { label: 'Industry Director', href: '/leadership/industry-director' },
         { label: 'Executive Director', href: '/leadership/executive-director' },
+        { label: 'Campaigns', href: '/leadership/campaigns' },
         { label: 'Life Impact Score', href: '/life-impact-score' },
         { label: 'Peers Coin & Standing', href: '/peer-standing' },
         { label: 'Peers Store', href: '/peers-store' },
@@ -168,8 +169,10 @@ export function SiteFooter() {
             <div className="flex flex-wrap items-center gap-3.5 pt-1.5">
               <GalaxyButton
                 href="/membership"
+                variant="gradient-white"
                 size="default"
                 aria-label="Join Peers Global"
+                className="uppercase tracking-wider font-bold"
               >
                 JOIN PEERS GLOBAL
               </GalaxyButton>
@@ -179,12 +182,12 @@ export function SiteFooter() {
                 onClick={(e: any) => handleSmartAppDownload(e)}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="transparent"
+                variant="white-gradient"
                 size="default"
-                icon={<Download className="size-4 stroke-[url(#brandIconGrad)] text-[#1D4ED8]" />}
                 aria-label="Download Unity App"
+                className="uppercase tracking-wider font-bold"
               >
-                Download Unity App
+                DOWNLOAD UNITY APP
               </GalaxyButton>
             </div>
 

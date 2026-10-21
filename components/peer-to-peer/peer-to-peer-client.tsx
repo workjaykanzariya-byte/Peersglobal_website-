@@ -677,6 +677,7 @@ export function PeerToPeerClient() {
                 href="https://unity.peersglobal.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                variant="white-gradient"
                 size="default"
                 className="uppercase tracking-wider font-bold"
               >
@@ -685,7 +686,7 @@ export function PeerToPeerClient() {
 
               <GalaxyButton
                 href="/unity"
-                variant="transparent"
+                variant="gradient-white"
                 size="default"
                 className="uppercase tracking-wider font-bold"
               >

@@ -154,6 +154,7 @@ export function TheIdeaClient() {
                   onClick={(e: any) => handleSmartAppDownload(e)}
                   target="_blank"
                   rel="noreferrer"
+                  variant="white-gradient"
                   size="default"
                   className="uppercase tracking-wider font-semibold"
                 >
@@ -162,7 +163,7 @@ export function TheIdeaClient() {
 
                 <GalaxyButton
                   href="#the-quiet-journey"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-medium"
                 >

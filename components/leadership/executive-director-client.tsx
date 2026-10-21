@@ -301,7 +301,7 @@ export function ExecutiveDirectorClient() {
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <GalaxyButton
                   href="/contact?intent=leadership"
-                  variant="primary"
+                  variant="white-gradient"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >
@@ -311,7 +311,7 @@ export function ExecutiveDirectorClient() {
                   href="https://unity.peersglobal.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >

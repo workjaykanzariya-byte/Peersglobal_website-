@@ -69,7 +69,7 @@ export function Cta({
     return (
       <GalaxyButton
         href={href}
-        variant="transparent"
+        variant="white-gradient"
         size={galaxySize}
         className={className}
         {...(rest as any)}

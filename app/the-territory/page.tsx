@@ -196,6 +196,7 @@ export default function TheTerritoryPage() {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <GalaxyButton
                   href="/download"
+                  variant="white-gradient"
                   size="default"
                   icon={<Smartphone className="size-4" />}
                   className="font-semibold"
@@ -207,7 +208,7 @@ export default function TheTerritoryPage() {
                   href="https://peersunity.com/circles"
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-medium"
                 >
@@ -425,6 +426,7 @@ export default function TheTerritoryPage() {
               <div className="flex flex-wrap items-center gap-3.5 mb-8">
                 <GalaxyButton
                   href="/circles"
+                  variant="white-gradient"
                   size="default"
                   className="font-semibold"
                 >
@@ -432,7 +434,7 @@ export default function TheTerritoryPage() {
                 </GalaxyButton>
                 <GalaxyButton
                   href="/circle-meeting-experience"
-                  variant="transparent"
+                  variant="gradient-white"
                   size="default"
                   className="font-semibold"
                 >
@@ -1308,10 +1310,21 @@ export default function TheTerritoryPage() {
               href="https://peersunity.com/circles"
               target="_blank"
               rel="noopener noreferrer"
+              variant="white-gradient"
               size="lg"
               className="text-xs sm:text-sm"
             >
               FIND YOUR CIRCLE
+            </GalaxyButton>
+            <GalaxyButton
+              href="https://peersunity.com/membership"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="gradient-white"
+              size="lg"
+              className="text-xs sm:text-sm"
+            >
+              JOIN PEERS GLOBAL
             </GalaxyButton>
           </div>
         }

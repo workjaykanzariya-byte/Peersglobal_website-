@@ -192,6 +192,7 @@ export function FounderClient() {
                 <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5">
                   <GalaxyButton
                     href="/our-story"
+                    variant="gradient-white"
                     size="lg"
                     className="text-xs sm:text-sm font-bold tracking-wider uppercase"
                   >
@@ -200,7 +201,7 @@ export function FounderClient() {
 
                   <GalaxyButton
                     href="/the-idea"
-                    variant="transparent"
+                    variant="transparent-light"
                     size="lg"
                     className="text-xs sm:text-sm font-bold tracking-wider uppercase"
                   >
