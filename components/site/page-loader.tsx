@@ -74,7 +74,8 @@ export function PageLoader() {
     const loadLottie = async () => {
       // 1. Try local node module if available
       try {
-        const mod = await import('lottie-web')
+        // @ts-ignore
+        const mod = await import(/* webpackIgnore: true */ 'lottie-web')
         return mod.default || mod
       } catch {
         // 2. Fallback to global window.lottie or inject CDN script

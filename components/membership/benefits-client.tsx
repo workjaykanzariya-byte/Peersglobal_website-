@@ -1042,18 +1042,6 @@ export function BenefitsClient() {
               >
                 Find Your Circle
               </GalaxyButton>
-
-              <GalaxyButton
-                href={SITE.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="transparent"
-                size="default"
-                icon={<Smartphone className="size-4 text-sky-400" />}
-                className="font-medium"
-              >
-                Download Unity App
-              </GalaxyButton>
             </div>
           </div>
         </div>

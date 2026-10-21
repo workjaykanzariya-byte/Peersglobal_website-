@@ -616,31 +616,6 @@ export function ApplyPageClient() {
               <p className="text-base sm:text-lg font-light text-slate-200 max-w-2xl leading-relaxed">
                 Download the Unity App to explore the ecosystem, meet the people, and start building your Inner Board.
               </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-3">
-                <GalaxyButton
-                  href={SITE.appStoreUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  size="default"
-                  icon={<Smartphone className="size-4" />}
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download on App Store
-                </GalaxyButton>
-
-                <GalaxyButton
-                  href={SITE.playStoreUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Get it on Google Play
-                </GalaxyButton>
-              </div>
             </div>
 
           </div>

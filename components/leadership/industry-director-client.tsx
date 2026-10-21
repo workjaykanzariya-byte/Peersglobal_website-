@@ -976,17 +976,6 @@ export function IndustryDirectorClient() {
                 >
                   Apply to Lead
                 </GalaxyButton>
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
               </div>
             </div>
         </div>

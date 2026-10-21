@@ -1564,17 +1564,6 @@ export function ApplyToLeadClient() {
               >
                 Apply to Lead
               </GalaxyButton>
-
-              <GalaxyButton
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="transparent"
-                size="default"
-                className="font-bold uppercase tracking-wider"
-              >
-                Download Unity App
-              </GalaxyButton>
             </div>
           </div>
         </div>

@@ -613,18 +613,8 @@ export function LifeImpactScoreClient() {
 
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="primary"
-                  size="default"
-                  className="font-bold uppercase tracking-wider"
-                >
-                  Download Unity App
-                </GalaxyButton>
-                <GalaxyButton
                   href="/peer-standing"
-                  variant="transparent"
+                  variant="primary"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >

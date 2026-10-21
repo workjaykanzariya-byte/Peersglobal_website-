@@ -45,12 +45,12 @@ export function PathwayCardsSection() {
         <div className="fd-pathway-cards__wash fd-pathway-cards__wash--out"></div>
       </div>
       <svg className="fd-pathway-cards__defs" aria-hidden="true" focusable="false" width="0" height="0"><defs>
-        <linearGradient id="fdPwChkMind" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-        <linearGradient id="fdPwChkEnt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-        <linearGradient id="fdPwChkAuth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-        <linearGradient id="fdPwChkConn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-        <linearGradient id="fdPwChkBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
-        <linearGradient id="fdPwChkMystic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D4ED8"></stop><stop offset="1" stop-color="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkMind" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#1D4ED8"></stop><stop offset="1" stopColor="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkEnt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#1D4ED8"></stop><stop offset="1" stopColor="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkAuth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#1D4ED8"></stop><stop offset="1" stopColor="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkConn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#1D4ED8"></stop><stop offset="1" stopColor="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#1D4ED8"></stop><stop offset="1" stopColor="#E11D48"></stop></linearGradient>
+        <linearGradient id="fdPwChkMystic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#1D4ED8"></stop><stop offset="1" stopColor="#E11D48"></stop></linearGradient>
       </defs></svg>
       <div className="fd-pathway-cards__inner">
 

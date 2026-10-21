@@ -706,8 +706,7 @@ export function AmbassadorClient() {
         description="Carry the name with respect. Carry it with authenticity. Carry it with responsibility."
         primaryButtonText="APPLY TO LEAD"
         primaryButtonHref="/contact?intent=leadership"
-        secondaryButtonText="DOWNLOAD UNITY APP"
-        secondaryButtonHref="https://unity.peersglobal.com"
+        secondaryButtonText=""
       />
     </div>
   )

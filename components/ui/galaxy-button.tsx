@@ -14,7 +14,7 @@ export interface GalaxyButtonProps
   target?: string
   rel?: string
   size?: 'sm' | 'default' | 'md' | 'lg' | 'small'
-  variant?: 'primary' | 'secondary' | 'transparent' | 'transparent-light' | 'gradient' | 'white-gradient' | 'gradient-white'
+  variant?: 'primary' | 'secondary' | 'transparent' | 'transparent-light' | 'gradient' | 'white-gradient' | 'gradient-white' | 'default'
   icon?: React.ReactNode | boolean
   showIcon?: boolean
   children?: React.ReactNode

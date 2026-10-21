@@ -615,18 +615,8 @@ export function PeerStandingClient() {
 
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <GalaxyButton
-                href="https://unity.peersglobal.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="primary"
-                size="default"
-                className="font-bold uppercase tracking-wider"
-              >
-                Download Unity App
-              </GalaxyButton>
-              <GalaxyButton
                 href="/life-impact-score"
-                variant="transparent"
+                variant="primary"
                 size="default"
                 className="font-bold uppercase tracking-wider"
               >

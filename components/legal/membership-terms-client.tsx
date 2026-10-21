@@ -481,18 +481,6 @@ export function MembershipTermsClient() {
                 >
                   Find Your Circle
                 </GalaxyButton>
-
-                <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  variant="transparent"
-                  size="default"
-                  icon={<Smartphone className="size-4" />}
-                  className="uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
               </div>
             </div>
 

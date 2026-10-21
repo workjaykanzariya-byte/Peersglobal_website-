@@ -1720,18 +1720,8 @@ export function TheIdeaClient() {
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <GalaxyButton
-                href={SITE.playStoreUrl}
-                onClick={(e: any) => handleSmartAppDownload(e)}
-                target="_blank"
-                rel="noreferrer"
-                size="lg"
-                className="uppercase tracking-wider font-bold"
-              >
-                Download the Unity App
-              </GalaxyButton>
-              <GalaxyButton
                 href="/circles"
-                variant="transparent-light"
+                variant="default"
                 size="lg"
                 className="uppercase tracking-wider font-bold"
               >
@@ -1750,12 +1740,11 @@ export function TheIdeaClient() {
         eyebrow="BEGIN WITH THE PEOPLE"
         title="Entrepreneurs should not have to build alone."
         subtitle="Peers are Partners in Business and Friends in Life."
-        description="Circles, not crowds. Trust, not transactions. Peers, not gurus. Download the Unity App and discover your Circle."
-        primaryButtonText="DOWNLOAD THE UNITY APP"
-        primaryButtonHref="https://unity.peersglobal.com"
-        secondaryButtonText="EXPLORE CIRCLES"
-        secondaryButtonHref="/circles"
-        secondaryButtonIcon={<ChevronRight className="size-4" />}
+        description="Circles, not crowds. Trust, not transactions. Peers, not gurus. Discover your Circle."
+        primaryButtonText="EXPLORE CIRCLES"
+        primaryButtonHref="/circles"
+        secondaryButtonText=""
+        secondaryButtonHref=""
       />
 
       {/* =========================================================================

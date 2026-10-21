@@ -1302,8 +1302,7 @@ export default function TheCurrencyPage() {
                 >
                   Download Unity App
                 </GalaxyButton>
-              
-</div>
+              </div>
 
 
           </div>

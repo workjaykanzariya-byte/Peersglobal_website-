@@ -936,17 +936,7 @@ export function TiersClient() {
 
               <div className="relative z-10 flex flex-col gap-3">
                 <GalaxyButton
-                  href="https://unity.peersglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="default"
-                  className="w-full uppercase tracking-wider font-bold"
-                >
-                  Download Unity App
-                </GalaxyButton>
-                <GalaxyButton
                   href="/membership/criteria"
-                  variant="transparent"
                   size="default"
                   className="w-full uppercase tracking-wider font-bold"
                 >

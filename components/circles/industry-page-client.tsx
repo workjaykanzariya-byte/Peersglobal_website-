@@ -990,8 +990,7 @@ export function IndustryPageClient() {
         description="Your industry gives you a context. Your Circle gives you relationships. Your contribution gives those relationships meaning. Peers are Partners in Business and Friends in Life."
         primaryButtonText="FIND YOUR CIRCLE"
         primaryButtonHref="https://peersunity.com/circles"
-        secondaryButtonText="DOWNLOAD THE UNITY APP"
-        secondaryButtonHref="/download"
+        secondaryButtonText=""
       />
 
     </div>
