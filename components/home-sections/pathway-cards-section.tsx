@@ -56,7 +56,22 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--mind" id="our-philosophy" style={{ '--card-index': 0 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/who-we-are-friends.jpg" alt="Peers are Partners in Business and Friends in Life" width="461" height="259" loading="lazy" decoding="async" />
+            <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                src="/videos/circle-inner-board.mp4"
+                poster="/videos/circle-inner-board-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/circle-inner-board.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
@@ -325,7 +340,22 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--entrepreneur" id="trusted-circles" style={{ '--card-index': 1 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/section_image/circle-meeting.png" alt="The 10 Forms of Collaboration" width="461" height="259" loading="lazy" decoding="async" />
+            <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                src="/videos/collaboration-reel.mp4"
+                poster="/videos/collaboration-reel-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/collaboration-reel.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
@@ -621,7 +651,22 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--authority" id="how-collaboration-works" style={{ '--card-index': 2 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Your Year Inside Peers Global" width="461" height="259" loading="lazy" decoding="async" />
+            <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                src="/videos/year-inside-reel.mp4"
+                poster="/videos/year-inside-reel-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/year-inside-reel.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
@@ -903,7 +948,22 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--connection" id="impact" style={{ '--card-index': 3 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/who-we-are-impact.jpg" alt="The Impact System" width="461" height="259" loading="lazy" decoding="async" />
+            <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                src="/videos/impact-system-reel.mp4"
+                poster="/videos/impact-system-reel-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/impact-system-reel.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
@@ -1184,7 +1244,22 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--body" id="the-1-million-mission" style={{ '--card-index': 4 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/climbers-clean.jpg" alt="Why Entrepreneurs Choose Peers Global" width="461" height="259" loading="lazy" decoding="async" />
+            <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                src="/videos/why-choose-reel.mp4"
+                poster="/videos/why-choose-reel-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/why-choose-reel.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
@@ -1452,7 +1527,22 @@ export function PathwayCardsSection() {
 
         <article className="fd-pathway-cards__block fd-pathway-cards__block--mystic" id="real-collaborations" style={{ '--card-index': 5 } as React.CSSProperties}>
           <div className="fd-pathway-cards__left">
-            <img className="fd-pathway-cards__hero" src="/images/industry-cross-city-handshake.jpg" alt="Real Collaborations at Peers Global" width="461" height="259" loading="lazy" decoding="async" />
+            <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                src="/videos/member-to-peer-reel.mp4"
+                poster="/videos/member-to-peer-reel-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              >
+                <source src="/videos/member-to-peer-reel.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div className="fd-pathway-cards__body">
               <div className="fd-pathway-cards__text">
                 <div className="fd-pathway-cards__head">
