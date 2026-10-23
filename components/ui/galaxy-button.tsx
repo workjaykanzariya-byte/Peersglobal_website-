@@ -107,15 +107,13 @@ export const GalaxyButton = React.forwardRef<
         : ''
 
   const variantClass =
-    variant === 'transparent' || variant === 'secondary'
-      ? 'galaxy-btn--transparent'
+    variant === 'transparent' || variant === 'secondary' || variant === 'white-gradient'
+      ? 'galaxy-btn--white-gradient'
       : variant === 'transparent-light'
         ? 'galaxy-btn--transparent-light'
         : variant === 'gradient'
           ? 'galaxy-btn--gradient'
-          : variant === 'white-gradient'
-            ? 'galaxy-btn--white-gradient'
-            : 'galaxy-btn--gradient-white'
+          : 'galaxy-btn--gradient-white'
 
   // Smart download link detection:
   // If the button text mentions download unity/app/peers or links to /download,

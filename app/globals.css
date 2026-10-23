@@ -1029,29 +1029,8 @@ pre, code {
 }
 
 /* -------------------------------------------------------------
-   VARIANT: TRANSPARENT GLASS (DARK SECTIONS LIKE HERO)
+   VARIANT: TRANSPARENT GLASS (MAPPED TO WHITE-GRADIENT STYLE)
 ------------------------------------------------------------- */
-.galaxy-btn--transparent {
-  --btn-bg: rgba(15, 23, 42, 0.4);
-  --btn-text: #ffffff;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-}
-
-.galaxy-btn--transparent::after {
-  background: rgba(10, 15, 30, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.galaxy-btn--transparent:hover::after {
-  background: rgba(15, 23, 42, 0.65);
-}
-
-.galaxy-btn--transparent:hover {
-  box-shadow: 0 8px 25px rgba(29, 78, 216, 0.3), 0 4px 15px rgba(225, 29, 72, 0.25);
-}
 
 /* -------------------------------------------------------------
    VARIANT: TRANSPARENT GLASS (LIGHT / WHITE SECTIONS)
@@ -1113,7 +1092,8 @@ pre, code {
    On Hover: Silky fluid crossfade to Peers Global logo gradient
    (#1D4ED8 Royal Blue -> #E11D48 Crimson Red) with white text & glowing aura
 ------------------------------------------------------------- */
-.galaxy-btn--white-gradient {
+.galaxy-btn--white-gradient,
+.galaxy-btn--transparent {
   background: #ffffff !important;
   color: #0f172a !important;
   border: 1px solid rgba(15, 23, 42, 0.14) !important;
@@ -1125,12 +1105,14 @@ pre, code {
 }
 
 /* Remove default dark cosmic underlays */
-.galaxy-btn--white-gradient::after {
+.galaxy-btn--white-gradient::after,
+.galaxy-btn--transparent::after {
   display: none !important;
 }
 
 /* Fluid Brand Logo Gradient Reveal Layer */
-.galaxy-btn--white-gradient::before {
+.galaxy-btn--white-gradient::before,
+.galaxy-btn--transparent::before {
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
@@ -1144,7 +1126,8 @@ pre, code {
 }
 
 /* Typography & Content Layer */
-.galaxy-btn--white-gradient .galaxy-btn__content {
+.galaxy-btn--white-gradient .galaxy-btn__content,
+.galaxy-btn--transparent .galaxy-btn__content {
   position: relative !important;
   z-index: 2 !important;
   color: #0f172a !important;
@@ -1153,28 +1136,33 @@ pre, code {
   transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.galaxy-btn--white-gradient .galaxy-btn__text {
+.galaxy-btn--white-gradient .galaxy-btn__text,
+.galaxy-btn--transparent .galaxy-btn__text {
   color: #0f172a !important;
   transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.galaxy-btn--white-gradient .galaxy-btn__icon {
+.galaxy-btn--white-gradient .galaxy-btn__icon,
+.galaxy-btn--transparent .galaxy-btn__icon {
   color: #0f172a !important;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease !important;
 }
 
-.galaxy-btn--white-gradient .galaxy-btn__icon svg {
+.galaxy-btn--white-gradient .galaxy-btn__icon svg,
+.galaxy-btn--transparent .galaxy-btn__icon svg {
   fill: #0f172a !important;
   color: #0f172a !important;
   transition: fill 0.3s ease, color 0.3s ease !important;
 }
 
-.galaxy-btn--white-gradient .galaxy-btn__stars {
+.galaxy-btn--white-gradient .galaxy-btn__stars,
+.galaxy-btn--transparent .galaxy-btn__stars {
   z-index: 2 !important;
   opacity: 0 !important;
 }
 
-.galaxy-btn--white-gradient .galaxy-btn__glow {
+.galaxy-btn--white-gradient .galaxy-btn__glow,
+.galaxy-btn--transparent .galaxy-btn__glow {
   background: radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.55), rgba(225, 29, 72, 0.45), transparent 70%) !important;
   opacity: 0 !important;
   filter: blur(8px) !important;
@@ -1183,44 +1171,53 @@ pre, code {
 }
 
 /* --- HOVER STATE --- */
-.galaxy-btn--white-gradient:hover {
+.galaxy-btn--white-gradient:hover,
+.galaxy-btn--transparent:hover {
   transform: translateY(-2px) !important;
   border-color: rgba(255, 255, 255, 0.25) !important;
   box-shadow: 0 12px 32px -4px rgba(29, 78, 216, 0.55), 0 8px 24px -4px rgba(225, 29, 72, 0.45), 0 0 20px rgba(225, 29, 72, 0.25) !important;
 }
 
-.galaxy-btn--white-gradient:hover::before {
+.galaxy-btn--white-gradient:hover::before,
+.galaxy-btn--transparent:hover::before {
   opacity: 1 !important;
 }
 
-.galaxy-btn--white-gradient:hover .galaxy-btn__content {
+.galaxy-btn--white-gradient:hover .galaxy-btn__content,
+.galaxy-btn--transparent:hover .galaxy-btn__content {
   color: #ffffff !important;
 }
 
-.galaxy-btn--white-gradient:hover .galaxy-btn__text {
+.galaxy-btn--white-gradient:hover .galaxy-btn__text,
+.galaxy-btn--transparent:hover .galaxy-btn__text {
   color: #ffffff !important;
 }
 
-.galaxy-btn--white-gradient:hover .galaxy-btn__icon {
+.galaxy-btn--white-gradient:hover .galaxy-btn__icon,
+.galaxy-btn--transparent:hover .galaxy-btn__icon {
   color: #ffffff !important;
   transform: translateX(0.3em) rotate(-10deg) !important;
 }
 
-.galaxy-btn--white-gradient:hover .galaxy-btn__icon svg {
+.galaxy-btn--white-gradient:hover .galaxy-btn__icon svg,
+.galaxy-btn--transparent:hover .galaxy-btn__icon svg {
   fill: #ffffff !important;
   color: #ffffff !important;
 }
 
-.galaxy-btn--white-gradient:hover .galaxy-btn__stars {
+.galaxy-btn--white-gradient:hover .galaxy-btn__stars,
+.galaxy-btn--transparent:hover .galaxy-btn__stars {
   opacity: 0.55 !important;
 }
 
-.galaxy-btn--white-gradient:hover .galaxy-btn__glow {
+.galaxy-btn--white-gradient:hover .galaxy-btn__glow,
+.galaxy-btn--transparent:hover .galaxy-btn__glow {
   opacity: 1 !important;
 }
 
 /* Active click state matching Jitter animation */
-.galaxy-btn--white-gradient:active {
+.galaxy-btn--white-gradient:active,
+.galaxy-btn--transparent:active {
   transform: translateY(0px) scale(0.97) !important;
   box-shadow: 0 4px 16px -2px rgba(29, 78, 216, 0.4), 0 3px 12px -2px rgba(225, 29, 72, 0.35) !important;
 }

@@ -957,7 +957,7 @@ export function WhyJoinClient() {
                 </GalaxyButton>
                 <GalaxyButton
                   href="/membership/criteria"
-                  variant="transparent"
+                  variant="white-gradient"
                   size="lg"
                   icon={<UserCheck className="size-4" />}
                   className="font-semibold"
