@@ -31,11 +31,11 @@ export function HeroSection() {
               </div>
 
               <h1 className="fd-hero__headline !text-3xl sm:!text-5xl lg:!text-[52px] !leading-[1.14] font-semibold tracking-tight text-white">
-                Build Your Business. Build Your Relationships. Build Your Circle.
+                Welcome to Peer Advisory Community
               </h1>
 
               <p className="fd-hero__sub !text-base sm:!text-xl text-slate-200 font-normal !leading-relaxed">
-                A community of collaboration for entrepreneurs who believe growth becomes more meaningful when we help each other grow.
+                World&apos;s first community of collaboration for entrepreneurs who believe growth becomes more meaningful when we help each other grow.
               </p>
 
               <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3 py-0.5">
