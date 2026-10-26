@@ -41,6 +41,7 @@ export interface ApiPodcastEpisode {
   id: string
   title: string
   subtitle: string
+  tagline?: string
   tag: string
   duration: string
   image: string
@@ -146,6 +147,8 @@ function normalizePodcastEpisode(raw: any, index: number): ApiPodcastEpisode {
     ? rawNotes.split('\n').filter(Boolean)
     : []
 
+  const tagline = raw.tagline || raw.tag_line || raw.subtitle || raw.description || ''
+
   const image =
     raw.image ||
     raw.image_url ||
@@ -156,6 +159,7 @@ function normalizePodcastEpisode(raw: any, index: number): ApiPodcastEpisode {
     id: String(raw.id || `ep-${index + 1}`),
     title: raw.title || 'Peers Global Episode',
     subtitle: raw.subtitle || raw.description || '',
+    tagline,
     tag: raw.tag || raw.category || 'COMMUNITY',
     duration: raw.duration || '45 mins',
     image,

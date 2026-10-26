@@ -12,7 +12,6 @@ import {
 } from '@/lib/api/web-content'
 import {
   ArrowRight,
-  ChevronLeft,
   ChevronRight,
   Mic,
   Play,
@@ -21,6 +20,8 @@ import {
   ExternalLink,
   CheckCircle2,
   RotateCcw,
+  Clock,
+  Check,
 } from 'lucide-react'
 
 // ─── Featured Episodes Type ────────────────────────────────────────────────
@@ -29,12 +30,9 @@ type Episode = ApiPodcastEpisode
 export function PodcastMediaClient() {
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [viewMode, setViewMode] = useState<'coverflow' | 'grid'>('coverflow')
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [nominateOpen, setNominateOpen] = useState(false)
-  const [touchStart, setTouchStart] = useState<number | null>(null)
 
   // Fetch dynamic episodes from Unity backend on mount
   const loadEpisodes = async () => {
@@ -45,7 +43,6 @@ export function PodcastMediaClient() {
         apiData = await fetchFeaturedEpisodes(48)
       }
       setEpisodes(apiData || [])
-      setActiveIndex(0)
     } catch (err) {
       console.warn('Failed to load dynamic podcast episodes:', err)
       setEpisodes([])
@@ -57,133 +54,6 @@ export function PodcastMediaClient() {
   useEffect(() => {
     loadEpisodes()
   }, [])
-
-  const handlePrev = () => {
-    if (episodes.length <= 1) return
-    setActiveIndex((prev) => (prev - 1 + episodes.length) % episodes.length)
-  }
-
-  const handleNext = () => {
-    if (episodes.length <= 1) return
-    setActiveIndex((prev) => (prev + 1) % episodes.length)
-  }
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX)
-  }
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStart === null || episodes.length <= 1) return
-    const touchEnd = e.changedTouches[0].clientX
-    const distance = touchStart - touchEnd
-    if (distance > 45) {
-      handleNext()
-    } else if (distance < -45) {
-      handlePrev()
-    }
-    setTouchStart(null)
-  }
-
-  // Keyboard navigation for coverflow
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedEpisode !== null) return
-      if (episodes.length <= 1) return
-      if (e.key === 'ArrowLeft') handlePrev()
-      if (e.key === 'ArrowRight') handleNext()
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [episodes.length, selectedEpisode])
-
-  // Calculate 3D coverflow styling for each podcast card relative to activeIndex
-  const getCardStyle = (index: number): React.CSSProperties => {
-    if (episodes.length === 1) {
-      return {
-        transform: 'translateX(0%) scale(1.05) translateZ(0)',
-        zIndex: 30,
-        opacity: 1,
-        visibility: 'visible',
-        filter: 'drop-shadow(0 25px 40px rgba(15, 23, 42, 0.35))',
-      }
-    }
-
-    const N = episodes.length
-    let diff = index - activeIndex
-
-    // Wrap circular offset into [-N/2, N/2]
-    while (diff > N / 2) diff -= N
-    while (diff < -N / 2) diff += N
-
-    if (diff === 0) {
-      // Center focused card (largest, elevated, sharp)
-      return {
-        transform: 'translateX(0%) scale(1.08)',
-        zIndex: 30,
-        opacity: 1,
-        visibility: 'visible',
-        filter: 'drop-shadow(0 25px 45px rgba(15, 23, 42, 0.4))',
-        cursor: 'pointer',
-      }
-    }
-
-    if (diff === 1) {
-      // Right immediate card
-      return {
-        transform: 'translateX(58%) scale(0.88)',
-        zIndex: 20,
-        opacity: 0.88,
-        visibility: 'visible',
-        filter: 'brightness(0.9) drop-shadow(0 15px 30px rgba(15, 23, 42, 0.25))',
-        cursor: 'pointer',
-      }
-    }
-
-    if (diff === -1) {
-      // Left immediate card
-      return {
-        transform: 'translateX(-58%) scale(0.88)',
-        zIndex: 20,
-        opacity: 0.88,
-        visibility: 'visible',
-        filter: 'brightness(0.9) drop-shadow(0 15px 30px rgba(15, 23, 42, 0.25))',
-        cursor: 'pointer',
-      }
-    }
-
-    if (diff === 2) {
-      // Right outer card
-      return {
-        transform: 'translateX(105%) scale(0.74)',
-        zIndex: 10,
-        opacity: 0.65,
-        visibility: 'visible',
-        filter: 'brightness(0.78) drop-shadow(0 10px 20px rgba(15, 23, 42, 0.2))',
-        cursor: 'pointer',
-      }
-    }
-
-    if (diff === -2) {
-      // Left outer card
-      return {
-        transform: 'translateX(-105%) scale(0.74)',
-        zIndex: 10,
-        opacity: 0.65,
-        visibility: 'visible',
-        filter: 'brightness(0.78) drop-shadow(0 10px 20px rgba(15, 23, 42, 0.2))',
-        cursor: 'pointer',
-      }
-    }
-
-    // Completely off-screen
-    return {
-      transform: diff > 0 ? 'translateX(160%) scale(0.6)' : 'translateX(-160%) scale(0.6)',
-      zIndex: 0,
-      opacity: 0,
-      visibility: 'hidden',
-      pointerEvents: 'none',
-    }
-  }
 
   // Nomination Form State
   const [nomineeName, setNomineeName] = useState('')
@@ -202,8 +72,6 @@ export function PodcastMediaClient() {
       setNomineeStory('')
     }, 2500)
   }
-
-  const activeEpisode = episodes[activeIndex]
 
   return (
     <div className="min-h-screen bg-[#FBFCFE] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
@@ -253,50 +121,6 @@ export function PodcastMediaClient() {
                 conversations, conclaves, and entrepreneurial milestones
               </span>.
             </p>
-
-            {/* Controls Bar: Unique Gradient View Mode Toggle & Refresh */}
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-3.5">
-              {episodes.length > 1 && (
-                <div className="relative p-[1.5px] rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] shadow-md shadow-blue-900/10 hover:shadow-lg hover:shadow-blue-900/15 transition-all">
-                  <div className="p-1 rounded-full bg-slate-100 flex items-center gap-1 text-xs font-semibold">
-                    <button
-                      onClick={() => setViewMode('coverflow')}
-                      className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center ${
-                        viewMode === 'coverflow'
-                          ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
-                          : 'text-black hover:bg-white/80 font-bold'
-                      }`}
-                    >
-                      <span style={{ color: viewMode === 'coverflow' ? '#ffffff' : '#000000' }}>3D Showcase</span>
-                    </button>
-                    <button
-                      onClick={() => setViewMode('grid')}
-                      className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center ${
-                        viewMode === 'grid'
-                          ? 'bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-sm font-bold'
-                          : 'text-black hover:bg-white/80 font-bold'
-                      }`}
-                    >
-                      <span style={{ color: viewMode === 'grid' ? '#ffffff' : '#000000' }}>Grid Gallery</span>
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Refresh Button with Matching Gradient Luxury Style */}
-              <button
-                onClick={loadEpisodes}
-                disabled={isLoading}
-                title="Refresh from Admin Panel"
-                className="relative p-[1.5px] rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] shadow-md shadow-blue-900/10 hover:shadow-lg hover:shadow-rose-900/20 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
-              >
-                <div className="px-4 py-1.5 rounded-full bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] transition-all duration-300 flex items-center justify-center text-xs font-bold uppercase tracking-wider">
-                  <span className="text-black font-extrabold group-hover:text-white transition-colors duration-300">
-                    {isLoading ? 'Updating...' : 'Refresh'}
-                  </span>
-                </div>
-              </button>
-            </div>
           </div>
 
           {/* Content States */}
@@ -317,7 +141,7 @@ export function PodcastMediaClient() {
                   No Podcast Episodes Published Yet
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed max-w-md mx-auto">
-                  Episodes, podcasts, and video broadcasts uploaded from the admin panel will appear here automatically in this 3D visual showcase.
+                  Episodes, podcasts, and video broadcasts uploaded from the admin panel will appear here automatically.
                 </p>
               </div>
               <div className="pt-2 flex items-center justify-center gap-3">
@@ -330,181 +154,9 @@ export function PodcastMediaClient() {
                 </button>
               </div>
             </div>
-          ) : viewMode === 'coverflow' ? (
-            /* ─── 3D COVERFLOW PERSPECTIVE STAGE ─── */
-            <div className="space-y-8 select-none">
-              <div
-                className="relative w-full h-[420px] sm:h-[480px] md:h-[540px] flex items-center justify-center overflow-visible"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-              >
-                {episodes.map((ep, idx) => {
-                  const style = getCardStyle(idx)
-                  const isCenter = idx === activeIndex
-
-                  return (
-                    <div
-                      key={ep.id || idx}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        if (isCenter) {
-                          setSelectedEpisode(ep)
-                          setIsPlaying(true)
-                        } else {
-                          setActiveIndex(idx)
-                        }
-                      }}
-                      className="absolute inset-0 m-auto w-[270px] sm:w-[320px] md:w-[370px] lg:w-[400px] h-[380px] sm:h-[440px] md:h-[500px] rounded-[28px] sm:rounded-[32px] overflow-hidden bg-slate-900 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group shadow-2xl"
-                      style={style}
-                    >
-                      {/* Full Click Hit-Area for Side Cards */}
-                      {!isCenter && (
-                        <button
-                          type="button"
-                          aria-label={`Show episode ${idx + 1}`}
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            setActiveIndex(idx)
-                          }}
-                          className="absolute inset-0 z-30 size-full bg-transparent border-0 cursor-pointer p-0 focus:outline-none"
-                        />
-                      )}
-
-                      {/* Episode Image */}
-                      {ep.image ? (
-                        <img
-                          src={ep.image}
-                          alt={ep.title || 'Podcast Episode'}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="size-full flex items-center justify-center bg-slate-900 text-slate-600">
-                          <Mic className="size-16 opacity-30 text-blue-400" />
-                        </div>
-                      )}
-
-                      {/* Vignette Gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-slate-950/30 pointer-events-none" />
-
-                      {/* Top Badges */}
-                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] shadow-md">
-                          {ep.tag}
-                        </span>
-                        <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/80 text-white backdrop-blur-md border border-white/15">
-                          {ep.duration}
-                        </span>
-                      </div>
-
-                      {/* Center Play Button */}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="size-16 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] p-[2px] shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                          <div className="size-full rounded-full bg-slate-950/80 backdrop-blur-md flex items-center justify-center text-white">
-                            <Play className="size-6 fill-current ml-1 text-white" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bottom Info Overlay on Card */}
-                      <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white z-10 pointer-events-none space-y-1.5">
-                        <h4 className="text-base sm:text-lg font-bold line-clamp-2 leading-snug drop-shadow-md">
-                          {ep.title}
-                        </h4>
-                        {ep.guest?.name && (
-                          <p className="text-xs text-slate-300 line-clamp-1 drop-shadow-sm font-medium">
-                            {ep.guest.name} {ep.guest.title ? `· ${ep.guest.title}` : ''}
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Center Card Click Indicator Hover Effect */}
-                      {isCenter && (
-                        <div className="absolute inset-0 bg-slate-950/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                          <span className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-slate-900 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg transform translate-y-3 group-hover:translate-y-0 transition-transform">
-                            <Play className="size-3.5 fill-current text-blue-600" />
-                            <span>Play Episode</span>
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-
-              {/* Active Episode Details & Counter */}
-              {activeEpisode && (
-                <div className="text-center max-w-xl mx-auto px-4 space-y-1.5">
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 tracking-tight leading-snug">
-                    {activeEpisode.title}
-                  </h3>
-                  {activeEpisode.subtitle && (
-                    <p className="text-xs sm:text-sm text-slate-600 line-clamp-2">
-                      {activeEpisode.subtitle}
-                    </p>
-                  )}
-                  {episodes.length > 1 && (
-                    <p className="text-xs text-slate-500 font-mono pt-1">
-                      {activeIndex + 1} of {episodes.length}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {/* Navigation Arrows: Styled with Logo Gradient */}
-              {episodes.length > 1 && (
-                <div className="flex items-center justify-center gap-4 pt-3">
-                  <button
-                    onClick={handlePrev}
-                    aria-label="Previous Episode"
-                    className="size-12 sm:size-14 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-rose-600/35 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
-                  >
-                    <ChevronLeft className="size-6 sm:size-7 text-white stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    aria-label="Next Episode"
-                    className="size-12 sm:size-14 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-rose-600/35 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
-                  >
-                    <ChevronRight className="size-6 sm:size-7 text-white stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
-                  </button>
-                </div>
-              )}
-
-              {/* Thumbnail Strip */}
-              {episodes.length > 1 && (
-                <div className="pt-4 flex items-center justify-center gap-2 overflow-x-auto max-w-2xl mx-auto py-2 px-4 no-scrollbar">
-                  {episodes.map((ep, idx) => (
-                    <button
-                      key={ep.id || idx}
-                      onClick={() => setActiveIndex(idx)}
-                      aria-label={`Jump to episode ${idx + 1}`}
-                      className={`relative size-12 sm:size-14 rounded-2xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
-                        idx === activeIndex
-                          ? 'border-blue-600 ring-2 ring-blue-500/30 scale-105'
-                          : 'border-transparent opacity-60 hover:opacity-100'
-                      }`}
-                    >
-                      {ep.image ? (
-                        <img
-                          src={ep.image}
-                          alt={ep.title}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="size-full bg-slate-900 flex items-center justify-center">
-                          <Mic className="size-5 text-slate-400" />
-                        </div>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
           ) : (
-            /* ─── GRID VIEW ALTERNATIVE ─── */
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            /* ─── 3-CARD GRID VIEW (DIRECT DISPLAY) ─── */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
               {episodes.map((ep) => (
                 <div
                   key={ep.id}
@@ -512,78 +164,105 @@ export function PodcastMediaClient() {
                     setSelectedEpisode(ep)
                     setIsPlaying(true)
                   }}
-                  className="group/card relative rounded-3xl p-[1px] bg-slate-200/80 hover:bg-gradient-to-r hover:from-[#1D4ED8] hover:to-[#E11D48] transition-all duration-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                  className="group relative bg-white rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col justify-between cursor-pointer"
                 >
-                  <div className="rounded-[23px] bg-white overflow-hidden h-full flex flex-col justify-between group">
-                    <div>
-                      {/* Video Still with Play Overlay & Duration */}
-                      <div className="relative h-48 w-full overflow-hidden bg-slate-950">
-                        {ep.image ? (
-                          <img
-                            src={ep.image}
-                            alt={ep.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="size-full flex items-center justify-center bg-slate-900 text-slate-600">
-                            <Mic className="size-10 opacity-30 text-blue-400" />
-                          </div>
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20" />
-
-                        {/* Topic Badge on Top Left */}
-                        <div className="absolute top-3.5 left-3.5 max-w-[170px]">
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] px-2.5 py-1 rounded-full shadow-md line-clamp-1">
-                            {ep.tag}
-                          </span>
+                  <div>
+                    {/* ─── Full 16:9 Video Thumbnail Cover ─── */}
+                    <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
+                      {ep.image ? (
+                        <img
+                          src={ep.image}
+                          alt={ep.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="size-full flex items-center justify-center bg-slate-900 text-slate-600">
+                          <Mic className="size-10 opacity-30 text-blue-400" />
                         </div>
+                      )}
 
-                        {/* Duration Badge on Top Right */}
-                        <span className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-slate-950/75 text-white backdrop-blur-md border border-white/10">
-                          {ep.duration}
+                      {/* Category Badge on Top Left (Matches Reference: Red Pill) */}
+                      <div className="absolute top-2.5 left-2.5 max-w-[65%]">
+                        <span className="inline-block text-[10px] sm:text-xs font-black uppercase tracking-wider text-white bg-[#E11D48] px-2.5 py-0.5 rounded shadow-sm truncate">
+                          {ep.tag}
                         </span>
-
-                        {/* Big Center Play Icon */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="size-12 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:text-white transition-all">
-                            <Play className="size-5 fill-current ml-0.5" />
-                          </div>
-                        </div>
                       </div>
 
-                      {/* Card Body */}
-                      <div className="p-5 space-y-2">
-                        <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug group-hover:bg-gradient-to-r group-hover:from-[#1D4ED8] group-hover:to-[#E11D48] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-2">
-                          {ep.title}
-                        </h3>
-                        <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-2">
-                          {ep.subtitle}
-                        </p>
+                      {/* Duration Badge on Top Right (Matches Reference: Clock + Duration) */}
+                      <span className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold bg-black/70 backdrop-blur-md text-white border border-white/10 flex items-center gap-1 shadow-sm">
+                        <Clock className="size-3 text-white/90" />
+                        <span>{ep.duration}</span>
+                      </span>
+
+                      {/* YouTube Badge on Bottom Right (Matches Reference: Red YouTube Button) */}
+                      <div
+                        title="Watch on YouTube"
+                        className="absolute bottom-2.5 right-2.5 size-7 rounded-md bg-[#E11D48] text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300"
+                      >
+                        <svg className="size-4 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                      </div>
+
+                      {/* Soft Hover Overlay (Subtle, without obscuring cover artwork text) */}
+                      <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                        <div className="size-11 rounded-full bg-white/95 text-slate-900 shadow-xl flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                          <Play className="size-4 fill-current ml-0.5 text-blue-600" />
+                        </div>
                       </div>
                     </div>
 
-                    {/* Guest Footer */}
-                    <div className="p-5 pt-0 border-t border-slate-100 flex items-center gap-3 mt-3">
-                      <div className="relative size-9 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-xs font-bold text-blue-600">
-                        {ep.guest.avatar ? (
-                          <img
-                            src={ep.guest.avatar}
-                            alt={ep.guest.name}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <span>{ep.guest.name ? ep.guest.name.charAt(0) : 'P'}</span>
+                    {/* ─── Card Body ─── */}
+                    <div className="p-4 sm:p-5 space-y-2.5">
+                      {/* Title */}
+                      <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug line-clamp-2 group-hover:text-blue-600 transition-colors">
+                        {ep.title}
+                      </h3>
+
+                      {/* Tagline / Subtitle */}
+                      {(ep.tagline || ep.subtitle) && (
+                        <p className="text-xs text-slate-600 leading-relaxed font-normal line-clamp-2">
+                          {ep.tagline || ep.subtitle}
+                        </p>
+                      )}
+
+                      {/* Discussion Notes (Matches Reference) */}
+                      {ep.showNotes && ep.showNotes.length > 0 && (
+                        <div className="space-y-1.5 pt-1">
+                          <div className="text-[10px] font-bold text-slate-400 tracking-wider uppercase">
+                            Discussion Notes ({ep.showNotes.length})
+                          </div>
+                          <div className="space-y-1">
+                            {ep.showNotes.slice(0, 2).map((note, nIdx) => (
+                              <div key={nIdx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                                <Check className="size-3 text-blue-600 shrink-0 mt-0.5 stroke-[2.5]" />
+                                <span className="line-clamp-1">{note}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* ─── Card Footer: PODCAST badge + Watch action ─── */}
+                  <div className="p-4 sm:p-5 pt-0 mt-2">
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 border border-slate-200/80">
+                          PODCAST
+                        </span>
+                        {ep.guest?.name && ep.guest.name !== 'Featured Leader' && ep.guest.name !== 'Community Leader' && (
+                          <span className="text-[11px] text-slate-500 truncate max-w-[120px]">
+                            {ep.guest.name}
+                          </span>
                         )}
                       </div>
-                      <div className="leading-tight">
-                        <span className="text-xs font-bold text-slate-900 block group-hover:text-blue-700 transition-colors">
-                          {ep.guest.name}
-                        </span>
-                        <span className="text-[10px] text-slate-500 block truncate max-w-[170px]">
-                          {ep.guest.title}
-                        </span>
+
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 group-hover:text-rose-600 transition-colors">
+                        <Play className="size-3 fill-current" />
+                        <span>Watch Episode</span>
                       </div>
                     </div>
                   </div>
@@ -727,8 +406,14 @@ export function PodcastMediaClient() {
 
       {/* ─── MODAL: EPISODE MEDIA PLAYER ─── */}
       {selectedEpisode && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative">
+        <div
+          onClick={() => setSelectedEpisode(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200 cursor-pointer"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative cursor-default"
+          >
             <button
               onClick={() => setSelectedEpisode(null)}
               className="absolute top-4 right-4 z-10 size-9 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white flex items-center justify-center transition-colors cursor-pointer"
@@ -801,29 +486,43 @@ export function PodcastMediaClient() {
               </div>
             )}
 
-            {/* Show Notes & Guest Info */}
+            {/* YouTube Channel Info */}
             <div className="p-6 sm:p-8 space-y-6">
-              <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-                <div className="relative size-11 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center text-sm font-bold text-blue-600">
-                  {selectedEpisode.guest.avatar ? (
-                    <Image
-                      src={selectedEpisode.guest.avatar}
-                      alt={selectedEpisode.guest.name}
-                      fill
-                      className="object-cover"
+              <div className="flex items-center justify-between gap-3 pb-4 border-b border-slate-100">
+                <a
+                  href="https://www.youtube.com/@PeersGlobalTV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 group/channel hover:opacity-95 transition-opacity"
+                >
+                  <div className="relative size-12 rounded-full overflow-hidden bg-white border border-slate-200 shrink-0 p-0.5 shadow-2xs group-hover/channel:border-red-500 transition-colors">
+                    <img
+                      src="/images/peers-global-tv-avatar.png"
+                      alt="Peers Global TV"
+                      className="w-full h-full object-cover rounded-full"
                     />
-                  ) : (
-                    <span>{selectedEpisode.guest.name ? selectedEpisode.guest.name.charAt(0) : 'P'}</span>
-                  )}
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-slate-900">
-                    {selectedEpisode.guest.name}
                   </div>
-                  <div className="text-xs text-slate-500">
-                    {selectedEpisode.guest.title}
+                  <div>
+                    <div className="text-sm sm:text-base font-bold text-slate-900 group-hover/channel:text-blue-600 transition-colors leading-snug">
+                      Peers Global TV - Community of Collaboration
+                    </div>
+                    <div className="text-xs text-slate-500 font-medium">
+                      @PeersGlobalTV
+                    </div>
                   </div>
-                </div>
+                </a>
+
+                <a
+                  href="https://www.youtube.com/@PeersGlobalTV?sub_confirmation=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0F0F0F] hover:bg-[#CC0000] text-white text-xs font-semibold tracking-wide transition-colors shrink-0 shadow-xs"
+                >
+                  <svg className="size-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                  <span>Subscribe</span>
+                </a>
               </div>
 
               <div className="space-y-3">
@@ -841,39 +540,24 @@ export function PodcastMediaClient() {
               </div>
 
               {/* Streaming Platform CTAs */}
-              <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <a
-                    href={selectedEpisode.spotifyUrl || 'https://open.spotify.com'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
-                  >
-                    <span>Listen on Spotify</span>
-                    <ExternalLink className="size-3" />
-                  </a>
-                  <a
-                    href={
-                      selectedEpisode.youtubeUrl ||
-                      (selectedEpisode.youtubeVideoId
-                        ? `https://www.youtube.com/watch?v=${selectedEpisode.youtubeVideoId}`
-                        : 'https://youtube.com')
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
-                  >
-                    <span>Watch on YouTube</span>
-                    <ExternalLink className="size-3" />
-                  </a>
-                </div>
-
-                <button
-                  onClick={() => setSelectedEpisode(null)}
-                  className="px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors cursor-pointer"
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-center sm:justify-start">
+                <a
+                  href={
+                    selectedEpisode.youtubeUrl ||
+                    (selectedEpisode.youtubeVideoId
+                      ? `https://www.youtube.com/watch?v=${selectedEpisode.youtubeVideoId}`
+                      : 'https://youtube.com')
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#1D4ED8] via-[#4F46E5] to-[#E11D48] text-white text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-md shadow-blue-900/15 hover:shadow-lg hover:shadow-rose-900/25 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
                 >
-                  Close Player
-                </button>
+                  <svg className="size-4 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                  <span>Watch on YouTube</span>
+                  <ExternalLink className="size-3.5 stroke-[2.5]" />
+                </a>
               </div>
             </div>
           </div>
