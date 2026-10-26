@@ -58,15 +58,15 @@ export function PathwayCardsSection() {
           <div className="fd-pathway-cards__left">
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl pointer-events-none"
                 src="/videos/circle-inner-board.mp4"
                 poster="/videos/circle-inner-board-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                controls
                 preload="metadata"
+                disablePictureInPicture
               >
                 <source src="/videos/circle-inner-board.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -342,15 +342,15 @@ export function PathwayCardsSection() {
           <div className="fd-pathway-cards__left">
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl pointer-events-none"
                 src="/videos/collaboration-reel.mp4"
                 poster="/videos/collaboration-reel-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                controls
                 preload="metadata"
+                disablePictureInPicture
               >
                 <source src="/videos/collaboration-reel.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -653,15 +653,15 @@ export function PathwayCardsSection() {
           <div className="fd-pathway-cards__left">
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl pointer-events-none"
                 src="/videos/year-inside-reel.mp4"
                 poster="/videos/year-inside-reel-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                controls
                 preload="metadata"
+                disablePictureInPicture
               >
                 <source src="/videos/year-inside-reel.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -950,15 +950,15 @@ export function PathwayCardsSection() {
           <div className="fd-pathway-cards__left">
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl pointer-events-none"
                 src="/videos/impact-system-reel.mp4"
                 poster="/videos/impact-system-reel-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                controls
                 preload="metadata"
+                disablePictureInPicture
               >
                 <source src="/videos/impact-system-reel.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -1246,15 +1246,15 @@ export function PathwayCardsSection() {
           <div className="fd-pathway-cards__left">
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl pointer-events-none"
                 src="/videos/why-choose-reel.mp4"
                 poster="/videos/why-choose-reel-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                controls
                 preload="metadata"
+                disablePictureInPicture
               >
                 <source src="/videos/why-choose-reel.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -1529,15 +1529,15 @@ export function PathwayCardsSection() {
           <div className="fd-pathway-cards__left">
             <div className="fd-pathway-cards__hero overflow-hidden relative rounded-2xl bg-slate-950 shadow-lg border border-slate-800/60 group">
               <video
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl pointer-events-none"
                 src="/videos/member-to-peer-reel.mp4"
                 poster="/videos/member-to-peer-reel-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                controls
                 preload="metadata"
+                disablePictureInPicture
               >
                 <source src="/videos/member-to-peer-reel.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
