@@ -1,37 +1,21 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
-import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import { DesignProvider, DesignScript } from '@/components/design/design-provider'
 import { DesignSwitcher } from '@/components/design/design-switcher'
 import { SiteShell } from '@/components/site/site-shell'
 import { PageLoader } from '@/components/site/page-loader'
 import './globals.css'
 
-const libreFranklin = localFont({
+const googleSansFlex = localFont({
   src: [
     {
-      path: '../Libre_Franklin/LibreFranklin-VariableFont_wght.ttf',
+      path: '../public/fonts/google-sans-flex-latin.woff2',
       style: 'normal',
-    },
-    {
-      path: '../Libre_Franklin/LibreFranklin-Italic-VariableFont_wght.ttf',
-      style: 'italic',
+      weight: '100 1000',
     },
   ],
-  variable: '--font-libre-franklin',
-  display: 'swap',
-})
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-sans-modern',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans-inter',
+  variable: '--font-google-sans',
   display: 'swap',
 })
 
@@ -75,7 +59,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-design="d1"
-      className={`bg-background ${libreFranklin.variable} ${plusJakarta.variable} ${inter.variable}`}
+      className={`bg-background ${googleSansFlex.variable}`}
       suppressHydrationWarning
     >
       <head>
