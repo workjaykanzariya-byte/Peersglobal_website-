@@ -249,7 +249,7 @@ export function MembershipPageClient() {
                   rel="noopener noreferrer"
                   variant="gradient-white"
                   size="default"
-                  icon={<Smartphone className="size-4 text-sky-400" />}
+                  showIcon={false}
                   className="font-bold"
                 >
                   Download Unity App

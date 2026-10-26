@@ -461,7 +461,7 @@ export function MemberFaqClient() {
 
                 <GalaxyButton
                   href="/membership/criteria"
-                  variant="transparent"
+                  variant="white-gradient"
                   size="default"
                   className="font-bold uppercase tracking-wider"
                 >

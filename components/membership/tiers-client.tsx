@@ -177,7 +177,7 @@ export function TiersClient() {
                 </GalaxyButton>
                 <GalaxyButton
                   href="/membership/criteria"
-                  variant="transparent"
+                  variant="white-gradient"
                   size="default"
                   className="font-medium"
                 >
