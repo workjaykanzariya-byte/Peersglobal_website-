@@ -35,7 +35,9 @@ export function HeroSection() {
               </h1>
 
               <p className="fd-hero__sub !text-base sm:!text-xl text-slate-200 font-normal !leading-relaxed">
-                World&apos;s first community of collaboration for entrepreneurs who believe growth becomes more meaningful when we help each other grow.
+                World&apos;s First Community of Collaboration
+                <br />
+                Made in Bharat, Built for the World
               </p>
 
               <p className="text-sm sm:text-base text-white/95 font-medium italic border-l-2 border-[#E11D48] pl-3 py-0.5">
