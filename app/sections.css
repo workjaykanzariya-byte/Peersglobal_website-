@@ -2152,6 +2152,16 @@ p.body,
   background: rgba(0, 0, 0, 0.25);
 }
 
+.fd-pathway-cards__media--single {
+  display: block !important;
+  aspect-ratio: 16 / 10 !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  margin-bottom: 4px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
 .fd-pathway-cards__cover {
   width: 100%;
   height: 100%;
@@ -4166,3 +4176,312 @@ p.body,
 .mission-impact-card:hover .mission-stat-pill {
   animation: missionCounterFloat 2s ease-in-out infinite;
 }
+
+/* ==========================================================================
+   PREMIUM AFTER-EFFECTS TRANSITIONS FOR PATHWAY GALLERY SLIDESHOWS
+   ========================================================================== */
+
+@keyframes fdGalleryKenBurns {
+  0% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.035) translate(0.3%, -0.3%);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+.fd-gallery-kenburns {
+  animation: fdGalleryKenBurns 12s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes fdLightSweep {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.fd-gallery-sweep {
+  animation: fdLightSweep 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fdBloomPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  35% {
+    opacity: 0.55;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.28);
+  }
+}
+
+.fd-gallery-bloom {
+  animation: fdBloomPulse 0.9s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fdCurtainWipe {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: scale(1.0);
+  }
+}
+
+.fd-gallery-curtain-in {
+  animation: fdCurtainWipe 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: clip-path, opacity, transform;
+}
+
+/* ==========================================================================
+   AFTER-EFFECTS MOTION GRAPHICS TRANSITIONS
+   ========================================================================== */
+
+/* 1. Zoom-Bloom */
+@keyframes aeZoomBloomIn {
+  0% {
+    transform: scale(1.15);
+    opacity: 0;
+    filter: blur(4px) brightness(1.2);
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 1;
+    filter: blur(0px) brightness(1.0);
+  }
+}
+
+@keyframes aeZoomBloomOut {
+  0% {
+    transform: scale(1.0);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+.ae-in-zoom-bloom {
+  animation: aeZoomBloomIn 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.ae-out-zoom-bloom {
+  animation: aeZoomBloomOut 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* 2. Parallax-Glide */
+@keyframes aeGlideInNext {
+  0% {
+    transform: translateX(28%) scale(1.04);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1.0);
+    opacity: 1;
+  }
+}
+
+@keyframes aeGlideOutNext {
+  0% {
+    transform: translateX(0) scale(1.0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-18%) scale(0.96);
+    opacity: 0;
+  }
+}
+
+@keyframes aeGlideInPrev {
+  0% {
+    transform: translateX(-28%) scale(1.04);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1.0);
+    opacity: 1;
+  }
+}
+
+@keyframes aeGlideOutPrev {
+  0% {
+    transform: translateX(0) scale(1.0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(18%) scale(0.96);
+    opacity: 0;
+  }
+}
+
+.ae-in-glide-next {
+  animation: aeGlideInNext 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.ae-out-glide-next {
+  animation: aeGlideOutNext 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.ae-in-glide-prev {
+  animation: aeGlideInPrev 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.ae-out-glide-prev {
+  animation: aeGlideOutPrev 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* 3. Diagonal-Curtain */
+@keyframes aeCurtainOut {
+  0% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+.ae-out-curtain {
+  animation: aeCurtainOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* 4. Vertical-Lift */
+@keyframes aeLiftInNext {
+  0% {
+    transform: translateY(22%) scale(1.03);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1.0);
+    opacity: 1;
+  }
+}
+
+@keyframes aeLiftOutNext {
+  0% {
+    transform: translateY(0) scale(1.0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-14%) scale(0.97);
+    opacity: 0;
+  }
+}
+
+@keyframes aeLiftInPrev {
+  0% {
+    transform: translateY(-22%) scale(1.03);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1.0);
+    opacity: 1;
+  }
+}
+
+@keyframes aeLiftOutPrev {
+  0% {
+    transform: translateY(0) scale(1.0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14%) scale(0.97);
+    opacity: 0;
+  }
+}
+
+.ae-in-lift-next {
+  animation: aeLiftInNext 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.ae-out-lift-next {
+  animation: aeLiftOutNext 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.ae-in-lift-prev {
+  animation: aeLiftInPrev 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.ae-out-lift-prev {
+  animation: aeLiftOutPrev 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* 5. Aperture-Focus (Cinematic Rack-Focus) */
+@keyframes aeApertureIn {
+  0% {
+    filter: blur(14px) brightness(1.3);
+    transform: scale(1.08);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    filter: blur(0px) brightness(1.0);
+    transform: scale(1.0);
+    opacity: 1;
+  }
+}
+
+@keyframes aeApertureOut {
+  0% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1.0);
+  }
+  100% {
+    filter: blur(8px);
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+.ae-in-aperture {
+  animation: aeApertureIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: filter, transform, opacity;
+}
+
+.ae-out-aperture {
+  animation: aeApertureOut 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: filter, transform, opacity;
+}
