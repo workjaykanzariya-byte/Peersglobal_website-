@@ -18,9 +18,29 @@ export const metadata: Metadata = {
     'A global community of entrepreneurs and business leaders who grow through trust, collaboration and impact. Peers are Partners in Business and Friends in Life.',
 }
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Peers Global',
+  url: 'https://peersglobal.com',
+  logo: 'https://peersglobal.com/favicon-192x192.png',
+  image: 'https://peersglobal.com/images/logo-full.png',
+  description:
+    'A global community of entrepreneurs and business leaders who grow through trust, collaboration and impact. Peers are Partners in Business and Friends in Life.',
+  sameAs: [
+    'https://www.youtube.com/@PeersGlobalTV',
+  ],
+}
+
 export default function HomePage() {
   return (
     <div className="homepage-sections-root w-full bg-white text-[#0f131a]">
+      {/* Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+
       {/* 1. Hero Section & Background Video */}
       <HeroSection />
 
