@@ -318,6 +318,15 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
         if (res.candidate_id || res.user_id) {
           setCandidateId(res.candidate_id || res.user_id!)
         }
+        const initialPhoto =
+          (res.profile as any).photo_url ||
+          (res.profile as any).profile_photo_url ||
+          (res.profile as any).photoUrl ||
+          (res.profile as any).photo ||
+          (res.profile as any).avatar ||
+          ''
+        const resolvedUserId = res.candidate_id || res.user_id || (res.profile as any).user_id
+
         setProfile({
           fullName: res.profile.fullName || res.profile.full_name || '',
           email: res.profile.email || cleanEmail,
@@ -327,15 +336,20 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           bio: res.profile.bio || '',
           socialLinks: res.profile.socialLinks || '',
           yearsExperience: res.profile.yearsExperience || 5,
-          photoUrl:
-            (res.profile as any).photo_url ||
-            (res.profile as any).profile_photo_url ||
-            ((res.profile as any).profile_photo_file_id ? `https://peersunity.com/api/v1/files/${(res.profile as any).profile_photo_file_id}` : '') ||
-            (res.profile as any).photoUrl ||
-            (res.profile as any).photo ||
-            (res.profile as any).avatar ||
-            '',
+          photoUrl: initialPhoto,
         })
+
+        // If photoUrl was empty, query user-photo endpoint by userId directly
+        if (!initialPhoto && resolvedUserId) {
+          fetch(`/api/leadership/user-photo?userId=${encodeURIComponent(resolvedUserId)}`)
+            .then((r) => r.json())
+            .then((pData) => {
+              if (pData?.photoUrl) {
+                setProfile((prev) => ({ ...prev, photoUrl: pData.photoUrl }))
+              }
+            })
+            .catch(() => {})
+        }
         setLookupFeedback({
           status: 'success',
           message: res.message || 'Member account verified and credentials pre-filled!',
