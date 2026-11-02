@@ -330,10 +330,11 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           photoUrl:
             (res.profile as any).photo_url ||
             (res.profile as any).profile_photo_url ||
+            ((res.profile as any).profile_photo_file_id ? `https://peersunity.com/api/v1/files/${(res.profile as any).profile_photo_file_id}` : '') ||
             (res.profile as any).photoUrl ||
             (res.profile as any).photo ||
             (res.profile as any).avatar ||
-            `https://ui-avatars.com/api/?name=${encodeURIComponent(res.profile.fullName || res.profile.full_name || 'Verified Member')}&background=1D4ED8&color=fff&size=400&bold=true`,
+            '',
         })
         setLookupFeedback({
           status: 'success',
