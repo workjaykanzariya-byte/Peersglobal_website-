@@ -19,7 +19,6 @@ import {
 } from 'lucide-react'
 import { Campaign, calculateCampaignPhase, CampaignPhase, leadershipApi } from '@/lib/api/leadership'
 import { CampaignCard } from '@/components/leadership/elections/campaign-card'
-import { GalaxyButton } from '@/components/ui/galaxy-button'
 
 interface CampaignsClientProps {
   initialCampaigns: Campaign[]
@@ -153,26 +152,6 @@ export function CampaignsClient({ initialCampaigns, isLive }: CampaignsClientPro
             Influence without authority. Leaders are Partners in Business and Friends in Life.
           </p>
 
-          {/* Action Buttons using genuine GalaxyButtons matching homepage */}
-          <div className="pt-2 flex flex-wrap items-center gap-3">
-            <GalaxyButton
-              href="/leadership/juror"
-              variant="gradient-white"
-              size="default"
-              className="text-xs sm:text-sm"
-            >
-              Jury Portal
-            </GalaxyButton>
-
-            <GalaxyButton
-              href="/leadership/winners"
-              variant="transparent"
-              size="default"
-              className="text-xs sm:text-sm"
-            >
-              Winners Showcase
-            </GalaxyButton>
-          </div>
         </div>
       </div>
 
