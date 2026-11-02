@@ -1,37 +1,8 @@
 'use client'
 
-import React, { useRef, useState, useEffect } from 'react'
+import React from 'react'
 
 export function WhatIsSection() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [isMuted, setIsMuted] = useState(true)
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true
-      videoRef.current.muted = true
-    }
-  }, [])
-
-  const togglePlay = () => {
-    if (!videoRef.current) return
-    if (videoRef.current.paused) {
-      videoRef.current.play()
-      setIsPlaying(true)
-    } else {
-      videoRef.current.pause()
-      setIsPlaying(false)
-    }
-  }
-
-  const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    if (!videoRef.current) return
-    videoRef.current.muted = !videoRef.current.muted
-    setIsMuted(videoRef.current.muted)
-  }
-
   return (
     <section className="fd-what-is-mindvalley" id="fd-what-is-mindvalley">
       <div className="fd-what-is-mindvalley__inner">
@@ -103,38 +74,21 @@ export function WhatIsSection() {
         </div>
       </div>
 
-      {/* Cinematic Showcase Video Player */}
+      {/* Cinematic Showcase Video Player - 1080p High Quality */}
       <div style={{ position: 'relative', width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-        <div
-          className="relative aspect-[16/9] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-200/80 cursor-pointer group select-none"
-          onClick={togglePlay}
-        >
+        <div className="relative aspect-[16/9] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-200/80">
           <video
-            ref={videoRef}
-            src="/videos/peersglobal.mp4"
+            src="/videos/healthcare-catalyst-1080p.mp4"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
             className="w-full h-full object-cover block"
-            onEnded={() => setIsPlaying(false)}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
           >
-            <source src="/videos/peersglobal.mp4" type="video/mp4" />
-            <source src="/videos/leadership-hero-bg.mp4" type="video/mp4" />
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
+            <source src="/videos/healthcare-catalyst-1080p.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
-
-
-
-
-
-
-
         </div>
       </div>
     </section>
