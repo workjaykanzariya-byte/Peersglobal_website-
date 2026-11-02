@@ -181,7 +181,7 @@ export interface Winner {
   winner_name: string
   role: string
   scope: string
-  creative_url: string
+  creative_url?: string
   votes_received?: number
   vote_percentage?: number
   company?: string
@@ -329,7 +329,6 @@ export const MOCK_CANDIDATES: Candidate[] = [
     company: 'Aequitas Information Technology Pvt Ltd',
     designation: 'Director & CEO',
     scope_name: 'Surat District',
-    photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
     bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
     vision_statement:
       'To build an interconnected, high-trust leadership ecosystem that scales regional enterprises and unlocks multi-generational collaboration.',
@@ -348,7 +347,6 @@ export const MOCK_CANDIDATES: Candidate[] = [
     company: 'Aequitas IT Solutions',
     designation: 'Managing Director & Founder',
     scope_name: 'Surat District',
-    photo_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
     bio: 'Serial entrepreneur with 14 years in enterprise software and community governance. Founding leader of Surat Circle Alpha.',
     vision_statement:
       'My vision is to expand our District ecosystem to 8 active Circles, establish an official ₹5 Cr peer venture syndicate, and double bilateral transactions through structured masterminds.',
@@ -368,7 +366,6 @@ export const MOCK_CANDIDATES: Candidate[] = [
     company: 'Sterling Biotech & Diagnostics',
     designation: 'Joint Managing Director',
     scope_name: 'Surat District',
-    photo_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
     bio: 'Healthcare innovator leading a 250+ employee diagnostic network. Active member of Healthcare & Life Sciences Circle.',
     vision_statement:
       'Strengthening peer-to-peer trust through transparent reporting, introducing cross-industry clinical roundtables, and mentoring next-gen family business promoters.',
@@ -388,7 +385,6 @@ export const MOCK_CANDIDATES: Candidate[] = [
     company: 'Apex Infrastructure & Logistics',
     designation: 'Chief Executive Officer',
     scope_name: 'Surat District',
-    photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
     bio: 'Supply chain veteran with 18 years experience handling multimodal port logistics and warehousing.',
     vision_statement:
       'Connecting Surat industrial corridors with national Circles to unlock inter-state supply chain contracts for our members.',
@@ -405,7 +401,6 @@ export const MOCK_CANDIDATES: Candidate[] = [
     company: 'Navitas Solar Private Limited',
     designation: 'Director & Co-Founder',
     scope_name: 'Surat District',
-    photo_url: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80',
     bio: 'Vineet Mittal is a pioneering clean energy entrepreneur driving India\'s renewable energy transition through high-efficiency solar module manufacturing and sustainability governance.',
     vision_statement:
       'Empowering regional manufacturing clusters with clean energy adoption, green financing access, and cross-district industrial sustainability.',
@@ -581,7 +576,6 @@ export const MOCK_WINNERS: Winner[] = [
     role: 'District Executive Director',
     scope: 'Surat District',
     company: 'Aequitas IT Solutions',
-    creative_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80',
     votes_received: 546,
     vote_percentage: 38.5,
     declaration_date: '2026-10-26T18:00:00Z',
@@ -592,7 +586,6 @@ export const MOCK_WINNERS: Winner[] = [
     role: 'Industry Director - Technology & AI',
     scope: 'Gujarat State',
     company: 'CloudMatrix Technologies',
-    creative_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80',
     votes_received: 720,
     vote_percentage: 54.2,
     declaration_date: '2025-09-15T18:00:00Z',
@@ -833,21 +826,9 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
     raw.user?.profile_image ||
     null
 
-  if (!rawPhoto) {
-    const rawId = (raw.id || raw.candidate_id || '').toLowerCase()
-    const rawEmail = (raw.email || profile.email || '').toLowerCase()
-    const rawName = (fullName || '').toLowerCase()
-    if (rawId.includes('60abad4f') || rawId.includes('d25388ab') || rawEmail.includes('devops.aequitas') || rawName.includes('avinash vaghela')) {
-      rawPhoto = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
-    } else if (rawEmail.includes('hardik') || rawName.includes('hardik chauhan')) {
-      rawPhoto = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'
-    } else if (rawEmail.includes('vineet') || rawName.includes('vineet mittal')) {
-      rawPhoto = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80'
-    } else if (rawEmail.includes('rashi') || rawName.includes('rashi khandelwal')) {
-      rawPhoto = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
-    } else if (rawEmail.includes('swati') || rawName.includes('swati kulkarni')) {
-      rawPhoto = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
-    }
+  // Clean any legacy placeholder or dummy stock URLs
+  if (rawPhoto && typeof rawPhoto === 'string' && rawPhoto.includes('unsplash.com')) {
+    rawPhoto = null
   }
 
   let photoUrl: string | null = null
@@ -857,7 +838,11 @@ export function normalizeCandidate(raw: any, campaign?: Campaign): Candidate {
       photoUrl = trimmed
     } else {
       const clean = trimmed.replace(/^\//, '')
-      photoUrl = clean.startsWith('storage/') ? `https://peersunity.com/${clean}` : `https://peersunity.com/storage/${clean}`
+      if (clean.startsWith('api/') || clean.startsWith('storage/')) {
+        photoUrl = `https://peersunity.com/${clean}`
+      } else {
+        photoUrl = `https://peersunity.com/api/v1/files/${clean}`
+      }
     }
   }
 
@@ -1242,8 +1227,6 @@ class LeadershipApiService {
         yearsExperience: 10,
         bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
         socialLinks: 'https://linkedin.com/in/avinash-vaghela',
-        profile_photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
-        photo_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
       },
       {
         id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
