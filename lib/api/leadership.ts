@@ -1154,7 +1154,7 @@ class LeadershipApiService {
       })
       if (res.ok) {
         const json = await res.json()
-        if (json && json.success !== false) {
+        if (json && json.success !== false && json.exists) {
           return json
         }
       }
@@ -1181,6 +1181,18 @@ class LeadershipApiService {
 
     // 3. Fallback catalog matching database 'users' table
     const catalog = [
+      {
+        id: 'd25388ab-4943-427c-bf2e-b8222c8d7fc5',
+        email: 'devops.aequitas@gmail.com',
+        phone: '6353025165',
+        fullName: 'Avinash Vaghela',
+        company: 'Aequitas Information Technology Pvt Ltd',
+        designation: 'Director & CEO',
+        city: 'Surat',
+        yearsExperience: 10,
+        bio: 'Dedicated business leader stewarding strategic ecosystem collaboration, ethical enterprise governance, and peer growth across the District.',
+        socialLinks: 'https://linkedin.com/in/avinash-vaghela',
+      },
       {
         id: 'd253b039-75a5-4f22-b4c8-86f22cb58da5',
         email: 'harshchauhan9724@gmail.com',
@@ -1296,8 +1308,9 @@ class LeadershipApiService {
 
     const found = catalog.find((u) => {
       const matchEmail = cleanEmail && u.email.toLowerCase() === cleanEmail
-      const matchPhone = tenDigits && u.phone.includes(tenDigits)
-      return (cleanEmail && tenDigits && (matchEmail || matchPhone)) || matchEmail || matchPhone
+      const uTenDigits = u.phone.replace(/\D/g, '').slice(-10)
+      const matchPhone = tenDigits && (uTenDigits === tenDigits || uTenDigits.endsWith(tenDigits))
+      return matchEmail || matchPhone
     })
 
     if (found) {

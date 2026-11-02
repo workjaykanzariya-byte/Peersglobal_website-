@@ -295,7 +295,10 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
     setLookupFeedback(null)
 
     const cleanEmail = emailInput.trim()
-    const cleanPhone = phoneInput.trim()
+    const rawPhone = phoneInput.trim()
+    const phoneDigits = rawPhone.replace(/\D/g, '')
+    // Avoid checking +91 or country codes by matching on trailing 10 digits
+    const cleanPhone = phoneDigits.length >= 10 ? phoneDigits.slice(-10) : rawPhone
 
     if (!cleanEmail && !cleanPhone) {
       setError('Please provide your Email Address and/or Mobile Number.')
