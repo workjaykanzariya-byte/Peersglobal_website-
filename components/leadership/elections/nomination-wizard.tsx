@@ -327,7 +327,13 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
           bio: res.profile.bio || '',
           socialLinks: res.profile.socialLinks || '',
           yearsExperience: res.profile.yearsExperience || 5,
-          photoUrl: (res.profile as any).photo_url || (res.profile as any).profile_photo_url || '',
+          photoUrl:
+            (res.profile as any).photo_url ||
+            (res.profile as any).profile_photo_url ||
+            (res.profile as any).photoUrl ||
+            (res.profile as any).photo ||
+            (res.profile as any).avatar ||
+            `https://ui-avatars.com/api/?name=${encodeURIComponent(res.profile.fullName || res.profile.full_name || 'Verified Member')}&background=1D4ED8&color=fff&size=400&bold=true`,
         })
         setLookupFeedback({
           status: 'success',
@@ -889,23 +895,25 @@ export function NominationWizard({ campaign, scopes, formTemplate }: NominationW
                   <div className="flex-1 text-center sm:text-left space-y-1">
                     <div className="font-bold text-xs text-slate-900 flex items-center justify-center sm:justify-start gap-1.5 flex-wrap">
                       <span>Official Candidate Ballot Photo</span>
-                      {!isExistingMember ? (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
-                          Recommended for unverified nominee
+                      {isExistingMember ? (
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          ✓ Loaded from Unity App
                         </span>
                       ) : (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                          Verified member photo
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                          Candidate Photo (Optional)
                         </span>
                       )}
                     </div>
                     <p className="text-[11px] text-slate-500 leading-relaxed">
-                      Upload your portrait headshot (JPG, PNG, WebP) to display on candidate cards and voter election ballots.
+                      {isExistingMember
+                        ? 'Your official candidate photo was automatically loaded from your verified Peers Unity App profile. No upload required.'
+                        : 'Upload your portrait headshot (JPG, PNG, WebP) to display on candidate cards and voter election ballots.'}
                     </p>
                     <div className="pt-1 flex items-center justify-center sm:justify-start gap-2.5">
                       <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-xs font-bold transition-colors shadow-2xs">
                         <Upload className="w-3.5 h-3.5" />
-                        <span>{profile.photoUrl ? 'Change Photo' : 'Upload Candidate Photo'}</span>
+                        <span>{profile.photoUrl ? 'Replace Photo (Optional)' : 'Upload Candidate Photo'}</span>
                         <input
                           type="file"
                           className="hidden"

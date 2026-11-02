@@ -20,6 +20,15 @@ interface CandidateCardProps {
 }
 
 export function CandidateCard({ candidate, canVote = true, onVoteClick }: CandidateCardProps) {
+  const candidatePhoto =
+    candidate.photo_url ||
+    (candidate as any).profile_photo_url ||
+    (candidate as any).photo ||
+    (candidate as any).avatar ||
+    (candidate.full_name
+      ? `https://ui-avatars.com/api/?name=${encodeURIComponent(candidate.full_name)}&background=1D4ED8&color=fff&size=400&bold=true`
+      : null)
+
   const [showPitchModal, setShowPitchModal] = useState(false)
 
   return (
@@ -32,10 +41,15 @@ export function CandidateCard({ candidate, canVote = true, onVoteClick }: Candid
           {/* Header Profile Photo & Quick Stats */}
           <div className="flex items-start gap-4 mb-4 pt-1">
             <div className="relative w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-slate-200 shadow-xs bg-slate-100">
-              {candidate.photo_url ? (
+              {candidatePhoto ? (
                 <img
-                  src={candidate.photo_url}
+                  src={candidatePhoto}
                   alt={candidate.full_name}
+                  onError={(e) => {
+                    if (candidate.full_name) {
+                      ;(e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(candidate.full_name)}&background=1D4ED8&color=fff&size=400&bold=true`
+                    }
+                  }}
                   className="w-full h-full object-cover"
                 />
               ) : (
