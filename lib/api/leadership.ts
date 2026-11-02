@@ -224,6 +224,9 @@ export interface Form2CandidateInfo {
   nomination_id: string
   application_number: string
   candidate_name: string
+  email?: string
+  mobile?: string
+  city?: string
   campaign_id: string
   campaign_name: string
   role_name: string
@@ -740,7 +743,7 @@ export function normalizeCampaign(raw: any): Campaign {
       ? raw.rules_summary
       : [
           '1-Member-1-Vote cryptographic OTP validation',
-          'Juror evaluations account for 50% composite scoring alongside public voting',
+          'Jury evaluations account for 50% composite scoring alongside public voting',
           'Campaigning strictly bound to positive manifesto and zero mudslinging',
         ],
     eligibility_criteria: Array.isArray(raw.eligibility_criteria)

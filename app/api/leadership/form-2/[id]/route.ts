@@ -117,10 +117,13 @@ export async function GET(
           nomination_id: row.id,
           application_number: row.application_number || 'PG-2026-00006',
           candidate_name: candidateName,
+          email: row.email || snapshot.email || '',
+          mobile: row.mobile || snapshot.mobile || '',
+          city: row.city || snapshot.city || '',
           campaign_id: row.campaign_id || '0199c000-ded0-7000-8000-000000000002',
           campaign_name: campaignName,
           role_name: roleName,
-          masked_email: maskEmail(row.email || snapshot.email || 'harshchauhan9724@gmail.com'),
+          masked_email: maskEmail(row.email || snapshot.email || 'user@peersglobal.com'),
           status: row.status || 'shortlisted',
           form_2_status: form2Status,
           is_submitted: isSubmitted,
@@ -133,17 +136,20 @@ export async function GET(
     console.warn('Form 2 local DB lookup error:', err)
   }
 
-  // 3. Fallback mock record for demonstration
+  // 3. Fallback record
   return NextResponse.json({
     success: true,
     data: {
       nomination_id: nominationId,
       application_number: 'PG-2026-00006',
-      candidate_name: 'Kavita Iyer',
+      candidate_name: 'Nominated Candidate',
+      email: '',
+      mobile: '',
+      city: '',
       campaign_id: '0199c000-ded0-7000-8000-000000000002',
       campaign_name: 'National Circle Chair Selection 2026',
       role_name: 'District Executive Director (DED)',
-      masked_email: 'ha***4@gmail.com',
+      masked_email: 'no***@peersglobal.com',
       status: 'shortlisted',
       form_2_status: 'pending_submission',
       is_submitted: false,

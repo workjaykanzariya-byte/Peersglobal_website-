@@ -298,11 +298,10 @@ export function VoteModal({
                   setContact('')
                   setError(null)
                 }}
-                className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all ${
-                  contactType === 'mobile'
+                className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all ${contactType === 'mobile'
                     ? 'bg-white text-[#1D4ED8] shadow-sm'
                     : 'text-slate-500 hover:text-slate-900'
-                }`}
+                  }`}
               >
                 Mobile (SMS/WhatsApp)
               </button>
@@ -313,11 +312,10 @@ export function VoteModal({
                   setContact('')
                   setError(null)
                 }}
-                className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all ${
-                  contactType === 'email'
+                className={`flex-1 py-1.5 text-xs font-bold rounded-full transition-all ${contactType === 'email'
                     ? 'bg-white text-[#1D4ED8] shadow-sm'
                     : 'text-slate-500 hover:text-slate-900'
-                }`}
+                  }`}
               >
                 Email Address
               </button>
@@ -401,7 +399,7 @@ export function VoteModal({
             </div>
 
             <div className="flex items-center justify-between text-xs text-slate-500 mb-6">
-              <span>Demo OTP: <strong className="text-[#1D4ED8]">123456</strong></span>
+              <span>Didn&apos;t receive code?</span>
               {resendSeconds > 0 ? (
                 <span>Resend in {resendSeconds}s</span>
               ) : (
@@ -548,13 +546,6 @@ export function VoteModal({
             </div>
 
             <div className="flex flex-col gap-2.5">
-              <Link
-                href={`/leadership/votes/verify?ref=${encodeURIComponent(voteReceipt.reference)}`}
-                className="w-full py-3 px-4 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                Verify Ballot on Public Ledger
-              </Link>
               <button
                 type="button"
                 onClick={onClose}
@@ -582,7 +573,7 @@ export function VoteModal({
             </p>
 
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500 mb-6">
-              Need to verify your previously cast ballot? You can look up your official reference anytime.
+
             </div>
 
             <div className="flex gap-3">
@@ -593,12 +584,6 @@ export function VoteModal({
               >
                 Close
               </button>
-              <Link
-                href="/leadership/votes/verify"
-                className="flex-1 py-3 px-4 rounded-full bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors hover:opacity-95"
-              >
-                Verify Existing Ballot
-              </Link>
             </div>
           </div>
         )}

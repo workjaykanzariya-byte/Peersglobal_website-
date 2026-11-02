@@ -43,14 +43,6 @@ export function CandidateCard({ candidate, canVote = true, onVoteClick }: Candid
                   {candidate.full_name.charAt(0)}
                 </div>
               )}
-              {candidate.standing_score && (
-                <div
-                  title={`Peer Standing: ${candidate.standing_score}/100`}
-                  className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded-md bg-gradient-to-r from-[#1D4ED8] to-[#E11D48] text-[10px] font-black text-white shadow-xs"
-                >
-                  {candidate.standing_score}
-                </div>
-              )}
             </div>
 
             <div className="flex-1 min-w-0">

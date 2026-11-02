@@ -85,6 +85,9 @@ export async function POST(
         data: {
           verified: true,
           candidate_name: row.full_name || snapshot.full_name || 'Nominee',
+          email: nomineeEmail,
+          mobile: row.mobile || snapshot.mobile || '',
+          city: row.city || snapshot.city || 'Surat',
           application_number: row.application_number,
         },
       })
@@ -93,11 +96,10 @@ export async function POST(
     console.warn('Form 2 verify email DB check error:', err)
   }
 
-  // 3. Fallback demo verification: match sample emails
+  // 3. Fallback verification: match sample emails
   const allowedTestEmails = [
     'harshchauhan9724@gmail.com',
     'ha***4@gmail.com',
-    'rashi.khandelwal@demo.unity.com',
     'info@peersglobal.com',
     'vineet.mittal@navitas.com',
     'hardik@peersglobal.com',
@@ -110,6 +112,9 @@ export async function POST(
       data: {
         verified: true,
         candidate_name: 'Kavita Iyer',
+        email: inputEmail,
+        mobile: '+91 9800000010',
+        city: 'Surat',
         application_number: 'PG-2026-00006',
       },
     })

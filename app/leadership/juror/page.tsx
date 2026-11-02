@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { JurorDashboardClient } from './juror-dashboard-client'
 
 export const metadata: Metadata = {
-  title: 'Juror Evaluation Portal | Peers Global',
+  title: 'Jury Portal Access | Peers Global',
   description: 'Confidential jury evaluation interface for Peers Global leadership selection.',
 }
 

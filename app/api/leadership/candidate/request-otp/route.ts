@@ -15,17 +15,23 @@ export async function POST(req: Request) {
       )
     }
 
-    // 1. Verify that this email belongs to a nominated person
+    // 1. Verify candidate and check scrutiny approval status
     const candidate = await findCandidateByEmail(rawEmail)
-    if (!candidate) {
+    const isApproved =
+      candidate &&
+      ['approved', 'shortlisted'].includes(String(candidate.status || '').toLowerCase())
+
+    if (!candidate || !isApproved) {
       return NextResponse.json(
         {
           success: false,
-          is_nominee: false,
+          is_nominee: !!candidate,
+          is_pending: true,
+          status: candidate?.status || 'submitted',
           message:
-            'This email is not registered as a nominated candidate. Please enter the email address used when filing your nomination form (e.g. vineet.mittal@navitas.com, hardik@peersglobal.com, swati.kulkarni@demo.unity.com).',
+            'Your application is submitted. After approval you will get the access to open the voting section.',
         },
-        { status: 404 }
+        { status: 200 }
       )
     }
 
@@ -47,8 +53,6 @@ export async function POST(req: Request) {
         role_title: candidate.role_title || 'District Executive Director',
         photo_url: candidate.photo_url,
       },
-      // Provide dev_otp for seamless demo & local testing
-      dev_otp: otpCode,
     })
   } catch (error: any) {
     console.error('candidate request-otp error:', error)

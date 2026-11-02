@@ -154,14 +154,6 @@ export function CandidateEndorsementVoteCard({
           >
             ← View All Nominees
           </button>
-          <button
-            type="button"
-            onClick={handleCopyLink}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 shadow-2xs transition-colors cursor-pointer"
-          >
-            {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5 text-slate-500" />}
-            {copiedLink ? 'Link Copied' : 'Share Ballot'}
-          </button>
         </div>
       )}
 
@@ -196,12 +188,12 @@ export function CandidateEndorsementVoteCard({
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1D4ED8] to-[#E11D48] text-white font-extrabold text-2xl sm:text-3xl select-none">
                       {candidate.full_name
                         ? candidate.full_name
-                            .trim()
-                            .split(/\s+/)
-                            .map((n) => n[0])
-                            .slice(0, 2)
-                            .join('')
-                            .toUpperCase()
+                          .trim()
+                          .split(/\s+/)
+                          .map((n) => n[0])
+                          .slice(0, 2)
+                          .join('')
+                          .toUpperCase()
                         : 'PG'}
                     </div>
                   )}
@@ -225,14 +217,38 @@ export function CandidateEndorsementVoteCard({
                   <p className={isBioExpanded ? '' : 'line-clamp-2'}>
                     {shortBio}
                   </p>
-                  {shortBio.length > 90 && (
-                    <button
-                      type="button"
-                      onClick={() => setIsBioExpanded(!isBioExpanded)}
-                      className="text-[11px] font-bold text-[#1D4ED8] hover:text-[#1E40AF] mt-0.5 underline hover:no-underline inline-block cursor-pointer"
-                    >
-                      {isBioExpanded ? 'Read less' : 'Read more'}
-                    </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsBioExpanded(!isBioExpanded)}
+                    className="text-[11px] font-bold text-[#1D4ED8] hover:text-[#1E40AF] mt-1 inline-flex items-center gap-1 cursor-pointer hover:underline"
+                  >
+                    <span>{isBioExpanded ? 'Read less' : 'Read more'}</span>
+                    <span className="text-[10px]">{isBioExpanded ? '▲' : '▼'}</span>
+                  </button>
+
+                  {/* Expanded Vision & Executive Priorities */}
+                  {isBioExpanded && (
+                    <div className="mt-3 p-3.5 rounded-2xl bg-blue-50/70 border border-blue-200/80 text-slate-700 space-y-2.5 animate-in fade-in zoom-in-95 duration-200 text-left">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1D4ED8] block">
+                          Executive Vision Statement:
+                        </span>
+                        <p className="italic text-xs font-medium text-slate-800 mt-1 leading-relaxed">
+                          &ldquo;{candidate.vision_statement || 'To build an interconnected, high-trust leadership ecosystem that scales regional enterprises and unlocks multi-generational collaboration across the territory.'}&rdquo;
+                        </p>
+                      </div>
+
+                      <div className="pt-2 border-t border-blue-200/60 grid grid-cols-2 gap-2 text-[11px]">
+                        <div>
+                          <span className="text-slate-500 block">Stewardship Pledge:</span>
+                          <span className="font-semibold text-slate-900">10–15 hrs / month pledged</span>
+                        </div>
+                        <div>
+                          <span className="text-slate-500 block">Governance Standing:</span>
+                          <span className="font-semibold text-emerald-700">Code of Conduct Endorsed</span>
+                        </div>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
